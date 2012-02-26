@@ -28,7 +28,7 @@ while getopts f:hv OPT
 do
     case ${OPT} in
 	v)  echo "ponysay v0.2" ; exit;;
-	h)  echo "-v for version, -h for this, -f to specify a cowfile. It'll choose a random ponyfile if no argument is given." ; exit;;
+	h)  echo "-v for version, -h for this, -f to specify a ponyfile. It'll choose a random ponyfile if no argument is given." ; exit;;
 	f)  ponyf $* ; exit;;
 	\?) echo "DERP"; exit;;
 	*)  ponyr $* ; exit;;
