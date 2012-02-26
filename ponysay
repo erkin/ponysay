@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 export PERL_UNICODE=S
 ponydir=$PWD/ponies
 
@@ -6,7 +6,7 @@ function ponyf() {
     if [[ -f ${ponydir}/${1}.cow ]] ; then
         cowsay -f "${ponydir}/${1}.cow" $@
     else
-        ponyr
+       ponyr
     fi
 }
 function ponyr() {
