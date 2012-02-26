@@ -1,23 +1,36 @@
 #!/usr/bin/env bash
 
-# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
-export PERL_UNICODE=S
-
+version=0.4
 SYSTEMPONIES=/usr/share/ponies
 HOMEPONIES="${HOME}/.ponies"
+pony=
 
 cmd=cowsay
 [[ ${0} == *ponythink ]] && cmd=cowthink
 
-pony=
+version() {
+    echo "ponysay v$version"
+}
+
+usage() {
+    version
+    echo
+    echo "Usage:"
+    echo "${0##*/} [options]"
+    echo
+    echo "Options:"
+    echo "  -v          Show version and exit"
+    echo "  -h          Show this help and exit"
+    echo "  -f[name]    Select a pony (Either a filename or a pony name)"
+}
 
 while getopts f:hv OPT
 do
     case ${OPT} in
-        v)  echo "ponysay v0.4" ; exit;;
-        h)  echo "-v for version, -h for this, -f to specify a ponyfile. It'll choose a random ponyfile if no argument is given." ; exit;;
+        v)  version; exit ;;
+        h)  usage; exit ;;
         f)  pony=$OPTARG ;;
-        \?) echo "DERP"; exit;;
+        \?) usage; exit 1 ;;
     esac
 done
 
@@ -40,5 +53,8 @@ if [[ ! -f $pony ]]; then
     # Choose a random pony
     pony="${ponies[$RANDOM%${#ponies[@]}]}"
 fi
+
+# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
+export PERL_UNICODE=S
 
 exec "$cmd" -f "$pony"
