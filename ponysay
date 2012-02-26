@@ -8,27 +8,27 @@ cmd=cowsay
 [[ ${0} == *ponythink ]] && cmd=cowthink
 
 function ponyf() {
-    if [[ -f ${HOMEDIR}/${1}.cow ]]; then
-        ${cmd} -f "${HOMEDIR}/${1}.cow" $@
-    elif [[ -f ${PONYDIR}/${1}.cow ]]; then
-        ${cmd} -f "${PONYDIR}/${1}.cow" $@
+    if [[ -f ${HOMEDIR}/${1}.pony ]]; then
+        ${cmd} -f "${HOMEDIR}/${1}.pony" $@
+    elif [[ -f ${PONYDIR}/${1}.pony ]]; then
+        ${cmd} -f "${PONYDIR}/${1}.pony" $@
     else
         ponyr $@
     fi
 }
 function ponyr() {
-    if [[ -d ${HOMEDIR} ]] && [[ -n $(find ${HOMEDIR} -name \*.cow) ]]; then
-        ${cmd} -f $(ls ${HOMEDIR}/*.cow | sort -R | head -n1) $@
-    elif [[ -d ${PONYDIR} ]] && [[ -n $(find ${PONYDIR} -name \*.cow) ]]; then
-        ${cmd} -f $(ls ${PONYDIR}/*.cow | sort -R | head -n1) $@
+    if [[ -d ${HOMEDIR} ]] && [[ -n $(find ${HOMEDIR} -name \*.pony) ]]; then
+        ${cmd} -f $(ls ${HOMEDIR}/*.pony | sort -R | head -n1) $@
+    elif [[ -d ${PONYDIR} ]] && [[ -n $(find ${PONYDIR} -name \*.pony) ]]; then
+        ${cmd} -f $(ls ${PONYDIR}/*.pony | sort -R | head -n1) $@
     fi
 }
 
 while getopts f:hv OPT
 do
     case ${OPT} in
-	v)  echo "v0.1" ; exit;;
-	h)  echo "helpherpderp" ; exit;;
+	v)  echo "ponysay v0.2" ; exit;;
+	h)  echo "-v for version, -h for this, -f to specify a cowfile. It'll choose a random cowfile if no argument is given." ; exit;;
 	f)  ponyf $* ; exit;;
 	\?) echo "DERP"; exit;;
 	*)  ponyr $* ; exit;;
