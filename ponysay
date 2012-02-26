@@ -30,7 +30,7 @@ do
         v)  version; exit ;;
         h)  usage; exit ;;
         f)  pony=$OPTARG ;;
-        \?) usage; exit 1 ;;
+        \?) usage >&2; exit 1 ;;
     esac
 done
 
