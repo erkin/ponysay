@@ -1,37 +1,44 @@
 #!/usr/bin/env bash
+
+# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
 export PERL_UNICODE=S
 
-[[ -z ${PONYDIR} ]] && PONYDIR=/usr/share/ponies
-HOMEDIR=${HOME}/.ponies
+SYSTEMPONIES=/usr/share/ponies
+HOMEPONIES="${HOME}/.ponies"
 
 cmd=cowsay
 [[ ${0} == *ponythink ]] && cmd=cowthink
 
-function ponyf() {
-    if [[ -f ${HOMEDIR}/${1}.pony ]]; then
-        ${cmd} -f "${HOMEDIR}/${1}.pony" $@
-    elif [[ -f ${PONYDIR}/${1}.pony ]]; then
-        ${cmd} -f "${PONYDIR}/${1}.pony" $@
-    else
-        ponyr $@
-    fi
-}
-function ponyr() {
-    if [[ -d ${HOMEDIR} ]] && [[ -n $(find ${HOMEDIR} -name \*.pony) ]]; then
-        ${cmd} -f $(ls ${HOMEDIR}/*.pony | sort -R | head -n1) $@
-    elif [[ -d ${PONYDIR} ]] && [[ -n $(find ${PONYDIR} -name \*.pony) ]]; then
-        ${cmd} -f $(ls ${PONYDIR}/*.pony | sort -R | head -n1) $@
-    fi
-}
+pony=
 
 while getopts f:hv OPT
 do
     case ${OPT} in
-	v)  echo "ponysay v0.2" ; exit;;
-	h)  echo "-v for version, -h for this, -f to specify a ponyfile. It'll choose a random ponyfile if no argument is given." ; exit;;
-	f)  ponyf $* ; exit;;
-	\?) echo "DERP"; exit;;
-	*)  ponyr $* ; exit;;
+        v)  echo "ponysay v0.4" ; exit;;
+        h)  echo "-v for version, -h for this, -f to specify a ponyfile. It'll choose a random ponyfile if no argument is given." ; exit;;
+        f)  pony=$OPTARG ;;
+        \?) echo "DERP"; exit;;
     esac
 done
-ponyr $*
+
+# Pony not a file? Search for it
+if [[ ! -f $pony ]]; then
+
+    # Pony not set? Choose all
+    [[ -z $pony ]] && pony="*"
+
+    ponies=()
+
+    [[ -d $SYSTEMPONIES ]] && ponies+=( "$SYSTEMPONIES"/$pony.pony )
+    [[ -d $HOMEPONIES ]] && ponies+=( "$HOMEPONIES"/$pony.pony )
+
+    if (( ${#ponies} < 1 )); then
+      echo >&2 "All the ponies are missing! Call the Princess!"
+      exit 1
+    fi
+
+    # Choose a random pony
+    pony="${ponies[$RANDOM%${#ponies[@]}]}"
+fi
+
+exec "$cmd" -f "$pony"
