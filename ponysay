@@ -1,0 +1,24 @@
+#!/bin/bash
+export PERL_UNICODE=S
+ponydir=$PWD/ponies
+
+function ponyf() {
+    if [[ -f ${ponydir}/${1}.cow ]] ; then
+        cowsay -f "${ponydir}/${1}.cow" $@
+    else
+        ponyr
+    fi
+}
+function ponyr() {
+    cowsay -f $(ls ${ponydir}/*.cow | sort -R | head -n1) $@
+}
+
+while getopts f:hv OPT
+do
+    case ${OPT} in
+	v)  echo "v0.01" ; exit;;
+	h)  echo "helpherpderp" ; exit;;
+	f)  ponyf ${2}; exit;;
+	\?) show_error "DERP"; exit;;
+    esac
+done
