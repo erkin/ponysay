@@ -1,23 +1,33 @@
 #!/usr/bin/env bash
 export PERL_UNICODE=S
 
-ponydir=$PWD/ponies
+[[ -z ${PONYDIR} ]] && PONYDIR=/usr/share/ponies
+HOMEDIR=${HOME}/.ponies
+
+cmd=cowsay
+[[ ${0} == *ponythink ]] && cmd=cowthink
 
 function ponyf() {
-    if [[ -f ${ponydir}/${1}.cow ]] ; then
-        cowsay -f "${ponydir}/${1}.cow" $@
+    if [[ -f ${HOMEDIR}/${1}.cow ]]; then
+        ${cmd} -f "${HOMEDIR}/${1}.cow" $@
+    elif [[ -f ${PONYDIR}/${1}.cow ]]; then
+        ${cmd} -f "${PONYDIR}/${1}.cow" $@
     else
         ponyr $@
     fi
 }
 function ponyr() {
-    cowsay -f $(ls ${ponydir}/*.cow | sort -R | head -n1) $@
+    if [[ -d ${HOMEDIR} ]] && [[ -n $(find ${HOMEDIR} -name \*.cow) ]]; then
+        ${cmd} -f $(ls ${HOMEDIR}/*.cow | sort -R | head -n1) $@
+    elif [[ -d ${PONYDIR} ]] && [[ -n $(find ${PONYDIR} -name \*.cow) ]]; then
+        ${cmd} -f $(ls ${PONYDIR}/*.cow | sort -R | head -n1) $@
+    fi
 }
 
 while getopts f:hv OPT
 do
     case ${OPT} in
-	v)  echo "v0.01" ; exit;;
+	v)  echo "v0.1" ; exit;;
 	h)  echo "helpherpderp" ; exit;;
 	f)  ponyf $* ; exit;;
 	\?) echo "DERP"; exit;;
