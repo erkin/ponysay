@@ -29,6 +29,9 @@ usage() {
 }
 
 say() {
+    # Ponies use UTF-8 drawing characters. Prevent a Perl warning.
+    export PERL_UNICODE=S
+
     exec "$cmd" -f "$pony" "${wrap:+-W$wrap}"
 }
 
@@ -59,10 +62,6 @@ if [[ ! -f $pony ]]; then
     # Choose a random pony
     pony="${ponies[$RANDOM%${#ponies[@]}]}"
 fi
-
-
-# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
-export PERL_UNICODE=S
 
 if [[ -n "$*" ]]; then
   # Handle a message given via arguments
