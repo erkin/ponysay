@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+PERL_UNICODE=S
+ponydir=/usr/share/ponies
+lponydir=/usr/local/share/ponies
+function ponyf() {
+    if [[ -f ${ponydir}/${1}.cow ]] ; then
+	cowsay -f "${ponydir}/${1}.cow" $@
+    elif [[ -f ${lponydir}/${1}.cow ]] ; then
+	cowsay -f "${lponydir}/${1}.cow" $@
+    else
+	ponyr
+    fi
+}
+function ponyr() {
+    cowsay -f $(ls /usr/share/ponies/*.cow | sort -R | head -n1) $@
+}
+
+while getopts f:h:v: OPT
+do
+    case ${OPT} in
+	v)  echo "v0.01" ;;
+	h)  echo "helpherpderp" ;;
+	f)  ponyf $* ;;
+	*)  ponyr $* ;;
+    esac
+done
