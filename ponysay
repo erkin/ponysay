@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 export PERL_UNICODE=S
-
-ponydir=$PWD/ponies
+ponydir=/usr/share/ponies
 
 function ponyf() {
     if [[ -f ${ponydir}/${1}.cow ]] ; then
