@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 export PERL_UNICODE=S
+
 ponydir=$PWD/ponies
 
 function ponyf() {
@@ -18,7 +19,8 @@ do
     case ${OPT} in
 	v)  echo "v0.01" ; exit;;
 	h)  echo "helpherpderp" ; exit;;
-	f)  ponyf ${2}; exit;;
-	\?) show_error "DERP"; exit;;
+	f)  ponyf $* ; exit;;
+	*)  ponyr $* ; exit;;
     esac
 done
+ponyr $*
