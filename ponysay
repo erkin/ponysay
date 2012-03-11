@@ -6,15 +6,16 @@ HOMEPONIES="${HOME}/.ponies"
 pony="*"
 wrap=
 
-if [[ -f `which cowsay` ]]; 
-then continue;
+if [[ -f `which cowsay` ]];
+then
+    true
 else
     echo "You don't seem to have the cowsay program."
     echo "Please install it in order to use this wrapper."
     echo -n "(Or symlink it to 'cowsay' in anywhere in \$path "
     echo "if it actually exists under a different filename."
+    exit;
 fi
-
 cmd=cowsay
 [[ ${0} == *ponythink ]] && cmd=cowthink
 
