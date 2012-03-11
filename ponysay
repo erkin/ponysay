@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 
-version=0.4
+version=0.5
 SYSTEMPONIES=/usr/share/ponies
 HOMEPONIES="${HOME}/.ponies"
 pony="*"
 wrap=
+
+if [[ -f `which cowsay` ]]; 
+then continue;
+else
+    echo "You don't seem to have the cowsay program."
+    echo "Please install it in order to use this wrapper."
+    echo -n "(Or symlink it to 'cowsay' in anywhere in \$path "
+    echo "if it actually exists under a different filename."
+fi
 
 cmd=cowsay
 [[ ${0} == *ponythink ]] && cmd=cowthink
@@ -15,8 +24,7 @@ version() {
 
 usage() {
     version
-    echo
-    echo "Usage:"
+    echo -e  "\nUsage:"
     echo "${0##*/} [options] [message]"
     echo
     echo "If [message] is not provided, reads the message from STDIN"
