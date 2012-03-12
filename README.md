@@ -1,6 +1,6 @@
 ponysay - A cowsay wrapper with ponies.
 
-These are desktop ponies converted using [ducttape](https://github.com/ducttape/ducttape-editor/wiki)
+These are desktop ponies converted using [img2xterm](https://github.com/rossy2401/img2xterm)
 
 ![Derp](http://i.imgur.com/xOJbE.png)
 
