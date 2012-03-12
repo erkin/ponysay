@@ -6,16 +6,6 @@ HOMEPONIES="${HOME}/.ponies"
 pony="*"
 wrap=
 
-if [[ -f `which cowsay` ]];
-then
-    true
-else
-    echo "You don't seem to have the cowsay program."
-    echo "Please install it in order to use this wrapper."
-    echo -n "(Or symlink it to 'cowsay' in anywhere in \$path "
-    echo "if it actually exists under a different filename."
-    exit;
-fi
 cmd=cowsay
 [[ ${0} == *ponythink ]] && cmd=cowthink
 
@@ -25,16 +15,19 @@ version() {
 
 usage() {
     version
-    echo -e  "\nUsage:"
-    echo "${0##*/} [options] [message]"
-    echo
-    echo "If [message] is not provided, reads the message from STDIN"
-    echo
-    echo "Options:"
-    echo "  -v          Show version and exit"
-    echo "  -h          Show this help and exit"
-    echo "  -f[name]    Select a pony (Either a filename or a pony name)"
-    echo "  -W[column]  The screen column where the message should be wrapped"
+    cat <<EOF
+
+Usage:
+${0##*/} [options] [message]
+
+If [message] is not provided, reads the message from STDIN
+
+Options:
+  -v          Show version and exit
+  -h          Show this help and exit
+  -f[name]    Select a pony (Either a filename or a pony name)
+  -W[column]  The screen column where the message should be wrapped
+EOF
 }
 
 say() {
@@ -55,6 +48,17 @@ do
     esac
 done
 shift $((OPTIND - 1))
+
+if ! hash $cmd &>/dev/null; then
+    cat >&2 <<EOF
+You don't seem to have the $cmd program.
+Please install it in order to use this wrapper.
+
+Alternatively, symlink it to '$cmd' in anywhere in \$PATH
+if it actually exists under a different filename.
+EOF
+    exit 1
+fi
 
 if [[ ! -f $pony ]]; then
     # Pony not a file? Search for it
