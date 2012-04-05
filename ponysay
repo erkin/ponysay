@@ -13,6 +13,15 @@ version() {
     echo "ponysay v$version"
 }
 
+list() {
+    echo "ponyfiles located in $SYSTEMPONIES:"
+    ls -1 $SYSTEMPONIES | sed "s/.pony//"
+    if [[ -d $HOMEPONIES ]]; then
+	echo "ponyfiles located in $HOMEPONIES:"
+	ls -1 $HOMEPONIES | sed "s/.pony//"
+    fi
+}
+
 usage() {
     version
     cat <<EOF
@@ -25,6 +34,7 @@ If [message] is not provided, reads the message from STDIN
 Options:
   -v          Show version and exit
   -h          Show this help and exit
+  -l          List ponyfiles.
   -f[name]    Select a pony (Either a filename or a pony name)
   -W[column]  The screen column where the message should be wrapped
 EOF
@@ -37,12 +47,13 @@ say() {
     exec "$cmd" -f "$pony" "${wrap:+-W$wrap}"
 }
 
-while getopts f:W:hv OPT
+while getopts f:W:lhv OPT
 do
     case ${OPT} in
         v)  version; exit ;;
         h)  usage; exit ;;
         f)  pony="$OPTARG" ;;
+	l)  list; exit ;;
         W)  wrap="$OPTARG" ;;
         \?) usage >&2; exit 1 ;;
     esac
