@@ -9,6 +9,10 @@ The pony files are [desktop/browser ponies](http://web.student.tuwien.ac.at/~e04
 Install Linux
 -------------
 
+If you do not already have cowsay you will need to install it
+
+    apt-get install cowsay
+
 [Download](https://github.com/erkin/ponysay/zipball/master) this project. In the terminal navagate to the ponysay folder and run
   
     sudo make
@@ -25,6 +29,6 @@ This requires that you have the `fortune` command installed
   
 Edit your `~/.bashrc` and add this to the end of the file
 
-    fotune | ponysay
+    fortune | ponysay
 
 Now every time you open a terminal a pony should give your fortune
