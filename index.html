@@ -44,25 +44,55 @@
       <span class="banner-fix"></span>
 
       <section id="main_content">
-        <h3>ponysay</h3>
+        <h2>ponysay</h3>
 
-<p><strong>ponysay</strong> is a cowsay wrapper that is written solely for ponies.</p>
+	<p><strong>ponysay</strong> - A <a href="http://www.nog.net/~tony/warez/cowsay.shtml">cowsay</a> wrapper with ponies.</p>
 
-<p>It depends on <a href="http://www.nog.net/~tony/warez/cowsay.shtml">cowsay</a> for obvious reasons.</p>
+	<p>The pony files are <a href="http://web.student.tuwien.ac.at/%7Ee0427417/browser-ponies/ponies.html">desktop/browser ponies</a> converted using <a href="https://github.com/rossy2401/img2xterm">img2xterm</a>.</p>
 
-<h3>FAQ</h3>
+	<p><a href="https://a248.e.akamai.net/camo.github.com/8531a3cbe60a0c754c76da199f627b3424a1feb2/687474703a2f2f692e696d6775722e636f6d2f784f4a62452e706e67" target="_blank"><img src="https://a248.e.akamai.net/camo.github.com/8531a3cbe60a0c754c76da199f627b3424a1feb2/687474703a2f2f692e696d6775722e636f6d2f784f4a62452e706e67" alt="Derp" style="max-width:100%;"></a></p>
 
-<p><strong>Q:</strong> The output looks like a mess in <em>(TTY/PuTTY/other)</em>!</p>
+	<p><a href="/derp" title="Today your terminal, tomorrow the world!"></a></p>
 
-<p><strong>A:</strong> Unfortunately, there's nothing much we can do about it. See <a href="https://github.com/erkin/ponysay/issues/1"> issue 1</a>.
+	<h2><a name="installation-on-linux" class="anchor" href="#installation-on-linux"></a>Installation on Linux</h2>
 
-<p><strong>Q:</strong> You are missing <em>(my-favourite-pony)</em>!</p>
+	<p>If you do not already have cowsay you will need to install it</p>
 
-<p><strong>A:</strong> Ask and we'll add!</p>
+	<pre><code>apt-get install cowsay</code></pre>
 
-<p><strong>Q:</strong> Which programs do you use to generate the pony files?</p>
+	<p><a href="https://github.com/erkin/ponysay/zipball/master">Download</a> this project. In the terminal navagate to the ponysay folder and run</p>
 
-<p><strong>A:</strong> The pony files are actually <a href="http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html">browser ponies</a> that are generated into cow files via <a href="https://github.com/rossy2401/img2xterm">img2xterm</a>.</p>
+	<pre><code>sudo make</code></pre>
+
+	<p>This will install ponysay into the <code>/usr</code> directory to use ponysay run</p>
+
+	<pre><code>ponysay "I am just the cutest pony"</code></pre>
+
+	<h3><a name="pony-fortune-on-terminal-startup" class="anchor" href="#pony-fortune-on-terminal-startup"></a>Pony fortune on terminal startup</h3>
+
+	<p>This requires that you have the <code>fortune</code> command installed</p>
+
+	<pre><code>apt-get install fortune</code></pre>
+
+	<p>Edit your <code>~/.bashrc</code> and add this to the end of the file</p>
+
+	<pre><code>fortune | ponysay</code></pre>
+
+	<p>Now every time you open a terminal a pony should give your fortune</p>
+
+	<h2>FAQ</h3>
+
+	<p><strong>Q:</strong> The output looks like a mess in <em>(TTY/PuTTY/other)</em>!</p>
+
+	<p><strong>A:</strong> Unfortunately, there's nothing much we can do about it. See <a href="https://github.com/erkin/ponysay/issues/1"> issue 1</a>.
+
+	<p><strong>Q:</strong> You are missing <em>(my-favourite-pony)</em>!</p>
+
+	<p><strong>A:</strong> Ask and we'll add!</p>
+
+	<p><strong>Q:</strong> Which programs do you use to generate the pony files?</p>
+
+	<p><strong>A:</strong> The pony files are actually <a href="http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html">browser ponies</a> that are generated into cow files via <a href="https://github.com/rossy2401/img2xterm">img2xterm</a>.</p>
       </section>
 
       <footer>
