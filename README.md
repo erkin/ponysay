@@ -6,8 +6,8 @@ The pony files are [desktop/browser ponies](http://web.student.tuwien.ac.at/~e04
 
 [](/derp "Today your terminal, tomorrow the world!")
 
-Install Linux
--------------
+Installation on Linux
+---------------------
 
 If you do not already have cowsay you will need to install it
 
