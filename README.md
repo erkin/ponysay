@@ -1,4 +1,4 @@
-ponysay - A cowsay wrapper with ponies.
+`ponysay` - A cowsay wrapper with ponies.
 
 The pony files are [desktop/browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html) converted using [img2xterm](https://github.com/rossy2401/img2xterm).
 
@@ -40,9 +40,10 @@ Now every time you open a terminal a pony should give your fortune
 
 Installation on Microsoft™ Windows®
 -----------------------------------
-[¯\\_(ツ)_/¯](http://i.imgur.com/2nP5N.png)
+[¯\\\_(ツ)\_/¯](http://i.imgur.com/2nP5N.png)
 
-### FAQ
+FAQ
+---
 
 __Q:__ The output looks like a mess in _(TTY/PuTTY/other)_!
 
