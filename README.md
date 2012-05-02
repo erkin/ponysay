@@ -5,8 +5,8 @@ The pony files are [desktop/browser ponies](http://web.student.tuwien.ac.at/~e04
 ![Derp](http://i.imgur.com/xOJbE.png)
 Today your terminal, tomorrow the world!
 
-Installation on Linux
----------------------
+Installation on Linux (or other Unix)
+-------------------------------------
 
 If you do not already have `cowsay` you will need to install it
 
@@ -37,6 +37,10 @@ Edit your `~/.bashrc` and add this to the end of the file
     fortune | ponysay
 
 Now every time you open a terminal a pony should give your fortune
+
+Installation on Microsoft™ Windows®
+-----------------------------------
+[¯\\_(ツ)_/¯](http://i.imgur.com/2nP5N.png)
 
 ### FAQ
 
