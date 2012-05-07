@@ -6,6 +6,11 @@ HOMEPONIES="${HOME}/.ponies"
 pony="*"
 wrap=
 
+if [ "$TERM" = "linux" ]; then
+    SYSTEMPONIES=/usr/share/ttyponies
+    HOMEPONIES="${HOME}/.ttyponies"
+fi
+
 cmd=cowsay
 [[ ${0} == *ponythink ]] && cmd=cowthink
 
@@ -43,7 +48,11 @@ EOF
 say() {
     # Ponies use UTF-8 drawing characters. Prevent a Perl warning.
     export PERL_UNICODE=S
-
+    
+    if [ "$TERM" = "linux" ]; then
+	echo -ne '\ec'
+    fi
+    
     exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | (ponysaytruncater `tput cols || echo 0` 2>/dev/null || ./ponysaytruncater `tput cols || echo 0` 2>/dev/null || cat)
 }
 
