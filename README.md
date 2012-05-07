@@ -38,6 +38,18 @@ Edit your `~/.bashrc` and add this to the end of the file
 
 Now every time you open a terminal a pony should give your fortune
 
+### Ponies in TTY (Linux VT)
+
+If you have a custom colour palette edit your `~/.bashrc` and add
+
+    if [ "$TERM" = "linux" ]; then
+        function ponysay
+        {
+            exec ponysay $@
+	    #RESET PALETTE HERE
+        }
+    fi
+
 Installation on Microsoft™ Windows®
 -----------------------------------
 [¯\\\_(ツ)\_/¯](http://i.imgur.com/2nP5N.png)
