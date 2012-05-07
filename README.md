@@ -46,7 +46,7 @@ If you have a custom colour palette edit your `~/.bashrc` and add
         function ponysay
         {
             exec ponysay $@
-	    #RESET PALETTE HERE
+            #RESET PALETTE HERE
         }
     fi
 
