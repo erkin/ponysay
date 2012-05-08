@@ -45,6 +45,12 @@ Options:
 EOF
 }
 
+# if no stdin and no argumrnts then print usage and exit
+if [[ -t 0 && $# == 0 ]]; then
+  usage
+  exit
+fi
+
 say() {
     # Ponies use UTF-8 drawing characters. Prevent a Perl warning.
     export PERL_UNICODE=S
