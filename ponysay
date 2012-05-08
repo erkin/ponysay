@@ -50,10 +50,13 @@ say() {
     export PERL_UNICODE=S
     
     if [ "$TERM" = "linux" ]; then
-	echo -ne '\ec'
+    	echo -ne '\ec'
     fi
     
-    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | (exec ponysaytruncater `tput cols || echo 0` 2>/dev/null || ./ponysaytruncater `tput cols || echo 0` 2>/dev/null || cat)
+    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | (ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
+	                                         ${HOME}/.local/bin/ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
+						 ./ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
+						 cat)
 }
 
 while getopts f:W:lhv OPT
