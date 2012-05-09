@@ -23,7 +23,7 @@
   <body>
     <a id="forkme_banner" href="https://github.com/erkin/ponysay">Fork Me on GitHub</a>
     <div class="shell">
-
+      
       <header>
         <span class="ribbon-outer">
           <span class="ribbon-inner">
@@ -34,57 +34,85 @@
           <span class="right-tail"></span>
         </span>
       </header>
-
+      
       <section id="downloads">
         <span class="inner">
           <a href="https://github.com/erkin/ponysay/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/erkin/ponysay/tarball/master" class="tgz"><em>download</em> .TGZ</a>
         </span>
       </section>
-
+      
       <span class="banner-fix"></span>
-
+      
       <section id="main_content">
-        <h2>ponysay</h3>
-
+        <h2>ponysay</h2>
+	
 	<p><strong>ponysay</strong> - A <a href="http://www.nog.net/~tony/warez/cowsay.shtml">cowsay</a> wrapper with ponies.</p>
-
+	
 	<p>The pony files are <a href="http://web.student.tuwien.ac.at/%7Ee0427417/browser-ponies/ponies.html">desktop/browser ponies</a> converted using <a href="https://github.com/rossy2401/img2xterm">img2xterm</a>.</p>
 
-	<p><a href="https://a248.e.akamai.net/camo.github.com/8531a3cbe60a0c754c76da199f627b3424a1feb2/687474703a2f2f692e696d6775722e636f6d2f784f4a62452e706e67" target="_blank"><img src="https://a248.e.akamai.net/camo.github.com/8531a3cbe60a0c754c76da199f627b3424a1feb2/687474703a2f2f692e696d6775722e636f6d2f784f4a62452e706e67" alt="Derp" style="max-width:100%;"></a></p>
+	<p><img src="http://i.imgur.com/xOJbE.png" alt="Derp">
+	  Today your terminal, tomorrow the world!</p>
 
-	<p><a href="/derp" title="Today your terminal, tomorrow the world!"></a></p>
+	<h2>Installation on Linux (or other Unix)</h2>
 
-	<h2><a name="installation-on-linux" class="anchor" href="#installation-on-linux"></a>Installation on Linux</h2>
+	<p>If you do not already have <code>cowsay</code> you will need to install it</p>
 
-	<p>If you do not already have cowsay you will need to install it</p>
+	<pre><code>apt-get install cowsay # assuming dpkg
+	</code></pre>
 
-	<pre><code>apt-get install cowsay</code></pre>
+	<p><a href="https://github.com/erkin/ponysay/downloads">Download</a> the latest project. In the terminal, <code>cd</code> into the ponysay directory and run</p>
 
-	<p><a href="https://github.com/erkin/ponysay/zipball/master">Download</a> this project. In the terminal navagate to the ponysay folder and run</p>
-
-	<pre><code>sudo make</code></pre>
-
-	<p>This will install ponysay into the <code>/usr</code> directory to use ponysay run</p>
-
-	<pre><code>ponysay "I am just the cutest pony"</code></pre>
-
-	<h3><a name="pony-fortune-on-terminal-startup" class="anchor" href="#pony-fortune-on-terminal-startup"></a>Pony fortune on terminal startup</h3>
-
-	<p>This requires that you have the <code>fortune</code> command installed</p>
-
-	<pre><code>apt-get install fortune</code></pre>
-
+	<pre><code>sudo make
+	</code></pre>
+	
+	<p>This will install ponysay into the $PREFIX (<code>/usr</code> by default). In order to use ponysay, run</p>
+	
+	<pre><code>ponysay "I am just the cutest pony"
+	</code></pre>
+	
+	<p>Or if you have a specific pony in your mind:</p>
+	
+	<pre><code>ponysay -f pinkie "Partay!~"
+	</code></pre>
+	
+	<h3>Pony fortune on terminal startup</h3>
+	
+	<p>This requires that you have the <code>fortune</code> utility installed</p>
+	
+	<pre><code>apt-get install fortune
+	</code></pre>
+	
+	<p>You can try <a href="http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/">this</a> script to ponify fortunes.</p>
+	
 	<p>Edit your <code>~/.bashrc</code> and add this to the end of the file</p>
-
-	<pre><code>fortune | ponysay</code></pre>
-
+	
+	<pre><code>fortune | ponysay
+	</code></pre>
+	
 	<p>Now every time you open a terminal a pony should give your fortune</p>
+	
+	<h3>Ponies in TTY (Linux VT)</h3>
+	
+	<p>If you have a custom colour palette edit your <code>~/.bashrc</code> and add</p>
+	
+	<pre><code>if [ "$TERM" = "linux" ]; then
+	    function ponysay
+	    {
+	        exec ponysay $@
+	        #RESET PALETTE HERE
+	    }
+	fi
+	</code></pre>
+	
+	<h2>Installation on Microsoft™ Windows®</h2>
 
-	<h2>FAQ</h3>
+	<p><a href="http://i.imgur.com/2nP5N.png">¯\_(ツ)_/¯</a></p>
+
+	<h2>FAQ</h2>
 
 	<p><strong>Q:</strong> The output looks like a mess in <em>(TTY/PuTTY/other)</em>!</p>
 
-	<p><strong>A:</strong> Unfortunately, there's nothing much we can do about it. See <a href="https://github.com/erkin/ponysay/issues/1"> issue 1</a>.
+	<p><strong>A:</strong> Unfortunately, there's nothing much we can do about it. See <a href="https://github.com/erkin/ponysay/issues/1">issue 1</a>.</p>
 
 	<p><strong>Q:</strong> You are missing <em>(my-favourite-pony)</em>!</p>
 
@@ -92,7 +120,8 @@
 
 	<p><strong>Q:</strong> Which programs do you use to generate the pony files?</p>
 
-	<p><strong>A:</strong> The pony files are actually <a href="http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html">browser ponies</a> that are generated into cow files via <a href="https://github.com/rossy2401/img2xterm">img2xterm</a>.</p>
+	<p><strong>A:</strong> The pony files are actually a bunch of selected <a href="http://web.student.tuwien.ac.at/%7Ee0427417/browser-ponies/ponies.html">browser ponies</a> that are generated into cow files via <a href="https://github.com/rossy2401/img2xterm">img2xterm</a>.</p>
+	
       </section>
 
       <footer>
