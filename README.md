@@ -65,4 +65,4 @@ __A:__ Ask and we'll add!
 
 __Q:__ Which programs do you use to generate the pony files?
 
-__A:__ The pony files are actually a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html) that are generated into cow files via [img2xterm](https://github.com/rossy2401/img2xterm).
+__A:__ The pony files are actually a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html) that are generated into cow files via [img2xterm](https://github.com/rossy2401/img2xterm) or [util-say](https://github.com/maandree/util-say).
