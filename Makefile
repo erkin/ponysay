@@ -7,6 +7,8 @@ install:
 	install "ponysay" "$(DESTDIR)/usr/bin/ponysay"
 	install -s "ponysaytruncater" "$(DESTDIR)/usr/bin/ponysaytruncater"
 	ln -sf "ponysay" "$(DESTDIR)/usr/bin/ponythink"
+	install "zsh-completion.zsh" "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay"
+	install "COPYING" "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 
 uninstall:
 	rm -fr "$(DESTDIR)/usr/share/ponies"
@@ -14,3 +16,5 @@ uninstall:
 	unlink "$(DESTDIR)/usr/bin/ponysay"
 	unlink "$(DESTDIR)/usr/bin/ponysaytruncater"
 	unlink "$(DESTDIR)/usr/bin/ponythink"
+	unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay"
+	unlink "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
