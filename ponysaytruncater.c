@@ -91,10 +91,8 @@ void write(char b, int width)
     }
   else if (esc == 1)
     {
-      /* CSI ends with a letter, m is for colour
-	 OSI, OSI P is for palett editing in Linux VT */
-      if      (b == '[')  esc = 2; 
-      else if (b == ']')  esc = 3;
+      if      (b == '[')  esc = 2;  /* CSI: CSI ends with a letter, m is for colour */
+      else if (b == ']')  esc = 3;  /* OSI: OSI P is for palett editing in Linux VT */
       else                esc = 10; /* Nothing to see here, move along */
     }
   else if (esc == 2)
@@ -117,8 +115,8 @@ void write(char b, int width)
   
   if (
       /* Can be printed:
-	 within bounds   ∨
-	 ∨ escape sequence ∨
+	 within bounds  ∨
+	 ∨ escape sequence  ∨
 	 ∨ last with printed ∧ not first byte in character */
       (x < width) ||
       (esc != 0) ||
@@ -138,6 +136,7 @@ void write(char b, int width)
 }
 
 /* Converts a string to an integer
+ * 
  * @param   string  The string to convert
  * @return          The integer represented by the string
  */
