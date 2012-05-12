@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-version=0.8
+version=0.9
 SYSTEMPONIES=/usr/share/ponies
 HOMEPONIES="${HOME}/.ponies"
 pony="*"
