@@ -22,3 +22,6 @@ uninstall:
 	if [ -e "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay" ]; then unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay"; fi
 	unlink "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 	unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
+
+clean:
+	rm -r ponysaytruncater
