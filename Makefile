@@ -4,7 +4,7 @@ install:
 	mkdir -p "$(DESTDIR)/usr/share/ttyponies"
 	cp -r ponies/*.pony "$(DESTDIR)/usr/share/ponies/"
 	cp -r ttyponies/*.pony "$(DESTDIR)/usr/share/ttyponies/"
-	mkdir -p "$(DESTDIR)/use/bin/"
+	mkdir -p "$(DESTDIR)/usr/bin/"
 	install "ponysay" "$(DESTDIR)/usr/bin/ponysay"
 	install -s "ponysaytruncater" "$(DESTDIR)/usr/bin/ponysaytruncater"
 	ln -sf "ponysay" "$(DESTDIR)/usr/bin/ponythink"
