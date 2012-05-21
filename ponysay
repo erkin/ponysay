@@ -45,7 +45,7 @@ Options:
 EOF
 }
 
-# if no stdin and no argumrnts then print usage and exit
+# if no stdin and no arguments then print usage and exit
 if [[ -t 0 && $# == 0 ]]; then
   usage
   exit
