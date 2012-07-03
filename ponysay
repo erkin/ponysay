@@ -59,10 +59,28 @@ say() {
     	echo -ne '\ec'
     fi
     
-    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | (ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
-	                                         ${HOME}/.local/bin/ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
-						 ./ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
-						 cat)
+    function wtrunc
+    {
+	ponysaytruncater `tput cols || echo 0` 2>/dev/null                    ||
+	${HOME}/.local/bin/ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
+	./ponysaytruncater `tput cols || echo 0` 2>/dev/null                  ||
+	cat
+    }
+    
+    function htrunc
+    {
+	head --lines=$(( $(stty size <&2 | cut -d ' ' -f 1) - 2 ))
+    }
+    
+    if [ "$TERM" = "linux" ]; then
+	if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
+	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | tac | htrunc | tac
+	else
+	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunc
+	fi
+    else
+	exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc
+    fi
 }
 
 while getopts f:W:lhv OPT
