@@ -26,9 +26,9 @@ Or if you have a specific pony in your mind:
 ### Pony fortune on terminal startup 
 
 This requires that you have the `fortune` utility installed. You can install it from your repositories or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
-    
-You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script to ponify fortunes.
-  
+
+You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or [ponypipe](https://github.com/maandree/ponypipe) to ponify fortunes.
+
 Edit your `~/.bashrc` and add this to the end of the file
 
     fortune | ponysay
