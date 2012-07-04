@@ -23,6 +23,9 @@ install: all
 	mkdir -p "$(DESTDIR)/usr/share/licenses/ponysay/"
 	install "COPYING" "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 
+	mkdir -p "$(DESTDIR)/usr/share/man/man6"
+	install "manpage.6" "$(DESTDIR)/usr/share/man/man6/ponysay.6"
+
 uninstall:
 	rm -fr "$(DESTDIR)/usr/share/ponies"
 	rm -fr "$(DESTDIR)/usr/share/ttyponies"
