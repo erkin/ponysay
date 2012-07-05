@@ -10,10 +10,10 @@ _ponysay()
     if [[ $prev = "-f" ]]; then
 	COMPREPLY=()
 	
-	sysponies=/usr/share/ponies/
+	sysponies=/usr/share/ponysay/ponies/
 	usrponies=~/.ponies/
 	if [[ $TERM = "linux" ]]; then
-	    sysponies=/usr/share/ttyponies/
+	    sysponies=/usr/share/ponysay/ttyponies/
 	    usrponies=~/.ttyponies/
 	fi
 	
