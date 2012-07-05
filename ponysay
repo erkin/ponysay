@@ -66,9 +66,10 @@ say() {
 	if [ "$PONYSAY_FULL_WIDTH" = 'no' ] || [ "$PONYSAY_FULL_WIDTH" = 'n' ] || [ "$PONYSAY_FULL_WIDTH" = '0' ]; then
 	    cat
 	else
-	    ponysaytruncater `tput cols || echo 0` 2>/dev/null                    ||
-	    ${HOME}/.local/bin/ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
-	    ./ponysaytruncater `tput cols || echo 0` 2>/dev/null                  ||
+	    WIDTH=$((stty size <&2 || echo 0 0) | cut -d ' ' -f 2)
+	    ponysaytruncater $WIDTH 2>/dev/null                    ||
+	    ${HOME}/.local/bin/ponysaytruncater $WIDTH 2>/dev/null ||
+	    ./ponysaytruncater $WIDTH 2>/dev/null                  ||
 	    cat
 	fi
     }
