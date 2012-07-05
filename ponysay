@@ -34,14 +34,16 @@ usage() {
 Usage:
 ${0##*/} [options] [message]
 
-If [message] is not provided, reads the message from STDIN
+If [message] is not provided, reads the message from STDIN.
 
 Options:
-  -v          Show version and exit
-  -h          Show this help and exit
-  -l          List ponyfiles.
-  -f[name]    Select a pony (Either a filename or a pony name)
-  -W[column]  The screen column where the message should be wrapped
+  -v          Show version and exit.
+  -h          Show this help and exit.
+  -l          List pony files.
+  -f[name]    Select a pony (either a file name or a pony name.)
+  -W[column]  The screen column where the message should be wrapped.
+
+See man ponysay(1) for more information.
 EOF
 }
 

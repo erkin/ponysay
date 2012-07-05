@@ -1,0 +1,89 @@
+.\"                                      
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH PONYSAY SECTION "July 4, 2012"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+ponysay \- A cowsay wrapper with ponies
+.SH SYNOPSIS
+.B ponysay
+.RI [ options ]
+.RI [ message ]
+.br
+.SH DESCRIPTION
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
+.\" respectively.
+\fBponysay\fP displays an image of a pony saying some text provided by the user in a terminal.
+It is a wrapper for \fIcowsay\fP. If \fImessage\fP is not provided, it accepts standard input,
+word-wraps the message given at about 40 columns, and prints the pony saying the given message on standard output.
+.PP
+If no arguments are provided, the program only accepts standard input piped from another program, a file or
+either here documents or here strings (see man bash(1) for details on here document/string.)
+.SH OPTIONS
+A summary of options is included below.
+.TP
+.B \-h
+Show summary of options.
+.TP
+.B \-v
+Show version of program.
+.TP
+.B \-l
+List pony files.
+.TP
+.B \-f \fIname\fP
+Select a pony (either a file name or a pony name.)
+.TP
+.B \-W \fIcolumn\fP
+The screen column where the message should be wrapped
+.SH ENVIRONMENT
+.TP
+.B PONYSAY_BOTTOM
+Under TTY (Linux VT), if the output is larger the the screen's height, only the beginning is
+printed, leaving 2 blank lines. If you want the buttom to be printed rather the the beginning
+you can export \fBPONYSAY_BOTTOM\fP with the value \fIyes\fP, \fIy\fP or \fI1\fP.
+.SH BUG
+Bugs can be reported in <\fBhttps://github.com/erkin/ponysay/issues\fP>.
+.SH SEE ALSO
+.BR cowsay (1),
+.BR fortune (1).
+.br
+.SH AUTHOR
+ponysay was written by Erkin Batu Altunbaş <erkinbatu@gmail.com>
+with contributions from Mattias Andrée, Sven-Hendrik Haase, Jan Alexander Steffens &a.
+.\" See file CREDITS for full list
+.PP
+This manual page was written by Louis Taylor <kragniz@gmail.com>
+for the Debian project (and may be used by others), and edited
+by Mattias Andrée <maandree@kth.se>.
+.br
+.SH COPYRIGHT
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+.br
+Version 2, December 2004
+.PP
+Copyright (C) 2012 Erkin Batu Altunbaş
+.PP
+Everyone is permitted to copy and distribute verbatim or modified
+copies of this license document, and changing it is allowed as long
+as the name is changed.
+.PP
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+.br
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+.PP
+ 0. You just DO WHAT THE FUCK YOU WANT TO.

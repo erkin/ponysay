@@ -24,6 +24,9 @@ install: all
 	mkdir -p "$(DESTDIR)/usr/share/licenses/ponysay/"
 	install "COPYING" "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 
+	mkdir -p "$(DESTDIR)/usr/share/man/man1"
+	install "manpage.1" "$(DESTDIR)/usr/share/man/man1/ponysay.1"
+
 uninstall:
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ponies"
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ttyponies"
@@ -33,6 +36,7 @@ uninstall:
 	unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay";
 	unlink "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 	unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
+	unlink "$(DESTDIR)/usr/share/man/man1/ponysay.1"
 
 clean:
 	rm -r "ponysaytruncater"
