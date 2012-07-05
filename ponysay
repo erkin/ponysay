@@ -63,15 +63,22 @@ say() {
     
     function wtrunc
     {
-	ponysaytruncater `tput cols || echo 0` 2>/dev/null                    ||
-	${HOME}/.local/bin/ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
-	./ponysaytruncater `tput cols || echo 0` 2>/dev/null                  ||
-	cat
+	if [ "$PONYSAY_FULL_WIDTH" = 'no' ] || [ "$PONYSAY_FULL_WIDTH" = 'n' ] || [ "$PONYSAY_FULL_WIDTH" = '0' ]; then
+	    cat
+	else
+	    ponysaytruncater `tput cols || echo 0` 2>/dev/null                    ||
+	    ${HOME}/.local/bin/ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
+	    ./ponysaytruncater `tput cols || echo 0` 2>/dev/null                  ||
+	    cat
+	fi
     }
     
     function htrunc
     {
-	head --lines=$(( $(stty size <&2 | cut -d ' ' -f 1) - 2 ))
+	if [ "$PONYSAY_SHELL_LINES" = "" ]; then
+	    PONYSAY_SHELL_LINES=2
+	fi
+	head --lines=$(( $(stty size <&2 | cut -d ' ' -f 1) - $PONYSAY_SHELL_LINES ))
     }
     
     if [ "$TERM" = "linux" ]; then
