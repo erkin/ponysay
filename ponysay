@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-version=0.9
-SYSTEMPONIES=/usr/share/ponysay/ponies
+version=0.10
+SYSTEMPONIES="/usr/share/ponysay/ponies"
 HOMEPONIES="${HOME}/.ponysay/ponies"
 pony="*"
-wrap=
+wrap=""
 
 if [ "$TERM" = "linux" ]; then
-    SYSTEMPONIES=/usr/share/ponysay/ttyponies
+    SYSTEMPONIES="/usr/share/ponysay/ttyponies"
     HOMEPONIES="${HOME}/.ponysay/ttyponies"
 fi
 
@@ -66,7 +66,7 @@ say() {
 	if [ "$PONYSAY_FULL_WIDTH" = 'no' ] || [ "$PONYSAY_FULL_WIDTH" = 'n' ] || [ "$PONYSAY_FULL_WIDTH" = '0' ]; then
 	    cat
 	else
-	    WIDTH=$((stty size <&2 || echo 0 0) | cut -d ' ' -f 2)
+	    WIDTH=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
 	    ponysaytruncater $WIDTH 2>/dev/null                    ||
 	    ${HOME}/.local/bin/ponysaytruncater $WIDTH 2>/dev/null ||
 	    ./ponysaytruncater $WIDTH 2>/dev/null                  ||
@@ -79,7 +79,7 @@ say() {
 	if [ "$PONYSAY_SHELL_LINES" = "" ]; then
 	    PONYSAY_SHELL_LINES=2
 	fi
-	head --lines=$(( $(stty size <&2 | cut -d ' ' -f 1) - $PONYSAY_SHELL_LINES ))
+	head --lines=`( \`stty size <&2 | cut -d ' ' -f 1\` - $PONYSAY_SHELL_LINES )`
     }
     
     if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
@@ -106,7 +106,7 @@ do
 done
 shift $((OPTIND - 1))
 
-if ! hash $cmd &>/dev/null; then
+hash $cmd &>/dev/null; if [ $? -ne 0 ]; then
     cat >&2 <<EOF
 You don't seem to have the $cmd program.
 Please install it in order to use this wrapper.
