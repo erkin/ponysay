@@ -79,7 +79,7 @@ say() {
 	if [ "$PONYSAY_SHELL_LINES" = "" ]; then
 	    PONYSAY_SHELL_LINES=2
 	fi
-	head --lines=`( \`stty size <&2 | cut -d ' ' -f 1\` - $PONYSAY_SHELL_LINES )`
+	head --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
     }
     
     if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
