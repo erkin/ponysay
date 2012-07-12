@@ -24,7 +24,7 @@ install: all
 	mkdir -p "$(DESTDIR)/usr/share/licenses/ponysay/"
 	install "COPYING" "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 
-	mkdir -p "$(DESTDIR)/usr/share/man/man1"
+	mkdir -p "$(DESTDIR)/usr/share/man/man6"
 	install "manpage.6" "$(DESTDIR)/usr/share/man/man1/ponysay.6"
 	ln -sf "ponysay.6" "$(DESTDIR)/usr/share/man/man1/ponythink.6"
 
