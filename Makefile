@@ -41,4 +41,4 @@ uninstall:
 	unlink "$(DESTDIR)/usr/share/man/man1/ponythink.6"
 
 clean:
-	rm "ponysaytruncater"
+	rm -f "ponysaytruncater"
