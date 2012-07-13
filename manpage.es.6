@@ -1,0 +1,111 @@
+.\"                                      
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH PONYSAY SECTION "July 4, 2012"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+ponysay \- un remplazo para cowsay usando ponis
+.SH SYNOPSIS
+.B ponysay
+.RI [ options ]
+.RI [ message ]
+.br
+.B ponythink
+.RI [ options ]
+.RI [ message ]
+.br
+.SH DESCRIPTION
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
+.\" respectively.
+\fBponysay\fP muestra la imagen de un poni con un texto dado por el usuario, esto dentro de la terminal.
+Iste es en realidad un Remplazo a \fIcowsay\fP, aunque sigue usando este ultimo para motrar el mensaje.
+Si el \fImesaje\fP no es provisto, este aceptara una orden estándar,
+El mensaje debería de tener alrededor de 40 columnas, y el o la poni devería de mostrar este mensaje en una salida estándar.
+.PP
+Si no se le da ningun argumenrto, el programa solo aceptará mensajes estándares provistos por otro programa, un archivo
+o ambos archivos o cadena de caracteres, vease man bash(1) para detalles de archivos y cadenas de caracteres.)
+.PP
+\fBponythink\fP es a \fIponysay\fP como \fIcowthink\fP es a \fIcowsay\fP.
+.SH OPTIONS
+Resumen de opciones incluida acontinuación.
+.TP
+.B \-h
+Muestra la ayuda, un resumen de las opciones.
+.TP
+.B \-v
+Muestra las opciones.
+.TP
+.B \-l
+Lista los ponis disponibles.
+.TP
+.B \-f \fIname\fP
+selecciona un poni específico (ambos un archivo o el nombre directamente.)
+.TP
+.B \-W \fIcolumn\fP
+El numero de columnas en el que será impreso el mensaje
+.SH ENVIRONMENT
+.TP
+.B PONYSAY_BOTTOM
+Bajo TTY (Linux VT), si la imagen es mas larga que la terminal en pantalla, solo el inicio de esta
+es impreso, dejando solo dos líneas blancas. si desea que apesar de todo sea impreso el fondo del inicio
+puede exportar \fIPONYSAY_BOTTOM\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP.
+.TP
+.B PONYSAY_SHELL_LINES
+Bajo TTY (Linux VT), si la imagen es mas larga que la terminal en pantalla, solo dos líneas blancas serán impresas.
+si desea más o menos lineas blancas, puede exportar \fIPONYSAY_SHELL_LINES\fP con el valor
+de cuantas líneas blancas desea. Naturalmente esto solo tomará efecto si la salida no es mas larga que
+la pantalla.
+.TP
+.B PONYSAY_FULL_WIDTH
+Puede exportar \fIPONYSAY_FULL_WIDTH\fP con el valor \fIno\fP, \fIn\fP o \fI0\fP, si usted
+no desea que la salida sea truncada para que calce en la terminal.
+.TP
+.B PONYSAY_TRUNCATE_HEIGHT
+Exporte \fIPONYSAY_TRUNCATE_HEIGHT\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP, si
+desea truncar la salida en el largo aun si no se está dentro de una terminal \fIponysay\fP bajo TTY.
+.SH BUG
+Bugs pueden ser reportados en <\fBhttps://github.com/erkin/ponysay/issues\fP>.
+.SH SEE ALSO
+.BR cowsay (1),
+.BR fortune (1).
+.br
+.SH AUTHOR
+ponysay fue escrito por Erkin Batu Altunbaş <erkinbatu@gmail.com>
+con la ayuda de Mattias Andrée, Sven-Hendrik Haase, Jan Alexander Steffens y otros.
+.\" vea el archivo CREDITS para la lista completa
+.PP
+Este manuyal originalmente fue escrito por Louis Taylor <kragniz@gmail.com>
+para el proyecto Debian (y puede ser usado por otros), y editado por
+Mattias Andrée <maandree@kth.se>.
+La actual traducción al español fue escrita por pablo Lezaeta <prflr88@gmail.com>.
+.br
+.SH COPYRIGHT
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+.br
+Version 2, December 2004
+.PP
+Copyright (C) 2012 Erkin Batu Altunbaş
+.PP
+Everyone is permitted to copy and distribute verbatim or modified
+copies of this license document, and changing it is allowed as long
+as the name is changed.
+.PP
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+.br
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+.PP
+0. You just DO WHAT THE FUCK YOU WANT TO.
