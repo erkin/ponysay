@@ -24,9 +24,9 @@ install: all
 	mkdir -p "$(DESTDIR)/usr/share/licenses/ponysay/"
 	install "COPYING" "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 
-	mkdir -p "$(DESTDIR)/usr/share/man/man1"
-	install "manpage.1" "$(DESTDIR)/usr/share/man/man1/ponysay.1"
-	ln -sf "ponysay.1" "$(DESTDIR)/usr/share/man/man1/ponythink.1"
+	mkdir -p "$(DESTDIR)/usr/share/man/man6"
+	install "manpage.6" "$(DESTDIR)/usr/share/man/man6/ponysay.6"
+	ln -sf "ponysay.6" "$(DESTDIR)/usr/share/man/man6/ponythink.6"
 
 	mkdir -p "$(DESTDIR)/usr/share/man/es/man6"
 	install "manpage.es.1" "$(DESTDIR)/usr/share/man/es/man6/ponysay.6"
@@ -41,9 +41,11 @@ uninstall:
 	unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay";
 	unlink "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 	unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
-	unlink "$(DESTDIR)/usr/share/man/man1/ponysay.1"
-	unlink "$(DESTDIR)/usr/share/man/man1/ponythink.1"
+	unlink "$(DESTDIR)/usr/share/man/man6/ponysay.6"
+	unlink "$(DESTDIR)/usr/share/man/man6/ponythink.6"
 	unlink "$(DESTDIR)/usr/share/man/es/man6/ponysay.6"
 	unlink "$(DESTDIR)/usr/share/man/es/man6/ponythink.6"
+
+>>>>>>> upstream/master
 clean:
-	rm -r "ponysaytruncater"
+	rm -f "ponysaytruncater"
