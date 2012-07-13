@@ -25,11 +25,11 @@ install: all
 	install "COPYING" "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 
 	mkdir -p "$(DESTDIR)/usr/share/man/man6"
-	install "manpage.6" "$(DESTDIR)/usr/share/man/man6/ponysay.6"
+	install "manuals/manpage.6" "$(DESTDIR)/usr/share/man/man6/ponysay.6"
 	ln -sf "ponysay.6" "$(DESTDIR)/usr/share/man/man6/ponythink.6"
 
 	mkdir -p "$(DESTDIR)/usr/share/man/es/man6"
-	install "manpage.es.6" "$(DESTDIR)/usr/share/man/es/man6/ponysay.6"
+	install "manuals/manpage.es.6" "$(DESTDIR)/usr/share/man/es/man6/ponysay.6"
 	ln -sf "ponysay.6" "$(DESTDIR)/usr/share/man/es/man6/ponythink.6"
 
 uninstall:
