@@ -43,7 +43,7 @@ Options:
   -f[name]    Select a pony (either a file name or a pony name.)
   -W[column]  The screen column where the message should be wrapped.
 
-See man ponysay(1) for more information.
+See man ponysay(6) for more information.
 EOF
 }
 
