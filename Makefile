@@ -28,9 +28,9 @@ install: all
 	install "manpage.1" "$(DESTDIR)/usr/share/man/man1/ponysay.1"
 	ln -sf "ponysay.1" "$(DESTDIR)/usr/share/man/man1/ponythink.1"
 
-	mkdir -p "$(DESTDIR)/usr/share/man/es/man1"
-	install "manpage.es.1" "$(DESTDIR)/usr/share/man/es/man1/ponysay.6"
-	ln -sf "ponysay.6" "$(DESTDIR)/usr/share/man/es/man1/ponythink.6"
+	mkdir -p "$(DESTDIR)/usr/share/man/es/man6"
+	install "manpage.es.1" "$(DESTDIR)/usr/share/man/es/man6/ponysay.6"
+	ln -sf "ponysay.6" "$(DESTDIR)/usr/share/man/es/man6/ponythink.6"
 
 uninstall:
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ponies"
@@ -43,7 +43,7 @@ uninstall:
 	unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
 	unlink "$(DESTDIR)/usr/share/man/man1/ponysay.1"
 	unlink "$(DESTDIR)/usr/share/man/man1/ponythink.1"
-	unlink "$(DESTDIR)/usr/share/man/es/man1/ponysay.6"
-	unlink "$(DESTDIR)/usr/share/man/es/man1/ponythink.6"
+	unlink "$(DESTDIR)/usr/share/man/es/man6/ponysay.6"
+	unlink "$(DESTDIR)/usr/share/man/es/man6/ponythink.6"
 clean:
 	rm -r "ponysaytruncater"
