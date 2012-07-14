@@ -1,1 +1,1 @@
-./colgate.pony
+colgate.pony

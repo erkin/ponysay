@@ -1,1 +1,1 @@
-./blues.pony
+blues.pony

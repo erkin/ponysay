@@ -1,1 +1,1 @@
-./carrot.pony
+carrot.pony

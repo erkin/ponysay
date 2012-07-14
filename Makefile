@@ -3,6 +3,10 @@ all: ponysaytruncater
 ponysaytruncater:
 	gcc -o "ponysaytruncater" "ponysaytruncater.c"
 
+ttyponies:
+	mkdir -p ttyponies
+	./ttyponies.sh
+
 install: all
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ponies"

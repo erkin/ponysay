@@ -1,1 +1,1 @@
-./pokey.pony
+pokey.pony

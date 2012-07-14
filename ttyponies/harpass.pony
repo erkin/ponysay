@@ -1,1 +1,1 @@
-./lyra.pony
+lyra.pony
