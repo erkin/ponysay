@@ -18,10 +18,10 @@ _ponysay()
 	fi
 	
 	if [[ -d $sysponies ]]; then
-	    COMPREPLY+=( $( compgen -W "$(ls $sysponies | sed -e 's/.pony//g')" -- "$cur" ) )
+	    COMPREPLY+=( $( compgen -W "$(ls --color=no $sysponies | sed -e 's/.pony//g')" -- "$cur" ) )
 	fi
 	if [[ -d $usrponies ]]; then
-	    COMPREPLY+=( $( compgen -W "$(ls $usrponies | sed -e 's/.pony//g')" -- "$cur" ) )
+	    COMPREPLY+=( $( compgen -W "$(ls --color=no $usrponies | sed -e 's/.pony//g')" -- "$cur" ) )
 	fi
     elif [[ $prev = "-W" ]]; then
 	cols=$( echo `tput cols` - 10 | bc )
