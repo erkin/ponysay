@@ -1,0 +1,41 @@
+REQUIRED dependencies:
+
+bash: required for the main script [file: ponysay]
+
+cowsay: this is a wrapper for cowsay
+
+coreutils: the main script [file: ponysay] uses stty, cut, ls, cat, head and tail
+
+sed: used to remove .pony from pony named when running ponysay -l
+
+
+
+OPTIONAL dependencies:
+
+(none)
+
+
+
+PONY PROVIDER dependencies:
+
+make: required to run `make ttyponies` 
+
+coreutils: ln and readlink are used in ttyponies.sh
+
+bash: required to run ttyponies.sh
+
+util-say: used by ttyponies.sh to builder ttyponies from xterm ponies
+# Available for Arch:ers in AUR as util-say-git are on github at https://github.com/maandree/util-say
+
+
+
+MAKE dependencies:
+
+gcc: used for compiling ponysaytruncater.c
+
+gzip: used for compressing manpages
+
+make: required to run the make script
+
+coreutils: make script uses install unlink rm ln mkdir cp
+
