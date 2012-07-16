@@ -19,11 +19,29 @@ version() {
 }
 
 list() {
-    echo "ponyfiles located in $SYSTEMPONIES:"
-    ls -1 $SYSTEMPONIES | sed "s/.pony//"
+    scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
+    (( $scrw > 80 )) && scrw=80
+    
+    echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
+    files=`ls -1 $SYSTEMPONIES | sed "s/.pony//"`
+    maxw=1
+    for file in $files; do
+	w=$(( `echo $file | wc -m` + 2 ))
+	(( $maxw < $w )) && maxw=$w
+    done
+    cols=$(( $scrw / $maxw ))
+    echo "$files" | pr -T --columns=$cols
+    
     if [[ -d $HOMEPONIES ]]; then
-	echo "ponyfiles located in $HOMEPONIES:"
-	ls -1 $HOMEPONIES | sed "s/.pony//"
+	echo -e "\\e[01mponyfiles located in $HOMEPONIES:\\e[21m"
+	files=`ls -1 $HOMEPONIES | sed "s/.pony//"`
+	maxw=1
+	for file in $files; do
+	    w=$(( `echo $file | wc -m` ))
+	    (( $maxw < $w )) && maxw=$w
+	done
+	cols=$(( $scrw / $maxw ))
+	echo "$files" | pr -T --columns=$cols
     fi
 }
 
