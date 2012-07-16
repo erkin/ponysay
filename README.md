@@ -9,11 +9,14 @@ Installation on Linux (or other Unix)
 
 First of all, you need `cowsay` from your local repositories.
 Obtain it from [here](http://www.nog.net/~tony/warez/cowsay.shtml) if you wish to compile it yourself.
+This is often sufficient, but if is not you may be missing one of the standard packages: bash, coreutils or sed.
 
 [Download](https://github.com/erkin/ponysay/downloads) or clone the project.
-In the terminal, `cd` into the ponysay directory and `make install`.
+In the terminal, `cd` into the ponysay directory and `make && make install`.
 
-This will install ponysay into the $PREFIX (`/usr` by default, meaning you may need to make as root).
+This will install ponysay into the $PREFIX (`/usr` by default, meaning you may need to `make install` as root, e.g. `sudo make install`).
+
+If either `make` or `make install` fails you be missing one of the standard packages: gcc, gzip, make or coreutils
 
 In order to use ponysay, run:
 
@@ -25,7 +28,7 @@ Or if you have a specific pony in your mind:
 
 ### Pony fortune on terminal startup 
 
-This requires that you have the `fortune` utility installed. You can install it from your repositories or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
+This requires that you have the `fortune` utility installed. You can install it from your repositories (may be namned `fortune-mod`) or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
 
 You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or [ponypipe](https://github.com/maandree/ponypipe) to ponify fortunes.
 
