@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-version=0.8
-SYSTEMPONIES=/usr/share/ponies
-HOMEPONIES="${HOME}/.ponies"
+version=1.0
+SYSTEMPONIES="/usr/share/ponysay/ponies"
+HOMEPONIES="${HOME}/.ponysay/ponies"
 pony="*"
-wrap=
+wrap=""
 
 if [ "$TERM" = "linux" ]; then
-    SYSTEMPONIES=/usr/share/ttyponies
-    HOMEPONIES="${HOME}/.ttyponies"
+    SYSTEMPONIES="/usr/share/ponysay/ttyponies"
+    HOMEPONIES="${HOME}/.ponysay/ttyponies"
 fi
 
 cmd=cowsay
@@ -19,11 +19,29 @@ version() {
 }
 
 list() {
-    echo "ponyfiles located in $SYSTEMPONIES:"
-    ls -1 $SYSTEMPONIES | sed "s/.pony//"
+    scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
+    (( $scrw > 80 )) && scrw=80
+    
+    echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
+    files=`ls -1 $SYSTEMPONIES | sed "s/.pony//"`
+    maxw=1
+    for file in $files; do
+	w=$(( `echo $file | wc -m` + 2 ))
+	(( $maxw < $w )) && maxw=$w
+    done
+    cols=$(( $scrw / $maxw ))
+    echo "$files" | pr -T --columns=$cols
+    
     if [[ -d $HOMEPONIES ]]; then
-	echo "ponyfiles located in $HOMEPONIES:"
-	ls -1 $HOMEPONIES | sed "s/.pony//"
+	echo -e "\\e[01mponyfiles located in $HOMEPONIES:\\e[21m"
+	files=`ls -1 $HOMEPONIES | sed "s/.pony//"`
+	maxw=1
+	for file in $files; do
+	    w=$(( `echo $file | wc -m` ))
+	    (( $maxw < $w )) && maxw=$w
+	done
+	cols=$(( $scrw / $maxw ))
+	echo "$files" | pr -T --columns=$cols
     fi
 }
 
@@ -34,18 +52,20 @@ usage() {
 Usage:
 ${0##*/} [options] [message]
 
-If [message] is not provided, reads the message from STDIN
+If [message] is not provided, reads the message from STDIN.
 
 Options:
-  -v          Show version and exit
-  -h          Show this help and exit
-  -l          List ponyfiles.
-  -f[name]    Select a pony (Either a filename or a pony name)
-  -W[column]  The screen column where the message should be wrapped
+  -v          Show version and exit.
+  -h          Show this help and exit.
+  -l          List pony files.
+  -f[name]    Select a pony (either a file name or a pony name.)
+  -W[column]  The screen column where the message should be wrapped.
+
+See man ponysay(6) for more information.
 EOF
 }
 
-# if no stdin and no argumrnts then print usage and exit
+# if no stdin and no arguments then print usage and exit
 if [[ -t 0 && $# == 0 ]]; then
   usage
   exit
@@ -59,10 +79,40 @@ say() {
     	echo -ne '\ec'
     fi
     
-    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | (ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
-	                                         ${HOME}/.local/bin/ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
-						 ./ponysaytruncater `tput cols || echo 0` 2>/dev/null ||
-						 cat)
+    function wtrunc
+    {
+	if [ "$PONYSAY_FULL_WIDTH" = 'no' ] || [ "$PONYSAY_FULL_WIDTH" = 'n' ] || [ "$PONYSAY_FULL_WIDTH" = '0' ]; then
+	    cat
+	else
+	    WIDTH=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
+	    ponysaytruncater $WIDTH 2>/dev/null                    ||
+	    ${HOME}/.local/bin/ponysaytruncater $WIDTH 2>/dev/null ||
+	    ./ponysaytruncater $WIDTH 2>/dev/null                  ||
+	    cat
+	fi
+    }
+    
+    if [ "$PONYSAY_SHELL_LINES" = "" ]; then
+	PONYSAY_SHELL_LINES=2
+    fi
+    function htrunchead
+    {
+	head --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
+    }
+    function htrunctail
+    {
+	tail --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
+    }
+    
+    if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
+	if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
+	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
+	else
+	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
+	fi
+    else
+	exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc
+    fi
 }
 
 while getopts f:W:lhv OPT
@@ -78,7 +128,7 @@ do
 done
 shift $((OPTIND - 1))
 
-if ! hash $cmd &>/dev/null; then
+hash $cmd &>/dev/null; if [ $? -ne 0 ]; then
     cat >&2 <<EOF
 You don't seem to have the $cmd program.
 Please install it in order to use this wrapper.

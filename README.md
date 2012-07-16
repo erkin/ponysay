@@ -1,24 +1,23 @@
-`ponysay` - A cowsay wrapper with ponies.
-
-The pony files are [desktop/browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html) converted using [img2xterm](https://github.com/rossy2401/img2xterm).
+`ponysay` - A cowsay wrapper for ponies.
 
 ![Derp](http://i.imgur.com/xOJbE.png)
+
 Today your terminal, tomorrow the world!
 
 Installation on Linux (or other Unix)
 -------------------------------------
 
-If you do not already have `cowsay` you will need to install it
+First of all, you need `cowsay` from your local repositories.
+Obtain it from [here](http://www.nog.net/~tony/warez/cowsay.shtml) if you wish to compile it yourself.
 
-    apt-get install cowsay # assuming dpkg
+[Download](https://github.com/erkin/ponysay/downloads) or clone the project.
+In the terminal, `cd` into the ponysay directory and `make install`.
 
-[Download](https://github.com/erkin/ponysay/downloads) the latest project. In the terminal, `cd` into the ponysay directory and run
-  
-    sudo make
+This will install ponysay into the $PREFIX (`/usr` by default, meaning you may need to make as root).
 
-This will install ponysay into the $PREFIX (`/usr` by default). In order to use ponysay, run
+In order to use ponysay, run:
 
-    ponysay "I am just the cutest pony"
+    ponysay "I am just the cutest pony!"
     
 Or if you have a specific pony in your mind:
 
@@ -26,12 +25,10 @@ Or if you have a specific pony in your mind:
 
 ### Pony fortune on terminal startup 
 
-This requires that you have the `fortune` utility installed
+This requires that you have the `fortune` utility installed. You can install it from your repositories or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
 
-    apt-get install fortune
-    
-You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script to ponify fortunes.
-  
+You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or [ponypipe](https://github.com/maandree/ponypipe) to ponify fortunes.
+
 Edit your `~/.bashrc` and add this to the end of the file
 
     fortune | ponysay
@@ -67,4 +64,4 @@ __A:__ Ask and we'll add!
 
 __Q:__ Which programs do you use to generate the pony files?
 
-__A:__ The pony files are actually a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html) that are generated into cow files via [img2xterm](https://github.com/rossy2401/img2xterm).
+__A:__ The pony files are actually a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html) that are generated into cow files via [img2xterm](https://github.com/rossy2401/img2xterm) or [util-say](https://github.com/maandree/util-say).
