@@ -26,6 +26,8 @@ Or if you have a specific pony in your mind:
 
     ponysay -f pinkie "Partay!~"
 
+Run `info pony`, `man pony` or `ponysay -h` for more information.
+
 ### Pony fortune on terminal startup 
 
 This requires that you have the `fortune` utility installed. You can install it from your repositories (may be namned `fortune-mod`) or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
