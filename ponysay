@@ -92,19 +92,23 @@ say() {
 	fi
     }
     
-    function htrunc
+    if [ "$PONYSAY_SHELL_LINES" = "" ]; then
+	PONYSAY_SHELL_LINES=2
+    fi
+    function htrunchead
     {
-	if [ "$PONYSAY_SHELL_LINES" = "" ]; then
-	    PONYSAY_SHELL_LINES=2
-	fi
 	head --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
+    }
+    function htrunctail
+    {
+	tail --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
     }
     
     if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
 	if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
-	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | tac | htrunc | tac
+	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
 	else
-	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunc
+	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
 	fi
     else
 	exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc
