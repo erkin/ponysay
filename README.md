@@ -16,7 +16,8 @@ In the terminal, `cd` into the ponysay directory and `make && make install`.
 
 This will install ponysay into the $PREFIX (`/usr` by default, meaning you may need to `make install` as root, e.g. `sudo make install`).
 
-If either `make` or `make install` fails you be missing one of the standard packages: [gcc](ftp://ftp.gnu.org/gnu/gcc/), [gzip](ftp://ftp.gnu.org/gnu/gzip/), [make](ftp://ftp.gnu.org/gnu/make/) or [coreutils](ftp://ftp.gnu.org/gnu/coreutils/).
+If either `make` or `make install` fails you be missing one of the standard packages:
+[gcc](ftp://ftp.gnu.org/gnu/gcc/), [gzip](ftp://ftp.gnu.org/gnu/gzip/), [make](ftp://ftp.gnu.org/gnu/make/) or [coreutils](ftp://ftp.gnu.org/gnu/coreutils/).
 
 In order to use ponysay, run:
 
@@ -26,13 +27,17 @@ Or if you have a specific pony in your mind:
 
     ponysay -f pinkie "Partay!~"
 
-Run `info pony`, `man pony` or `ponysay -h` for more information.
+Run `info ponysay`, `man 6 ponysay` or `ponysay -h` for more information.
+A spanish manual is available: `man -L es 6 ponysay'.
+
 
 ### Pony fortune on terminal startup 
 
-This requires that you have the `fortune` utility installed. You can install it from your repositories (may be namned `fortune-mod`) or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
+This requires that you have the `fortune` utility installed. You can install it from your repositories (may be namned `fortune-mod`)
+or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
 
-You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or [ponypipe](https://github.com/maandree/ponypipe) to ponify fortunes.
+You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or
+[ponypipe](https://github.com/maandree/ponypipe) to ponify fortunes.
 
 Edit your `~/.bashrc` and add this to the end of the file
 
@@ -69,4 +74,5 @@ __A:__ [Ask](https://github.com/erkin/ponysay/issues) and we'll add!
 
 __Q:__ Which programs do you use to generate the pony files?
 
-__A:__ The pony files are actually mostly a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html) that are generated into cow files via [img2xterm](https://github.com/rossy2401/img2xterm) or [util-say](https://github.com/maandree/util-say).
+__A:__ The pony files are actually mostly a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html)
+that are generated into cow files via [img2xterm](https://github.com/rossy2401/img2xterm) or [util-say](https://github.com/maandree/util-say).
