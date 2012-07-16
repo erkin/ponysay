@@ -1,7 +1,11 @@
-all: ponysaytruncater
+all: ponysaytruncater manpages
 
 ponysaytruncater:
 	gcc -o "ponysaytruncater" "ponysaytruncater.c"
+
+manpages:
+	gzip -9 < manuals/manpage.6 > manuals/manpage.6.gz
+	gzip -9 < manuals/manpage.es.6 > manuals/manpage.es.6.gz
 
 ttyponies:
 	mkdir -p ttyponies
@@ -29,12 +33,12 @@ install: all
 	install "COPYING" "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 
 	mkdir -p "$(DESTDIR)/usr/share/man/man6"
-	install "manuals/manpage.6" "$(DESTDIR)/usr/share/man/man6/ponysay.6"
-	ln -sf "ponysay.6" "$(DESTDIR)/usr/share/man/man6/ponythink.6"
+	install "manuals/manpage.6.gz" "$(DESTDIR)/usr/share/man/man6/ponysay.6.gz"
+	ln -sf "ponysay.6.gz" "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz"
 
 	mkdir -p "$(DESTDIR)/usr/share/man/es/man6"
-	install "manuals/manpage.es.6" "$(DESTDIR)/usr/share/man/es/man6/ponysay.6"
-	ln -sf "ponysay.6" "$(DESTDIR)/usr/share/man/es/man6/ponythink.6"
+	install "manuals/manpage.es.6.gz" "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz"
+	ln -sf "ponysay.6.gz" "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
 
 uninstall:
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ponies"
@@ -45,9 +49,13 @@ uninstall:
 	unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay";
 	unlink "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 	unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
-	unlink "$(DESTDIR)/usr/share/man/man6/ponysay.6"
-	unlink "$(DESTDIR)/usr/share/man/man6/ponythink.6"
-	unlink "$(DESTDIR)/usr/share/man/es/man6/ponysay.6"
-	unlink "$(DESTDIR)/usr/share/man/es/man6/ponythink.6"
+	unlink "$(DESTDIR)/usr/share/man/man6/ponysay.6.gz"
+	unlink "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz"
+	unlink "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz"
+	unlink "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
+
 clean:
 	rm -f "ponysaytruncater"
+	rm manuals/manpage.6.gz
+	rm manuals/manpage.es.6.gz
+
