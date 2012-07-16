@@ -4,8 +4,8 @@
 
 Today your terminal, tomorrow the world!
 
-Installation on GNU/Linux (or other Unix)
------------------------------------------
+Installation on GNU/Linux (or other Unix implementations)
+---------------------------------------------------------
 
 First of all, you need `cowsay` from your local repositories.
 Obtain it from [here](http://www.nog.net/~tony/warez/cowsay.shtml) if you wish to compile it yourself.
