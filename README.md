@@ -9,14 +9,14 @@ Installation on GNU/Linux (or other Unix implementations)
 
 First of all, you need `cowsay` from your local repositories.
 Obtain it from [here](http://www.nog.net/~tony/warez/cowsay.shtml) if you wish to compile it yourself.
-This is often sufficient, but if is not you may be missing one of the standard packages: (bash)[ftp://ftp.gnu.org/gnu/bash/], (coreutils)[ftp://ftp.gnu.org/gnu/coreutils/] or (sed)[ftp://ftp.gnu.org/gnu/sed/].
+This is often sufficient, but if is not you may be missing one of the standard packages: [bash](ftp://ftp.gnu.org/gnu/bash/), [coreutils](ftp://ftp.gnu.org/gnu/coreutils/) or [sed](ftp://ftp.gnu.org/gnu/sed/).
 
 [Download](https://github.com/erkin/ponysay/downloads) or clone the project.
 In the terminal, `cd` into the ponysay directory and `make && make install`.
 
 This will install ponysay into the $PREFIX (`/usr` by default, meaning you may need to `make install` as root, e.g. `sudo make install`).
 
-If either `make` or `make install` fails you be missing one of the standard packages: (gcc)[ftp://ftp.gnu.org/gnu/gcc/], (gzip)[ftp://ftp.gnu.org/gnu/gzip/], (make)[ftp://ftp.gnu.org/gnu/make/] or (coreutils)[ftp://ftp.gnu.org/gnu/coreutils/].
+If either `make` or `make install` fails you be missing one of the standard packages: [gcc](ftp://ftp.gnu.org/gnu/gcc/), [gzip](ftp://ftp.gnu.org/gnu/gzip/), [make](ftp://ftp.gnu.org/gnu/make/) or [coreutils](ftp://ftp.gnu.org/gnu/coreutils/).
 
 In order to use ponysay, run:
 
