@@ -14,7 +14,7 @@ This is often sufficient, but if is not you may be missing one of the standard p
 [Download](https://github.com/erkin/ponysay/downloads) or clone the project.
 In the terminal, `cd` into the ponysay directory and `make && make install`.
 
-This will install ponysay into the $PREFIX (`/usr` by default, meaning you may need to `make install` as root, e.g. `sudo make install`).
+This will install ponysay into the $PREFIX (`/usr` by default, meaning you may need to `make install` as root, e.g. `sudo make install`.)
 
 If either `make` or `make install` fails you be missing one of the standard packages:
 [gcc](ftp://ftp.gnu.org/gnu/gcc/), [gzip](ftp://ftp.gnu.org/gnu/gzip/), [make](ftp://ftp.gnu.org/gnu/make/) or [coreutils](ftp://ftp.gnu.org/gnu/coreutils/).
@@ -28,12 +28,12 @@ Or if you have a specific pony in your mind:
     ponysay -f pinkie "Partay!~"
 
 Run `info ponysay`, `man 6 ponysay` or `ponysay -h` for more information.
-A spanish manual is available: `man -L es 6 ponysay`.
+A Spanish manual is available: `man -L es 6 ponysay`.
 
 
 ### Pony fortune on terminal startup 
 
-This requires that you have the `fortune` utility installed. You can install it from your repositories (may be namned `fortune-mod`)
+This requires that you have the `fortune` utility installed. You can install it from your repositories (may be named `fortune-mod`)
 or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
 
 You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or
@@ -52,7 +52,7 @@ If you have a custom colour palette edit your `~/.bashrc` and add
     if [ "$TERM" = "linux" ]; then
         function ponysay
         {
-            exec ponysay $@
+            exec ponysay "$@"
             #RESET PALETTE HERE
         }
     fi

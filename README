@@ -18,43 +18,125 @@
                                                                                                 
 
 
-REQUIRED dependencies:
+Required runtime dependencies
+=============================
 
-bash: required for the main script [file: ponysay]
+    bash      : required for the main script [file: ponysay]
 
-cowsay: this is a wrapper for cowsay
+    cowsay    : this is a wrapper for cowsay
 
-coreutils: the main script [file: ponysay] uses stty, cut, ls, cat, head and tail
+    coreutils : the main script [file: ponysay] uses stty, cut, ls, cat, head and tail
 
-sed: used to remove .pony from pony named when running ponysay -l
-
-
-
-OPTIONAL dependencies:
-
-(none)
+    sed       : used to remove .pony from pony named when running ponysay -l
 
 
+Optional runtime dependencies
+=============================
 
-PONY PROVIDER dependencies:
-
-make: required to run `make ttyponies` 
-
-coreutils: ln and readlink are used in ttyponies.sh
-
-bash: required to run ttyponies.sh
-
-util-say: used by ttyponies.sh to builder ttyponies from xterm ponies
-# Available for Arch:ers in AUR as util-say-git are on github at https://github.com/maandree/util-say
+    (none)
 
 
+Package building dependencies
+=============================
 
-MAKE dependencies:
+    gcc       : used for compiling ponysaytruncater.c
 
-gcc: used for compiling ponysaytruncater.c
+    gzip      : used for compressing manpages
 
-gzip: used for compressing manpages
+    make      : required to run the make script
 
-make: required to run the make script
+    coreutils : make script uses install unlink rm ln mkdir cp
 
-coreutils: make script uses install unlink rm ln mkdir cp
+
+Dependencies for pony providers
+===============================
+
+    make      : required to run `make ttyponies` 
+
+    coreutils : ln and readlink are used in ttyponies.sh
+
+    bash      : required to run ttyponies.sh
+
+    util-say  : used by ttyponies.sh to builder ttyponies from xterm ponies
+    -- Available for Arch:ers in AUR as util-say-git (https://aur.archlinux.org/packages.php?ID=60241)
+    -- and on github at https://github.com/maandree/util-say
+
+
+Installation on GNU/Linux (or other Unix implementations)
+=========================================================
+
+    Before installing ponysay, make sure your system have the packages listed under
+    [Required runtime dependencies] and [Package building dependencies] installed.
+    
+    Download or clone the project.  bleeding edge:  https://github.com/erkin/ponysay/tarball/master
+    	     	      	  	    release:        https://github.com/erkin/ponysay/tags
+    
+    In the terminal, `cd` into the ponysay directory and execute `make && make install`.
+    This will install ponysay into the $PREFIX (/usr by default, meaning you may need to
+    run `make install` as root, e.g by running `sudo make install`.)
+    
+    In order to use ponysay, run:                 ponysay "I am just the cutest pony!"
+    Or if you have a specific pony in your mind:  ponysay -f pinkie "Partay!~"
+    
+    Run `info ponysay`, `man 6 ponysay` (man ponysay) or `ponysay -h` for more information.
+    A Spanish manual is available: man -L es 6 ponysay
+
+
+Pony fortune on terminal startup
+================================
+
+    This requires that you have fortune utility installed. You can install it from your
+    distributions package repository, it should be named fortune or fortune-mod.
+    
+    Edit your ~/.bashrc and this line [to the end should work]:
+    
+        fortune | ponysay
+    
+    Now every time you open a terminal a pony should give your fortune.
+    
+    If you wany ponified fortuned the are some stuff you can try:
+        
+        A gigantic sed script:
+          http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/
+        
+        ponypipe:
+          https://github.com/maandree/ponypipe
+          https://aur.archlinux.org/packages.php?ID=60228
+        
+        pinkie-pie:
+          https://github.com/maandree/pinkie-pie
+          https://aur.archlinux.org/packages.php?ID=60229
+
+
+Ponies in TTY (Linux VT)
+========================
+
+    If you have a custom colour palette edit your ~/.bashrc and add:
+    
+        if [ "$TERM" = "linux" ]; then
+            function ponysay
+            {
+                exec ponysay "$@"
+                #RESET PALETTE HERE
+            }
+        fi
+
+
+FAQ
+===
+
+    Q: The output looks like a mess in (TTY/PuTTY/other)!
+    
+    A: Unfortunately, there's nothing much we can do about it.
+       See issue 1:  https://github.com/erkin/ponysay/issues/1
+    
+    Q: You are missing (my-favourite-pony)!
+    
+    A: Ask and we'll add!
+       https://github.com/erkin/ponysay/issues
+    
+    Q: Which programs do you use to generate the pony files?
+    
+    A: The pony files are actually mostly a bunch of selected browser
+       ponies that are generated into cow files via img2xterm or util-say.
+
