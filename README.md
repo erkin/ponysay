@@ -61,6 +61,29 @@ Installation on Microsoft™ Windows®
 -----------------------------------
 [¯\\\_(ツ)\_/¯](http://i.imgur.com/2nP5N.png)
 
+Dependencies
+------------
+
+### Required runtime dependencies
+
+`bash`: required for the main script [file: ponysay]
+
+`cowsay`: this is a wrapper for cowsay
+
+`coreutils`: the main script uses stty, cut, ls, cat, head and tail
+
+`sed`: used to remove .pony from pony named when running `ponysay -l`
+
+### Package building dependencies
+
+`gcc`: used for compiling ponysaytruncater.c
+
+`gzip`: used for compressing manpages
+
+`make`: required to run the make script
+
+`coreutils`: make script uses install, unlink, rm, ln, mkdir and cp
+
 FAQ
 ---
 
