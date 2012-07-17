@@ -28,7 +28,7 @@ Or if you have a specific pony in your mind:
     ponysay -f pinkie "Partay!~"
 
 Run `info ponysay`, `man 6 ponysay` or `ponysay -h` for more information.
-A spanish manual is available: `man -L es 6 ponysay'.
+A spanish manual is available: `man -L es 6 ponysay`.
 
 
 ### Pony fortune on terminal startup 
