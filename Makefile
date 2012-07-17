@@ -1,15 +1,26 @@
 all: ponysaytruncater manpages
 
+
 ponysaytruncater:
 	gcc -o "ponysaytruncater" "ponysaytruncater.c"
+
 
 manpages:
 	gzip -9 < manuals/manpage.6 > manuals/manpage.6.gz
 	gzip -9 < manuals/manpage.es.6 > manuals/manpage.es.6.gz
 
+
 ttyponies:
 	mkdir -p ttyponies
-	./ttyponies.sh
+	for pony in $$(ls --color=no ponies/); do                                                      \
+	    echo "building ttypony: $$pony"                                                           ;\
+	    if [[ `readlink "ponies/$$pony"` = "" ]]; then                                             \
+	        ponysay2ttyponysay < "ponies/$$pony" | tty2colourfultty -c 1 -e > "ttyponies/$$pony"  ;\
+	    elif [[ ! -f "ttyponies/$$pony" ]]; then                                                   \
+	        ln -s `readlink "ponies/$$pony"` "ttyponies/$$pony"                                   ;\
+	    fi                                                                                         \
+	done
+
 
 install: all
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/"
@@ -58,6 +69,7 @@ install: all
 '\\--------------------------------------------------/'
 	@echo '' | ./ponysay -f ./`if [[ "$$TERM" = "linux" ]]; then echo ttyponies; else echo ponies; fi`/pinkiecannon.pony | tail --lines=30 ; echo -e '\n'
 
+
 uninstall:
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ponies"
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ttyponies"
@@ -71,6 +83,7 @@ uninstall:
 	unlink "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz"
 	unlink "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz"
 	unlink "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
+
 
 clean:
 	rm -f "ponysaytruncater"

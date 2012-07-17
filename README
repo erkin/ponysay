@@ -51,11 +51,11 @@ Package building dependencies
 Dependencies for pony providers
 ===============================
 
-    make      : required to run `make ttyponies` 
+    make      : required to run `make -B ttyponies` 
 
-    coreutils : ln and readlink are used in ttyponies.sh
+    coreutils : ln and readlink are used in the ttyponies subscript
 
-    bash      : required to run ttyponies.sh
+    bash      : used in the ttyponies subscript
 
     util-say  : used by ttyponies.sh to builder ttyponies from xterm ponies
     -- Available for Arch:ers in AUR as util-say-git (https://aur.archlinux.org/packages.php?ID=60241)
