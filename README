@@ -177,11 +177,11 @@ Providing ponies
     
     When a pony is added please also add a ttypony version, but if you don't please
     state so in the pull request so we do not miss the create it; the simplest way to
-    do this is to run `make ttyponies` after adding the ponies to ponies/,
+    do this is to run `make -B ttyponies` after adding the ponies to ponies/,
     
-    Running `make ttyponies` will build (or rebuild) all ttyponies with a pony present
+    Running `make -B ttyponies` will build (or rebuild) all ttyponies with a pony present
     in ponies/, and creates all needed symlinks.
     
-    To be able to run `make ttyponies` you must have the packages listed under
+    To be able to run `make -B ttyponies` you must have the packages listed under
     [Dependencies for pony providers].
 

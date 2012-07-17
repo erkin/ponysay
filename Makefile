@@ -40,6 +40,24 @@ install: all
 	install "manuals/manpage.es.6.gz" "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz"
 	ln -sf "ponysay.6.gz" "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
 
+	@echo -e '\n\n'\
+'/--------------------------------------------------\\\n'\
+'|   ___                                            |\n'\
+'|  / (_)        o                                  |\n'\
+'|  \__   _  _      __                              |\n'\
+'|  /    / |/ |  | /  \_|   |                       |\n'\
+'|  \___/  |  |_/|/\__/  \_/|/                      |\n'\
+'|              /|         /|                       |\n'\
+'|              \|         \|                       |\n'\
+'|   ____                                           |\n'\
+'|  |  _ \  ___   _ __   _   _  ___   __ _  _   _   |\n'\
+'|  | |_) |/ _ \ | '\''_ \ | | | |/ __| / _` || | | |  |\n'\
+'|  |  __/| (_) || | | || |_| |\__ \| (_| || |_| |  |\n'\
+'|  |_|    \___/ |_| |_| \__, ||___/ \__,_| \__, |  |\n'\
+'|                       |___/              |___/   |\n'\
+'\\--------------------------------------------------/'
+	@echo '' | ./ponysay -f ./`if [[ "$$TERM" = "linux" ]]; then echo ttyponies; else echo ponies; fi`/pinkiecannon.pony | tail --lines=30 ; echo -e '\n'
+
 uninstall:
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ponies"
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ttyponies"
