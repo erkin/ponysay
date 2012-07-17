@@ -138,5 +138,50 @@ FAQ
     Q: Which programs do you use to generate the pony files?
     
     A: The pony files are actually mostly a bunch of selected browser
-       ponies that are generated into cow files via img2xterm or util-say.
+       ponies that are generated into cow files via img2xterm
+         https://github.com/rossy2401/img2xterm
+       or util-say.
+         https://github.com/maandree/util-say
+         https://aur.archlinux.org/packages.php?ID=60241
+
+
+Providing ponies
+================
+
+    Most pony images are browser ponies or desktop ponies,
+    browser ponies is a fork of desktop ponies, implementing it in JavaScript.
+    
+    Browser ponies:  https://github.com/panzi/Browser-Ponies
+    Desktop ponies:  http://desktop-pony-team.deviantart.com/
+    
+    There is also a collection of ponies that are not yet pixelated in a Java reimplementation:
+      https://github.com/maandree/unisay/tree/develop/dev/newponies
+    
+    
+    New ponies can be created from regular images by using img2xterm
+      https://github.com/rossy2401/img2xterm
+    or util-say
+      https://github.com/maandree/util-say
+      https://aur.archlinux.org/packages.php?ID=60241
+    
+    Using util-say:
+        
+        img2ponysay -c 1 -2 -- SOURCE_IMAGE > PONY_FILE
+        
+        PONY_FILE should end with .pony and be localed in ponies/
+        
+        Omit -2 if the source image does not use double pixel size.
+        
+        (`-c 1` is no longer required.)
+        For more information see https://github.com/maandree/util-say/wiki/img2ponysay
+    
+    When a pony is added please also add a ttypony version, but if you don't please
+    state so in the pull request so we do not miss the create it; the simplest way to
+    do this is to run `make ttyponies` after adding the ponies to ponies/,
+    
+    Running `make ttyponies` will build (or rebuild) all ttyponies with a pony present
+    in ponies/, and creates all needed symlinks.
+    
+    To be able to run `make ttyponies` you must have the packages listed under
+    [Dependencies for pony providers].
 
