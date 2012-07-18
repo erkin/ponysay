@@ -26,8 +26,8 @@ install: all
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ponies"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ttyponies"
-	cp ponies/*.pony "$(DESTDIR)/usr/share/ponysay/ponies/"
-	cp ttyponies/*.pony "$(DESTDIR)/usr/share/ponysay/ttyponies/"
+	cp -P ponies/*.pony "$(DESTDIR)/usr/share/ponysay/ponies/"
+	cp -P ttyponies/*.pony "$(DESTDIR)/usr/share/ponysay/ttyponies/"
 
 	mkdir -p "$(DESTDIR)/usr/bin/"
 	install "ponysay" "$(DESTDIR)/usr/bin/ponysay"
