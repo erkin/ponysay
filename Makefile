@@ -32,6 +32,7 @@ install: all
 	mkdir -p "$(DESTDIR)/usr/bin/"
 	install "ponysay" "$(DESTDIR)/usr/bin/ponysay"
 	install -s "ponysaytruncater" "$(DESTDIR)/usr/bin/ponysaytruncater"
+	install "ponysaylist.pl" "$(DESTDIR)/usr/bin/ponysaylist.pl"
 	ln -sf "ponysay" "$(DESTDIR)/usr/bin/ponythink"
 
 	mkdir -p "$(DESTDIR)/usr/share/zsh/site-functions/"
@@ -74,6 +75,7 @@ uninstall:
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ponies"
 	rm -fr "$(DESTDIR)/usr/share/ponysay/ttyponies"
 	unlink "$(DESTDIR)/usr/bin/ponysay"
+	unlink "$(DESTDIR)/usr/bin/ponysaylist.pl"
 	unlink "$(DESTDIR)/usr/bin/ponysaytruncater"
 	unlink "$(DESTDIR)/usr/bin/ponythink"
 	unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay";

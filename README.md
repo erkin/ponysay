@@ -70,9 +70,11 @@ Dependencies
 
 `cowsay`: this is a wrapper for cowsay
 
-`coreutils`: the main script uses stty, cut, ls, cat, head and tail
+`coreutils`: the main script uses stty, cut, ls, cat, sort, head and tail
 
 `sed`: used to remove .pony from pony named when running `ponysay -l`
+
+`perl`: required to run `ponysay -l`
 
 ### Package building dependencies
 

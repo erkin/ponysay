@@ -20,28 +20,15 @@ version() {
 
 list() {
     scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
-    (( $scrw > 80 )) && scrw=80
+    
+    listcmd=$(echo $0 | sed -e 's/\/ponysay$/\//g' -e 's/\/ponythink$/\//g')"ponysaylist.pl"
     
     echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
-    files=`ls -1 $SYSTEMPONIES | sed "s/.pony//"`
-    maxw=1
-    for file in $files; do
-	w=$(( `echo $file | wc -m` + 2 ))
-	(( $maxw < $w )) && maxw=$w
-    done
-    cols=$(( $scrw / $maxw ))
-    echo "$files" | pr -T --columns=$cols
+    perl $listcmd $scrw $(ls --color=no $SYSTEMPONIES | sed "s/.pony//" | sort)
     
     if [[ -d $HOMEPONIES ]]; then
 	echo -e "\\e[01mponyfiles located in $HOMEPONIES:\\e[21m"
-	files=`ls -1 $HOMEPONIES | sed "s/.pony//"`
-	maxw=1
-	for file in $files; do
-	    w=$(( `echo $file | wc -m` ))
-	    (( $maxw < $w )) && maxw=$w
-	done
-	cols=$(( $scrw / $maxw ))
-	echo "$files" | pr -T --columns=$cols
+	perl $listcmd $scrw $(ls --color=no $HOMEPONIES | sed "s/.pony//" | sort)
     fi
 }
 
