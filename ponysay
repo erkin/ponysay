@@ -63,7 +63,7 @@ say() {
     export PERL_UNICODE=S
     
     if [ "$TERM" = "linux" ]; then
-    	echo -ne '\ec'
+    	echo -ne '\e[H\e[2J'
     fi
     
     function wtrunc
