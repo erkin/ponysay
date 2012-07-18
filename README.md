@@ -8,7 +8,7 @@ Installation on GNU/Linux (or other Unix implementations)
 ---------------------------------------------------------
 
 First of all, you need `cowsay` from your local repositories.
-Obtain it from [here](http://www.nog.net/~tony/warez/cowsay.shtml) if you wish to compile it yourself.
+Obtain it from [here](http://www.nog.net/~tony/warez) if you wish to compile it yourself.
 This is often sufficient, but if is not you may be missing one of the standard packages: [bash](ftp://ftp.gnu.org/gnu/bash/), [coreutils](ftp://ftp.gnu.org/gnu/coreutils/) or [sed](ftp://ftp.gnu.org/gnu/sed/).
 
 [Download](https://github.com/erkin/ponysay/downloads) or clone the project.
