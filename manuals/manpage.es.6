@@ -32,13 +32,14 @@ ponysay \- un contenedor para cowsay usando ponis
 .\" \fI<whatever>\fP escape sequences to invode bold face and italics,
 .\" respectively.
 \fBponysay\fP muestra la imagen de un poni con un texto dado por el usuario, esto dentro de la terminal.
-Este es en realidad un contenedor para \fIcowsay\fP, aunque sigue usando este último para motrar el mensaje.
-Si el \fImesaje\fP no es provisto, este aceptará una orden estándar.
+.br
+Este es en realidad un contenedor para \fIcowsay\fP, por tanto sigue usando este último para motrar el mensaje.
+Si el \fImesaje\fP no es provisto, ponysay aceptará una orden estándar.
 El mensaje debería de tener alrededor de 40 columnas, y el o la poni devería de mostrar este mensaje
 en una salida estándar.
 .PP
-Si no se le da ningun argumenrto, el programa solo aceptará mensajes estándares provistos por otro programa,
-un archivo, ambos o cadena de caracteres (vease man bash(1) para detalles de archivos y cadenas de caracteres.)
+Si no se da ningún argumento, el programa solo aceptará mensajes estándares provistos por otros programas,
+un archivo, ambos o cadena de caracteres (vease man bash(1) para detalles de archivos y cadenas de caracteres.).
 .PP
 \fBponythink\fP es a \fIponysay\fP como \fIcowthink\fP es a \fIcowsay\fP.
 .SH OPCIONES
@@ -52,6 +53,9 @@ Muestra la versión del programa.
 .TP
 .B \-l
 Lista los ponis disponibles.
+.TP
+.B \-L
+Lista los ponis con sinónimos dentro de corchetes.
 .TP
 .B \-f \fInombre\fP
 selecciona un poni específico (ya sea un archivo o el nombre directamente), puedes usar esta opción con múltiples ponis y de estos será elejído uno al azar.
