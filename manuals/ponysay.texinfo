@@ -1,0 +1,242 @@
+\input texinfo   @c -*-texinfo-*-
+
+@c %**start of header
+@setfilename ponysay.info
+@settitle Ponysay
+@afourpaper
+@documentencoding UTF-8
+@documentlanguage en
+@finalout
+@c %**end of header
+@set VERSION 1.1
+
+@copying
+This manual is for ponysay
+(version @value{VERSION}),
+
+Copyright @copyright{} 2012 Mattias Andrée
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled ``GNU
+Free Documentation License''.
+@end quotation
+@end copying
+
+@ifnottex
+@node Top
+@top Ponysay: ponies for your terminal
+@insertcopying
+@end ifnottex
+
+@titlepage
+@title Ponysay
+@subtitle A cowsay wrapper for ponies.
+@subtitle Covers ponysay version @value{VERSION}.
+@author by Mattias Andrée
+
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+
+@menu
+* Overview::                            Brief overview of @command{ponysay}.
+* Invoking ponysay::                    How to run @command{ponysay}.
+* Environment::                         Environment variables.
+@c Extensions
+* Limitations::                         Limitations.
+* Problems and requests::               Reports and requests.
+* GNU Free Documentation License::      Copying and sharing this manual.
+* Concept index::                       Concept index.
+@end menu
+
+
+@node Overview
+@chapter Overview
+@cindex overview
+
+@command{ponysay} displays an image of a My Little Pony pony saying some text provided
+by the user in a terminal. It is a wrapper for @command{cowsay}. If message is not
+provided, e.g. by piping, it accepts standard input. The pony saying the given message
+is printed on standard output.
+
+@command{ponythink} is to @command{ponysay} as @command{cowthink} is to @command{cowsay}.
+
+
+@node Invoking ponysay
+@chapter Invoking @command{ponysay}
+@cindex invoking
+@cindex options
+@cindex arguments
+@cindex ponythink
+
+The format for running the @command{ponysay} program is:
+
+@example
+ponysay [@var{option}@dots{}] [@var{message}]
+ponythink [@var{option}@dots{}] [@var{message}]
+@end example
+
+Running @command{ponysay} will print a speech balloon,
+@command{ponythink} will print a thought balloon.
+Otherwise @command{ponysay} and @command{ponythink} is the same thing.
+
+@command{ponysay} supports the following options:
+
+@table @option
+
+@item -h
+Show summary of options.
+
+@item -v
+Show version of program.
+
+@item -f PONY
+Specify the pony that should printed, this can either be a file name or
+a pony name printed by @command{ponysay -l}. If it is a file name with
+a relative path and does not include a `@code{/}', it must begin with
+`@code{./}', this is a @command{cowsay} issue. This option can be used
+multiple times to specify a set of ponies from which one will be selected
+randomly. If no pony is specified one will be selected randomly.
+
+@item -q [PONY...]
+This option requires the extension @command{ponyquotes4ponysay}. By using
+this option, a pony will be printed with quotes from her in My Litte Pony:
+Friendship is Magic. The pony will be selected randomly, at least one pony
+is added as an argument after @command{-q}.
+
+@item -W COLUMN
+Specify the screen column where the message should be wrapped,
+this is by default 40, which is inherited from @command{cowsay}.
+
+@item -l
+Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
+is installed the ponies which have quotes, i.e. can be used with the
+@command{-q} option, will be mark by being printed in bold or bright
+(depending on the terminal.)
+
+@item -L
+Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
+is installed the ponies which have quotes, i.e. can be used with the
+@command{-q} option, will be mark by being printed in bold or bright
+(depending on the terminal.) This options differs from @command{-l} by
+printed symonym ponies (symbolic links) inside brackes after their
+target ponies.
+@end table
+
+If neither @command{-q} is used nor any @var{message} is specified, @command{ponysay}
+will read the message from stdin (standard input); however, if no arguments
+are used that nothing is piped to stdin, a help message will be printed.
+If you want to use @command{ponysay} without arguments and enter the message
+by hand, you can run @code{cat | ponysay}.
+
+
+@node Environment
+@chapter Environment variables
+@cindex environment variables
+@cindex truncation
+
+@command{ponysay} supports the follow environment variables:
+
+@table @option
+@item PONYSAY_BOTTOM
+@cindex PONYSAY_BOTTOM
+Under TTY (Linux VT), if the output is larger the the screen's height, only
+the beginning is printed, leaving two blank lines. If you want the buttom
+to be printed rather the the beginning you can export @code{PONYSAY_BOTTOM}
+with the value @code{yes}, @code{y} or @code{1}.
+
+@item PONYSAY_SHELL_LINES
+@cindex PONYSAY_SHELL_LINES
+Under TTY (Linux VT), if the output is larger the the screen's height, two
+lines are left blank. If you want more, or less, blank lines you can export
+@code{PONYSAY_SHELL_LINES} with the value of how many blank lines you want.
+Naturally this takes effect if the output is not actually larger than the
+screen.
+ 
+@item PONYSAY_FULL_WIDTH
+@cindex PONYSAY_FULL_WIDTH
+You can export @code{PONYSAY_FULL_WIDTH} with the value @code{no}, @code{n}
+or @code{0}, if you do not want the output to be truncated on the width to
+fit the terminal.
+
+@item PONYSAY_TRUNCATE_HEIGHT
+@cindex PONYSAY_TRUNCATE_HEIGHT
+Export @code{PONYSAY_TRUNCATE_HEIGHT} with the value @code{yes}, @code{y}
+or @code{1}, if you want to truncate the output on the height even if you
+are not running @command{ponysay} under TTY.
+@end table
+
+
+
+@node Limitations
+@chapter Limitations
+@cindex limitations
+
+@menu
+* Terminals::           Limitations on terminals.
+@c Cowsay
+@end menu
+
+@node Terminals
+@section Terminals
+
+
+Ponysay works perfectly on @command{xterm}, @command{xterm} like terminals including
+@command{putty}, settings may however need to be customised for Unicode Character Set
+(UCS) support, but less well, depending on font, on VTE based terminals including
+@command{mate-terminal}.
+
+On Linux's native terminal Linux VT (or TTY) it works less well, and not good at all
+with Kernal Mode Settings (KMS) support. See @url{https://github.com/erkin/ponysay/issues/1}
+for more information.
+
+Due to extreme limitations in @command{9term} @command{ponysay} will never be able
+to run on it.
+
+
+
+@node Problems and requests
+@chapter Problems and requests
+
+@menu
+* Problems::           Reporting bugs.
+* Requests::           Requestig ponies.
+@end menu
+
+@node Problems
+@section Reporting bugs
+@cindex bugs
+
+If you find a bug in @command{ponysay}, install the last version
+from @url{https://github.com/erkin/ponysay}, and if it is still
+present, please report it at @url{https://github.com/erkin/ponysay/issues}.
+Please be as descriptive as possible, as it will help us verify it
+solve it faster.
+
+@node Requests
+@section Requestig ponies
+@cindex pony requests
+
+If you want I specific pony added, ask us at @url{https://github.com/erkin/ponysay/issues}
+and we will add it. To speed the up the process, if possible, supply good
+pictures. Full visibly, transparent background, and pixelated are the
+properties that makes a picture good.
+
+@node GNU Free Documentation License
+@appendix GNU Free Documentation License
+@include fdl.texinfo
+
+@node Concept index
+@appendix Concept index
+@printindex cp
+
+@bye
+
