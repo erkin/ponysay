@@ -115,12 +115,14 @@ say() {
     fi
 }
 
+ponies=()
+
 while getopts f:W:lhv OPT
 do
     case ${OPT} in
         v)  version; exit ;;
         h)  usage; exit ;;
-        f)  pony="$OPTARG" ;;
+        f)  ponies+=( "$OPTARG" ) ;;
 	l)  list; exit ;;
         W)  wrap="$OPTARG" ;;
         \?) usage >&2; exit 1 ;;
@@ -137,6 +139,10 @@ Alternatively, symlink it to '$cmd' in anywhere in \$PATH
 if it actually exists under a different filename.
 EOF
     exit 1
+fi
+
+if [[ ! ${#ponies[@]} == 0 ]]; then
+    pony="${ponies[$RANDOM%${#ponies[@]}]}"
 fi
 
 if [[ ! -f $pony ]]; then
