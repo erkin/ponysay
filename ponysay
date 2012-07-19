@@ -19,7 +19,7 @@ version() {
 }
 
 scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
-listcmd="$0list.pl"
+listcmd="ponysaylist.pl"
 
 haspq=1
 if [[ -f './pq4ps-list' ]]; then
