@@ -5,7 +5,13 @@ _ponysay()
     local cur prev words cword
     _init_completion -n = || return
     
-    COMPREPLY=( $( compgen -W '-v -h -l -f -W' -- "$cur" ) )
+    quotes=$(pq4ps --list 2>/dev/null)
+    quotesexit=$?
+    options='-v -h -l -f -W'
+    if [[ $quotesexit = 0 ]]; then
+	options="$options -q"
+    fi
+    COMPREPLY=( $( compgen -W "$options" -- "$cur" ) )
     
     if [[ $prev = "-f" ]]; then
 	COMPREPLY=()
@@ -24,8 +30,10 @@ _ponysay()
 	    COMPREPLY+=( $( compgen -W "$(ls --color=no $usrponies | sed -e 's/.pony//g')" -- "$cur" ) )
 	fi
     elif [[ $prev = "-W" ]]; then
-	cols=$( echo `tput cols` - 10 | bc )
-	COMPREPLY=( $cols   $( echo $cols / 2 | bc )  100  60 )
+	cols=$(( `stty size | cut -d ' ' -f 2` - 10 ))
+	COMPREPLY=( $cols  $(( $cols / 2 ))  100  60 )
+    elif [[ $quotesexit = 0 ]] && [[ $prev = "-q" ]]; then
+	COMPREPLY=( $( compgen -W "$quotes" -- "$cur" ) )
     fi
 }
 
