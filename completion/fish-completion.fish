@@ -1,15 +1,14 @@
-
-# Completions for ponysay & ponythink
+# Completions for ponysay
 # https://github.com/erkin/ponysay/
 #
 # Author: Elis Axelsson <etu AT elis DOT nu>
 
 if test $TERM = "linux"
-	set -g systempath "/usr/share/ponysay/ttyponies/"
-	set -g homepath   "~/.local/share/ponysay/ttyponies/"
+	set -g systempath /usr/share/ponysay/ttyponies/
+	set -g homepath   ~/.local/share/ponysay/ttyponies/
 else
-	set -g systempath "/usr/share/ponysay/ponies/"
-	set -g homepath   "~/.local/share/ponysay/ponies/"
+	set -g systempath /usr/share/ponysay/ponies/
+	set -g homepath   ~/.local/share/ponysay/ponies/
 end
 
 

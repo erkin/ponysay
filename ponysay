@@ -8,15 +8,29 @@ pony="*"
 wrap=""
 
 if [ "$TERM" = "linux" ]; then
-    SYSTEMPONIES="/usr/share/ponysay/ttyponies"
-    HOMEPONIES="${HOME}/.local/share/ponysay/ttyponies"
+	SYSTEMPONIES="/usr/share/ponysay/ttyponies"
+	HOMEPONIES="${HOME}/.local/share/ponysay/ttyponies"
 fi
 
-cmd=cowsay
-[[ ${0} == *ponythink ]] && cmd=cowthink
+if [[ "$PONYSAY_COWSAY" = "" ]]; then
+	cmd=cowsay
+	customcmd=0
+else
+	cmd="$PONYSAY_COWSAY"
+	customcmd=1
+fi
+
+[[ ${0} == *ponythink ]] &&
+if [[ "$PONYSAY_COWTHINK" = "" ]]; then
+	cmd=cowthink
+	customcmd=0
+else
+	cmd="$PONYSAY_COWTHINK"
+	customcmd=1
+fi
 
 version() {
-    echo "ponysay v$version"
+	echo "ponysay v$version"
 }
 
 scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
@@ -25,49 +39,51 @@ truncatercmd="${SCRIPTDIR}/../lib/ponysay/truncater"
 
 haspq=1
 if [[ -f './pq4ps-list' ]]; then
-    function qlist
-    {   ./pq4ps-list
-    }
+	function qlist {
+		./pq4ps-list
+	}
 elif [[ -f '/usr/bin/pq4ps-list' ]]; then
-    function qlist
-    {   /usr/bin/pq4ps-list
-    }
+	function qlist {
+		/usr/bin/pq4ps-list
+	}
 else
-    haspq=0
-    function qlist
-    {   cat
-    }
+	haspq=0
+	function qlist {
+		cat
+	}
 fi
 
 list() {
-    echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
-    perl $listcmd $scrw $(ls --color=no $SYSTEMPONIES | sed -e 's/\.pony$//' | sort) | qlist
-    
-    if [[ -d $HOMEPONIES ]]; then
-	echo -e "\\e[01mponyfiles located in $HOMEPONIES:\\e[21m"
-	perl $listcmd $scrw $(ls --color=no $HOMEPONIES | sed -e 's/\.pony$//' | sort) | qlist
-    fi
+	echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
+	perl $listcmd $scrw $(ls --color=no $SYSTEMPONIES | sed -e 's/\.pony$//' | sort) | qlist
+	
+	if [[ -d $HOMEPONIES ]]; then
+		echo -e "\\e[01mponyfiles located in $HOMEPONIES:\\e[21m"
+		perl $listcmd $scrw $(ls --color=no $HOMEPONIES | sed -e 's/\.pony$//' | sort) | qlist
+	fi
 }
 
 _linklist() {
-    echo -e "\\e[01mponyfiles located in $1:\\e[21m"
-    files=$(ls --color=no $1 | sed -e 's/\.pony$//' | sort)
-    
-    args=""
-    
-    for file in $files; do
-	target=$(readlink $1"/"$file".pony")
-	if [[ $target = "" ]]; then
-	    target=$file
-	else
-	    target=$(echo $target | sed -e 's/^\.\///g' -e 's/\.pony$//g')
-	fi
-	args=$(echo $args $file $target)
-    done
-    
-    scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
-    
-    perl '/dev/stdin' $(echo $args) <<EOF | sed -e 's/ /_/g' > /dev/shm/ponysay~
+	echo -e "\\e[01mponyfiles located in $1:\\e[21m"
+	files=$(ls --color=no $1 | sed -e 's/\.pony$//' | sort)
+	
+	args=""
+	
+	for file in $files; do
+		target=$(readlink $1"/"$file".pony")
+		
+		if [[ $target = "" ]]; then
+			target=$file
+		else
+			target=$(echo $target | sed -e 's/^\.\///g' -e 's/\.pony$//g')
+		fi
+		
+		args=$(echo $args $file $target)
+	done
+	
+	scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
+	
+	perl '/dev/stdin' $(echo $args) <<EOF | sed -e 's/ /_/g' > '/dev/shm/.ponysay~'
 #!/usr/bin/perl
 
 #Author: Mattias Andrée (maandree@kth.se)
@@ -133,20 +149,22 @@ while (\$i < \$argc)
     }
 }
 EOF
-    
-    perl $listcmd $scrw $(cat /dev/shm/ponysay~) | sed -e 's/_/ /g' | qlist
+	
+	perl $listcmd $scrw $(cat "/dev/shm/.ponysay~") | sed -e 's/_/ /g' | qlist
+	rm '/dev/shm/.ponysay~'
 }
 
 linklist() {
-    _linklist $SYSTEMPONIES
-    if [[ -d $HOMEPONIES ]]; then
-	_linklist $HOMEPONIES
-    fi
+	_linklist $SYSTEMPONIES
+	
+	if [[ -d $HOMEPONIES ]]; then
+		_linklist $HOMEPONIES
+	fi
 }
 
 usage() {
-    version
-    cat <<EOF
+	version
+	cat <<EOF
 
 Usage:
 ${0##*/} [options] [message]
@@ -159,12 +177,14 @@ Options:
   -l          List pony files.
   -L          List pony files with synonyms inside brackets.
 EOF
-if [[ $haspq = 1 ]]; then
-    cat <<EOF
+	
+	if [[ $haspq = 1 ]]; then
+		cat <<EOF
   -q          Use the pony quote feature.
 EOF
-fi
-cat <<EOF
+	fi
+	
+	cat <<EOF
   -f[name]    Select a pony (either a file name or a pony name.)
   -W[column]  The screen column where the message should be wrapped.
 
@@ -174,121 +194,141 @@ EOF
 
 # if no stdin and no arguments then print usage and exit
 if [[ -t 0 && $# == 0 ]]; then
-  usage
-  exit
+	usage
+	exit
 fi
 
 say() {
-    # Ponies use UTF-8 drawing characters. Prevent a Perl warning.
-    export PERL_UNICODE=S
-    
-    if [ "$TERM" = "linux" ]; then
-    	echo -ne '\e[H\e[2J'
-    fi
-    
-    function wtrunc
-    {
-	if [ "$PONYSAY_FULL_WIDTH" = 'no' ] || [ "$PONYSAY_FULL_WIDTH" = 'n' ] || [ "$PONYSAY_FULL_WIDTH" = '0' ]; then
-	    cat
-	else
-	    WIDTH=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
-		$truncatercmd $WIDTH 2>/dev/null || cat
+	# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
+	export PERL_UNICODE=S
+	
+	if [ "$TERM" = "linux" ]; then
+		echo -ne '\e[H\e[2J'
 	fi
-    }
-    
-    if [ "$PONYSAY_SHELL_LINES" = "" ]; then
-	PONYSAY_SHELL_LINES=2
-    fi
-    function htrunchead
-    {
-	head --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
-    }
-    function htrunctail
-    {
-	tail --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
-    }
-    
-    if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
-	if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
-	    perl <(cat <(echo -e '#!/usr/bin/perl\nuse utf8;') $(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)) -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
-	else
-	    perl <(cat <(echo -e '#!/usr/bin/perl\nuse utf8;') $(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)) -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
+	
+	function wtrunc {
+		if [ "$PONYSAY_FULL_WIDTH" = 'yes' ] || [ "$PONYSAY_FULL_WIDTH" = 'y' ] || [ "$PONYSAY_FULL_WIDTH" = '1' ]; then
+			cat
+		else
+			WIDTH=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
+			$truncatercmd $WIDTH 2>/dev/null || cat
+		fi
+	}
+	
+	if [ "$PONYSAY_SHELL_LINES" = "" ]; then
+		PONYSAY_SHELL_LINES=2
 	fi
-    else
-	perl <(cat <(echo -e '#!/usr/bin/perl\nuse utf8;') $(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)) -f "$pony" "${wrap:+-W$wrap}" | wtrunc
-    fi
+	
+	function htrunchead {
+		head --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
+	}
+	
+	function htrunctail {
+		tail --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
+	}
+	
+	if [[ $customcmd = 0 ]]; then
+		function cowcmd {
+			pcmd='#!/usr/bin/perl\nuse utf8;'
+			ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
+			
+			if [[ ${0} == *ponythink ]]; then
+				cat <(echo -e $pcmd) $ccmd > "/dev/shm/.ponythink"
+				perl '/dev/shm/.ponythink' "$@"
+				rm '/dev/shm/.ponythink'
+			else
+				perl <(cat <(echo -e $pcmd) $ccmd) "$@"
+			fi
+		}
+	else
+		function cowcmd	{
+			echo "custom $cmd"
+			$cmd "$@"
+		}
+	fi
+	
+	if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
+		if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
+			cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
+		else
+			cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
+		fi
+	else
+		cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc
+	fi
 }
 
 ponies=()
 
 opts="f:W:Llhv"
 if [[ $haspq ]]; then
-    opts=$opts"q"
+	opts=$opts"q"
 fi
+
 usepq=0
-while getopts $opts OPT
-do
-    case ${OPT} in
-        v)  version; exit ;;
-        h)  usage; exit ;;
-        f)  ponies+=( "$OPTARG" ) ;;
-	l)  list; exit ;;
-	L)  linklist; exit ;;
-        W)  wrap="$OPTARG" ;;
-	q)  usepq=1 ;;
-        \?) usage >&2; exit 1 ;;
-    esac
+while getopts $opts OPT; do
+	case ${OPT} in
+		v)  version; exit ;;
+		h)  usage; exit ;;
+		f)  ponies+=( "$OPTARG" ) ;;
+		l)  list; exit ;;
+		L)  linklist; exit ;;
+		W)  wrap="$OPTARG" ;;
+		q)  usepq=1 ;;
+		\?) usage >&2; exit 1 ;;
+	esac
 done
 shift $((OPTIND - 1))
 
 if [[ $usepq = 1 ]]; then
-    if [[ -f './pq4ps' ]]; then
-	function q
-	{   ./pq4ps $@
-	}
-    elif [[ -f '/usr/bin/pq4ps' ]]; then
-	function q
-	{   /usr/bin/pq4ps $@
-	}
-    fi
-    $0 ${wrap:+-W$wrap} $(q "$*")
-    exit
+	if [[ -f './pq4ps' ]]; then
+		function q {
+			./pq4ps $@
+		}
+	elif [[ -f '/usr/bin/pq4ps' ]]; then
+		function q {
+			/usr/bin/pq4ps $@
+		}
+	fi
+	$0 ${wrap:+-W$wrap} $(q "$*")
+	exit
 fi
 
 hash $cmd &>/dev/null; if [ $? -ne 0 ]; then
-    cat >&2 <<EOF
+	cat >&2 <<EOF
 You don't seem to have the $cmd program.
 Please install it in order to use this wrapper.
 
 Alternatively, symlink it to '$cmd' in anywhere in \$PATH
 if it actually exists under a different filename.
 EOF
-    exit 1
+	exit 1
 fi
 
 if [[ ! ${#ponies[@]} == 0 ]]; then
-    pony="${ponies[$RANDOM%${#ponies[@]}]}"
+	pony="${ponies[$RANDOM%${#ponies[@]}]}"
 fi
 
 if [[ ! -f $pony ]]; then
-    # Pony not a file? Search for it
-
-    ponies=()
-    [[ -d $SYSTEMPONIES ]] && ponies+=( "$SYSTEMPONIES"/$pony.pony )
-    [[ -d $HOMEPONIES ]] && ponies+=( "$HOMEPONIES"/$pony.pony )
-
-    if (( ${#ponies} < 1 )); then
-        echo >&2 "All the ponies are missing! Call the Princess!"
-        exit 1
-    fi
-
-    # Choose a random pony
-    pony="${ponies[$RANDOM%${#ponies[@]}]}"
+	# Pony not a file? Search for it
+	
+	ponies=()
+	[[ -d $SYSTEMPONIES ]] && ponies+=( "$SYSTEMPONIES"/$pony.pony )
+	[[ -d $HOMEPONIES ]]   && ponies+=( "$HOMEPONIES"/$pony.pony )
+	
+	if (( ${#ponies} < 1 )); then
+		echo >&2 "All the ponies are missing! Call the Princess!"
+		exit 1
+	fi
+	
+	# Choose a random pony
+	pony="${ponies[$RANDOM%${#ponies[@]}]}"
 fi
 
 if [[ -n "$*" ]]; then
-  # Handle a message given via arguments
-  say <<<"$*"
+	# Handle a message given via arguments
+	say <<<"$*"
 else
-  say
+	say
 fi
+
