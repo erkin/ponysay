@@ -61,7 +61,7 @@ Dependencies for pony providers
 
     bash      : used in the ttyponies subscript
 
-    util-say  : used by ttyponies.sh to builder ttyponies from xterm ponies
+    util-say  : used by `make ttyponies` to builder ttyponies from xterm ponies
     -- Available for Arch:ers in AUR as util-say-git (https://aur.archlinux.org/packages.php?ID=60241)
     -- and on github at https://github.com/maandree/util-say
 
