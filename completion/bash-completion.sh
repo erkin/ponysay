@@ -17,10 +17,10 @@ _ponysay()
 	COMPREPLY=()
 	
 	sysponies=/usr/share/ponysay/ponies/
-	usrponies=~/.ponies/
+	usrponies=~/.local/share/ponysay/ponies/
 	if [[ $TERM = "linux" ]]; then
 	    sysponies=/usr/share/ponysay/ttyponies/
-	    usrponies=~/.ttyponies/
+	    usrponies=~/.local/share/ponysay/ttyponies/
 	fi
 	
 	if [[ -d $sysponies ]]; then

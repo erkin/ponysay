@@ -6,11 +6,11 @@
 
 
 if test -d /usr/share/ponysay/ponies/
-	set -g systemponies (ls /usr/share/ponysay/ponies/ | sed 's/\.pony/\t Pony from \/usr\/share\/ponysay\/ponies\//')
+	set -g systemponies (ls --color=no /usr/share/ponysay/ponies/ | sed 's/\.pony/\t Pony from \/usr\/share\/ponysay\/ponies\//')
 end
 
 if test -d ~/.local/share/ponysay/ponies/
-	set -g homeponies (ls ~/.local/share/ponysay/ponies/ | sed 's/\.pony/\t Pony from ~\/.local\/share\/ponysay\/ponies\//')
+	set -g homeponies (ls --color=no ~/.local/share/ponysay/ponies/ | sed 's/\.pony/\t Pony from ~\/.local\/share\/ponysay\/ponies\//')
 end
 
 complete -c ponysay -s h --description "Help of ponysay"
