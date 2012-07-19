@@ -35,6 +35,10 @@ install: all
 	install "ponysaylist.pl" "$(DESTDIR)/usr/bin/ponysaylist.pl"
 	ln -sf "ponysay" "$(DESTDIR)/usr/bin/ponythink"
 
+	mkdir -p "$(DESTDIR)/usr/share/fish/completions/"
+	install -m "644" "completion/fish_ponysay.fish" "$(DESTDIR)/usr/share/fish/completions/ponysay.fish"
+	install -m "644" "completion/fish_ponythink.fish" "$(DESTDIR)/usr/share/fish/completions/ponythink.fish"
+
 	mkdir -p "$(DESTDIR)/usr/share/zsh/site-functions/"
 	install "completion/zsh-completion.zsh" "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay"
 
