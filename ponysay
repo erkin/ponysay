@@ -210,12 +210,12 @@ say() {
     
     if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
 	if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
-	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
+	    perl <(cat <(echo -e '#!/usr/bin/perl\nuse utf8;') $(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)) -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
 	else
-	    exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
+	    perl <(cat <(echo -e '#!/usr/bin/perl\nuse utf8;') $(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)) -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
 	fi
     else
-	exec "$cmd" -f "$pony" "${wrap:+-W$wrap}" | wtrunc
+	perl <(cat <(echo -e '#!/usr/bin/perl\nuse utf8;') $(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)) -f "$pony" "${wrap:+-W$wrap}" | wtrunc
     fi
 }
 
