@@ -25,9 +25,9 @@ Required runtime dependencies
 
     cowsay    : this is a wrapper for cowsay
 
-    coreutils : the main script [file: ponysay] uses stty, cut, ls, cat, sort, readlink, head and tail
+    coreutils : the main script [file: ponysay] uses stty, cut, ls, cat, sort, readlink, pwd, head and tail
 
-    sed       : used to remove .pony from pony named when running `ponysay -l` and `ponysay -L`
+    sed       : used to remove .pony from pony names when running `ponysay -l` and `ponysay -L`
 
     perl      : required to run `ponysay -l` and `ponysay -L`
 
@@ -49,7 +49,7 @@ Package building dependencies
 
     make      : required to run the make script
 
-    coreutils : make script uses install unlink rm ln mkdir cp
+    coreutils : make script uses install, unlink, rm, ln, mkdir and cp
 
 
 Dependencies for pony providers
@@ -61,7 +61,7 @@ Dependencies for pony providers
 
     bash      : used in the ttyponies subscript
 
-    util-say  : used by `make ttyponies` to builder ttyponies from xterm ponies
+    util-say  : used by `make ttyponies` to build ttyponies from xterm ponies
     -- Available for Arch:ers in AUR as util-say-git (https://aur.archlinux.org/packages.php?ID=60241)
     -- and on github at https://github.com/maandree/util-say
 
