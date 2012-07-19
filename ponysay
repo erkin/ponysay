@@ -19,7 +19,7 @@ version() {
 }
 
 scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
-listcmd=$(echo $0 | sed -e 's/\/ponysay$/\//g' -e 's/\/ponythink$/\//g')"ponysaylist.pl"
+listcmd="$0list.pl"
 
 list() {
     echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
