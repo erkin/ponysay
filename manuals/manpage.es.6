@@ -34,6 +34,7 @@ ponysay \- un contenedor para cowsay usando ponis
 \fBponysay\fP muestra la imagen de un poni con un texto dado por el usuario, esto dentro de la terminal.
 .br
 Este es en realidad un contenedor para \fIcowsay\fP, por tanto sigue usando este último para motrar el mensaje.
+.br
 Si el \fImesaje\fP no es provisto, ponysay aceptará una orden estándar.
 El mensaje debería de tener alrededor de 40 columnas, y el o la poni devería de mostrar este mensaje
 en una salida estándar.
@@ -55,7 +56,7 @@ Muestra la versión del programa.
 Lista los ponis disponibles.
 .TP
 .B \-L
-Lista los ponis con sinónimos dentro de corchetes.
+Lista los ponis con nombres sinónimos dentro de corchetes.
 .TP
 .B \-f \fInombre\fP
 selecciona un poni específico (ya sea un archivo o el nombre directamente), puedes usar esta opción con múltiples ponis y de estos será elejído uno al azar.
@@ -65,12 +66,12 @@ El numero de columnas en el que será impreso el mensaje.
 .SH ENTORNO
 .TP
 .B PONYSAY_BOTTOM
-Bajo TTY (Linux VT), si la imagen es mas larga que la terminal en pantalla, solo el inicio de esta
+Bajo TTY (Linux VT), si la imagen es mas larga que la anchura de la terminal en pantalla, solo el inicio de esta
 es impreso, dejando solo dos líneas blancas. si desea que apesar de todo sea impreso el fondo del
 inicio puede exportar \fIPONYSAY_BOTTOM\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP.
 .TP
 .B PONYSAY_SHELL_LINES
-Bajo TTY (Linux VT), si la imagen es mas larga que la terminal en pantalla, solo dos líneas blancas
+Bajo TTY (Linux VT), si la imagen es mas larga que la ancura de la terminal en pantalla, solo dos líneas blancas
 serán impresas. si desea más o menos lineas blancas, puede exportar \fIPONYSAY_SHELL_LINES\fP con
 el valor de cuantas líneas blancas desea. Naturalmente esto solo tomará efecto si la salida no es mas
 larga que la pantalla.
@@ -94,7 +95,7 @@ Los bugs pueden ser reportados en
 .SH AUTOR
 ponysay fue escrito por Erkin Batu Altunbaş <erkinbatu@gmail.com>
 con la ayuda de Mattias Andrée, Sven-Hendrik Haase, Jan Alexander Steffens y otros.
-.\" vea el archivo CREDITS para la lista completa
+.\" vea el archivo CREDITS para la lista completa.
 .PP
 Este manual originalmente fue escrito por Louis Taylor <kragniz@gmail.com>
 para el proyecto Debian (y puede ser usado por otros), y editado por
