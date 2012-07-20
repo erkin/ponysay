@@ -1,5 +1,5 @@
 
-# Completions for ponysay & ponythink
+# Completions for ponysay
 # https://github.com/erkin/ponysay/
 #
 # Author: Elis Axelsson <etu AT elis DOT nu>
