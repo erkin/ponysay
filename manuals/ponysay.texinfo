@@ -54,6 +54,12 @@ Texts. A copy of the license is included in the section entitled
 * Limitations::                         Limitations.
 * Problems and requests::               Reports and requests.
 * Dependencies::                        Dependencies.
+* Installing::                          Installing.
+@c Extensions
+@c Inner workings->Pony anatomy
+* Contributing::                        Contributing.
+* Ponysay constributors::               Ponysay constributors.
+* Ponysay license::                     Ponysay license.
 * GNU Free Documentation License::      Copying and sharing this manual.
 * Concept index::                       Concept index.
 @end menu
@@ -250,12 +256,17 @@ the height in TTY by default.
 Due to extreme limitations in @command{9term} @command{ponysay} will never be able to
 run on it.
 
+Most terminals have support for 256 colours, we do however only use the top 240 colours;
+this is because the lower 16 colours are usally, in contrast to the top 240, customised.
+We assume that the top 240 colours have their standard values. In TTY with KMS support
+we dot have any actual (except for @math{2^{24}} + full transparency.)
+
 
 @node Cowsay
 @section Cowsay
 
 When @command{cowsay} determines the length of a word it measures in number of bytes
-(in UTF-8), therefore non-ascii words will malformat the balloon with the message.
+(in UTF-8), therefore non-ASCII words will malformat the balloon with the message.
 
 Further, @command{cowsay} does not recognise ANSI escape sequences, therefore, using
 colours and text styling in messages will also malformat the balloon with the message.
@@ -264,6 +275,10 @@ colours and text styling in messages will also malformat the balloon with the me
 the pony, customisation, other than using @command{cowthink}. However you can modify
 @command{cowsay} (written perl, so you can edit the installed files) to make the balloon
 look different, maybe using box drawing characters.
+
+@command{cowsay} does support setting the minimum size of the balloon, both directions
+on the balloon–pony links. or any other placement of the balloon than at the top to
+the left.
 
 @cindex figlet
 @cindex tiolet
@@ -380,6 +395,148 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 
 
 
+@node Installing
+@chapter Installing
+@cindex installing
+@cindex make
+
+Before installing @command{ponysay}, make sure your system have the packages listed under
+@ref{Required runtime dependencies} and @ref{Package building dependencies} installed.
+
+Tarballs can be downloaded at @url{https://github.com/erkin/ponysay/tarball/master}
+for bleeding edge, or from @url{https://github.com/erkin/ponysay/tags} for releases.
+
+If you have @command{git} you @command{clone} the project URL
+@url{https://github.com/erkin/ponysay.git}.
+
+In the terminal,@command{cd} into the ponysay directory and execute
+@command{make && make install}. This will install @command{ponysay} into the
+@code{/usr}, meaning you may need to run @command{make install} as root,
+e.g. by running @command{sudo make install}.
+
+Now you will be to use ponysay, run: @command{ponysay "I am just the cutest pony!"},
+or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
+
+@command{ponysay} comes with a manpage in section 6, @command{man 6 ponysay}
+(or just @command{man ponysay}). The man page is also available in Spanish:
+@command{man -L es 6 ponysay}. 
+
+
+
+@node Contributing
+@chapter Contributing
+
+@menu
+* Providing ponies::            Providing ponies
+@end menu
+
+@node Providing ponies
+@section Providing ponies
+@cindex create pony file
+
+Most pony images are browser ponies or desktop ponies, browser ponies is a port of
+desktop ponies, implementing it in JavaScript. Browser ponies are available at
+@url{https://github.com/panzi/Browser-Ponies}. Desktop ponies are available at
+@url{http://desktop-pony-team.deviantart.com/}.
+
+There is also a collection of ponies that are not yet pixelated in a Java reimplementation:
+@url{https://github.com/maandree/unisay/tree/develop/dev/newponies}
+@*
+
+New ponies can be created from regular images by using util-say, which is available
+at @url{https://github.com/maandree/util-say}.
+@command{img2xterm} (@url{https://github.com/rossy2401/img2xterm}) was used earlier,
+but util-say tries do optimise the images in some aspects: as good as possible for
+low capability terminals, tries to place the pony–balloon link, displayed as good as
+possible when marked in the terminal (somewhat compromised by the first aspect.)
+      
+Using util-say:
+@example
+img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE
+
+PONY_FILE should end with .pony and be localed in ponies/
+
+Omit -2 if the source image does not use double pixel size.
+
+For more information see:
+@url{https://github.com/maandree/util-say/wiki/img2ponysay}
+@end example
+
+@*
+@cindex ttypony
+When a pony is added please also add a ttypony version, i.e. the pony files used in TTY,
+but if you don't please state so in the pull request so we do not miss the create it;
+the simplest way to do this is to run @command{make -B ttyponies} after adding the ponies
+to @code{ponies/}, running @command{make -B ttyponies} will build (or rebuild) all
+ttyponies with a pony present in @code{ponies/}, and creates all needed symlinks.
+
+To be able to run @command{make -B ttyponies} you must have the packages listed under
+@ref{Dependencies for pony providers}.
+
+
+
+
+@node Ponysay constributors
+@appendix Ponysay constributors
+
+Active developers of ponysay:
+@itemize @bullet
+@item Erkin Batu Altunbaş
+@item Mattias Andrée
+@item Sven-Hendrik Haase
+@item Pablo Lezaeta
+@item Jan Alexander Steffens
+@end itemize
+@*
+Patchers and other contributors of ponysay:
+@itemize @bullet
+@item Elis Axelsson
+@item Duane Bekaert
+@item Kyah Rindlisbacher
+@item James Ross-Gowan
+@item Louis Taylor
+@item Jannis
+@end itemize
+
+
+@node Ponysay license
+@appendix Ponysay license
+
+Ponysay is Free Software (yet not Open Source) and in licensed under the terms
+of Do What The Fuck You Want To Public Licese (WTFPL) version 2.
+
+You have the four essential freedoms:
+@itemize @bullet
+@item
+The freedom to run the program, for any purpose (freedom 0).
+@item
+The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this. 
+@item
+The freedom to redistribute copies so you can help your neighbor (freedom 2). 
+@item
+The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
+@end itemize
+
+@*
+
+@center DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+@center Version 2, December 2004
+
+Copyright @copyright{} 2012 Erkin Batu Altunbaş
+
+@quotation
+Everyone is permitted to copy and distribute verbatim or modified
+copies of this license document, and changing it is allowed as long
+as the name is changed.
+
+         DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+0. You just DO WHAT THE FUCK YOU WANT TO.
+@end quotation
+
+
+
 @node GNU Free Documentation License
 @appendix GNU Free Documentation License
 @include fdl.texinfo
@@ -387,7 +544,6 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @node Concept index
 @appendix Concept index
 @printindex cp
-
 
 
 @bye

@@ -67,7 +67,7 @@ _linklist() {
     
     scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
     
-    perl '/dev/stdin' $(echo $args) <<EOF | sed -e 's/ /_/g' > /dev/shm/ponysay~
+    perl '/dev/stdin' $(echo $args) <<EOF | sed -e 's/ /_/g' > /dev/shm/.ponysay~
 #!/usr/bin/perl
 
 #Author: Mattias Andrée (maandree@kth.se)
@@ -134,7 +134,7 @@ while (\$i < \$argc)
 }
 EOF
     
-    perl $listcmd $scrw $(cat /dev/shm/ponysay~) | sed -e 's/_/ /g' | qlist
+    perl $listcmd $scrw $(cat /dev/shm/.ponysay~) | sed -e 's/_/ /g' | qlist
 }
 
 linklist() {
