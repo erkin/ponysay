@@ -25,9 +25,9 @@ Required runtime dependencies
 
     cowsay    : this is a wrapper for cowsay
 
-    coreutils : the main script [file: ponysay] uses stty, cut, ls, cat, sort, readlink, head and tail
+    coreutils : the main script [file: ponysay] uses stty, cut, ls, cat, sort, readlink, pwd, head and tail
 
-    sed       : used to remove .pony from pony named when running `ponysay -l` and `ponysay -L`
+    sed       : used to remove .pony from pony names when running `ponysay -l` and `ponysay -L`
 
     perl      : required to run `ponysay -l` and `ponysay -L`
 
@@ -49,7 +49,7 @@ Package building dependencies
 
     make      : required to run the make script
 
-    coreutils : make script uses install unlink rm ln mkdir cp
+    coreutils : make script uses install, unlink, rm, ln, mkdir and cp
 
 
 Dependencies for pony providers
@@ -61,7 +61,7 @@ Dependencies for pony providers
 
     bash      : used in the ttyponies subscript
 
-    util-say  : used by `make ttyponies` to builder ttyponies from xterm ponies
+    util-say  : used by `make ttyponies` to build ttyponies from xterm ponies
     -- Available for Arch:ers in AUR as util-say-git (https://aur.archlinux.org/packages.php?ID=60241)
     -- and on github at https://github.com/maandree/util-say
 
@@ -77,7 +77,7 @@ Installation on GNU/Linux (or other Unix implementations)
     
     In the terminal, `cd` into the ponysay directory and execute `make && make install`.
     This will install ponysay into the $PREFIX (/usr by default, meaning you may need to
-    run `make install` as root, e.g by running `sudo make install`.)
+    run `make install` as root, e.g. by running `sudo make install`.)
     
     In order to use ponysay, run:                 ponysay "I am just the cutest pony!"
     Or if you have a specific pony in your mind:  ponysay -f pinkie "Partay!~"
@@ -119,10 +119,10 @@ Installing ponyquotes4ponysay will enable My Little Pony quotes with associated 
 It is available at:  https://github.com/maandree/ponyquotes4ponysay
                      https://aur.archlinux.org/packages.php?ID=60988
 
-Run `ponysay -q` will give you a random pony saying one it its quote from MLP:FiM.
-Add one or more argument after `-q` to sepcify a set of ponies from which one will be selected randomly.
+Running `ponysay -q` will give you a random pony saying one it its quote from MLP:FiM.
+Add one or more argument after `-q` to sepecify a set of ponies from which one will be selected randomly.
 
-When running `ponysay -l` or `ponysay -L` the ponies which have quotes will be printed bold or bright (depending on terminal
+When running `ponysay -l` or `ponysay -L` the ponies which have quotes will be printed bold or bright (depending on terminal).
 
 
 Ponies in TTY (Linux VT)
@@ -166,7 +166,7 @@ Providing ponies
 ================
 
     Most pony images are browser ponies or desktop ponies,
-    browser ponies is a fork of desktop ponies, implementing it in JavaScript.
+    browser ponies is a port of desktop ponies, implementing it in JavaScript.
     
     Browser ponies:  https://github.com/panzi/Browser-Ponies
     Desktop ponies:  http://desktop-pony-team.deviantart.com/
@@ -194,7 +194,7 @@ Providing ponies
     
     When a pony is added please also add a ttypony version, but if you don't please
     state so in the pull request so we do not miss the create it; the simplest way to
-    do this is to run `make -B ttyponies` after adding the ponies to ponies/,
+    do this is to run `make -B ttyponies` after adding the ponies to ponies/.
     
     Running `make -B ttyponies` will build (or rebuild) all ttyponies with a pony present
     in ponies/, and creates all needed symlinks.
