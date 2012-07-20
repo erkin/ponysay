@@ -1,4 +1,3 @@
-
 # Completions for ponysay
 # https://github.com/erkin/ponysay/
 #
