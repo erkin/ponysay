@@ -47,7 +47,7 @@ pdfmanual:
 	if [[ -f "ponysay.vr"  ]]; then unlink "ponysay.vr" ; fi
 
 
-install: all
+install:
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ponies"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ttyponies"
