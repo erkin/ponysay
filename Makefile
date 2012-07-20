@@ -88,6 +88,8 @@ install:
 	mkdir -p "$(DESTDIR)/usr/share/info"
 	install "ponysay.info.gz" "$(DESTDIR)/usr/share/info/ponysay.info.gz"
 	ln -sf "ponysay.info.gz" "$(DESTDIR)/usr/share/info/ponythink.info.gz"
+	install-info --dir-file="/usr/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "/usr/share/info/ponysay.info.gz"
+	install-info --dir-file="/usr/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "/usr/share/info/ponythink.info.gz"
 
 	@echo -e '\n\n'\
 '/--------------------------------------------------\\\n'\
