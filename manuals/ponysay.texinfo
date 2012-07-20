@@ -294,7 +294,7 @@ you run @command{ponythink}.
 
 @menu
 * Terminals::           Limitations on terminals.
-* Cowsay::              Limitations on cowsay,
+* Cowsay::              Limitations on cowsay.
 @end menu
 
 
@@ -535,7 +535,7 @@ but util-say tries do optimise the images in some aspects: as good as possible f
 low capability terminals, tries to place the pony–balloon link, displayed as good as
 possible when marked in the terminal (somewhat compromised by the first aspect,) and
 same width on all rows.
-      
+
 Using util-say:
 @example
 img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE
@@ -596,7 +596,7 @@ You have the four essential freedoms:
 @item
 The freedom to run the program, for any purpose (freedom 0).
 @item
-The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this. 
+The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.
 @item
 The freedom to redistribute copies so you can help your neighbour (freedom 2). 
 @item

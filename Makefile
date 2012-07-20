@@ -1,4 +1,4 @@
-all: ponysaytruncater manpages ponythinkcompletion
+all: ponysaytruncater manpages infomanual ponythinkcompletion
 
 
 ponysaytruncater:
@@ -6,8 +6,13 @@ ponysaytruncater:
 
 
 manpages:
-	gzip -9 < manuals/manpage.6 > manuals/manpage.6.gz
-	gzip -9 < manuals/manpage.es.6 > manuals/manpage.es.6.gz
+	gzip -9 < "manuals/manpage.6" > "manuals/manpage.6.gz"
+	gzip -9 < "manuals/manpage.es.6" > "manuals/manpage.es.6.gz"
+
+
+infomanual:
+	makeinfo "manuals/ponysay.texinfo"
+	gzip -9 "ponysay.info"
 
 
 ponythinkcompletion:
@@ -28,7 +33,21 @@ ttyponies:
 	done
 
 
-install: all
+pdfmanual:
+	texi2pdf "manuals/ponysay.texinfo"
+	if [[ -f "ponysay.aux" ]]; then unlink "ponysay.aux"; fi
+	if [[ -f "ponysay.cp"  ]]; then unlink "ponysay.cp" ; fi
+	if [[ -f "ponysay.cps" ]]; then unlink "ponysay.cps"; fi
+	if [[ -f "ponysay.fn"  ]]; then unlink "ponysay.fn" ; fi
+	if [[ -f "ponysay.ky"  ]]; then unlink "ponysay.ky" ; fi
+	if [[ -f "ponysay.log" ]]; then unlink "ponysay.log"; fi
+	if [[ -f "ponysay.pg"  ]]; then unlink "ponysay.pg" ; fi
+	if [[ -f "ponysay.toc" ]]; then unlink "ponysay.toc"; fi
+	if [[ -f "ponysay.tp"  ]]; then unlink "ponysay.tp" ; fi
+	if [[ -f "ponysay.vr"  ]]; then unlink "ponysay.vr" ; fi
+
+
+install:
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ponies"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ttyponies"
@@ -65,6 +84,12 @@ install: all
 	mkdir -p "$(DESTDIR)/usr/share/man/es/man6"
 	install "manuals/manpage.es.6.gz" "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz"
 	ln -sf "ponysay.6.gz" "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
+
+	mkdir -p "$(DESTDIR)/usr/share/info"
+	install "ponysay.info.gz" "$(DESTDIR)/usr/share/info/ponysay.info.gz"
+	ln -sf "ponysay.info.gz" "$(DESTDIR)/usr/share/info/ponythink.info.gz"
+	install-info --dir-file="$(DESTDIR)/usr/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "$(DESTDIR)/usr/share/info/ponysay.info.gz"
+	install-info --dir-file="$(DESTDIR)/usr/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "$(DESTDIR)/usr/share/info/ponythink.info.gz"
 
 	@echo -e '\n\n'\
 '/--------------------------------------------------\\\n'\
@@ -103,6 +128,8 @@ uninstall:
 	unlink "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz"
 	unlink "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz"
 	unlink "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
+	unlink "$(DESTDIR)/usr/share/info/ponysay.info.gz"
+	unlink "$(DESTDIR)/usr/share/info/ponythink.info.gz"
 
 
 clean:
@@ -112,4 +139,4 @@ clean:
 	rm "completion/zsh-completion-think.zsh"
 	rm "manuals/manpage.6.gz"
 	rm "manuals/manpage.es.6.gz"
-
+	rm "ponysay.info.gz"
