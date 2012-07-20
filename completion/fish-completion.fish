@@ -13,11 +13,11 @@ end
 
 
 if test -d $systempath
-	set -g systemponies (ls --color=no $systempath | sed 's/\.pony//')
+	set -g systemponies (ls --color=no $systempath | sed -e 's/\.pony//' -e 's/_.*//' | perl -pe 's/([a-z])([A-Z])/\1\\\ \2/' )
 end
 
 if test -d $homepath
-	set -g homeponies   (ls --color=no $homepath | sed 's/\.pony//')
+	set -g homeponies   (ls --color=no $homepath   | sed -e 's/\.pony//' -e 's/_.*//' | perl -pe 's/([a-z])([A-Z])/\1\\\ \2/' )
 end
 
 

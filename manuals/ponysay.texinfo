@@ -36,7 +36,7 @@ Texts. A copy of the license is included in the section entitled
 @title Ponysay
 @subtitle A cowsay wrapper for ponies.
 @subtitle Covers ponysay version @value{VERSION}.
-@author by Mattias Andrée
+@author by Mattias Andrée (maandree)
 
 @page
 @vskip 0pt plus 1filll
@@ -56,7 +56,7 @@ Texts. A copy of the license is included in the section entitled
 * Dependencies::                        Dependencies.
 * Installing::                          Installing.
 * Extensions::                          Extensions.
-@c Inner workings->Pony anatomy
+* Inner workings::                      Inner workings.
 * Contributing::                        Contributing.
 * Ponysay constributors::               Ponysay constributors.
 * Ponysay license::                     Ponysay license.
@@ -189,7 +189,7 @@ by using @code{fortune | ponypipe} instead of using @command{fortune}.
 Alternatively use can use @command{pinkie} (or @command{pinkiepie}), which can
 be downloaded from @url{https://github.com/maandree/pinkie-pie}, which is just
 @code{fortune | ponypipe}.
-Their is also a large sed script, similar to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
+There is also a large sed script, similar to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
 
 
 @node Running on TTY
@@ -212,13 +212,13 @@ If you use TTY and have a custom colour palette, you should also add to your
 @section Running on @command{screen}
 @cindex screen
 
-@command{screen} will adapt ASNI colour escape sequencies to your terminals
+@command{screen} will adapt ASNI colour escape sequencies to your terminal's
 capabilities. This means that is your terminal reports itself as @code{xterm}
 in @code{$TERM} it ponies will lose colours; they will only use the lower 16
 colours instread of the top 240 colours. By default, almost all X terminal,
 including @command{xterm} and @command{mate-terminal} reports themself as
 @code{xterm} in @code{$TERM}, and some reports their actual name in @code{$COLORTERM}.
-So before openning @command{screen} you use set @code{$TERM} to @code{xterm-256colour},
+So before openning @command{screen} you use set @code{$TERM} to @code{xterm-256color},
 if you are using a terminal with support for @code{xterm}'s 256 colours; this
 can be done by adding to your @code{~/.bashrc}:
 @example
@@ -300,6 +300,10 @@ you run @command{ponythink}.
 
 @node Terminals
 @section Terminals
+@cindex kms
+@cindex kernel mode settings
+@cindex 9term
+@cindex putty
 
 Ponysay works perfectly on @command{xterm}, @command{xterm} like terminals including
 @command{putty}, settings may however need to be customised for Unicode Character Set
@@ -508,8 +512,88 @@ displayed with the associated ponies. See @ref{Invoking ponysay} for more inform
 
 
 
+@node Inner workings
+@chapter Inner workings
+@cindex inner workings
+@cindex hacking
+
+@menu
+* Pony anatomy::                 Anatomy of pony files.
+* Truncation::                   Output truncation.
+* Languages::                    Selection of languages.
+@end menu
+
+
+@node Pony anatomy
+@section Pony anatomy
+@cindex pony anatomy
+@cindex anatomy of pony files
+
+The pony files are cow files used by @command{cowsay}, they are partial Perl-scripts
+that assign a value to a scalar variable named @code{$the_cow}. The files use a
+predefined scalar named variable named @code{$thoughts}, these are used to create
+a link between the message and the pony. The message (and the balloon) it self is
+printed by @command{cowsay} and is not definied in the pony files.
+
+The pony images consists of white space, lower half blocks [U+2584], upper half
+blocks [U+2580] and ANSI colour sequences (CSI m), and, in TTY, colour value change
+sequences (OSI P).
+
+
+@node Truncation
+@section Truncation
+@cindex truncation
+@cindex output trunction
+@cindex kms
+@cindex kernel mode settings
+
+Ponysay supports three type of output truncations, cutting away overflow on the right
+and truncation the height by either keeping the bottom or keeping the top. By default
+the latest is enabled under TTY, cutting away overflow on the right is always enabled
+by default.
+
+Truncating the height in TTY is required under Kernel Mode Settings (KMS) support to
+keep the colours from being messed up ad the ponies is moved in the screen during
+print; this done either by piping to @command{head} (keeps the top) or by piping to
+@command{tail} (keeps the bottom.) @command{head} and @command{tail} takes as argument
+the number of lines to keep at most.
+
+The size of the terminal, measured in characters, is fetched from @command{stty size},
+which returns @code{HEIGHT WIDTH}, and @command{cut} it the used to get either the
+height or the width. This required on GNU Coreutils; earlier @command{tput rows} and
+@command{tput cols} were used, this however required, the only de facto standard,
+package @command{ncurses}, some shells have environment variables for this.
+
+For truncation the width, we have a custom program, named @command{ponysaytruncater},
+that is installed to @code{/usr/lib/ponysay/truncater}. It recognised UTF-8 ANSI escape
+sequences, including OSI P and CSI m, which is essential for the truncation to be correct.
+It also expands tabs to every eigth coloumn and resets the background colour when needed,
+and writes ANSI escape sequences that are on the left side of the truncation. The truncater
+stops CSI sequences on the first ASCII letter (@code{[a-zA-Z]}), but also stops escape
+sequences after the first character after the initial escape if it is not either [ (CSI)
+or ] (OSI). For support UTF-8, to handles all bytes that do not match @code{10xxxxxx} as
+beginning of a character.
+
+
+@node Languages
+@section Languages
+@cindex languages
+@cindex script languages
+@cindex programming languages
+
+Ponysay is written primarily in GNU Bash shell script (POSIX compliant); the truncater
+is however written in C, because it is simple, fast, does not pose addition dependencies,
+and is easy to do byte hacking in.
+
+Sometimes shell is too slow, in these cases [that exist today] Perl is used; Perl
+is already required by cowsay, is similar to shell, but also supports hash tables.
+[maandree: I actually learned Perl just for this.]
+
+
+
 @node Contributing
 @chapter Contributing
+@cindex contributing
 
 @menu
 * Providing ponies::            Providing ponies
@@ -526,6 +610,9 @@ desktop ponies, implementing it in JavaScript. Browser ponies are available at
 
 There is also a collection of ponies that are not yet pixelated in a Java reimplementation:
 @url{https://github.com/maandree/unisay/tree/develop/dev/newponies}
+
+There is a checklist named @code{"pony-checklist"} at the top level of the project
+directory. You can use the check which ponies are added and which are not.
 @*
 
 New ponies can be created from regular images by using util-say, which is available

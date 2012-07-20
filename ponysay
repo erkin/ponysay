@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-version=1.0
+version=1.1
 SYSTEMPONIES="/usr/share/ponysay/ponies"
 HOMEPONIES="${HOME}/.local/share/ponysay/ponies"
 SCRIPTDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # Get bash script directory
 pony="*"
 wrap=""
+
+kmscmd=""
+[[ "$TERM" = "linux" ]] && kmscmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/ponysay2kmsponysay /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
+[[ ! "$kmscmd" = "" ]] && TERM="-linux-"
 
 if [ "$TERM" = "linux" ]; then
 	SYSTEMPONIES="/usr/share/ponysay/ttyponies"
@@ -247,14 +251,24 @@ say() {
 		}
 	fi
 	
+	if [[ "$kmscmd" = "" ]]; then
+		function runcmd {
+			cowcmd -f "$pony" "$@"
+		}
+	else
+		function runcmd {
+			cowcmd -f <($kmscmd "$pony") "$@"
+		}
+	fi
+	
 	if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
 		if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
-			cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
+		        runcmd "${wrap:+-W$wrap}" | wtrunc | htrunctail
 		else
-			cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
+		        runcmd "${wrap:+-W$wrap}" | wtrunc | htrunchead
 		fi
 	else
-		cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc
+		runcmd "${wrap:+-W$wrap}" | wtrunc
 	fi
 }
 
@@ -270,7 +284,7 @@ while getopts $opts OPT; do
 	case ${OPT} in
 		v)  version; exit ;;
 		h)  usage; exit ;;
-		f)  ponies+=( "$OPTARG" ) ;;
+		f)  ponies+=($(echo $OPTARG | sed -e 's/ //g')) ;;
 		l)  list; exit ;;
 		L)  linklist; exit ;;
 		W)  wrap="$OPTARG" ;;

@@ -30,8 +30,11 @@ Or if you have a specific pony in your mind:
 Run `info ponysay`, `man 6 ponysay` or `ponysay -h` for more information.
 A Spanish manual is available: `man -L es 6 ponysay`.
 
-#### Gentoo
-Theres a package for gentoo, to make install and keeping up to date easy. You can find it in [this overlay](/etu/aidstu-overlay). Package is named `games-misc/ponysay`.
+#### Arch Linux
+The package is in the official repositories as `community/ponysay`.
+
+#### Gentoo Linux
+There is a package for Gentoo, to make installation and keeping it up to date easy. You can find it in [this overlay](/etu/aidstu-overlay). The package is named `games-misc/ponysay`.
 
 
 ### Pony fortune on terminal startup 

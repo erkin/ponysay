@@ -134,9 +134,9 @@ uninstall:
 
 clean:
 	rm -f "ponysaytruncater"
-	rm "completion/bash-completion-think.sh"
-	rm "completion/fish-completion-think.fish"
-	rm "completion/zsh-completion-think.zsh"
-	rm "manuals/manpage.6.gz"
-	rm "manuals/manpage.es.6.gz"
-	rm "ponysay.info.gz"
+	rm -f "completion/bash-completion-think.sh"
+	rm -f "completion/fish-completion-think.fish"
+	rm -f "completion/zsh-completion-think.zsh"
+	rm -f "manuals/manpage.6.gz"
+	rm -f "manuals/manpage.es.6.gz"
+	rm -f "ponysay.info.gz"
