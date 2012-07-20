@@ -12,7 +12,13 @@ if [ "$TERM" = "linux" ]; then
     HOMEPONIES="${HOME}/.local/share/ponysay/ttyponies"
 fi
 
-cmd=cowsay
+if [[ "$PONYSAY_COWSAY" = "" ]]; then
+    cmd=cowsay
+    customcmd=0
+else
+    cmd="$PONYSAY_COWSAY"
+    customcmd=1
+fi
 [[ ${0} == *ponythink ]] && cmd=cowthink
 
 version() {
@@ -208,14 +214,28 @@ say() {
 	tail --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
     }
     
+    if [[ $customcmd = 0 ]]; then
+	function cowcmd
+	{
+	    pcmd='#!/usr/bin/perl\nuse utf8;'
+	    ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
+	    perl <(cat <(echo -e $pcmd) $ccmd) "$@"
+	}
+    else
+	function cowcmd
+	{
+	    $cmd "$@"
+	}
+    fi
+    
     if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
 	if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
-	    perl <(cat <(echo -e '#!/usr/bin/perl\nuse utf8;') $(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)) -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
+	    cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
 	else
-	    perl <(cat <(echo -e '#!/usr/bin/perl\nuse utf8;') $(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)) -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
+	    cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
 	fi
     else
-	perl <(cat <(echo -e '#!/usr/bin/perl\nuse utf8;') $(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)) -f "$pony" "${wrap:+-W$wrap}" | wtrunc
+	cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc
     fi
 }
 
