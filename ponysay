@@ -19,7 +19,14 @@ else
     cmd="$PONYSAY_COWSAY"
     customcmd=1
 fi
-[[ ${0} == *ponythink ]] && cmd=cowthink
+[[ ${0} == *ponythink ]] &&
+    if [[ "$PONYSAY_COWTHINK" = "" ]]; then
+	cmd=cowthink
+	customcmd=0
+    else
+	cmd="$PONYSAY_COWTHINK"
+	customcmd=1
+    fi
 
 version() {
     echo "ponysay v$version"
@@ -73,7 +80,7 @@ _linklist() {
     
     scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
     
-    perl '/dev/stdin' $(echo $args) <<EOF | sed -e 's/ /_/g' > /dev/shm/.ponysay~
+    perl '/dev/stdin' $(echo $args) <<EOF | sed -e 's/ /_/g' > '/dev/shm/.ponysay~'
 #!/usr/bin/perl
 
 #Author: Mattias Andrée (maandree@kth.se)
@@ -140,7 +147,8 @@ while (\$i < \$argc)
 }
 EOF
     
-    perl $listcmd $scrw $(cat /dev/shm/.ponysay~) | sed -e 's/_/ /g' | qlist
+    perl $listcmd $scrw $(cat "/dev/shm/.ponysay~") | sed -e 's/_/ /g' | qlist
+    rm '/dev/shm/.ponysay~'
 }
 
 linklist() {
@@ -217,13 +225,22 @@ say() {
     if [[ $customcmd = 0 ]]; then
 	function cowcmd
 	{
+	    echo "standrd $cmd"
 	    pcmd='#!/usr/bin/perl\nuse utf8;'
 	    ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
-	    perl <(cat <(echo -e $pcmd) $ccmd) "$@"
+	    echo "is $cmd"
+	    if [[ ${0} == *ponythink ]]; then
+		cat <(echo -e $pcmd) $ccmd > "/dev/shm/.ponythink"
+		perl '/dev/shm/.ponythink' "$@"
+		rm '/dev/shm/.ponythink'
+	    else
+		perl <(cat <(echo -e $pcmd) $ccmd) "$@"
+	    fi
 	}
     else
 	function cowcmd
 	{
+	    echo "custom $cmd"
 	    $cmd "$@"
 	}
     fi
