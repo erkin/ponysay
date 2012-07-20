@@ -11,9 +11,9 @@ manpages:
 
 
 ponythinkcompletion:
-	sed -e 's/ponysay/ponythink/' -e 's/\/ponythink\//\/ponysay\//' completion/bash-completion.sh   > completion/bash-completion-think.sh
-	sed -e 's/ponysay/ponythink/' -e 's/\/ponythink\//\/ponysay\//' completion/fish-completion.fish > completion/fish-completion-think.fish
-	sed -e 's/ponysay/ponythink/' -e 's/\/ponythink\//\/ponysay\//' completion/zsh-completion.zsh   > completion/zsh-completion-think.zsh
+	sed -e 's/ponysay/ponythink/g' <"completion/bash-completion.sh"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/bash-completion-think.sh"
+	sed -e 's/ponysay/ponythink/g' <"completion/fish-completion.fish" | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/fish-completion-think.fish"
+	sed -e 's/ponysay/ponythink/g' <"completion/zsh-completion.zsh"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/zsh-completion-think.zsh"
 
 
 ttyponies:
