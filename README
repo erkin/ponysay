@@ -55,7 +55,7 @@ Package building dependencies
 Dependencies for pony providers
 ===============================
 
-    make      : required to run `make -B ttyponies` 
+    make      : required to run `make -B ttyponies`
 
     coreutils : ln and readlink are used in the ttyponies subscript
 
