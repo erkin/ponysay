@@ -55,7 +55,7 @@ Texts. A copy of the license is included in the section entitled
 * Problems and requests::               Reports and requests.
 * Dependencies::                        Dependencies.
 * Installing::                          Installing.
-@c Extensions
+* Extensions::                          Extensions.
 @c Inner workings->Pony anatomy
 * Contributing::                        Contributing.
 * Ponysay constributors::               Ponysay constributors.
@@ -154,20 +154,49 @@ by hand, you can run @code{cat | ponysay}.
 @chapter Advanced usage of @command{ponysay}.
 @cindex advanced usage
 
+@menu
+* Fortune cookies::     Displaying with fortune cookies.
+* Ponification::        Ponify your fortune cookies.
+* Running on TTY::      Running on TTY (Linux VT).
+* Running on screen::   Running on @command{screen}.
+@end menu
+
+
+@node Fortune cookies
+@section Fortune cookies
 @cindex fortune
+@cindex on startup
+
 If you have @command{fortune} installed -- this program may be named
 @command{fortune-mod} in your GNU/Linux distributions package reposity --
 you can run @code{fortune | ponysay} to get a random pony reading a
 random fortune cookie.
 
-@cindex on startup
 By adding @code{fortune | ponysay} to the end [easiest way] of your
 @code{~/.bashrc} -- or equivalent for your shell if use do not use GNU Bash
 (standard shell for most distributions now adays) -- you will get the
 effect described in the previous paragraph every time you open a terminal.
 
+
+@node Ponification
+@section Ponification
+@cindex ponification
+@cindex ponypipe
+
+You can ponify text (i.e. replaces words search as ``everyone'' with ``everypony'')
+by using @code{fortune | ponypipe} instead of using @command{fortune}.
+@command{ponypipe} can be downloaded from @url{https://github.com/maandree/ponypipe}.
+Alternatively use can use @command{pinkie} (or @command{pinkiepie}), which can
+be downloaded from @url{https://github.com/maandree/pinkie-pie}, which is just
+@code{fortune | ponypipe}.
+Their is also a large sed script, similar to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
+
+
+@node Running on TTY
+@section Running on TTY
 @cindex tty
 @cindex linux vt
+
 If you use TTY and have a custom colour palette, you should also add to your
 @code{~/.bashrc}, before @code{fortune | ponysay}:
 @example
@@ -178,15 +207,28 @@ If you use TTY and have a custom colour palette, you should also add to your
     @}
 @end example
 
-@cindex ponification
-@cindex ponypipe
-You can ponify text (i.e. replaces words search as ``everyone'' with ``everypony'')
-by using @code{fortune | ponypipe} instead of using @command{fortune}.
-@command{ponypipe} can be downloaded from @url{https://github.com/maandree/ponypipe}.
-Alternatively use can use @command{pinkie} (or @command{pinkiepie}), which can
-be downloaded from @url{https://github.com/maandree/pinkie-pie}, which is just
-@code{fortune | ponypipe}.
-Their is also a large sed script, similar to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
+
+@node Running on screen
+@section Running on @command{screen}
+@cindex screen
+
+@command{screen} will adapt ASNI colour escape sequencies to your terminals
+capabilities. This means that is your terminal reports itself as @code{xterm}
+in @code{$TERM} it ponies will lose colours; they will only use the lower 16
+colours instread of the top 240 colours. By default, almost all X terminal,
+including @command{xterm} and @command{mate-terminal} reports themself as
+@code{xterm} in @code{$TERM}, and some reports their actual name in @code{$COLORTERM}.
+So before openning @command{screen} you use set @code{$TERM} to @code{xterm-256colour},
+if you are using a terminal with support for @code{xterm}'s 256 colours; this
+can be done by adding to your @code{~/.bashrc}:
+@example
+[[ "$TERM" = "xterm" ]] &&
+    function screen
+    @{   export TERM="xterm-256color"
+        exec screen "$@@"
+    @}
+@end example
+
 
 
 @node Environment
@@ -199,6 +241,7 @@ Their is also a large sed script, similar to @command{ponypipe}: @url{http://www
 @table @option
 @item PONYSAY_BOTTOM
 @cindex PONYSAY_BOTTOM
+@cindex tty
 Under TTY (Linux VT), if the output is larger the the screen's height, only
 the beginning is printed, leaving two blank lines. If you want the buttom
 to be printed rather the the beginning you can export @code{PONYSAY_BOTTOM}
@@ -206,6 +249,7 @@ with the value @code{yes}, @code{y} or @code{1}.
 
 @item PONYSAY_SHELL_LINES
 @cindex PONYSAY_SHELL_LINES
+@cindex tty
 Under TTY (Linux VT), if the output is larger the the screen's height, two
 lines are left blank. If you want more, or less, blank lines you can export
 @code{PONYSAY_SHELL_LINES} with the value of how many blank lines you want.
@@ -214,8 +258,8 @@ screen.
  
 @item PONYSAY_FULL_WIDTH
 @cindex PONYSAY_FULL_WIDTH
-You can export @code{PONYSAY_FULL_WIDTH} with the value @code{no}, @code{n}
-or @code{0}, if you do not want the output to be truncated on the width to
+You can export @code{PONYSAY_FULL_WIDTH} with the value @code{yes}, @code{y}
+or @code{1}, if you do not want the output to be truncated on the width to
 fit the terminal.
 
 @item PONYSAY_TRUNCATE_HEIGHT
@@ -223,6 +267,22 @@ fit the terminal.
 Export @code{PONYSAY_TRUNCATE_HEIGHT} with the value @code{yes}, @code{y}
 or @code{1}, if you want to truncate the output on the height even if you
 are not running @command{ponysay} under TTY.
+
+@item PONYSAY_COWSAY
+@item PONYSAY_COWTHINK
+@cindex PONYSAY_COWSAY
+@cindex PONYSAY_COWTINK
+@cindex custom cowsay
+@cindex replace cowsay
+If you want to use another program than @command{cowsay} (the first
+@command{cowsay} found in @code{$PATH}), you can export @code{PONYSAY_COWSAY}
+with the value of that program. If, and only if, @code{PONYSAY_COWSAY} does
+not have any value, @command{cowsay} is patch with @code{use utf8;} to the
+beginning. The @code{use utf8;} patch is introduced to make it easier to
+customise cowsay.
+
+@code{PONYSAY_COWTHINK} will be used instead of @code{PONYSAY_COWSAY} if
+you run @command{ponythink}.
 @end table
 
 
@@ -321,6 +381,7 @@ properties that makes a picture good.
 @node Dependencies
 @chapter Dependencies
 @cindex dependencies
+@cindex optional dependencies
 
 @menu
 * Required runtime dependencies::       Required runtime dependencies.
@@ -352,6 +413,7 @@ Required to run @command{ponysay -l} and @command{ponysay -L}.
 @node Optional runtime dependencies
 @section Optional runtime dependencies
 @cindex extensions
+@cindex optional dependencies
 @cindex ponyquotes4ponysay
 
 @table @option
@@ -419,7 +481,30 @@ or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 
 @command{ponysay} comes with a manpage in section 6, @command{man 6 ponysay}
 (or just @command{man ponysay}). The man page is also available in Spanish:
-@command{man -L es 6 ponysay}. 
+@command{man -L es 6 ponysay}.
+
+
+
+@node Extensions
+@chapter Extensions
+@cindex extensions
+@cindex optional dependencies
+
+Ponysay does not support extensions, per se, but rather have optional features that
+are enabled when other packages are installed.
+
+@menu
+* ponyquotes4ponysay::            ponyquotes4ponysay
+@end menu
+
+@node ponyquotes4ponysay
+@section ponyquotes4ponysay
+@cindex ponyquotes4ponysay
+
+@command{ponyquotes4ponysay} is a package that adds support for MLP:FiM quotes that are
+displayed with the associated ponies. See @ref{Invoking ponysay} for more information.
+@command{ponyquotes4ponysay} can be downloaded at
+@url{https://github.com/maandree/ponyquotes4ponysay}.
 
 
 
@@ -448,7 +533,8 @@ at @url{https://github.com/maandree/util-say}.
 @command{img2xterm} (@url{https://github.com/rossy2401/img2xterm}) was used earlier,
 but util-say tries do optimise the images in some aspects: as good as possible for
 low capability terminals, tries to place the pony–balloon link, displayed as good as
-possible when marked in the terminal (somewhat compromised by the first aspect.)
+possible when marked in the terminal (somewhat compromised by the first aspect,) and
+same width on all rows.
       
 Using util-say:
 @example
@@ -512,7 +598,7 @@ The freedom to run the program, for any purpose (freedom 0).
 @item
 The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this. 
 @item
-The freedom to redistribute copies so you can help your neighbor (freedom 2). 
+The freedom to redistribute copies so you can help your neighbour (freedom 2). 
 @item
 The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
 @end itemize
