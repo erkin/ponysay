@@ -194,7 +194,7 @@ say() {
     
     function wtrunc
     {
-	if [ "$PONYSAY_FULL_WIDTH" = 'no' ] || [ "$PONYSAY_FULL_WIDTH" = 'n' ] || [ "$PONYSAY_FULL_WIDTH" = '0' ]; then
+	if [ "$PONYSAY_FULL_WIDTH" = 'yes' ] || [ "$PONYSAY_FULL_WIDTH" = 'y' ] || [ "$PONYSAY_FULL_WIDTH" = '1' ]; then
 	    cat
 	else
 	    WIDTH=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
