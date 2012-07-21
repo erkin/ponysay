@@ -270,7 +270,7 @@ while getopts $opts OPT; do
 	case ${OPT} in
 		v)  version; exit ;;
 		h)  usage; exit ;;
-		f)  ponies+=( "$OPTARG" ) ;;
+		f)  ponies+=($(echo $OPTARG | sed -e 's/ //g')) ;;
 		l)  list; exit ;;
 		L)  linklist; exit ;;
 		W)  wrap="$OPTARG" ;;
