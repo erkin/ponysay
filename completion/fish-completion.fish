@@ -17,7 +17,7 @@ if test -d $systempath
 end
 
 if test -d $homepath
-	set -g homeponies   (ls --color=no $systempath | sed -e 's/\.pony//' -e 's/_.*//' | perl -pe 's/([a-z])([A-Z])/\1\\\ \2/' )
+	set -g homeponies   (ls --color=no $homepath   | sed -e 's/\.pony//' -e 's/_.*//' | perl -pe 's/([a-z])([A-Z])/\1\\\ \2/' )
 end
 
 
