@@ -15,7 +15,7 @@
 #define  STDIN  0
 
 /* The number of columns on the current line */
-static int x =  0;
+static int col =  0;
 
 /* Escape sequence state */
 static int esc = 0;
@@ -30,7 +30,7 @@ int toInt(String string);
 /* Mane method!
  *   The only argument, in addition to the executed file,
  *   should be the width of the terminal which you get by
- *   adding <code>`tput cols || echo 0`</code> as and argument.
+ *   adding <code>`tput cols || echo 0`</code> as an argument.
  *   
  * @param  argc  The number of startup arguments
  * @param  argv  The startup arguments, the first is the file itself
@@ -61,13 +61,13 @@ void main(int argc, String* argv)
 void write(char b, int width)
 {
   int i;
-  char nx;
+  char tabstop;
   
   if (esc == 0)
     {
       if (b == '\n')
 	{
-	  if (x >= width)
+	  if (col >= width)
 	    {
 	      /* Reset background colour */
 	      write('\e', width);
@@ -76,13 +76,13 @@ void write(char b, int width)
 	      write('9', width);
 	      write('m', width);
 	    }
-	  x = -1;
+	  col = -1;
 	}
       else if (b == '\t')
 	{
 	  /* Tab to next pos ≡₈ 0 */
-	  nx = 8 - (x & 7);
-	  for (i = 0; i < nx; i++)
+	  tabstop = 8 - (col & 7);
+	  for (i = 0; i < tabstop; i++)
 	    write(' ', width);
 	  return; /* (!) */
 	}
@@ -92,7 +92,7 @@ void write(char b, int width)
   else if (esc == 1)
     {
       if      (b == '[')  esc = 2;  /* CSI: CSI ends with a letter, m is for colour */
-      else if (b == ']')  esc = 3;  /* OSI: OSI P is for palett editing in Linux VT */
+      else if (b == ']')  esc = 3;  /* OSI: OSI P is for palette editing in Linux VT */
       else                esc = 10; /* Nothing to see here, move along */
     }
   else if (esc == 2)
@@ -118,14 +118,14 @@ void write(char b, int width)
 	 within bounds  ∨
 	 ∨ escape sequence  ∨
 	 ∨ last with printed ∧ not first byte in character */
-      (x < width) ||
+      (col < width) ||
       (esc != 0) ||
       (ok && ((b & 0xC0) == 0x80)))
     {
       printf("%c", b);
       if ((esc == 0) && ((b & 0xC0) != 0x80))
 	/* Count up columns of not in escape sequnce and */
-	x++; /* the byte is not the first byte in the character */
+	col++; /* the byte is not the first byte in the character */
       ok = true;
     }
   else
