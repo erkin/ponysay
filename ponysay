@@ -1,4 +1,4 @@
-\#!/usr/bin/env bash
+#!/usr/bin/env bash
 
 version=1.1
 SYSTEMPONIES="/usr/share/ponysay/ponies"
