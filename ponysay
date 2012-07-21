@@ -7,6 +7,10 @@ SCRIPTDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # Get bash scri
 pony="*"
 wrap=""
 
+kmscmd=""
+[[ "$TERM" = "linux" ]] && kmscmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/ponysay2kmsponysay /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
+[[ ! "$kmscmd" = "" ]] && TERM="-linux-"
+
 if [ "$TERM" = "linux" ]; then
 	SYSTEMPONIES="/usr/share/ponysay/ttyponies"
 	HOMEPONIES="${HOME}/.local/share/ponysay/ttyponies"
@@ -247,14 +251,24 @@ say() {
 		}
 	fi
 	
+	if [[ "$kmscmd" = "" ]]; then
+		function runcmd {
+			cowcmd -f "$pony" "$@"
+		}
+	else
+		function runcmd {
+			cowcmd -f <($kmscmd "$pony") "$@"
+		}
+	fi
+	
 	if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
 		if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
-			cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunctail
+		        runcmd "${wrap:+-W$wrap}" | wtrunc | htrunctail
 		else
-			cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc | htrunchead
+		        runcmd "${wrap:+-W$wrap}" | wtrunc | htrunchead
 		fi
 	else
-		cowcmd -f "$pony" "${wrap:+-W$wrap}" | wtrunc
+		runcmd "${wrap:+-W$wrap}" | wtrunc
 	fi
 }
 
