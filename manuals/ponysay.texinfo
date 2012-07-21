@@ -570,8 +570,8 @@ sequences, including OSI P and CSI m, which is essential for the truncation to b
 It also expands tabs to every eigth coloumn and resets the background colour when needed,
 and writes ANSI escape sequences that are on the left side of the truncation. The truncater
 stops CSI sequences on the first ASCII letter (@code{[a-zA-Z]}), but also stops escape
-sequences after the first character after the initial escape if it is not either [ (OSI)
-or ] (CSI). For support UTF-8, to handles all bytes that do not match @code{10xxxxxx} as
+sequences after the first character after the initial escape if it is not either [ (CSI)
+or ] (OSI). For support UTF-8, to handles all bytes that do not match @code{10xxxxxx} as
 beginning of a character.
 
 
