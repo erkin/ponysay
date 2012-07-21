@@ -36,7 +36,7 @@ Texts. A copy of the license is included in the section entitled
 @title Ponysay
 @subtitle A cowsay wrapper for ponies.
 @subtitle Covers ponysay version @value{VERSION}.
-@author by Mattias Andrée
+@author by Mattias Andrée (maandree)
 
 @page
 @vskip 0pt plus 1filll
