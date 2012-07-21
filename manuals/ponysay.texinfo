@@ -189,7 +189,7 @@ by using @code{fortune | ponypipe} instead of using @command{fortune}.
 Alternatively use can use @command{pinkie} (or @command{pinkiepie}), which can
 be downloaded from @url{https://github.com/maandree/pinkie-pie}, which is just
 @code{fortune | ponypipe}.
-Their is also a large sed script, similar to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
+There is also a large sed script, similar to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
 
 
 @node Running on TTY
@@ -212,13 +212,13 @@ If you use TTY and have a custom colour palette, you should also add to your
 @section Running on @command{screen}
 @cindex screen
 
-@command{screen} will adapt ASNI colour escape sequencies to your terminals
+@command{screen} will adapt ASNI colour escape sequencies to your terminal's
 capabilities. This means that is your terminal reports itself as @code{xterm}
 in @code{$TERM} it ponies will lose colours; they will only use the lower 16
 colours instread of the top 240 colours. By default, almost all X terminal,
 including @command{xterm} and @command{mate-terminal} reports themself as
 @code{xterm} in @code{$TERM}, and some reports their actual name in @code{$COLORTERM}.
-So before openning @command{screen} you use set @code{$TERM} to @code{xterm-256colour},
+So before openning @command{screen} you use set @code{$TERM} to @code{xterm-256color},
 if you are using a terminal with support for @code{xterm}'s 256 colours; this
 can be done by adding to your @code{~/.bashrc}:
 @example
