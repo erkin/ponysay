@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+\#!/usr/bin/env bash
 
-version=1.0
+version=1.1
 SYSTEMPONIES="/usr/share/ponysay/ponies"
 HOMEPONIES="${HOME}/.local/share/ponysay/ponies"
 SCRIPTDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # Get bash script directory
