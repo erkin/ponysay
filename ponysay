@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 
 version=1.1
-SYSTEMPONIES="/usr/share/ponysay/ponies"
-HOMEPONIES="${HOME}/.local/share/ponysay/ponies"
 SCRIPTDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # Get bash script directory
 pony="*"
 wrap=""
+
+SYSTEMPONIES="$(dirname $SCRIPTDIR)/share/ponysay"
+HOMEPONIES="${HOME}/.local/share/ponysay"
 
 kmscmd=""
 [[ "$TERM" = "linux" ]] && kmscmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/ponysay2kmsponysay /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
 [[ ! "$kmscmd" = "" ]] && TERM="-linux-"
 
 if [ "$TERM" = "linux" ]; then
-	SYSTEMPONIES="/usr/share/ponysay/ttyponies"
-	HOMEPONIES="${HOME}/.local/share/ponysay/ttyponies"
+	SYSTEMPONIES="$SYSTEMPONIES/ttyponies"
+	HOMEPONIES="$HOMEPONIES/ttyponies"
+else
+	SYSTEMPONIES="$SYSTEMPONIES/ponies"
+	HOMEPONIES="$HOMEPONIES/ponies"
 fi
 
 if [[ "$PONYSAY_COWSAY" = "" ]]; then
@@ -39,7 +43,11 @@ version() {
 
 scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
 listcmd="${SCRIPTDIR}/../lib/ponysay/list.pl"
+linklistcmd="${SCRIPTDIR}/../lib/ponysay/linklist.pl"
 truncatercmd="${SCRIPTDIR}/../lib/ponysay/truncater"
+[[ -f "./ponysaylist.pl" ]] && listcmd="./ponysaylist.pl"
+[[ -f "./ponysaylinklist.pl" ]] && linklistcmd="./ponysaylinklist.pl"
+[[ -f "./ponysaytruncater" ]] && truncatercmd="./ponysaytruncater"
 
 haspq=1
 if [[ -f './pq4ps-list' ]]; then
@@ -87,75 +95,7 @@ _linklist() {
 	
 	scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
 	
-	perl '/dev/stdin' $(echo $args) <<EOF | sed -e 's/ /_/g' > '/dev/shm/.ponysay~'
-#!/usr/bin/perl
-
-#Author: Mattias Andrée (maandree@kth.se)
-
-%hash = ();
-\$argc = @ARGV;
-
-\$i = 0;
-while (\$i < \$argc)
-{
-    \$source = \$ARGV[\$i];
-    \$i += 1;
-    \$target = \$ARGV[\$i];
-    \$i += 1;
-    if (\$source eq \$target)
-    {
-        \$hash{\$source} = [ () ];
-    }
-}
-
-\$i = 0;
-while (\$i < \$argc)
-{
-    \$source = \$ARGV[\$i];
-    \$i += 1;
-    \$target = \$ARGV[\$i];
-    \$i += 1;
-    unless (\$source eq \$target)
-    {
-        push @{ \$hash{\$target} }, \$source;
-    }
-}
-
-\$i = 0;
-while (\$i < \$argc)
-{
-    \$source = \$ARGV[\$i];
-    \$i += 1;
-    \$target = \$ARGV[\$i];
-    \$i += 1;
-    if (\$source eq \$target)
-    {
-        @list = @{ \$hash{\$source} };
-        \$first = 1;
-        print \$source;
-        foreach \$link (@list)
-        {
-            if (\$first eq 1)
-            {
-                print " (".\$link;
-                \$first = 0;
-            }
-            else
-            {
-                print " ".\$link;
-            }
-        }
-        if (\$first eq 0)
-        {
-            print ")";
-        }
-        print "\n";
-    }
-}
-EOF
-	
-	perl $listcmd $scrw $(cat "/dev/shm/.ponysay~") | sed -e 's/_/ /g' | qlist
-	rm '/dev/shm/.ponysay~'
+	perl $listcmd $scrw $(perl $linklistcmd $(echo $args) | sed -e 's/ /_/g') | sed -e 's/_/ /g' | qlist
 }
 
 linklist() {
@@ -206,7 +146,7 @@ say() {
 	# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
 	export PERL_UNICODE=S
 	
-	if [ "$TERM" = "linux" ]; then
+	if [ "$TERM" = "linux" ] || [ "$TERM" = "-linux-" ]; then
 		echo -ne '\e[H\e[2J'
 	fi
 	
@@ -237,9 +177,9 @@ say() {
 			ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
 			
 			if [[ ${0} == *ponythink ]]; then
-				cat <(echo -e $pcmd) $ccmd > "/dev/shm/.ponythink"
-				perl '/dev/shm/.ponythink' "$@"
-				rm '/dev/shm/.ponythink'
+				cat <(echo -e $pcmd) $ccmd > "/tmp/ponythink"
+				perl '/tmp/ponythink' "$@"
+				rm '/tmp/ponythink'
 			else
 				perl <(cat <(echo -e $pcmd) $ccmd) "$@"
 			fi
@@ -304,6 +244,7 @@ if [[ $usepq = 1 ]]; then
 			/usr/bin/pq4ps $@
 		}
 	fi
+	[[ "$TERM" = "-linux-" ]] && TERM="linux"
 	$0 ${wrap:+-W$wrap} $(q "$*")
 	exit
 fi
