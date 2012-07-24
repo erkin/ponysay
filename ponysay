@@ -173,9 +173,9 @@ say() {
 			ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
 			
 			if [[ ${0} == *ponythink ]]; then
-				cat <(echo -e $pcmd) $ccmd > "/tmp/.ponythink"
-				perl '/tmp/.ponythink' "$@"
-				rm '/tmp/.ponythink'
+				cat <(echo -e $pcmd) $ccmd > "/tmp/ponythink"
+				perl '/tmp/ponythink' "$@"
+				rm '/tmp/ponythink'
 			else
 				perl <(cat <(echo -e $pcmd) $ccmd) "$@"
 			fi
