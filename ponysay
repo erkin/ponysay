@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 
 version=1.1
-SYSTEMPONIES="/usr/share/ponysay/ponies"
-HOMEPONIES="${HOME}/.local/share/ponysay/ponies"
 SCRIPTDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # Get bash script directory
 pony="*"
 wrap=""
+
+SYSTEMPONIES="$(dirname $SCRIPTDIR)/share/ponysay"
+HOMEPONIES="${HOME}/.local/share/ponysay"
 
 kmscmd=""
 [[ "$TERM" = "linux" ]] && kmscmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/ponysay2kmsponysay /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
 [[ ! "$kmscmd" = "" ]] && TERM="-linux-"
 
 if [ "$TERM" = "linux" ]; then
-	SYSTEMPONIES="/usr/share/ponysay/ttyponies"
-	HOMEPONIES="${HOME}/.local/share/ponysay/ttyponies"
+	SYSTEMPONIES="$SYSTEMPONIES/ttyponies"
+	HOMEPONIES="$HOMEPONIES/ttyponies"
+else
+	SYSTEMPONIES="$SYSTEMPONIES/ponies"
+	HOMEPONIES="$HOMEPONIES/ponies"
 fi
 
 if [[ "$PONYSAY_COWSAY" = "" ]]; then
