@@ -15,6 +15,10 @@ $maxw = 1;
 
 foreach $arg (@ARGV)
 {
+	# Format names from ponyies names
+	$arg =~ s/([a-z])([A-Z])/\1 \2/;
+	#$arg =~ s/_(.*)/\t(\1)/;   ## Incompatible with `ponysay -L`
+	
     if ($first == 1)
     {   $first = 0;
 	$scrw = $arg;

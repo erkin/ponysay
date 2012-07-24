@@ -30,6 +30,14 @@ Or if you have a specific pony in your mind:
 Run `info ponysay`, `man 6 ponysay` or `ponysay -h` for more information.
 A Spanish manual is available: `man -L es 6 ponysay`.
 
+#### Arch Linux
+The package is in the official repositories as `community/ponysay`.
+
+#### Gentoo Linux
+There is a package for Gentoo, to make installation and keeping it up to date easy. You can find it in [this overlay](/etu/aidstu-overlay). The package is named `games-misc/ponysay`.
+
+#### Debian GNU/Linux and Ubuntu
+The DEB file can be found [here](http://roryholland.co.uk/misc.html#ponysay) and the PPA can be found [here](https://launchpad.net/~blazemore/+archive/ponysay).
 
 ### Pony fortune on terminal startup 
 
@@ -49,7 +57,7 @@ Now every time you open a terminal a pony should give your fortune
 
 Installing [ponyquotes4ponysay](https://github.com/maandree/ponyquotes4ponysay) will enable My Little Pony quotes with associated pony.
 
-Run `ponysay -q` will give you a random pony saying one it its quote from MLP:FiM. Add one or more argument after `-q` to sepcify a
+Running `ponysay -q` will give you a random pony saying one it its quote from MLP:FiM. Add one or more argument after `-q` to sepecify a
 set of ponies from which one will be selected randomly.
 
 When running `ponysay -l` or `ponysay -L` the ponies which have quotes will be printed bold or bright (depending on terminal).
@@ -80,9 +88,9 @@ Dependencies
 
 `cowsay`: this is a wrapper for cowsay
 
-`coreutils`: the main script uses stty, cut, ls, cat, sort, readlink, head and tail
+`coreutils`: the main script uses stty, cut, ls, cat, sort, readlink, pwd, head and tail
 
-`sed`: used to remove .pony from pony named when running `ponysay -l` and `ponysay -l`
+`sed`: used to remove .pony from pony names when running `ponysay -l` and `ponysay -l`
 
 `perl`: required to run `ponysay -l` and `ponysay -L`
 
