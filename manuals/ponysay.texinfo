@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 1.1
+@set VERSION 1.2
 
 @copying
 This manual is for ponysay
@@ -50,7 +50,7 @@ Texts. A copy of the license is included in the section entitled
 * Overview::                            Brief overview of @command{ponysay}.
 * Invoking ponysay::                    How to run @command{ponysay}.
 * Advanced usage::                      Advanced usage of @command{ponysay}.
-* Environment::                         Environment variables.
+* Environment variables::               Environment variables.
 * Limitations::                         Limitations.
 * Problems and requests::               Reports and requests.
 * Dependencies::                        Dependencies.
@@ -231,7 +231,7 @@ can be done by adding to your @code{~/.bashrc}:
 
 
 
-@node Environment
+@node Environment variables
 @chapter Environment variables
 @cindex environment variables
 @cindex truncation
@@ -269,7 +269,7 @@ or @code{1}, if you want to truncate the output on the height even if you
 are not running @command{ponysay} under TTY.
 
 @item PONYSAY_COWSAY
-@item PONYSAY_COWTHINK
+@itemx PONYSAY_COWTHINK
 @cindex PONYSAY_COWSAY
 @cindex PONYSAY_COWTINK
 @cindex custom cowsay
@@ -284,6 +284,9 @@ customise cowsay.
 @code{PONYSAY_COWTHINK} will be used instead of @code{PONYSAY_COWSAY} if
 you run @command{ponythink}.
 @end table
+
+See @ref{kmsponies4ponysay} for additional environment variabled used by the
+extension @command{kmsponies4ponysay}.
 
 
 
@@ -424,6 +427,9 @@ Required to run @command{ponysay -l} and @command{ponysay -L}.
 @item ponyquotes4ponysay
 For support of My Little Pony quotes with associated pony: the @code{-q} option.
 It can be downloaded at @url{https://github.com/maandree/ponyquotes4ponysay}.
+
+Since version 1.2, this module is included in ponysay. You can edit ponysay's
+@code{Makefile} to remove it.
 @end table
 
 
@@ -440,6 +446,8 @@ Required to run the make script.
 @item coreutils
 The make script uses @command{install}, @command{unlink}, @command{rm}, @command{ln},
 @command{mkdir} and @command{cp}.
+@item git
+Required for submodules.
 @end table
 
 
@@ -466,6 +474,17 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @cindex installing
 @cindex make
 
+@menu
+* From upstream::               Installing from upstream (GitHub repository).
+* Arch Linux::                  Packages for Arch Linux
+* Gentoo Linux::                Packages for Gentoo Linux
+* Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu
+@end menu
+
+
+@node From upstream
+@section From upstream
+
 Before installing @command{ponysay}, make sure your system have the packages listed under
 @ref{Required runtime dependencies} and @ref{Package building dependencies} installed.
 
@@ -476,16 +495,42 @@ If you have @command{git} you @command{clone} the project URL
 @url{https://github.com/erkin/ponysay.git}.
 
 In the terminal,@command{cd} into the ponysay directory and execute
-@command{make && make install}. This will install @command{ponysay} into the
+@command{make install}. This will install @command{ponysay} into the
 @code{/usr}, meaning you may need to run @command{make install} as root,
 e.g. by running @command{sudo make install}.
 
 Now you will be to use ponysay, run: @command{ponysay "I am just the cutest pony!"},
 or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 
-@command{ponysay} comes with a manpage in section 6, @command{man 6 ponysay}
-(or just @command{man ponysay}). The man page is also available in Spanish:
-@command{man -L es 6 ponysay}.
+@command{ponysay} comes with this @command{info} manual and a manpage in section 6,
+@command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
+in Spanish: @command{man -L es 6 ponysay}.
+
+
+@node Arch Linux
+@section Arch Linux
+@cindex arch linux
+
+The official Arch Linux package repositories contains @command{ponysay} as
+@code{community/ponysay}. The Arch Linux User Repository (AUR) contains a bleeding edge
+git version of @command{ponysay} as @code{ponysay-git}.
+
+
+@node Gentoo Linux
+@section Gentoo Linux
+@cindex gentoo linux
+
+Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
+contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
+
+
+@node Debian GNU/Linux
+@section Debian GNU/Linux and Ubuntu
+@cindex debian gnu/linux
+@cindex ubuntu
+
+A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay},
+and a PPA can be found at @url{https://launchpad.net/~blazemore/+archive/ponysay}.
 
 
 
@@ -498,17 +543,61 @@ Ponysay does not support extensions, per se, but rather have optional features t
 are enabled when other packages are installed.
 
 @menu
-* ponyquotes4ponysay::            ponyquotes4ponysay
+* ponyquotes4ponysay::            ponyquotes4ponysay: Quotes from My Little Ponies.
+* kmsponies4ponysay::             kmsponies4ponysay: Improved TTY support under KMS support.
 @end menu
+
 
 @node ponyquotes4ponysay
 @section ponyquotes4ponysay
 @cindex ponyquotes4ponysay
+@cindex quotes
 
 @command{ponyquotes4ponysay} is a package that adds support for MLP:FiM quotes that are
 displayed with the associated ponies. See @ref{Invoking ponysay} for more information.
 @command{ponyquotes4ponysay} can be downloaded at
 @url{https://github.com/maandree/ponyquotes4ponysay}.
+
+As of version 1.2 @command{ponyquotes4ponysay} is included in @command{ponysay}, but
+can easily be removed.
+
+
+@node kmsponies4ponysay
+@section kmsponies4ponysay
+@cindex kmsponies4ponysay
+@cindex tty
+@cindex linux vt
+@cindex kms
+@cindex kernel mode settings
+@cindex environment variables
+@cindex PONYSAY_KMS_PALETTE
+@cindex PONYSAY_KMS_PALETTE_CMD
+
+@command{kmsponies4ponysay} is an extension for TTY users that have a custom TTY colour
+palette and KMS support. KMS is supported on must computers, but due to lack of published
+specifications Nvidea drivers does not support KMS. @command{kmsponies4ponysay} can be
+downloaded at @url{https://github.com/maandree/kmsponies4ponysay}.
+
+To use this extension your @code{~/.bashrc} (or equivalent for your shell) must keep track
+of your colour palette, it is not possible for a program to ask to terminal. Either the
+shell should export a palette string to @code{$PONYSAY_KMS_PALETTE} or you should export
+a command to can get the palette string to @code{$PONYSAY_KMS_PALETTE_CMD}. The palette
+string should be the stream which sets the colour palette to the terminal when
+@command{echo}:ed; preferably, to increase speed and reduce cache usage, it should be
+consistent everytime it is exported for every colours palette. So you may want to keep it
+sorted, always be in either upper case or lower case, and not contain an character that
+is not used to set the colour palette.
+
+Assuming you have a function in your @code{~/.bashrc}, to reset the colour palette to what
+you set it to last time in the terminal, named @command{reset-palette}, your @code{~/.bashrc}
+should, for example, contain:
+@example
+[[ "$TERM" = "linux" ]] &&
+    function ponysay
+    @{   export PONYSAY_KMS_PALETTE="`reset-palette`"
+        exec ponysay "$@@"
+    @}
+@end example
 
 
 
@@ -519,6 +608,7 @@ displayed with the associated ponies. See @ref{Invoking ponysay} for more inform
 
 @menu
 * Pony anatomy::                 Anatomy of pony files.
+* Printing in TTY with KMS::     Printing in TTY with KMS.
 * Truncation::                   Output truncation.
 * Languages::                    Selection of languages.
 @end menu
@@ -538,6 +628,24 @@ printed by @command{cowsay} and is not definied in the pony files.
 The pony images consists of white space, lower half blocks [U+2584], upper half
 blocks [U+2580] and ANSI colour sequences (CSI m), and, in TTY, colour value change
 sequences (OSI P).
+
+
+@node Printing in TTY with KMS
+@section Printing in TTY with KMS
+@cindex tty
+@cindex linux vt
+@cindex clearing tty
+@cindex kms
+@cindex kernel mode settings
+
+Since Linux VT (TTY) does not have capabilities for returning the pssition of the cursor,
+the screen must always be cleared before printing the ponies to make sure the pony's
+colours is not lost, i.e. reduced to mare 16 colours, during print. The colours are reduced
+if the pony's position on the screen is changed. This is only relevant with KMS support.
+The clear the screen we print ``\e[H\e[2J'' (\e is ESC) in at beginning. ``\e[H'' places
+the cursor at the beginning of the screen, and ``\e[2J'' clears everything on the screen
+after, and including at, the cursor. If we would use ``\ec'' (that is a reset), we would
+also turn off num. lock and caps. lock.
 
 
 @node Truncation
@@ -596,7 +704,7 @@ is already required by cowsay, is similar to shell, but also supports hash table
 @cindex contributing
 
 @menu
-* Providing ponies::            Providing ponies
+* Providing ponies::            Providing ponies.
 @end menu
 
 @node Providing ponies
