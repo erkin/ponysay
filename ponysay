@@ -146,7 +146,7 @@ say() {
 	# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
 	export PERL_UNICODE=S
 	
-	if [ "$TERM" = "linux" ]; then
+	if [ "$TERM" = "linux" ] || [ "$TERM" = "-linux-" ]; then
 		echo -ne '\e[H\e[2J'
 	fi
 	
@@ -244,6 +244,7 @@ if [[ $usepq = 1 ]]; then
 			/usr/bin/pq4ps $@
 		}
 	fi
+	[[ "$TERM" = "-linux-" ]] && TERM="linux"
 	$0 ${wrap:+-W$wrap} $(q "$*")
 	exit
 fi
