@@ -1,4 +1,4 @@
-all: ponysaytruncater manpages infomanual ponythinkcompletion
+all: ponysaytruncater manpages infomanual ponythinkcompletion submodules
 
 ponysaytruncater:
 	gcc -o "ponysaytruncater" "ponysaytruncater.c"
@@ -15,6 +15,9 @@ ponythinkcompletion:
 	sed -e 's/ponysay/ponythink/g' <"completion/bash-completion.sh"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/bash-completion-think.sh"
 	sed -e 's/ponysay/ponythink/g' <"completion/fish-completion.fish" | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/fish-completion-think.fish"
 	sed -e 's/ponysay/ponythink/g' <"completion/zsh-completion.zsh"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/zsh-completion-think.zsh"
+
+submodules:
+	(cd "ponyquotes4ponysay/"; make -B)
 
 ttyponies:
 	mkdir -p ttyponies
@@ -85,6 +88,8 @@ install: all
 	install-info --dir-file="$(DESTDIR)/usr/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "$(DESTDIR)/usr/share/info/ponysay.info.gz"
 	install-info --dir-file="$(DESTDIR)/usr/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "$(DESTDIR)/usr/share/info/ponythink.info.gz"
 
+	(cd "ponyquotes4ponysay/"; make DESTDIR="$(DESTDIR)" install)
+
 	@echo -e '\n\n'\
 '/--------------------------------------------------\\\n'\
 '|   ___                                            |\n'\
@@ -124,6 +129,7 @@ uninstall:
 	unlink "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
 	unlink "$(DESTDIR)/usr/share/info/ponysay.info.gz"
 	unlink "$(DESTDIR)/usr/share/info/ponythink.info.gz"
+	(cd "ponyquotes4ponysay/"; make DESTDIR="$(DESTDIR)" uninstall)
 
 clean:
 	rm -f "ponysaytruncater"
@@ -133,3 +139,4 @@ clean:
 	rm -f "manuals/manpage.6.gz"
 	rm -f "manuals/manpage.es.6.gz"
 	rm -f "ponysay.info.gz"
+	(cd "ponyquotes4ponysay/"; make clean)
