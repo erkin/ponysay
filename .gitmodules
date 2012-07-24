@@ -1,0 +1,3 @@
+[submodule "ponyquotes4ponysay"]
+	path = ponyquotes4ponysay
+	url = git://github.com/maandree/ponyquotes4ponysay.git
