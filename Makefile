@@ -61,6 +61,7 @@ install:
 	mkdir -p "$(DESTDIR)/usr/lib/ponysay/"
 	install -s "ponysaytruncater" "$(DESTDIR)/usr/lib/ponysay/truncater"
 	install "ponysaylist.pl" "$(DESTDIR)/usr/lib/ponysay/list.pl"
+	install "ponysaylinklist.pl" "$(DESTDIR)/usr/lib/ponysay/linklist.pl"
 
 	mkdir -p "$(DESTDIR)/usr/share/bash-completion/completions/"
 	install "completion/bash-completion.sh" "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
@@ -116,6 +117,7 @@ uninstall:
 	unlink "$(DESTDIR)/usr/bin/ponysay"
 	unlink "$(DESTDIR)/usr/bin/ponythink"
 	unlink "$(DESTDIR)/usr/lib/ponysay/list.pl"
+	unlink "$(DESTDIR)/usr/lib/ponysay/linklist.pl"
 	unlink "$(DESTDIR)/usr/lib/ponysay/truncater"
 	unlink "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 	unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
