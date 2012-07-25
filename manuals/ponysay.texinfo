@@ -423,15 +423,20 @@ Required to run @command{ponysay -l} and @command{ponysay -L}.
 @section Optional runtime dependencies
 @cindex extensions
 @cindex optional dependencies
-@cindex ponyquotes4ponysay
 
 @table @option
 @item ponyquotes4ponysay
+@cindex ponyquotes4ponysay
 For support of My Little Pony quotes with associated pony: the @code{-q} option.
 It can be downloaded at @url{https://github.com/maandree/ponyquotes4ponysay}.
 
 Since version 1.2, this module is included in ponysay. You can edit ponysay's
 @code{Makefile} to remove it.
+
+@item kmsponies4ponysay
+@cindex kmsponies4ponysay
+For improved TTY support for user with custom colour palette and KMS support.
+It can be downloaded at @url{https://github.com/maandree/kmsponies4ponysay}.
 @end table
 
 
