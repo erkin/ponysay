@@ -118,10 +118,12 @@ multiple times to specify a set of ponies from which one will be selected
 randomly. If no pony is specified one will be selected randomly.
 
 @item -q [PONY...]
-This option requires the extension @command{ponyquotes4ponysay}. By using
-this option, a pony will be printed with quotes from her in My Litte Pony:
-Friendship is Magic. The pony will be selected randomly, at least one pony
-is added as an argument after @command{-q}.
+By using this option, a pony will be printed with quotes from her in My Litte Pony:
+Friendship is Magic. The pony will be selected randomly, unless at least one pony
+is added as an argument after @command{-q}. If one or more ponies are added after
+@command{-q}, the pony will be selected randomly from that set of ponies.
+This option requires the extension @command{ponyquotes4ponysay}, which
+is included by default since version 1.2.
 
 @item -W COLUMN
 Specify the screen column where the message should be wrapped,
