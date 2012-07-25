@@ -36,6 +36,11 @@ Texts. A copy of the license is included in the section entitled
 @title Ponysay
 @subtitle A cowsay wrapper for ponies.
 @subtitle Covers ponysay version @value{VERSION}.
+@c ** start of front page image **
+@c If print make a pdf or hard copy with the front cover
+@c you may or may not want to remove this.
+@image{infoimage,423.5px}
+@c ** end of front page image **
 @author by Mattias Andrée (maandree)
 
 @page
@@ -183,6 +188,7 @@ effect described in the previous paragraph every time you open a terminal.
 @node Ponification
 @section Ponification
 @cindex ponification
+@cindex text ponification
 @cindex ponypipe
 
 You can ponify text (i.e. replaces words search as ``everyone'' with ``everypony'')
@@ -562,11 +568,9 @@ are enabled when other packages are installed.
 
 @command{ponyquotes4ponysay} is a package that adds support for MLP:FiM quotes that are
 displayed with the associated ponies. See @ref{Invoking ponysay} for more information.
-@command{ponyquotes4ponysay} can be downloaded at
-@url{https://github.com/maandree/ponyquotes4ponysay}.
 
-As of version 1.2 @command{ponyquotes4ponysay} is included in @command{ponysay}, but
-can easily be removed.
+As of version 1.2 @command{ponyquotes4ponysay} is included in @command{ponysay}, but can easily
+be removed, but is still available at @url{https://github.com/maandree/ponyquotes4ponysay}.
 
 
 @node kmsponies4ponysay
@@ -605,6 +609,8 @@ should, for example, contain:
         exec ponysay "$@@"
     @}
 @end example
+
+@command{kmsponies4ponysay} uses @code{/var/cache/kmsponies4ponysay/} for cache space.
 
 
 
@@ -649,10 +655,10 @@ Since Linux VT (TTY) does not have capabilities for returning the pssition of th
 the screen must always be cleared before printing the ponies to make sure the pony's
 colours is not lost, i.e. reduced to mare 16 colours, during print. The colours are reduced
 if the pony's position on the screen is changed. This is only relevant with KMS support.
-The clear the screen we print ``\e[H\e[2J'' (\e is ESC) in at beginning. ``\e[H'' places
-the cursor at the beginning of the screen, and ``\e[2J'' clears everything on the screen
-after, and including at, the cursor. If we would use ``\ec'' (that is a reset), we would
-also turn off num. lock and caps. lock.
+The clear the screen we print ``@code{\e[H\e[2J}'' (@code{\e} is ESC) in at beginning.
+``@code{\e[H}'' places the cursor at the beginning of the screen, and ``@code{\e[2J}'' clears
+everything on the screen after, and including at, the cursor. If we would use ``@code{\ec}''
+(that is a reset), we would also turn off num. lock and caps. lock.
 
 
 @node Truncation
@@ -733,7 +739,7 @@ directory. You can use the check which ponies are added and which are not.
 New ponies can be created from regular images by using util-say, which is available
 at @url{https://github.com/maandree/util-say}.
 @command{img2xterm} (@url{https://github.com/rossy2401/img2xterm}) was used earlier,
-but util-say tries do optimise the images in some aspects: as good as possible for
+but util-say tries to optimise the images in some aspects: as good as possible for
 low capability terminals, tries to place the pony–balloon link, displayed as good as
 possible when marked in the terminal (somewhat compromised by the first aspect,) and
 same width on all rows.
