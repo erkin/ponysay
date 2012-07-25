@@ -56,8 +56,6 @@ Now every time you open a terminal a pony should give your fortune
 
 ### Pony quotes
 
-Installing [ponyquotes4ponysay](https://github.com/maandree/ponyquotes4ponysay) will enable My Little Pony quotes with associated pony.
-
 Running `ponysay -q` will give you a random pony saying one it its quote from MLP:FiM. Add one or more argument after `-q` to sepecify a
 set of ponies from which one will be selected randomly.
 
