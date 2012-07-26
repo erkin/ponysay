@@ -17,6 +17,7 @@ ponythinkcompletion:
 	sed -e 's/ponysay/ponythink/g' <"completion/zsh-completion.zsh"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/zsh-completion-think.zsh"
 
 submodules:
+	git submodule init
 	git submodule update
 	(cd "ponyquotes4ponysay/"; make -B)
 

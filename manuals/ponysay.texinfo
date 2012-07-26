@@ -96,8 +96,8 @@ is printed on standard output.
 The format for running the @command{ponysay} program is:
 
 @example
-ponysay [@var{option}@dots{}] [@var{message}]
-ponythink [@var{option}@dots{}] [@var{message}]
+ponysay [@var{option}@dots{}] [--] [@var{message}]
+ponythink [@var{option}@dots{}] [--] [@var{message}]
 @end example
 
 Running @command{ponysay} will print a speech balloon,
@@ -107,6 +107,9 @@ Otherwise @command{ponysay} and @command{ponythink} is the same thing.
 @command{ponysay} supports the following options:
 
 @table @option
+
+@item --
+Parse the following arguments as parts of @code{@var{message}}.
 
 @item -h
 Show summary of options.
@@ -172,6 +175,7 @@ by hand, you can run @code{cat | ponysay}.
 @node Fortune cookies
 @section Fortune cookies
 @cindex fortune
+@cindex startup
 @cindex on startup
 
 If you have @command{fortune} installed -- this program may be named
@@ -315,6 +319,9 @@ extension @command{kmsponies4ponysay}.
 @cindex kernel mode settings
 @cindex 9term
 @cindex putty
+@cindex terminals
+@cindex fonts
+@cindex broken ponies
 
 Ponysay works perfectly on @command{xterm}, @command{xterm} like terminals including
 @command{putty}, settings may however need to be customised for Unicode Character Set
