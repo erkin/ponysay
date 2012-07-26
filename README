@@ -36,7 +36,10 @@ Optional runtime dependencies
 =============================
 
     ponyquotes4ponysay : for support of My Little Pony quotes with associated pony
-    -- Available for Arch:ers in AUR (https://aur.archlinux.org/packages.php?ID=60988)
+    -- Included as a submodule, and can easily be removed by edit Makefile.
+    
+    kmsponies4ponysay : improving TTY support under KMS support
+    -- Available for Arch:ers in AUR (https://aur.archlinux.org/packages.php?ID=61111)
     -- and on github at https://github.com/maandree/ponyquotes4ponysay
 
 
@@ -50,6 +53,8 @@ Package building dependencies
     make      : required to run the make script
 
     coreutils : make script uses install, unlink, rm, ln, mkdir and cp
+
+    git       : required for submodules
 
 
 Dependencies for pony providers
@@ -114,10 +119,6 @@ Pony fortune on terminal startup
 
 Pony quotes
 ===========
-
-Installing ponyquotes4ponysay will enable My Little Pony quotes with associated pony.
-It is available at:  https://github.com/maandree/ponyquotes4ponysay
-                     https://aur.archlinux.org/packages.php?ID=60988
 
 Running `ponysay -q` will give you a random pony saying one it its quote from MLP:FiM.
 Add one or more argument after `-q` to sepecify a set of ponies from which one will be selected randomly.

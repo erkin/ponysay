@@ -4,6 +4,7 @@
 
 Today your terminal, tomorrow the world!
 
+
 Installation on GNU/Linux (or other Unix implementations)
 ---------------------------------------------------------
 
@@ -17,7 +18,7 @@ In the terminal, `cd` into the ponysay directory and `make && make install`.
 This will install ponysay into the $PREFIX (`/usr` by default, meaning you may need to `make install` as root, e.g. `sudo make install`.)
 
 If either `make` or `make install` fails you be missing one of the standard packages:
-[gcc](ftp://ftp.gnu.org/gnu/gcc/), [gzip](ftp://ftp.gnu.org/gnu/gzip/), [make](ftp://ftp.gnu.org/gnu/make/) or [coreutils](ftp://ftp.gnu.org/gnu/coreutils/).
+[gcc](ftp://ftp.gnu.org/gnu/gcc/), [gzip](ftp://ftp.gnu.org/gnu/gzip/), [make](ftp://ftp.gnu.org/gnu/make/) or [coreutils](ftp://ftp.gnu.org/gnu/coreutils/), or [git](http://git-scm.com/).
 
 In order to use ponysay, run:
 
@@ -55,13 +56,10 @@ Now every time you open a terminal a pony should give your fortune
 
 ### Pony quotes
 
-Installing [ponyquotes4ponysay](https://github.com/maandree/ponyquotes4ponysay) will enable My Little Pony quotes with associated pony.
-
 Running `ponysay -q` will give you a random pony saying one it its quote from MLP:FiM. Add one or more argument after `-q` to sepecify a
 set of ponies from which one will be selected randomly.
 
 When running `ponysay -l` or `ponysay -L` the ponies which have quotes will be printed bold or bright (depending on terminal).
-
 
 ### Ponies in TTY (Linux VT)
 
@@ -75,9 +73,11 @@ If you have a custom colour palette edit your `~/.bashrc` and add
         }
     fi
 
+
 Installation on Microsoft™ Windows®
 -----------------------------------
 [¯\\\_(ツ)\_/¯](http://i.imgur.com/2nP5N.png)
+
 
 Dependencies
 ------------
@@ -103,6 +103,9 @@ Dependencies
 `make`: required to run the make script
 
 `coreutils`: make script uses install, unlink, rm, ln, mkdir and cp
+
+`git`: required for submodules
+
 
 FAQ
 ---

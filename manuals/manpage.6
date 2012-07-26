@@ -20,10 +20,12 @@ ponysay \- A cowsay wrapper with ponies
 .SH SYNOPSIS
 .B ponysay
 .RI [ options ]
+[--]
 .RI [ message ]
 .br
 .B ponythink
 .RI [ options ]
+[--]
 .RI [ message ]
 .br
 .SH DESCRIPTION
@@ -39,6 +41,8 @@ If no arguments are provided, the program only accepts standard input piped from
 either here documents or here strings (see man bash(1) for details on here document/string.)
 .PP
 \fBponythink\fP is to \fIponysay\fP as \fIcowthink\fP is to \fIcowsay\fP.
+.PP
+For an extensive documentation run `info ponysay`.
 .SH OPTIONS
 A summary of options is included below.
 .TP
@@ -58,7 +62,7 @@ List pony files with synonyms inside brackets.
 Select a pony (either a file name or a pony name), you can use this options multiple times,
 and one of the will be selected randomly.
 .TP
-.B \-q [\fIname\fp...]
+.B \-q [\fIname\fP...]
 By using this option, a pony will be printed with quotes from her in My Litte Pony:
 Friendship is Magic. The pony will be selected randomly, unless at least one pony
 is added as an argument after \fI-q\fP. If one or more ponies are added after \fI-q\fP
