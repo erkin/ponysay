@@ -63,6 +63,7 @@ Texts. A copy of the license is included in the section entitled
 * Extensions::                          Extensions.
 * Inner workings::                      Inner workings.
 * Contributing::                        Contributing.
+* Change log::                          Differences between the version of @command{ponysay}.
 * Ponysay constributors::               Ponysay constributors.
 * Ponysay license::                     Ponysay license.
 * GNU Free Documentation License::      Copying and sharing this manual.
@@ -109,15 +110,19 @@ Otherwise @command{ponysay} and @command{ponythink} is the same thing.
 @table @option
 
 @item --
+@cindex @command{--}
 Parse the following arguments as parts of @code{@var{message}}.
 
 @item -h
+@cindex @command{-h}
 Show summary of options.
 
 @item -v
+@cindex @command{-v}
 Show version of program.
 
 @item -f PONY
+@cindex @command{-f}
 Specify the pony that should printed, this can either be a file name or
 a pony name printed by @command{ponysay -l}. If it is a file name with
 a relative path and does not include a `@code{/}', it must begin with
@@ -126,6 +131,7 @@ multiple times to specify a set of ponies from which one will be selected
 randomly. If no pony is specified one will be selected randomly.
 
 @item -q [PONY...]
+@cindex @command{-q}
 By using this option, a pony will be printed with quotes from her in My Litte Pony:
 Friendship is Magic. The pony will be selected randomly, unless at least one pony
 is added as an argument after @command{-q}. If one or more ponies are added after
@@ -134,16 +140,19 @@ This option requires the extension @command{ponyquotes4ponysay}, which
 is included by default since version 1.2.
 
 @item -W COLUMN
+@cindex @command{-W}
 Specify the screen column where the message should be wrapped,
 this is by default 40, which is inherited from @command{cowsay}.
 
 @item -l
+@cindex @command{-l}
 Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
 is installed the ponies which have quotes, i.e. can be used with the
 @command{-q} option, will be mark by being printed in bold or bright
 (depending on the terminal.)
 
 @item -L
+@cindex @command{-L}
 Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
 is installed the ponies which have quotes, i.e. can be used with the
 @command{-q} option, will be mark by being printed in bold or bright
@@ -177,6 +186,7 @@ by hand, you can run @code{cat | ponysay}.
 @cindex fortune
 @cindex startup
 @cindex on startup
+@cindex .bashrc
 
 If you have @command{fortune} installed -- this program may be named
 @command{fortune-mod} in your GNU/Linux distributions package reposity --
@@ -208,6 +218,7 @@ There is also a large sed script, similar to @command{ponypipe}: @url{http://www
 @section Running on TTY
 @cindex tty
 @cindex linux vt
+@cindex .bashrc
 
 If you use TTY and have a custom colour palette, you should also add to your
 @code{~/.bashrc}, before @code{fortune | ponysay}:
@@ -223,6 +234,7 @@ If you use TTY and have a custom colour palette, you should also add to your
 @node Running on screen
 @section Running on @command{screen}
 @cindex screen
+@cindex .bashrc
 
 @command{screen} will adapt ASNI colour escape sequencies to your terminal's
 capabilities. This means that is your terminal reports itself as @code{xterm}
@@ -315,19 +327,21 @@ extension @command{kmsponies4ponysay}.
 
 @node Terminals
 @section Terminals
-@cindex kms
-@cindex kernel mode settings
-@cindex 9term
-@cindex putty
 @cindex terminals
 @cindex fonts
 @cindex broken ponies
 
+@cindex xterm
+@cindex putty
 Ponysay works perfectly on @command{xterm}, @command{xterm} like terminals including
 @command{putty}, settings may however need to be customised for Unicode Character Set
 (UCS) support, but less well, depending on font, on VTE based terminals including
 @command{mate-terminal}.
 
+@cindex kms
+@cindex kernel mode settings
+@cindex tty
+@cindex linux vt
 On Linux's native terminal Linux VT (TTY) it works less well, and not good at all with
 Kernal Mode Settings (KMS) support. See @url{https://github.com/erkin/ponysay/issues/1}
 for more information. @command{ponysay} clears the screen before printing to TTY, this
@@ -335,13 +349,26 @@ is because if your graphics driver supports KMS, the colours will be messed by w
 ponies position moves on the screen, this is also reason why the output is truncated on
 the height in TTY by default.
 
-Due to extreme limitations in @command{9term} @command{ponysay} will never be able to
-run on it.
-
 Most terminals have support for 256 colours, we do however only use the top 240 colours;
 this is because the lower 16 colours are usally, in contrast to the top 240, customised.
 We assume that the top 240 colours have their standard values. In TTY with KMS support
 we dot have any actual (except for @math{2^{24}} + full transparency.)
+
+@cindex xterm
+@cindex urxvt
+@cindex putty
+@cindex rxvt
+@cindex mrxvt
+@cindex Eterm
+@cindex aterm
+@command{ponysay} works perfectly on @command{xterm}, @command{urxvt} and @command{putty},
+but @command{rxvt}, @command{mrxvt} and @command{Eterm} do not have UTF-8 support and are
+currently not supported. Additionally @command{aterm} have neither UTF-8 support nor 256
+colour support, and is therefore not yet support.
+
+@cindex 9term
+Due to extreme limitations in @command{9term} @command{ponysay} will never be able to
+run on it.
 
 
 @node Cowsay
@@ -426,6 +453,8 @@ The main script [file: @command{ponysay}] uses @command{stty}, @command{cut},
 @command{ls}, @command{cat}, @command{sort}, @command{readlink}, @command{pwd},
 @command{head} and @command{tail}.
 @item sed
+@cindex @command{-l}
+@cindex @command{-L}
 Used to remove @code{.pony} from pony names when running @command{ponysay -l}
 and @command{ponysay -L}.
 @item perl
@@ -440,6 +469,7 @@ Required to run @command{ponysay -l} and @command{ponysay -L}.
 @table @option
 @item ponyquotes4ponysay
 @cindex ponyquotes4ponysay
+@cindex @command{-q}
 For support of My Little Pony quotes with associated pony: the @code{-q} option.
 It can be downloaded at @url{https://github.com/maandree/ponyquotes4ponysay}.
 
@@ -590,6 +620,7 @@ be removed, but is still available at @url{https://github.com/maandree/ponyquote
 @cindex environment variables
 @cindex PONYSAY_KMS_PALETTE
 @cindex PONYSAY_KMS_PALETTE_CMD
+@cindex .bashrc
 
 @command{kmsponies4ponysay} is an extension for TTY users that have a custom TTY colour
 palette and KMS support. KMS is supported on must computers, but due to lack of published
@@ -698,9 +729,9 @@ sequences, including OSI P and CSI m, which is essential for the truncation to b
 It also expands tabs to every eigth coloumn and resets the background colour when needed,
 and writes ANSI escape sequences that are on the left side of the truncation. The truncater
 stops CSI sequences on the first ASCII letter (@code{[a-zA-Z]}), but also stops escape
-sequences after the first character after the initial escape if it is not either [ (CSI)
-or ] (OSI). For support UTF-8, to handles all bytes that do not match @code{10xxxxxx} as
-beginning of a character.
+sequences after the first character after the initial escape if it is not either @code{[}
+(CSI) or @code{]} (OSI). For support UTF-8, to handles all bytes that do not match
+@code{10xxxxxx} as beginning of a character.
 
 
 @node Languages
@@ -752,6 +783,8 @@ possible when marked in the terminal (somewhat compromised by the first aspect,)
 same width on all rows.
 
 Using util-say:
+@cindex util-say
+@cindex img2ponysay
 @example
 img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE
 
@@ -774,6 +807,262 @@ ttyponies with a pony present in @code{ponies/}, and creates all needed symlinks
 To be able to run @command{make -B ttyponies} you must have the packages listed under
 @ref{Dependencies for pony providers}.
 
+
+
+@node Change log
+@appendix Change log
+@cindex change log
+@cindex versions
+@cindex previous releases
+
+@heading Version 1.2
+
+@itemize @bullet
+@item
+ponyquotes4ponysay is included.
+@item
+Support for extension: kmsponies4ponysay.
+@item
+New ponies: @code{ace}, @code{filthyrich}, @code{gingergold},
+@code{hayfever}, @code{highscore}, @code{junebug}, @code{tornadobolt}.
+@item
+@cindex @command{-f}
+Arbitrary spaces in @command{-f} argument is not longer accepted (it causes problems with
+file names including spaces.)
+@end itemize
+
+@heading Version 1.1
+
+@itemize @bullet
+@item
+Manpages are compressed before installation.
+@item
+@command{info} manual added.
+@item
+Shell completion for @command{ponythink} added, in addition to @command{ponysay}.
+@item
+@command{fish} completion added.
+@item
+@code{/usr/lib/ponysay} is used instead of @code{/usr/bin} for code used by the main script.
+@item
+@code{~/.local/share/ponysay} is used for private pony directories.
+@item
+@command{ncurses} is no longer needed for determining the screen's size,
+@command{coreutils} is used instead.
+@item
+Pony symlinks added:
+@itemize @bullet
+@item @code{amethyststar} → @code{sparkler}
+@item @code{berrypinch} → @code{ruby}
+@item @code{craftycrate} → @code{boxxy}
+@item @code{magnum} → @code{raritysdad}
+@item @code{pearl} → @code{raritysmom}
+@item @code{powderrouge} → @code{sindy}
+@item @code{royalribbo} → @code{violet}
+@end itemize
+@item
+@w{New ponies:} @code{blossomforth}, @code{bonvoyage}, @code{cadance}, @code{celestiasmall},
+@code{changelingqueen}, @code{cherryberry}, @code{discordamused}, @code{discordpuppetmaster},
+@code{fleurdelishair}, @code{fleurdelislay}, @code{owl}, @code{perrypierce}, @code{petunia},
+@code{pinacolada}, @code{skyra}, @code{truffleshuffle}.
+@item
+Pony spelling removed: @code{fillycadence}.
+@item
+Pony symlink change: @code{perry} → @{@code{pokey} → @code{perrypierce}@}.
+@item
+@cindex @command{-L}
+Option @command{-L} added, lists ponies with symlink mapping.
+@item
+Support for extension: ponyquotes4ponysay.
+@item
+@cindex @command{-f}
+Accepts arbitrary spaces in @command{-f} argument.
+@end itemize
+
+@heading Version 1.0
+
+@itemize @bullet
+@item
+Spanish translation of the manpage is added.
+@item
+@w{New ponies:} @code{applecore}, @code{applejackscarecrow}, @code{bonbonstand},
+@code{changeling}, @code{chrysalis}, @code{cottoncloudy}, @code{diamondmint},
+@code{discord}, @code{fillycadence}, @code{flam}, @code{fleurdelis}, @code{flim},
+@code{fluttershyshy}, @code{fluttershystare}, @code{lyrasit}, @code{oinkoinkoink},
+@code{philomenaphoenix}, @code{pinkiecannon}, @code{pinkiecannonfront},
+@code{pinkiecannonhappy}, @code{pinkiegummy}, @code{pinkiehugfluttershy},
+@code{pinkiehugsfluttershy}, @code{pinkiepartycannon}, @code{pinkieprincess},
+@code{pinkiesilly}, @code{pinkietongue}, @code{pinkiewhoops}, @code{pinkiewhoopseat},
+@code{pinkiewhoopsout}, @code{rainbowdrag}, @code{rainbowsalute}, @code{rainbowshine},
+@code{raritydrama}, @code{shiningarmor}, @code{shiningarmorguard}, @code{snowflake},
+@code{spikemustache}, @code{stevenmagnet}, @code{stevenmagnettrue},
+@code{twilightcrazyfromball}, @code{twilightrage}, @code{twilightzero}, @code{wildfire}.
+@item
+Pony symlinks added:
+@itemize @bullet
+@item @code{djpon-3} → @code{vinyl}
+@item @code{fillycadance} → @code{fillycadence}
+@item @code{horsepower} → @code{snowflake}
+@end itemize
+@item
+Improved TTY support: ponies have low colours resolution, instead of monochrome,
+when the high colour resolution is not available.
+@end itemize
+
+@heading Version 0.10
+
+@itemize @bullet
+@item
+Manpage manual added.
+@item
+The directories for pony directories are changed from @code{/usr/share} to
+@code{/usr/share/ponysay} and @code{~} to @code{~/.ponysay}.
+@item
+Pony symlinks added:
+@itemize @bullet
+@item @code{carrottop} → @code{carrot}
+@item @code{goldenharvest} → @code{carrot}
+@item @code{harpass} → @code{lyra}
+@item @code{heartstrings} → @code{lyra}
+@item @code{lulamoon} → @code{trixie}
+@item @code{minuette} → @code{colgate}
+@item @code{noteworthy} → @code{blues}
+@item @code{perry} → @code{pokey}
+@item @code{pokeypierce} → @code{pokey}
+@item @code{timeturner} → @code{doctornohat}
+@item @code{trixielulamoon} → @code{trixie}
+@item @code{twilightvelvet} → @code{mrssparkle}
+@end itemize
+@item
+Support for truncating output on height, enabled by default under TTY.
+@item
+Environment variables added: @code{PONYSAY_FULL_WIDTH}, @code{PONYSAY_SHELL_LINES},
+@code{PONYSAY_TRUNCATE_HEIGHT}, @code{PONYSAY_BOTTOM}.
+@end itemize
+
+@heading Version 0.9
+
+@itemize @bullet
+@item
+Output truncated on width to fit screen.
+@item
+Support for TTY (Linux VT).
+@item
+@command{bash} completion added.
+@item
+@command{zsh} completion added.
+@item
+@w{New ponies}: @code{allie}, @code{archer}, @code{boxxy}, @code{carecake}, @code{cupcake},
+@code{daringdo}, @code{davenport}, @code{fancypants}, @code{ironwillwalk}, @code{lily},
+@code{lunafly}, @code{maredowellfly}, @code{maredowellgallop}, @code{master}, @code{mjolna},
+@code{orange}, @code{raritysdad}, @code{raritysmom}, @code{royalnightguard}, @code{ruby},
+@code{sparkler}, @code{violet}.
+@end itemize
+
+@heading Version 0.8
+
+@itemize @bullet
+@item
+@w{New ponies}: @code{aloe}, @code{angle}, @code{applebloom}, @code{applebumkin},
+@code{applefritter}, @code{berrypunch}, @code{bigmac}, @code{blinkie}, @code{blues},
+@code{braeburn}, @code{caesar}, @code{candymane}, @code{caramel}, @code{cheerilee},
+@code{cheerilee80}, @code{clyde}, @code{colgate}, @code{colton}, @code{daisy},
+@code{derpystand}, @code{derpystandwing}, @code{diamondtiara}, @code{dinky},
+@code{doctornohat}, @code{elsie}, @code{fido}, @code{fillycelestia}, @code{fillydash},
+@code{fillydashfly}, @code{fillyjack}, @code{fillyjacktravel}, @code{fillypinkie},
+@code{fillypinkiecurly}, @code{fillyrarity}, @code{fillyshy}, @code{fluttershygala},
+@code{gilda}, @code{gildastand}, @code{granny}, @code{grannychair}, @code{grannysleep},
+@code{gummy}, @code{hoity}, @code{horte}, @code{inky}, @code{laflour}, @code{lightning},
+@code{lintsalot}, @code{lotus}, @code{mayor}, @code{mrssparkle}, @code{nightmare},
+@code{opal}, @code{parasprite}, @code{philomena}, @code{photofinish}, @code{pinkamina},
+@code{pinkiebounce}, @code{pinkiechicken}, @code{pinkiegala}, @code{pipsqueak},
+@code{pokey}, @code{rainbowfly}, @code{rainbowgala}, @code{rainbowsleep}, @code{raindrops},
+@code{rarityfly}, @code{raritygala}, @code{rarityponder}, @code{redheart}, @code{rocky},
+@code{rose}, @code{rover}, @code{royalguard}, @code{sapphire}, @code{scootaloo},
+@code{screwball}, @code{shadowbolts}, @code{silverspoon}, @code{silverstar}, @code{sindy},
+@code{snails}, @code{snips}, @code{soarin}, @code{soigne}, @code{spike}, @code{spikefloat},
+@code{spikelove}, @code{spot}, @code{stella}, @code{strongheart}, @code{sue},
+@code{suedance}, @code{tank}, @code{trixiestage}, @code{trixiestand}, @code{turnip},
+@code{twist}, @code{winona}.
+@end itemize
+
+@b{Note}: Identifies itself as version 0.7
+
+@heading Version 0.7
+
+@itemize @bullet
+@item
+@w{New ponies}: @code{carrot}, @code{octavia}, @code{trixie}, @code{vinyl}, @code{zecora}.
+@item
+@cindex @command{-l}
+Support for listing ponies with @command{-l} option.
+@end itemize
+
+@heading Version 0.6
+
+@itemize @bullet
+@item
+@w{New ponies}: @code{bonbon}, @code{celestia}, @code{doctor}, @code{fillistia},
+@code{spitfire}, @code{woona}.
+@item
+Dropping usage of utility @command{which}, using @command{hash} instead.
+@end itemize
+
+@b{Note}: Identifies itself as version 0.5
+
+@heading Version 0.5
+
+@itemize @bullet
+@item
+Using utility @command{which} to determine existance of @command{cowsay}.
+@end itemize
+
+@heading Version 0.4
+
+@itemize @bullet
+@item
+@code{.cow} files are removed.
+@item
+@cindex @command{-W}
+Support for @command{-W} option.
+@item
+Select random pony if not specified.
+@item
+@cindex @command{-f}
+@command{-f} supports file names, and not only pony names.
+@end itemize
+
+@heading Version 0.3
+
+@itemize @bullet
+@item
+Fixed use of @code{.pony} files.
+@end itemize
+
+@heading Version 0.2
+
+@itemize @bullet
+@item
+Pony files end with @code{.pony} instead of @code{.cow}.
+@item
+@code{lyrasleep} is renamed to @code{lyra}.
+@item
+@code{.cow} files are kept but not used.
+@item
+@cindex @command{-h}
+@command{-h} prints proper help.
+@end itemize
+
+@heading Version 0.1
+
+First release.
+
+@itemize @bullet
+@item
+@w{Includes the ponies}: @code{applejack}, @code{derpy}, @code{derpysit},
+@code{fluttershy}, @code{luna}, @code{lyrasleep}, @code{pinkie}, @code{rainbow},
+@code{rarity}, @code{sweetie}, @code{twilight}.
+@end itemize
 
 
 
