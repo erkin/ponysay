@@ -833,7 +833,7 @@ Pony symlinks added:
 @item
 New ponies: @code{ace}, @code{filthyrich}, @code{gingergold},
 @code{hayfever}, @code{highscore}, @code{junebug}, @code{mrsparkle},
-@code{persnickety}, @code{ponet}, @code{tornadobolt}.
+@code{persnickety}, @code{ponet}, @code{tornadobolt}, @code{blueblood}.
 @item
 @cindex @command{-f}
 Arbitrary spaces in @command{-f} argument is not longer accepted (it causes problems with
@@ -1012,7 +1012,7 @@ Support for listing ponies with @command{-l} option.
 @itemize @bullet
 @item
 @w{New ponies}: @code{bonbon}, @code{celestia}, @code{doctor}, @code{fillistia},
-@code{spitfire}, @code{woona} (not moonstuck).
+@code{spitfire}, @w{@code{woona} (not moonstuck)}.
 @item
 Dropping usage of utility @command{which}, using @command{hash} instead.
 @end itemize
