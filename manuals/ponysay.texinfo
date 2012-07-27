@@ -826,8 +826,14 @@ ponyquotes4ponysay is included.
 @item
 Support for extension: kmsponies4ponysay.
 @item
+Pony symlinks added:
+@itemize @bullet
+@item @code{mrsparkle} → @code{nightlight}
+@end itemize
+@item
 New ponies: @code{ace}, @code{filthyrich}, @code{gingergold},
-@code{hayfever}, @code{highscore}, @code{junebug}, @code{tornadobolt}.
+@code{hayfever}, @code{highscore}, @code{junebug}, @code[mrsparkle], 
+@code[persnickety], @code[ponet], @code{tornadobolt}.
 @item
 @cindex @command{-f}
 Arbitrary spaces in @command{-f} argument is not longer accepted (it causes problems with

@@ -1,0 +1,162 @@
+Version 1.2
+
+*ponyquotes4ponysay is included.
+*Support for extension: kmsponies4ponysay.
+*New ponies: ace, filthyrich, gingergold,
+hayfever, highscore, junebug, mrsparkle, 
+persnickety, ponet, tornadobolt.
+*Pony symlinks added:
+mrsparkle → nightlight
+*Arbitrary spaces in '-f' argument is not longer accepted (it causes problems with
+file names including spaces).
+
+Version 1.1
+
+*Manpages are compressed before installation.
+*'info manual' added.
+*Shell completion for 'ponythink' added, in addition to 'ponysay'.
+*'fish' completion added.
+*'/usr/lib/ponysay' is used instead of '/usr/bin' for code used by the main script.
+*'~/.local/share/ponysay is used for private pony directories.
+*'ncurses' is no longer needed for determining the screen's size,
+'coreutils' is used instead.
+*Pony symlinks added:
+amethyststar → sparkler
+berrypinch → ruby
+craftycrate → boxxy
+magnum → raritysdad
+pearl → raritysmom
+powderrouge → sindy
+royalribbo → violet
+*New ponies: blossomforth, bonvoyage, cadance, celestiasmall,
+changelingqueen, cherryberry, discordamused, discordpuppetmaster,
+fleurdelishair, fleurdelislay, owl, perrypierce, petunia,
+pinacolada, skyra, truffleshuffle.
+*Pony spelling removed: fillycadence.
+*Pony symlink change:
+perry → (pokey → perrypierce).
+*Option '-L' added, lists ponies with symlink mapping.
+*Support for extension: ponyquotes4ponysay.
+*Now command '-f accepts arbitrary spaces in argument.
+
+Version 1.0
+
+*Spanish translation of the manpage is added.
+*New ponies: applecore, applejackscarecrow, bonbonstand,
+changeling, chrysalis, cottoncloudy, diamondmint,
+discord, fillycadence, flam, fleurdelis, flim,
+fluttershyshy, fluttershystare, lyrasit, oinkoinkoink (is pinkie),
+philomenaphoenix, pinkiecannon, pinkiecannonfront,
+pinkiecannonhappy, pinkiegummy, pinkiehugfluttershy,
+pinkiehugsfluttershy, pinkiepartycannon, pinkieprincess,
+pinkiesilly, pinkietongue, pinkiewhoops, pinkiewhoopseat,
+pinkiewhoopsout, rainbowdrag, rainbowsalute, rainbowshine,
+raritydrama, shiningarmor, shiningarmorguard, snowflak,
+spikemustache, stevenmagnet, stevenmagnettrue,
+twilightcrazyfromball, twilightrage, twilightzero, wildfire.
+*Pony symlinks added:
+djpon-3 → vinyl
+fillycadance → fillycadence
+horsepower → snowflake
+*Improved TTY support: ponies have low colours resolution, instead of monochrome,
+when the high colour resolution is not available.
+
+Version 0.10
+
+*Manpage manual added.
+*The directories for pony directories are changed from '/usr/share' to
+'/usr/share/ponysay' and '~' to '~/.ponysay'.
+*Pony symlinks added:
+carrottop → carrot
+goldenharvest → carrot
+harpass → lyra
+heartstrings → lyra
+lulamoon → trixie
+minuette → colgate
+noteworthy → blues
+perry → pokey
+pokeypierce → pokey
+timeturner → doctornohat
+trixielulamoon → trixie
+twilightvelvet → mrssparkle
+*Support for truncating output on height, enabled by default under TTY.
+*Environment variables added: 'PONYSAY_FULL_WIDTH', 'PONYSAY_SHELL_LINES',
+'PONYSAY_TRUNCATE_HEIGHT', 'PONYSAY_BOTTOM'.
+
+Version 0.9
+
+*Output truncated on width to fit screen.
+*Support for TTY (Linux VT).
+*'bash' completion added.
+*'zsh' completion added.
+*New ponies: allie, archer, boxxy, carecake, cupcake,
+daringdo, davenport, fancypants, ironwillwalk, lily,
+lunafly, maredowellfly, maredowellgallop, master, mjolna,
+orange, raritysdad, raritysmom, royalnightguard, ruby,
+sparkler, violet.
+
+Version 0.8
+
+*New ponies: aloe, angle, applebloom, applebumkin,
+applefritter, berrypunch, bigmac, blinkie, blues,
+braeburn, caesar, candymane, caramel, cheerilee,
+cheerilee80, clyde, colgate, colton, daisy,
+derpystand, derpystandwing, diamondtiara, dinky,
+doctornohat, elsie, fido, fillycelestia, fillydash,
+fillydashfly, fillyjack, fillyjacktravel, fillypinkie,
+fillypinkiecurly, fillyrarity, fillyshy, fluttershygala,
+gilda, gildastand, granny, grannychair, grannysleep,
+gummy, hoity, horte, inky, laflour, lightning,
+lintsalot, lotus, mayor, mrssparkle, nightmare,
+opal, parasprite, philomena, photofinish, pinkamina,
+pinkiebounce, pinkiechicken, pinkiegala, pipsqueak,
+pokey, rainbowfly, rainbowgala, rainbowsleep, raindrops,
+rarityfly, raritygala, rarityponder, redheart, rocky,
+rose, rover,royalguard, sapphire, scootaloo,
+screwball, shadowbolts, silverspoon, silverstar, sindy,
+snails, snips, soarin, soigne, spike, spikefloat,
+spikelove, spot, stella, strongheart, sue,
+suedance, tank, trixiestage, trixiestand, turnip,
+twist, winona.
+Note: Identifies itself as version 0.7
+
+Version 0.7
+
+*New ponies: carrot, octavia, trixie, vinyl, zecora.
+*Support for listing ponies with '-l' option.
+
+Version 0.6
+
+*New ponies: bonbon, celestia, doctor, fillistia,
+spitfire, woona (Not Moonstuck).
+*Dropping usage of utility 'which', using 'hash' instead.
+Note: Identifies itself as version 0.5
+
+Version 0.5
+
+*Using utility 'which' to determine existance of 'cowsay'.
+
+Version 0.4
+
+*'.cow' files are removed.
+*Support for '-W' option.
+*Select random pony if not specified.
+*Added command '-f' for supports file names, and not only pony names.
+
+Version 0.3
+
+*Fixed use of '.pony' files.
+
+Version 0.2
+
+*Pony files end with '.pony' instead of '.cow'.
+*lyrasleep is renamed to lyra.
+*'.cow' files are kept but not used.
+*Added option '-h prints proper help.
+
+Version 0.1
+First release.
+
+*Includes the ponies: applejack, derpy, derpysit,
+fluttershy, luna, lyrasleep, pinkie, rainbow,
+rarity, sweetie, twilight.
