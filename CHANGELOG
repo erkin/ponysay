@@ -53,7 +53,7 @@ Version 1.1
 
 	Support for extension: ponyquotes4ponysay.
 
-	Accepts arbitrary spaces in @command{-f} argument.
+	Accepts arbitrary spaces in '-f' argument.
 
 
 Version 1.0
@@ -105,7 +105,7 @@ Version 0.10
 	Support for truncating output on height, enabled by default under TTY.
 
 	Environment variables added: 'PONYSAY_FULL_WIDTH',
-	'PONYSAY_SHELL_LINES', PONYSAY_TRUNCATE_HEIGHT', 'PONYSAY_BOTTOM'.
+	'PONYSAY_SHELL_LINES', 'PONYSAY_TRUNCATE_HEIGHT', 'PONYSAY_BOTTOM'.
 
 
 Version 0.9
