@@ -78,11 +78,14 @@ Texts. A copy of the license is included in the section entitled
 @cindex overview
 
 @command{ponysay} displays an image of a My Little Pony pony saying some text provided
-by the user in a terminal. It is a wrapper for @command{cowsay}. If message is not
-provided, e.g. by piping, it accepts standard input. The pony saying the given message
-is printed on standard output.
+by the user in a terminal, or a quote from the series. It is a wrapper for
+@command{cowsay}. If message is not provided, e.g. by piping, it accepts standard input.
+The pony saying the given message is printed on standard output.
 
 @command{ponythink} is to @command{ponysay} as @command{cowthink} is to @command{cowsay}.
+
+@command{ponysay} is generally used to decorate your terminal with a random pony, when
+you start the terminal.
 
 
 
