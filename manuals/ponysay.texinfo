@@ -838,6 +838,8 @@ New ponies: @code{ace}, @code{filthyrich}, @code{gingergold},
 @cindex @command{-f}
 Arbitrary spaces in @command{-f} argument is not longer accepted (it causes problems with
 file names including spaces.)
+@item
+Corrections and improvenment for @code{manpages} and @code{info pages}
 @end itemize
 
 @heading Version 1.1

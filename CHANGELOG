@@ -12,6 +12,7 @@ Version 1.2
 	Arbitrary spaces in '-f' argument is not longer accepted (it causes
 	problems with file names including spaces).
 
+	Corrections and improvements in info manual and manpages
 
 Version 1.1
 
