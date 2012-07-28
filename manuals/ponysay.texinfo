@@ -395,7 +395,7 @@ the left.
 @cindex figlet
 @cindex tiolet
 @command{cowsay}'s word wrapping handles single line breaks as normal blank spaces,
-this messes up messaged created with programs such as @command{figlet} and @command{TOIlet}.
+this messes up messages created with programs such as @command{figlet} and @command{TOIlet}.
 
 
 
@@ -838,8 +838,6 @@ New ponies: @code{ace}, @code{filthyrich}, @code{gingergold},
 @cindex @command{-f}
 Arbitrary spaces in @command{-f} argument is not longer accepted (it causes problems with
 file names including spaces.)
-@item
-Corrections and improvenment for @code{manpages} and @code{info pages}
 @end itemize
 
 @heading Version 1.1
