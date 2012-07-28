@@ -13,19 +13,19 @@
 use strict;
 use warnings;
 use utf8;
-use List::MoreUtils qw(natatime);
 
 my %hash;
 
-my $it = natatime 2, @ARGV;
-while (my ($source, $target) = &$it) {
-	unless ($source eq $target) {
-		push @{$hash{$target}}, $source;
+{
+	local @ARGV = @ARGV;
+	while ((my ($source, $target), @ARGV) = @ARGV) {
+		unless ($source eq $target) {
+			push @{$hash{$target}}, $source;
+		}
 	}
 }
 
-$it = natatime 2, @ARGV;
-while (my ($source, $target) = &$it) {
+while ((my ($source, $target), @ARGV) = @ARGV) {
 	if ($source eq $target) {
 		my @list = @{$hash{$source} // []};
 		print $source;
