@@ -16,7 +16,7 @@ use feature qw(say);
 use integer;
 use List::Util qw(max);
 
-my $scrw = shift @ARGV;
+my $scrw = shift @ARGV // 1;
 
 for (@ARGV) {
 	# Format names from ponyies names
@@ -24,7 +24,7 @@ for (@ARGV) {
 	s/_(.*)/\t($1)/;
 }
 
-my $maxw = max map {length} @ARGV;
+my $maxw = max 1, map {length} @ARGV;
 
 my $cols = max 1, (($scrw + 2) / ($maxw + 2));
 
