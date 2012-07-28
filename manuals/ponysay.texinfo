@@ -831,9 +831,9 @@ Pony symlinks added:
 @item @code{mrsparkle} → @code{nightlight}
 @end itemize
 @item
-New ponies: @code{ace}, @code{filthyrich}, @code{gingergold},
+New ponies: @code{ace}, @code{blueblood}, @code{filthyrich}, @code{gingergold},
 @code{hayfever}, @code{highscore}, @code{junebug}, @code{mrsparkle},
-@code{persnickety}, @code{ponet}, @code{tornadobolt}, @code{blueblood}.
+@code{persnickety}, @code{ponet}, @code{screwloose}, @code{tornadobolt}.
 @item
 @cindex @command{-f}
 Arbitrary spaces in @command{-f} argument is not longer accepted (it causes problems with
