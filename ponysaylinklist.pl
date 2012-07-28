@@ -15,7 +15,6 @@ use utf8;
 use List::MoreUtils qw(natatime);
 
 my %hash;
-my $argc = @ARGV;
 
 my $it = natatime 2, @ARGV;
 while (my ($source, $target) = &$it) {
