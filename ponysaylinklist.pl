@@ -7,6 +7,7 @@
 # See COPYING for details
 
 # Author: Mattias Andrée, maandree@kth.se
+#         spider-mario
 
 
 use strict;

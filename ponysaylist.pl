@@ -7,6 +7,7 @@
 # See COPYING for details
 
 # Author: Mattias Andrée, maandree@kth.se
+#         spider-mario
 
 
 use strict;
@@ -18,11 +19,11 @@ use List::Util qw(max);
 
 my $scrw = shift @ARGV // 1;
 
-for (@ARGV) {
-	# Format names from ponyies names
-	s/(?<=[a-z])(?=[A-Z])/ /;
-	s/_(.*)/\t($1)/;
-}
+#for (@ARGV) {
+#	# Format names from pony names
+#	s/(?<=[a-z])(?=[A-Z])/ /;
+#	s/_(.*)/\t($1)/;
+#}
 
 my $maxw = max 1, map {length} @ARGV;
 
