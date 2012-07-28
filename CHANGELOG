@@ -53,7 +53,7 @@ Version 1.1
 
 	Support for extension: ponyquotes4ponysay.
 
-	New command '-f' accepts arbitrary spaces in argument.
+	Accepts arbitrary spaces in @command{-f} argument.
 
 
 Version 1.0

@@ -897,8 +897,8 @@ Spanish translation of the manpage is added.
 @w{New ponies:} @code{applecore}, @code{applejackscarecrow}, @code{bonbonstand},
 @code{changeling}, @code{chrysalis}, @code{cottoncloudy}, @code{diamondmint},
 @code{discord}, @code{fillycadence}, @code{flam}, @code{fleurdelis}, @code{flim},
-@code{fluttershyshy}, @code{fluttershystare}, @code{lyrasit}, @code{oinkoinkoink},
-@code{philomenaphoenix}, @code{pinkiecannon}, @code{pinkiecannonfront},
+@code{fluttershyshy}, @code{fluttershystare}, @code{lyrasit}, @w{@code{oinkoinkoink}
+(is pinkie)}, @code{philomenaphoenix}, @code{pinkiecannon}, @code{pinkiecannonfront},
 @code{pinkiecannonhappy}, @code{pinkiegummy}, @code{pinkiehugfluttershy},
 @code{pinkiehugsfluttershy}, @code{pinkiepartycannon}, @code{pinkieprincess},
 @code{pinkiesilly}, @code{pinkietongue}, @code{pinkiewhoops}, @code{pinkiewhoopseat},
@@ -1012,7 +1012,7 @@ Support for listing ponies with @command{-l} option.
 @itemize @bullet
 @item
 @w{New ponies}: @code{bonbon}, @code{celestia}, @code{doctor}, @code{fillistia},
-@code{spitfire}, @code{woona}.
+@code{spitfire}, @code{woona} (not moonstuck).
 @item
 Dropping usage of utility @command{which}, using @command{hash} instead.
 @end itemize
