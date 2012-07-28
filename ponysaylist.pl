@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 # ponysaylist
 # Prints a list of ponies in columns
@@ -9,63 +9,32 @@
 # Author: Mattias Andrée, maandree@kth.se
 
 
-$first = 1;
-$scrw = 1;
-$maxw = 1;
+use strict;
+use warnings;
+use utf8;
+use feature qw(say);
+use integer;
+use List::Util qw(max);
 
-foreach $arg (@ARGV)
-{
+my $scrw = shift @ARGV // 1;
+
+for (@ARGV) {
 	# Format names from ponyies names
-	$arg =~ s/([a-z])([A-Z])/\1 \2/;
-	#$arg =~ s/_(.*)/\t(\1)/;   ## Incompatible with `ponysay -L`
-	
-    if ($first == 1)
-    {   $first = 0;
-	$scrw = $arg;
-    }
-    else
-    {   $w = length $arg;
-	$maxw = $w if ($w > $maxw);
-    }
+	s/(?<=[a-z])(?=[A-Z])/ /;
+	s/_(.*)/\t($1)/;
 }
 
-$cols = int (($scrw + 2) / ($maxw + 2));
-$cols = 1 if ($cols < 1);
+my $maxw = max 1, map {length} @ARGV;
 
+my $cols = max 1, (($scrw + 2) / ($maxw + 2));
 
-@list = ();
+my @list = map {sprintf "%-${maxw}s", $_} @ARGV;
 
-$first = 1;
-$items = 0;
-foreach $arg (@ARGV)
-{
-    if ($first == 1)
-    {   $first = 0;
-    }
-    else
-    {   $ws = $maxw - (length $arg);
-	push @list, $arg.(" "x$ws);
-	$items += 1;
-    }
+my $rows = (@list + $cols - 1) / $cols;
+
+my @rowlist;
+for my $i (0 .. $#list) {
+	push @{$rowlist[$i % $rows]}, $list[$i];
 }
 
-
-$rows = int (($items + $cols - 1) / $cols);
-$i = 0;
-@rowlist = ();
-
-while ($i < $items)
-{   $row = 0;
-    while (($row < $rows) and ($i < $items))
-    {
-	$rowlist[$row] .= "  " unless ($i < $rows);
-	$rowlist[$row] .= $list[$i];
-	$row += 1;
-	$i += 1;
-}   }
-
-foreach $row (@rowlist)
-{
-    print $row."\n";
-}
-
+say join '  ', @$_ for @rowlist;
