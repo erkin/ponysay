@@ -160,7 +160,7 @@ Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
 is installed the ponies which have quotes, i.e. can be used with the
 @command{-q} option, will be mark by being printed in bold or bright
 (depending on the terminal.) This options differs from @command{-l} by
-printed symonym ponies (symbolic links) inside brackes after their
+printing alternative names (symbolic links) inside brackets after their
 target ponies.
 @end table
 
@@ -239,13 +239,13 @@ If you use TTY and have a custom colour palette, you should also add to your
 @cindex screen
 @cindex .bashrc
 
-@command{screen} will adapt ASNI colour escape sequencies to your terminal's
-capabilities. This means that is your terminal reports itself as @code{xterm}
-in @code{$TERM} it ponies will lose colours; they will only use the lower 16
-colours instread of the top 240 colours. By default, almost all X terminal,
-including @command{xterm} and @command{mate-terminal} reports themself as
+@command{screen} will adapt ASNI colour escape sequences to your terminal's
+capabilities. This means that if your terminal reports itself as @code{xterm}
+in @code{$TERM} ponies will lose their colours; they will only use the lower 16
+colours instead of the top 240 colours. By default, almost all X terminals,
+including @command{xterm} and @command{mate-terminal} reports themselves as
 @code{xterm} in @code{$TERM}, and some reports their actual name in @code{$COLORTERM}.
-So before openning @command{screen} you use set @code{$TERM} to @code{xterm-256color},
+So before opening @command{screen} you use set @code{$TERM} to @code{xterm-256color},
 if you are using a terminal with support for @code{xterm}'s 256 colours; this
 can be done by adding to your @code{~/.bashrc}:
 @example
@@ -270,7 +270,7 @@ can be done by adding to your @code{~/.bashrc}:
 @cindex PONYSAY_BOTTOM
 @cindex tty
 Under TTY (Linux VT), if the output is larger the the screen's height, only
-the beginning is printed, leaving two blank lines. If you want the buttom
+the beginning is printed, leaving two blank lines. If you want the bottom
 to be printed rather the the beginning you can export @code{PONYSAY_BOTTOM}
 with the value @code{yes}, @code{y} or @code{1}.
 
@@ -353,7 +353,7 @@ ponies position moves on the screen, this is also reason why the output is trunc
 the height in TTY by default.
 
 Most terminals have support for 256 colours, we do however only use the top 240 colours;
-this is because the lower 16 colours are usally, in contrast to the top 240, customised.
+this is because the lower 16 colours are usually, in contrast to the top 240, customised.
 We assume that the top 240 colours have their standard values. In TTY with KMS support
 we dot have any actual (except for @math{2^{24}} + full transparency.)
 
@@ -394,8 +394,8 @@ the left.
 
 @cindex figlet
 @cindex tiolet
-@command{cowsay}'s word wrapping handles single line breaks as normal blankspaces,
-this messes up messaged created with programs seach as @command{figlet} and @command{TOIlet}.
+@command{cowsay}'s word wrapping handles single line breaks as normal blank spaces,
+this messes up messaged created with programs such as @command{figlet} and @command{TOIlet}.
 
 
 
@@ -677,7 +677,7 @@ The pony files are cow files used by @command{cowsay}, they are partial Perl-scr
 that assign a value to a scalar variable named @code{$the_cow}. The files use a
 predefined scalar named variable named @code{$thoughts}, these are used to create
 a link between the message and the pony. The message (and the balloon) it self is
-printed by @command{cowsay} and is not definied in the pony files.
+printed by @command{cowsay} and is not defined in the pony files.
 
 The pony images consists of white space, lower half blocks [U+2584], upper half
 blocks [U+2580] and ANSI colour sequences (CSI m), and, in TTY, colour value change
@@ -729,7 +729,7 @@ package @command{ncurses}, some shells have environment variables for this.
 For truncation the width, we have a custom program, named @command{ponysaytruncater},
 that is installed to @code{/usr/lib/ponysay/truncater}. It recognised UTF-8 ANSI escape
 sequences, including OSI P and CSI m, which is essential for the truncation to be correct.
-It also expands tabs to every eigth coloumn and resets the background colour when needed,
+It also expands tabs to every eighth column and resets the background colour when needed,
 and writes ANSI escape sequences that are on the left side of the truncation. The truncater
 stops CSI sequences on the first ASCII letter (@code{[a-zA-Z]}), but also stops escape
 sequences after the first character after the initial escape if it is not either @code{[}
