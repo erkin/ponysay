@@ -831,8 +831,8 @@ Pony symlinks added:
 @item @code{mrsparkle} → @code{nightlight}
 @end itemize
 @item
-New ponies: @code{ace}, @code{blueblood}, @code{filthyrich}, @code{gingergold},
-@code{hayfever}, @code{highscore}, @code{junebug}, @code{mrsparkle},
+New ponies: @code{ace}, @code{blueblood}, @code{filthyrich}, @code{forestspirit},
+@code{gingergold}, @code{hayfever}, @code{highscore}, @code{junebug}, @code{mrsparkle},
 @code{persnickety}, @code{ponet}, @code{screwloose}, @code{raggedy},
 @code{tornadobolt}.
 @item
