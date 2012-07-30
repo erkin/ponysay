@@ -833,7 +833,8 @@ Pony symlinks added:
 @item
 New ponies: @code{ace}, @code{blueblood}, @code{filthyrich}, @code{gingergold},
 @code{hayfever}, @code{highscore}, @code{junebug}, @code{mrsparkle},
-@code{persnickety}, @code{ponet}, @code{screwloose}, @code{tornadobolt}.
+@code{persnickety}, @code{ponet}, @code{screwloose}, @code{raggedy},
+@code{tornadobolt}.
 @item
 @code{elsie} is renamed to @code{prettyvision}.
 @item
