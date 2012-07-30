@@ -835,6 +835,8 @@ New ponies: @code{ace}, @code{blueblood}, @code{filthyrich}, @code{gingergold},
 @code{hayfever}, @code{highscore}, @code{junebug}, @code{mrsparkle},
 @code{persnickety}, @code{ponet}, @code{screwloose}, @code{tornadobolt}.
 @item
+@code{elsie} is renamed to @code{prettyvision}.
+@item
 @cindex @command{-f}
 Arbitrary spaces in @command{-f} argument is not longer accepted (it causes problems with
 file names including spaces.)
