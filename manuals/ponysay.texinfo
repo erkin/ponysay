@@ -818,6 +818,13 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 @cindex versions
 @cindex previous releases
 
+@heading Version 1.3
+
+@itemize @bullet
+@item
+New ponies: @code{forestspirit}, @code{raggedy}, @code{rhyme},
+@end itemize
+
 @heading Version 1.2
 
 @itemize @bullet
@@ -831,10 +838,9 @@ Pony symlinks added:
 @item @code{mrsparkle} → @code{nightlight}
 @end itemize
 @item
-New ponies: @code{ace}, @code{blueblood}, @code{filthyrich}, @code{forestspirit},
-@code{gingergold}, @code{hayfever}, @code{highscore}, @code{junebug}, @code{mrsparkle},
-@code{persnickety}, @code{ponet}, @code{screwloose}, @code{raggedy}, @code{rhyme},
-@code{tornadobolt}.
+New ponies: @code{ace}, @code{blueblood}, @code{filthyrich}, @code{gingergold},
+@code{hayfever}, @code{highscore}, @code{junebug}, @code{mrsparkle},
+@code{persnickety}, @code{ponet}, @code{screwloose}, @code{tornadobolt}.
 @item
 @code{elsie} is renamed to @code{prettyvision}.
 @item
