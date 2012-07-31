@@ -822,7 +822,12 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 
 @itemize @bullet
 @item
-New ponies: @code{forestspirit}, @code{hollydash}, @code{raggedy}, @code{rhyme},
+New ponies: @code{forestspirit}, @code{hollydash}, @code{raggedy}, @code{rhyme}
+@item
+@code{sindy} is renamed to @code{powderrouge}.
+Pony symlinks added:
+@itemize @bullet
+@item @code{sindy} → @code{powderrouge}
 @end itemize
 
 @heading Version 1.2
@@ -836,6 +841,7 @@ Support for extension: kmsponies4ponysay.
 Pony symlinks added:
 @itemize @bullet
 @item @code{mrsparkle} → @code{nightlight}
+@item @code{elsie} → @code{prettyvision}
 @end itemize
 @item
 New ponies: @code{ace}, @code{blueblood}, @code{filthyrich}, @code{gingergold},
