@@ -822,7 +822,7 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 
 @itemize @bullet
 @item
-New ponies: @code{forestspirit}, @code{raggedy}, @code{rhyme},
+New ponies: @code{forestspirit}, @code{hollydash}, @code{raggedy}, @code{rhyme},
 @end itemize
 
 @heading Version 1.2
