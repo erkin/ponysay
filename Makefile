@@ -1,4 +1,4 @@
-all: ponysaytruncater manpages infomanual ponythinkcompletion submodules
+all: ponysaytruncater manpages infomanual ponythinkcompletion
 
 ponysaytruncater:
 	gcc -o "ponysaytruncater" "ponysaytruncater.c"
@@ -16,45 +16,22 @@ ponythinkcompletion:
 	sed -e 's/ponysay/ponythink/g' <"completion/fish-completion.fish" | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/fish-completion-think.fish"
 	sed -e 's/ponysay/ponythink/g' <"completion/zsh-completion.zsh"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/zsh-completion-think.zsh"
 
-submodules:
-	git submodule init
-	git submodule update
-	(cd "ponyquotes4ponysay/"; make -B)
-
-ttyponies:
-	mkdir -p ttyponies
-	for pony in $$(ls --color=no ponies/); do                                                      \
-	    echo "building ttypony: $$pony"                                                           ;\
-	    if [[ `readlink "ponies/$$pony"` = "" ]]; then                                             \
-	        ponysay2ttyponysay < "ponies/$$pony" | tty2colourfultty -c 1 -e > "ttyponies/$$pony"  ;\
-	    elif [[ ! -f "ttyponies/$$pony" ]]; then                                                   \
-	        ln -s `readlink "ponies/$$pony"` "ttyponies/$$pony"                                   ;\
-	    fi                                                                                         \
-	done
-
-pdfmanual:
-	texi2pdf "manuals/ponysay.texinfo"
-	if [[ -f "ponysay.aux" ]]; then unlink "ponysay.aux"; fi
-	if [[ -f "ponysay.cp"  ]]; then unlink "ponysay.cp" ; fi
-	if [[ -f "ponysay.cps" ]]; then unlink "ponysay.cps"; fi
-	if [[ -f "ponysay.fn"  ]]; then unlink "ponysay.fn" ; fi
-	if [[ -f "ponysay.ky"  ]]; then unlink "ponysay.ky" ; fi
-	if [[ -f "ponysay.log" ]]; then unlink "ponysay.log"; fi
-	if [[ -f "ponysay.pg"  ]]; then unlink "ponysay.pg" ; fi
-	if [[ -f "ponysay.toc" ]]; then unlink "ponysay.toc"; fi
-	if [[ -f "ponysay.tp"  ]]; then unlink "ponysay.tp" ; fi
-	if [[ -f "ponysay.vr"  ]]; then unlink "ponysay.vr" ; fi
-
 install: all
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ponies"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ttyponies"
+	mkdir -p "$(DESTDIR)/usr/share/ponysay/quotes"
 	cp -P ponies/*.pony "$(DESTDIR)/usr/share/ponysay/ponies/"
 	cp -P ttyponies/*.pony "$(DESTDIR)/usr/share/ponysay/ttyponies/"
+	cp -P quotes/*.* "$(DESTDIR)/usr/share/ponysay/quotes/"
 
 	mkdir -p "$(DESTDIR)/usr/bin/"
 	install "ponysay" "$(DESTDIR)/usr/bin/ponysay"
 	ln -sf "ponysay" "$(DESTDIR)/usr/bin/ponythink"
+	install "pq4ps" "$(DESTDIR)/usr/bin/pq4ps"
+	install "pq4ps.pl" "$(DESTDIR)/usr/bin/pq4ps.pl"
+	install "pq4ps-list" "$(DESTDIR)/usr/bin/pq4ps-list"
+	install "pq4ps-list.pl" "$(DESTDIR)/usr/bin/pq4ps-list.pl"
 
 	mkdir -p "$(DESTDIR)/usr/lib/ponysay/"
 	install -s "ponysaytruncater" "$(DESTDIR)/usr/lib/ponysay/truncater"
@@ -90,8 +67,6 @@ install: all
 	install-info --dir-file="$(DESTDIR)/usr/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "$(DESTDIR)/usr/share/info/ponysay.info.gz"
 	install-info --dir-file="$(DESTDIR)/usr/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "$(DESTDIR)/usr/share/info/ponythink.info.gz"
 
-	(cd "ponyquotes4ponysay/"; make DESTDIR="$(DESTDIR)" install)
-
 	@echo -e '\n\n'\
 '/--------------------------------------------------\\\n'\
 '|   ___                                            |\n'\
@@ -111,10 +86,13 @@ install: all
 	@echo '' | ./ponysay -f ./`if [[ "$$TERM" = "linux" ]]; then echo ttyponies; else echo ponies; fi`/pinkiecannon.pony | tail --lines=30 ; echo -e '\n'
 
 uninstall:
-	rm -fr "$(DESTDIR)/usr/share/ponysay/ponies"
-	rm -fr "$(DESTDIR)/usr/share/ponysay/ttyponies"
+	rm -fr "$(DESTDIR)/usr/share/ponysay"
 	unlink "$(DESTDIR)/usr/bin/ponysay"
 	unlink "$(DESTDIR)/usr/bin/ponythink"
+	unlink "$(DESTDIR)/usr/bin/pq4ps"
+	unlink "$(DESTDIR)/usr/bin/pq4ps.pl"
+	unlink "$(DESTDIR)/usr/bin/pq4ps-list"
+	unlink "$(DESTDIR)/usr/bin/pq4ps-list.pl"
 	unlink "$(DESTDIR)/usr/lib/ponysay/list.pl"
 	unlink "$(DESTDIR)/usr/lib/ponysay/linklist.pl"
 	unlink "$(DESTDIR)/usr/lib/ponysay/truncater"
@@ -142,3 +120,44 @@ clean:
 	rm -f "manuals/manpage.es.6.gz"
 	rm -f "ponysay.info.gz"
 	(cd "ponyquotes4ponysay/"; make clean)
+
+
+## Scripts for maintainers
+
+ttyponies:
+	mkdir -p ttyponies
+	for pony in $$(ls --color=no ponies/); do                                                      \
+	    echo "building ttypony: $$pony"                                                           ;\
+	    if [[ `readlink "ponies/$$pony"` = "" ]]; then                                             \
+	        ponysay2ttyponysay < "ponies/$$pony" | tty2colourfultty -c 1 -e > "ttyponies/$$pony"  ;\
+		git add "ttyponies/$$pony"                                                            ;\
+	    elif [[ ! -f "ttyponies/$$pony" ]]; then                                                   \
+	        ln -s `readlink "ponies/$$pony"` "ttyponies/$$pony"                                   ;\
+		git add "ttyponies/$$pony"                                                            ;\
+	    fi                                                                                         \
+	done
+
+pdfmanual:
+	texi2pdf "manuals/ponysay.texinfo"
+	git add "manuals/ponysay.texinfo"
+	if [[ -f "ponysay.aux" ]]; then unlink "ponysay.aux"; fi
+	if [[ -f "ponysay.cp"  ]]; then unlink "ponysay.cp" ; fi
+	if [[ -f "ponysay.cps" ]]; then unlink "ponysay.cps"; fi
+	if [[ -f "ponysay.fn"  ]]; then unlink "ponysay.fn" ; fi
+	if [[ -f "ponysay.ky"  ]]; then unlink "ponysay.ky" ; fi
+	if [[ -f "ponysay.log" ]]; then unlink "ponysay.log"; fi
+	if [[ -f "ponysay.pg"  ]]; then unlink "ponysay.pg" ; fi
+	if [[ -f "ponysay.toc" ]]; then unlink "ponysay.toc"; fi
+	if [[ -f "ponysay.tp"  ]]; then unlink "ponysay.tp" ; fi
+	if [[ -f "ponysay.vr"  ]]; then unlink "ponysay.vr" ; fi
+
+submodules: clean
+	git submodule init
+	git submodule update
+
+quotes: submodules
+	(cd "ponyquotes4ponysay/"; make -B)
+	if [[ -d quotes ]]; then git rm "quotes/"*.*; fi
+	mkdir -p "quotes"
+	cp "ponyquotes4ponysay/ponyquotes/"*.* "quotes"
+	git add "quotes/"*.*

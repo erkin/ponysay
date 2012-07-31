@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [[ $# == 1 ]] && [[ "$1" == '-l' || "$1" == '--list' ]]; then
+    perl $0.pl | cut -d @ -f 1 | uniq
+else
+    _ponies="$(perl $0.pl)"
+    ponies=()
+    
+    if [[ ! $# == 0 ]]; then
+	p=""
+	for arg in "$@"; do
+	    p=$p$(echo "$_ponies" | grep "^$arg@")" "
+	done
+	_ponies=$p
+    fi
+    
+    for _pony in $_ponies; do
+	ponies+=( $_pony )
+    done
+    
+    if [[ ${#ponies[@]} == 0 ]]; then
+	ponies=()
+	for arg in "$@"; do
+	    ponies+=( "$arg" )
+	done
+	
+	p="${ponies[$RANDOM%${#ponies[@]}]}"
+	q='I am totally speechless'
+	echo "-f" $p $q
+    else
+	pony="${ponies[$RANDOM%${#ponies[@]}]}"
+	
+	p="$(echo $pony | cut -d '@' -f 1)"
+	f="$(echo $pony | cut -d '@' -f 2)"
+	q="$(cat "/usr/share/ponysay/quotes/$f")"
+	
+	echo "-f" $p $q
+    fi
+fi
