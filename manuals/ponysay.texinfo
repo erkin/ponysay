@@ -849,6 +849,8 @@ Arbitrary spaces in @command{-f} argument is not longer accepted (it causes prob
 file names including spaces.)
 @end itemize
 
+@b{Note}: Identifies itself as version 1.1
+
 @heading Version 1.1
 
 @itemize @bullet

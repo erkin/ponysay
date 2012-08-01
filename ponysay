@@ -1,80 +1,86 @@
 #!/usr/bin/env bash
 
-version=1.1
-SCRIPTDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # Get bash script directory
-pony="*"
-wrap=""
+VERSION=1.3
 
-SYSTEMPONIES="$(dirname $SCRIPTDIR)/share/ponysay"
-HOMEPONIES="${HOME}/.local/share/ponysay"
 
+
+# Get bash script directory's parent
+INSTALLDIR="$(dirname $( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))"
+
+# Directory for installed media files
+SYSTEMSHARE="$INSTALLDIR/share/ponysay"
+HOMESHARE="${HOME}/.local/share/ponysay"
+
+# Subscripts
+listcmd="$INSTALLDIR/lib/ponysay/list.pl"
+linklistcmd="$INSTALLDIR/lib/ponysay/linklist.pl"
+truncatercmd="$INSTALLDIR/lib/ponysay/truncater"
+qlistcmd="$INSTALLDIR/lib/ponysay/pq4ps-list"
+quotecmd="$INSTALLDIR/lib/ponysay/pq4ps"
+
+pony="*"  # Selected pony
+wrap=""   # Message wrap column
+ponies=() # Selected ponies
+
+scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2` # Screen width
+scrh=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 1` # Screen height
+
+# KMS ponies extension
 kmscmd=""
 [[ "$TERM" = "linux" ]] && kmscmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/ponysay2kmsponysay /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
 [[ ! "$kmscmd" = "" ]] && TERM="-linux-"
 
+# Directories for installed ponies files
 if [ "$TERM" = "linux" ]; then
-	SYSTEMPONIES="$SYSTEMPONIES/ttyponies"
-	HOMEPONIES="$HOMEPONIES/ttyponies"
+	SYSTEMPONIES="$SYSTEMSHARE/ttyponies"
+	HOMEPONIES="$HOMESHARE/ttyponies"
 else
-	SYSTEMPONIES="$SYSTEMPONIES/ponies"
-	HOMEPONIES="$HOMEPONIES/ponies"
+	SYSTEMPONIES="$SYSTEMSHARE/ponies"
+	HOMEPONIES="$HOMESHARE/ponies"
 fi
 
-if [[ "$PONYSAY_COWSAY" = "" ]]; then
-	cmd=cowsay
-	customcmd=0
+# Cowsay script
+if [[ ${0} == *ponythink ]]; then
+	if [[ "$PONYSAY_COWTHINK" = "" ]]; then
+		cmd=cowthink
+		customcmd=0
+	else
+		cmd="$PONYSAY_COWTHINK"
+		customcmd=1
+	fi
 else
-	cmd="$PONYSAY_COWSAY"
-	customcmd=1
+	if [[ "$PONYSAY_COWSAY" = "" ]]; then
+		cmd=cowsay
+		customcmd=0
+	else
+		cmd="$PONYSAY_COWSAY"
+		customcmd=1
+	fi
 fi
 
-[[ ${0} == *ponythink ]] &&
-if [[ "$PONYSAY_COWTHINK" = "" ]]; then
-	cmd=cowthink
-	customcmd=0
-else
-	cmd="$PONYSAY_COWTHINK"
-	customcmd=1
-fi
 
+
+# Ponysay version print function
 version() {
-	echo "ponysay v$version"
+	echo "ponysay v$VERSION"
 }
 
-scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
-listcmd="${SCRIPTDIR}/../lib/ponysay/list.pl"
-linklistcmd="${SCRIPTDIR}/../lib/ponysay/linklist.pl"
-truncatercmd="${SCRIPTDIR}/../lib/ponysay/truncater"
-[[ -f "./ponysaylist.pl" ]] && listcmd="./ponysaylist.pl"
-[[ -f "./ponysaylinklist.pl" ]] && linklistcmd="./ponysaylinklist.pl"
-[[ -f "./ponysaytruncater" ]] && truncatercmd="./ponysaytruncater"
-
-haspq=1
-if [[ -f './pq4ps-list' ]]; then
-	function qlist {
-		./pq4ps-list
-	}
-elif [[ -f '/usr/bin/pq4ps-list' ]]; then
-	function qlist {
-		/usr/bin/pq4ps-list
-	}
-else
-	haspq=0
-	function qlist {
-		cat
-	}
-fi
-
+# Pony list function
 list() {
-	echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
-	perl $listcmd $scrw $(ls --color=no $SYSTEMPONIES | sed -e 's/\.pony$//' | sort) | qlist
-	
+	if [[ -d $SYSTEMPONIES ]]; then
+		echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
+		perl $listcmd $scrw $(ls --color=no $SYSTEMPONIES | sed -e 's/\.pony$//' | sort) | $qlistcmd
+        fi
 	if [[ -d $HOMEPONIES ]]; then
 		echo -e "\\e[01mponyfiles located in $HOMEPONIES:\\e[21m"
-		perl $listcmd $scrw $(ls --color=no $HOMEPONIES | sed -e 's/\.pony$//' | sort) | qlist
+		perl $listcmd $scrw $(ls --color=no $HOMEPONIES | sed -e 's/\.pony$//' | sort) | $qlistcmd
+	fi
+	if [[ ! -d $SYSTEMPONIES ]] && [[ ! -d $HOMEPONIES ]]; then
+		echo >&2 "All the ponies are missing! Call the Princess!"
 	fi
 }
 
+# Pony list function with symlink map, for one directory
 _linklist() {
 	echo -e "\\e[01mponyfiles located in $1:\\e[21m"
 	files=$(ls --color=no $1 | sed -e 's/\.pony$//' | sort)
@@ -93,11 +99,10 @@ _linklist() {
 		args=$(echo $args $file $target)
 	done
 	
-	scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
-	
-	perl $listcmd $scrw $(perl $linklistcmd $(echo $args) | sed -e 's/ /_/g') | sed -e 's/_/ /g' | qlist
+	perl $listcmd $scrw $(perl $linklistcmd $(echo $args) | sed -e 's/ /_/g') | sed -e 's/_/ /g' | $qlistcmd
 }
 
+# Pony list function with symlink map, for both directories
 linklist() {
 	_linklist $SYSTEMPONIES
 	
@@ -106,6 +111,13 @@ linklist() {
 	fi
 }
 
+# Pony quotes
+ponyquotes() {
+	[[ "$TERM" = "-linux-" ]] && TERM="linux"
+	"$0" ${wrap:+-W$wrap} $("$quotecmd" "$*")
+}
+
+# Usage help print function
 usage() {
 	version
 	cat <<EOF
@@ -120,15 +132,7 @@ Options:
   -h          Show this help and exit.
   -l          List pony files.
   -L          List pony files with synonyms inside brackets.
-EOF
-	
-	if [[ $haspq = 1 ]]; then
-		cat <<EOF
   -q          Use the pony quote feature.
-EOF
-	fi
-	
-	cat <<EOF
   -f[name]    Select a pony (either a file name or a pony name.)
   -W[column]  The screen column where the message should be wrapped.
 
@@ -136,41 +140,41 @@ See man ponysay(6) for more information.
 EOF
 }
 
-# if no stdin and no arguments then print usage and exit
-if [[ -t 0 && $# == 0 ]]; then
-	usage
-	exit
-fi
-
+# Function for printing the ponies and the message
 say() {
 	# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
 	export PERL_UNICODE=S
-	
-	if [ "$TERM" = "linux" ] || [ "$TERM" = "-linux-" ]; then
-		echo -ne '\e[H\e[2J'
-	fi
-	
+
+	# Clear screen in TTY
+	( [[ "$TERM" = "linux" ]] || [[ "$TERM" = "-linux-" ]]) && echo -ne '\e[H\e[2J'
+
+	# Set PONYSAY_SHELL_LINES to default if not specified
+	[[ "$PONYSAY_SHELL_LINES" = "" ]] && PONYSAY_SHELL_LINES=2
+
+	# Width trunction
 	function wtrunc {
 		if [ "$PONYSAY_FULL_WIDTH" = 'yes' ] || [ "$PONYSAY_FULL_WIDTH" = 'y' ] || [ "$PONYSAY_FULL_WIDTH" = '1' ]; then
 			cat
 		else
-			WIDTH=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
-			$truncatercmd $WIDTH 2>/dev/null || cat
+			if [[ -f $truncatercmd ]]; then
+				$truncatercmd $scrw
+			else
+				cat
+			fi
 		fi
 	}
-	
-	if [ "$PONYSAY_SHELL_LINES" = "" ]; then
-		PONYSAY_SHELL_LINES=2
-	fi
-	
+
+	# Height trunction, show top
 	function htrunchead {
-		head --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
+		head --lines=$(( $scrh - $PONYSAY_SHELL_LINES ))
 	}
-	
+
+	# Height trunction, show bottom
 	function htrunctail {
-		tail --lines=$(( `stty size <&2 | cut -d ' ' -f 1` - $PONYSAY_SHELL_LINES ))
+		tail --lines=$(( $scrh - $PONYSAY_SHELL_LINES ))
 	}
-	
+
+	# Simplification of customisation of cowsay
 	if [[ $customcmd = 0 ]]; then
 		function cowcmd {
 			pcmd='#!/usr/bin/perl\nuse utf8;'
@@ -186,11 +190,11 @@ say() {
 		}
 	else
 		function cowcmd	{
-			echo "custom $cmd"
 			$cmd "$@"
 		}
 	fi
-	
+
+	# KMS ponies support
 	if [[ "$kmscmd" = "" ]]; then
 		function runcmd {
 			cowcmd -f "$pony" "$@"
@@ -200,7 +204,8 @@ say() {
 			cowcmd -f <($kmscmd "$pony") "$@"
 		}
 	fi
-	
+
+	# Print the pony and the message
 	if [ "$TERM" = "linux" ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'yes' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = 'y' ] || [ "$PONYSAY_TRUNCATE_HEIGHT" = '1' ]; then
 		if [ "$PONYSAY_BOTTOM" = 'yes' ] || [ "$PONYSAY_BOTTOM" = 'y' ] || [ "$PONYSAY_BOTTOM" = '1' ]; then
 		        runcmd "${wrap:+-W$wrap}" | wtrunc | htrunctail
@@ -212,15 +217,18 @@ say() {
 	fi
 }
 
-ponies=()
 
-opts="f:W:Llhv"
-if [[ $haspq ]]; then
-	opts=$opts"q"
+
+# If no stdin and no arguments then print usage and exit
+if [[ -t 0 && $# == 0 ]]; then
+	usage
+	exit
 fi
 
-usepq=0
-while getopts $opts OPT; do
+
+
+# Parse options
+while getopts "f:W:Llhvq" OPT; do
 	case ${OPT} in
 		v)  version; exit ;;
 		h)  usage; exit ;;
@@ -228,27 +236,14 @@ while getopts $opts OPT; do
 		l)  list; exit ;;
 		L)  linklist; exit ;;
 		W)  wrap="$OPTARG" ;;
-		q)  usepq=1 ;;
+		q)  ponyquotes; exit ;;
 		\?) usage >&2; exit 1 ;;
 	esac
 done
 shift $((OPTIND - 1))
 
-if [[ $usepq = 1 ]]; then
-	if [[ -f './pq4ps' ]]; then
-		function q {
-			./pq4ps $@
-		}
-	elif [[ -f '/usr/bin/pq4ps' ]]; then
-		function q {
-			/usr/bin/pq4ps $@
-		}
-	fi
-	[[ "$TERM" = "-linux-" ]] && TERM="linux"
-	$0 ${wrap:+-W$wrap} $(q "$*")
-	exit
-fi
 
+# Check for cowsay
 hash $cmd &>/dev/null; if [ $? -ne 0 ]; then
 	cat >&2 <<EOF
 You don't seem to have the $cmd program.
@@ -260,13 +255,15 @@ EOF
 	exit 1
 fi
 
+
+# Select random pony for the set of -f arguments
 if [[ ! ${#ponies[@]} == 0 ]]; then
 	pony="${ponies[$RANDOM%${#ponies[@]}]}"
 fi
 
+
+# Pony not a file? Search for it
 if [[ ! -f $pony ]]; then
-	# Pony not a file? Search for it
-	
 	ponies=()
 	[[ -d $SYSTEMPONIES ]] && ponies+=( "$SYSTEMPONIES"/$pony.pony )
 	[[ -d $HOMEPONIES ]]   && ponies+=( "$HOMEPONIES"/$pony.pony )
@@ -280,10 +277,13 @@ if [[ ! -f $pony ]]; then
 	pony="${ponies[$RANDOM%${#ponies[@]}]}"
 fi
 
+
+# Print pony with message
 if [[ -n "$*" ]]; then
 	# Handle a message given via arguments
 	say <<<"$*"
 else
+	# Handle a message given in stdin
 	say
 fi
 

@@ -1,15 +1,17 @@
 #!/bin/bash
 
+INSTALLDIR="$(dirname "$(dirname "$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )")")" # Get main bash script directory's parent
+
 if [[ $# == 1 ]] && [[ "$1" == '-l' || "$1" == '--list' ]]; then
-    perl $0.pl | cut -d @ -f 1 | uniq
+    perl "$0.pl" "$INSTALLDIR" | cut -d @ -f 1 | uniq
 else
-    _ponies="$(perl $0.pl)"
+    _ponies="$(perl "$0.pl" "$INSTALLDIR")"
     ponies=()
     
-    if [[ ! $# == 0 ]]; then
-	p=""
+    if (( $# > 1 )); then
+	p=()
 	for arg in "$@"; do
-	    p=$p$(echo "$_ponies" | grep "^$arg@")" "
+	    p+=( $(echo "$_ponies" | grep "^$arg@") )
 	done
 	_ponies=$p
     fi
@@ -32,7 +34,7 @@ else
 	
 	p="$(echo $pony | cut -d '@' -f 1)"
 	f="$(echo $pony | cut -d '@' -f 2)"
-	q="$(cat "/usr/share/ponysay/quotes/$f")"
+	q="$(cat "$INSTALLDIR/share/ponysay/quotes/$f")"
 	
 	echo "-f" $p $q
     fi

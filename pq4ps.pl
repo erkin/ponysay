@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
-opendir(DIR, "/usr/share/ponysay/ponies/");
+opendir(DIR, $ARGV[0]."/share/ponysay/ponies/");
 @files = readdir(DIR); 
 
-opendir(DIR, "/usr/share/ponysay/quotes/");
+opendir(DIR, $ARGV[0]."/share/ponysay/quotes/");
 @quotes = readdir(DIR); 
 
 

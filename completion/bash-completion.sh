@@ -5,7 +5,7 @@ _ponysay()
     local cur prev words cword
     _init_completion -n = || return
     
-    quotes=$(pq4ps --list 2>/dev/null)
+    quotes=$(/usr/lib/ponysay/pq4ps --list 2>/dev/null)
     quotesexit=$?
     options='-v -h -l -f -W'
     if [[ $quotesexit = 0 ]]; then

@@ -1,15 +1,15 @@
-all: ponysaytruncater manpages infomanual ponythinkcompletion
+all: truncater manpages infomanual ponythinkcompletion
 
-ponysaytruncater:
-	gcc -o "ponysaytruncater" "ponysaytruncater.c"
+truncater:
+	gcc -o "truncater" "truncater.c"
 
 manpages:
-	gzip -9 < "manuals/manpage.6" > "manuals/manpage.6.gz"
+	gzip -9 < "manuals/manpage.6"    > "manuals/manpage.6.gz"
 	gzip -9 < "manuals/manpage.es.6" > "manuals/manpage.es.6.gz"
 
 infomanual:
 	makeinfo "manuals/ponysay.texinfo"
-	gzip -9 "ponysay.info"
+	gzip -9  "ponysay.info"
 
 ponythinkcompletion:
 	sed -e 's/ponysay/ponythink/g' <"completion/bash-completion.sh"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/bash-completion-think.sh"
@@ -21,47 +21,47 @@ install: all
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ponies"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/ttyponies"
 	mkdir -p "$(DESTDIR)/usr/share/ponysay/quotes"
-	cp -P ponies/*.pony "$(DESTDIR)/usr/share/ponysay/ponies/"
+	cp -P    ponies/*.pony "$(DESTDIR)/usr/share/ponysay/ponies/"
 	cp -P ttyponies/*.pony "$(DESTDIR)/usr/share/ponysay/ttyponies/"
-	cp -P quotes/*.* "$(DESTDIR)/usr/share/ponysay/quotes/"
+	cp -P    quotes/*.*    "$(DESTDIR)/usr/share/ponysay/quotes/"
 
-	mkdir -p "$(DESTDIR)/usr/bin/"
+	mkdir -p          "$(DESTDIR)/usr/bin/"
 	install "ponysay" "$(DESTDIR)/usr/bin/ponysay"
-	ln -sf "ponysay" "$(DESTDIR)/usr/bin/ponythink"
-	install "pq4ps" "$(DESTDIR)/usr/bin/pq4ps"
-	install "pq4ps.pl" "$(DESTDIR)/usr/bin/pq4ps.pl"
-	install "pq4ps-list" "$(DESTDIR)/usr/bin/pq4ps-list"
-	install "pq4ps-list.pl" "$(DESTDIR)/usr/bin/pq4ps-list.pl"
+	ln -sf  "ponysay" "$(DESTDIR)/usr/bin/ponythink"
 
-	mkdir -p "$(DESTDIR)/usr/lib/ponysay/"
-	install -s "ponysaytruncater" "$(DESTDIR)/usr/lib/ponysay/truncater"
-	install "ponysaylist.pl" "$(DESTDIR)/usr/lib/ponysay/list.pl"
-	install "ponysaylinklist.pl" "$(DESTDIR)/usr/lib/ponysay/linklist.pl"
+	mkdir   -p                 "$(DESTDIR)/usr/lib/ponysay/"
+	install -s "truncater"     "$(DESTDIR)/usr/lib/ponysay/truncater"
+	install    "list.pl"       "$(DESTDIR)/usr/lib/ponysay/list.pl"
+	install    "linklist.pl"   "$(DESTDIR)/usr/lib/ponysay/linklist.pl"
+	install    "pq4ps"         "$(DESTDIR)/usr/lib/pq4ps"
+	install    "pq4ps.pl"      "$(DESTDIR)/usr/lib/pq4ps.pl"
+	install    "pq4ps-list"    "$(DESTDIR)/usr/lib/pq4ps-list"
+	install    "pq4ps-list.pl" "$(DESTDIR)/usr/lib/pq4ps-list.pl"
 
-	mkdir -p "$(DESTDIR)/usr/share/bash-completion/completions/"
-	install "completion/bash-completion.sh" "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
+	mkdir -p                                      "$(DESTDIR)/usr/share/bash-completion/completions/"
+	install "completion/bash-completion.sh"       "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
 	install "completion/bash-completion-think.sh" "$(DESTDIR)/usr/share/bash-completion/completions/ponythink"
 
-	mkdir -p "$(DESTDIR)/usr/share/fish/completions/"
-	install "completion/fish-completion.fish" "$(DESTDIR)/usr/share/fish/completions/ponysay.fish"
+	mkdir -p                                        "$(DESTDIR)/usr/share/fish/completions/"
+	install "completion/fish-completion.fish"       "$(DESTDIR)/usr/share/fish/completions/ponysay.fish"
 	install "completion/fish-completion-think.fish" "$(DESTDIR)/usr/share/fish/completions/ponythink.fish"
 
-	mkdir -p "$(DESTDIR)/usr/share/zsh/site-functions/"
-	install "completion/zsh-completion.zsh" "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay"
+	mkdir -p                                      "$(DESTDIR)/usr/share/zsh/site-functions/"
+	install "completion/zsh-completion.zsh"       "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay"
 	install "completion/zsh-completion-think.zsh" "$(DESTDIR)/usr/share/zsh/site-functions/_ponythink"
 
-	mkdir -p "$(DESTDIR)/usr/share/licenses/ponysay/"
+	mkdir -p          "$(DESTDIR)/usr/share/licenses/ponysay/"
 	install "COPYING" "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
 
-	mkdir -p "$(DESTDIR)/usr/share/man/man6"
+	mkdir -p                       "$(DESTDIR)/usr/share/man/man6"
 	install "manuals/manpage.6.gz" "$(DESTDIR)/usr/share/man/man6/ponysay.6.gz"
-	ln -sf "ponysay.6.gz" "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz"
+	ln -sf  "ponysay.6.gz"         "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz"
 
-	mkdir -p "$(DESTDIR)/usr/share/man/es/man6"
+	mkdir -p                          "$(DESTDIR)/usr/share/man/es/man6"
 	install "manuals/manpage.es.6.gz" "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz"
-	ln -sf "ponysay.6.gz" "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
+	ln -sf  "ponysay.6.gz"            "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
 
-	mkdir -p "$(DESTDIR)/usr/share/info"
+	mkdir -p                  "$(DESTDIR)/usr/share/info"
 	install "ponysay.info.gz" "$(DESTDIR)/usr/share/info/ponysay.info.gz"
 	install "ponysay.info.gz" "$(DESTDIR)/usr/share/info/ponythink.info.gz"
 	install-info --dir-file="$(DESTDIR)/usr/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "$(DESTDIR)/usr/share/info/ponysay.info.gz"
@@ -139,7 +139,7 @@ ttyponies:
 
 pdfmanual:
 	texi2pdf "manuals/ponysay.texinfo"
-	git add "manuals/ponysay.texinfo"
+	git add  "manuals/ponysay.texinfo" "ponysay.pdf"
 	if [[ -f "ponysay.aux" ]]; then unlink "ponysay.aux"; fi
 	if [[ -f "ponysay.cp"  ]]; then unlink "ponysay.cp" ; fi
 	if [[ -f "ponysay.cps" ]]; then unlink "ponysay.cps"; fi
@@ -161,3 +161,4 @@ quotes: submodules
 	mkdir -p "quotes"
 	cp "ponyquotes4ponysay/ponyquotes/"*.* "quotes"
 	git add "quotes/"*.*
+
