@@ -6,6 +6,9 @@ Version 1.3
 
 	Pony symliks: sindy → powderrouge
 
+	PREFIX=/some-dir can be used when invoking make, the default value is /usr
+
+
 Version 1.2
 
 	ponyquotes4ponysay is included.

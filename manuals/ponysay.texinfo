@@ -829,6 +829,8 @@ Pony symlinks added:
 @itemize @bullet
 @item @code{sindy} → @code{powderrouge}
 @end itemize
+@item
+@code{PREFIX=/some-dir} can be used when invoking @command{make}, the default value is @code{/usr}
 @end itemize
 
 @heading Version 1.2
