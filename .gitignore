@@ -1,7 +1,17 @@
+## Private workspace directory
+
+/_/
+
+
+## Backup files
+
 *~
 \#*\#
 .\#*
 *.swp
+
+
+## Compile files
 
 /completion/*-completion-think.*
 /manuals/manpage.*.gz
