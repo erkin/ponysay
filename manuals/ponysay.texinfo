@@ -829,6 +829,7 @@ Pony symlinks added:
 @itemize @bullet
 @item @code{sindy} → @code{powderrouge}
 @end itemize
+@end itemize
 
 @heading Version 1.2
 

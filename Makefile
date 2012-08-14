@@ -1,7 +1,7 @@
 all: truncater manpages infomanual ponythinkcompletion
 
 truncater:
-	gcc -o "truncater" "truncater.c"
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o "truncater" "truncater.c"
 
 manpages:
 	gzip -9 < "manuals/manpage.6"    > "manuals/manpage.6.gz"
@@ -95,38 +95,38 @@ install: install-no-info install-info
 	@echo '' | ./ponysay -f ./`if [[ "$$TERM" = "linux" ]]; then echo ttyponies; else echo ponies; fi`/pinkiecannon.pony | tail --lines=30 ; echo -e '\n'
 
 uninstall:
-	if [ -d "$(DESTDIR)/usr/share/ponysay" ]; then                                rm -fr "$(DESTDIR)/usr/share/ponysay"
-	if [ -d "$(DESTDIR)/usr/lib/ponysay"  ]; then                                 rm -fr "$(DESTDIR)/usr/lib/ponysay"
-	if [ -f "$(DESTDIR)/usr/bin/ponysay" ]; then                                  unlink "$(DESTDIR)/usr/bin/ponysay"
-	if [ -f "$(DESTDIR)/usr/bin/ponythink" ]; then                                unlink "$(DESTDIR)/usr/bin/ponythink"
-	if [ -f "$(DESTDIR)/usr/share/licenses/ponysay/COPYING" ]; then               unlink "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"
-	if [ -f "$(DESTDIR)/usr/share/bash-completion/completions/ponysay" ]; then    unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"
-	if [ -f "$(DESTDIR)/usr/share/bash-completion/completions/ponythink" ]; then  unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponythink"
-	if [ -f "$(DESTDIR)/usr/share/fish/completions/ponysay.fish" ]; then          unlink "$(DESTDIR)/usr/share/fish/completions/ponysay.fish"
-	if [ -f "$(DESTDIR)/usr/share/fish/completions/ponythink.fish" ]; then        unlink "$(DESTDIR)/usr/share/fish/completions/ponythink.fish"
-	if [ -f "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay"; ]; then           unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay";
-	if [ -f "$(DESTDIR)/usr/share/zsh/site-functions/_ponythink"; ]; then         unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponythink";
-	if [ -f "$(DESTDIR)/usr/share/man/man6/ponysay.6.gz" ]; then                  unlink "$(DESTDIR)/usr/share/man/man6/ponysay.6.gz"
-	if [ -f "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz" ]; then                unlink "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz"
-	if [ -f "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz" ]; then               unlink "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz"
-	if [ -f "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz" ]; then             unlink "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"
-	if [ -f "$(DESTDIR)/usr/share/info/ponysay.info.gz" ]; then                   unlink "$(DESTDIR)/usr/share/info/ponysay.info.gz"
-	if [ -f unlink "$(DESTDIR)/usr/share/info/ponythink.info.gz" ]; then          unlink "$(DESTDIR)/usr/share/info/ponythink.info.gz"
+	if [ -d "$(DESTDIR)/usr/share/ponysay" ]; then                                rm -fr "$(DESTDIR)/usr/share/ponysay"                              ; fi
+	if [ -d "$(DESTDIR)/usr/lib/ponysay"  ]; then                                 rm -fr "$(DESTDIR)/usr/lib/ponysay"                                ; fi
+	if [ -f "$(DESTDIR)/usr/bin/ponysay" ]; then                                  unlink "$(DESTDIR)/usr/bin/ponysay"                                ; fi
+	if [ -f "$(DESTDIR)/usr/bin/ponythink" ]; then                                unlink "$(DESTDIR)/usr/bin/ponythink"                              ; fi
+	if [ -f "$(DESTDIR)/usr/share/licenses/ponysay/COPYING" ]; then               unlink "$(DESTDIR)/usr/share/licenses/ponysay/COPYING"             ; fi
+	if [ -f "$(DESTDIR)/usr/share/bash-completion/completions/ponysay" ]; then    unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponysay"  ; fi
+	if [ -f "$(DESTDIR)/usr/share/bash-completion/completions/ponythink" ]; then  unlink "$(DESTDIR)/usr/share/bash-completion/completions/ponythink"; fi
+	if [ -f "$(DESTDIR)/usr/share/fish/completions/ponysay.fish" ]; then          unlink "$(DESTDIR)/usr/share/fish/completions/ponysay.fish"        ; fi
+	if [ -f "$(DESTDIR)/usr/share/fish/completions/ponythink.fish" ]; then        unlink "$(DESTDIR)/usr/share/fish/completions/ponythink.fish"      ; fi
+	if [ -f "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay"; ]; then           unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponysay"          ; fi
+	if [ -f "$(DESTDIR)/usr/share/zsh/site-functions/_ponythink"; ]; then         unlink "$(DESTDIR)/usr/share/zsh/site-functions/_ponythink"        ; fi
+	if [ -f "$(DESTDIR)/usr/share/man/man6/ponysay.6.gz" ]; then                  unlink "$(DESTDIR)/usr/share/man/man6/ponysay.6.gz"                ; fi
+	if [ -f "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz" ]; then                unlink "$(DESTDIR)/usr/share/man/man6/ponythink.6.gz"              ; fi
+	if [ -f "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz" ]; then               unlink "$(DESTDIR)/usr/share/man/es/man6/ponysay.6.gz"             ; fi
+	if [ -f "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz" ]; then             unlink "$(DESTDIR)/usr/share/man/es/man6/ponythink.6.gz"           ; fi
+	if [ -f "$(DESTDIR)/usr/share/info/ponysay.info.gz" ]; then                   unlink "$(DESTDIR)/usr/share/info/ponysay.info.gz"                 ; fi
+	if [ -f unlink "$(DESTDIR)/usr/share/info/ponythink.info.gz" ]; then          unlink "$(DESTDIR)/usr/share/info/ponythink.info.gz"               ; fi
 
 clean:
-	if [ -f "ponysaytruncater" ]; then                       rm -f "ponysaytruncater"
-	if [ -f "completion/bash-completion-think.sh" ]; then    rm -f "completion/bash-completion-think.sh"
-	if [ -f "completion/fish-completion-think.fish" ]; then  rm -f "completion/fish-completion-think.fish"
-	if [ -f "completion/zsh-completion-think.zsh" ]; then    rm -f "completion/zsh-completion-think.zsh"
-	if [ -f "manuals/manpage.6.gz" ]; then                   rm -f "manuals/manpage.6.gz"
-	if [ -f "manuals/manpage.es.6.gz" ]; then                rm -f "manuals/manpage.es.6.gz"
-	if [ -f "ponysay.info.gz"  ]; then                       rm -f "ponysay.info.gz"
+	if [ -f "truncater" ]; then                              rm -f "truncater"                            ; fi
+	if [ -f "completion/bash-completion-think.sh" ]; then    rm -f "completion/bash-completion-think.sh"  ; fi
+	if [ -f "completion/fish-completion-think.fish" ]; then  rm -f "completion/fish-completion-think.fish"; fi
+	if [ -f "completion/zsh-completion-think.zsh" ]; then    rm -f "completion/zsh-completion-think.zsh"  ; fi
+	if [ -f "manuals/manpage.6.gz" ]; then                   rm -f "manuals/manpage.6.gz"                 ; fi
+	if [ -f "manuals/manpage.es.6.gz" ]; then                rm -f "manuals/manpage.es.6.gz"              ; fi
+	if [ -f "ponysay.info.gz"  ]; then                       rm -f "ponysay.info.gz"                      ; fi
 
 ## Scripts for maintainers
 
 ttyponies:
-	mkdir -p ttyponies
-	for pony in $$(ls --color=no ponies/); do                                                      \
+	mkdir -p "ttyponies"
+	for pony in $$(ls --color=no "ponies/"); do                                                    \
 	    echo "building ttypony: $$pony"                                                           ;\
 	    if [[ `readlink "ponies/$$pony"` = "" ]]; then                                             \
 	        ponysay2ttyponysay < "ponies/$$pony" | tty2colourfultty -c 1 -e > "ttyponies/$$pony"  ;\
