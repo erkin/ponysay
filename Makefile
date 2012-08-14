@@ -117,6 +117,11 @@ uninstall:
 	if [ -f "$(INSTALLDIR)/share/info/ponysay.info.gz" ]; then                   unlink "$(INSTALLDIR)/share/info/ponysay.info.gz"                 ; fi
 	if [ -f unlink "$(INSTALLDIR)/share/info/ponythink.info.gz" ]; then          unlink "$(INSTALLDIR)/share/info/ponythink.info.gz"               ; fi
 
+uninstall-old:
+	if [ -d "$(INSTALLDIR)/share/ponies" ]; then                                 rm -fr "$(INSTALLDIR)/share/ponies"                               ; fi
+	if [ -d "$(INSTALLDIR)/share/ttyponies" ]; then                              rm -fr "$(INSTALLDIR)/share/ttyponies"                            ; fi
+	if [ -f "$(INSTALLDIR)/bin/ponysaytruncater" ]; then                         unlink "$(INSTALLDIR)/bin/ponysaytruncater"                       ; fi
+
 clean:
 	if [ -f "truncater" ]; then                              rm -f "truncater"                            ; fi
 	if [ -f "completion/bash-completion-think.sh" ]; then    rm -f "completion/bash-completion-think.sh"  ; fi
@@ -125,6 +130,10 @@ clean:
 	if [ -f "manuals/manpage.6.gz" ]; then                   rm -f "manuals/manpage.6.gz"                 ; fi
 	if [ -f "manuals/manpage.es.6.gz" ]; then                rm -f "manuals/manpage.es.6.gz"              ; fi
 	if [ -f "ponysay.info.gz"  ]; then                       rm -f "ponysay.info.gz"                      ; fi
+
+clean-old:
+	if [ -f "ponysaytruncater" ]; then                       rm -f "ponysaytruncater"                     ; fi
+
 
 ## Scripts for maintainers
 
