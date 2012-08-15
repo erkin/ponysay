@@ -84,6 +84,9 @@ install-info: infomanual
 
 install-no-info: install-min install-bash install-zsh install-fish install-man install-man-es
 
+install-pdf:
+	install "ponysay.pdf" "$(INSTALLDIR)/doc/ponysay.pdf"
+
 install: install-no-info install-info
 	@echo -e '\n\n'\
 '/--------------------------------------------------\\\n'\
@@ -120,7 +123,8 @@ uninstall:
 	if [ -f "$(INSTALLDIR)/share/man/es/man6/ponysay.6.gz" ]; then               unlink "$(INSTALLDIR)/share/man/es/man6/ponysay.6.gz"             ; fi
 	if [ -f "$(INSTALLDIR)/share/man/es/man6/ponythink.6.gz" ]; then             unlink "$(INSTALLDIR)/share/man/es/man6/ponythink.6.gz"           ; fi
 	if [ -f "$(INSTALLDIR)/share/info/ponysay.info.gz" ]; then                   unlink "$(INSTALLDIR)/share/info/ponysay.info.gz"                 ; fi
-	if [ -f unlink "$(INSTALLDIR)/share/info/ponythink.info.gz" ]; then          unlink "$(INSTALLDIR)/share/info/ponythink.info.gz"               ; fi
+	if [ -f "$(INSTALLDIR)/share/info/ponythink.info.gz" ]; then                 unlink "$(INSTALLDIR)/share/info/ponythink.info.gz"               ; fi
+	if [ -f "$(INSTALLDIR)/doc/ponysay.pdf" ]; then                              unlink "$(INSTALLDIR)/doc/ponysay.pdf"                            ; fi
 
 uninstall-old:
 	if [ -d "$(INSTALLDIR)/share/ponies" ]; then                                 rm -fr "$(INSTALLDIR)/share/ponies"                               ; fi
