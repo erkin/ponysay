@@ -15,10 +15,15 @@ infomanual:
 	makeinfo "manuals/ponysay.texinfo"
 	gzip -9  "ponysay.info"
 
-ponythinkcompletion:
-	sed -e 's/ponysay/ponythink/g' <"completion/bash-completion.sh"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/bash-completion-think.sh"
-	sed -e 's/ponysay/ponythink/g' <"completion/fish-completion.fish" | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/fish-completion-think.fish"
-	sed -e 's/ponysay/ponythink/g' <"completion/zsh-completion.zsh"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/zsh-completion-think.zsh"
+ponysaycompletion:
+	sed -e 's/\/usr\//'"$$(sed -e 's/\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/bash-completion.sh"   >"completion/bash-completion.sh.install"
+	sed -e 's/\/usr\//'"$$(sed -e 's/\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/fish-completion.fish" >"completion/fish-completion.fish.install"
+	sed -e 's/\/usr\//'"$$(sed -e 's/\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/zsh-completion.zsh"   >"completion/zsh-completion.zsh.install"
+
+ponythinkcompletion: ponysaycompletion
+	sed -e 's/ponysay/ponythink/g' <"completion/bash-completion.sh.install"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/bash-completion-think.sh"
+	sed -e 's/ponysay/ponythink/g' <"completion/fish-completion.fish.install" | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/fish-completion-think.fish"
+	sed -e 's/ponysay/ponythink/g' <"completion/zsh-completion.zsh.install"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/zsh-completion-think.zsh"
 
 install-min: truncater
 	mkdir -p "$(INSTALLDIR)/share/ponysay/"
@@ -46,19 +51,19 @@ install-min: truncater
 	install "COPYING" "$(INSTALLDIR)/share/licenses/ponysay/COPYING"
 
 install-bash: ponythinkcompletion
-	mkdir -p                                      "$(INSTALLDIR)/share/bash-completion/completions/"
-	install "completion/bash-completion.sh"       "$(INSTALLDIR)/share/bash-completion/completions/ponysay"
-	install "completion/bash-completion-think.sh" "$(INSTALLDIR)/share/bash-completion/completions/ponythink"
+	mkdir -p                                        "$(INSTALLDIR)/share/bash-completion/completions/"
+	install "completion/bash-completion.sh.install" "$(INSTALLDIR)/share/bash-completion/completions/ponysay"
+	install "completion/bash-completion-think.sh"   "$(INSTALLDIR)/share/bash-completion/completions/ponythink"
 
 install-zsh: ponythinkcompletion
-	mkdir -p                                      "$(INSTALLDIR)/share/zsh/site-functions/"
-	install "completion/zsh-completion.zsh"       "$(INSTALLDIR)/share/zsh/site-functions/_ponysay"
-	install "completion/zsh-completion-think.zsh" "$(INSTALLDIR)/share/zsh/site-functions/_ponythink"
+	mkdir -p                                        "$(INSTALLDIR)/share/zsh/site-functions/"
+	install "completion/zsh-completion.zsh.install" "$(INSTALLDIR)/share/zsh/site-functions/_ponysay"
+	install "completion/zsh-completion-think.zsh"   "$(INSTALLDIR)/share/zsh/site-functions/_ponythink"
 
 install-fish: ponythinkcompletion
-	mkdir -p                                        "$(INSTALLDIR)/share/fish/completions/"
-	install "completion/fish-completion.fish"       "$(INSTALLDIR)/share/fish/completions/ponysay.fish"
-	install "completion/fish-completion-think.fish" "$(INSTALLDIR)/share/fish/completions/ponythink.fish"
+	mkdir -p                                          "$(INSTALLDIR)/share/fish/completions/"
+	install "completion/fish-completion.fish.install" "$(INSTALLDIR)/share/fish/completions/ponysay.fish"
+	install "completion/fish-completion-think.fish"   "$(INSTALLDIR)/share/fish/completions/ponythink.fish"
 
 install-man: manpages
 	mkdir -p                       "$(INSTALLDIR)/share/man/man6"

@@ -18,4 +18,4 @@
 /manuals/manpage.*.gz
 /ponysay.info.gz
 /truncater
-
+*.install
