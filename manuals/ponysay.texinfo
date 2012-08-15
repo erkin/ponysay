@@ -64,7 +64,7 @@ Texts. A copy of the license is included in the section entitled
 * Inner workings::                      Inner workings.
 * Contributing::                        Contributing.
 * Change log::                          Differences between the version of @command{ponysay}.
-* Ponysay constributors::               Ponysay constributors.
+* Ponysay contributors::               Ponysay contributors.
 * Ponysay license::                     Ponysay license.
 * GNU Free Documentation License::      Copying and sharing this manual.
 * Concept index::                       Concept index.
@@ -135,7 +135,7 @@ randomly. If no pony is specified one will be selected randomly.
 
 @item -q [PONY...]
 @cindex @command{-q}
-By using this option, a pony will be printed with quotes from her in My Litte Pony:
+By using this option, a pony will be printed with quotes from her in My Little Pony:
 Friendship is Magic. The pony will be selected randomly, unless at least one pony
 is added as an argument after @command{-q}. If one or more ponies are added after
 @command{-q}, the pony will be selected randomly from that set of ponies.
@@ -192,13 +192,13 @@ by hand, you can run @code{cat | ponysay}.
 @cindex .bashrc
 
 If you have @command{fortune} installed -- this program may be named
-@command{fortune-mod} in your GNU/Linux distributions package reposity --
+@command{fortune-mod} in your GNU/Linux distributions package repository --
 you can run @code{fortune | ponysay} to get a random pony reading a
 random fortune cookie.
 
 By adding @code{fortune | ponysay} to the end [easiest way] of your
 @code{~/.bashrc} -- or equivalent for your shell if use do not use GNU Bash
-(standard shell for most distributions now adays) -- you will get the
+(standard shell for most distributions now a days) -- you will get the
 effect described in the previous paragraph every time you open a terminal.
 
 
@@ -239,7 +239,7 @@ If you use TTY and have a custom colour palette, you should also add to your
 @cindex screen
 @cindex .bashrc
 
-@command{screen} will adapt ASNI colour escape sequences to your terminal's
+@command{screen} will adapt ANSI colour escape sequences to your terminal's
 capabilities. This means that if your terminal reports itself as @code{xterm}
 in @code{$TERM} ponies will lose their colours; they will only use the lower 16
 colours instead of the top 240 colours. By default, almost all X terminals,
@@ -298,7 +298,7 @@ are not running @command{ponysay} under TTY.
 @item PONYSAY_COWSAY
 @itemx PONYSAY_COWTHINK
 @cindex PONYSAY_COWSAY
-@cindex PONYSAY_COWTINK
+@cindex PONYSAY_COWTHINK
 @cindex custom cowsay
 @cindex replace cowsay
 If you want to use another program than @command{cowsay} (the first
@@ -312,7 +312,7 @@ customise cowsay.
 you run @command{ponythink}.
 @end table
 
-See @ref{kmsponies4ponysay} for additional environment variabled used by the
+See @ref{kmsponies4ponysay} for additional environment variables used by the
 extension @command{kmsponies4ponysay}.
 
 
@@ -346,7 +346,7 @@ Ponysay works perfectly on @command{xterm}, @command{xterm} like terminals inclu
 @cindex tty
 @cindex linux vt
 On Linux's native terminal Linux VT (TTY) it works less well, and not good at all with
-Kernal Mode Settings (KMS) support. See @url{https://github.com/erkin/ponysay/issues/1}
+Kernel Mode Settings (KMS) support. See @url{https://github.com/erkin/ponysay/issues/1}
 for more information. @command{ponysay} clears the screen before printing to TTY, this
 is because if your graphics driver supports KMS, the colours will be messed by when the
 ponies position moves on the screen, this is also reason why the output is truncated on
@@ -385,7 +385,7 @@ colours and text styling in messages will also malformat the balloon with the me
 
 @command{cowsay} does not support balloon, including the link between the message and
 the pony, customisation, other than using @command{cowthink}. However you can modify
-@command{cowsay} (written perl, so you can edit the installed files) to make the balloon
+@command{cowsay} (written Perl, so you can edit the installed files) to make the balloon
 look different, maybe using box drawing characters.
 
 @command{cowsay} does support setting the minimum size of the balloon, both directions
@@ -393,7 +393,7 @@ on the balloon–pony links. or any other placement of the balloon than at the t
 the left.
 
 @cindex figlet
-@cindex tiolet
+@cindex toilet
 @command{cowsay}'s word wrapping handles single line breaks as normal blank spaces,
 this messes up messages created with programs such as @command{figlet} and @command{TOIlet}.
 
@@ -636,7 +636,7 @@ shell should export a palette string to @code{$PONYSAY_KMS_PALETTE} or you shoul
 a command to can get the palette string to @code{$PONYSAY_KMS_PALETTE_CMD}. The palette
 string should be the stream which sets the colour palette to the terminal when
 @command{echo}:ed; preferably, to increase speed and reduce cache usage, it should be
-consistent everytime it is exported for every colours palette. So you may want to keep it
+consistent every time it is exported for every colours palette. So you may want to keep it
 sorted, always be in either upper case or lower case, and not contain an character that
 is not used to set the colour palette.
 
@@ -692,7 +692,7 @@ sequences (OSI P).
 @cindex kms
 @cindex kernel mode settings
 
-Since Linux VT (TTY) does not have capabilities for returning the pssition of the cursor,
+Since Linux VT (TTY) does not have capabilities for returning the position of the cursor,
 the screen must always be cleared before printing the ponies to make sure the pony's
 colours is not lost, i.e. reduced to mare 16 colours, during print. The colours are reduced
 if the pony's position on the screen is changed. This is only relevant with KMS support.
@@ -705,7 +705,7 @@ everything on the screen after, and including at, the cursor. If we would use ``
 @node Truncation
 @section Truncation
 @cindex truncation
-@cindex output trunction
+@cindex output truncation
 @cindex kms
 @cindex kernel mode settings
 
@@ -1043,7 +1043,7 @@ Dropping usage of utility @command{which}, using @command{hash} instead.
 
 @itemize @bullet
 @item
-Using utility @command{which} to determine existance of @command{cowsay}.
+Using utility @command{which} to determine existence of @command{cowsay}.
 @end itemize
 
 @heading Version 0.4
@@ -1095,8 +1095,8 @@ First release.
 
 
 
-@node Ponysay constributors
-@appendix Ponysay constributors
+@node Ponysay contributors
+@appendix Ponysay contributors
 
 Active developers of ponysay:
 @itemize @bullet
@@ -1122,7 +1122,7 @@ Patchers and other contributors of ponysay:
 @appendix Ponysay license
 
 Ponysay is Free Software (yet not Open Source) and in licensed under the terms
-of Do What The Fuck You Want To Public Licese (WTFPL) version 2.
+of Do What The Fuck You Want To Public License (WTFPL) version 2.
 
 You have the four essential freedoms:
 @itemize @bullet
