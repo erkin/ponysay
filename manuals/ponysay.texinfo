@@ -64,7 +64,7 @@ Texts. A copy of the license is included in the section entitled
 * Inner workings::                      Inner workings.
 * Contributing::                        Contributing.
 * Change log::                          Differences between the version of @command{ponysay}.
-* Ponysay contributors::               Ponysay contributors.
+* Ponysay contributors::                Ponysay contributors.
 * Ponysay license::                     Ponysay license.
 * GNU Free Documentation License::      Copying and sharing this manual.
 * Concept index::                       Concept index.
