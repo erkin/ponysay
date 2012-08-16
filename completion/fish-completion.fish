@@ -24,7 +24,9 @@ end
 complete -c ponysay -s h --description "Help of ponysay"
 complete -c ponysay -s v --description "Version of ponysay"
 complete -c ponysay -s l --description "List pony files"
-complete -c ponysay -s f -a "$homeponies $systemponies" --description "Ponyfile"
+complete -c ponysay -s L --description "List pony files with alternatives"
+complete -c ponysay -s f -a "$homeponies $systemponies" --description "Select a pony"
+complete -c ponysay -s q -a "$homeponies $systemponies" --description "Select ponies for MLP:FiM quotes"
 complete -c ponysay -s W -a "Integer" --description "The screen column where the message should be wrapped"
 
 
