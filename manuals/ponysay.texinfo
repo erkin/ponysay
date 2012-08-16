@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 1.2
+@set VERSION 1.4
 
 @copying
 This manual is for ponysay
@@ -817,6 +817,8 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 1.4
 
 @heading Version 1.3
 
