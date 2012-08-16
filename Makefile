@@ -150,10 +150,10 @@ ttyponies:
 	mkdir -p "ttyponies"
 	for pony in $$(ls --color=no "ponies/"); do                                                    \
 	    echo "building ttypony: $$pony"                                                           ;\
-	    if [[ `readlink "ponies/$$pony"` = "" ]]; then                                             \
+	    if [ `readlink "ponies/$$pony"` = "" ]; then                                               \
 	        ponysay2ttyponysay < "ponies/$$pony" | tty2colourfultty -c 1 -e > "ttyponies/$$pony"  ;\
 		git add "ttyponies/$$pony"                                                            ;\
-	    elif [[ ! -f "ttyponies/$$pony" ]]; then                                                   \
+	    elif [ ! -f "ttyponies/$$pony" ]; then                                                     \
 	        ln -s `readlink "ponies/$$pony"` "ttyponies/$$pony"                                   ;\
 		git add "ttyponies/$$pony"                                                            ;\
 	    fi                                                                                         \
@@ -163,9 +163,9 @@ pdfmanual:
 	texi2pdf "manuals/ponysay.texinfo"
 	git add  "manuals/ponysay.texinfo" "ponysay.pdf"
 	for ext in `echo aux cp cps fn ky log pg toc tp vr`; do              \
-	    (if [[ -f "ponysay.$$ext" ]]; then unlink "ponysay.$$ext"; fi);  \
+	    (if [ -f "ponysay.$$ext" ]; then unlink "ponysay.$$ext"; fi);    \
 	done
-	if [[ -d "ponysay.t2d" ]]; then rm -r "ponysay.t2d"; fi
+	if [ -d "ponysay.t2d" ]; then rm -r "ponysay.t2d"; fi
 
 submodules: clean
 	(cd "ponyquotes4ponysay/"; make clean)
@@ -174,7 +174,7 @@ submodules: clean
 
 quotes: submodules
 	(cd "ponyquotes4ponysay/"; make -B)
-	if [[ -d quotes ]]; then git rm "quotes/"*.*; fi
+	if [ -d quotes ]; then git rm "quotes/"*.*; fi
 	mkdir -p "quotes"
 	cp "ponyquotes4ponysay/ponyquotes/"*.* "quotes"
 	git add "quotes/"*.*

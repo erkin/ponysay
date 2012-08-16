@@ -27,8 +27,8 @@ scrh=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 1` # Screen height
 
 # KMS ponies extension
 kmscmd=""
-[[ "$TERM" = "linux" ]] && kmscmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/ponysay2kmsponysay /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
-[[ ! "$kmscmd" = "" ]] && TERM="-linux-"
+[ "$TERM" = "linux" ] && kmscmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/ponysay2kmsponysay /g'); do if [ -f $c ]; then echo $c; break; fi done)
+[ ! "$kmscmd" = "" ] && TERM="-linux-"
 
 # Directories for installed ponies files
 if [ "$TERM" = "linux" ]; then
@@ -40,8 +40,8 @@ else
 fi
 
 # Cowsay script
-if [[ ${0} == *ponythink ]]; then
-	if [[ "$PONYSAY_COWTHINK" = "" ]]; then
+if [ ${0} == *ponythink ]; then
+	if [ "$PONYSAY_COWTHINK" = "" ]; then
 		cmd=cowthink
 		customcmd=0
 	else
@@ -49,7 +49,7 @@ if [[ ${0} == *ponythink ]]; then
 		customcmd=1
 	fi
 else
-	if [[ "$PONYSAY_COWSAY" = "" ]]; then
+	if [ "$PONYSAY_COWSAY" = "" ]; then
 		cmd=cowsay
 		customcmd=0
 	else
@@ -67,15 +67,15 @@ version() {
 
 # Pony list function
 list() {
-	if [[ -d $SYSTEMPONIES ]]; then
+	if [ -d $SYSTEMPONIES ]; then
 		echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
 		perl $listcmd $scrw $(ls --color=no $SYSTEMPONIES | sed -e 's/\.pony$//' | sort) | $qlistcmd
         fi
-	if [[ -d $HOMEPONIES ]]; then
+	if [ -d $HOMEPONIES ]; then
 		echo -e "\\e[01mponyfiles located in $HOMEPONIES:\\e[21m"
 		perl $listcmd $scrw $(ls --color=no $HOMEPONIES | sed -e 's/\.pony$//' | sort) | $qlistcmd
 	fi
-	if [[ ! -d $SYSTEMPONIES ]] && [[ ! -d $HOMEPONIES ]]; then
+	if [ ! -d $SYSTEMPONIES ] && [ ! -d $HOMEPONIES ]; then
 		echo >&2 "All the ponies are missing! Call the Princess!"
 	fi
 }
@@ -106,14 +106,14 @@ _linklist() {
 linklist() {
 	_linklist $SYSTEMPONIES
 	
-	if [[ -d $HOMEPONIES ]]; then
+	if [ -d $HOMEPONIES ]; then
 		_linklist $HOMEPONIES
 	fi
 }
 
 # Pony quotes
 ponyquotes() {
-	[[ "$TERM" = "-linux-" ]] && TERM="linux"
+	[ "$TERM" = "-linux-" ] && TERM="linux"
 	"$0" ${wrap:+-W$wrap} $("$quotecmd" "$*")
 }
 
@@ -146,10 +146,10 @@ say() {
 	export PERL_UNICODE=S
 
 	# Clear screen in TTY
-	( [[ "$TERM" = "linux" ]] || [[ "$TERM" = "-linux-" ]]) && echo -ne '\e[H\e[2J'
+	( [ "$TERM" = "linux" ] || [ "$TERM" = "-linux-" ]) && echo -ne '\e[H\e[2J'
 
 	# Set PONYSAY_SHELL_LINES to default if not specified
-	[[ "$PONYSAY_SHELL_LINES" = "" ]] && PONYSAY_SHELL_LINES=2
+	[ "$PONYSAY_SHELL_LINES" = "" ] && PONYSAY_SHELL_LINES=2
 
 	# Width trunction
 	function wtrunc {
@@ -175,12 +175,12 @@ say() {
 	}
 
 	# Simplification of customisation of cowsay
-	if [[ $customcmd = 0 ]]; then
+	if [ $customcmd = 0 ]; then
 		function cowcmd {
 			pcmd='#!/usr/bin/perl\nuse utf8;'
-			ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [[ -f $c ]]; then echo $c; break; fi done)
+			ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [ -f $c ]; then echo $c; break; fi done)
 			
-			if [[ ${0} == *ponythink ]]; then
+			if [ ${0} == *ponythink ]; then
 				cat <(echo -e $pcmd) $ccmd > "/tmp/ponythink"
 				perl '/tmp/ponythink' "$@"
 				rm '/tmp/ponythink'
@@ -195,7 +195,7 @@ say() {
 	fi
 
 	# KMS ponies support
-	if [[ "$kmscmd" = "" ]]; then
+	if [ "$kmscmd" = "" ]; then
 		function runcmd {
 			cowcmd -f "$pony" "$@"
 		}
@@ -220,7 +220,7 @@ say() {
 
 
 # If no stdin and no arguments then print usage and exit
-if [[ -t 0 && $# == 0 ]]; then
+if [ -t 0 && $# == 0 ]; then
 	usage
 	exit
 fi
@@ -257,16 +257,16 @@ fi
 
 
 # Select random pony for the set of -f arguments
-if [[ ! ${#ponies[@]} == 0 ]]; then
+if [ ! ${#ponies[@]} == 0 ]; then
 	pony="${ponies[$RANDOM%${#ponies[@]}]}"
 fi
 
 
 # Pony not a file? Search for it
-if [[ ! -f $pony ]]; then
+if [ ! -f $pony ]; then
 	ponies=()
-	[[ -d $SYSTEMPONIES ]] && ponies+=( "$SYSTEMPONIES"/$pony.pony )
-	[[ -d $HOMEPONIES ]]   && ponies+=( "$HOMEPONIES"/$pony.pony )
+	[ -d $SYSTEMPONIES ] && ponies+=( "$SYSTEMPONIES"/$pony.pony )
+	[ -d $HOMEPONIES ]   && ponies+=( "$HOMEPONIES"/$pony.pony )
 	
 	if (( ${#ponies} < 1 )); then
 		echo >&2 "All the ponies are missing! Call the Princess!"
@@ -279,7 +279,7 @@ fi
 
 
 # Print pony with message
-if [[ -n "$*" ]]; then
+if [ -n "$*" ]; then
 	# Handle a message given via arguments
 	say <<<"$*"
 else
