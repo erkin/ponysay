@@ -8,12 +8,12 @@ truncater:
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o "truncater" "truncater.c"
 
 manpages:
-	gzip -9 < "manuals/manpage.6"    > "manuals/manpage.6.gz"
-	gzip -9 < "manuals/manpage.es.6" > "manuals/manpage.es.6.gz"
+	gzip -9 -f < "manuals/manpage.6"    > "manuals/manpage.6.gz"
+	gzip -9 -f < "manuals/manpage.es.6" > "manuals/manpage.es.6.gz"
 
 infomanual:
 	makeinfo "manuals/ponysay.texinfo"
-	gzip -9  "ponysay.info"
+	gzip -9 -f "ponysay.info"
 
 ponysaycompletion:
 	sed -e 's/\/usr\//'"$$(sed -e 's/\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/bash-completion.sh"   >"completion/bash-completion.sh.install"
