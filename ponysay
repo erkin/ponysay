@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION=1.4
+VERSION=1.4.1
 
 
 
@@ -90,7 +90,7 @@ _linklist() {
 	for file in $files; do
 		target=$(readlink $1"/"$file".pony")
 		
-		if [[ $target = "" ]]; then
+		if [ $target = "" ]; then
 			target=$file
 		else
 			target=$(echo $target | sed -e 's/^\.\///g' -e 's/\.pony$//g')
@@ -114,7 +114,7 @@ linklist() {
 # Pony quotes
 ponyquotes() {
 	[ "$TERM" = "-linux-" ] && TERM="linux"
-	"$0" ${wrap:+-W$wrap} $("$quotecmd" "$*")
+	"$0" ${wrap:+-W$wrap} $("$quotecmd" $@)
 }
 
 # Usage help print function
@@ -146,7 +146,7 @@ say() {
 	export PERL_UNICODE=S
 
 	# Clear screen in TTY
-	( [ "$TERM" = "linux" ] || [ "$TERM" = "-linux-" ]) && echo -ne '\e[H\e[2J'
+	( [ "$TERM" = "linux" ] || [ "$TERM" = "-linux-" ] ) && echo -ne '\e[H\e[2J'
 
 	# Set PONYSAY_SHELL_LINES to default if not specified
 	[ "$PONYSAY_SHELL_LINES" = "" ] && PONYSAY_SHELL_LINES=2
@@ -156,7 +156,7 @@ say() {
 		if [ "$PONYSAY_FULL_WIDTH" = 'yes' ] || [ "$PONYSAY_FULL_WIDTH" = 'y' ] || [ "$PONYSAY_FULL_WIDTH" = '1' ]; then
 			cat
 		else
-			if [[ -f $truncatercmd ]]; then
+			if [ -f $truncatercmd ]; then
 				$truncatercmd $scrw
 			else
 				cat
@@ -220,7 +220,7 @@ say() {
 
 
 # If no stdin and no arguments then print usage and exit
-if [ -t 0 && $# == 0 ]; then
+if [ -t 0 ] && [ $# == 0 ]; then
 	usage
 	exit
 fi
@@ -236,7 +236,7 @@ while getopts "f:W:Llhvq" OPT; do
 		l)  list; exit ;;
 		L)  linklist; exit ;;
 		W)  wrap="$OPTARG" ;;
-		q)  ponyquotes; exit ;;
+		q)  shift $((OPTIND - 1)); ponyquotes "$*"; exit ;;
 		\?) usage >&2; exit 1 ;;
 	esac
 done

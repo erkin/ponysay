@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cmd="$(echo "$0" | sed -e 's/\-list$//g')"
 pl="$0.pl"
