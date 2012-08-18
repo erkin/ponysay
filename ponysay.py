@@ -93,6 +93,10 @@ class ponysay():
         else:                self.print_pony(args)
     
     
+    ##
+    ## Auxiliary methods
+    ##
+    
     '''
     Returns one .pony-file with full path, names is filter for names, also accepts filepaths
     '''
@@ -164,6 +168,10 @@ class ponysay():
         
         return rc
     
+    
+    ##
+    ## Listing methods
+    ##
     
     '''
     Lists the available ponies
@@ -296,6 +304,13 @@ class ponysay():
                 print(pony)
     
     
+    ##
+    ## Displaying methods
+    ##
+    
+    '''
+    Print the pony with a speech or though bubble
+    '''
     def print_pony(self, args):
         if args.message == None:
             msg = sys.stdin.read().strip()
