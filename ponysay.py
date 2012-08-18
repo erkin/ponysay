@@ -53,6 +53,8 @@ parser = argparse.ArgumentParser(description = 'Ponysay, like cowsay with ponies
 parser.add_argument('-v', '--version', action = 'version',    version = '%s %s' % ("ponysay", VERSION))
 parser.add_argument('-l', '--list',    action = 'store_true', dest = 'list',     help = 'list pony files')
 parser.add_argument('-L', '--altlist', action = 'store_true', dest = 'linklist', help = 'list pony files with alternatives')
+parser.add_argument(      '--quoters', action = 'store_true', dest = 'quoters',  help = 'list ponies with quotes (visible in -l and -L)')  # for shell completions
+parser.add_argument(      '--onelist', action = 'store_true', dest = 'onelist',  help = 'list pony files in one columns')                  # for shell completions
 parser.add_argument('-f', '--pony',    action = 'append',     dest = 'pony',     help = 'select a pony (either a file name or a pony name)')
 parser.add_argument('message', nargs = '?', help = 'message to ponysay')
 
@@ -63,11 +65,13 @@ class ponysay():
     def __init__(self, args):
         if   args.list:      self.list()
         elif args.linklist:  self.linklist()
+        elif args.quoters:   self.quoters()
+        elif args.onelist:   self.onelist()
         else:                self.print_pony(args)
     
     
     '''
-    Returns a set with all ponies that have quotes and is displayable
+    Returns a set with all ponies that have quotes and are displayable
     '''
     def __quoters(self):
         quotes = []
@@ -213,6 +217,37 @@ class ponysay():
                     x = 0
             
             print("\n");
+    
+    
+    '''
+    Lists with all ponies that have quotes and are displayable
+    '''
+    def quoters(self):
+        last = ""
+        ponies = []
+        for pony in self.__quoters():
+            ponies.append(pony)
+        ponies.sort()
+        for pony in ponies:
+            if not pony == last:
+                last = pony
+                print(pony)
+    
+    
+    '''
+    Lists the available ponies one one column without anything bold
+    '''
+    def onelist(self):
+        last = ""
+        ponies = []
+        for ponydir in ponydirs: # Loop ponydirs
+            ponies += os.listdir(ponydir)
+        ponies = [item[:-5] for item in ponies] # remove .pony from file name
+        ponies.sort()
+        for pony in ponies:
+            if not pony == last:
+                last = pony
+                print(pony)
     
     
     def print_pony(self, args):
