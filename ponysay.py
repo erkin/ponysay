@@ -37,6 +37,17 @@ for ponydir in _ponydirs:
     if os.path.isdir(ponydir):
         ponydirs.append(ponydir)
 
+'''
+The directories where quotes files are stored
+'''
+quotedirs = []
+_quotedirs = [INSTALLDIR + '/share/ponysay/quotes/',  os.environ['HOME'] + '/.local/share/ponysay/quotes/']
+for quotedir in _quotedirs:
+    if os.path.isdir(quotedir):
+        quotedirs.append(quotedir)
+
+
+
 parser = argparse.ArgumentParser(description = 'Ponysay, like cowsay with ponies')
 
 parser.add_argument('-v', '--version', action = 'version',    version = '%s %s' % ("ponysay", VERSION))
@@ -61,7 +72,9 @@ class ponysay():
     def __quoters(self):
         quotes = []
         quoteshash = set()
-        _quotes = [item[:item.index('.')] for item in os.listdir(INSTALLDIR + '/share/ponysay/quotes/')]
+        _quotes = []
+        for quotedir in quotedirs:
+            _quotes += [item[:item.index('.')] for item in os.listdir(INSTALLDIR + '/share/ponysay/quotes/')]
         for quote in _quotes:
             if not quote == '':
                 if not quote in quoteshash:
@@ -85,7 +98,9 @@ class ponysay():
     Returns a list with all (pony, quote file) pairs
     '''
     def __quotes(self):
-        quotes = os.listdir(INSTALLDIR + '/share/ponysay/quotes/')
+        quotes = []
+        for quotedir in quotedirs:
+            quotes += [quotedir + item for item in os.listdir(quotedir)]
         rc = []
         
         for ponydir in ponydirs:
@@ -93,8 +108,9 @@ class ponysay():
                 if not pony[0] == '.':
                     p = pony[:-5] # remove .pony
                     for quote in quotes:
-                        if ('+' + p + '+') in ('+' + quote + '+'):
-                            rc.append((p, qoute))
+                        q = quote[quote.rindex('/') + 1:]
+                        if ('+' + p + '+') in ('+' + q + '+'):
+                            rc.append((p, quote))
         
         return rc
     
