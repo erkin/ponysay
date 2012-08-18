@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+INSTALLDIR="$(dirname $( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))"
+truncatercmd="$INSTALLDIR/lib/ponysay/truncater"
+
+scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2` # Screen width
+
+function wtrunc {
+    if [ "$PONYSAY_FULL_WIDTH" = 'yes' ] || [ "$PONYSAY_FULL_WIDTH" = 'y' ] || [ "$PONYSAY_FULL_WIDTH" = '1' ]; then
+        cat
+    else
+        if [[ -f $truncatercmd ]]; then
+            $truncatercmd $scrw
+        else
+            cat
+        fi
+    fi
+}
+
+"$0.py" "$@" | wtrunc
