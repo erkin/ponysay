@@ -67,11 +67,12 @@ Argument parsing
 '''
 parser = argparse.ArgumentParser(description = 'Ponysay, like cowsay with ponies')
 
-parser.add_argument('-v', '--version', action = 'version',    version = '%s %s' % ('ponysay', VERSION))
+parser.add_argument('-v', '--version', action = 'version',                       version = '%s %s' % ('ponysay', VERSION))
 parser.add_argument('-l', '--list',    action = 'store_true', dest = 'list',     help = 'list pony files')
 parser.add_argument('-L', '--altlist', action = 'store_true', dest = 'linklist', help = 'list pony files with alternatives')
 parser.add_argument(      '--quoters', action = 'store_true', dest = 'quoters',  help = 'list ponies with quotes (visible in -l and -L)')  # for shell completions
 parser.add_argument(      '--onelist', action = 'store_true', dest = 'onelist',  help = 'list pony files in one columns')                  # for shell completions
+parser.add_argument('-W', '--wrap',    action = 'store',      dest = 'wrap',     help = 'specify the column when the message should be wrapped')
 parser.add_argument('-f', '--pony',    action = 'append',     dest = 'pony',     help = 'select a pony (either a file name or a pony name)')
 parser.add_argument('message', nargs = '?', help = 'message to ponysay')
 
@@ -322,7 +323,7 @@ class ponysay():
         if "think.py" in __file__: cmd = 'cowthink'
         else:                      cmd = 'cowsay'
         
-        os.system(cmd + ' -f ' + pony + ' \'' + msg + '\'')
+        os.system(cmd + (' -W ' + args.wrap if args.wrap is not None else '') + ' -f ' + pony + ' \'' + msg + '\'')
 
 
 
