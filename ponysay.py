@@ -28,20 +28,27 @@ INSTALLDIR = '/usr'
 
 
 '''
+The user's home directory
+'''
+HOME = os.environ['HOME']
+
+
+'''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
 '''
 ponydirs = []
-if os.environ['TERM'] == 'linux':  _ponydirs = [INSTALLDIR + '/share/ponysay/ttyponies/',  os.environ['HOME'] + '/.local/share/ponysay/ttyponies/']
-else:                              _ponydirs = [INSTALLDIR + '/share/ponysay/ponies/',     os.environ['HOME'] + '/.local/share/ponysay/ponies/'   ]
+if os.environ['TERM'] == 'linux':  _ponydirs = [INSTALLDIR + '/share/ponysay/ttyponies/',  HOME + '/.local/share/ponysay/ttyponies/']
+else:                              _ponydirs = [INSTALLDIR + '/share/ponysay/ponies/',     HOME + '/.local/share/ponysay/ponies/'   ]
 for ponydir in _ponydirs:
     if os.path.isdir(ponydir):
         ponydirs.append(ponydir)
+
 
 '''
 The directories where quotes files are stored
 '''
 quotedirs = []
-_quotedirs = [INSTALLDIR + '/share/ponysay/quotes/',  os.environ['HOME'] + '/.local/share/ponysay/quotes/']
+_quotedirs = [INSTALLDIR + '/share/ponysay/quotes/',  HOME + '/.local/share/ponysay/quotes/']
 for quotedir in _quotedirs:
     if os.path.isdir(quotedir):
         quotedirs.append(quotedir)
@@ -251,11 +258,17 @@ class ponysay():
     
     
     def print_pony(self, args):
+        ponycount = 0
+        for ponydir in ponydirs:
+            ponycount = len(os.listdir(ponydir))
+        if ponycount == 0:
+            sys.stderr.write('All the ponies are missing! Call the Princess!')
+            exit(1);
+        
         if args.message == None:
-            msg = sys.stdin.read().strip()
+            msg = sys.stdin.read()
         else:
             msg = args.message
-        
         
         if args.pony == None:
             ponies = [] # Make array with direct paths to all ponies
@@ -263,8 +276,7 @@ class ponysay():
                 for ponyfile in os.listdir(ponydir):
                     ponies.append(ponydir + ponyfile)
             
-            pony = ponies[random.randrange(0, len(ponies) - 1)] # Select random pony
-            
+            pony = ponies[random.randrange(0, len(ponies) - 1)] # Select random pony    
         else:
             for ponydir in ponydirs:
                 if os.path.isfile(ponydir + args.pony[0]):

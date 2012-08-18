@@ -60,38 +60,10 @@ fi
 
 
 
-# Marks ponies in lists that have quotes
-qoutelist() {
-    bash -c "$("$qlistcmd" $("$quotecmd" --list))"
-}
-
 # Pony quotes
 ponyquotes() {
 	[ "$TERM" = "-linux-" ] && TERM="linux"
 	"$0" ${wrap:+-W$wrap} $("$quotecmd" $@)
-}
-
-# Usage help print function
-usage() {
-	version
-	cat <<EOF
-
-Usage:
-${0##*/} [options] [message]
-
-If [message] is not provided, reads the message from STDIN.
-
-Options:
-  -v          Show version and exit.
-  -h          Show this help and exit.
-  -l          List pony files.
-  -L          List pony files with synonyms inside brackets.
-  -q          Use the pony quote feature.
-  -f[name]    Select a pony (either a file name or a pony name.)
-  -W[column]  The screen column where the message should be wrapped.
-
-See man ponysay(6) for more information.
-EOF
 }
 
 # Function for printing the ponies and the message
