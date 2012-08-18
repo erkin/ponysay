@@ -94,7 +94,7 @@ Dependencies
 
 ### Package building dependencies
 
-`gcc`: used for compiling ponysaytruncater.c (???)
+`gcc`: used for compiling truncater.c
 
 `gzip`: used for compressing manpages
 
