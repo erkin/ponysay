@@ -367,15 +367,19 @@ class ponysay():
                     alts.append(pair)
             pairs = alts
         
-        pair = pairs[random.randrange(0, len(pairs))]
-        qfile = None
-        try:
-            qfile = open(pair[1], 'r')
-            args.message = '\n'.join(qfile.readlines())
-        finally:
-            if qfile is not None:
-                qfile.close()
-        args.pony = [pair[0]]
+        if not len(pairs) == 0:
+            pair = pairs[random.randrange(0, len(pairs))]
+            qfile = None
+            try:
+                qfile = open(pair[1], 'r')
+                args.message = '\n'.join(qfile.readlines()).strip()
+            finally:
+                if qfile is not None:
+                    qfile.close()
+            args.pony = [pair[0]]
+        else:
+            args.pony = args.quote
+            args.message = 'I got nuthin\' good to say :('
         
         self.print_pony(args)
 

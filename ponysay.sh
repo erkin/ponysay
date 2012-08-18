@@ -68,17 +68,6 @@ say() {
 	fi
 }
 
-
-
-# If no stdin and no arguments then print usage and exit
-if [ -t 0 ] && [ $# == 0 ]; then
-	usage
-	exit
-fi
-
-
-
-
 # Check for cowsay
 hash $cmd &>/dev/null; if [ $? -ne 0 ]; then
 	cat >&2 <<EOF
