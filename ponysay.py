@@ -99,7 +99,9 @@ class ponysay():
         
         for ponydir in ponydirs:
             for ponyfile in os.listdir(ponydir):
-                ponies[ponyfile[:-5]] = ponydir + ponyfile
+                pony = ponyfile[:-5]
+                if pony not in ponies:
+                    ponies[pony] = ponydir + ponyfile
         
         if names == None:
             names = list(ponies.keys())
