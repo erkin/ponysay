@@ -2,16 +2,35 @@
 
 
 PREFIX="/usr"
+INFODESC=\''My Little Ponies for your terminal'\'
 CPPFLAGS=""
 CFLAGS=""
 LDFLAGS=""
 
-compileMethods=""
-completions=( 'completion/bash-completion.sh' 'completion/fish-completion.fish' 'completion/zsh-completion.zsh' )
+compileMethods='all'
 
-shareDirs=( 'ponies' 'ttyponies' 'quote' )
-manFiles=( 'manuals/manpage.6' 'manuals/manpage.es.6' )
-licenseFiles=( 'COPYING' )
+completions='completion/bash-completion.sh completion/fish-completion.fish completion/zsh-completion.zsh'
+shareDirs='ponies ttyponies quote'
+manFiles='manuals/manpage.6 manuals/manpage.es.6'
+licenseFiles='COPYING'
+
+
+
+function getcompdir()
+{
+    if   [ "$1" == 'bash' ]; then  echo -n 'bash-completion/completions'
+    elif [ "$1" == 'fish' ]; then  echo -n 'fish/completions'
+    elif [ "$1" == 'zsh'  ]; then  echo -n 'zsh/site-functions'
+    fi
+}
+
+function getcompfile()
+{
+    if   [ "$1" == 'bash' ]; then  echo -n "$2"
+    elif [ "$1" == 'fish' ]; then  echo -n "$2"'.fish'
+    elif [ "$1" == 'zsh'  ]; then  echo -n '_'"$2"
+    fi
+}
 
 
 
@@ -20,6 +39,8 @@ for arg in "$@"; do
     val="${arg##*=}"
     if [ "$opt" = '--prefix' ]; then
 	PREFIX="$val"
+    elif [ "$opt" = '--info-desc' ]; then
+	INFODESC=\'"$(sed -e s/\'/\''\\'\'\'/g <<<"$val")"\'
     fi
 done
 
@@ -49,7 +70,7 @@ function thinkCompletion()
 	echo -n ' < "'"$file"'.install" | sed '
 	echo -n '-e '\''s/\/ponythink\//\/ponysay\//g'\'
 	echo -n '-e '\''s/\\\/ponythink\\\//\\\/ponysay\\\//g'\'
-	thinkfile="${file%%.*}-think.${file##.*}"
+	thinkfile="${file%%.*}-think.${file##*.}"
 	echo ' > "'"$thinkfile"'"'
     done
 }
@@ -57,6 +78,7 @@ function thinkCompletion()
 
 
 echo "PREFIX = $PREFIX"
+echo "INFODESC = $INFODESC"
 echo "CPPFLAGS = $CPPFLAGS"
 echo "CFLAGS = $CFLAGS"
 echo "LDFLAGS = $LDFLAGS"
@@ -72,9 +94,9 @@ function makeMakefile()
     echo 'INSTALLDIR="$(DESTDIR)$(PREFIX)"'
     echo 'SED_PREFIX=$$(sed -e '\''s/\//\\\//g'\'' <<<$(PREFIX))'
     echo
-    echo 'default: all'
+    echo 'default: '"$compileMethods"
     echo
-    echo 'all:'"$compileMethods"
+    echo 'all: core truncater manpages infomanual ponysaycompletion ponythinkcompletion'
     echo
     
     echo "core:"
@@ -87,7 +109,7 @@ function makeMakefile()
     echo
     
     echo 'manpages:'
-    gzCompress "$manFiles"
+    gzCompress $manFiles
     echo
     
     echo 'infomanual:'
@@ -97,16 +119,16 @@ function makeMakefile()
     echo
     
     echo 'ponysaycompletion:'
-    correctPrefix "$completions"
+    correctPrefix $completions
     echo
     
     echo 'ponythinkcompletion: ponysaycompletion'
-    thinkCompletion "$completions"
+    thinkCompletion $completions
     echo
     
     echo 'install-min: core truncater'
     echo -en '\t' ; echo 'mkdir -p "'"$shareDir"'"'
-    for dir in "$shareDirs"; do
+    for dir in $shareDirs; do
 	echo -en '\t' ; echo 'mkdir "$(INSTALLDIR)/share/ponysay/ponies'"$dir"'"'
 	echo -en '\t' ; echo 'cp -P "'"$dir"'/"*.* "$(INSTALLDIR)/share/ponysay/ponies'"$dir"'/"'
     done
@@ -117,57 +139,94 @@ function makeMakefile()
     echo -en '\t' ; echo 'ln -sf  "ponysay"    "$(INSTALLDIR)/bin/ponythink"'
     echo -en '\t' ; echo 'ln -sf  "ponysay.py" "$(INSTALLDIR)/bin/ponythink.py"'
     echo
-    echo -en '\t' ; echo 'mkdir   -p              "$(INSTALLDIR)/lib/ponysay/"'
-    echo -en '\t' ; echo 'install -s "truncater"  "$(INSTALLDIR)/lib/ponysay/truncater"'
+    echo -en '\t' ; echo 'mkdir   -p             "$(INSTALLDIR)/lib/ponysay/"'
+    echo -en '\t' ; echo 'install -s "truncater" "$(INSTALLDIR)/lib/ponysay/truncater"'
     echo
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/licenses/ponysay/"'
-    for file in "$licenseFiles"; do
+    for file in $licenseFiles; do
 	echo -en '\t'
 	echo 'install "'"$file"'" "$(INSTALLDIR)/share/licenses/ponysay/'"$file"'"'
     done
     echo
     
+    for completion in $completions; do
+	shell="${completion##*/}"
+	shell="${shell%%-*}"
+	thinkfile="${completion%%.*}-think.${completion##*.}"
+	shelldir='$(INSTALLDIR)/share/'"$(getcompdir $shell)"'/'
+	echo 'install-'"$shell"': ponysaycompletion ponythinkcompletion'
+	echo -en '\t' ; echo 'mkdir -p "'"$shelldir"'"'
+	echo -en '\t' ; echo 'install "'"$completion"'" "'"$shelldir$(getcompfile $shell ponysay)"'"'
+	echo -en '\t' ; echo 'install "'"$thinkfile"'"  "'"$shelldir$(getcompfile $shell ponythink)"'"'
+	echo
+    done
+    
+    echo 'install-pdf:'
+    echo -en '\t'
+    echo 'install "ponysay.pdf" "$(INSTALLDIR)/doc/ponysay.pdf"'
+    echo
+    
+    echo 'install-info: infomanual'
+    echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/info"'
+    echo -en '\t' ; echo 'install "ponysay.info.gz" "$(INSTALLDIR)/share/info/ponysay.info.gz"'
+    echo -en '\t' ; echo 'install "ponysay.info.gz" "$(INSTALLDIR)/share/info/ponythink.info.gz"'
+    echo -en '\t' ; echo 'install-info --dir-file="$(INSTALLDIR)/share/info/dir" --entry="Miscellaneous" --description='"$INFODESC"' "$(INSTALLDIR)/share/info/ponysay.info.gz"'
+    echo -en '\t' ; echo 'install-info --dir-file="$(INSTALLDIR)/share/info/dir" --entry="Miscellaneous" --description='"$INFODESC"' "$(INSTALLDIR)/share/info/ponythink.info.gz"'
+    echo
+    
+    for man in $manFiles; do
+	lang="${man##*manpage}"
+	lang="${lang%%.6}"
+	mandir="${lang/\.//}"
+	echo 'install-man'"${lang/\./-}"': manpages'
+	echo -en '\t' ; echo 'mkdir -p               "$(INSTALLDIR)/share/man'"$mandir"'/man6"'
+	echo -en '\t' ; echo 'install "'"$man"'.gz"  "$(INSTALLDIR)/share/man'"$mandir"'/man6/ponysay.6.gz"'
+	echo -en '\t' ; echo 'ln -sf  "ponysay.6.gz" "$(INSTALLDIR)/share/man'"$mandir"'/man6/ponythink.6.gz"'
+	echo
+    done
+    
+    cat <<EOF
+## Scripts for maintainers
+
+ttyponies:
+	mkdir -p "ttyponies"
+	for pony in \$\$(ls --color=no "ponies/"); do                                                      \\
+	    echo "building ttypony: \$\$pony"                                                             ;\\
+	    if [ \`readlink "ponies/\$\$pony"\` = "" ]; then                                               \\
+	        ponysay2ttyponysay < "ponies/\$\$pony" | tty2colourfultty -c 1 -e > "ttyponies/\$\$pony"  ;\\
+		git add "ttyponies/\$\$pony"                                                              ;\\
+	    elif [ ! -f "ttyponies/\$\$pony" ]; then                                                       \\
+	        ln -s \`readlink "ponies/\$\$pony"\` "ttyponies/\$\$pony"                                 ;\\
+		git add "ttyponies/\$\$pony"                                                              ;\\
+	    fi                                                                                             \\
+	done
+
+pdfmanual:
+	texi2pdf "manuals/ponysay.texinfo"
+	git add  "manuals/ponysay.texinfo" "ponysay.pdf"
+	for ext in \`echo aux cp cps fn ky log pg toc tp vr\`; do                \\
+	    (if [ -f "ponysay.\$\$ext" ]; then unlink "ponysay.\$\$ext"; fi);    \\
+	done
+	if [ -d "ponysay.t2d" ]; then rm -r "ponysay.t2d"; fi
+
+submodules: clean
+	(cd "ponyquotes4ponysay/"; make clean)
+	git submodule init
+	git submodule update
+
+quotes: submodules
+	(cd "ponyquotes4ponysay/"; make -B)
+	if [ -d quotes ]; then git rm "quotes/"*.*; fi
+	mkdir -p "quotes"
+	cp "ponyquotes4ponysay/ponyquotes/"*.* "quotes"
+	git add "quotes/"*.*
+
+EOF
 }
 makeMakefile > Makefile
 
 
-#install-bash: ponythinkcompletion
-#	mkdir -p                                        "$(INSTALLDIR)/share/bash-completion/completions/"
-#	install "completion/bash-completion.sh.install" "$(INSTALLDIR)/share/bash-completion/completions/ponysay"
-#	install "completion/bash-completion-think.sh"   "$(INSTALLDIR)/share/bash-completion/completions/ponythink"
-#
-#install-zsh: ponythinkcompletion
-#	mkdir -p                                        "$(INSTALLDIR)/share/zsh/site-functions/"
-#	install "completion/zsh-completion.zsh.install" "$(INSTALLDIR)/share/zsh/site-functions/_ponysay"
-#	install "completion/zsh-completion-think.zsh"   "$(INSTALLDIR)/share/zsh/site-functions/_ponythink"
-#
-#install-fish: ponythinkcompletion
-#	mkdir -p                                          "$(INSTALLDIR)/share/fish/completions/"
-#	install "completion/fish-completion.fish.install" "$(INSTALLDIR)/share/fish/completions/ponysay.fish"
-#	install "completion/fish-completion-think.fish"   "$(INSTALLDIR)/share/fish/completions/ponythink.fish"
-#
-#install-man: manpages
-#	mkdir -p                       "$(INSTALLDIR)/share/man/man6"
-#	install "manuals/manpage.6.gz" "$(INSTALLDIR)/share/man/man6/ponysay.6.gz"
-#	ln -sf  "ponysay.6.gz"         "$(INSTALLDIR)/share/man/man6/ponythink.6.gz"
-#
-#install-man-es: manpages
-#	mkdir -p                          "$(INSTALLDIR)/share/man/es/man6"
-#	install "manuals/manpage.es.6.gz" "$(INSTALLDIR)/share/man/es/man6/ponysay.6.gz"
-#	ln -sf  "ponysay.6.gz"            "$(INSTALLDIR)/share/man/es/man6/ponythink.6.gz"
-#
-#install-info: infomanual
-#	mkdir -p                  "$(INSTALLDIR)/share/info"
-#	install "ponysay.info.gz" "$(INSTALLDIR)/share/info/ponysay.info.gz"
-#	install "ponysay.info.gz" "$(INSTALLDIR)/share/info/ponythink.info.gz"
-#	install-info --dir-file="$(INSTALLDIR)/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "$(INSTALLDIR)/share/info/ponysay.info.gz"
-#	install-info --dir-file="$(INSTALLDIR)/share/info/dir" --entry="Miscellaneous" --description="My Little Ponies for your terminal" "$(INSTALLDIR)/share/info/ponythink.info.gz"
-#
-#install-no-info: install-min install-bash install-zsh install-fish install-man install-man-es
-#
-#install-pdf:
-#	install "ponysay.pdf" "$(INSTALLDIR)/doc/ponysay.pdf"
-#
+
 #install: install-no-info install-info
 #	@echo -e '\n\n'\
 #'/--------------------------------------------------\\\n'\
@@ -207,17 +266,6 @@ makeMakefile > Makefile
 #	if [ -f "$(INSTALLDIR)/share/info/ponythink.info.gz" ]; then                 unlink "$(INSTALLDIR)/share/info/ponythink.info.gz"               ; fi
 #	if [ -f "$(INSTALLDIR)/doc/ponysay.pdf" ]; then                              unlink "$(INSTALLDIR)/doc/ponysay.pdf"                            ; fi
 #
-#uninstall-old:
-#	if [ -d "$(INSTALLDIR)/share/ponies" ]; then                                 rm -fr "$(INSTALLDIR)/share/ponies"                               ; fi
-#	if [ -d "$(INSTALLDIR)/share/ttyponies" ]; then                              rm -fr "$(INSTALLDIR)/share/ttyponies"                            ; fi
-#	if [ -f "$(INSTALLDIR)/bin/ponysaytruncater" ]; then                         unlink "$(INSTALLDIR)/bin/ponysaytruncater"                       ; fi
-#	if [ -d "$(INSTALLDIR)/lib/ponysay/link.pl"  ]; then                         unlink "$(INSTALLDIR)/lib/ponysay/link.pl"                        ; fi
-#	if [ -d "$(INSTALLDIR)/lib/ponysay/linklist.pl"  ]; then                     unlink "$(INSTALLDIR)/lib/ponysay/linklist.pl"                    ; fi
-#	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps"  ]; then                           unlink "$(INSTALLDIR)/lib/ponysay/pq4ps"                          ; fi
-#	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps.pl"  ]; then                        unlink "$(INSTALLDIR)/lib/ponysay/pq4ps.pl"                       ; fi
-#	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps-list"  ]; then                      unlink "$(INSTALLDIR)/lib/ponysay/pq4ps-list"                     ; fi
-#	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps-list.pl"  ]; then                   unlink "$(INSTALLDIR)/lib/ponysay/pq4ps-list.pl"                  ; fi
-#
 #clean:
 #	if [ -f "truncater" ]; then                                rm -f "truncater"                              ; fi
 #	if [ -f "completion/bash-completion-think.sh" ]; then      rm -f "completion/bash-completion-think.sh"    ; fi
@@ -231,42 +279,17 @@ makeMakefile > Makefile
 #	if [ -f "ponysay.info.gz"  ]; then                         rm -f "ponysay.info.gz"                        ; fi
 #	if [ -f "ponysay.py.install" ]; then                       rm -f "ponysay.py.install"                     ; fi
 #
+#uninstall-old:
+#	if [ -d "$(INSTALLDIR)/share/ponies" ]; then                                 rm -fr "$(INSTALLDIR)/share/ponies"                               ; fi
+#	if [ -d "$(INSTALLDIR)/share/ttyponies" ]; then                              rm -fr "$(INSTALLDIR)/share/ttyponies"                            ; fi
+#	if [ -f "$(INSTALLDIR)/bin/ponysaytruncater" ]; then                         unlink "$(INSTALLDIR)/bin/ponysaytruncater"                       ; fi
+#	if [ -d "$(INSTALLDIR)/lib/ponysay/link.pl"  ]; then                         unlink "$(INSTALLDIR)/lib/ponysay/link.pl"                        ; fi
+#	if [ -d "$(INSTALLDIR)/lib/ponysay/linklist.pl"  ]; then                     unlink "$(INSTALLDIR)/lib/ponysay/linklist.pl"                    ; fi
+#	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps"  ]; then                           unlink "$(INSTALLDIR)/lib/ponysay/pq4ps"                          ; fi
+#	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps.pl"  ]; then                        unlink "$(INSTALLDIR)/lib/ponysay/pq4ps.pl"                       ; fi
+#	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps-list"  ]; then                      unlink "$(INSTALLDIR)/lib/ponysay/pq4ps-list"                     ; fi
+#	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps-list.pl"  ]; then                   unlink "$(INSTALLDIR)/lib/ponysay/pq4ps-list.pl"                  ; fi
+#
 #clean-old:
 #	if [ -f "ponysaytruncater" ]; then  rm -f "ponysaytruncater"; fi
-#
-#
-### Scripts for maintainers
-#
-#ttyponies:
-#	mkdir -p "ttyponies"
-#	for pony in $$(ls --color=no "ponies/"); do                                                    \
-#	    echo "building ttypony: $$pony"                                                           ;\
-#	    if [ `readlink "ponies/$$pony"` = "" ]; then                                               \
-#	        ponysay2ttyponysay < "ponies/$$pony" | tty2colourfultty -c 1 -e > "ttyponies/$$pony"  ;\
-#		git add "ttyponies/$$pony"                                                            ;\
-#	    elif [ ! -f "ttyponies/$$pony" ]; then                                                     \
-#	        ln -s `readlink "ponies/$$pony"` "ttyponies/$$pony"                                   ;\
-#		git add "ttyponies/$$pony"                                                            ;\
-#	    fi                                                                                         \
-#	done
-#
-#pdfmanual:
-#	texi2pdf "manuals/ponysay.texinfo"
-#	git add  "manuals/ponysay.texinfo" "ponysay.pdf"
-#	for ext in `echo aux cp cps fn ky log pg toc tp vr`; do              \
-#	    (if [ -f "ponysay.$$ext" ]; then unlink "ponysay.$$ext"; fi);    \
-#	done
-#	if [ -d "ponysay.t2d" ]; then rm -r "ponysay.t2d"; fi
-#
-#submodules: clean
-#	(cd "ponyquotes4ponysay/"; make clean)
-#	git submodule init
-#	git submodule update
-#
-#quotes: submodules
-#	(cd "ponyquotes4ponysay/"; make -B)
-#	if [ -d quotes ]; then git rm "quotes/"*.*; fi
-#	mkdir -p "quotes"
-#	cp "ponyquotes4ponysay/ponyquotes/"*.* "quotes"
-#	git add "quotes/"*.*
 #
