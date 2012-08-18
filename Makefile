@@ -44,7 +44,6 @@ install-min: truncater
 	install    "linklist.pl"   "$(INSTALLDIR)/lib/ponysay/linklist.pl"
 	install    "pq4ps"         "$(INSTALLDIR)/lib/ponysay/pq4ps"
 	install    "pq4ps.pl"      "$(INSTALLDIR)/lib/ponysay/pq4ps.pl"
-	install    "pq4ps-list"    "$(INSTALLDIR)/lib/ponysay/pq4ps-list"
 	install    "pq4ps-list.pl" "$(INSTALLDIR)/lib/ponysay/pq4ps-list.pl"
 
 	mkdir -p          "$(INSTALLDIR)/share/licenses/ponysay/"
@@ -130,6 +129,7 @@ uninstall-old:
 	if [ -d "$(INSTALLDIR)/share/ponies" ]; then                                 rm -fr "$(INSTALLDIR)/share/ponies"                               ; fi
 	if [ -d "$(INSTALLDIR)/share/ttyponies" ]; then                              rm -fr "$(INSTALLDIR)/share/ttyponies"                            ; fi
 	if [ -f "$(INSTALLDIR)/bin/ponysaytruncater" ]; then                         unlink "$(INSTALLDIR)/bin/ponysaytruncater"                       ; fi
+	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps-list"  ]; then                      unlink "$(INSTALLDIR)/lib/ponysay/pq4ps-list"                     ; fi
 
 clean:
 	if [ -f "truncater" ]; then                              rm -f "truncater"                            ; fi
