@@ -86,6 +86,7 @@ parser.add_argument('message', nargs = '?', help = 'message to ponysay')
 args = parser.parse_args()
 
 
+
 '''
 This is the mane class of ponysay
 '''
@@ -178,6 +179,16 @@ class ponysay():
         return rc
     
     
+    '''
+    Gets the size of the terminal in (rows, columns)
+    '''
+    def __gettermsize(self):
+        termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=sys.stderr).communicate()[0]
+        termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
+        termsize = [int(item) for item in termsize]
+        return termsize
+    
+    
     ##
     ## Listing methods
     ##
@@ -186,9 +197,7 @@ class ponysay():
     Lists the available ponies
     '''
     def list(self):
-        termsize = Popen(['stty', 'size'], stdout=PIPE).communicate()[0].decode('utf8', 'replace')[:-1].split(' ')
-        termsize = [int(item) for item in termsize]
-        
+        termsize = self.__gettermsize()
         quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
@@ -216,9 +225,7 @@ class ponysay():
     Lists the available ponies with alternatives inside brackets
     '''
     def linklist(self):
-        termsize = Popen(['stty', 'size'], stdout=PIPE).communicate()[0].decode('utf8', 'replace')[:-1].split(' ')
-        termsize = [int(item) for item in termsize]
-        
+        termsize = self.__gettermsize()
         quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
@@ -318,6 +325,20 @@ class ponysay():
     ##
     
     '''
+    Returns the cowsay command
+    '''
+    def __getcowsay(self):
+        isthink = 'think.py' in __file__
+        
+        if isthink:
+            cowthink = os.environ['PONYSAY_COWTHINK'] if 'PONYSAY_COWTHINK' in os.environ else None
+            return 'cowthink' if (cowthink is None) or (cowthink == "") else cowthink
+        
+        cowsay = os.environ['PONYSAY_COWSAY'] if 'PONYSAY_COWSAY' in os.environ else None
+        return 'cowsay' if (cowsay is None) or (cowsay == "") else cowsay
+    
+    
+    '''
     Print the pony with a speech or though bubble
     '''
     def print_pony(self, args):
@@ -328,12 +349,9 @@ class ponysay():
         
         pony = self.__getponypath(args.pony)
         
-        if 'think.py' in __file__: cmd = 'cowthink'
-        else:                      cmd = 'cowsay'
-        
         if linuxvt:
             print('\033[H\033[2J', end='')
-        os.system(cmd + (' -W ' + args.wrap if args.wrap is not None else '') + ' -f ' + pony + ' \'' + msg.replace('\'', '\'\\\'\'') + '\'')
+        os.system(self.__getcowsay() + (' -W ' + args.wrap if args.wrap is not None else '') + ' -f ' + pony + ' \'' + msg.replace('\'', '\'\\\'\'') + '\'')
     
     
     '''
