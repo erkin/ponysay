@@ -213,8 +213,8 @@ by using @code{fortune | ponypipe} instead of using @command{fortune}.
 @command{ponypipe} can be downloaded from @url{https://github.com/maandree/ponypipe}.
 Alternatively you can use @command{pinkie} (or @command{pinkiepie}), which can
 be downloaded from @url{https://github.com/maandree/pinkie-pie}, which is just
-@code{fortune | ponypipe}.
-There is also a large sed script, similar to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
+@code{fortune | ponypipe}. There is also a large @command{sed} script, similar
+to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
 
 
 @node Running on TTY
