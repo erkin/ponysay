@@ -331,7 +331,7 @@ class ponysay():
         
         if linuxvt:
             print('\033[H\033[2J', end='')
-        os.system(cmd + (' -W ' + args.wrap if args.wrap is not None else '') + ' -f ' + pony + ' \'' + msg + '\'')
+        os.system(cmd + (' -W ' + args.wrap if args.wrap is not None else '') + ' -f ' + pony + ' \'' + msg.replace('\'', '\'\\\'\'') + '\'')
 
 
 
