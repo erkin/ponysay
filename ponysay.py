@@ -47,6 +47,12 @@ linuxvt = os.environ['TERM'] == 'linux'
 
 
 '''
+Whether the program is launched in subshell/beeing redirected
+'''
+redirected = not sys.stdout.isatty()
+
+
+'''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
 '''
 ponydirs = []
@@ -81,7 +87,7 @@ parser.add_argument(      '--onelist', action = 'store_true', dest = 'onelist', 
 parser.add_argument('-W', '--wrap',    action = 'store',      dest = 'wrap',     help = 'specify the column when the message should be wrapped')
 parser.add_argument('-f', '--pony',    action = 'append',     dest = 'pony',     help = 'select a pony (either a file name or a pony name)')
 parser.add_argument('-q', '--quote',   nargs  = '*',          dest = 'quote',    help = 'select a pony which will quote herself')
-parser.add_argument('message', nargs = '?', help = 'message to ponysay')
+parser.add_argument('message',         nargs  = '?',                             help = 'message to ponysay')
 
 args = parser.parse_args()
 # TODO implement   if [ -t 0 ] && [ $# == 0 ]; then
@@ -99,6 +105,10 @@ class ponysay():
     Starts the part of the program the arguments indicate
     '''
     def __init__(self, args):
+        if args.list and redirected:
+            args.list = False
+            args.onelist = True
+        
         if   args.list:      self.list()
         elif args.linklist:  self.linklist()
         elif args.quoters:   self.quoters()
