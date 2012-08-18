@@ -28,12 +28,6 @@ INSTALLDIR = '/usr'
 
 
 '''
-The user's home directory
-'''
-HOME = os.environ['HOME']
-
-
-'''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
 '''
 ponydirs = []
@@ -86,13 +80,17 @@ class ponysay():
     def __getponypath(self, names = None):
         ponies = {}
         
-        for name in names:
-            if os.path.isfile(name):
-                return name
+        if names != None:
+            for name in names:
+                if os.path.isfile(name):
+                    return name
         
         for ponydir in ponydirs:
             for ponyfile in os.listdir(ponydir):
                 ponies[ponyfile[:-5]] = ponydir + ponyfile
+        
+        if names == None:
+            names = list(ponies.keys())
         
         return ponies[names[random.randrange(0, len(names))]]
     
@@ -278,15 +276,8 @@ class ponysay():
     
     
     def print_pony(self, args):
-        ponycount = 0
-        for ponydir in ponydirs:
-            ponycount = len(os.listdir(ponydir))
-        if ponycount == 0:
-            sys.stderr.write('All the ponies are missing! Call the Princess!')
-            exit(1);
-        
         if args.message == None:
-            msg = sys.stdin.read()
+            msg = sys.stdin.read().strip()
         else:
             msg = args.message
         
