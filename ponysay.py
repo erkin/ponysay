@@ -61,11 +61,11 @@ class ponysay():
         quoteshash = set()
         _quotes = [item[:item.index('.')] for item in os.listdir(INSTALLDIR + '/share/ponysay/quotes/')]
         for quote in _quotes:
-            if not quote[0] == '.':
+            if not quote == '':
                 if not quote in quoteshash:
                     quoteshash.add(quote)
                     quotes.append(quote)
-                    
+        
         ponies = set()
         for ponydir in ponydirs:
             for pony in os.listdir(ponydir):
@@ -77,6 +77,25 @@ class ponysay():
                                 ponies.add(p)
         
         return ponies
+    
+    
+    '''
+    Returns a list with all (pony, quote file) pairs
+    '''
+    def __quotes(self):
+        quotes = os.listdir(INSTALLDIR + '/share/ponysay/quotes/')
+        rc = []
+        
+        for ponydir in ponydirs:
+            for pony in os.listdir(ponydir):
+                if not pony[0] == '.':
+                    p = pony[:-5] # remove .pony
+                    for quote in quotes:
+                        if ('+' + p + '+') in ('+' + quote + '+'):
+                            rc.append((p, qoute))
+        
+        return rc
+    
     
     '''
     Lists the available ponies
@@ -106,7 +125,8 @@ class ponysay():
                     x = 0
                     
             print("\n");
-            
+    
+    
     def print_pony(self, args):
         if args.message == None:
             msg = sys.stdin.read().strip()
