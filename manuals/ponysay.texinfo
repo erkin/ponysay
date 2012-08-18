@@ -303,10 +303,10 @@ are not running @command{ponysay} under TTY.
 @cindex replace cowsay
 If you want to use another program than @command{cowsay} (the first
 @command{cowsay} found in @code{$PATH}), you can export @code{PONYSAY_COWSAY}
-with the value of that program. If, and only if, @code{PONYSAY_COWSAY} does
-not have any value, @command{cowsay} is patch with @code{use utf8;} to the
-beginning. The @code{use utf8;} patch is introduced to make it easier to
-customise cowsay.
+with the value of that program. In earlier verions than version 2.0: If, and
+only if, @code{PONYSAY_COWSAY} does not have any value, @command{cowsay} is
+patch with @code{use utf8;} to the beginning. The @code{use utf8;} patch is
+introduced to make it easier to customise cowsay.
 
 @code{PONYSAY_COWTHINK} will be used instead of @code{PONYSAY_COWSAY} if
 you run @command{ponythink}.
