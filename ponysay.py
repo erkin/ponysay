@@ -47,7 +47,7 @@ linuxvt = os.environ['TERM'] == 'linux'
 
 
 '''
-Whether the program is launched in subshell/beeing redirected
+Whether the program is launched in subshell/being redirected
 '''
 redirected = not sys.stdout.isatty()
 
