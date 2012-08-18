@@ -1,15 +1,8 @@
 #!/usr/bin/env bash
 
-VERSION=1.4.1
-
-
 
 # Get bash script directory's parent
 INSTALLDIR="$(dirname $( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))"
-
-# Directory for installed media files
-SYSTEMSHARE="$INSTALLDIR/share/ponysay"
-HOMESHARE="${HOME}/.local/share/ponysay"
 
 # Subscripts
 listcmd="$INSTALLDIR/lib/ponysay/list.pl"
@@ -30,14 +23,6 @@ kmscmd=""
 [ "$TERM" = "linux" ] && kmscmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/ponysay2kmsponysay /g'); do if [ -f $c ]; then echo $c; break; fi done)
 [ ! "$kmscmd" = "" ] && TERM="-linux-"
 
-# Directories for installed ponies files
-if [ "$TERM" = "linux" ]; then
-	SYSTEMPONIES="$SYSTEMSHARE/ttyponies"
-	HOMEPONIES="$HOMESHARE/ttyponies"
-else
-	SYSTEMPONIES="$SYSTEMSHARE/ponies"
-	HOMEPONIES="$HOMESHARE/ponies"
-fi
 
 # Cowsay script
 if [ ${0} == *ponythink ]; then
@@ -76,19 +61,6 @@ say() {
 
 	# Set PONYSAY_SHELL_LINES to default if not specified
 	[ "$PONYSAY_SHELL_LINES" = "" ] && PONYSAY_SHELL_LINES=2
-
-	# Width trunction
-	function wtrunc {
-		if [ "$PONYSAY_FULL_WIDTH" = 'yes' ] || [ "$PONYSAY_FULL_WIDTH" = 'y' ] || [ "$PONYSAY_FULL_WIDTH" = '1' ]; then
-			cat
-		else
-			if [ -f $truncatercmd ]; then
-				$truncatercmd $scrw
-			else
-				cat
-			fi
-		fi
-	}
 
 	# Height trunction, show top
 	function htrunchead {
@@ -180,36 +152,3 @@ if it actually exists under a different filename.
 EOF
 	exit 1
 fi
-
-
-# Select random pony for the set of -f arguments
-if [ ! ${#ponies[@]} == 0 ]; then
-	pony="${ponies[$RANDOM%${#ponies[@]}]}"
-fi
-
-
-# Pony not a file? Search for it
-if [ ! -f $pony ]; then
-	ponies=()
-	[ -d $SYSTEMPONIES ] && ponies+=( "$SYSTEMPONIES"/$pony.pony )
-	[ -d $HOMEPONIES ]   && ponies+=( "$HOMEPONIES"/$pony.pony )
-	
-	if (( ${#ponies} < 1 )); then
-		echo >&2 "All the ponies are missing! Call the Princess!"
-		exit 1
-	fi
-	
-	# Choose a random pony
-	pony="${ponies[$RANDOM%${#ponies[@]}]}"
-fi
-
-
-# Print pony with message
-if [ -n "$*" ]; then
-	# Handle a message given via arguments
-	say <<<"$*"
-else
-	# Handle a message given in stdin
-	say
-fi
-
