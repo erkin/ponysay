@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-if [ -f Makefile ]; then
-    rm -f Makefile
-    if [ ! $? == 0 ]; then
-	echo "$0"': fatal: unable to remove your old Makefile' >&2
-	exit 1
-    fi
-fi
-
-
 
 PREFIX="/usr"
 CPPFLAGS=""
@@ -18,6 +9,11 @@ LDFLAGS=""
 compileMethods=""
 completions=( 'completion/bash-completion.sh' 'completion/fish-completion.fish' 'completion/zsh-completion.zsh' )
 
+shareDirs=( 'ponies' 'ttyponies' 'quote' )
+manFiles=( 'manuals/manpage.6' 'manuals/manpage.es.6' )
+licenseFiles=( 'COPYING' )
+
+
 
 for arg in "$@"; do
     opt="${arg%%=*}"
@@ -26,6 +22,7 @@ for arg in "$@"; do
 	PREFIX="$val"
     fi
 done
+
 
 
 function correctPrefix()
@@ -57,10 +54,13 @@ function thinkCompletion()
     done
 }
 
+
+
 echo "PREFIX = $PREFIX"
 echo "CPPFLAGS = $CPPFLAGS"
 echo "CFLAGS = $CFLAGS"
 echo "LDFLAGS = $LDFLAGS"
+
 
 
 function makeMakefile()
@@ -87,7 +87,7 @@ function makeMakefile()
     echo
     
     echo 'manpages:'
-    gzCompress 'manuals/manpage.6' 'manuals/manpage.es.6'
+    gzCompress "$manFiles"
     echo
     
     echo 'infomanual:'
@@ -104,32 +104,33 @@ function makeMakefile()
     thinkCompletion "$completions"
     echo
     
+    echo 'install-min: core truncater'
+    echo -en '\t' ; echo 'mkdir -p "'"$shareDir"'"'
+    for dir in "$shareDirs"; do
+	echo -en '\t' ; echo 'mkdir "$(INSTALLDIR)/share/ponysay/ponies'"$dir"'"'
+	echo -en '\t' ; echo 'cp -P "'"$dir"'/"*.* "$(INSTALLDIR)/share/ponysay/ponies'"$dir"'/"'
+    done
+    echo
+    echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/bin/"'
+    echo -en '\t' ; echo 'install "ponysay"    "$(INSTALLDIR)/bin/ponysay"'
+    echo -en '\t' ; echo 'install "ponysay.py" "$(INSTALLDIR)/bin/ponysay.py"'
+    echo -en '\t' ; echo 'ln -sf  "ponysay"    "$(INSTALLDIR)/bin/ponythink"'
+    echo -en '\t' ; echo 'ln -sf  "ponysay.py" "$(INSTALLDIR)/bin/ponythink.py"'
+    echo
+    echo -en '\t' ; echo 'mkdir   -p              "$(INSTALLDIR)/lib/ponysay/"'
+    echo -en '\t' ; echo 'install -s "truncater"  "$(INSTALLDIR)/lib/ponysay/truncater"'
+    echo
+    echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/licenses/ponysay/"'
+    for file in "$licenseFiles"; do
+	echo -en '\t'
+	echo 'install "'"$file"'" "$(INSTALLDIR)/share/licenses/ponysay/'"$file"'"'
+    done
+    echo
+    
 }
 makeMakefile > Makefile
 
 
-
-#install-min: core truncater
-#	mkdir -p "$(INSTALLDIR)/share/ponysay/"
-#	mkdir -p "$(INSTALLDIR)/share/ponysay/ponies"
-#	mkdir -p "$(INSTALLDIR)/share/ponysay/ttyponies"
-#	mkdir -p "$(INSTALLDIR)/share/ponysay/quotes"
-#	cp -P    ponies/*.pony "$(INSTALLDIR)/share/ponysay/ponies/"
-#	cp -P ttyponies/*.pony "$(INSTALLDIR)/share/ponysay/ttyponies/"
-#	cp -P    quotes/*.*    "$(INSTALLDIR)/share/ponysay/quotes/"
-#
-#	mkdir -p             "$(INSTALLDIR)/bin/"
-#	install "ponysay"    "$(INSTALLDIR)/bin/ponysay"
-#	install "ponysay.py" "$(INSTALLDIR)/bin/ponysay.py"
-#	ln -sf  "ponysay"    "$(INSTALLDIR)/bin/ponythink"
-#	ln -sf  "ponysay.py" "$(INSTALLDIR)/bin/ponythink.py"
-#
-#	mkdir   -p              "$(INSTALLDIR)/lib/ponysay/"
-#	install -s "truncater"  "$(INSTALLDIR)/lib/ponysay/truncater"
-#
-#	mkdir -p          "$(INSTALLDIR)/share/licenses/ponysay/"
-#	install "COPYING" "$(INSTALLDIR)/share/licenses/ponysay/COPYING"
-#
 #install-bash: ponythinkcompletion
 #	mkdir -p                                        "$(INSTALLDIR)/share/bash-completion/completions/"
 #	install "completion/bash-completion.sh.install" "$(INSTALLDIR)/share/bash-completion/completions/ponysay"
