@@ -353,33 +353,63 @@ class ponysay():
         
         pony = self.__getponypath(args.pony)
         (cowsay, customcowsay) = self.__getcowsay()
-        wrap_arg = ' -W ' + args.wrap if args.wrap is not None else ''
-        file_arg = ' -f ' + pony;
-        message_arg = ' \'' + msg.replace('\'', '\'\\\'\'') + '\''  # ' in message is replaces by '\'', this (combined by '..') ensures it will always be one argument
-        cowsay_args = wrap_arg + file_arg + message_arg
+        
+        cmd = [cowsay, '-f', pony]
+        if args.wrap is not None:
+            cmd += ['-W', args.wrap]
+        cmd.append(msg)
         
         if linuxvt:
             print('\033[H\033[2J', end='')
         
-        if customcowsay:
-            exit_value = os.system(cowsay + cowsay_args)
-        else:
-            exit_value = os.system(cowsay + cowsay_args)
-            ## TODO not implement, but it will be obsolete if we rewrite cowsay
-            '''
-            pcmd='#!/usr/bin/perl\nuse utf8;'
-            ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [ -f $c ]; then echo $c; break; fi done)
-            
-            if [ ${0} == *ponythink ]; then
-                cat <(echo -e $pcmd) $ccmd > "/tmp/ponythink"
-                perl '/tmp/ponythink' "$@"
-                rm '/tmp/ponythink'
-            else
-                perl <(cat <(echo -e $pcmd) $ccmd) "$@"
-            fi
-            '''
+        proc = Popen(cmd, stdout=PIPE, stdin=sys.stderr)
+        output = proc.communicate()[0].decode('utf8', 'replace')
+        if (len(output) > 0) and (output[-1] == '\n'):
+            output = output[:-1]
+        exit_value = proc.returncode
+        
+        
+        env_bottom = os.environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
+        if (env_bottom is None) or (env_bottom == ''):  env_bottom = ''
+        
+        env_height = os.environ['PONYSAY_TRUNCATE_HEIGHT'] if 'PONYSAY_TRUNCATE_HEIGHT' in os.environ else None
+        if (env_height is None) or (env_height == ''):  env_height = ''
+        
+        env_lines = os.environ['PONYSAY_SHELL_LINES'] if 'PONYSAY_SHELL_LINES' in os.environ else None
+        if (env_lines is None) or (env_lines == ''):  env_lines = '2'
+        
+        lines = self.__gettermsize()[1] - int(env_lines)
+        
+        
         if not exit_value == 0:
             sys.stderr.write('Unable to successfully execute' + (' custom ' if customcowsay else ' ') + 'cowsay [' + cowsay + ']\n')
+        else:
+            if linuxvt or (env_height is ("yes", "y", "1")):
+                if env_bottom is ("yes", "y", "1"):
+                    for line in output[: -lines]:
+                        print(line)
+                else:
+                    for line in output[: lines]:
+                        print(line)
+            else:
+                print(output);
+        
+        
+        ## TODO not implement, but it will be obsolete if we rewrite cowsay
+        '''
+        (if not customcowsay)
+        
+        pcmd='#!/usr/bin/perl\nuse utf8;'
+        ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [ -f $c ]; then echo $c; break; fi done)
+        
+        if [ ${0} == *ponythink ]; then
+            cat <(echo -e $pcmd) $ccmd > "/tmp/ponythink"
+            perl '/tmp/ponythink' "$@"
+            rm '/tmp/ponythink'
+        else
+            perl <(cat <(echo -e $pcmd) $ccmd) "$@"
+        fi
+        '''
     
     
     '''
