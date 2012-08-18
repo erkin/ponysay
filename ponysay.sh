@@ -7,10 +7,6 @@ INSTALLDIR="$(dirname $( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))"
 # Subscripts
 truncatercmd="$INSTALLDIR/lib/ponysay/truncater"
 
-pony="*"  # Selected pony
-wrap=""   # Message wrap column
-ponies=() # Selected ponies
-
 scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2` # Screen width
 scrh=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 1` # Screen height
 
@@ -97,17 +93,6 @@ say() {
 		runcmd "${wrap:+-W$wrap}" | wtrunc
 	fi
 }
-
-
-
-# If no stdin and no arguments then print usage and exit
-if [ -t 0 ] && [ $# == 0 ]; then
-	usage
-	exit
-fi
-
-
-
 
 # Check for cowsay
 hash $cmd &>/dev/null; if [ $? -ne 0 ]; then
