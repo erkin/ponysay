@@ -136,16 +136,20 @@ uninstall-old:
 	if [ -d "$(INSTALLDIR)/lib/ponysay/pq4ps-list.pl"  ]; then                   unlink "$(INSTALLDIR)/lib/ponysay/pq4ps-list.pl"                  ; fi
 
 clean:
-	if [ -f "truncater" ]; then                              rm -f "truncater"                            ; fi
-	if [ -f "completion/bash-completion-think.sh" ]; then    rm -f "completion/bash-completion-think.sh"  ; fi
-	if [ -f "completion/fish-completion-think.fish" ]; then  rm -f "completion/fish-completion-think.fish"; fi
-	if [ -f "completion/zsh-completion-think.zsh" ]; then    rm -f "completion/zsh-completion-think.zsh"  ; fi
-	if [ -f "manuals/manpage.6.gz" ]; then                   rm -f "manuals/manpage.6.gz"                 ; fi
-	if [ -f "manuals/manpage.es.6.gz" ]; then                rm -f "manuals/manpage.es.6.gz"              ; fi
-	if [ -f "ponysay.info.gz"  ]; then                       rm -f "ponysay.info.gz"                      ; fi
+	if [ -f "truncater" ]; then                                rm -f "truncater"                              ; fi
+	if [ -f "completion/bash-completion-think.sh" ]; then      rm -f "completion/bash-completion-think.sh"    ; fi
+	if [ -f "completion/fish-completion-think.fish" ]; then    rm -f "completion/fish-completion-think.fish"  ; fi
+	if [ -f "completion/zsh-completion-think.zsh" ]; then      rm -f "completion/zsh-completion-think.zsh"    ; fi
+	if [ -f "completion/bash-completion.sh.install" ]; then    rm -f "completion/bash-completion.sh.install"  ; fi
+	if [ -f "completion/fish-completion.fish.install" ]; then  rm -f "completion/fish-completion.fish.install"; fi
+	if [ -f "completion/zsh-completion.zsh.install" ]; then    rm -f "completion/zsh-completion.zsh.install"  ; fi
+	if [ -f "manuals/manpage.6.gz" ]; then                     rm -f "manuals/manpage.6.gz"                   ; fi
+	if [ -f "manuals/manpage.es.6.gz" ]; then                  rm -f "manuals/manpage.es.6.gz"                ; fi
+	if [ -f "ponysay.info.gz"  ]; then                         rm -f "ponysay.info.gz"                        ; fi
+	if [ -f "ponysay.py.install" ]; then                       rm -f "ponysay.py.install"                     ; fi
 
 clean-old:
-	if [ -f "ponysaytruncater" ]; then                       rm -f "ponysaytruncater"                     ; fi
+	if [ -f "ponysaytruncater" ]; then  rm -f "ponysaytruncater"; fi
 
 
 ## Scripts for maintainers
