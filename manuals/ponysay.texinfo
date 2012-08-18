@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 1.4
+@set VERSION 1.4.1
 
 @copying
 This manual is for ponysay
@@ -499,8 +499,9 @@ Required to run the make script.
 @item coreutils
 The make script uses @command{install}, @command{unlink}, @command{rm}, @command{ln},
 @command{mkdir} and @command{cp}.
-@item git
-Required for submodules.
+@item texinfo
+@itemx info
+@command{texinfo} and @command{info} are required if you want this @command{info} manual.
 @end table
 
 
@@ -528,15 +529,28 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @cindex make
 
 @menu
-* From upstream::               Installing from upstream (GitHub repository).
-* Arch Linux::                  Packages for Arch Linux
-* Gentoo Linux::                Packages for Gentoo Linux
-* Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu
+* From upstream::               Installing manually from upstream (GitHub repository).
+* Arch Linux::                  Packages for Arch Linux.
+* Gentoo Linux::                Packages for Gentoo Linux.
+* Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
+* Uninstallation::              Uninstalling when installed manually.
 @end menu
 
 
 @node From upstream
 @section From upstream
+@cindex upstream installation
+
+@menu
+* Installations basics::        The basics of installations.
+* Custom installations::        Installation customisations.
+@end menu
+
+@node Installations basics
+@subsection Installations basics
+@cindex make
+@cindex basic installation
+
 
 Before installing @command{ponysay}, make sure your system have the packages listed under
 @ref{Required runtime dependencies} and @ref{Package building dependencies} installed.
@@ -558,6 +572,49 @@ or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 @command{ponysay} comes with this @command{info} manual and a manpage in section 6,
 @command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
 in Spanish: @command{man -L es 6 ponysay}.
+
+
+@node Custom installations
+@subsection Custom installations
+@cindex customised installations
+@cindex installation customisation
+@cindex make
+
+A basic installation will install everyting @command{ponysay} has to offer, except
+the prebuild PDF manual. If you want to install the PDF manual, which is by default
+installed as a @command{info} manual, you can run @command{make install-pdf}.
+@command{make install-pdf} has no require means and will install the PDF manual, and
+only the PDF manual, to @code{/usr/doc/ponysay.pdf}.
+
+If you want to perform a regular installation, but without the @command{info} manual
+you can run @command{make install-no-info}. It is also possible to install each part
+independently; running @command{make install-min} will install the core of
+@command{ponysay}, which is the minimal set that can installed without generating
+errors or problems. After perform the core installaton whether are some other install
+commands:
+
+@itemize @bullet
+@item @command{make install-bash}
+will install completion for @command{ponysay} and shell GNU Bash.
+@item @command{make install-fish}
+will install completion for @command{ponysay} and shell @command{fish}.
+@item @command{make install-zsh}
+will install completion for @command{ponysay} and shell @command{zsh}.
+@item @command{make install-info}
+will install the @command{info} manual, this will enable the command @command{info ponysay}.
+@item @command{make install-man}
+will install the English manpage, which is a small to the point manual that is
+a bit more helpful @command{ponysay --help}. This will enable the command
+@command{man ponysay} and @command{man 6 ponysay}.
+@item @command{make install-man-es}
+will install a Spanish translation of the manpage. To read it you execute
+@command{man -L es ponysay} or @command{man -L es 6 ponysay}.
+@end itemize
+
+The program is by default installed in @code{/usr}, if you want another target
+directory, you can add @code{PREFIX} when running @command{make}. For example
+to install @command{ponysay} in @code{/usr/games} you build the program by
+running @command{make PREFIX=/usr/games}, and alike for installation and uninstallation.
 
 
 @node Arch Linux
@@ -584,6 +641,23 @@ contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
 
 A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay},
 and a PPA can be found at @url{https://launchpad.net/~blazemore/+archive/ponysay}.
+
+
+@node Uninstallation
+@section Uninstallation
+@cindex uninstallation
+
+If you did not install @command{ponysay} with a package manager, but rather
+manually from the upstream, you can uninstall it by running @command{make uninstall}.
+Do not forget @code{PREFIX} if it is not installed in @code{/usr}, see
+@ref{Custom installations}.
+
+Well written package manages will uninstall files that the package is no longer
+using, i.e. if deleted, moved or renamed. To uninstall files that are not longer
+used, by the currently installed version you will need that versions @code{Makefile}.
+To perform the uninstallion of old filed run @command{make uninstall-old}.
+Do not forget @code{PREFIX} if it is not installed in @code{/usr}, see
+@ref{Custom installations}.
 
 
 
