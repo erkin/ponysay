@@ -54,11 +54,38 @@ class ponysay():
     
     
     '''
+    Returns a set with all ponies that have quotes and is displayable
+    '''
+    def __quoters(self):
+        quotes = []
+        quoteshash = set()
+        _quotes = [item[:item.index('.')] for item in os.listdir(INSTALLDIR + '/share/ponysay/quotes/')]
+        for quote in _quotes:
+            if not quote[0] == '.':
+                if not quote in quoteshash:
+                    quoteshash.add(quote)
+                    quotes.append(quote)
+                    
+        ponies = set()
+        for ponydir in ponydirs:
+            for pony in os.listdir(ponydir):
+                if not pony[0] == '.':
+                    p = pony[:-5] # remove .pony
+                    for quote in quotes:
+                        if ('+' + p + '+') in ('+' + quote + '+'):
+                            if not p in ponies:
+                                ponies.add(p)
+        
+        return ponies
+    
+    '''
     Lists the available ponies
     '''
     def list(self):
         termsize = Popen(['stty', 'size'], stdout=PIPE).communicate()[0].decode('utf8', 'replace')[:-1].split(" ")
         termsize = [int(item) for item in termsize]
+        
+        quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
             print('\033[1mponyfiles located in ' + ponydir + '\033[21m')
@@ -71,7 +98,8 @@ class ponysay():
             
             x = 0
             for pony in ponies:
-                print(pony + (" " * (width - len(pony))), end="") # Print ponyfilename
+                spacing = ' ' * (width - len(pony))
+                print(('\033[1m' + pony + '\033[21m' if (pony in quoters) else pony) + spacing, end="") # Print ponyfilename
                 x += width
                 if x > (termsize[1] - width): # If too wide, make new line
                     print();
