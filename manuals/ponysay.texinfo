@@ -906,6 +906,8 @@ Code is repaired and more portable.
 Make file is improved.
 @end itemize
 
+@b{Note}: Identifies itself as version 1.3
+
 @heading Version 1.3
 
 @itemize @bullet
