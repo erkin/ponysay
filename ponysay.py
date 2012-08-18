@@ -297,7 +297,10 @@ class ponysay():
         
         pony = self.__getponypath(args.pony)
         
-        os.system('cowsay -f ' + pony + ' \'' + msg + '\'')
+        if "think" in __file__: cmd = 'cowthink'
+        else:                   cmd = 'cowsay'
+        
+        os.system(cmd + ' -f ' + pony + ' \'' + msg + '\'')
 
 
 
