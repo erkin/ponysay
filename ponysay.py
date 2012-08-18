@@ -37,8 +37,8 @@ HOME = os.environ['HOME']
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
 '''
 ponydirs = []
-if os.environ['TERM'] == 'linux':  _ponydirs = [INSTALLDIR + '/share/ponysay/ttyponies/',  HOME + '/.local/share/ponysay/ttyponies/']
-else:                              _ponydirs = [INSTALLDIR + '/share/ponysay/ponies/',     HOME + '/.local/share/ponysay/ponies/'   ]
+if os.environ['TERM'] == 'linux':  _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/',  INSTALLDIR + '/share/ponysay/ttyponies/']
+else:                              _ponydirs = [HOME + '/.local/share/ponysay/ponies/',     INSTALLDIR + '/share/ponysay/ponies/'   ]
 for ponydir in _ponydirs:
     if os.path.isdir(ponydir):
         ponydirs.append(ponydir)
@@ -48,7 +48,7 @@ for ponydir in _ponydirs:
 The directories where quotes files are stored
 '''
 quotedirs = []
-_quotedirs = [INSTALLDIR + '/share/ponysay/quotes/',  HOME + '/.local/share/ponysay/quotes/']
+_quotedirs = [HOME + '/.local/share/ponysay/quotes/',  INSTALLDIR + '/share/ponysay/quotes/']
 for quotedir in _quotedirs:
     if os.path.isdir(quotedir):
         quotedirs.append(quotedir)
@@ -81,6 +81,23 @@ class ponysay():
     
     
     '''
+    Returns one .pony-file with full path, names is filter for names, also accepts filepaths
+    '''
+    def __getponypath(self, names = None):
+        ponies = {}
+        
+        for name in names:
+            if os.path.isfile(name):
+                return name
+        
+        for ponydir in ponydirs:
+            for ponyfile in os.listdir(ponydir):
+                ponies[ponyfile[:-5]] = ponydir + ponyfile
+        
+        return ponies[names[random.randrange(0, len(names))]]
+    
+    
+    '''
     Returns a set with all ponies that have quotes and are displayable
     '''
     def __quoters(self):
@@ -107,21 +124,6 @@ class ponysay():
         
         return ponies
     
-    '''
-    Returns one .pony-file with full path, names is filter for names, also accepts filepaths
-    '''
-    def __getponypath(self, names = None):
-        ponies = {}
-        
-        for name in names:
-            if os.path.isfile(name):
-                return name
-        
-        for ponydir in ponydirs:
-            for ponyfile in os.listdir(ponydir):
-                ponies[ponyfile[:-5]] = ponydir + ponyfile
-        
-        return ponies[names[random.randrange(0, len(names))]]
     
     '''
     Returns a list with all (pony, quote file) pairs
