@@ -18,7 +18,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = "2.0-alpha"
+VERSION = '2.0-alpha'
 
 
 '''
@@ -37,9 +37,13 @@ for ponydir in _ponydirs:
     if os.path.isdir(ponydir):
         ponydirs.append(ponydir)
 
+
+'''
+Argument parsing
+'''
 parser = argparse.ArgumentParser(description = 'Ponysay, like cowsay with ponies')
 
-parser.add_argument('-v', '--version', action = 'version',    version = '%s %s' % ("ponysay", VERSION))
+parser.add_argument('-v', '--version', action = 'version',    version = '%s %s' % ('ponysay', VERSION))
 parser.add_argument('-l', '--list',    action = 'store_true', dest = 'list',     help = 'list pony files')
 parser.add_argument('-L', '--altlist', action = 'store_true', dest = 'linklist', help = 'list pony files with alternatives')
 parser.add_argument('-f', '--pony',    action = 'append',     dest = 'pony',     help = 'select a pony (either a file name or a pony name)')
@@ -80,6 +84,18 @@ class ponysay():
         
         return ponies
     
+    def __getponypath(self, names = None):
+        ponies = {}
+        
+        for name in names:
+            if os.path.isfile(name):
+                return name
+        
+        for ponydir in ponydirs:
+            for ponyfile in os.listdir(ponydir):
+                ponies[ponyfile[:-5]] = ponydir + ponyfile
+        
+        return ponies[names[random.randrange(0, len(names))]]
     
     '''
     Returns a list with all (pony, quote file) pairs
@@ -103,7 +119,7 @@ class ponysay():
     Lists the available ponies
     '''
     def list(self):
-        termsize = Popen(['stty', 'size'], stdout=PIPE).communicate()[0].decode('utf8', 'replace')[:-1].split(" ")
+        termsize = Popen(['stty', 'size'], stdout=PIPE).communicate()[0].decode('utf8', 'replace')[:-1].split(' ')
         termsize = [int(item) for item in termsize]
         
         quoters = self.__quoters()
@@ -120,20 +136,20 @@ class ponysay():
             x = 0
             for pony in ponies:
                 spacing = ' ' * (width - len(pony))
-                print(('\033[1m' + pony + '\033[21m' if (pony in quoters) else pony) + spacing, end="") # Print ponyfilename
+                print(('\033[1m' + pony + '\033[21m' if (pony in quoters) else pony) + spacing, end='') # Print ponyfilename
                 x += width
                 if x > (termsize[1] - width): # If too wide, make new line
                     print()
                     x = 0
                     
-            print("\n");
+            print('\n');
     
     
     '''
     Lists the available ponies with alternatives inside brackets
     '''
     def linklist(self):
-        termsize = Popen(['stty', 'size'], stdout=PIPE).communicate()[0].decode('utf8', 'replace')[:-1].split(" ")
+        termsize = Popen(['stty', 'size'], stdout=PIPE).communicate()[0].decode('utf8', 'replace')[:-1].split(' ')
         termsize = [int(item) for item in termsize]
         
         quoters = self.__quoters()
@@ -144,11 +160,11 @@ class ponysay():
             files = os.listdir(ponydir)
             files = [item[:-5] for item in files] # remove .pony from file name
             files.sort()
-            pairs = [(item, os.readlink(ponydir + item + ".pony") if os.path.islink(ponydir + item + ".pony") else '') for item in files]
+            pairs = [(item, os.readlink(ponydir + item + '.pony') if os.path.islink(ponydir + item + '.pony') else '') for item in files]
             
             ponymap = {}
             for pair in pairs:
-                if pair[1] == "":
+                if pair[1] == '':
                     if pair[0] not in ponymap:
                         ponymap[pair[0]] = []
                 else:
@@ -169,16 +185,16 @@ class ponysay():
                 syms = ponymap[pony]
                 if len(syms) > 0:
                     w += 2 + len(syms)
-                    item += " ("
+                    item += ' ('
                     first = True
                     for sym in syms:
                         w += len(sym)
                         if not first:
-                            item += " "
+                            item += ' '
                         else:
                             first = False
                         item += '\033[1m' + sym + '\033[21m' if (sym in quoters) else sym
-                    item += ")"
+                    item += ')'
                 ponies.append(item)
                 widths.append(w)
                 if width < w:
@@ -190,13 +206,13 @@ class ponysay():
             for pony in ponies:
                 spacing = ' ' * (width - widths[index])
                 index += 1
-                print(pony + spacing, end="") # Print ponyfilename
+                print(pony + spacing, end='') # Print ponyfilename
                 x += width
                 if x > (termsize[1] - width): # If too wide, make new line
                     print()
                     x = 0
             
-            print("\n");
+            print('\n');
     
     
     def print_pony(self, args):
@@ -205,21 +221,9 @@ class ponysay():
         else:
             msg = args.message
         
+        pony = self.__getponypath(args.pony)
         
-        if args.pony == None:
-            ponies = [] # Make array with direct paths to all ponies
-            for ponydir in ponydirs:
-                for ponyfile in os.listdir(ponydir):
-                    ponies.append(ponydir + ponyfile)
-            
-            pony = ponies[random.randrange(0, len(ponies) - 1)] # Select random pony
-            
-        else:
-            for ponydir in ponydirs:
-                if os.path.isfile(ponydir + args.pony[0]):
-                    pony = ponydir + args.pony[0]
-        
-        os.system('cowsay -f ' + pony + ' "' + msg + '"')
+        os.system('cowsay -f ' + pony + ' \'' + msg + '\'')
 
 
 
