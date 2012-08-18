@@ -119,7 +119,7 @@ class ponysay():
         if names == None:
             names = list(ponies.keys())
         
-        return ponies[names[random.randrange(0, len(names) - 1)]]
+        return ponies[names[random.randrange(0, len(names))]]
     
     '''
     Returns a list with all (pony, quote file) pairs
