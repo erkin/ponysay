@@ -354,7 +354,7 @@ class ponysay():
         pony = self.__getponypath(args.pony)
         (cowsay, customcowsay) = self.__getcowsay()
         
-        cmd = [cowsay, '-f', pony]
+        cmd = [cowsay, '-f', self.__kms(pony)]
         if args.wrap is not None:
             cmd += ['-W', args.wrap]
         cmd.append(msg)
@@ -370,10 +370,10 @@ class ponysay():
         
         
         env_bottom = os.environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
-        if (env_bottom is None) or (env_bottom == ''):  env_bottom = ''
+        if env_bottom is None:  env_bottom = ''
         
         env_height = os.environ['PONYSAY_TRUNCATE_HEIGHT'] if 'PONYSAY_TRUNCATE_HEIGHT' in os.environ else None
-        if (env_height is None) or (env_height == ''):  env_height = ''
+        if env_height is None:  env_height = ''
         
         env_lines = os.environ['PONYSAY_SHELL_LINES'] if 'PONYSAY_SHELL_LINES' in os.environ else None
         if (env_lines is None) or (env_lines == ''):  env_lines = '2'
@@ -443,7 +443,53 @@ class ponysay():
             args.message = 'I got nuthin\' good to say :('
         
         self.print_pony(args)
-
+    
+    
+    '''
+    Returns the file name of the input pony converted to a KMS pony, or if KMS is not used, the input pony itself
+    '''
+    def __kms(self, pony):
+        if not linuxvt:
+            return pony
+        
+        env_kms = os.environ['PONYSAY_KMS_PALETTE'] if 'PONYSAY_KMS_PALETTE' in os.environ else None
+        if env_kms is None:  env_kms = ''
+        
+        env_kms_cmd = os.environ['PONYSAY_KMS_PALETTE_CMD'] if 'PONYSAY_KMS_PALETTE_CMD' in os.environ else None
+        if (env_kms_cmd is not None) and (not env_kms_cmd == ''):
+            env_kms = Popen(shlex.split(env_kms_cmd), stdout=PIPE, stdin=sys.stderr).communicate()[0].decode('utf8', 'replace')
+            if env_kms[-1] == '\n':
+                env_kms = env_kms[:-1]
+        
+        if env_kms == '':
+            return pony
+        
+        palette = env_kms
+        palettefile = env_kms.replace('\033]P', '')
+        
+        kmsponies = '/var/cache/ponysay/kmsponies/' + palettefile
+        kmspony = kmsponies + pony
+        
+        if not os.path.isfile(kmspony):
+            protokmsponies = '/var/cache/ponysay/protokmsponies/'
+            protokmspony = protokmsponies + pony
+            
+            _protokmspony = '\'' + protokmspony.replace('\'', '\'\\\'\'') + '\''
+            _kmspony      = '\'' +      kmspony.replace('\'', '\'\\\'\'') + '\''
+            _pony         = '\'' +         pony.replace('\'', '\'\\\'\'') + '\''
+            
+            if not os.path.isfile(protokmspony):
+                os.makedirs(protokmsponies)
+                if not os.system('ponysay2ttyponysay < ' + _pony + ' > ' + _protokmspony) == 0:
+                    sys.stderr.write('Unable to run ponysay2ttyponysay successfully, you need util-say for KMS support\n')
+                    exit(1)
+            
+            os.makedirs(kmsponies)
+            if not os.system('tty2colourfultty -e -p ' + palette + ' < ' + _protokmspony + ' > ' + _kmspony) == 0:
+                sys.stderr.write('Unable to run tty2colourfultty successfully, you need util-say for KMS support\n')
+                exit(1)
+        
+        return kmspony
 
 
 
