@@ -53,25 +53,19 @@ ponyquotes() {
 
 # Function for printing the ponies and the message
 say() {
-	# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
-	export PERL_UNICODE=S
-
-	# Clear screen in TTY
-	( [ "$TERM" = "linux" ] || [ "$TERM" = "-linux-" ] ) && echo -ne '\e[H\e[2J'
-
 	# Set PONYSAY_SHELL_LINES to default if not specified
 	[ "$PONYSAY_SHELL_LINES" = "" ] && PONYSAY_SHELL_LINES=2
-
+	
 	# Height trunction, show top
 	function htrunchead {
 		head --lines=$(( $scrh - $PONYSAY_SHELL_LINES ))
 	}
-
+	
 	# Height trunction, show bottom
 	function htrunctail {
 		tail --lines=$(( $scrh - $PONYSAY_SHELL_LINES ))
 	}
-
+	
 	# Simplification of customisation of cowsay
 	if [ $customcmd = 0 ]; then
 		function cowcmd {
@@ -128,12 +122,6 @@ fi
 # Parse options
 while getopts "f:W:Llhvq" OPT; do
 	case ${OPT} in
-		v)  version; exit ;;
-		h)  usage; exit ;;
-		f)  ponies+=( $OPTARG ) ;;
-		l)  list; exit ;;
-		L)  linklist; exit ;;
-		W)  wrap="$OPTARG" ;;
 		q)  shift $((OPTIND - 1)); ponyquotes "$*"; exit ;;
 		\?) usage >&2; exit 1 ;;
 	esac

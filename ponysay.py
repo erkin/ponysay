@@ -41,11 +41,17 @@ HOME = os.environ['HOME']
 
 
 '''
+Whether the program is execute in Linux VT (TTY)
+'''
+linuxvt = os.environ['TERM'] == 'linux'
+
+
+'''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
 '''
 ponydirs = []
-if os.environ['TERM'] == 'linux':  _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/',  INSTALLDIR + '/share/ponysay/ttyponies/']
-else:                              _ponydirs = [HOME + '/.local/share/ponysay/ponies/',     INSTALLDIR + '/share/ponysay/ponies/'   ]
+if linuxvt:  _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/',  INSTALLDIR + '/share/ponysay/ttyponies/']
+else:        _ponydirs = [HOME + '/.local/share/ponysay/ponies/',     INSTALLDIR + '/share/ponysay/ponies/'   ]
 for ponydir in _ponydirs:
     if os.path.isdir(ponydir):
         ponydirs.append(ponydir)
@@ -320,9 +326,11 @@ class ponysay():
         
         pony = self.__getponypath(args.pony)
         
-        if "think.py" in __file__: cmd = 'cowthink'
+        if 'think.py' in __file__: cmd = 'cowthink'
         else:                      cmd = 'cowsay'
         
+        if linuxvt:
+            print('\033[H\033[2J', end='')
         os.system(cmd + (' -W ' + args.wrap if args.wrap is not None else '') + ' -f ' + pony + ' \'' + msg + '\'')
 
 
