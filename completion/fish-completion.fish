@@ -21,17 +21,25 @@ if test -d $homepath
 end
 
 
+set -g qcmd    /usr/lib/ponysay/pq4ps
+set -g quoters ($qcmd -l)
+
+
 complete -c ponysay -s h --description "Help of ponysay"
 complete -c ponysay -s v --description "Version of ponysay"
 complete -c ponysay -s l --description "List pony files"
 complete -c ponysay -s L --description "List pony files with alternatives"
 complete -c ponysay -s f -a "$homeponies $systemponies" --description "Select a pony"
-complete -c ponysay -s q -a "$homeponies $systemponies" --description "Select ponies for MLP:FiM quotes"
+complete -c ponysay -s q -a "$quoters" --description "Select ponies for MLP:FiM quotes"
 complete -c ponysay -s W -a "Integer" --description "The screen column where the message should be wrapped"
 
 
 set -e systempath
 set -e homepath
+
 set -e systemponies
 set -e homeponies
+
+set -e qcmd
+set -e quoters
 

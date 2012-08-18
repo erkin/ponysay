@@ -8,7 +8,7 @@ _ponysay()
     options='-v -h -l -f -W -q'
     COMPREPLY=( $( compgen -W "$options" -- "$cur" ) )
     
-    if [[ $prev = "-f" ]]; then
+    if [ $prev = "-f"  ]; then
 	COMPREPLY=()
 	
 	sysponies=/usr/share/ponysay/ponies/
@@ -18,17 +18,18 @@ _ponysay()
 	    usrponies=~/.local/share/ponysay/ttyponies/
 	fi
 	
-	if [[ -d $sysponies ]]; then
-	    COMPREPLY+=( $( compgen -W "$(ls --color=no $sysponies | sed -e 's/.pony//g')" -- "$cur" ) )
-	fi
-	if [[ -d $usrponies ]]; then
-	    COMPREPLY+=( $( compgen -W "$(ls --color=no $usrponies | sed -e 's/.pony//g')" -- "$cur" ) )
-	fi
-    elif [[ $prev = "-W" ]]; then
+	[ -d $sysponies ] &&  COMPREPLY+=( $( compgen -W "$(ls --color=no $sysponies | sed -e 's/.pony//g')" -- "$cur" ) )
+	[ -d $usrponies ] &&  COMPREPLY+=( $( compgen -W "$(ls --color=no $usrponies | sed -e 's/.pony//g')" -- "$cur" ) )
+
+    elif [ $prev = "-W" ]; then
 	cols=$(( `stty size | cut -d ' ' -f 2` - 10 ))
 	COMPREPLY=( $cols  $(( $cols / 2 ))  100  60 )
-    elif [[ $prev = "-q" ]]; then
-	COMPREPLY=( $( compgen -W "$quotes" -- "$cur" ) )
+
+    elif [ $prev = "-q" ]; then
+	qcmd=/usr/lib/ponysay/pq4ps
+	quoters=$($qcmd -l)
+	COMPREPLY=( $( compgen -W "$quoters" -- "$cur" ) )
+
     fi
 }
 
