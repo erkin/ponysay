@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
 
 
-# Get bash script directory's parent
-INSTALLDIR="$(dirname $( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))"
-
-# Subscripts
-truncatercmd="$INSTALLDIR/lib/ponysay/truncater"
-
-pony="*"  # Selected pony
-wrap=""   # Message wrap column
-ponies=() # Selected ponies
-
 scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2` # Screen width
 scrh=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 1` # Screen height
 
@@ -18,26 +8,6 @@ scrh=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 1` # Screen height
 kmscmd=""
 [ "$TERM" = "linux" ] && kmscmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/ponysay2kmsponysay /g'); do if [ -f $c ]; then echo $c; break; fi done)
 [ ! "$kmscmd" = "" ] && TERM="-linux-"
-
-
-# Cowsay script
-if [ ${0} == *ponythink ]; then
-	if [ "$PONYSAY_COWTHINK" = "" ]; then
-		cmd=cowthink
-		customcmd=0
-	else
-		cmd="$PONYSAY_COWTHINK"
-		customcmd=1
-	fi
-else
-	if [ "$PONYSAY_COWSAY" = "" ]; then
-		cmd=cowsay
-		customcmd=0
-	else
-		cmd="$PONYSAY_COWSAY"
-		customcmd=1
-	fi
-fi
 
 
 # Function for printing the ponies and the message
