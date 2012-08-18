@@ -353,7 +353,7 @@ class ponysay():
         qfile = None
         try:
             qfile = open(pair[1], 'r')
-            args.message = '\n'.join(qfile.readlines())
+            args.message = '\n'.join(qfile.readlines()).strip()
         finally:
             if qfile is not None:
                 qfile.close()
