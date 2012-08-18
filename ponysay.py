@@ -18,28 +18,28 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-version = "2.0-alpha"
+VERSION = "2.0-alpha"
 
 
 '''
 The directory where ponysay is installed, this is modified when building with make
 '''
-installdir = '/usr'
+INSTALLDIR = '/usr'
 
 
 '''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
 '''
 ponydirs = []
-if os.environ['TERM'] == 'linux':  _ponydirs = [installdir + '/share/ponysay/ttyponies/',  os.environ['HOME'] + '/.local/share/ponysay/ttyponies/']
-else:                              _ponydirs = [installdir + '/share/ponysay/ponies/',     os.environ['HOME'] + '/.local/share/ponysay/ponies/'   ]
+if os.environ['TERM'] == 'linux':  _ponydirs = [INSTALLDIR + '/share/ponysay/ttyponies/',  os.environ['HOME'] + '/.local/share/ponysay/ttyponies/']
+else:                              _ponydirs = [INSTALLDIR + '/share/ponysay/ponies/',     os.environ['HOME'] + '/.local/share/ponysay/ponies/'   ]
 for ponydir in _ponydirs:
     if os.path.isdir(ponydir):
         ponydirs.append(ponydir)
 
 parser = argparse.ArgumentParser(description = 'Ponysay, like cowsay with ponies')
 
-parser.add_argument('-v', '--version', action = 'version',    version='%s %s' % (__file__, version))
+parser.add_argument('-v', '--version', action = 'version',    version = '%s %s' % ("ponysay", VERSION))
 parser.add_argument('-l', '--list',    action = 'store_true', dest = 'list', help = 'list pony files')
 parser.add_argument('-f', '--pony',    action = 'append',     dest = 'pony', help = 'select a pony (either a file name or a pony name)')
 parser.add_argument('message', nargs = '?', help = 'message to ponysay')
@@ -72,7 +72,7 @@ class ponysay():
             x = 0
             for pony in ponies:
                 print(pony + (" " * (width - len(pony))), end="") # Print ponyfilename
-                x = x + width
+                x += width
                 if x > (termsize[1] - width): # If too wide, make new line
                     print();
                     x = 0
