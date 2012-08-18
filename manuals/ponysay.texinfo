@@ -818,7 +818,19 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 @cindex versions
 @cindex previous releases
 
+@heading Version 1.4.1
+
+@itemize @bullet
+@item
+Code is repaired and more portable.
+@end itemize
+
 @heading Version 1.4
+
+@itemize @bullet
+@item
+Make file is improved.
+@end itemize
 
 @heading Version 1.3
 
