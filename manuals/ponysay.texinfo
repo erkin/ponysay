@@ -208,10 +208,10 @@ effect described in the previous paragraph every time you open a terminal.
 @cindex text ponification
 @cindex ponypipe
 
-You can ponify text (i.e. replaces words search as ``everyone'' with ``everypony'')
+You can ponify text (i.e. replaces words search as `everyone' with `everypony')
 by using @code{fortune | ponypipe} instead of using @command{fortune}.
 @command{ponypipe} can be downloaded from @url{https://github.com/maandree/ponypipe}.
-Alternatively use can use @command{pinkie} (or @command{pinkiepie}), which can
+Alternatively you can use @command{pinkie} (or @command{pinkiepie}), which can
 be downloaded from @url{https://github.com/maandree/pinkie-pie}, which is just
 @code{fortune | ponypipe}.
 There is also a large sed script, similar to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
