@@ -104,8 +104,6 @@ Dependencies
 
 `coreutils`: make script uses install, unlink, rm, ln, mkdir and cp
 
-`git`: required for submodules
-
 
 FAQ
 ---

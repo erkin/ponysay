@@ -54,7 +54,8 @@ Package building dependencies
 
     coreutils : make script uses install, unlink, rm, ln, mkdir and cp
 
-    git       : required for submodules
+    tex
+    texinfo   : required to build info manual (tex is required by texinfo)
 
 
 Dependencies for pony providers
