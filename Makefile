@@ -2,7 +2,10 @@ PREFIX="/usr"
 INSTALLDIR="$(DESTDIR)$(PREFIX)"
 
 
-all: truncater manpages infomanual ponythinkcompletion
+all: core truncater manpages infomanual ponythinkcompletion
+
+core:
+	sed -e 's/'\''\/usr\//'"$$(sed -e 's/'\''\//\\\//g' <<<$(PREFIX))"'\//g' <"ponysay.py" >"ponysay.py.install"
 
 truncater:
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o "truncater" "truncater.c"
@@ -16,16 +19,16 @@ infomanual:
 	gzip -9 -f "ponysay.info"
 
 ponysaycompletion:
-	sed -e 's/\/usr\//'"$$(sed -e 's/\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/bash-completion.sh"   >"completion/bash-completion.sh.install"
-	sed -e 's/\/usr\//'"$$(sed -e 's/\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/fish-completion.fish" >"completion/fish-completion.fish.install"
-	sed -e 's/\/usr\//'"$$(sed -e 's/\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/zsh-completion.zsh"   >"completion/zsh-completion.zsh.install"
+	sed -e 's/'\''\/usr\//'"$$(sed -e 's/'\''\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/bash-completion.sh"   >"completion/bash-completion.sh.install"
+	sed -e 's/'\''\/usr\//'"$$(sed -e 's/'\''\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/fish-completion.fish" >"completion/fish-completion.fish.install"
+	sed -e 's/'\''\/usr\//'"$$(sed -e 's/'\''\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/zsh-completion.zsh"   >"completion/zsh-completion.zsh.install"
 
 ponythinkcompletion: ponysaycompletion
 	sed -e 's/ponysay/ponythink/g' <"completion/bash-completion.sh.install"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/bash-completion-think.sh"
 	sed -e 's/ponysay/ponythink/g' <"completion/fish-completion.fish.install" | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/fish-completion-think.fish"
 	sed -e 's/ponysay/ponythink/g' <"completion/zsh-completion.zsh.install"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/zsh-completion-think.zsh"
 
-install-min: truncater
+install-min: core truncater
 	mkdir -p "$(INSTALLDIR)/share/ponysay/"
 	mkdir -p "$(INSTALLDIR)/share/ponysay/ponies"
 	mkdir -p "$(INSTALLDIR)/share/ponysay/ttyponies"
@@ -34,9 +37,10 @@ install-min: truncater
 	cp -P ttyponies/*.pony "$(INSTALLDIR)/share/ponysay/ttyponies/"
 	cp -P    quotes/*.*    "$(INSTALLDIR)/share/ponysay/quotes/"
 
-	mkdir -p          "$(INSTALLDIR)/bin/"
-	install "ponysay" "$(INSTALLDIR)/bin/ponysay"
-	ln -sf  "ponysay" "$(INSTALLDIR)/bin/ponythink"
+	mkdir -p             "$(INSTALLDIR)/bin/"
+	install "ponysay"    "$(INSTALLDIR)/bin/ponysay"
+	install "ponysay.py" "$(INSTALLDIR)/bin/ponysay.py"
+	ln -sf  "ponysay"    "$(INSTALLDIR)/bin/ponythink"
 
 	mkdir   -p                 "$(INSTALLDIR)/lib/ponysay/"
 	install -s "truncater"     "$(INSTALLDIR)/lib/ponysay/truncater"

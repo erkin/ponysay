@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 INSTALLDIR="$(dirname $( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))"
-truncatercmd="$INSTALLDIR/lib/ponysay/truncater"
+LIBDIR="$INSTALLDIR/lib/ponysay"
+
+truncatercmd="$LIBDIR/truncater"
 
 scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2` # Screen width
 
