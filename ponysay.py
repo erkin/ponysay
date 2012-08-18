@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-ponysay.py - POC of ponysay in python
+ponysay.py - Ponysay, a cowsay wrapper for ponies
 Copyright (C) 2012  Erkin Batu Altunbaş
 
 Authors: Erkin Batu Altunbaş:              Project leader, helped write the first implementation
@@ -353,7 +353,7 @@ class ponysay():
     
     
     '''
-    Print the pony with a speech or though bubble
+    Print the pony with a speech or though bubble. message, pony and wrap from args are used.
     '''
     def print_pony(self, args):
         if args.message == None:
