@@ -24,27 +24,7 @@ say() {
 	function htrunctail {
 		tail --lines=$(( $scrh - $PONYSAY_SHELL_LINES ))
 	}
-	
-	# Simplification of customisation of cowsay
-	if [ $customcmd = 0 ]; then
-		function cowcmd {
-			pcmd='#!/usr/bin/perl\nuse utf8;'
-			ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [ -f $c ]; then echo $c; break; fi done)
-			
-			if [ ${0} == *ponythink ]; then
-				cat <(echo -e $pcmd) $ccmd > "/tmp/ponythink"
-				perl '/tmp/ponythink' "$@"
-				rm '/tmp/ponythink'
-			else
-				perl <(cat <(echo -e $pcmd) $ccmd) "$@"
-			fi
-		}
-	else
-		function cowcmd	{
-			$cmd "$@"
-		}
-	fi
-
+        
 	# KMS ponies support
 	if [ "$kmscmd" = "" ]; then
 		function runcmd {
@@ -67,15 +47,3 @@ say() {
 		runcmd "${wrap:+-W$wrap}" | wtrunc
 	fi
 }
-
-# Check for cowsay
-hash $cmd &>/dev/null; if [ $? -ne 0 ]; then
-	cat >&2 <<EOF
-You don't seem to have the $cmd program.
-Please install it in order to use this wrapper.
-
-Alternatively, symlink it to '$cmd' in anywhere in \$PATH
-if it actually exists under a different filename.
-EOF
-	exit 1
-fi

@@ -329,17 +329,17 @@ class ponysay():
     ##
     
     '''
-    Returns the cowsay command
+    Returns (the cowsay command, whether it is a custom program)
     '''
     def __getcowsay(self):
         isthink = 'think.py' in __file__
         
         if isthink:
             cowthink = os.environ['PONYSAY_COWTHINK'] if 'PONYSAY_COWTHINK' in os.environ else None
-            return 'cowthink' if (cowthink is None) or (cowthink == "") else cowthink
+            return ('cowthink', False) if (cowthink is None) or (cowthink == '') else (cowthink, True)
         
         cowsay = os.environ['PONYSAY_COWSAY'] if 'PONYSAY_COWSAY' in os.environ else None
-        return 'cowsay' if (cowsay is None) or (cowsay == "") else cowsay
+        return ('cowsay', False) if (cowsay is None) or (cowsay == '') else (cowsay, True)
     
     
     '''
@@ -352,10 +352,34 @@ class ponysay():
             msg = args.message
         
         pony = self.__getponypath(args.pony)
+        (cowsay, customcowsay) = self.__getcowsay()
+        wrap_arg = ' -W ' + args.wrap if args.wrap is not None else ''
+        file_arg = ' -f ' + pony;
+        message_arg = ' \'' + msg.replace('\'', '\'\\\'\'') + '\''  # ' in message is replaces by '\'', this (combined by '..') ensures it will always be one argument
+        cowsay_args = wrap_arg + file_arg + message_arg
         
         if linuxvt:
             print('\033[H\033[2J', end='')
-        os.system(self.__getcowsay() + (' -W ' + args.wrap if args.wrap is not None else '') + ' -f ' + pony + ' \'' + msg.replace('\'', '\'\\\'\'') + '\'')
+        
+        if customcowsay:
+            exit_value = os.system(cowsay + cowsay_args)
+        else:
+            exit_value = os.system(cowsay + cowsay_args)
+            ## TODO not implement, but it will be obsolete if we rewrite cowsay
+            '''
+            pcmd='#!/usr/bin/perl\nuse utf8;'
+            ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [ -f $c ]; then echo $c; break; fi done)
+            
+            if [ ${0} == *ponythink ]; then
+                cat <(echo -e $pcmd) $ccmd > "/tmp/ponythink"
+                perl '/tmp/ponythink' "$@"
+                rm '/tmp/ponythink'
+            else
+                perl <(cat <(echo -e $pcmd) $ccmd) "$@"
+            fi
+            '''
+        if not exit_value == 0:
+            sys.stderr.write('Unable to successfully execute' + (' custom ' if customcowsay else ' ') + 'cowsay [' + cowsay + ']\n')
     
     
     '''
@@ -383,7 +407,7 @@ class ponysay():
             args.pony = [pair[0]]
         elif len(args.quote) == 0:
             sys.stderr.write('All the ponies are mute! Call the Princess!')
-            exit 1
+            exit(1)
         else:
             args.pony = args.quote[random.randrange(0, len(args.quote))]
             args.message = 'I got nuthin\' good to say :('
