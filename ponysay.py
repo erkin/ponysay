@@ -25,7 +25,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = '2.0-alpha'
+VERSION = '2.0-rc1'
 
 
 '''
@@ -49,7 +49,7 @@ linuxvt = os.environ['TERM'] == 'linux'
 '''
 Whether the program is launched in subshell/being redirected
 '''
-redirected = not sys.stdout.isatty()
+redirected = False #not sys.stdout.isatty()  # currently impossible, we need to get rid of the little shell script first
 
 
 '''
@@ -77,7 +77,7 @@ for quotedir in _quotedirs:
 '''
 Argument parsing
 '''
-parser = argparse.ArgumentParser(prog = 'ponysay', description = 'Like cowsay with ponies.')
+parser = argparse.ArgumentParser(prog = 'ponysay', description = 'cowsay wrapper for ponies')
 
 parser.add_argument('-v', '--version', action = 'version',                       version = '%s %s' % ('ponysay', VERSION))
 parser.add_argument('-l', '--list',    action = 'store_true', dest = 'list',     help = 'list pony files')

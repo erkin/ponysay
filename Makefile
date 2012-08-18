@@ -1,11 +1,11 @@
 PREFIX="/usr"
 INSTALLDIR="$(DESTDIR)$(PREFIX)"
-
+SED_PREFIX=$$(sed -e 's/\//\\\//g' <<<$(PREFIX))
 
 all: core truncater manpages infomanual ponythinkcompletion
 
 core:
-	sed -e 's/'\''\/usr\//'"$$(sed -e 's/'\''\//\\\//g' <<<$(PREFIX))"'\//g' <"ponysay.py" >"ponysay.py.install"
+	sed -e 's/'\''\/usr\//'\'"$(SED_PREFIX)"'\//g' <"ponysay.py" >"ponysay.py.install"
 
 truncater:
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o "truncater" "truncater.c"
@@ -19,9 +19,9 @@ infomanual:
 	gzip -9 -f "ponysay.info"
 
 ponysaycompletion:
-	sed -e 's/'\''\/usr\//'"$$(sed -e 's/'\''\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/bash-completion.sh"   >"completion/bash-completion.sh.install"
-	sed -e 's/'\''\/usr\//'"$$(sed -e 's/'\''\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/fish-completion.fish" >"completion/fish-completion.fish.install"
-	sed -e 's/'\''\/usr\//'"$$(sed -e 's/'\''\//\\\//g' <<<$(PREFIX))"'\//g' <"completion/zsh-completion.zsh"   >"completion/zsh-completion.zsh.install"
+	sed -e 's/'\''\/usr\//'\'"$(SED_PREFIX)"'\//g' <"completion/bash-completion.sh"   >"completion/bash-completion.sh.install"
+	sed -e 's/'\''\/usr\//'\'"$(SED_PREFIX)"'\//g' <"completion/fish-completion.fish" >"completion/fish-completion.fish.install"
+	sed -e 's/'\''\/usr\//'\'"$(SED_PREFIX)"'\//g' <"completion/zsh-completion.zsh"   >"completion/zsh-completion.zsh.install"
 
 ponythinkcompletion: ponysaycompletion
 	sed -e 's/ponysay/ponythink/g' <"completion/bash-completion.sh.install"   | sed -e 's/\/ponythink\//\/ponysay\//g' -e 's/\\\/ponythink\\\//\\\/ponysay\\\//g' >"completion/bash-completion-think.sh"
@@ -41,9 +41,10 @@ install-min: core truncater
 	install "ponysay"    "$(INSTALLDIR)/bin/ponysay"
 	install "ponysay.py" "$(INSTALLDIR)/bin/ponysay.py"
 	ln -sf  "ponysay"    "$(INSTALLDIR)/bin/ponythink"
+	ln -sf  "ponysay.py" "$(INSTALLDIR)/bin/ponythink.py"
 
-	mkdir   -p                 "$(INSTALLDIR)/lib/ponysay/"
-	install -s "truncater"     "$(INSTALLDIR)/lib/ponysay/truncater"
+	mkdir   -p              "$(INSTALLDIR)/lib/ponysay/"
+	install -s "truncater"  "$(INSTALLDIR)/lib/ponysay/truncater"
 
 	mkdir -p          "$(INSTALLDIR)/share/licenses/ponysay/"
 	install "COPYING" "$(INSTALLDIR)/share/licenses/ponysay/COPYING"
@@ -102,7 +103,7 @@ install: install-no-info install-info
 '|  |_|    \___/ |_| |_| \__, ||___/ \__,_| \__, |  |\n'\
 '|                       |___/              |___/   |\n'\
 '\\--------------------------------------------------/'
-	@echo '' | ./ponysay -f ./`if [[ "$$TERM" = "linux" ]]; then echo ttyponies; else echo ponies; fi`/pinkiecannon.pony | tail --lines=30 ; echo -e '\n'
+	@echo 'dummy' | ./ponysay -f ./`if [[ "$$TERM" = "linux" ]]; then echo ttyponies; else echo ponies; fi`/pinkiecannon.pony | tail --lines=30 ; echo -e '\n'
 
 uninstall:
 	if [ -d "$(INSTALLDIR)/share/ponysay" ]; then                                rm -fr "$(INSTALLDIR)/share/ponysay"                              ; fi
