@@ -40,8 +40,9 @@ for ponydir in _ponydirs:
 parser = argparse.ArgumentParser(description = 'Ponysay, like cowsay with ponies')
 
 parser.add_argument('-v', '--version', action = 'version',    version = '%s %s' % ("ponysay", VERSION))
-parser.add_argument('-l', '--list',    action = 'store_true', dest = 'list', help = 'list pony files')
-parser.add_argument('-f', '--pony',    action = 'append',     dest = 'pony', help = 'select a pony (either a file name or a pony name)')
+parser.add_argument('-l', '--list',    action = 'store_true', dest = 'list',     help = 'list pony files')
+parser.add_argument('-L', '--altlist', action = 'store_true', dest = 'linklist', help = 'list pony files with alternatives')
+parser.add_argument('-f', '--pony',    action = 'append',     dest = 'pony',     help = 'select a pony (either a file name or a pony name)')
 parser.add_argument('message', nargs = '?', help = 'message to ponysay')
 
 args = parser.parse_args()
@@ -49,8 +50,9 @@ args = parser.parse_args()
 
 class ponysay():
     def __init__(self, args):
-        if args.list:  self.list()
-        else:          self.print_pony(args)
+        if   args.list:      self.list()
+        elif args.linklist:  self.linklist()
+        else:                self.print_pony(args)
     
     
     '''
@@ -121,9 +123,79 @@ class ponysay():
                 print(('\033[1m' + pony + '\033[21m' if (pony in quoters) else pony) + spacing, end="") # Print ponyfilename
                 x += width
                 if x > (termsize[1] - width): # If too wide, make new line
-                    print();
+                    print()
                     x = 0
                     
+            print("\n");
+    
+    
+    '''
+    Lists the available ponies with alternatives inside brackets
+    '''
+    def linklist(self):
+        termsize = Popen(['stty', 'size'], stdout=PIPE).communicate()[0].decode('utf8', 'replace')[:-1].split(" ")
+        termsize = [int(item) for item in termsize]
+        
+        quoters = self.__quoters()
+        
+        for ponydir in ponydirs: # Loop ponydirs
+            print('\033[1mponyfiles located in ' + ponydir + '\033[21m')
+            
+            files = os.listdir(ponydir)
+            files = [item[:-5] for item in files] # remove .pony from file name
+            files.sort()
+            pairs = [(item, os.readlink(ponydir + item + ".pony") if os.path.islink(ponydir + item + ".pony") else '') for item in files]
+            
+            ponymap = {}
+            for pair in pairs:
+                if pair[1] == "":
+                    if pair[0] not in ponymap:
+                        ponymap[pair[0]] = []
+                else:
+                    target = pair[1][:-5]
+                    if '/' in target:
+                        target = target[target.rindex('/') + 1:]
+                    if target in ponymap:
+                        ponymap[target].append(pair[0])
+                    else:
+                        ponymap[target] = [pair[0]]
+            
+            width = 0
+            ponies = []
+            widths = []
+            for pony in ponymap:
+                w = len(pony)
+                item = '\033[1m' + pony + '\033[21m' if (pony in quoters) else pony
+                syms = ponymap[pony]
+                if len(syms) > 0:
+                    w += 2 + len(syms)
+                    item += " ("
+                    first = True
+                    for sym in syms:
+                        w += len(sym)
+                        if not first:
+                            item += " "
+                        else:
+                            first = False
+                        item += '\033[1m' + sym + '\033[21m' if (sym in quoters) else sym
+                    item += ")"
+                ponies.append(item)
+                widths.append(w)
+                if width < w:
+                    width = w
+            
+            width += 2;
+            x = 0
+            index = 0
+            for pony in ponies:
+                spacing = ' ' * (width - widths[index])
+                index += 1
+                print(pony + spacing, end="") # Print ponyfilename
+                x += width
+                if x > (termsize[1] - width): # If too wide, make new line
+                    print()
+                    x = 0
+            
             print("\n");
     
     
