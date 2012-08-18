@@ -28,6 +28,12 @@ INSTALLDIR = '/usr'
 
 
 '''
+The user's home directory
+'''
+HOME = os.environ['HOME']
+
+
+'''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
 '''
 ponydirs = []
@@ -65,7 +71,13 @@ parser.add_argument('message', nargs = '?', help = 'message to ponysay')
 args = parser.parse_args()
 
 
+'''
+This is the mane class of ponysay
+'''
 class ponysay():
+    '''
+    Starts the part of the program the arguments indicate
+    '''
     def __init__(self, args):
         if   args.list:      self.list()
         elif args.linklist:  self.linklist()
@@ -80,7 +92,7 @@ class ponysay():
     def __getponypath(self, names = None):
         ponies = {}
         
-        if names != None:
+        if not names == None:
             for name in names:
                 if os.path.isfile(name):
                     return name
