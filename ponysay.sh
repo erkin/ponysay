@@ -60,60 +60,9 @@ fi
 
 
 
-# Ponysay version print function
-version() {
-	echo "ponysay v$VERSION"
-}
-
 # Marks ponies in lists that have quotes
 qoutelist() {
     bash -c "$("$qlistcmd" $("$quotecmd" --list))"
-}
-
-# Pony list function
-list() {
-	if [ -d $SYSTEMPONIES ]; then
-		echo -e "\\e[01mponyfiles located in $SYSTEMPONIES:\\e[21m"
-		perl $listcmd $scrw $(ls --color=no $SYSTEMPONIES | sed -e 's/\.pony$//' | sort) | qoutelist
-        fi
-	if [ -d $HOMEPONIES ]; then
-		echo -e "\\e[01mponyfiles located in $HOMEPONIES:\\e[21m"
-		perl $listcmd $scrw $(ls --color=no $HOMEPONIES | sed -e 's/\.pony$//' | sort) | qoutelist
-	fi
-	if [ ! -d $SYSTEMPONIES ] && [ ! -d $HOMEPONIES ]; then
-		echo >&2 "All the ponies are missing! Call the Princess!"
-	fi
-}
-
-# Pony list function with symlink map, for one directory
-_linklist() {
-	echo -e "\\e[01mponyfiles located in $1:\\e[21m"
-	files=$(ls --color=no $1 | sed -e 's/\.pony$//' | sort)
-	
-	args=""
-	
-	for file in $files; do
-		target="$(readlink $1"/"$file".pony")"
-		
-		if [ "$target" = "" ]; then
-			target=$file
-		else
-			target=$(echo $target | sed -e 's/^\.\///g' -e 's/\.pony$//g')
-		fi
-		
-		args=$(echo $args $file $target)
-	done
-	
-	perl $listcmd $scrw $(perl $linklistcmd $(echo $args) | sed -e 's/ /_/g') | sed -e 's/_/ /g' | qoutelist
-}
-
-# Pony list function with symlink map, for both directories
-linklist() {
-	_linklist $SYSTEMPONIES
-	
-	if [ -d $HOMEPONIES ]; then
-		_linklist $HOMEPONIES
-	fi
 }
 
 # Pony quotes
