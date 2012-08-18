@@ -84,6 +84,10 @@ parser.add_argument('-q', '--quote',   nargs  = '*',          dest = 'quote',   
 parser.add_argument('message', nargs = '?', help = 'message to ponysay')
 
 args = parser.parse_args()
+# TODO implement   if [ -t 0 ] && [ $# == 0 ]; then
+#                    usage
+#                    exit
+#                  fi
 
 
 
@@ -377,8 +381,11 @@ class ponysay():
                 if qfile is not None:
                     qfile.close()
             args.pony = [pair[0]]
+        elif len(args.quote) == 0:
+            sys.stderr.write('All the ponies are mute! Call the Princess!')
+            exit 1
         else:
-            args.pony = args.quote
+            args.pony = args.quote[random.randrange(0, len(args.quote))]
             args.message = 'I got nuthin\' good to say :('
         
         self.print_pony(args)
