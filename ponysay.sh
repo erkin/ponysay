@@ -5,11 +5,7 @@
 INSTALLDIR="$(dirname $( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))"
 
 # Subscripts
-listcmd="$INSTALLDIR/lib/ponysay/list.pl"
-linklistcmd="$INSTALLDIR/lib/ponysay/linklist.pl"
 truncatercmd="$INSTALLDIR/lib/ponysay/truncater"
-quotecmd="$INSTALLDIR/lib/ponysay/pq4ps"
-qlistcmd="$INSTALLDIR/lib/ponysay/pq4ps-list.pl"
 
 pony="*"  # Selected pony
 wrap=""   # Message wrap column
@@ -43,13 +39,6 @@ else
 	fi
 fi
 
-
-
-# Pony quotes
-ponyquotes() {
-	[ "$TERM" = "-linux-" ] && TERM="linux"
-	"$0" ${wrap:+-W$wrap} $("$quotecmd" $@)
-}
 
 # Function for printing the ponies and the message
 say() {
@@ -118,15 +107,6 @@ if [ -t 0 ] && [ $# == 0 ]; then
 fi
 
 
-
-# Parse options
-while getopts "f:W:Llhvq" OPT; do
-	case ${OPT} in
-		q)  shift $((OPTIND - 1)); ponyquotes "$*"; exit ;;
-		\?) usage >&2; exit 1 ;;
-	esac
-done
-shift $((OPTIND - 1))
 
 
 # Check for cowsay

@@ -71,7 +71,7 @@ for quotedir in _quotedirs:
 '''
 Argument parsing
 '''
-parser = argparse.ArgumentParser(description = 'Ponysay, like cowsay with ponies')
+parser = argparse.ArgumentParser(prog = 'ponysay', description = 'Like cowsay with ponies.')
 
 parser.add_argument('-v', '--version', action = 'version',                       version = '%s %s' % ('ponysay', VERSION))
 parser.add_argument('-l', '--list',    action = 'store_true', dest = 'list',     help = 'list pony files')
@@ -80,6 +80,7 @@ parser.add_argument(      '--quoters', action = 'store_true', dest = 'quoters', 
 parser.add_argument(      '--onelist', action = 'store_true', dest = 'onelist',  help = 'list pony files in one columns')                  # for shell completions
 parser.add_argument('-W', '--wrap',    action = 'store',      dest = 'wrap',     help = 'specify the column when the message should be wrapped')
 parser.add_argument('-f', '--pony',    action = 'append',     dest = 'pony',     help = 'select a pony (either a file name or a pony name)')
+parser.add_argument('-q', '--quote',   nargs  = '*',          dest = 'quote',    help = 'select a pony which will quote herself')
 parser.add_argument('message', nargs = '?', help = 'message to ponysay')
 
 args = parser.parse_args()
@@ -97,6 +98,7 @@ class ponysay():
         elif args.linklist:  self.linklist()
         elif args.quoters:   self.quoters()
         elif args.onelist:   self.onelist()
+        elif args.quote:     self.quote(args)
         else:                self.print_pony(args)
     
     
@@ -332,6 +334,32 @@ class ponysay():
         if linuxvt:
             print('\033[H\033[2J', end='')
         os.system(cmd + (' -W ' + args.wrap if args.wrap is not None else '') + ' -f ' + pony + ' \'' + msg.replace('\'', '\'\\\'\'') + '\'')
+    
+    
+    '''
+    Print the pony with a speech or though bubble and a self quote
+    '''
+    def quote(self, args):
+        pairs = self.__quotes()
+        if len(args.quote) > 0:
+            ponyset = set(args.quote)
+            alts = []
+            for pair in pairs:
+                if pair[0] in ponyset:
+                    alts.append(pair)
+            pairs = alts
+        
+        pair = pairs[random.randrange(0, len(pairs))]
+        qfile = None
+        try:
+            qfile = open(pair[1], 'r')
+            args.message = '\n'.join(qfile.readlines())
+        finally:
+            if qfile is not None:
+                qfile.close()
+        args.pony = [pair[0]]
+        
+        self.print_pony(args)
 
 
 
