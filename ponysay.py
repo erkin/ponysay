@@ -383,7 +383,7 @@ class ponysay():
             args.pony = [pair[0]]
         elif len(args.quote) == 0:
             sys.stderr.write('All the ponies are mute! Call the Princess!')
-            exit 1
+            exit(1)
         else:
             args.pony = args.quote[random.randrange(0, len(args.quote))]
             args.message = 'I got nuthin\' good to say :('
