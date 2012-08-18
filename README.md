@@ -84,9 +84,13 @@ Dependencies
 
 ### Required runtime dependencies
 
+`bash`: bash is used in a minor part of the program to make everything work, this will be removed later
+
+`coreutils`: stty in coreutils used to determine size of the terminal, other parts of coreutils will not be needed for long
+
 `cowsay`: this is a wrapper for cowsay
 
-`python3`: Written in python3
+`python3`: Written in python 3
 
 ### Package building dependencies
 
