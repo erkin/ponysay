@@ -21,3 +21,5 @@
 /truncater
 *.install
 /Makefile
+/quotes/
+
