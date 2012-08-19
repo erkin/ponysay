@@ -366,7 +366,7 @@ class Ponysay():
     '''
     def print_pony(self, args):
         if args.message == None:
-            msg = ''.join(sys.stdin.readlines()).strip()
+            msg = ''.join(sys.stdin.readlines()).rstrip()
         else:
             msg = args.message
         
@@ -801,9 +801,33 @@ class Backend():
     Process all data
     '''
     def parse(self):
+        self.__expandMessage()
         self.__loadFile()
         self.__processPony()
         self.__truncate()
+    
+    
+    def __expandMessage(self):
+        lines = self.message.split('\n')
+        buf = ''
+        for line in lines:
+            (i, n, x) = (0, len(line), 0)
+            while i < n:
+                c = line[i]
+                i += 1
+                if c == '\033':
+                    colour = self.__getcolour(line, i - 1)
+                    i += len(colour) - 1
+                    buf += colour
+                elif c == '\t':
+                    nx = 8 - (x & 7)
+                    buf += ' ' * nx
+                    x += nx
+                else:
+                    buf += c
+                    x += 1
+            buf += '\n'
+        self.message = buf[:-1]
     
     
     def __loadFile(self):
