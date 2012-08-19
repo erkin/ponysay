@@ -19,4 +19,7 @@ function wtrunc {
     fi
 }
 
+# Ponies use UTF-8 drawing characters. Prevent a Perl warning.
+export PERL_UNICODE=S
+
 "$0.py" "$@" | wtrunc
