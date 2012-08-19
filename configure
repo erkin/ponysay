@@ -19,7 +19,7 @@ oldCompiledDirs=''
 installedFiles='bin/ponysay bin/ponythink bin/ponysay.py bin/ponythink.py doc/ponysay.pdf share/info/ponysay.info.gz share/info/ponythink.info.gz'
 installedDirs='share/ponysay lib/ponysay'
 compiledFiles='truncater ponysay.info.gz ponysay.py.install'
-compiledDirs=''
+compiledDirs='quotes'
 
 for man in $manFiles; do
     oldCompiledFiles="$oldCompiledFiles $man.gz"
@@ -160,7 +160,7 @@ function makeMakefile()
     echo
     echo 'default: '"$compileMethods"
     echo
-    echo 'all: core truncater manpages infomanual ponysaycompletion ponythinkcompletion'
+    echo 'all: core truncater quotes manpages infomanual ponysaycompletion ponythinkcompletion'
     echo
     
     echo "core:"
@@ -170,6 +170,17 @@ function makeMakefile()
     echo "truncater:"
     echo -en '\t'
     echo '$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o "truncater" "truncater.c"'
+    echo
+    
+    echo "quotes:"
+    echo -en '\t' ; echo 'mkdir -p quotes'
+    echo -en '\t' ; echo 'for ponies in $$(cat ponyquotes/ponies); do                       \'
+    echo -en '\t' ; echo '    for pony in $$(echo $$ponies | sed -e '\''s/+/ /g'\''); do    \'
+    echo -en '\t' ; echo '        echo '\''Generating quote files for '\''"$$pony";         \'
+    echo -en '\t' ; echo '        for file in $$(ls "ponyquotes/" | grep "$$pony\\.*"); do  \'
+    echo -en '\t' ; echo '            if [ -f "ponyquotes/$$file" ]; then                   \'
+    echo -en '\t' ; echo '                cp "ponyquotes/"$$file "quotes/"$$ponies'\''.'\''$$(echo $$file | cut -d '\''.'\'' -f 2)  \'
+    echo -en '\t' ; echo ';fi;done;done;done'
     echo
     
     echo 'manpages:'
@@ -190,7 +201,7 @@ function makeMakefile()
     thinkCompletion $completions
     echo
     
-    echo 'install-min: core truncater'
+    echo 'install-min: core truncater quotes'
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/ponysay/"'
     for dir in $shareDirs; do
 	echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/ponysay/'"$dir"'"'
@@ -341,18 +352,6 @@ pdfmanual:
 	    (if [ -f "ponysay.\$\$ext" ]; then unlink "ponysay.\$\$ext"; fi);    \\
 	done
 	if [ -d "ponysay.t2d" ]; then rm -r "ponysay.t2d"; fi
-
-submodules: clean
-	(cd "ponyquotes4ponysay/"; make clean)
-	git submodule init
-	git submodule update
-
-quotes: submodules
-	(cd "ponyquotes4ponysay/"; make -B)
-	if [ -d quotes ]; then git rm "quotes/"*.*; fi
-	mkdir -p "quotes"
-	cp "ponyquotes4ponysay/ponyquotes/"*.* "quotes"
-	git add "quotes/"*.*
 
 EOF
 }
