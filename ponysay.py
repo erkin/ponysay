@@ -389,7 +389,7 @@ class Ponysay():
         if linuxvt:
             print('\033[H\033[2J', end='')
         
-        proc = Backend(message = msg, ponyfile = pony, wrapcolumn = int(args.opts['-W']) if args.opts['-W'] is not None else None) # Popen(cmd, stdout=PIPE, stdin=sys.stderr)
+        proc = Backend(message = msg, ponyfile = pony, wrapcolumn = int(args.opts['-W']) if args.opts['-W'] is not None else None, width = self.__gettermsize()[1]) # Popen(cmd, stdout=PIPE, stdin=sys.stderr)
         exit_value = 0
         try:
             proc.parse()
@@ -409,7 +409,7 @@ class Ponysay():
         env_lines = os.environ['PONYSAY_SHELL_LINES'] if 'PONYSAY_SHELL_LINES' in os.environ else None
         if (env_lines is None) or (env_lines == ''):  env_lines = '2'
         
-        lines = self.__gettermsize()[1] - int(env_lines)
+        lines = self.__gettermsize()[0] - int(env_lines)
         
         
         if not exit_value == 0:
@@ -778,12 +778,14 @@ Replacement for cowsay
 class Backend():
     '''
     Constructor
-    Takes message [string], ponyfile [filename string] and wrapcolumn [None or an int]
+    Takes message [string], ponyfile [filename string], wrapcolumn [None or an int] and width [None or an int]
     '''
-    def __init__(self, message, ponyfile, wrapcolumn):
+    def __init__(self, message, ponyfile, wrapcolumn, width):
         self.message = message
         self.wrapcolumn = wrapcolumn
+        self.width = width
         self.output = None
+        self.link = {'\\' : '\\', '/' : '/'} if not isthink else {'\\' : 'o', '/' : 'o'}
         
         ponystream = None
         try:
@@ -794,11 +796,15 @@ class Backend():
                 ponystream.close()
     
     
+    '''
+    Process all data
+    '''
     def parse(self):
         self.output = ''
         
-        variables = {'\\' : '\\', '/' : '/'} if not isthink else {'\\' : '\\', '/' : '/'}
-        variables[''] = '$'
+        variables = {'' : '$'}
+        for key in self.link:
+            variables[key] = self.link[key]
         
         indent = 0
         dollar = None
@@ -806,6 +812,11 @@ class Backend():
         (i, n) = (0, len(self.pony))
         while i < n:
             c = self.pony[i]
+            if c == '\t':
+                n += 8 - (indent & 7)
+                ed = ' ' * (7 - (indent & 7))
+                c = ' '
+                self.pony = self.pony[:i] + ed + self.pony[i:]
             i += 1
             if c == '$':
                 if dollar is not None:
@@ -814,26 +825,40 @@ class Backend():
                         value = dollar[find('=') + 1:]
                         variables[name] = value
                     elif (len(dollar) < 7) or not (dollar[:7] == 'balloon'):
-                        self.output += variables[dollar]
+                        if dollar in ('\\', '/'):
+                            i += len(variables[dollar]) - 1
+                        lines = variables[dollar].split('\n')
+                        firstvarline = True
+                        for line in lines:
+                            if firstvarline:
+                                firstvarline = False
+                            else:
+                                indent = 0
+                                self.output = '\n'
+                            oldindent = indent
+                            indent += len(line)
+                            if   self.width is None:      self.output += line
+                            elif    indent < self.width:  self.output += line
+                            elif oldindent < self.width:  self.output += line[self.width - indent]
                     else:
                         (w, h) = (0, 0)
-                        #final String props = var.substring("balloon".length());
-                        #if (props.isEmpty() == false)
-                        #    if (props.contains(","))
-                        #    {
-                        #        if (props.startsWith(",") == false)
-                        #            w = Integer.parseInt(props.substring(0, props.indexOf(",")));
-                        #        h = Integer.parseInt(props.substring(1 + props.indexOf(",")));
-                        #    }
-                        #    else
-                        #        w = Integer.parseInt(props);
-                        #
+                        props = dollar[7:]
+                        if len(props) == 0:
+                            if ',' in props:
+                                if props[0] is not ',':
+                                    w = int(props[:props.index(',')])
+                                h = int(props[props.index(',') + 1:])
+                            else:
+                                w = int(props)
                         #balloon.print(w, h, indent);
                         indent = 0
                     dollar = None
                 else:
                     dollar = ''
             elif dollar is not None:
+                if c == '\033':
+                    c = self.pony[i]
+                    i += 1
                 dollar += c
             elif c == '\033':
                 self.output += c
@@ -861,8 +886,13 @@ class Backend():
                         self.output += c
                         if (c == '~') or (('a' <= c) and (c <= 'z')) or (('A' <= c) and (c <= 'Z')):
                             break
+            elif c == '\n':
+                self.output += c
+                indent = 0
             else:
-                self.output += c;
+                if (self.width is None) or (indent < self.width):
+                    self.output += c
+                indent += 1
 
 
 
