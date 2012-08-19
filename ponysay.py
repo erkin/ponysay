@@ -950,14 +950,20 @@ class Backend():
         if self.wrapcolumn is not None:
             wrap = self.wrapcolumn - left
         
-        w = 6
-        h = 5
+        lines = self.message.split('\n')
+        h = 4 + len(lines)
+        w = 6 + len(max(lines, key = len))
         if w < width:   w = width
         if h < height:  h = height
         
-        rc = (('X' * w) + '\n') * h
+        rc = '/' + '-' * (w - 2) + '\\\n'
+        rc += '|' + ' ' * (w - 2) + '|\n'
+        for line in lines:
+            rc += '|  ' + line + ' ' * (w - len(line) - 6) + '  |\n'
+        rc += '|' + ' ' * (w - 2) + '|\n'
+        rc += '\\' + '-' * (w - 2) + '/'
         
-        return rc[:-1]
+        return rc
 
 
 
