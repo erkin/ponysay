@@ -389,11 +389,15 @@ class Ponysay():
         if linuxvt:
             print('\033[H\033[2J', end='')
         
-        proc = Popen(cmd, stdout=PIPE, stdin=sys.stderr)
-        output = proc.communicate()[0].decode('utf8', 'replace')
+        proc = Backend(message = msg, ponyfile = pony, wrapcolumn = int(args.opts['-W']) if args.opts['-W'] is not None else None) # Popen(cmd, stdout=PIPE, stdin=sys.stderr)
+        exit_value = 0
+        try:
+            proc.parse()
+        except:
+            exit_value = 1
+        output = proc.output # proc.communicate()[0].decode('utf8', 'replace')
         if (len(output) > 0) and (output[-1] == '\n'):
             output = output[:-1]
-        exit_value = proc.returncode
         
         
         env_bottom = os.environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
@@ -420,23 +424,6 @@ class Ponysay():
                         print(line)
             else:
                 print(output);
-        
-        
-        ## TODO not implement, but it will be obsolete if we rewrite cowsay
-        '''
-        (if not customcowsay)
-        
-        pcmd='#!/usr/bin/perl\nuse utf8;'
-        ccmd=$(for c in $(echo $PATH":" | sed -e 's/:/\/'"$cmd"' /g'); do if [ -f $c ]; then echo $c; break; fi done)
-        
-        if [ ${0} == *ponythink ]; then
-            cat <(echo -e $pcmd) $ccmd > "/tmp/ponythink"
-            perl '/tmp/ponythink' "$@"
-            rm '/tmp/ponythink'
-        else
-            perl <(cat <(echo -e $pcmd) $ccmd) "$@"
-        fi
-        '''
     
     
     '''
@@ -531,7 +518,7 @@ VARIADIC = 2
 '''
 Simple argument parser
 '''
-class ArgParser:
+class ArgParser():
     '''
     Constructor.
     The short description is printed on same line as the program name
@@ -782,6 +769,101 @@ opts.add_argumented(  ['-f', '--pony'],     arg = "PONY",    help = 'Select a po
 opts.add_variadic(    ['-q', '--quote'],    arg = "PONY",    help = 'Select a ponies which will quote themself.')
 
 opts.parse()
+
+
+
+'''
+Replacement for cowsay
+'''
+class Backend():
+    '''
+    Constructor
+    Takes message [string], ponyfile [filename string] and wrapcolumn [None or an int]
+    '''
+    def __init__(self, message, ponyfile, wrapcolumn):
+        self.message = message
+        self.wrapcolumn = wrapcolumn
+        self.output = None
+        
+        ponystream = None
+        try:
+            ponystream = open(ponyfile, 'r')
+            self.pony = ''.join(ponystream.readlines())
+        finally:
+            if ponystream is not None:
+                ponystream.close()
+    
+    
+    def parse(self):
+        self.output = ''
+        
+        variables = {'\\' : '\\', '/' : '/'} if not isthink else {'\\' : '\\', '/' : '/'}
+        variables[''] = '$'
+        
+        indent = 0
+        dollar = None
+        
+        (i, n) = (0, len(self.pony))
+        while i < n:
+            c = self.pony[i]
+            i += 1
+            if c == '$':
+                if dollar is not None:
+                    if '=' in dollar:
+                        name = dollar[:find('=')]
+                        value = dollar[find('=') + 1:]
+                        variables[name] = value
+                    elif (len(dollar) < 7) or not (dollar[:7] == 'balloon'):
+                        self.output += variables[dollar]
+                    else:
+                        (w, h) = (0, 0)
+                        #final String props = var.substring("balloon".length());
+                        #if (props.isEmpty() == false)
+                        #    if (props.contains(","))
+                        #    {
+                        #        if (props.startsWith(",") == false)
+                        #            w = Integer.parseInt(props.substring(0, props.indexOf(",")));
+                        #        h = Integer.parseInt(props.substring(1 + props.indexOf(",")));
+                        #    }
+                        #    else
+                        #        w = Integer.parseInt(props);
+                        #
+                        #balloon.print(w, h, indent);
+                        indent = 0
+                    dollar = None
+                else:
+                    dollar = ''
+            elif dollar is not None:
+                dollar += c
+            elif c == '\033':
+                self.output += c
+                if i == n: break
+                c = self.pony[i]
+                i += 1
+                self.output += c
+                
+                if c == ']':
+                    if i == n: break
+                    c = self.pony[i]
+                    i += 1
+                    self.output += c
+                    if c == 'P':
+                        di = 0
+                        while (di < 7) and (i < n):
+                            c = self.pony[i]
+                            i += 1
+                            di += 1
+                            self.output = c
+                elif c == '[':
+                    while i < n:
+                        c = self.pony[i]
+                        i += 1
+                        self.output += c
+                        if (c == '~') or (('a' <= c) and (c <= 'z')) or (('A' <= c) and (c <= 'Z')):
+                            break
+            else:
+                self.output += c;
+
 
 
 '''
