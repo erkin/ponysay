@@ -389,7 +389,12 @@ class Ponysay():
         if linuxvt:
             print('\033[H\033[2J', end='')
         
-        proc = Backend(message = msg, ponyfile = pony, wrapcolumn = int(args.opts['-W']) if args.opts['-W'] is not None else None, width = self.__gettermsize()[1]) # Popen(cmd, stdout=PIPE, stdin=sys.stderr)
+        env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
+        if env_width is None:  env_width = ''
+        widthtruncation = self.__gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
+        messagewrap = int(args.opts['-W']) if args.opts['-W'] is not None else None
+        
+        proc = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation) # Popen(cmd, stdout=PIPE, stdin=sys.stderr)
         exit_value = 0
         try:
             proc.parse()
@@ -782,24 +787,58 @@ class Backend():
     '''
     def __init__(self, message, ponyfile, wrapcolumn, width):
         self.message = message
+        self.ponyfile = ponyfile
         self.wrapcolumn = wrapcolumn
         self.width = width
-        self.output = None
+        
         self.link = {'\\' : '\\', '/' : '/'} if not isthink else {'\\' : 'o', '/' : 'o'}
         
-        ponystream = None
-        try:
-            ponystream = open(ponyfile, 'r')
-            self.pony = ''.join(ponystream.readlines())
-        finally:
-            if ponystream is not None:
-                ponystream.close()
+        self.output = None
+        self.pony = None
     
     
     '''
     Process all data
     '''
     def parse(self):
+        self.__loadFile()
+        self.__processPony()
+        self.__truncate()
+    
+    
+    def __loadFile(self):
+        ponystream = None
+        try:
+            ponystream = open(self.ponyfile, 'r')
+            self.pony = ''.join(ponystream.readlines())
+        finally:
+            if ponystream is not None:
+                ponystream.close()
+    
+    
+    def __truncate(self):
+        if self.width is None:
+            return
+        lines = self.output.split('\n')
+        self.output = ''
+        for line in lines:
+            (i, n, x) = (0, len(line), 0)
+            while i < n:
+                c = line[i]
+                i += 1
+                if c == '\033':
+                    colour = self.__getcolour(line, i - 1)
+                    i += len(colour) - 1
+                    self.output += colour
+                else:
+                    if x < self.width:
+                        self.output += c
+                        x += 1
+            self.output += '\n'
+        self.output = self.output[:-1]
+    
+    
+    def __processPony(self):
         self.output = ''
         
         variables = {'' : '$'}
@@ -835,11 +874,8 @@ class Backend():
                             else:
                                 indent = 0
                                 self.output = '\n'
-                            oldindent = indent
+                            self.output += line
                             indent += len(line)
-                            if   self.width is None:      self.output += line
-                            elif    indent < self.width:  self.output += line
-                            elif oldindent < self.width:  self.output += line[self.width - indent]
                     else:
                         (w, h) = (0, 0)
                         props = dollar[7:]
@@ -850,7 +886,12 @@ class Backend():
                                 h = int(props[props.index(',') + 1:])
                             else:
                                 w = int(props)
-                        #balloon.print(w, h, indent);
+                        balloon = self.__getballoon(w, h, indent).split('\n')
+                        balloonpre = '\n' + (' ' * indent)
+                        self.output += balloon[0]
+                        for line in balloon[1:]:
+                            self.output += balloonpre;
+                            self.output += line;
                         indent = 0
                     dollar = None
                 else:
@@ -861,38 +902,62 @@ class Backend():
                     i += 1
                 dollar += c
             elif c == '\033':
-                self.output += c
-                if i == n: break
-                c = self.pony[i]
-                i += 1
-                self.output += c
-                
-                if c == ']':
-                    if i == n: break
-                    c = self.pony[i]
-                    i += 1
-                    self.output += c
-                    if c == 'P':
-                        di = 0
-                        while (di < 7) and (i < n):
-                            c = self.pony[i]
-                            i += 1
-                            di += 1
-                            self.output = c
-                elif c == '[':
-                    while i < n:
-                        c = self.pony[i]
-                        i += 1
-                        self.output += c
-                        if (c == '~') or (('a' <= c) and (c <= 'z')) or (('A' <= c) and (c <= 'Z')):
-                            break
+                colour = self.__getcolour(self.pony, i - 1)
+                self.output += colour
+                i += len(colour) - 1
             elif c == '\n':
                 self.output += c
                 indent = 0
             else:
-                if (self.width is None) or (indent < self.width):
-                    self.output += c
+                self.output += c
                 indent += 1
+    
+    
+    def __getcolour(self, input, offset):
+        (i, n) = (offset, len(input))
+        rc = input[i]
+        i += 1
+        if i == n: return rc
+        c = input[i]
+        i += 1
+        rc += c
+        
+        if c == ']':
+            if i == n: return rc
+            c = input[i]
+            i += 1
+            rc += c
+            if c == 'P':
+                di = 0
+                while (di < 7) and (i < n):
+                    c = input[i]
+                    i += 1
+                    di += 1
+                    rc += c
+        elif c == '[':
+            while i < n:
+                c = input[i]
+                i += 1
+                rc += c
+                if (c == '~') or (('a' <= c) and (c <= 'z')) or (('A' <= c) and (c <= 'Z')):
+                    break
+        
+        return rc
+    
+    
+    def __getballoon(self, width, height, left):
+        wrap = None
+        if self.wrapcolumn is not None:
+            wrap = self.wrapcolumn - left
+        
+        w = 6
+        h = 5
+        if w < width:   w = width
+        if h < height:  h = height
+        
+        rc = (('X' * w) + '\n') * h
+        
+        return rc[:-1]
 
 
 
