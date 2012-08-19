@@ -172,7 +172,7 @@ is installed the ponies which have quotes, i.e. can be used with the
 @item -L
 @itemx --linklist
 @cindex @command{-L}
-@cindex @command{--linklist}
+@cindex @command{--altlist}
 Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
 is installed the ponies which have quotes, i.e. can be used with the
 @command{-q} option, will be mark by being printed in bold or bright
