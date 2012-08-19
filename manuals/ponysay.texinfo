@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 1.4.1
+@set VERSION 2.0
 
 @copying
 This manual is for ponysay
@@ -117,15 +117,21 @@ Otherwise @command{ponysay} and @command{ponythink} is the same thing.
 Parse the following arguments as parts of @code{@var{message}}.
 
 @item -h
+@itemx --help
 @cindex @command{-h}
+@cindex @command{--help}
 Show summary of options.
 
 @item -v
+@item --verion
 @cindex @command{-v}
+@cindex @command{--version}
 Show version of program.
 
 @item -f PONY
+@itemx --pony PONY
 @cindex @command{-f}
+@cindex @command{--pony}
 Specify the pony that should printed, this can either be a file name or
 a pony name printed by @command{ponysay -l}. If it is a file name with
 a relative path and does not include a `@code{/}', it must begin with
@@ -133,8 +139,13 @@ a relative path and does not include a `@code{/}', it must begin with
 multiple times to specify a set of ponies from which one will be selected
 randomly. If no pony is specified one will be selected randomly.
 
+If you have @command{util-say} installed, you can use .png-files as the
+arguments for this options.
+
 @item -q [PONY...]
+@itemx --quote [PONY...]
 @cindex @command{-q}
+@cindex @command{--quote}
 By using this option, a pony will be printed with quotes from her in My Little Pony:
 Friendship is Magic. The pony will be selected randomly, unless at least one pony
 is added as an argument after @command{-q}. If one or more ponies are added after
@@ -143,19 +154,25 @@ This option requires the extension @command{ponyquotes4ponysay}, which
 is included by default since version 1.2.
 
 @item -W COLUMN
+@itemx --wrap COLUMN
 @cindex @command{-W}
+@cindex @command{--wrap}
 Specify the screen column where the message should be wrapped,
 this is by default 40, which is inherited from @command{cowsay}.
 
 @item -l
+@itemx --list
 @cindex @command{-l}
+@cindex @command{--list}
 Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
 is installed the ponies which have quotes, i.e. can be used with the
 @command{-q} option, will be mark by being printed in bold or bright
 (depending on the terminal.)
 
 @item -L
+@itemx --linklist
 @cindex @command{-L}
+@cindex @command{--altlist}
 Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
 is installed the ponies which have quotes, i.e. can be used with the
 @command{-q} option, will be mark by being printed in bold or bright
@@ -226,7 +243,7 @@ to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi
 If you use TTY and have a custom colour palette, you should also add to your
 @code{~/.bashrc}, before @code{fortune | ponysay}:
 @example
-[[ "$TERM" = "linux" ]] &&
+[ "$TERM" = "linux" ] &&
     function ponysay
     @{   exec ponysay "$@@"
         #RESET PALETTE HERE
@@ -249,7 +266,7 @@ So before opening @command{screen} you use set @code{$TERM} to @code{xterm-256co
 if you are using a terminal with support for @code{xterm}'s 256 colours; this
 can be done by adding to your @code{~/.bashrc}:
 @example
-[[ "$TERM" = "xterm" ]] &&
+[ "$TERM" = "xterm" ] &&
     function screen
     @{   export TERM="xterm-256color"
         exec screen "$@@"
@@ -303,10 +320,10 @@ are not running @command{ponysay} under TTY.
 @cindex replace cowsay
 If you want to use another program than @command{cowsay} (the first
 @command{cowsay} found in @code{$PATH}), you can export @code{PONYSAY_COWSAY}
-with the value of that program. If, and only if, @code{PONYSAY_COWSAY} does
-not have any value, @command{cowsay} is patch with @code{use utf8;} to the
-beginning. The @code{use utf8;} patch is introduced to make it easier to
-customise cowsay.
+with the value of that program. In earlier versions than version 2.0: If, and
+only if, @code{PONYSAY_COWSAY} does not have any value, @command{cowsay} is
+patch with @code{use utf8;} to the beginning. The @code{use utf8;} patch is
+introduced to make it easier to customise cowsay.
 
 @code{PONYSAY_COWTHINK} will be used instead of @code{PONYSAY_COWSAY} if
 you run @command{ponythink}.
@@ -448,20 +465,14 @@ properties that makes a picture good.
 
 @table @option
 @item bash
-Required for the main script [file: @command{ponysay}].
+Required for the glue script.
 @item cowsay
 This is a wrapper for @command{cowsay}.
 @item coreutils
-The main script [file: @command{ponysay}] uses @command{stty}, @command{cut},
-@command{ls}, @command{cat}, @command{sort}, @command{readlink}, @command{pwd},
-@command{head} and @command{tail}.
-@item sed
-@cindex @command{-l}
-@cindex @command{-L}
-Used to remove @code{.pony} from pony names when running @command{ponysay -l}
-and @command{ponysay -L}.
-@item perl
-Required to run @command{ponysay -l} and @command{ponysay -L}.
+@command{stty} is used to determine the size of the terminal,
+other parts of Coreutils will not be needed for long
+@item python
+Python version 3 is the primary language of the program
 @end table
 
 @node Optional runtime dependencies
@@ -470,19 +481,21 @@ Required to run @command{ponysay -l} and @command{ponysay -L}.
 @cindex optional dependencies
 
 @table @option
-@item ponyquotes4ponysay
-@cindex ponyquotes4ponysay
-@cindex @command{-q}
-For support of My Little Pony quotes with associated pony: the @code{-q} option.
-It can be downloaded at @url{https://github.com/maandree/ponyquotes4ponysay}.
-
-Since version 1.2, this module is included in ponysay. You can edit ponysay's
-@code{Makefile} to remove it.
-
-@item kmsponies4ponysay
-@cindex kmsponies4ponysay
+@item util-say
+@cindex @command{util-say}
+@cindex kms
+@cindex tty
+@cindex linux vt
 For improved TTY support for user with custom colour palette and KMS support.
-It can be downloaded at @url{https://github.com/maandree/kmsponies4ponysay}.
+It can be downloaded at @url{https://github.com/maandree/util-say}.
+
+@cindex png images
+@cindex images, png
+@cindex portable network graphics
+For ther purpose of simplying for pony contributors, @command{ponysay}
+supports using .png-images (note that the file must not miss the
+@code{.png} in the file) in addition of .pony-files or pony names.
+
 @end table
 
 
@@ -499,6 +512,8 @@ Required to run the make script.
 @item coreutils
 The make script uses @command{install}, @command{unlink}, @command{rm}, @command{ln},
 @command{mkdir} and @command{cp}.
+@item sed
+Used on the make system.
 @item texinfo
 @itemx info
 @command{texinfo} and @command{info} are required if you want this @command{info} manual.
@@ -543,7 +558,7 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 
 @menu
 * Installations basics::        The basics of installations.
-* Custom installations::        Installation customisations.
+* Custom installations::        Installation customisation.
 @end menu
 
 @node Installations basics
@@ -561,17 +576,19 @@ for bleeding edge, or from @url{https://github.com/erkin/ponysay/tags} for relea
 If you have @command{git} you @command{clone} the project URL
 @url{https://github.com/erkin/ponysay.git}.
 
-In the terminal,@command{cd} into the ponysay directory and execute
-@command{make install}. This will install @command{ponysay} into the
+In the terminal, @command{cd} into the ponysay directory and execute
+@command{./configure && make install}. This will install @command{ponysay} into the
 @code{/usr}, meaning you may need to run @command{make install} as root,
 e.g. by running @command{sudo make install}.
 
 Now you will be to use ponysay, run: @command{ponysay "I am just the cutest pony!"},
 or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 
+@cindex manpage translations
 @command{ponysay} comes with this @command{info} manual and a manpage in section 6,
 @command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
-in Spanish: @command{man -L es 6 ponysay}.
+in Spanish: @command{man -L es 6 ponysay}. The install the Spanish manual add the
+option @command{--with-man-es} when running @command{./configure}.
 
 
 @node Custom installations
@@ -579,42 +596,64 @@ in Spanish: @command{man -L es 6 ponysay}.
 @cindex customised installations
 @cindex installation customisation
 @cindex make
+@cindex @command{./configure}
+@cindex configure
 
-A basic installation will install everyting @command{ponysay} has to offer, except
-the prebuild PDF manual. If you want to install the PDF manual, which is by default
-installed as a @command{info} manual, you can run @command{make install-pdf}.
-@command{make install-pdf} has no require means and will install the PDF manual, and
-only the PDF manual, to @code{/usr/doc/ponysay.pdf}.
+@cindex @command{--everything}
+A basic installation will install everything @command{ponysay} has to offer, except
+the prebuilt PDF manual and translated manpages. If you want to install exactly
+everything add the option @command{--everything} when running @command{./configure}.
 
-If you want to perform a regular installation, but without the @command{info} manual
-you can run @command{make install-no-info}. It is also possible to install each part
-independently; running @command{make install-min} will install the core of
-@command{ponysay}, which is the minimal set that can installed without generating
-errors or problems. After perform the core installaton whether are some other install
-commands:
+@cindex @command{--with-pdf}
+@cindex PDF manual, with
+@cindex @command{--without-man}
+@cindex manpage, without
+@cindex @command{--without-info}
+@cindex @command{info} manual, without
+@cindex @command{--with-man-LANG}
+@cindex manpage translations
+After @command{--everything} it is possible to remove unwanted parts, this can
+of cause be done without @command{--everything}. If you want to install the
+PDF manual to @code{/usr/doc/ponysay.pdf} add the option @command{--with-pdf} when
+running @command{./configure}. To install a manpage translation add
+@command{--with-man-LANG} and substitute the the language code for @code{LANG}.
+Currently the only translation is Spanish with the language code @code{es}.
+If you do not want the English manpage add the option @command{--without-man}.
+If you do not want the @command{info} manual add the option @command{--without-info}.
 
+
+The following argumentless options are also recognised:
 @itemize @bullet
-@item @command{make install-bash}
-will install completion for @command{ponysay} and shell GNU Bash.
-@item @command{make install-fish}
-will install completion for @command{ponysay} and shell @command{fish}.
-@item @command{make install-zsh}
-will install completion for @command{ponysay} and shell @command{zsh}.
-@item @command{make install-info}
-will install the @command{info} manual, this will enable the command @command{info ponysay}.
-@item @command{make install-man}
-will install the English manpage, which is a small to the point manual that is
-a bit more helpful @command{ponysay --help}. This will enable the command
-@command{man ponysay} and @command{man 6 ponysay}.
-@item @command{make install-man-es}
-will install a Spanish translation of the manpage. To read it you execute
-@command{man -L es ponysay} or @command{man -L es 6 ponysay}.
+@item @command{--without-bash}
+@cindex @command{--without-bash}
+@cindex @command{bash}, without
+will skip installation of auto-completion for @command{ponysay} and the
+GNU Bourne-again shell, @command{bash}.
+@item @command{--without-fish}
+@cindex @command{--without-fish}
+@cindex @command{fish}, without
+will skip installation of auto-completion for @command{ponysay} and the
+Friendly interactive shell, @command{fish}.
+@item @command{--without-zsh}
+@cindex @command{--without-zsh}
+@cindex @command{zsh}, without
+will skip installation of auto-completion for @command{ponysay} and the
+shell @command{zsh}.
 @end itemize
 
+@cindex @command{--prefix=TARGET}
+@cindex @code{/usr/games}
 The program is by default installed in @code{/usr}, if you want another target
-directory, you can add @code{PREFIX} when running @command{make}. For example
-to install @command{ponysay} in @code{/usr/games} you build the program by
-running @command{make PREFIX=/usr/games}, and alike for installation and uninstallation.
+directory, you can add @command{--prefix=TARGET} when running @command{./configure}.
+For example to install @command{ponysay} in @code{/usr/games} you build the
+program by running @command{./configure --prefix=/usr/games}, and alike for
+installation and uninstallation. Notice the @command{=} cannot be substituted
+with white space.
+
+@cindex @command{--info-desc=DESCRIPTION}
+If you are not using @command{--without-info} you can add
+@command{--info-desc=DESCRIPTION} to specify the description @command{info}
+which provide when listing commands.
 
 
 @node Arch Linux
@@ -622,8 +661,8 @@ running @command{make PREFIX=/usr/games}, and alike for installation and uninsta
 @cindex arch linux
 
 The official Arch Linux package repositories contains @command{ponysay} as
-@code{community/ponysay}. The Arch Linux User Repository (AUR) contains a bleeding edge
-git version of @command{ponysay} as @code{ponysay-git}.
+@code{community/ponysay}. The Arch Linux User Repository (AUR) contains a bleeding
+edge git version of @command{ponysay} as @code{ponysay-git}.
 
 
 @node Gentoo Linux
@@ -649,15 +688,11 @@ and a PPA can be found at @url{https://launchpad.net/~blazemore/+archive/ponysay
 
 If you did not install @command{ponysay} with a package manager, but rather
 manually from the upstream, you can uninstall it by running @command{make uninstall}.
-Do not forget @code{PREFIX} if it is not installed in @code{/usr}, see
-@ref{Custom installations}.
 
 Well written package manages will uninstall files that the package is no longer
 using, i.e. if deleted, moved or renamed. To uninstall files that are not longer
 used, by the currently installed version you will need that versions @code{Makefile}.
 To perform the uninstallion of old filed run @command{make uninstall-old}.
-Do not forget @code{PREFIX} if it is not installed in @code{/usr}, see
-@ref{Custom installations}.
 
 
 
@@ -683,8 +718,8 @@ are enabled when other packages are installed.
 @command{ponyquotes4ponysay} is a package that adds support for MLP:FiM quotes that are
 displayed with the associated ponies. See @ref{Invoking ponysay} for more information.
 
-As of version 1.2 @command{ponyquotes4ponysay} is included in @command{ponysay}, but can easily
-be removed, but is still available at @url{https://github.com/maandree/ponyquotes4ponysay}.
+As of version 1.2 @command{ponyquotes4ponysay} is included in @command{ponysay},
+but is still available at @url{https://github.com/maandree/ponyquotes4ponysay}.
 
 
 @node kmsponies4ponysay
@@ -700,7 +735,7 @@ be removed, but is still available at @url{https://github.com/maandree/ponyquote
 @cindex .bashrc
 
 @command{kmsponies4ponysay} is an extension for TTY users that have a custom TTY colour
-palette and KMS support. KMS is supported on must computers, but due to lack of published
+palette and KMS support. KMS is supported on most computers, but due to lack of published
 specifications Nvidea drivers does not support KMS. @command{kmsponies4ponysay} can be
 downloaded at @url{https://github.com/maandree/kmsponies4ponysay}.
 
@@ -718,7 +753,7 @@ Assuming you have a function in your @code{~/.bashrc}, to reset the colour palet
 you set it to last time in the terminal, named @command{reset-palette}, your @code{~/.bashrc}
 should, for example, contain:
 @example
-[[ "$TERM" = "linux" ]] &&
+[ "$TERM" = "linux" ] &&
     function ponysay
     @{   export PONYSAY_KMS_PALETTE="`reset-palette`"
         exec ponysay "$@@"
@@ -726,6 +761,9 @@ should, for example, contain:
 @end example
 
 @command{kmsponies4ponysay} uses @code{/var/cache/kmsponies4ponysay/} for cache space.
+
+As of version 2.0 @command{kmsponies4ponysay} is included in @command{ponysay},
+but is still available at @url{https://github.com/maandree/kmsponies4ponysay}.
 
 
 
@@ -739,6 +777,7 @@ should, for example, contain:
 * Printing in TTY with KMS::     Printing in TTY with KMS.
 * Truncation::                   Output truncation.
 * Languages::                    Selection of languages.
+* Shell auto-completion::        Things make auto-completion simplier.
 @end menu
 
 
@@ -817,13 +856,37 @@ sequences after the first character after the initial escape if it is not either
 @cindex script languages
 @cindex programming languages
 
-Ponysay is written primarily in GNU Bash shell script (POSIX compliant); the truncater
-is however written in C, because it is simple, fast, does not pose addition dependencies,
-and is easy to do byte hacking in.
+Before version 2.0 @command{ponysay} was written primarily in GNU Bash script
+(POSIX compliant); the truncater was however written in C, because it is simple,
+fast, does not pose addition dependencies, and is easy to do byte hacking in.
 
-Sometimes shell is too slow, in these cases [that exist today] Perl is used; Perl
-is already required by cowsay, is similar to shell, but also supports hash tables.
-[maandree: I actually learned Perl just for this.]
+Sometimes shell is too slow, in these cases Perl was used; Perl was already
+required by cowsay, is similar to shell, but also supports hash tables.
+
+However since version 2.0 we are trying to move from all there languages
+and only use Python 3.
+
+
+@node Shell auto-completion
+@section Shell auto-completion
+@cindex auto-completion, inner workings
+@cindex shell, auto-completion
+@cindex @command{--onelist}
+@cindex @command{--quoters}
+
+To make it easier to write auto-completion for shells, @command{ponysay} supports
+the two options @command{--onelist} and @command{--quoters}, which has not short
+versions.
+
+Executing @command{ponysay --onelist} will list every available pony,
+independent of where it is located, the output is a sorted and consists only
+of one pony per line.
+
+@command{ponysay --quoters} work just as @command{ponysay --onelist}, excepts
+it limites the ponies to those that have quotes. Ponies that have qoutes,
+but does not exist, i.e. does not have a .pony-file, are not listed.
+
+Auto-completion scripts should not suggest these options.
 
 
 
@@ -891,6 +954,17 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 2.0
+
+@itemize @bullet
+@item
+Makefile is generated by running @command{./configure}.
+@item
+All Perl scripts and almost all Bash are reimplemented in one Python 3 script.
+@item
+kmsponies4ponysay is included.
+@end itemize
 
 @heading Version 1.4.1
 
@@ -1188,24 +1262,26 @@ First release.
 @node Ponysay contributors
 @appendix Ponysay contributors
 
-Active developers of ponysay:
+Active developers and major contributors of ponysay:
 @itemize @bullet
-@item Erkin Batu Altunbaş
-@item Mattias Andrée
-@item Sven-Hendrik Haase
-@item Pablo Lezaeta
-@item Jan Alexander Steffens
+@item Erkin ``erkin'' Batu Altunbaş
+@item Mattias ``maandree'' Andrée
+@item Elis ``etu'' Axelsson
+@item Sven-Hendrik ``svenstaro'' Haase
+@item Pablo ``jristz'' Lezaeta
+@item Jan Alexander ``heftig'' Steffens
 @end itemize
 @*
 Patchers and other contributors of ponysay:
 @itemize @bullet
-@item Elis Axelsson
-@item Duane Bekaert
-@item Kyah Rindlisbacher
-@item James Ross-Gowan
-@item Louis Taylor
-@item Jannis
+@item Duane ``Marneus68'' Bekaert
+@item Kyah ``L-four'' Rindlisbacher
+@item James ``rossy2401'' Ross-Gowan
+@item Louis ``kragniz'' Taylor
+@item Jannis ``sycoso''
+@item ``spider-mario''
 @end itemize
+
 
 
 @node Ponysay license
@@ -1219,11 +1295,15 @@ You have the four essential freedoms:
 @item
 The freedom to run the program, for any purpose (freedom 0).
 @item
-The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.
+The freedom to study how the program works, and change it so it does your
+computing as you wish (freedom 1). Access to the source code is a precondition
+for this.
 @item
 The freedom to redistribute copies so you can help your neighbour (freedom 2). 
 @item
-The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.
+The freedom to distribute copies of your modified versions to others (freedom 3).
+By doing this you can give the whole community a chance to benefit from your
+changes. Access to the source code is a precondition for this.
 @end itemize
 
 @*

@@ -16,6 +16,10 @@
 
 /completion/*-completion-think.*
 /manuals/manpage.*.gz
+/ponysay.info
 /ponysay.info.gz
 /truncater
 *.install
+/Makefile
+/quotes/
+
