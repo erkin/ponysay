@@ -754,7 +754,12 @@ Argument parsing
 '''
 opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
                  description = 'cowsay wrapper for ponies',
-                 usage       = usage)
+                 usage       = usage,
+                 longdescription =
+'''Ponysay displays an image of a pony saying some text provided by the user.
+If \033[4mmessage\033[24m is not provided, it accepts standard input. For an extensive
+documentation run `info ponysay`, or for just a little more help than this
+run `man ponysay`. Ponysay has so much more to offer than described here.''')
 
 opts.add_argumentless(['--quoters'])
 opts.add_argumentless(['--onelist'])
