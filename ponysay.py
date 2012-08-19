@@ -7,10 +7,10 @@ Copyright (C) 2012  Erkin Batu Altunbaş
 
 Authors: Erkin Batu Altunbaş:              Project leader, helped write the first implementation
          Mattias "maandree" Andrée:        Major contributor of both implementions
-         Elis "etu" Axelsson:              Major contributor of current implemention and patcher of first implementation
-         Sven-Hendrik "svenstaro" Haase:   Major contributor first implementation
+         Elis "etu" Axelsson:              Major contributor of current implemention and patcher of the first implementation
+         Sven-Hendrik "svenstaro" Haase:   Major contributor of the first implementation
+         Jan Alexander "heftig" Steffens:  Major contributor of the first implementation
          Kyah "L-four" Rindlisbacher:      Patched the first implementation
-         Jan Alexander "heftig" Steffens:  Major contributor first implementation
 
 License: WTFPL
 '''
