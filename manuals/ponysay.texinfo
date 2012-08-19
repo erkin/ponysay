@@ -766,6 +766,7 @@ but is still available at @url{https://github.com/maandree/kmsponies4ponysay}.
 * Printing in TTY with KMS::     Printing in TTY with KMS.
 * Truncation::                   Output truncation.
 * Languages::                    Selection of languages.
+* Shell auto-completion::        Things make auto-completion simplier.
 @end menu
 
 
@@ -853,6 +854,28 @@ required by cowsay, is similar to shell, but also supports hash tables.
 
 However since version 2.0 we are trying to move from all there languages
 and only use Python 3.
+
+
+@node Shell auto-completion
+@section Shell auto-completion
+@cindex auto-completion, inner workings
+@cindex shell, auto-completion
+@cindex @command{--onelist}
+@cindex @command{--quoters}
+
+To make it easier to write auto-completion for shells, @command{ponysay} supports
+the two options @command{--onelist} and @command{--quoters}, which has not short
+versions.
+
+Executing @command{ponysay --onelist} will list every available pony,
+independent of where it is located, the output is a sorted and consists only
+of one pony per line.
+
+@command{ponysay --quoters} work just as @command{ponysay --onelist}, excepts
+it limites the ponies to those that have quotes. Ponies that have qoutes,
+but does not exist, i.e. does not have a .pony-file, are not listed.
+
+Auto-completion scripts should not suggest these options.
 
 
 
@@ -1247,6 +1270,7 @@ Patchers and other contributors of ponysay:
 @item Jannis ``sycoso''
 @item ``spider-mario''
 @end itemize
+
 
 
 @node Ponysay license
