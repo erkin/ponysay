@@ -15,7 +15,6 @@ Authors: Erkin Batu Altunbaş:              Project leader, helped write the fir
 License: WTFPL
 '''
 
-import argparse
 import os
 import sys
 import random
@@ -25,7 +24,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = '2.0-rc2'
+VERSION = '2.0-rc3'
 
 
 '''
@@ -44,6 +43,12 @@ HOME = os.environ['HOME']
 Whether the program is execute in Linux VT (TTY)
 '''
 linuxvt = os.environ['TERM'] == 'linux'
+
+
+'''
+Whether the script is executed as ponythink
+'''
+isthink = (len(__file__) >= 8) and (__file__[-8:] == 'think.py')
 
 
 '''
@@ -75,46 +80,24 @@ for quotedir in _quotedirs:
 
 
 '''
-Argument parsing
-'''
-parser = argparse.ArgumentParser(prog = 'ponysay', description = 'cowsay wrapper for ponies')
-
-parser.add_argument('-v', '--version', action = 'version',                       version = '%s %s' % ('ponysay', VERSION))
-parser.add_argument('-l', '--list',    action = 'store_true', dest = 'list',     help = 'list pony files')
-parser.add_argument('-L', '--altlist', action = 'store_true', dest = 'linklist', help = 'list pony files with alternatives')
-parser.add_argument(      '--quoters', action = 'store_true', dest = 'quoters',  help = 'list ponies with quotes (visible in -l and -L)')  # for shell completions
-parser.add_argument(      '--onelist', action = 'store_true', dest = 'onelist',  help = 'list pony files in one columns')                  # for shell completions
-parser.add_argument('-W', '--wrap',    action = 'store',      dest = 'wrap',     help = 'specify the column when the message should be wrapped')
-parser.add_argument('-f', '--pony',    action = 'append',     dest = 'pony',     help = 'select a pony (either a file name or a pony name)')
-parser.add_argument('-q', '--quote',   nargs  = '*',          dest = 'quote',    help = 'select a pony which will quote herself')
-parser.add_argument('message',         nargs  = '?',                             help = 'message to ponysay')
-
-args = parser.parse_args()
-# TODO implement   if [ -t 0 ] && [ $# == 0 ]; then
-#                    usage
-#                    exit
-#                  fi
-
-
-
-'''
 This is the mane class of ponysay
 '''
-class ponysay():
+class Ponysay():
     '''
     Starts the part of the program the arguments indicate
     '''
     def __init__(self, args):
-        if args.list and redirected:
-            args.list = False
-            args.onelist = True
+        if (args.opts['-l'] is not None) and redirected:
+            args.opts['--onelist'] = args.opts['-l']
+            args.opts['-l'] = None
         
-        if   args.list:      self.list()
-        elif args.linklist:  self.linklist()
-        elif args.quoters:   self.quoters()
-        elif args.onelist:   self.onelist()
-        elif args.quote:     self.quote(args)
-        else:                self.print_pony(args)
+        if   args.opts['--quoters'] is not None:  self.quoters()
+        elif args.opts['--onelist'] is not None:  self.onelist()
+        elif args.opts['-v']        is not None:  self.version()
+        elif args.opts['-l']        is not None:  self.list()
+        elif args.opts['-L']        is not None:  self.linklist()
+        elif args.opts['-q']        is not None:  self.quote(args)
+        else:                                     self.print_pony(args)
     
     
     ##
@@ -141,7 +124,12 @@ class ponysay():
         if names == None:
             names = list(ponies.keys())
         
-        return ponies[names[random.randrange(0, len(names))]]
+        pony = names[random.randrange(0, len(names))]
+        if pony not in ponies:
+            sys.stderr.write('I have never heared of any pony named %s\n' % (pony));
+            exit(1)
+        else:
+            return ponies[pony]
     
     
     '''
@@ -187,6 +175,7 @@ class ponysay():
                     p = pony[:-5] # remove .pony
                     for quote in quotes:
                         q = quote[quote.rindex('/') + 1:]
+                        q = q[:q.rindex('.')]
                         if ('+' + p + '+') in ('+' + q + '+'):
                             rc.append((p, quote))
         
@@ -307,7 +296,7 @@ class ponysay():
     Lists with all ponies that have quotes and are displayable
     '''
     def quoters(self):
-        last = ""
+        last = ''
         ponies = []
         for pony in self.__quoters():
             ponies.append(pony)
@@ -322,7 +311,7 @@ class ponysay():
     Lists the available ponies one one column without anything bold
     '''
     def onelist(self):
-        last = ""
+        last = ''
         ponies = []
         for ponydir in ponydirs: # Loop ponydirs
             ponies += os.listdir(ponydir)
@@ -339,11 +328,16 @@ class ponysay():
     ##
     
     '''
+    Prints the name of the program and the version of the program
+    '''
+    def version(self):
+        print('%s %s' % ('ponysay', VERSION))
+    
+    
+    '''
     Returns (the cowsay command, whether it is a custom program)
     '''
     def __getcowsay(self):
-        isthink = (len(__file__) >= 8) and (__file__[-8:] == 'think.py')
-        
         if isthink:
             cowthink = os.environ['PONYSAY_COWTHINK'] if 'PONYSAY_COWTHINK' in os.environ else None
             return ('cowthink', False) if (cowthink is None) or (cowthink == '') else (cowthink, True)
@@ -362,7 +356,7 @@ class ponysay():
             msg = args.message
         
         
-        pony = self.__getponypath(args.pony)
+        pony = self.__getponypath(args.opts['-f'])
         (cowsay, customcowsay) = self.__getcowsay()
         
         if (len(pony) > 4) and (pony[-4:].lower() == '.png'):
@@ -373,8 +367,8 @@ class ponysay():
             pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
         
         cmd = [cowsay, '-f', self.__kms(pony)]
-        if args.wrap is not None:
-            cmd += ['-W', args.wrap]
+        if args.opts['-W'] is not None:
+            cmd += ['-W', args.opts['-W']]
         cmd.append(msg)
         
         if linuxvt:
@@ -402,8 +396,8 @@ class ponysay():
         if not exit_value == 0:
             sys.stderr.write('Unable to successfully execute' + (' custom ' if customcowsay else ' ') + 'cowsay [' + cowsay + ']\n')
         else:
-            if linuxvt or (env_height is ("yes", "y", "1")):
-                if env_bottom is ("yes", "y", "1"):
+            if linuxvt or (env_height is ('yes', 'y', '1')):
+                if env_bottom is ('yes', 'y', '1'):
                     for line in output[: -lines]:
                         print(line)
                 else:
@@ -435,14 +429,14 @@ class ponysay():
     '''
     def quote(self, args):
         pairs = self.__quotes()
-        if len(args.quote) > 0:
-            ponyset = set(args.quote)
+        if len(args.opts['-q']) > 0:
+            ponyset = set(args.opts['-q'])
             alts = []
             for pair in pairs:
                 if pair[0] in ponyset:
                     alts.append(pair)
             pairs = alts
-        
+            
         if not len(pairs) == 0:
             pair = pairs[random.randrange(0, len(pairs))]
             qfile = None
@@ -452,12 +446,12 @@ class ponysay():
             finally:
                 if qfile is not None:
                     qfile.close()
-            args.pony = [pair[0]]
-        elif len(args.quote) == 0:
-            sys.stderr.write('All the ponies are mute! Call the Princess!')
+            args.opts['-f'] = [pair[0]]
+        elif len(args.opts['-q']) == 0:
+            sys.stderr.write('All the ponies are mute! Call the Princess!\n')
             exit(1)
         else:
-            args.pony = args.quote[random.randrange(0, len(args.quote))]
+            args.opts['-f'] = [args.opts['-q'][random.randrange(0, len(args.opts['-q']))]]
             args.message = 'I got nuthin\' good to say :('
         
         self.print_pony(args)
@@ -511,8 +505,204 @@ class ponysay():
 
 
 
+ARGUMENTLESS = 0
+ARGUMENTED = 1
+VARIADIC = 2
+'''
+Simple argument parser
+'''
+class ArgParser:
+    '''
+    Constructor.
+    The short description is printed on same line as the program name
+    '''
+    def __init__(self, program, description, usage, longdescription = None):
+        self.__program = program
+        self.__description = description
+        self.__usage = usage
+        self.__longdescription = longdescription
+        self.__arguments = []
+        self.opts = {}
+        self.optmap = {}
+    
+    
+    '''
+    Add option that takes no arguments
+    '''
+    def add_argumentless(self, alternatives, help = None):
+        ARGUMENTLESS
+        self.__arguments.append((ARGUMENTLESS, alternatives, help))
+        stdalt = alternatives[0]
+        self.opts[stdalt] = None
+        for alt in alternatives:
+            self.optmap[alt] = (stdalt, ARGUMENTLESS)
+    
+    '''
+    Add option that takes one argument
+    '''
+    def add_argumented(self, alternatives, help = None):
+        self.__arguments.append((ARGUMENTED, alternatives, help))
+        stdalt = alternatives[0]
+        self.opts[stdalt] = None
+        for alt in alternatives:
+            self.optmap[alt] = (stdalt, ARGUMENTED)
+    
+    '''
+    Add option that takes all following argument
+    '''
+    def add_variadic(self, alternatives, help = None):
+        self.__arguments.append((VARIADIC, alternatives, help))
+        stdalt = alternatives[0]
+        self.opts[stdalt] = None
+        for alt in alternatives:
+            self.optmap[alt] = (stdalt, VARIADIC)
+    
+    
+    '''
+    Parse arguments
+    '''
+    def parse(self, argv = sys.argv):
+        self.argcount = len(argv) - 1
+        self.files = []
+        
+        argqueue = []
+        optqueue = []
+        deque = []
+        for arg in argv[1:]:
+            deque.append(arg)
+        
+        dashed = False
+        tmpdashed = False
+        get = 0
+        dontget = 0
+        
+        def unrecognised(arg):
+            sys.stderr.write('%s: warning: unrecognised option %s\n' % (self.__program, arg))
+        
+        while len(deque) != 0:
+            arg = deque[0]
+            deque = deque[1:]
+            if (get > 0) and (dontget == 0):
+                get -= 1
+                argqueue.append(arg)
+            elif tmpdashed:
+                self.files.append(arg)
+                tmpdashed = False
+            elif dashed:        self.files.append(arg)
+            elif arg == '++':   tmpdashed = True
+            elif arg == '--':   dashed = True
+            elif (len(arg) > 1) and ((arg[0] == '-') or (arg[0] == '+')):
+                if (len(arg) > 2) and ((arg[:2] == '--') or (arg[:2] == '++')):
+                    if dontget > 0:
+                        dontget -= 1
+                    elif (arg in self.optmap) and (self.optmap[arg][1] == ARGUMENTLESS):
+                        optqueue.append(arg)
+                        argqueue.append(None)
+                    elif '=' in arg:
+                        arg_opt = arg[:arg.index('=')]
+                        if (arg_opt in self.optmap) and (self.optmap[arg_opt][1] >= ARGUMENTED):
+                            optqueue.append(arg_opt)
+                            argqueue.append(arg[arg.index('=') + 1:])
+                            if self.optmap[arg_opt][1] == VARIADIC:
+                                dashed = True
+                        else:
+                            unrecognised(arg)
+                    elif (arg in self.optmap) and (self.optmap[arg][1] == ARGUMENTED):
+                        optqueue.append(arg)
+                        get += 1
+                    elif (arg in self.optmap) and (self.optmap[arg][1] == VARIADIC):
+                        optqueue.append(arg)
+                        argqueue.append(None)
+                        dashed = True
+                    else:
+                        unrecognised(arg)
+                else:
+                    sign = arg[0]
+                    i = 1
+                    n = len(arg)
+                    while i < n:
+                        narg = sign + arg[i]
+                        i += 1
+                        if (narg in self.optmap):
+                            if self.optmap[narg][1] == ARGUMENTLESS:
+                                optqueue.append(narg)
+                                argqueue.append(None)
+                            elif self.optmap[narg][1] == ARGUMENTED:
+                                optqueue.append(narg)
+                                nargarg = arg[i:]
+                                if len(nargarg) == 0:
+                                    get += 1
+                                else:
+                                    argqueue.append(nargarg)
+                                break
+                            elif self.optmap[narg][1] == VARIADIC:
+                                optqueue.append(narg)
+                                nargarg = arg[i:]
+                                argqueue.append(nargarg if len(nargarg) > 0 else None)
+                                dashed = True
+                                break
+                        else:
+                            unrecognised(arg)
+            else:
+                self.files.append(arg)
+        
+        i = 0
+        n = len(optqueue)
+        while i < n:
+            opt = optqueue[i]
+            arg = argqueue[i]
+            i += 1
+            opt = self.optmap[opt][0]
+            if (opt not in self.opts) or (self.opts[opt] is None):
+                self.opts[opt] = []
+            self.opts[opt].append(arg)
+        
+        for arg in self.__arguments:
+            if (arg[0] == VARIADIC):
+                varopt = self.opts[arg[1][0]]
+                if varopt is not None:
+                    additional = ','.join(self.files).split(',') if len(self.files) > 0 else []
+                    if varopt[0] is None:
+                        self.opts[arg[1][0]] = additional
+                    else:
+                        self.opts[arg[1][0]] = varopt[0].split(',') + additional
+                    self.files = []
+                    break
+        
+        self.message = ' '.join(self.files) if len(self.files) > 0 else None
+        #print('files = ' + str(self.files))
+        #print('message = ' + str(self.message))
+        #print('opts = ' + str(self.opts))
+
+
+
+'''
+Argument parsing
+'''
+opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
+                 description = 'cowsay wrapper for ponies',
+                 usage       = '-l | -L | [-W] [[-f PONY]* [message] | -q [PONY*]]')
+
+opts.add_argumentless(['--quoters'])
+opts.add_argumentless(['--onelist'])
+
+opts.add_argumentless(['-h', '--help'],    help = 'Print this help message')
+opts.add_argumentless(['-v', '--version'], help = 'Print the version of the program')
+opts.add_argumentless(['-l', '--list'],    help = 'List pony files')
+opts.add_argumentless(['-L', '--altlist'], help = 'List pony files with alternatives')
+opts.add_argumented(  ['-W', '--wrap'],    help = 'Specify the column when the message should be wrapped')
+opts.add_argumented(  ['-f', '--pony'],    help = 'Select a pony (either a file name or a pony name)')
+opts.add_variadic(    ['-q', '--quote'],   help = 'Select a ponies which will quote themself')
+
+opts.parse()
+# TODO implement   if [ -t 0 ] && [ $# == 0 ]; then
+#                    usage
+#                    exit
+#                  fi
+
+
 '''
 Start the program from ponysay.__init__ if this is the executed file
 '''
 if __name__ == '__main__':
-    ponysay(args)
+    Ponysay(opts)
