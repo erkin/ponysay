@@ -3,23 +3,23 @@
 INSTALLDIR="$(dirname $( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))"
 LIBDIR="$INSTALLDIR/lib/ponysay"
 
+# The truncater executable
 truncatercmd="$LIBDIR/truncater"
 
-scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2` # Screen width
+# Screen width
+scrw=`(stty size <&2 || echo 0 0) | cut -d ' ' -f 2`
 
+# Output trunction on width
 function wtrunc {
-    if [ "$PONYSAY_FULL_WIDTH" = 'yes' ] || [ "$PONYSAY_FULL_WIDTH" = 'y' ] || [ "$PONYSAY_FULL_WIDTH" = '1' ]; then
+    if [[ "$PONYSAY_FULL_WIDTH" = 'yes' ]] || [[ "$PONYSAY_FULL_WIDTH" = 'y' ]] || [[ "$PONYSAY_FULL_WIDTH" = '1' ]] || [[ ! -f $truncatercmd ]]; then
         cat
     else
-        if [[ -f $truncatercmd ]]; then
-            $truncatercmd $scrw
-        else
-            cat
-        fi
+        $truncatercmd $scrw
     fi
 }
 
 # Ponies use UTF-8 drawing characters. Prevent a Perl warning.
 export PERL_UNICODE=S
 
+# Run ponysay
 "$0.py" "$@" | wtrunc
