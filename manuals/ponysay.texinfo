@@ -139,6 +139,9 @@ a relative path and does not include a `@code{/}', it must begin with
 multiple times to specify a set of ponies from which one will be selected
 randomly. If no pony is specified one will be selected randomly.
 
+If you have @command{util-say} installed, you can use .png-files as the
+arguments for this options.
+
 @item -q [PONY...]
 @itemx --quote [PONY...]
 @cindex @command{-q}
@@ -485,6 +488,14 @@ Python version 3 is the primary language of the program
 @cindex linux vt
 For improved TTY support for user with custom colour palette and KMS support.
 It can be downloaded at @url{https://github.com/maandree/util-say}.
+
+@cindex png images
+@cindex images, png
+@cindex portable network graphics
+For ther purpose of simplying for pony contributors, @command{ponysay}
+supports using .png-images (note that the file must not miss the
+@code{.png} in the file) in addition of .pony-files or pony names.
+
 @end table
 
 
@@ -1265,7 +1276,7 @@ Patchers and other contributors of ponysay:
 @itemize @bullet
 @item Duane ``Marneus68'' Bekaert
 @item Kyah ``L-four'' Rindlisbacher
-@item James `rossy2401'' Ross-Gowan
+@item James ``rossy2401'' Ross-Gowan
 @item Louis ``kragniz'' Taylor
 @item Jannis ``sycoso''
 @item ``spider-mario''

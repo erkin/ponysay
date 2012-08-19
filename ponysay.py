@@ -25,7 +25,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = '2.0-rc1'
+VERSION = '2.0-rc2'
 
 
 '''
@@ -122,7 +122,7 @@ class ponysay():
     ##
     
     '''
-    Returns one .pony-file with full path, names is filter for names, also accepts filepaths
+    Returns one file with full path, names is filter for names, also accepts filepaths.
     '''
     def __getponypath(self, names = None):
         ponies = {}
@@ -130,7 +130,7 @@ class ponysay():
         if not names == None:
             for name in names:
                 if os.path.isfile(name):
-                    return name
+                    ponies[name] = name
         
         for ponydir in ponydirs:
             for ponyfile in os.listdir(ponydir):
@@ -342,7 +342,7 @@ class ponysay():
     Returns (the cowsay command, whether it is a custom program)
     '''
     def __getcowsay(self):
-        isthink = 'think.py' in __file__
+        isthink = (len(__file__) >= 8) and (__file__[-8:] == 'think.py')
         
         if isthink:
             cowthink = os.environ['PONYSAY_COWTHINK'] if 'PONYSAY_COWTHINK' in os.environ else None
@@ -361,8 +361,16 @@ class ponysay():
         else:
             msg = args.message
         
+        
         pony = self.__getponypath(args.pony)
         (cowsay, customcowsay) = self.__getcowsay()
+        
+        if (len(pony) > 4) and (pony[-4:].lower() == '.png'):
+            pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
+            pngcmd = ('img2ponysay -p -- ' if linuxvt else 'img2ponysay -- ') + pony
+            pngpipe = os.pipe()
+            Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
+            pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
         
         cmd = [cowsay, '-f', self.__kms(pony)]
         if args.wrap is not None:
