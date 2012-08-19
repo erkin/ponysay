@@ -92,7 +92,7 @@ for arg in "$@"; do
 done
 
 compileMethods='core truncater manpages ponysaycompletion ponythinkcompletion'
-installMethods='install-min'"$installPdf$installInfo$installMan'$installManEs$installBash$installFish$installZsh"
+installMethods='install-min'"$installPdf$installInfo$installMan$installManEs$installBash$installFish$installZsh"
 if [ ! "$installInfo" = '' ]; then
     compileMethods="$compileMethods infomanual"
 fi
