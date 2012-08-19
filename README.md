@@ -12,10 +12,10 @@ First of all, you need `cowsay` from your local repositories.
 Obtain it from [here](http://www.nog.net/~tony/warez) if you wish to compile it yourself.
 This is often sufficient, but if is not you may be missing one of the standard packages: [bash](ftp://ftp.gnu.org/gnu/bash/), [coreutils](ftp://ftp.gnu.org/gnu/coreutils/) or [sed](ftp://ftp.gnu.org/gnu/sed/).
 
-[Download](https://github.com/erkin/ponysay/downloads) or clone the project.
-In the terminal, `cd` into the ponysay directory and `make && make install`.
-
-This will install ponysay into the $PREFIX (`/usr` by default, meaning you may need to `make install` as root, e.g. `sudo make install`.)
+[Download](/erkin/ponysay/downloads) or clone the project.
+In the terminal, `cd` into the ponysay directory and `./configure && make && make install`.
+You make need to be super user to run `make install`, on most systems this
+can be achieved by running `sudo make install`.
 
 If either `make` or `make install` fails you be missing one of the standard packages:
 [gcc](ftp://ftp.gnu.org/gnu/gcc/), [gzip](ftp://ftp.gnu.org/gnu/gzip/), [make](ftp://ftp.gnu.org/gnu/make/) or [coreutils](ftp://ftp.gnu.org/gnu/coreutils/), or [git](http://git-scm.com/).
@@ -46,7 +46,7 @@ This requires that you have the `fortune` utility installed. You can install it 
 or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
 
 You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or
-[ponypipe](https://github.com/maandree/ponypipe) to ponify fortunes.
+[ponypipe](/maandree/ponypipe) to ponify fortunes.
 
 Edit your `~/.bashrc` and add this to the end of the file
 
@@ -84,19 +84,17 @@ Dependencies
 
 ### Required runtime dependencies
 
-`bash`: required for the main script [file: ponysay]
+`bash`: bash is used in a minor part of the program to make everything work, this will be removed later
+
+`coreutils`: stty in coreutils used to determine size of the terminal, other parts of coreutils will not be needed for long
 
 `cowsay`: this is a wrapper for cowsay
 
-`coreutils`: the main script uses stty, cut, ls, cat, sort, readlink, pwd, head and tail
-
-`sed`: used to remove .pony from pony names when running `ponysay -l` and `ponysay -l`
-
-`perl`: required to run `ponysay -l` and `ponysay -L`
+`python>=3`: Written in python 3
 
 ### Package building dependencies
 
-`gcc`: used for compiling ponysaytruncater.c
+`gcc`: used for compiling truncater.c
 
 `gzip`: used for compressing manpages
 
@@ -110,13 +108,13 @@ FAQ
 
 __Q:__ The output looks like a mess in _(TTY/PuTTY/other)_!
 
-__A:__ Unfortunately, there's nothing much we can do about it. See [issue 1](https://github.com/erkin/ponysay/issues/1).
+__A:__ Unfortunately, there's nothing much we can do about it. See [issue 1](/erkin/ponysay/issues/1).
 
 __Q:__ You are missing _(my-favourite-pony)_!
 
-__A:__ [Ask](https://github.com/erkin/ponysay/issues) and we'll add!
+__A:__ [Ask](/erkin/ponysay/issues) and we'll add!
 
 __Q:__ Which programs do you use to generate the pony files?
 
 __A:__ The pony files are actually mostly a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html)
-that are generated into cow files via [img2xterm](https://github.com/rossy2401/img2xterm) or [util-say](https://github.com/maandree/util-say).
+that are generated into cow files via [img2xterm](/rossy2401/img2xterm) or [util-say](/maandree/util-say).
