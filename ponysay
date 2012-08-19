@@ -268,7 +268,7 @@ fi
 
 
 # Pony not a file? Search for it
-if [ ! -f $pony ]; then
+if [ ! -f "$pony" ]; then
 	ponies=()
 	[ -d $SYSTEMPONIES ] && ponies+=( "$SYSTEMPONIES"/$pony.pony )
 	[ -d $HOMEPONIES ]   && ponies+=( "$HOMEPONIES"/$pony.pony )
