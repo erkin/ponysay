@@ -491,23 +491,28 @@ class Ponysay():
         palettefile = env_kms.replace('\033]P', '')
         
         kmsponies = '/var/cache/ponysay/kmsponies/' + palettefile
-        kmspony = kmsponies + pony
+        kmspony = (kmsponies + pony).replace('//', '/')
         
         if not os.path.isfile(kmspony):
             protokmsponies = '/var/cache/ponysay/protokmsponies/'
-            protokmspony = protokmsponies + pony
+            protokmspony = (protokmsponies + pony).replace('//', '/')
+            
+            protokmsponydir = protokmspony[:protokmspony.rindex('/')]
+            kmsponydir      =      kmspony[:     kmspony.rindex('/')]
             
             _protokmspony = '\'' + protokmspony.replace('\'', '\'\\\'\'') + '\''
             _kmspony      = '\'' +      kmspony.replace('\'', '\'\\\'\'') + '\''
             _pony         = '\'' +         pony.replace('\'', '\'\\\'\'') + '\''
             
             if not os.path.isfile(protokmspony):
-                os.makedirs(protokmsponies)
+                if not os.path.isdir(protokmsponydir):
+                    os.makedirs(protokmsponydir)
                 if not os.system('ponysay2ttyponysay < ' + _pony + ' > ' + _protokmspony) == 0:
                     sys.stderr.write('Unable to run ponysay2ttyponysay successfully, you need util-say for KMS support\n')
                     exit(1)
             
-            os.makedirs(kmsponies)
+            if not os.path.isdir(kmsponydir):
+                os.makedirs(kmsponydir)
             if not os.system('tty2colourfultty -e -p ' + palette + ' < ' + _protokmspony + ' > ' + _kmspony) == 0:
                 sys.stderr.write('Unable to run tty2colourfultty successfully, you need util-say for KMS support\n')
                 exit(1)

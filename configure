@@ -223,6 +223,9 @@ function makeMakefile()
 	echo 'install "'"$file"'" "$(INSTALLDIR)/share/licenses/ponysay/'"$file"'"'
     done
     echo
+    echo -en '\t' ; echo 'mkdir -p $(DESTDIR)/var/cache/ponysay/'
+    echo -en '\t' ; echo 'chmod 777 $(DESTDIR)/var/cache/ponysay/'
+    echo
     
     for completion in $completions; do
 	shell="${completion##*/}"
@@ -286,6 +289,7 @@ EOF
     echo
     
     echo 'uninstall:'
+    echo -en '\t' ; echo 'if [ -d "$(DESTDIR)/var/cache/ponysay" ]; then  rm -rf "$(INSTALLDIR)/var/cache/ponysay"; fi'
     for old in $installedDirs; do
 	echo -en '\t'
 	echo 'if [ -d "$(INSTALLDIR)/'"$old"'" ]; then  rm -rf "$(INSTALLDIR)/'"$old"'"; fi'
