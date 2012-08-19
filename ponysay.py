@@ -366,7 +366,7 @@ class Ponysay():
     '''
     def print_pony(self, args):
         if args.message == None:
-            msg = sys.stdin.read().strip()
+            msg = ''.join(sys.stdin.readlines()).strip()
         else:
             msg = args.message
         
