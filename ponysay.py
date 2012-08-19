@@ -52,9 +52,19 @@ isthink = (len(__file__) >= 8) and (__file__[-8:] == 'think.py')
 
 
 '''
-Whether the program is launched in subshell/being redirected
+Whether stdin is piped
 '''
-redirected = False #not sys.stdout.isatty()  # currently impossible, we need to get rid of the little shell script first
+pipelinein = not sys.stdin.isatty()
+
+'''
+Whether stdout is piped
+'''
+pipelineout = False #not sys.stdout.isatty()  # currently impossible, we need to get rid of the little shell script first
+
+'''
+Whether stderr is piped
+'''
+pipelineerr = not sys.stderr.isatty()
 
 
 '''
@@ -87,11 +97,12 @@ class Ponysay():
     Starts the part of the program the arguments indicate
     '''
     def __init__(self, args):
-        if (args.opts['-l'] is not None) and redirected:
+        if (args.opts['-l'] is not None) and pipelineout:
             args.opts['--onelist'] = args.opts['-l']
             args.opts['-l'] = None
         
-        if   args.opts['--quoters'] is not None:  self.quoters()
+        if   args.opts['-h']        is not None:  args.help()
+        elif args.opts['--quoters'] is not None:  self.quoters()
         elif args.opts['--onelist'] is not None:  self.onelist()
         elif args.opts['-v']        is not None:  self.version()
         elif args.opts['-l']        is not None:  self.list()
@@ -531,7 +542,7 @@ class ArgParser:
     '''
     def add_argumentless(self, alternatives, help = None):
         ARGUMENTLESS
-        self.__arguments.append((ARGUMENTLESS, alternatives, help))
+        self.__arguments.append((ARGUMENTLESS, alternatives, None, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
@@ -540,8 +551,8 @@ class ArgParser:
     '''
     Add option that takes one argument
     '''
-    def add_argumented(self, alternatives, help = None):
-        self.__arguments.append((ARGUMENTED, alternatives, help))
+    def add_argumented(self, alternatives, arg, help = None):
+        self.__arguments.append((ARGUMENTED, alternatives, arg, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
@@ -550,8 +561,8 @@ class ArgParser:
     '''
     Add option that takes all following argument
     '''
-    def add_variadic(self, alternatives, help = None):
-        self.__arguments.append((VARIADIC, alternatives, help))
+    def add_variadic(self, alternatives, arg, help = None):
+        self.__arguments.append((VARIADIC, alternatives, arg, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
@@ -670,29 +681,91 @@ class ArgParser:
                     break
         
         self.message = ' '.join(self.files) if len(self.files) > 0 else None
-        #print('files = ' + str(self.files))
-        #print('message = ' + str(self.message))
-        #print('opts = ' + str(self.opts))
+    
+    
+    '''
+    Prints a colourful help message
+    '''
+    def help(self):
+        print('\033[1m%s\033[21m %s %s' % (self.__program, '-' if linuxvt else '—', self.__description))
+        print()
+        if self.__longdescription is not None:
+            print(self.__longdescription)
+            print()
+        print()
+        
+        print('\033[1mUSAGE:\033[21m', end='')
+        first = True
+        for line in self.__usage.split('\n'):
+            if first:
+                first = False
+            else:
+                print('    or', end="")
+            print('\t%s' % (line))
+        print()
+        
+        print('\033[1mSYNOPSIS:\033[21m')
+        print()
+        for opt in self.__arguments:
+            opt_type = opt[0]
+            opt_alts = opt[1]
+            opt_arg = opt[2]
+            opt_help = opt[3]
+            if opt_help is None:
+                continue
+            for opt_alt in opt_alts:
+                if opt_alt is opt_alts[-1]:
+                    print('\t' + opt_alt, end='')
+                    if   opt_type == ARGUMENTED:  print(' \033[4m%s\033[24m'      % (opt_arg))
+                    elif opt_type == VARIADIC:    print(' [\033[4m%s\033[24m...]' % (opt_arg))
+                    else:                         print()
+                else:
+                    print('\t\033[2m' + opt_alt + '\033[22m')
+            first = True
+            for line in opt_help.split('\n'):
+                if first:
+                    first = False
+                    print('\t\t\033[32;1m%s\033[21;39m' % (line))
+                else:
+                    print('\t\t%s' % (line))
+            print()
+        
+        print()
 
 
+
+usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
+usage_wrap     = '--wrap \033[4mCOLUMN\033[24m'
+usage_listhelp = '(--list | ---altlist | --version | --help)'
+usage_file     = '[--pony \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
+usage_quote    = '--quote [\033[4mPONY\033[24m...]'
+
+usage = '%s %s\n%s [%s] %s\n%s [%s] %s' % (usage_saythink, usage_listhelp,
+                                           usage_saythink, usage_wrap, usage_file,
+                                           usage_saythink, usage_wrap, usage_quote)
+
+usage = usage.replace('\033[', '\0')
+for sym in ('[', ']', '(', ')', '|', '...'):
+    usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
+usage = usage.replace('\0', '\033[')
 
 '''
 Argument parsing
 '''
 opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
                  description = 'cowsay wrapper for ponies',
-                 usage       = '-l | -L | [-W] [[-f PONY]* [message] | -q [PONY*]]')
+                 usage       = usage)
 
 opts.add_argumentless(['--quoters'])
 opts.add_argumentless(['--onelist'])
 
-opts.add_argumentless(['-h', '--help'],    help = 'Print this help message')
-opts.add_argumentless(['-v', '--version'], help = 'Print the version of the program')
-opts.add_argumentless(['-l', '--list'],    help = 'List pony files')
-opts.add_argumentless(['-L', '--altlist'], help = 'List pony files with alternatives')
-opts.add_argumented(  ['-W', '--wrap'],    help = 'Specify the column when the message should be wrapped')
-opts.add_argumented(  ['-f', '--pony'],    help = 'Select a pony (either a file name or a pony name)')
-opts.add_variadic(    ['-q', '--quote'],   help = 'Select a ponies which will quote themself')
+opts.add_argumentless(['-h', '--help'],                      help = 'Print this help message.')
+opts.add_argumentless(['-v', '--version'],                   help = 'Print the version of the program.')
+opts.add_argumentless(['-l', '--list'],                      help = 'List pony files.')
+opts.add_argumentless(['-L', '--altlist'],                   help = 'List pony files with alternatives.')
+opts.add_argumented(  ['-W', '--wrap'],     arg = "COLUMN",  help = 'Specify the column when the message should be wrapped.')
+opts.add_argumented(  ['-f', '--pony'],     arg = "PONY",    help = 'Select a pony.\nEither a file name or a pony name.')
+opts.add_variadic(    ['-q', '--quote'],    arg = "PONY",    help = 'Select a ponies which will quote themself.')
 
 opts.parse()
 # TODO implement   if [ -t 0 ] && [ $# == 0 ]; then
