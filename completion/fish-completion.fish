@@ -1,20 +1,19 @@
-# Completions for ponysay
+# FISH completions for ponysay
 # https://github.com/erkin/ponysay/
 #
 # Author: Elis Axelsson <etu AT elis DOT nu>
 
+set -g ponies  ('/usr/bin/ponysay.py' --onelist)
+set -g quoters ('/usr/bin/ponysay.py' --quoters)
 
-set -g ponies  ('/usr/bin/ponysay.pl' --onelist)
-set -g quoters ('/usr/bin/ponysay.pl' --quoters)
 
-
-complete -c ponysay -s h --description "Help of ponysay"
-complete -c ponysay -s v --description "Version of ponysay"
-complete -c ponysay -s l --description "List pony files"
-complete -c ponysay -s L --description "List pony files with alternatives"
-complete -c ponysay -s f -a "$ponies" --description "Select a pony"
-complete -c ponysay -s q -a "$quoters" --description "Select ponies for MLP:FiM quotes"
-complete -c ponysay -s W -a "Integer" --description "The screen column where the message should be wrapped"
+complete -c ponysay -s h -l help                  --description "help of ponysay"
+complete -c ponysay -s v -l version               --description "version of ponysay"
+complete -c ponysay -s l -l list                  --description "list pony files"
+complete -c ponysay -s L -l altlist               --description "list pony files with alternatives"
+complete -c ponysay -s f -l pony    -a "$ponies"  --description "select a pony"
+complete -c ponysay -s q -l quote   -a "$quoters" --description "select a pony which will quote herself"
+complete -c ponysay -s W -l wrap    -a "Integer"  --description "specify the column when the message should be wrapped"
 
 
 set -e ponies
