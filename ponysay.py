@@ -24,7 +24,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = '2.0-rc3'
+VERSION = '2.0'
 
 
 '''
