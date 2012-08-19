@@ -97,6 +97,10 @@ class Ponysay():
     Starts the part of the program the arguments indicate
     '''
     def __init__(self, args):
+        if (args.argcount == 0) and not pipelinein:
+            args.help()
+            return
+        
         if (args.opts['-l'] is not None) and pipelineout:
             args.opts['--onelist'] = args.opts['-l']
             args.opts['-l'] = None
@@ -778,10 +782,6 @@ opts.add_argumented(  ['-f', '--pony'],     arg = "PONY",    help = 'Select a po
 opts.add_variadic(    ['-q', '--quote'],    arg = "PONY",    help = 'Select a ponies which will quote themself.')
 
 opts.parse()
-# TODO implement   if [ -t 0 ] && [ $# == 0 ]; then
-#                    usage
-#                    exit
-#                  fi
 
 
 '''
