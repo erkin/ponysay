@@ -90,7 +90,7 @@ Dependencies
 
 `cowsay`: this is a wrapper for cowsay
 
-`python3`: Written in python 3
+`python>=3`: Written in python 3
 
 ### Package building dependencies
 

@@ -77,7 +77,7 @@ for arg in "$@"; do
     elif [ "$opt" = '--without-fish' ]; then  installFish=''
     elif [ "$opt" = '--without-zsh'  ]; then  installZsh=''
     
-    elif [ "$opt" = "--with-everyting" ]; then
+    elif [ "$opt" = "--everything" ]; then
 	installPdf=' install-pdf'
 	installInfo=' install-info'
 	installMan=' install-man'
