@@ -213,7 +213,7 @@ function makeMakefile()
 	echo 'install "'"$file"'" "$(INSTALLDIR)/share/licenses/ponysay/'"$file"'"'
     done
     echo
-    echo -en '\t' ; echo 'if [ -d "$(DESTDIR)/var/cache/ponysay" ]; then  rm -r "$(DESTDIR)/var/cache/ponysay"; fi'
+    echo -en '\t' ; echo 'if [ -d "/var/cache/ponysay" ]; then  rm -r "/var/cache/ponysay"; fi'
     echo -en '\t' ; echo 'mkdir -p $(DESTDIR)/var/cache/ponysay/'
     echo -en '\t' ; echo 'chmod 777 $(DESTDIR)/var/cache/ponysay/'
     echo
