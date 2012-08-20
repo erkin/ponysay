@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.1
+@set VERSION 2.1.1
 
 @copying
 This manual is for ponysay
@@ -343,7 +343,6 @@ extension @command{kmsponies4ponysay}.
 
 
 
-
 @node Limitations
 @chapter Limitations
 @cindex limitations
@@ -523,7 +522,7 @@ Used for compressing manuals.
 Required to run the make script.
 @item coreutils
 The make script uses @command{install}, @command{unlink}, @command{rm}, @command{ln},
-@command{mkdir} and @command{cp}.
+@command{mkdir} and @command{cp} and @command{cut}.
 @item sed
 Used by the make script for @command{PREFIX} customisation.
 @end table
@@ -826,6 +825,11 @@ and @code{$/$}. @code{$$} has a dollar sign (@code{$}) as its value, while @code
 and @code{$/$} contains the characters for the link to the balloon directed in the
 same direction as the variable name's slash.
 
+Variables those name begin with @code{balloon} are parsed as balloon inserts, it
+can be either @code{balloon}, @code{balloonX}, @code{balloon,Y} or @code{balloonX,Y},
+whether @code{X} is the minimum width of the balloon and @code{Y} is the minimum
+height of the balloon.
+
 Prior to version 2.1 the pony files were cow files used by @command{cowsay}, they
 are partial Perl-scripts that assign a value to a scalar variable named @code{$the_cow}.
 Cow files use a predefined scalar variable named @code{$thoughts}, these are used
@@ -1025,6 +1029,10 @@ first pony file in common.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 2.1.1
+
+Nothing worth mention.
 
 @heading Version 2.1
 
