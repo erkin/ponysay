@@ -24,7 +24,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = '2.0'
+VERSION = '2.1'
 
 
 '''
@@ -383,7 +383,7 @@ class Ponysay():
         
         cmd = [cowsay, '-f', self.__kms(pony)]
         if args.opts['-W'] is not None:
-            cmd += ['-W', args.opts['-W']]
+            cmd += ['-W', args.opts['-W'][0]]
         cmd.append(msg)
         
         if linuxvt:
@@ -392,14 +392,14 @@ class Ponysay():
         env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
         if env_width is None:  env_width = ''
         widthtruncation = self.__gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
-        messagewrap = int(args.opts['-W']) if args.opts['-W'] is not None else None
+        messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
         
         proc = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation) # Popen(cmd, stdout=PIPE, stdin=sys.stderr)
         exit_value = 0
-        try:
-            proc.parse()
-        except:
-            exit_value = 1
+        #try:
+        proc.parse()
+        #except:
+        #    exit_value = 1
         output = proc.output # proc.communicate()[0].decode('utf8', 'replace')
         if (len(output) > 0) and (output[-1] == '\n'):
             output = output[:-1]
@@ -974,7 +974,10 @@ class Backend():
         if self.wrapcolumn is not None:
             wrap = self.wrapcolumn - left
         
-        lines = self.message.split('\n')
+        msg = self.message
+        if wrap is not None:
+            msg = self.__wrapMessage(msg, wrap)
+        lines = msg.split('\n')
         h = 4 + len(lines)
         w = 6 + len(max(lines, key = len))
         if w < width:   w = width
@@ -988,6 +991,102 @@ class Backend():
         rc += '\\' + '-' * (w - 2) + '/'
         
         return rc
+    
+    
+    def __wrapMessage(self, message, wrap):
+        lines = message.split('\n')
+        buf = ''
+        for line in lines:
+            b = [None] * len(line)
+            map = {}
+            (bi, cols, w) = (0, 0, wrap)
+            (indent, indentc) = (-1, 0)
+            
+            (i, n) = (0, len(line))
+            while i <= n:
+                d = None
+                if i != n:
+                    d = line[i]
+                i += 1
+                if d == '\033':
+                    b[bi] = d
+                    bi += 1
+                    b[bi] = line[i]
+                    d = line[i]
+                    bi += 1
+                    i += 1
+                    if d == '[':
+                        while True:
+                            b[bi] = line[i]
+                            d = line[i]
+                            bi += 1
+                            i += 1
+                            if (('a' <= d) and (d <= 'z')) or (('A' <= d) and (d <= 'Z')) or (d == '~'):
+                                break
+                    elif d == ']':
+                        b[bi] = line[i]
+                        d = line[i]
+                        bi += 1
+                        i += 1
+                        if d == 'P':
+                            for j in range(0, 7):
+                                b[bi] = line[i]
+                                bi += 1
+                                i += 1
+                elif (d is not None) and (d != ' '):
+                    if indent == -1:
+                        indent = i - 1
+                        for j in range(0, indent):
+                            if line[j] == ' ':
+                                indentc += 1
+                    b[bi] = d
+                    bi += 1
+                    cols += 1
+                    map[cols] = bi
+                else:
+                    mm = 0
+                    while (w > 8) and (cols > w + 3):
+                        mm += w - 1
+                        m = map[mm]
+                        for bb in b[:m]:
+                            buf += bb
+                        buf += '-\n'
+                        cols -= w - 1
+                        m += w -1
+                        bi -= m
+                        bb = b[m:]
+                        for j in range(0, bi):
+                            b[j] = bb[j]
+                        w = wrap
+                        if indent != -1:
+                            buf += line[:indent]
+                            w -= indentc
+                    if cols > w:
+                        buf += '\n'
+                        w = wrap
+                        if indent != -1:
+                            buf += line[:indent]
+                            w -= indentc
+                    for bb in b[:bi]:
+                        buf += bb
+                    w -= cols
+                    cols = 0
+                    bi = 0
+                    if d == -1:
+                        i += 1
+                    else:
+                        if w > 0:
+                            buf += ' '
+                            w -= 1
+                        else:
+                            buf += '\n'
+                            w = wrap
+                            if indent != -1:
+                                buf + line[:indent]
+                                w -= indentc
+            
+            buf += '\n'
+        return buf[:-1]
 
 
 
