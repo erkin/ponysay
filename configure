@@ -331,7 +331,7 @@ ttyponies:
 	for pony in \$\$(ls --color=no "ponies/"); do                                                      \\
 	    echo "building ttypony: \$\$pony"                                                             ;\\
 	    if [ "\`readlink "ponies/\$\$pony"\`" = '' ]; then                                             \\
-	        unisay2ttyunisay < "ponies/\$\$pony" | tty2colourfultty -c 1 -e > "ttyponies/\$\$pony"  ;\\
+	        ponysay2ttyponysay < "ponies/\$\$pony" | tty2colourfultty -c 1 -e > "ttyponies/\$\$pony"  ;\\
 		git add "ttyponies/\$\$pony"                                                              ;\\
 	    else                                                                                           \\
                 ln -sf \`readlink "ponies/\$\$pony"\` "ttyponies/\$\$pony"                                ;\\
