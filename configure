@@ -309,7 +309,7 @@ EOF
     echo
     
     echo 'uninstall:'
-    echo -en '\t' ; echo 'if [ -d "$(DESTDIR)/var/cache/ponysay" ]; then  rm -rf "$(INSTALLDIR)/var/cache/ponysay"; fi'
+    echo -en '\t' ; echo 'if [ -d "$/var/cache/ponysay" ]; then  rm -rf "$/var/cache/ponysay"; fi'
     for old in $installedDirs; do
 	echo -en '\t'
 	echo 'if [ -d "$(INSTALLDIR)/'"$old"'" ]; then  rm -rf "$(INSTALLDIR)/'"$old"'"; fi'
