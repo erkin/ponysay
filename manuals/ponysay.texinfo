@@ -960,6 +960,8 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 @itemize @bullet
 @item
 @code{applebumkin} is renamed to @code{applebumpkin}.
+@item
+New ponies @code{owlowiscious}
 @end itemize
 
 @heading Version 2.0
