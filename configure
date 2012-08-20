@@ -13,12 +13,12 @@ licenseFiles='COPYING'
 
 oldInstalledFiles='bin/ponysaytruncater lib/ponysay/truncater lib/ponysay/list.pl lib/ponysay/linklist.pl lib/ponysay/pq4ps lib/ponysay/pq4ps.pl lib/ponysay/pq4ps-list lib/ponysay/pq4ps-list.pl bin/ponysay.py bin/ponythink.py'
 oldInstalledDirs='lib/ponysay share/ponies share/ttyponies'
-oldCompiledFiles='truncater ponysaytruncater ponysay.install'
+oldCompiledFiles='truncater ponysaytruncater ponysay.py.install'
 oldCompiledDirs=''
 
 installedFiles='bin/ponysay bin/ponythink doc/ponysay.pdf share/info/ponysay.info.gz share/info/ponythink.info.gz'
 installedDirs='share/ponysay lib/ponysay'
-compiledFiles='ponysay.info.gz ponysay.py.install'
+compiledFiles='ponysay.info ponysay.info.gz ponysay.install'
 compiledDirs='quotes'
 
 for man in $manFiles; do
