@@ -9,11 +9,11 @@ _ponysay()
     COMPREPLY=( $( compgen -W "$options" -- "$cur" ) )
     
     if [ $prev = "-f" ] || [ $prev = "--pony" ]; then
-	ponies=$('/usr/bin/ponysay.py' --onelist)
+	ponies=$('/usr/bin/ponysay' --onelist)
 	COMPREPLY=( $( compgen -W "$ponies" -- "$cur" ) )
 
     elif [ $prev = "-q" ] || [ $prev = "--quote" ]; then
-	quoters=$('/usr/bin/ponysay.py' --quoters)
+	quoters=$('/usr/bin/ponysay' --quoters)
 	COMPREPLY=( $( compgen -W "$quoters" -- "$cur" ) )
 
     elif [ $prev = "-W" ] || [ $prev = "--wrap" ]; then

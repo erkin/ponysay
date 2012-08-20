@@ -3,8 +3,8 @@
 #
 # Author: Elis Axelsson <etu AT elis DOT nu>
 
-set -g ponies  ('/usr/bin/ponysay.py' --onelist)
-set -g quoters ('/usr/bin/ponysay.py' --quoters)
+set -g ponies  ('/usr/bin/ponysay' --onelist)
+set -g quoters ('/usr/bin/ponysay' --quoters)
 
 
 complete --command ponysay --short-option h --long-option help                                      --description 'help of ponysay'
