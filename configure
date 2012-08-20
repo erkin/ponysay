@@ -11,14 +11,14 @@ licenseFiles='COPYING'
 
 
 
-oldInstalledFiles='bin/ponysaytruncater lib/ponysay/list.pl lib/ponysay/linklist.pl lib/ponysay/pq4ps lib/ponysay/pq4ps.pl lib/ponysay/pq4ps-list lib/ponysay/pq4ps-list.pl'
-oldInstalledDirs='share/ponies share/ttyponies'
-oldCompiledFiles='ponysaytruncater ponysay.install'
+oldInstalledFiles='bin/ponysaytruncater lib/ponysay/truncater lib/ponysay/list.pl lib/ponysay/linklist.pl lib/ponysay/pq4ps lib/ponysay/pq4ps.pl lib/ponysay/pq4ps-list lib/ponysay/pq4ps-list.pl bin/ponysay.py bin/ponythink.py'
+oldInstalledDirs='lib/ponysay share/ponies share/ttyponies'
+oldCompiledFiles='truncater ponysaytruncater ponysay.install'
 oldCompiledDirs=''
 
-installedFiles='bin/ponysay bin/ponythink bin/ponysay.py bin/ponythink.py doc/ponysay.pdf share/info/ponysay.info.gz share/info/ponythink.info.gz'
+installedFiles='bin/ponysay bin/ponythink doc/ponysay.pdf share/info/ponysay.info.gz share/info/ponythink.info.gz'
 installedDirs='share/ponysay lib/ponysay'
-compiledFiles='truncater ponysay.info.gz ponysay.py.install'
+compiledFiles='ponysay.info.gz ponysay.py.install'
 compiledDirs='quotes'
 
 for man in $manFiles; do
@@ -91,7 +91,7 @@ for arg in "$@"; do
     fi
 done
 
-compileMethods='core truncater manpages ponysaycompletion ponythinkcompletion'
+compileMethods='core quotes manpages ponysaycompletion ponythinkcompletion'
 installMethods='install-min'"$installPdf$installInfo$installMan$installManEs$installBash$installFish$installZsh"
 if [ ! "$installInfo" = '' ]; then
     compileMethods="$compileMethods infomanual"
@@ -160,16 +160,11 @@ function makeMakefile()
     echo
     echo 'default: '"$compileMethods"
     echo
-    echo 'all: core truncater quotes manpages infomanual ponysaycompletion ponythinkcompletion'
+    echo 'all: core quotes manpages infomanual ponysaycompletion ponythinkcompletion'
     echo
     
     echo "core:"
-    correctPrefix 'ponysay.py'
-    echo
-    
-    echo "truncater:"
-    echo -en '\t'
-    echo '$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o "truncater" "truncater.c"'
+    correctPrefix 'ponysay'
     echo
     
     echo "quotes:"
@@ -210,9 +205,7 @@ function makeMakefile()
     echo
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/bin/"'
     echo -en '\t' ; echo 'install "ponysay"    "$(INSTALLDIR)/bin/ponysay"'
-    echo -en '\t' ; echo 'install "ponysay.py" "$(INSTALLDIR)/bin/ponysay.py"'
     echo -en '\t' ; echo 'ln -sf  "ponysay"    "$(INSTALLDIR)/bin/ponythink"'
-    echo -en '\t' ; echo 'ln -sf  "ponysay.py" "$(INSTALLDIR)/bin/ponythink.py"'
     echo
     echo -en '\t' ; echo 'mkdir   -p             "$(INSTALLDIR)/lib/ponysay/"'
     echo -en '\t' ; echo 'install -s "truncater" "$(INSTALLDIR)/lib/ponysay/truncater"'
