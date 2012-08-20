@@ -631,7 +631,7 @@ Currently the only translation is Spanish with the language code @code{es}.
 If you do not want the English manpage add the option @command{--without-man}.
 If you do not want the @command{info} manual add the option @command{--without-info}.
 If you are installing the @command{info} manual but are not privileged to execute
-@command{info-install} add the option @command{--without-info-install}.
+@command{install-info} add the option @command{--without-info-install}.
 
 
 The following argumentless options are also recognised:
