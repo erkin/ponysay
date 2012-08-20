@@ -22,7 +22,7 @@ compiledFiles='ponysay.info ponysay.info.gz ponysay.install'
 compiledDirs='quotes'
 
 for man in $manFiles; do
-    oldCompiledFiles="$oldCompiledFiles $man.gz"
+    compiledFiles="$compiledFiles $man.gz"
 done
 for completion in $completions; do
     thinkfile="${completion%%.*}-think.${completion##*.}"
