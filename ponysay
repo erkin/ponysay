@@ -367,10 +367,10 @@ class Ponysay():
         else:
             if linuxvt or (env_height is ('yes', 'y', '1')):
                 if env_bottom is ('yes', 'y', '1'):
-                    for line in output[: -lines]:
+                    for line in output.split('\n')[: -lines]:
                         print(line)
                 else:
-                    for line in output[: lines]:
+                    for line in output.split('\n')[: lines]:
                         print(line)
             else:
                 print(output);
@@ -450,7 +450,6 @@ class Ponysay():
         
         palette = env_kms
         palettefile = env_kms.replace('\033]P', '')
-        print(palettefile)
         
         kmsponies = '/var/cache/ponysay/kmsponies/' + palettefile
         kmspony = (kmsponies + pony).replace('//', '/')
@@ -717,7 +716,7 @@ class Backend():
         
         self.link = {'\\' : '\\', '/' : '/'} if not isthink else {'\\' : 'o', '/' : 'o'}
         
-        self.output = None
+        self.output = ''
         self.pony = None
     
     
@@ -874,7 +873,7 @@ class Backend():
     
     
     '''
-    Gets colour code att the currect offest in a buffer
+    Gets colour code att the currect offset in a buffer
     '''
     def __getcolour(self, input, offset):
         (i, n) = (offset, len(input))
@@ -953,7 +952,7 @@ class Backend():
                 if i != n:
                     d = line[i]
                 i += 1
-                if d == '\033':
+                if d == '\033':  # TODO this should use self.__getcolour()
                     b[bi] = d
                     bi += 1
                     b[bi] = line[i]
