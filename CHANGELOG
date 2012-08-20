@@ -4,6 +4,15 @@ Version 2.1
 
 	New ponies: purplehaze, owlowiscious
 
+	Cowsay has be reimplemented, and have full Unicode support
+	and support for @code{figlet} style messages.
+
+	Deleted environment variables: PONYSAY_COWSAY, PONYSAY_COWTHINK
+
+	You will need Python 3, but not GNU Bash, Perl or Cowsay.
+
+	New .pony file format is used.
+
 
 Version 2.0
 

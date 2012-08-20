@@ -962,6 +962,20 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 @code{applebumkin} is renamed to @code{applebumpkin}.
 @item
 New ponies: @code{purplehaze}, @code{owlowiscious}
+@item
+Cowsay has be reimplemented, and have full Unicode support and support
+for @code{figlet} style messages.
+@item
+Deleted environment variables: @code{PONYSAY_COWSAY}, @code{PONYSAY_COWTHINK}
+@item
+You will need Python 3, but not GNU Bash, Perl or Cowsay.
+@item
+New .pony file format is used:
+@c BEGIN the following is too descriptive for the plain/text change log
+@command{unisay}'s format instead of @command{cowsay}'s Perl based format.
+This includes arbitrary position of balloon, mirrored balloon links, and
+minimum size of balloon.
+@c END
 @end itemize
 
 @heading Version 2.0
@@ -1002,7 +1016,8 @@ Pony symlinks added:
 @item @code{sindy} → @code{powderrouge}
 @end itemize
 @item
-@code{PREFIX=/some-dir} can be used when invoking @command{make}, the default value is @code{/usr}
+@code{PREFIX=/some-dir} can be used when invoking @command{make},
+the default value is @code{/usr}
 @end itemize
 
 @heading Version 1.2
