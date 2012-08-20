@@ -24,7 +24,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = '2.1.1'
+VERSION = '2.2'
 
 
 '''
@@ -295,18 +295,6 @@ class Ponysay():
     
     
     '''
-    Returns (the cowsay command, whether it is a custom program)
-    '''
-    def __getcowsay(self):
-        if isthink:
-            cowthink = os.environ['PONYSAY_COWTHINK'] if 'PONYSAY_COWTHINK' in os.environ else None
-            return ('cowthink', False) if (cowthink is None) or (cowthink == '') else (cowthink, True)
-        
-        cowsay = os.environ['PONYSAY_COWSAY'] if 'PONYSAY_COWSAY' in os.environ else None
-        return ('cowsay', False) if (cowsay is None) or (cowsay == '') else (cowsay, True)
-    
-    
-    '''
     Print the pony with a speech or though bubble. message, pony and wrap from args are used.
     '''
     def print_pony(self, args):
@@ -317,7 +305,6 @@ class Ponysay():
         
         
         pony = self.__getponypath(args.opts['-f'])
-        (cowsay, customcowsay) = self.__getcowsay()
         
         if (len(pony) > 4) and (pony[-4:].lower() == '.png'):
             pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
@@ -327,10 +314,6 @@ class Ponysay():
             pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
         
         pony = self.__kms(pony)
-        cmd = [cowsay, '-f', pony]
-        if args.opts['-W'] is not None:
-            cmd += ['-W', args.opts['-W'][0]]
-        cmd.append(msg)
         
         if linuxvt:
             print('\033[H\033[2J', end='')
@@ -340,13 +323,9 @@ class Ponysay():
         widthtruncation = self.__gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
         messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
         
-        proc = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation) # Popen(cmd, stdout=PIPE, stdin=sys.stderr)
-        exit_value = 0
-        #try:
-        proc.parse()
-        #except:
-        #    exit_value = 1
-        output = proc.output # proc.communicate()[0].decode('utf8', 'replace')
+        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation)
+        backend.parse()
+        output = backend.output
         if (len(output) > 0) and (output[-1] == '\n'):
             output = output[:-1]
         
@@ -363,18 +342,15 @@ class Ponysay():
         lines = self.__gettermsize()[0] - int(env_lines)
         
         
-        if not exit_value == 0:
-            sys.stderr.write('Unable to successfully execute' + (' custom ' if customcowsay else ' ') + 'cowsay [' + cowsay + ']\n')
-        else:
-            if linuxvt or (env_height is ('yes', 'y', '1')):
-                if env_bottom is ('yes', 'y', '1'):
-                    for line in output.split('\n')[: -lines]:
-                        print(line)
-                else:
-                    for line in output.split('\n')[: lines]:
-                        print(line)
+        if linuxvt or (env_height is ('yes', 'y', '1')):
+            if env_bottom is ('yes', 'y', '1'):
+                for line in output.split('\n')[: -lines]:
+                    print(line)
             else:
-                print(output);
+                for line in output.split('\n')[: lines]:
+                    print(line)
+        else:
+            print(output);
     
     
     '''
