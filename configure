@@ -196,7 +196,7 @@ function makeMakefile()
     thinkCompletion $completions
     echo
     
-    echo 'install-min: core truncater quotes'
+    echo 'install-min: core quotes'
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/ponysay/"'
     for dir in $shareDirs; do
 	echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/ponysay/'"$dir"'"'
@@ -206,9 +206,6 @@ function makeMakefile()
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/bin/"'
     echo -en '\t' ; echo 'install "ponysay"    "$(INSTALLDIR)/bin/ponysay"'
     echo -en '\t' ; echo 'ln -sf  "ponysay"    "$(INSTALLDIR)/bin/ponythink"'
-    echo
-    echo -en '\t' ; echo 'mkdir   -p             "$(INSTALLDIR)/lib/ponysay/"'
-    echo -en '\t' ; echo 'install -s "truncater" "$(INSTALLDIR)/lib/ponysay/truncater"'
     echo
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/licenses/ponysay/"'
     for file in $licenseFiles; do
