@@ -135,15 +135,18 @@ Show version of program.
 @itemx --pony PONY
 @cindex @command{-f}
 @cindex @command{--pony}
-Specify the pony that should printed, this can either be a file name or
-a pony name printed by @command{ponysay -l}. If it is a file name with
-a relative path and does not include a `@code{/}', it must begin with
-`@code{./}', this is a @command{cowsay} issue. This option can be used
-multiple times to specify a set of ponies from which one will be selected
-randomly. If no pony is specified one will be selected randomly.
+Specify the pony that should printed, this can either be a file name or a pony
+name printed by @command{ponysay -l}. This option can be used multiple times to
+specify a set of ponies from which one will be selected randomly. If no pony is
+specified one will be selected randomly.
 
+@cindex @command{util-say}
 If you have @command{util-say} installed, you can use .png-files as the
 arguments for this options.
+
+In versions earlier than version 2.0, the if the pony were a file name it had
+to include a `@code{/}'. This is not longer required and any existing file
+supersedes pony names.
 
 @item -q [PONY...]
 @itemx --quote [PONY...]
