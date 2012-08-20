@@ -13,7 +13,7 @@ licenseFiles='COPYING'
 
 
 oldInstalledFiles='bin/ponysaytruncater lib/ponysay/truncater lib/ponysay/list.pl lib/ponysay/linklist.pl lib/ponysay/pq4ps lib/ponysay/pq4ps.pl lib/ponysay/pq4ps-list lib/ponysay/pq4ps-list.pl bin/ponysay.py bin/ponythink.py'
-oldInstalledDirs='lib/ponysay share/ponies share/ttyponies'
+oldInstalledDirs='lib/ponysay share/ponies share/ttyponies bin/ponysaylist.pl'
 oldCompiledFiles='truncater ponysaytruncater ponysay.py.install'
 oldCompiledDirs=''
 
