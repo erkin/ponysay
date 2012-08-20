@@ -789,8 +789,9 @@ class Backend():
         
         indent = 0
         dollar = None
+        balloonLines = None
         
-        (i, n) = (0, len(self.pony))
+        (i, n, lineindex, skip, nonskip) = (0, len(self.pony), 0, 0, 0)
         while i < n:
             c = self.pony[i]
             if c == '\t':
@@ -806,18 +807,18 @@ class Backend():
                         value = dollar[find('=') + 1:]
                         variables[name] = value
                     elif (len(dollar) < 7) or not (dollar[:7] == 'balloon'):
-                        if dollar in ('\\', '/'):
-                            i += len(variables[dollar]) - 1
-                        lines = variables[dollar].split('\n')
-                        firstvarline = True
-                        for line in lines:
-                            if firstvarline:
-                                firstvarline = False
+                        data = variables[dollar].replace('$', '$$')
+                        if data == '$$': # if not handled specially we will get an infinity loop
+                            if (skip == 0) or (nonskip > 0):
+                                if nonskip > 0:
+                                    nonskip -= 1
+                                self.output += '$'
+                                indent += 1
                             else:
-                                indent = 0
-                                self.output = '\n'
-                            self.output += line
-                            indent += len(line)
+                                skip -= 1
+                        else:
+                            n += len(data)
+                            self.pony = self.pony[:i] + data + self.pony[i:]
                     else:
                         (w, h) = (0, 0)
                         props = dollar[7:]
@@ -829,12 +830,19 @@ class Backend():
                             else:
                                 w = int(props)
                         balloon = self.__getballoon(w, h, indent).split('\n')
-                        balloonpre = '\n' + (' ' * indent)
                         self.output += balloon[0]
-                        for line in balloon[1:]:
-                            self.output += balloonpre;
-                            self.output += line;
-                        indent = 0
+                        if lineindex == 0:
+                            balloonpre = '\n' + (' ' * indent)
+                            for line in balloon[1:]:
+                                self.output += balloonpre;
+                                self.output += line;
+                            indent = 0
+                        elif len(balloon) > 1:
+                            balloonLines = balloon
+                            balloonLine = 0
+                            balloonIndent = indent
+                            indent += self.__len(balloonLines[0])
+                            balloonLines[0] = None
                     dollar = None
                 else:
                     dollar = ''
@@ -850,9 +858,35 @@ class Backend():
             elif c == '\n':
                 self.output += c
                 indent = 0
+                (skip, nonskip) = (0, 0)
+                lineindex += 1
+                if balloonLines is not None:
+                    balloonLine += 1
+                    if balloonLine == len(balloonLines):
+                        balloonLines = None
             else:
-                self.output += c
-                indent += 1
+                if (balloonLines is not None) and (balloonLines[balloonLine] is not None) and (balloonIndent == indent):
+                    data = balloonLines[balloonLine]
+                    datalen = self.__len(data)
+                    skip += datalen
+                    nonskip += datalen
+                    data = data.replace("$", '$$')
+                    n += len(data)
+                    self.pony = self.pony[:i] + data + self.pony[i:]
+                    balloonLines[balloonLine] = None
+                else:
+                    if (skip == 0) or (nonskip > 0):
+                        if nonskip > 0:
+                            nonskip -= 1
+                        self.output += c
+                        indent += 1
+                    else:
+                        skip -= 1
+        
+        if balloonLines is not None:
+            for line in balloonLines[balloonLine:]:
+                self.output += ' ' * (balloonIndent - indent) + line + '\n'
+                indent = 0
     
     
     '''
@@ -887,6 +921,21 @@ class Backend():
                 if (c == '~') or (('a' <= c) and (c <= 'z')) or (('A' <= c) and (c <= 'Z')):
                     break
         
+        return rc
+    
+    
+    '''
+    Calculates the number of visible characters in a text
+    '''
+    def __len(self, input):
+        (rc, i, n) = (0, 0, len(input))
+        while i < n:
+            c = input[i]
+            if c == '\033':
+                i += len(self.__getcolour(input, i))
+            else:
+                i += 1
+                rc += 1
         return rc
     
     
