@@ -3,6 +3,7 @@
 
 PREFIX="/usr"
 INFODESC=\''My Little Ponies for your terminal'\'
+SHELL="env bash"
 
 completions='completion/bash-completion.sh completion/fish-completion.fish completion/zsh-completion.zsh'
 shareDirs='ponies ttyponies quotes'
@@ -54,6 +55,7 @@ function getcompfile()
 
 installPdf=''
 installInfo=' install-info'
+installInfoInstall=' install-info-install'
 installMan=' install-man'
 installManEs=''
 installBash=' install-bash'
@@ -68,18 +70,22 @@ for arg in "$@"; do
 	PREFIX="$val"
     elif [ "$opt" = '--info-desc' ]; then
 	INFODESC=\'"$(sed -e s/\'/\''\\'\'\'/g <<<"$val")"\'
+    elif [ "$opt" = '--shell' ]; then
+	SHELL="$val"
     
-    elif [ "$opt" = '--with-pdf'     ]; then  installPdf=' install-pdf'
-    elif [ "$opt" = '--without-info' ]; then  installInfo=''
-    elif [ "$opt" = '--without-man'  ]; then  installMan=''
-    elif [ "$opt" = '--with-man-es'  ]; then  installManEs=' install-man-es'
-    elif [ "$opt" = '--without-bash' ]; then  installBash=''
-    elif [ "$opt" = '--without-fish' ]; then  installFish=''
-    elif [ "$opt" = '--without-zsh'  ]; then  installZsh=''
+    elif [ "$opt" = '--with-pdf'             ]; then  installPdf=' install-pdf'
+    elif [ "$opt" = '--without-info'         ]; then  installInfo=''
+    elif [ "$opt" = '--without-info-install' ]; then  installInfoInstall=''
+    elif [ "$opt" = '--without-man'          ]; then  installMan=''
+    elif [ "$opt" = '--with-man-es'          ]; then  installManEs=' install-man-es'
+    elif [ "$opt" = '--without-bash'         ]; then  installBash=''
+    elif [ "$opt" = '--without-fish'         ]; then  installFish=''
+    elif [ "$opt" = '--without-zsh'          ]; then  installZsh=''
     
     elif [ "$opt" = "--everything" ]; then
 	installPdf=' install-pdf'
 	installInfo=' install-info'
+	installInfoInstall=' install-info-install'
 	installMan=' install-man'
 	installManEs=' install-man-es'
 	installBash=' install-bash'
@@ -91,8 +97,12 @@ for arg in "$@"; do
     fi
 done
 
+if [ "$installInfo" = '' ]; then
+    installInfoInstall=''
+fi
+
 compileMethods='core quotes manpages ponysaycompletion ponythinkcompletion'
-installMethods='install-min'"$installPdf$installInfo$installMan$installManEs$installBash$installFish$installZsh"
+installMethods='install-min'"$installPdf$installInfo$installInfoInstall$installMan$installManEs$installBash$installFish$installZsh"
 if [ ! "$installInfo" = '' ]; then
     compileMethods="$compileMethods infomanual"
 fi
@@ -132,28 +142,31 @@ function thinkCompletion()
 
 echo "PREFIX = $PREFIX, edit with option --prefix=PREFIX"
 echo "INFODESC = $INFODESC, edit with option --info-desc=INFODESC"
+echo "SHELL = $SHELL, edit with option --shell=PREFIX"
 echo
-[ ! "$installPdf"   = '' ] && echo "Installing PDF manual"
-[ ! "$installInfo"  = '' ] && echo "Installing info manual, add option --without-info to skip"
-[ ! "$installMan"   = '' ] && echo "Installing English manpage manual, add option --without-man to skip"
-[ ! "$installManEs" = '' ] && echo "Installing Spanish manpage manual"
-[ ! "$installBash"  = '' ] && echo "Installing autocompletion for GNU Bash, add option --without-bash to skip"
-[ ! "$installFish"  = '' ] && echo "Installing autocompletion for fish, add option --without-fish to skip"
-[ ! "$installZsh"   = '' ] && echo "Installing autocompletion for zsh, add option --without-zsh to skip"
+[ ! "$installPdf"          = '' ] && echo "Installing PDF manual"
+[ ! "$installInfo"         = '' ] && echo "Installing info manual, add option --without-info to skip"
+[ ! "$installInfoInstall"  = '' ] && echo "Installing info manual with info-install, add option --without-info to skip"
+[ ! "$installMan"          = '' ] && echo "Installing English manpage manual, add option --without-man to skip"
+[ ! "$installManEs"        = '' ] && echo "Installing Spanish manpage manual"
+[ ! "$installBash"         = '' ] && echo "Installing autocompletion for GNU Bash, add option --without-bash to skip"
+[ ! "$installFish"         = '' ] && echo "Installing autocompletion for fish, add option --without-fish to skip"
+[ ! "$installZsh"          = '' ] && echo "Installing autocompletion for zsh, add option --without-zsh to skip"
 echo
-[ ! "$installPdf"   = '' ] || echo "Skipping PDF manual, add option --with-pdf to install"
-[ ! "$installInfo"  = '' ] || echo "Skipping info manual"
-[ ! "$installMan"   = '' ] || echo "Skipping English manpage manual"
-[ ! "$installManEs" = '' ] || echo "Skipping Spanish manpage manual, add option --with-man-es to install"
-[ ! "$installBash"  = '' ] || echo "Skipping autocompletion for GNU Bash"
-[ ! "$installFish"  = '' ] || echo "Skipping autocompletion for fish"
-[ ! "$installZsh"   = '' ] || echo "Skipping autocompletion for zsh"
+[ ! "$installPdf"          = '' ] || echo "Skipping PDF manual, add option --with-pdf to install"
+[ ! "$installInfo"         = '' ] || echo "Skipping info manual"
+[ ! "$installMan"          = '' ] || echo "Skipping English manpage manual"
+[ ! "$installManEs"        = '' ] || echo "Skipping Spanish manpage manual, add option --with-man-es to install"
+[ ! "$installBash"         = '' ] || echo "Skipping autocompletion for GNU Bash"
+[ ! "$installFish"         = '' ] || echo "Skipping autocompletion for fish"
+[ ! "$installZsh"          = '' ] || echo "Skipping autocompletion for zsh"
 echo
 
 
 
 function makeMakefile()
 {
+    echo 'SHELL='\'"$SHELL"\'
     echo 'PREFIX='\'"$PREFIX"\'
     echo 'INSTALLDIR="$(DESTDIR)$(PREFIX)"'
     echo 'SED_PREFIX=$$(sed -e '\''s/\//\\\//g'\'' <<<$(PREFIX))'
@@ -240,6 +253,9 @@ function makeMakefile()
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/info"'
     echo -en '\t' ; echo 'install "ponysay.info.gz" "$(INSTALLDIR)/share/info/ponysay.info.gz"'
     echo -en '\t' ; echo 'install "ponysay.info.gz" "$(INSTALLDIR)/share/info/ponythink.info.gz"'
+    echo
+    
+    echo 'install-info-install: install-info'
     echo -en '\t' ; echo 'install-info --dir-file="$(INSTALLDIR)/share/info/dir" --entry="Miscellaneous" --description='"$INFODESC"' "$(INSTALLDIR)/share/info/ponysay.info.gz"'
     echo -en '\t' ; echo 'install-info --dir-file="$(INSTALLDIR)/share/info/dir" --entry="Miscellaneous" --description='"$INFODESC"' "$(INSTALLDIR)/share/info/ponythink.info.gz"'
     echo

@@ -618,6 +618,7 @@ everything add the option @command{--everything} when running @command{./configu
 @cindex @command{--without-man}
 @cindex manpage, without
 @cindex @command{--without-info}
+@cindex @command{--without-info-install}
 @cindex @command{info} manual, without
 @cindex @command{--with-man-LANG}
 @cindex manpage translations
@@ -629,6 +630,8 @@ running @command{./configure}. To install a manpage translation add
 Currently the only translation is Spanish with the language code @code{es}.
 If you do not want the English manpage add the option @command{--without-man}.
 If you do not want the @command{info} manual add the option @command{--without-info}.
+If you are installing the @command{info} manual but are not privileged to execute
+@command{info-install} add the option @command{--without-info-install}.
 
 
 The following argumentless options are also recognised:
@@ -663,6 +666,10 @@ with white space.
 If you are not using @command{--without-info} you can add
 @command{--info-desc=DESCRIPTION} to specify the description @command{info}
 which provide when listing commands.
+
+@cindex @command{--shell=SHELL}
+By default @command{bash} is in the make file, if you want to use another shell
+add the option @command{--shell=SHELL}.
 
 
 @node Arch Linux
