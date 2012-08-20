@@ -414,6 +414,9 @@ class Ponysay():
     '''
     @staticmethod
     def isUsingKMS():
+        if not linuxvt:
+            return False
+        
         env_kms = os.environ['PONYSAY_KMS_PALETTE'] if 'PONYSAY_KMS_PALETTE' in os.environ else None
         if env_kms is None:  env_kms = ''
         
@@ -447,6 +450,7 @@ class Ponysay():
         
         palette = env_kms
         palettefile = env_kms.replace('\033]P', '')
+        print(palettefile)
         
         kmsponies = '/var/cache/ponysay/kmsponies/' + palettefile
         kmspony = (kmsponies + pony).replace('//', '/')
@@ -727,6 +731,9 @@ class Backend():
         self.__truncate()
     
     
+    '''
+    Converts all tabs in the message to spaces by expanding
+    '''
     def __expandMessage(self):
         lines = self.message.split('\n')
         buf = ''
@@ -750,6 +757,9 @@ class Backend():
         self.message = buf[:-1]
     
     
+    '''
+    Loads the pony file
+    '''
     def __loadFile(self):
         ponystream = None
         try:
@@ -760,6 +770,9 @@ class Backend():
                 ponystream.close()
     
     
+    '''
+    Truncate output to the width of the screen
+    '''
     def __truncate(self):
         if self.width is None:
             return
@@ -782,6 +795,9 @@ class Backend():
         self.output = self.output[:-1]
     
     
+    '''
+    Process the pony file and generate output to self.output
+    '''
     def __processPony(self):
         self.output = ''
         
@@ -857,6 +873,9 @@ class Backend():
                 indent += 1
     
     
+    '''
+    Gets colour code att the currect offest in a buffer
+    '''
     def __getcolour(self, input, offset):
         (i, n) = (offset, len(input))
         rc = input[i]
@@ -889,6 +908,9 @@ class Backend():
         return rc
     
     
+    '''
+    Generates a balloon with the message
+    '''
     def __getballoon(self, width, height, left):
         wrap = None
         if self.wrapcolumn is not None:
@@ -913,6 +935,9 @@ class Backend():
         return rc
     
     
+    '''
+    Wraps the message
+    '''
     def __wrapMessage(self, message, wrap):
         lines = message.split('\n')
         buf = ''
