@@ -328,15 +328,15 @@ EOF
 
 ttyponies:
 	mkdir -p "ttyponies"
-	for pony in \$\$(ls --color=no "ponies/"); do                                                      \\
-	    echo "building ttypony: \$\$pony"                                                             ;\\
-	    if [ "\`readlink "ponies/\$\$pony"\`" = '' ]; then                                             \\
-	        ponysay2ttyponysay < "ponies/\$\$pony" | tty2colourfultty -c 1 -e > "ttyponies/\$\$pony"  ;\\
-		git add "ttyponies/\$\$pony"                                                              ;\\
-	    else                                                                                           \\
-                ln -sf \`readlink "ponies/\$\$pony"\` "ttyponies/\$\$pony"                                ;\\
-		git add "ttyponies/\$\$pony"                                                              ;\\
-	    fi                                                                                            ;\\
+	for pony in \$\$(ls --color=no "ponies/"); do                                                   \\
+	    echo "building ttypony: \$\$pony"                                                          ;\\
+	    if [ "\`readlink "ponies/\$\$pony"\`" = '' ]; then                                          \\
+	        ponysay2ttyponysay < "ponies/\$\$pony" | tty2colourfultty -c 1 > "ttyponies/\$\$pony"  ;\\
+		git add "ttyponies/\$\$pony"                                                           ;\\
+	    else                                                                                        \\
+                ln -sf \`readlink "ponies/\$\$pony"\` "ttyponies/\$\$pony"                             ;\\
+		git add "ttyponies/\$\$pony"                                                           ;\\
+	    fi                                                                                         ;\\
 	done
 
 pdfmanual:

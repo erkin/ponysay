@@ -1,4 +1,4 @@
-$balloon10$]P7aaaaaa[47m]PFffffff[1;37m\e]P0000000\e]P1AA0000\e]P200AA00\e]P3AA5500\e]P40000AA\e]P5AA00AA\e]P600AAAA\e]P7AAAAAA\e]P8555555\e]P9FF5555\e]PA55FF55\e]PBFFFF55\e]PC5555FF\e]PDFF55FF\e]PE55FFFF\e]PFFFFFFF[0m
+$balloon10$]P7aaaaaa[47m]PFffffff[1;37m]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m
      $\$
       $\$
     ]P0000000[49m   $\$ ]PFd7d7d7[1;37m▄▄]P45f0087[44m]PD875faf[1;35m▄▄]P0000000[49m]PC5f0087[1;34m▄]P45f0087[44m ]PD875faf[1;35m▄▄▄]P0000000[49m]PC5f0087[1;34m▄▄
@@ -22,4 +22,4 @@ $balloon10$]P7aaaaaa[47m]PFffffff[1;37m\e]P0000000\e]P1AA0000\e]P200AA00\e]P
                 ]P7bcbcbc[47m ]PFe4e4e4[1;37m▄]P7e4e4e4[47m ]P7d7d7d7[47m ]P7eeeeee[47m    ]P7d7d7d7[47m ]P0000000[49m   ]P7bcbcbc[47m ]P7e4e4e4[47m  ]P7d7d7d7[47m ]P7eeeeee[47m   ]P7d7d7d7[47m]PFeeeeee[1;37m▄]P0000000[49m]PFd7d7d7[1;37m▄
                 ]PFbcbcbc[1;37m▀▀]P7d7d7d7[47m ]PFeeeeee[1;37m▄]P7eeeeee[47m   ]PFd7d7d7[1;37m▄]P0000000[49m▀   ]PFbcbcbc[1;37m▀▀▀]P7d7d7d7[47m ]P7eeeeee[47m    ]P7d7d7d7[47m ]P0000000[49m
                   ]PFd7d7d7[1;37m▀▀▀▀▀▀       ▀▀▀▀▀▀
-]P7aaaaaa[47m]PFffffff[1;37m\e]P0000000\e]P1AA0000\e]P200AA00\e]P3AA5500\e]P40000AA\e]P5AA00AA\e]P600AAAA\e]P7AAAAAA\e]P8555555\e]P9FF5555\e]PA55FF55\e]PBFFFF55\e]PC5555FF\e]PDFF55FF\e]PE55FFFF\e]PFFFFFFF[0m
+]P7aaaaaa[47m]PFffffff[1;37m]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m

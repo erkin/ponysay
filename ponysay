@@ -33,61 +33,6 @@ The directory where ponysay is installed, this is modified when building with ma
 INSTALLDIR = '/usr'
 
 
-'''
-The user's home directory
-'''
-HOME = os.environ['HOME']
-
-
-'''
-Whether the program is execute in Linux VT (TTY)
-'''
-linuxvt = os.environ['TERM'] == 'linux'
-
-
-'''
-Whether the script is executed as ponythink
-'''
-isthink = (len(__file__) >= 8) and (__file__[-8:] == 'think.py')
-
-
-'''
-Whether stdin is piped
-'''
-pipelinein = not sys.stdin.isatty()
-
-'''
-Whether stdout is piped
-'''
-pipelineout = False #not sys.stdout.isatty()  # currently impossible, we need to get rid of the little shell script first
-
-'''
-Whether stderr is piped
-'''
-pipelineerr = not sys.stderr.isatty()
-
-
-'''
-The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
-'''
-ponydirs = []
-if linuxvt:  _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/',  INSTALLDIR + '/share/ponysay/ttyponies/']
-else:        _ponydirs = [HOME + '/.local/share/ponysay/ponies/',     INSTALLDIR + '/share/ponysay/ponies/'   ]
-for ponydir in _ponydirs:
-    if os.path.isdir(ponydir):
-        ponydirs.append(ponydir)
-
-
-'''
-The directories where quotes files are stored
-'''
-quotedirs = []
-_quotedirs = [HOME + '/.local/share/ponysay/quotes/',  INSTALLDIR + '/share/ponysay/quotes/']
-for quotedir in _quotedirs:
-    if os.path.isdir(quotedir):
-        quotedirs.append(quotedir)
-
-
 
 '''
 This is the mane class of ponysay
@@ -465,6 +410,23 @@ class Ponysay():
     
     
     '''
+    Indentifies whether KMS support is utilised
+    '''
+    @staticmethod
+    def isUsingKMS():
+        env_kms = os.environ['PONYSAY_KMS_PALETTE'] if 'PONYSAY_KMS_PALETTE' in os.environ else None
+        if env_kms is None:  env_kms = ''
+        
+        env_kms_cmd = os.environ['PONYSAY_KMS_PALETTE_CMD'] if 'PONYSAY_KMS_PALETTE_CMD' in os.environ else None
+        if (env_kms_cmd is not None) and (not env_kms_cmd == ''):
+            env_kms = Popen(shlex.split(env_kms_cmd), stdout=PIPE, stdin=sys.stderr).communicate()[0].decode('utf8', 'replace')
+            if env_kms[-1] == '\n':
+                env_kms = env_kms[:-1]
+        
+        return env_kms != ''
+    
+    
+    '''
     Returns the file name of the input pony converted to a KMS pony, or if KMS is not used, the input pony itself
     '''
     def __kms(self, pony):
@@ -509,7 +471,7 @@ class Ponysay():
             
             if not os.path.isdir(kmsponydir):
                 os.makedirs(kmsponydir)
-            if not os.system('tty2colourfultty -e -p ' + palette + ' < ' + _protokmspony + ' > ' + _kmspony) == 0:
+            if not os.system('tty2colourfultty -p ' + palette + ' < ' + _protokmspony + ' > ' + _kmspony) == 0:
                 sys.stderr.write('Unable to run tty2colourfultty successfully, you need util-say for KMS support\n')
                 exit(1)
         
@@ -732,48 +694,6 @@ class ArgParser():
             print()
         
         print()
-
-
-
-usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
-usage_wrap     = '--wrap \033[4mCOLUMN\033[24m'
-usage_listhelp = '(--list | ---altlist | --version | --help)'
-usage_file     = '[--pony \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
-usage_quote    = '--quote [\033[4mPONY\033[24m...]'
-
-usage = '%s %s\n%s [%s] %s\n%s [%s] %s' % (usage_saythink, usage_listhelp,
-                                           usage_saythink, usage_wrap, usage_file,
-                                           usage_saythink, usage_wrap, usage_quote)
-
-usage = usage.replace('\033[', '\0')
-for sym in ('[', ']', '(', ')', '|', '...'):
-    usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
-usage = usage.replace('\0', '\033[')
-
-'''
-Argument parsing
-'''
-opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
-                 description = 'cowsay wrapper for ponies',
-                 usage       = usage,
-                 longdescription =
-'''Ponysay displays an image of a pony saying some text provided by the user.
-If \033[4mmessage\033[24m is not provided, it accepts standard input. For an extensive
-documentation run `info ponysay`, or for just a little more help than this
-run `man ponysay`. Ponysay has so much more to offer than described here.''')
-
-opts.add_argumentless(['--quoters'])
-opts.add_argumentless(['--onelist'])
-
-opts.add_argumentless(['-h', '--help'],                      help = 'Print this help message.')
-opts.add_argumentless(['-v', '--version'],                   help = 'Print the version of the program.')
-opts.add_argumentless(['-l', '--list'],                      help = 'List pony files.')
-opts.add_argumentless(['-L', '--altlist'],                   help = 'List pony files with alternatives.')
-opts.add_argumented(  ['-W', '--wrap'],     arg = "COLUMN",  help = 'Specify the column when the message should be wrapped.')
-opts.add_argumented(  ['-f', '--pony'],     arg = "PONY",    help = 'Select a pony.\nEither a file name or a pony name.')
-opts.add_variadic(    ['-q', '--quote'],    arg = "PONY",    help = 'Select a ponies which will quote themself.')
-
-opts.parse()
 
 
 
@@ -1087,6 +1007,104 @@ class Backend():
             
             buf += '\n'
         return buf[:-1]
+
+
+
+'''
+The user's home directory
+'''
+HOME = os.environ['HOME']
+
+
+'''
+Whether the program is execute in Linux VT (TTY)
+'''
+linuxvt = os.environ['TERM'] == 'linux'
+
+
+'''
+Whether the script is executed as ponythink
+'''
+isthink = (len(__file__) >= 8) and (__file__[-8:] == 'think.py')
+
+
+'''
+Whether stdin is piped
+'''
+pipelinein = not sys.stdin.isatty()
+
+'''
+Whether stdout is piped
+'''
+pipelineout = False #not sys.stdout.isatty()  # currently impossible, we need to get rid of the little shell script first
+
+'''
+Whether stderr is piped
+'''
+pipelineerr = not sys.stderr.isatty()
+
+
+'''
+The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
+'''
+ponydirs = []
+_kms = Ponysay.isUsingKMS()
+if linuxvt and not _kms:  _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/',  INSTALLDIR + '/share/ponysay/ttyponies/']
+else:                     _ponydirs = [HOME + '/.local/share/ponysay/ponies/',     INSTALLDIR + '/share/ponysay/ponies/'   ]
+for ponydir in _ponydirs:
+    if os.path.isdir(ponydir):
+        ponydirs.append(ponydir)
+
+
+'''
+The directories where quotes files are stored
+'''
+quotedirs = []
+_quotedirs = [HOME + '/.local/share/ponysay/quotes/',  INSTALLDIR + '/share/ponysay/quotes/']
+for quotedir in _quotedirs:
+    if os.path.isdir(quotedir):
+        quotedirs.append(quotedir)
+
+
+usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
+usage_wrap     = '--wrap \033[4mCOLUMN\033[24m'
+usage_listhelp = '(--list | ---altlist | --version | --help)'
+usage_file     = '[--pony \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
+usage_quote    = '--quote [\033[4mPONY\033[24m...]'
+
+usage = '%s %s\n%s [%s] %s\n%s [%s] %s' % (usage_saythink, usage_listhelp,
+                                           usage_saythink, usage_wrap, usage_file,
+                                           usage_saythink, usage_wrap, usage_quote)
+
+usage = usage.replace('\033[', '\0')
+for sym in ('[', ']', '(', ')', '|', '...'):
+    usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
+usage = usage.replace('\0', '\033[')
+
+'''
+Argument parsing
+'''
+opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
+                 description = 'cowsay wrapper for ponies',
+                 usage       = usage,
+                 longdescription =
+'''Ponysay displays an image of a pony saying some text provided by the user.
+If \033[4mmessage\033[24m is not provided, it accepts standard input. For an extensive
+documentation run `info ponysay`, or for just a little more help than this
+run `man ponysay`. Ponysay has so much more to offer than described here.''')
+
+opts.add_argumentless(['--quoters'])
+opts.add_argumentless(['--onelist'])
+
+opts.add_argumentless(['-h', '--help'],                      help = 'Print this help message.')
+opts.add_argumentless(['-v', '--version'],                   help = 'Print the version of the program.')
+opts.add_argumentless(['-l', '--list'],                      help = 'List pony files.')
+opts.add_argumentless(['-L', '--altlist'],                   help = 'List pony files with alternatives.')
+opts.add_argumented(  ['-W', '--wrap'],     arg = "COLUMN",  help = 'Specify the column when the message should be wrapped.')
+opts.add_argumented(  ['-f', '--pony'],     arg = "PONY",    help = 'Select a pony.\nEither a file name or a pony name.')
+opts.add_variadic(    ['-q', '--quote'],    arg = "PONY",    help = 'Select a ponies which will quote themself.')
+
+opts.parse()
 
 
 
