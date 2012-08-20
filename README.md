@@ -8,10 +8,6 @@ Today your terminal, tomorrow the world!
 Installation on GNU/Linux (or other Unix implementations)
 ---------------------------------------------------------
 
-First of all, you need `cowsay` from your local repositories.
-Obtain it from [here](http://www.nog.net/~tony/warez) if you wish to compile it yourself.
-This is often sufficient, but if is not you may be missing one of the standard packages: [bash](ftp://ftp.gnu.org/gnu/bash/), [coreutils](ftp://ftp.gnu.org/gnu/coreutils/) or [sed](ftp://ftp.gnu.org/gnu/sed/).
-
 [Download](/erkin/ponysay/downloads) or clone the project.
 In the terminal, `cd` into the ponysay directory and `./configure && make && make install`.
 You make need to be super user to run `make install`, on most systems this
@@ -73,6 +69,8 @@ If you have a custom colour palette edit your `~/.bashrc` and add
         }
     fi
 
+Read the PDF or info manual for more information.
+
 
 Installation on Microsoft™ Windows®
 -----------------------------------
@@ -84,19 +82,15 @@ Dependencies
 
 ### Required runtime dependencies
 
-`bash`: bash is used in a minor part of the program to make everything work, this will be removed later
-
-`coreutils`: stty in coreutils used to determine size of the terminal, other parts of coreutils will not be needed for long
-
-`cowsay`: this is a wrapper for cowsay
+`coreutils`: stty in coreutils used to determine size of the terminal
 
 `python>=3`: Written in python 3
 
 ### Package building dependencies
 
-`gcc`: used for compiling truncater.c
+`gzip`: used for compressing manuals
 
-`gzip`: used for compressing manpages
+`texinfo`: used for building info manual
 
 `make`: required to run the make script
 
