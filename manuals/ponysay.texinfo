@@ -1033,6 +1033,12 @@ first pony file in common.
 @cindex versions
 @cindex previous releases
 
+@heading Version 2.2
+
+@item
+New ponies: @code{blaze}
+@end itemize
+
 @heading Version 2.1.1
 
 Nothing worth mention.
