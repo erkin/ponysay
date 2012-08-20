@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 
-PREFIX="/usr"
+PREFIX='/usr'
 INFODESC=\''My Little Ponies for your terminal'\'
-SHELL="env bash"
+SHELL='bash'
 
 completions='completion/bash-completion.sh completion/fish-completion.fish completion/zsh-completion.zsh'
 shareDirs='ponies ttyponies quotes'
@@ -19,7 +19,7 @@ oldCompiledDirs=''
 
 installedFiles='bin/ponysay bin/ponythink doc/ponysay.pdf share/info/ponysay.info.gz share/info/ponythink.info.gz'
 installedDirs='share/ponysay lib/ponysay'
-compiledFiles='ponysay.info ponysay.info.gz ponysay.install'
+compiledFiles='ponysay.info ponysay.info.gz ponysay.install ponysay.install~'
 compiledDirs='quotes'
 
 for man in $manFiles; do
@@ -178,6 +178,10 @@ function makeMakefile()
     
     echo "core:"
     correctPrefix 'ponysay'
+    echo -en '\t' ; echo 'if (( `env python --version 2>&1 | cut -d " " -f 2 | cut -d "." -f 1` < 3 )); then \'
+    echo -en '\t' ; echo '    mv "ponysay.install" "ponysay.install~" ;\'
+    echo -en '\t' ; echo '    sed -e '\''s/bin\/env python/bin\/env python3/g'\'' < "ponysay.install~" > "ponysay.install" ;\'
+    echo -en '\t' ; echo 'fi'
     echo
     
     echo "quotes:"
@@ -227,8 +231,8 @@ function makeMakefile()
     done
     echo
     echo -en '\t' ; echo 'if [ -d "/var/cache/ponysay" ]; then  rm -r "/var/cache/ponysay"; fi'
-    echo -en '\t' ; echo 'mkdir -p $(DESTDIR)/var/cache/ponysay/'
-    echo -en '\t' ; echo 'chmod 777 $(DESTDIR)/var/cache/ponysay/'
+    echo -en '\t' ; echo 'mkdir -p "$(DESTDIR)/var/cache/ponysay/"'
+    echo -en '\t' ; echo 'chmod 777 "$(DESTDIR)/var/cache/ponysay/"'
     echo
     
     for completion in $completions; do
