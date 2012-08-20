@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.0
+@set VERSION 2.1
 
 @copying
 This manual is for ponysay
@@ -78,14 +78,17 @@ Texts. A copy of the license is included in the section entitled
 @cindex overview
 
 @command{ponysay} displays an image of a My Little Pony pony saying some text provided
-by the user in a terminal, or a quote from the series. It is a wrapper for
-@command{cowsay}. If message is not provided, e.g. by piping, it accepts standard input.
-The pony saying the given message is printed on standard output.
+by the user in a terminal, or a quote from the series. It is was wrapper for
+@command{cowsay}, but since version 2.1 it reimplementation @command{cowsay}. If message
+is not provided, e.g. by piping, it accepts standard input. The pony saying the given
+message is printed on standard output.
 
 @command{ponythink} is to @command{ponysay} as @command{cowthink} is to @command{cowsay}.
 
 @command{ponysay} is generally used to decorate your terminal with a random pony, when
-you start the terminal.
+you start the terminal. But if you known anypony how does like ponies [fat chance] you
+can always make screen-shots of @command{ponysay -q} runs and communication that way over
+e-mail.
 
 
 
@@ -214,7 +217,7 @@ you can run @code{fortune | ponysay} to get a random pony reading a
 random fortune cookie.
 
 By adding @code{fortune | ponysay} to the end [easiest way] of your
-@code{~/.bashrc} -- or equivalent for your shell if use do not use GNU Bash
+@code{~/.bashrc} -- or equivalent for your shell if you do not use GNU Bash
 (standard shell for most distributions now a days) -- you will get the
 effect described in the previous paragraph every time you open a terminal.
 
@@ -232,6 +235,8 @@ Alternatively you can use @command{pinkie} (or @command{pinkiepie}), which can
 be downloaded from @url{https://github.com/maandree/pinkie-pie}, which is just
 @code{fortune | ponypipe}. There is also a large @command{sed} script, similar
 to @command{ponypipe}: @url{http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/}
+However I think @command{ponypipe} as better at replacing words than the @command{sed}
+script, but I haven't used the script so I wouldn't know for sure.
 
 
 @node Running on TTY
@@ -318,6 +323,10 @@ are not running @command{ponysay} under TTY.
 @cindex PONYSAY_COWTHINK
 @cindex custom cowsay
 @cindex replace cowsay
+Since version 2.1 this is no longer used as @command{cowsay} has been
+reimplemented inside @command{ponysay}, but it is possible we will add
+a way to replace that back-end.
+
 If you want to use another program than @command{cowsay} (the first
 @command{cowsay} found in @code{$PATH}), you can export @code{PONYSAY_COWSAY}
 with the value of that program. In earlier versions than version 2.0: If, and
@@ -393,6 +402,11 @@ run on it.
 
 @node Cowsay
 @section Cowsay
+@cindex cowsay
+
+This section describes the limitation of @command{cowsay}, but since version 2.1
+@command{cowsay} is no longer used because of it. So none of the following limitations
+are present anymore.
 
 When @command{cowsay} determines the length of a word it measures in number of bytes
 (in UTF-8), therefore non-ASCII words will malformat the balloon with the message.
@@ -405,7 +419,7 @@ the pony, customisation, other than using @command{cowthink}. However you can mo
 @command{cowsay} (written Perl, so you can edit the installed files) to make the balloon
 look different, maybe using box drawing characters.
 
-@command{cowsay} does support setting the minimum size of the balloon, both directions
+@command{cowsay} does not support setting the minimum size of the balloon, both directions
 on the balloon–pony links. or any other placement of the balloon than at the top to
 the left.
 
@@ -413,6 +427,7 @@ the left.
 @cindex toilet
 @command{cowsay}'s word wrapping handles single line breaks as normal blank spaces,
 this messes up messages created with programs such as @command{figlet} and @command{TOIlet}.
+
 
 
 
@@ -464,15 +479,12 @@ properties that makes a picture good.
 @section Required runtime dependencies
 
 @table @option
-@item bash
-Required for the glue script.
 @item cowsay
 This is a wrapper for @command{cowsay}.
 @item coreutils
-@command{stty} is used to determine the size of the terminal,
-other parts of Coreutils will not be needed for long
+@command{stty} is used to determine the size of the terminal.
 @item python
-Python version 3 is the primary language of the program
+@command{ponysay} is written in pure Python 3.
 @end table
 
 @node Optional runtime dependencies
@@ -481,7 +493,7 @@ Python version 3 is the primary language of the program
 @cindex optional dependencies
 
 @table @option
-@item util-say
+@item util-say>=2
 @cindex @command{util-say}
 @cindex kms
 @cindex tty
@@ -492,10 +504,9 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @cindex png images
 @cindex images, png
 @cindex portable network graphics
-For ther purpose of simplying for pony contributors, @command{ponysay}
+For the purpose of simplifying for pony contributors, @command{ponysay}
 supports using .png-images (note that the file must not miss the
 @code{.png} in the file) in addition of .pony-files or pony names.
-
 @end table
 
 
@@ -503,20 +514,18 @@ supports using .png-images (note that the file must not miss the
 @section Package building dependencies
 
 @table @option
-@item gcc
-Used for compiling @command{ponysaytruncater.c}.
 @item gzip
-Used for compressing manpages.
+Used for compressing manuals.
+@item texinfo
+@itemx info
+@command{texinfo} and @command{info} are required if you want this @command{info} manual.
 @item make
 Required to run the make script.
 @item coreutils
 The make script uses @command{install}, @command{unlink}, @command{rm}, @command{ln},
 @command{mkdir} and @command{cp}.
 @item sed
-Used on the make system.
-@item texinfo
-@itemx info
-@command{texinfo} and @command{info} are required if you want this @command{info} manual.
+Used by the make script for @command{PREFIX} customisation.
 @end table
 
 
@@ -531,7 +540,7 @@ Required to run @command{make -B ttyponies`}.
 @command{ln} and @command{readlink} are used in the @command{ttyponies} subscript.
 @item bash
 Used in the ttyponies subscript.
-@item util-say
+@item util-say>=2
 Used by @command{make ttyponies} to build ttyponies from xterm ponies.
 It can be downloaded at @url{https://github.com/maandree/util-say}.
 @end table
@@ -692,7 +701,7 @@ manually from the upstream, you can uninstall it by running @command{make uninst
 Well written package manages will uninstall files that the package is no longer
 using, i.e. if deleted, moved or renamed. To uninstall files that are not longer
 used, by the currently installed version you will need that versions @code{Makefile}.
-To perform the uninstallion of old filed run @command{make uninstall-old}.
+To perform the uninstallation of old filed run @command{make uninstall-old}.
 
 
 
@@ -777,7 +786,7 @@ but is still available at @url{https://github.com/maandree/kmsponies4ponysay}.
 * Printing in TTY with KMS::     Printing in TTY with KMS.
 * Truncation::                   Output truncation.
 * Languages::                    Selection of languages.
-* Shell auto-completion::        Things make auto-completion simplier.
+* Shell auto-completion::        Things make auto-completion simpler.
 @end menu
 
 
@@ -785,6 +794,8 @@ but is still available at @url{https://github.com/maandree/kmsponies4ponysay}.
 @section Pony anatomy
 @cindex pony anatomy
 @cindex anatomy of pony files
+
+@b{This information applies to version 2.0 and earlier versions.}
 
 The pony files are cow files used by @command{cowsay}, they are partial Perl-scripts
 that assign a value to a scalar variable named @code{$the_cow}. The files use a
@@ -863,8 +874,8 @@ fast, does not pose addition dependencies, and is easy to do byte hacking in.
 Sometimes shell is too slow, in these cases Perl was used; Perl was already
 required by cowsay, is similar to shell, but also supports hash tables.
 
-However since version 2.0 we are trying to move from all there languages
-and only use Python 3.
+However since version 2.0 we were trying to move from all there languages
+and only use Python 3, which as been accomplished in version 2.1.
 
 
 @node Shell auto-completion
@@ -883,7 +894,7 @@ independent of where it is located, the output is a sorted and consists only
 of one pony per line.
 
 @command{ponysay --quoters} work just as @command{ponysay --onelist}, excepts
-it limites the ponies to those that have quotes. Ponies that have qoutes,
+it limits the ponies to those that have quotes. Ponies that have quotes,
 but does not exist, i.e. does not have a .pony-file, are not listed.
 
 Auto-completion scripts should not suggest these options.
@@ -910,17 +921,19 @@ desktop ponies, implementing it in JavaScript. Browser ponies are available at
 There is also a collection of ponies that are not yet pixelated in a Java reimplementation:
 @url{https://github.com/maandree/unisay/tree/develop/dev/newponies}
 
-There is a checklist named @code{"pony-checklist"} at the top level of the project
-directory. You can use the check which ponies are added and which are not.
+There is a checklist named @code{"pony-checklist"} at the @code{"dev/"} directory.
+You can use the check which ponies are added and which are not.
 @*
 
 New ponies can be created from regular images by using util-say, which is available
 at @url{https://github.com/maandree/util-say}.
-@command{img2xterm} (@url{https://github.com/rossy2401/img2xterm}) was used earlier,
-but util-say tries to optimise the images in some aspects: as good as possible for
-low capability terminals, tries to place the pony–balloon link, displayed as good as
-possible when marked in the terminal (somewhat compromised by the first aspect,) and
-same width on all rows.
+Prior to version 2.1 of @command{ponysay}, @command{img2xterm} could be used, by since
+version 2.1 @command{ponysay} is using a new format that only util-say supports.
+@command{img2xterm} (@url{https://github.com/rossy2401/img2xterm}) was used in the
+early stage, but util-say tries to optimise the images in some aspects: as good as
+possible for low capability terminals, tries to place the pony–balloon link, displayed
+as good as possible when marked in the terminal (somewhat compromised by the first
+aspect,) and same width on all rows.
 
 Using util-say:
 @cindex util-say
@@ -946,6 +959,18 @@ ttyponies with a pony present in @code{ponies/}, and creates all needed symlinks
 
 To be able to run @command{make -B ttyponies} you must have the packages listed under
 @ref{Dependencies for pony providers}.
+
+@cindex ponyquotes
+@cindex quotes
+Also when adding new ponies, please map them up in the file @code{"ponyquotes/ponies"}.
+If the pony is a new pony without any other alternative image just add it to a new
+line, without @code{.pony}, preferably in its alphabetical position.
+If the file is a symlink add it to the same line as the target pony, and if the
+pony has and alternative image add it the the same line as that pony. Ponies on
+the same line are separated with a plus sign (@code{+}) without any white space.
+When a line is too long for a file name (this has happened to Pinkie Pie
+[@code{pinkie}],) it must be split into multiple lines, this line should have their
+first pony file in common.
 
 
 
