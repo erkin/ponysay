@@ -961,7 +961,7 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 @item
 @code{applebumkin} is renamed to @code{applebumpkin}.
 @item
-New ponies @code{owlowiscious}
+New ponies: @code{purplehaze}, @code{owlowiscious}
 @end itemize
 
 @heading Version 2.0
@@ -976,7 +976,6 @@ kmsponies4ponysay is included.
 @end itemize
 
 @heading Version 1.4.1
-
 @itemize @bullet
 @item
 Code is repaired and more portable.
