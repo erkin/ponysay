@@ -797,6 +797,7 @@ but is still available at @url{https://github.com/maandree/kmsponies4ponysay}.
 
 @menu
 * Pony anatomy::                 Anatomy of pony files.
+* Pony quote infrastructure::    Pony quote infrastructure.
 * Printing in TTY with KMS::     Printing in TTY with KMS.
 * Truncation::                   Output truncation.
 * Languages::                    Selection of languages.
@@ -809,17 +810,48 @@ but is still available at @url{https://github.com/maandree/kmsponies4ponysay}.
 @cindex pony anatomy
 @cindex anatomy of pony files
 
-@b{This information applies to version 2.0 and earlier versions.}
+The pony files are simple raw output data that can be printed to the terminal,
+except it contains scalar variables. The pony images consists of white space, lower
+half blocks [U+2584], upper half blocks [U+2580] and ANSI colour sequences (CSI m),
+and, in TTY, colour value change sequences (OSI P).
 
-The pony files are cow files used by @command{cowsay}, they are partial Perl-scripts
-that assign a value to a scalar variable named @code{$the_cow}. The files use a
-predefined scalar named variable named @code{$thoughts}, these are used to create
-a link between the message and the pony. The message (and the balloon) it self is
-printed by @command{cowsay} and is not defined in the pony files.
+Variables are recalled by putting the variable's name between two dollar signs
+(@code{$var$}), and are stored by putting the variable's name followed by the value
+between two dollar signs  and with a equality sign between the name and the value
+(@code{$var=value$}). Variable names cannot include equality signs, but the value
+can; dollar signs can be used by placin an ESC character before the dollar sign.
 
-The pony images consists of white space, lower half blocks [U+2584], upper half
-blocks [U+2580] and ANSI colour sequences (CSI m), and, in TTY, colour value change
-sequences (OSI P).
+There are three predefinied variables: @code{$$} (empty variable name), @code{$\$}
+and @code{$/$}. @code{$$} has a dollar sign (@code{$}) as its value, while @code{$\$}
+and @code{$/$} contains the characters for the link to the balloon directed in the
+same direction as the variable name's slash.
+
+Prior to version 2.1 the pony files were cow files used by @command{cowsay}, they
+are partial Perl-scripts that assign a value to a scalar variable named @code{$the_cow}.
+Cow files use a predefined scalar variable named @code{$thoughts}, these are used
+to create a link between the message and the pony. The message (and the balloon)
+itself was printed by @command{cowsay} and is not defined in the cow files.
+
+
+@node Pony quote infrastructure
+@section Pony quote infrastructure
+@cindex pony quote infrastructure
+@cindex quote infrastructure
+
+When compiles pony quotes are built to @code{quotes}, the file names are lists of
+ponies joined with plus signs (@code{+}) -- the pony names are the same as the pony files,
+except they do not end with @code{.pony} -- with a index at the end, and a full stop
+(@code{.}) before the index.
+
+The source files are located in @code{ponyquotes}, where their is a file named @code{ponies}.
+This file is called the pony map, is the basis for how the compiled files are named.
+In the ponymap ponies with the same quotes are on the same line join togather with plus
+signs (@code{+}), if the lines because too long for file names the line is split into
+multiple lines with the first pony in common.
+
+In @code{ponyquotes} there are also quote files, each contain just one quote, just as
+when compiled to @code{quotes}. The source quote files are indentical to the compiled
+quote files, except that there name contains just the first pony.
 
 
 @node Printing in TTY with KMS
