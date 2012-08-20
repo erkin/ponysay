@@ -90,11 +90,7 @@ Dependencies
 
 `texinfo`: used for building info manual (suppressable with `./configure --without-info`)
 
-`make`: required to run the make script
-
-`coreutils`: make script uses install, unlink, rm, ln, mkdir and cp
-
-`sed`: make script uses sed
+Run `./dependency-test.sh` if things are not working for you.
 
 
 FAQ
