@@ -12,6 +12,7 @@ Installation on GNU/Linux (or other Unix implementations)
 In the terminal, `cd` into the ponysay directory and `./configure && make && make install`.
 You make need to be super user to run `make install`, on most systems this
 can be achieved by running `sudo make install`.
+For more information we have provided you with an extensive [manual in PDF](https://github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true).
 
 In order to use ponysay, run:
 
