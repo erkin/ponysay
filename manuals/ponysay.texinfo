@@ -955,6 +955,13 @@ To be able to run @command{make -B ttyponies} you must have the packages listed 
 @cindex versions
 @cindex previous releases
 
+@heading Version 2.1
+
+@itemize @bullet
+@item
+@code{applebumkin} is renamed to @code{applebumpkin}.
+@end itemize
+
 @heading Version 2.0
 
 @itemize @bullet

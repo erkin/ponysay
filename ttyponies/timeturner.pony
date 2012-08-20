@@ -1,1 +1,0 @@
-./doctornohat.pony
