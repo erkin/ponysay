@@ -53,6 +53,7 @@ function getcompfile()
 
 
 
+installCache=' install-cache'
 installPdf=''
 installInfo=' install-info'
 installInfoInstall=' install-info-install'
@@ -73,6 +74,7 @@ for arg in "$@"; do
     elif [ "$opt" = '--shell' ]; then
 	SHELL="$val"
     
+    elif [ "$opt" = '--without-shared-cache' ]; then  installCache=''
     elif [ "$opt" = '--with-pdf'             ]; then  installPdf=' install-pdf'
     elif [ "$opt" = '--without-info'         ]; then  installInfo=''
     elif [ "$opt" = '--without-info-install' ]; then  installInfoInstall=''
@@ -83,6 +85,7 @@ for arg in "$@"; do
     elif [ "$opt" = '--without-zsh'          ]; then  installZsh=''
     
     elif [ "$opt" = "--everything" ]; then
+	installCache=' install-cache'
 	installPdf=' install-pdf'
 	installInfo=' install-info'
 	installInfoInstall=' install-info-install'
@@ -102,7 +105,7 @@ if [ "$installInfo" = '' ]; then
 fi
 
 compileMethods='core quotes manpages ponysaycompletion ponythinkcompletion'
-installMethods='install-min'"$installPdf$installInfo$installInfoInstall$installMan$installManEs$installBash$installFish$installZsh"
+installMethods='install-min'"$installCache$installPdf$installInfo$installInfoInstall$installMan$installManEs$installBash$installFish$installZsh"
 if [ ! "$installInfo" = '' ]; then
     compileMethods="$compileMethods infomanual"
 fi
@@ -144,6 +147,7 @@ echo "PREFIX = $PREFIX, edit with option --prefix=PREFIX"
 echo "INFODESC = $INFODESC, edit with option --info-desc=INFODESC"
 echo "SHELL = $SHELL, edit with option --shell=PREFIX"
 echo
+[ ! "$installCache"        = '' ] && echo "Installing shared cache, add option --without-shared-cache to skip"
 [ ! "$installPdf"          = '' ] && echo "Installing PDF manual"
 [ ! "$installInfo"         = '' ] && echo "Installing info manual, add option --without-info to skip"
 [ ! "$installInfoInstall"  = '' ] && echo "Installing info manual with info-install, add option --without-info to skip"
@@ -153,6 +157,7 @@ echo
 [ ! "$installFish"         = '' ] && echo "Installing autocompletion for fish, add option --without-fish to skip"
 [ ! "$installZsh"          = '' ] && echo "Installing autocompletion for zsh, add option --without-zsh to skip"
 echo
+[ ! "$installCache"        = '' ] || echo "Skipping shared cache"
 [ ! "$installPdf"          = '' ] || echo "Skipping PDF manual, add option --with-pdf to install"
 [ ! "$installInfo"         = '' ] || echo "Skipping info manual"
 [ ! "$installInfoInstall"  = '' ] || echo "Skipping info manual installation with info-install"
@@ -232,6 +237,8 @@ function makeMakefile()
 	echo 'install "'"$file"'" "$(INSTALLDIR)/share/licenses/ponysay/'"$file"'"'
     done
     echo
+    
+    echo 'install-cache:'
     echo -en '\t' ; echo 'if [ -d "/var/cache/ponysay" ]; then  rm -r "/var/cache/ponysay"; fi'
     echo -en '\t' ; echo 'mkdir -p "$(DESTDIR)/var/cache/ponysay/"'
     echo -en '\t' ; echo 'chmod 777 "$(DESTDIR)/var/cache/ponysay/"'

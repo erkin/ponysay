@@ -452,11 +452,17 @@ class Ponysay():
         palette = env_kms
         palettefile = env_kms.replace('\033]P', '')
         
-        kmsponies = '/var/cache/ponysay/kmsponies/' + palettefile
+        cachedir = '/var/cache/ponysay'
+        if not os.path.isdir(cachedir):
+            cachedir = HOME + '/.cache/ponysay'
+            if not os.path.isdir(cachedir):
+                os.makedirs(cachedir)
+        
+        kmsponies = cachedir + '/kmsponies/' + palettefile
         kmspony = (kmsponies + pony).replace('//', '/')
         
         if not os.path.isfile(kmspony):
-            protokmsponies = '/var/cache/ponysay/protokmsponies/'
+            protokmsponies = cachedir + '/protokmsponies/'
             protokmspony = (protokmsponies + pony).replace('//', '/')
             
             protokmsponydir = protokmspony[:protokmspony.rindex('/')]

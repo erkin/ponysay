@@ -651,6 +651,12 @@ Friendly interactive shell, @command{fish}.
 @cindex @command{zsh}, without
 will skip installation of auto-completion for @command{ponysay} and the
 shell @command{zsh}.
+@item @command{--without-shared-cache}
+@cindex @command{--without-shared-cache}
+@cindex cache
+@cindex kms
+will skip installing a shared cache for KMS support, when there is no
+shared cache, private one will be used at @code{~/.cache/ponysay}.
 @end itemize
 
 @cindex @command{--prefix=TARGET}
@@ -670,6 +676,7 @@ which provide when listing commands.
 @cindex @command{--shell=SHELL}
 By default @command{bash} is in the make file, if you want to use another shell
 add the option @command{--shell=SHELL}.
+
 
 
 @node Arch Linux
