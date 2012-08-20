@@ -16,7 +16,7 @@
 .\" .sp <n>    insert n+1 empty lines
 .\" for manpage-specific macros, see man(7)
 .SH NAME
-ponysay \- A cowsay wrapper with ponies
+ponysay \- Cowsay reimplementation for ponies
 .SH SYNOPSIS
 .B ponysay
 .RI [ options ]
@@ -34,8 +34,8 @@ ponysay \- A cowsay wrapper with ponies
 .\" \fI<whatever>\fP escape sequences to invode bold face and italics,
 .\" respectively.
 \fBponysay\fP displays an image of a pony saying some text provided by the user in a terminal.
-It is a wrapper for \fIcowsay\fP. If \fImessage\fP is not provided, it accepts standard input,
-word-wraps the message given at about 40 columns, and prints the pony saying the given message on standard output.
+If \fImessage\fP is not provided, it accepts standard input, word-wraps the message given at
+about 40 columns, and prints the pony saying the given message on standard output.
 .PP
 If no arguments are provided, the program only accepts standard input piped from another program, a file or
 either here documents or here strings (see man bash(1) for details on here document/string.)
