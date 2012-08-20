@@ -326,7 +326,8 @@ class Ponysay():
             Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
             pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
         
-        cmd = [cowsay, '-f', self.__kms(pony)]
+        pony = self.__kms(pony)
+        cmd = [cowsay, '-f', pony]
         if args.opts['-W'] is not None:
             cmd += ['-W', args.opts['-W'][0]]
         cmd.append(msg)
