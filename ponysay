@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-ponysay.py - Ponysay, a cowsay wrapper for ponies
+ponysay.py - Ponysay, a cowsay reimplementation for ponies
 Copyright (C) 2012  Erkin Batu Altunbaş
 
 Authors: Erkin Batu Altunbaş:              Project leader, helped write the first implementation
@@ -1110,7 +1110,7 @@ usage = usage.replace('\0', '\033[')
 Argument parsing
 '''
 opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
-                 description = 'cowsay wrapper for ponies',
+                 description = 'cowsay reimplemention for ponies',
                  usage       = usage,
                  longdescription =
 '''Ponysay displays an image of a pony saying some text provided by the user.
