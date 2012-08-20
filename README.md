@@ -13,9 +13,6 @@ In the terminal, `cd` into the ponysay directory and `./configure && make && mak
 You make need to be super user to run `make install`, on most systems this
 can be achieved by running `sudo make install`.
 
-If either `make` or `make install` fails you be missing one of the standard packages:
-[gcc](ftp://ftp.gnu.org/gnu/gcc/), [gzip](ftp://ftp.gnu.org/gnu/gzip/), [make](ftp://ftp.gnu.org/gnu/make/) or [coreutils](ftp://ftp.gnu.org/gnu/coreutils/), or [git](http://git-scm.com/).
-
 In order to use ponysay, run:
 
     ponysay "I am just the cutest pony!"
@@ -88,13 +85,15 @@ Dependencies
 
 ### Package building dependencies
 
-`gzip`: used for compressing manuals
+`gzip`: used for compressing manuals (suppressable with `./configure --without-info --without-man`)
 
-`texinfo`: used for building info manual
+`texinfo`: used for building info manual (suppressable with `./configure --without-info`)
 
 `make`: required to run the make script
 
 `coreutils`: make script uses install, unlink, rm, ln, mkdir and cp
+
+`sed`: make script uses sed
 
 
 FAQ
