@@ -570,8 +570,13 @@ class Ponysay():
                 if cachev is not None:
                     cachev.close()
         if newversion:
-            for cached in os.listdir(ponydir):
-                shutil.rmtree(cachedir + '/' + cached, False)
+            for cached in os.listdir(cachedir):
+                cached = cachedir + '/' + cached
+                if os.path.isdir(cached) and not os.path.islink(cached):
+                    shutil.rmtree(cached, False)
+                else:
+                    os.remove(cached)
+            cachev = None
             try:
                 cachev = open(cachedir + '/.version', 'w+')
                 cachev.write(KMS_VERSION)
