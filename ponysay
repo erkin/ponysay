@@ -119,6 +119,49 @@ class Ponysay():
     
     
     '''
+    Apply USC:ise pony names according to UCS settings
+    '''
+    def __ucsise(self, ponies, links = None):
+        env_ucs = os.environ['PONYSAY_UCS_ME'] if 'PONYSAY_UCS_ME' in os.environ else ''
+        ucs_conf = 0
+        if   env_ucs in ('yes',    'y', '1'):  ucs_conf = 1
+        elif env_ucs in ('harder', 'h', '2'):  ucs_conf = 2
+        
+        if ucs_conf == 0:
+            return
+        
+        maplines = []
+        for sharedir in sharedirs:
+            if os.path.isfile(sharedir + 'ucsmap'):
+                mapfile = None
+                try:
+                    mapfile = open(sharedir + 'ucsmap', 'r')
+                    maplines += [line.replace('\n', '') for line in mapfile.readlines()]
+                finally:
+                    if mapfile is not None:
+                        mapfile.close()
+        
+        map = {}
+        stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
+        for line in maplines:
+            if (len(line) > 0) and not (line[0] == '#'):
+                s = line.index('→')
+                ucs   = line[:s]    .strip(stripset)
+                ascii = line[s + 1:].strip(stripset)
+                map[ascii] = ucs
+        
+        if ucs_conf == 1:
+            for pony in ponies:
+                if pony in map:
+                    ponies.append(map[pony])
+        else:
+            for j in range(0, len(ponies)):
+                if ponies[j] in map:
+                    ponies[j] = map[ponies[j]]
+    
+    
+    
+    '''
     Returns one file with full path, names is filter for names, also accepts filepaths
     '''
     def __getponypath(self, names = None):
@@ -225,6 +268,7 @@ class Ponysay():
             for pony in _ponies:
                 if (len(pony) > 5) and (pony[-5:] == '.pony'):
                     ponies.append(pony[:-5])
+            self.__ucsise(ponies)
             ponies.sort()
             
             width = len(max(ponies, key = len)) + 2 # Get the longest ponyfilename lenght + 2 spaces
@@ -256,6 +300,8 @@ class Ponysay():
             for pony in _ponies:
                 if (len(pony) > 5) and (pony[-5:] == '.pony'):
                     ponies.append(pony[:-5])
+            pseudolinkmap = []
+            self.__ucsise(ponies, pseudolinkmap) ##TODO
             ponies.sort()
             pairs = [(pony, os.path.realpath(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else '') for pony in ponies]
             
@@ -320,6 +366,7 @@ class Ponysay():
         ponies = []
         for pony in self.__quoters():
             ponies.append(pony)
+        self.__ucsise(ponies)
         ponies.sort()
         for pony in ponies:
             if not pony == last:
@@ -339,6 +386,7 @@ class Ponysay():
         for pony in _ponies:
             if (len(pony) > 5) and (pony[-5:] == '.pony'):
                 ponies.append(pony[:-5])
+        self.__ucsise(ponies)
         ponies.sort()
         for pony in ponies:
             if not pony == last:
