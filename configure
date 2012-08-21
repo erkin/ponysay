@@ -17,7 +17,7 @@ oldInstalledDirs='lib/ponysay share/ponies share/ttyponies bin/ponysaylist.pl'
 oldCompiledFiles='truncater ponysaytruncater ponysay.py.install'
 oldCompiledDirs=''
 
-installedFiles='bin/ponysay bin/ponythink doc/ponysay.pdf share/info/ponysay.info.gz share/info/ponythink.info.gz'
+installedFiles='bin/ponysay bin/ponythink doc/ponysay.pdf share/info/ponysay.info.gz share/info/ponythink.info.gz share/ponysay/ucsmap'
 installedDirs='share/ponysay lib/ponysay'
 compiledFiles='ponysay.info ponysay.info.gz ponysay.install ponysay.install~'
 compiledDirs='quotes'
@@ -230,6 +230,9 @@ function makeMakefile()
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/bin/"'
     echo -en '\t' ; echo 'install "ponysay.install" "$(INSTALLDIR)/bin/ponysay"'
     echo -en '\t' ; echo 'ln -sf  "ponysay"         "$(INSTALLDIR)/bin/ponythink"'
+    echo
+    echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/ponysay/"'
+    echo -en '\t' ; echo 'install "share/ucsmap" "$(INSTALLDIR)/share/ponysay/ucsmap"'
     echo
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/licenses/ponysay/"'
     for file in $licenseFiles; do

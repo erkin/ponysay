@@ -56,14 +56,8 @@ class Ponysay():
         elif args.opts['-L']        is not None:  self.linklist()
         elif args.opts['-B']        is not None:  self.balloonlist()
         else:
-            if (args.opts['-f'] is None) or (args.opts['-q'] is None) or (len(args.opts['-q']) == 0):
-                for ponydir in ponydirs:
-                    if os.path.isfile(ponydir + 'best.pony') or os.path.islink(ponydir + 'best.pony'):
-                        pony = os.path.realpath(ponydir + 'best.pony') # Canonical path
-                        if args.opts['-q'] is not None:  args.opts['-q'] = [pony]
-                        else:                            args.opts['-f'] = [pony]
-                        break
-            
+            self.__bestpony(args)
+            self.__ucsremap(args)
             if args.opts['-q'] is not None:  self.quote(args)
             else:                            self.print_pony(args)
     
@@ -71,6 +65,58 @@ class Ponysay():
     ##
     ## Auxiliary methods
     ##
+    
+    '''
+    Use best.pony if nothing else is set
+    '''
+    def __bestpony(self, args):
+        if (args.opts['-f'] is None) or (args.opts['-q'] is None) or (len(args.opts['-q']) == 0):
+            for ponydir in ponydirs:
+                if os.path.isfile(ponydir + 'best.pony') or os.path.islink(ponydir + 'best.pony'):
+                    pony = os.path.realpath(ponydir + 'best.pony') # Canonical path
+                    if args.opts['-q'] is not None:  args.opts['-q'] = [pony]
+                    else:                            args.opts['-f'] = [pony]
+                    break
+    
+    
+    '''
+    Apply pony name remapping to args according to UCS settings
+    '''
+    def __ucsremap(self, args):
+        env_ucs = os.environ['PONYSAY_UCS_ME'] if 'PONYSAY_UCS_ME' in os.environ else ''
+        ucs_conf = 0
+        if   env_ucs in ('yes',    'y', '1'):  ucs_conf = 1
+        elif env_ucs in ('harder', 'h', '2'):  ucs_conf = 2
+        
+        if ucs_conf == 0:
+            return
+        
+        maplines = []
+        for sharedir in sharedirs:
+            if os.path.isfile(sharedir + 'ucsmap'):
+                mapfile = None
+                try:
+                    mapfile = open(sharedir + 'ucsmap', 'r')
+                    maplines += [line.replace('\n', '') for line in mapfile.readlines()]
+                finally:
+                    if mapfile is not None:
+                        mapfile.close()
+        
+        map = {}
+        stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
+        for line in maplines:
+            if (len(line) > 0) and not (line[0] == '#'):
+                s = line.index('→')
+                ucs   = line[:s]    .strip(stripset)
+                ascii = line[s + 1:].strip(stripset)
+                map[ucs] = ascii
+        
+        for flag in ('-f', '-q'):
+            if args.opts[flag] is not None:
+                for i in range(0, len(args.opts[flag])):
+                    if args.opts[flag][i] in map:
+                        args.opts[flag][i] = map[args.opts[flag][i]]
+    
     
     '''
     Returns one file with full path, names is filter for names, also accepts filepaths
@@ -1402,13 +1448,13 @@ class ColourStack():
 '''
 The user's home directory
 '''
-HOME = os.environ['HOME']
+HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
 
 
 '''
 Whether the program is execute in Linux VT (TTY)
 '''
-linuxvt = os.environ['TERM'] == 'linux'
+linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
 
 
 '''
@@ -1435,12 +1481,22 @@ pipelineerr = not sys.stderr.isatty()
 
 
 '''
+Root share/ directories
+'''
+sharedirs = []
+_sharedirs = [HOME + '/.local/share/ponysay/',  INSTALLDIR + '/share/ponysay/']
+for sharedir in _sharedirs:
+    if os.path.isdir(sharedir):
+        sharedirs.append(sharedir)
+
+
+'''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
 '''
 ponydirs = []
 _kms = Ponysay.isUsingKMS()
-if linuxvt and not _kms:  _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/',  INSTALLDIR + '/share/ponysay/ttyponies/']
-else:                     _ponydirs = [HOME + '/.local/share/ponysay/ponies/',     INSTALLDIR + '/share/ponysay/ponies/'   ]
+if linuxvt and not _kms:  _ponydirs = [d + 'ttyponies/' for d in sharedirs]
+else:                     _ponydirs = [d + 'ponies/' for d in sharedirs]
 for ponydir in _ponydirs:
     if os.path.isdir(ponydir):
         ponydirs.append(ponydir)
@@ -1450,7 +1506,7 @@ for ponydir in _ponydirs:
 The directories where quotes files are stored
 '''
 quotedirs = []
-_quotedirs = [HOME + '/.local/share/ponysay/quotes/',  INSTALLDIR + '/share/ponysay/quotes/']
+_quotedirs = [d + 'quotes/' for d in sharedirs]
 for quotedir in _quotedirs:
     if os.path.isdir(quotedir):
         quotedirs.append(quotedir)
@@ -1460,7 +1516,7 @@ for quotedir in _quotedirs:
 The directories where balloon style files are stored
 '''
 balloondirs = []
-_balloondirs = [HOME + '/.local/share/ponysay/balloons/',  INSTALLDIR + '/share/ponysay/balloons/']
+_balloondirs = [d + 'balloons/' for d in sharedirs]
 for balloondir in _balloondirs:
     if os.path.isdir(balloondir):
         balloondirs.append(balloondir)
