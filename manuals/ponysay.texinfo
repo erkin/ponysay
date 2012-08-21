@@ -1041,6 +1041,8 @@ Full support for arbitrary positioning of balloon in pony files.
 @item
 ANSI colour sequences in pony files are applied only to the pony image,
 not the balloon link or the balloon itself.
+@item
+Support for colours in the message.
 @end itemize
 
 @heading Version 2.1.1
