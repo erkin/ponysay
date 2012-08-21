@@ -172,6 +172,8 @@ is added as an argument after @command{-q}. If one or more ponies are added afte
 This option requires the extension @command{ponyquotes4ponysay}, which
 is included by default since version 1.2.
 
+The argument can be a file name, but pony if it ends with @code{.pony}.
+
 @item -W COLUMN
 @itemx --wrap COLUMN
 @cindex @command{-W}
@@ -206,12 +208,17 @@ target ponies.
 Prints a list of all balloon styles.
 @end table
 
+@cindex @var{message}
 If neither @command{-q} is used nor any @var{message} is specified, @command{ponysay}
 will read the message from stdin (standard input); however, if no arguments
 are used that nothing is piped to stdin, a help message will be printed.
 If you want to use @command{ponysay} without arguments and enter the message
 by hand, you can run @code{cat | ponysay}.
 
+@cindex @code{best.pony}
+If no pony is selected, @command{ponysay} will look for a @code{best.pony} file,
+this should be a symbolic link to the pony you want as a default. If it is not
+a symbolic link, @command{-q} cannot determine which quotes to use.
 
 
 @node Advanced usage
@@ -1123,6 +1130,15 @@ first pony file in common.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 2.3
+
+@itemize @bullet
+@item
+Support for @code{best.pony} file.
+@item
+@code{-q} accepts file names.
+@end itemize
 
 @heading Version 2.2
 

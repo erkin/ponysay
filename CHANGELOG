@@ -1,3 +1,10 @@
+Version 2.3
+
+	Support for 'best.pony' file.
+
+	`-q` accepts file names.
+
+
 Version 2.2
 
 	Full support for arbitrary positioning of balloon in pony files.
@@ -8,7 +15,7 @@ Version 2.2
 	Support for colours in the message.
 
 	Support	custom balloon styles using the	option '-b', '-B' will list all
-	available. This list depends on whether you are invoking `ponysay` or `ponythink`
+	available. This list depends on whether you are invoking `ponysay` or `ponythink`.
 
 
 Version 2.1.1
