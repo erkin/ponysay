@@ -257,7 +257,7 @@ class Ponysay():
                 if (len(pony) > 5) and (pony[-5:] == '.pony'):
                     ponies.append(pony[:-5])
             ponies.sort()
-            pairs = [(pony, os.readlink(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else '') for pony in ponies]
+            pairs = [(pony, os.path.realpath(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else '') for pony in ponies]
             
             ponymap = {}
             for pair in pairs:
