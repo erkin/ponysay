@@ -271,11 +271,11 @@ class Ponysay():
             self.__ucsise(ponies)
             ponies.sort()
             
-            width = len(max(ponies, key = len)) + 2 # Get the longest ponyfilename lenght + 2 spaces
+            width = UCS.dispLen(max(ponies, key = UCS.dispLen)) + 2 # Get the longest ponyfilename lenght + 2 spaces
             
             x = 0
             for pony in ponies:
-                spacing = ' ' * (width - len(pony))
+                spacing = ' ' * (width - UCS.dispLen(pony))
                 print(('\033[1m' + pony + '\033[21m' if (pony in quoters) else pony) + spacing, end='') # Print ponyfilename
                 x += width
                 if x > (termsize[1] - width): # If too wide, make new line
@@ -323,7 +323,7 @@ class Ponysay():
             ponies = []
             widths = []
             for pony in ponymap:
-                w = len(pony)
+                w = UCS.dispLen(pony)
                 item = '\033[1m' + pony + '\033[21m' if (pony in quoters) else pony
                 syms = ponymap[pony]
                 if len(syms) > 0:
@@ -331,7 +331,7 @@ class Ponysay():
                     item += ' ('
                     first = True
                     for sym in syms:
-                        w += len(sym)
+                        w += UCS.dispLen(sym)
                         if not first:
                             item += ' '
                         else:
@@ -420,11 +420,11 @@ class Ponysay():
         balloons = list(balloonset)
         balloons.sort()
         
-        width = len(max(balloons, key = len)) + 2
+        width = UCS.dispLen(max(balloons, key = UCS.dispLen)) + 2
         
         x = 0
         for balloon in balloons:
-            spacing = ' ' * (width - len(balloon))
+            spacing = ' ' * (width - UCS.dispLen(balloon))
             print(balloon + spacing, end='')
             x += width
             if x > (termsize[1] - width):
@@ -961,13 +961,13 @@ class Balloon():
         (self.sse, self.s, self.ssw) = (sse, s, ssw)
         (self.sww, self.w, self.nww) = (sww, w, nww)
         
-        _ne = max(ne, key = len)
-        _nw = max(nw, key = len)
-        _se = max(se, key = len)
-        _sw = max(sw, key = len)
+        _ne = max(ne, key = UCS.dispLen)
+        _nw = max(nw, key = UCS.dispLen)
+        _se = max(se, key = UCS.dispLen)
+        _sw = max(sw, key = UCS.dispLen)
         
-        minE = len(max([_ne, nee, e, see, _se, ee], key = len))
-        minW = len(max([_nw, nww, e, sww, _sw, ww], key = len))
+        minE = UCS.dispLen(max([_ne, nee, e, see, _se, ee], key = UCS.dispLen))
+        minW = UCS.dispLen(max([_nw, nww, e, sww, _sw, ww], key = UCS.dispLen))
         minN = len(max([ne, nne, n, nnw, nw], key = len))
         minS = len(max([se, sse, s, ssw, sw], key = len))
         
@@ -1282,7 +1282,8 @@ class Backend():
                 i += len(self.__getcolour(input, i))
             else:
                 i += 1
-                rc += 1
+                if not UCS.isCombining(c):
+                    rc += 1
         return rc
     
     
@@ -1355,7 +1356,8 @@ class Backend():
                                 indentc += 1
                     b[bi] = d
                     bi += 1
-                    cols += 1
+                    if not UCS.isCombining(d):
+                        cols += 1
                     map[cols] = bi
                 else:
                     mm = 0
@@ -1490,6 +1492,43 @@ class ColourStack():
         self.stack[0][0] = buf
         return rc
 
+
+
+'''
+UCS utility class
+'''
+class UCS():
+    '''
+    Checks whether a character is a combining character
+    '''
+    @staticmethod
+    def isCombining(char):
+        o = ord(char)
+        if (0x0300 <= o) and (o <= 0x036F):  return True
+        if (0x20D0 <= o) and (o <= 0x20FF):  return True
+        if (0x1DC0 <= o) and (o <= 0x1DFF):  return True
+        if (0xFE20 <= o) and (o <= 0xFE2F):  return True
+        return False
+    
+    
+    '''
+    Gets the number of combining characters in a string
+    '''
+    @staticmethod
+    def countCombining(string):
+        rc = 0
+        for char in string:
+            if UCS.isCombining(char):
+                rc += 1
+        return rc
+    
+    
+    '''
+    Gets length of a string not counting combining characters
+    '''
+    @staticmethod
+    def dispLen(string):
+        return len(string) - UCS.countCombining(string)
 
 
 
