@@ -684,6 +684,68 @@ class ArgParser():
 
 
 '''
+Balloon format class
+'''
+class Balloon():
+    '''
+    Constructor
+    '''
+    def __init__(self, link, linkmirror, ww, ee, nw, nnw, n, nne, ne, nee, e, see, se, sse, s, ssw, sw, sww, w, nww):
+        (self.link, self.linkmirror) = (link, linkmirror)
+        (self.ww, self.ee) = (ww, ee)
+        (self.nw, self.ne, self.se, self.sw) = (nw, ne, se, sw)
+        (self.nnw, self.n, self.nne) = (nnw, n, nne)
+        (self.nee, self.e, self.see) = (nee, e, see)
+        (self.sse, self.s, self.ssw) = (sse, s, ssw)
+        (self.sww, self.w, self.nww) = (sww, w, nww)
+        
+        _ne = max(ne, key = len)
+        _nw = max(nw, key = len)
+        _se = max(se, key = len)
+        _sw = max(sw, key = len)
+        
+        minE = len(max([_ne, nee, e, see, _se, ee], key = len))
+        minW = len(max([_nw, nww, e, sww, _sw, ww], key = len))
+        minN = len(max([ne, nne, n, nnw, nw], key = len))
+        minS = len(max([se, sse, s, ssw, sw], key = len))
+        
+        self.minwidth = minE + minE
+        self.minheight = minN + minS
+    
+    
+    '''
+    Generates a balloon with a message
+    '''
+    def get(self, minw, minh, lines, lencalc):
+        h = self.minheight + len(lines)
+        w = self.minwidth + lencalc(max(lines, key = lencalc))
+        if w < minw:  w = minw
+        if h < minh:  h = minh
+        
+        rc = []
+        
+        for j in range(0, len(self.n)):
+            rc.append(self.nw[j] + self.n[j] * (w - len(self.nw[j]) - len(self.ne[j])) + self.ne[j])
+    
+        if len(lines) > 1:
+            (ws, es) = ({0 : self.nww, len(lines) - 1 : self.sww}, {0 : self.nee, len(lines) - 1 : self.see})
+            for j in range(1, len(lines) - 1):
+                ws[j] = self.w
+                es[j] = self.e
+        else:
+            (ws, es) = ({0 : self.ww}, {0 : self.ee})
+        
+        for j in range(0, len(lines)):
+            rc.append(ws[j] + lines[j] + ' ' * (w - lencalc(lines[j]) - len(self.w) - len(self.e)) + es[j])
+        
+        for j in range(0, len(self.s)):
+            rc.append(self.sw[j] + self.s[j] * (w - len(self.sw[j]) - len(self.se[j])) + self.se[j])
+        
+        return '\n'.join(rc)
+
+
+
+'''
 Replacement for cowsay
 '''
 class Backend():
@@ -697,7 +759,12 @@ class Backend():
         self.wrapcolumn = wrapcolumn
         self.width = width
         
-        self.link = {'\\' : '\\', '/' : '/'} if not isthink else {'\\' : 'o', '/' : 'o'}
+        if isthink:
+            self.balloon = Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'], '( ', '( ', '( ')
+        else:
+            self.balloon = Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
+        
+        self.link = {'\\' : self.balloon.link, '/' : self.balloon.linkmirror}
         
         self.output = ''
         self.pony = None
@@ -965,19 +1032,8 @@ class Backend():
         if wrap is not None:
             msg = self.__wrapMessage(msg, wrap)
         lines = msg.split('\n')
-        h = 4 + len(lines)
-        w = 6 + len(max(lines, key = len))
-        if w < width:   w = width
-        if h < height:  h = height
         
-        rc = '/' + '-' * (w - 2) + '\\\n'
-        rc += '|' + ' ' * (w - 2) + '|\n'
-        for line in lines:
-            rc += '|  ' + line + ' ' * (w - len(line) - 6) + '  |\n'
-        rc += '|' + ' ' * (w - 2) + '|\n'
-        rc += '\\' + '-' * (w - 2) + '/'
-        
-        return rc
+        return self.balloon.get(width, height, lines, self.__len)
     
     
     '''
