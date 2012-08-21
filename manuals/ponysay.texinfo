@@ -819,6 +819,7 @@ but is still available at @url{https://github.com/maandree/kmsponies4ponysay}.
 @menu
 * Pony anatomy::                 Anatomy of pony files.
 * Pony quote infrastructure::    Pony quote infrastructure.
+* Balloon style files::          Balloon style files.
 * Printing in TTY with KMS::     Printing in TTY with KMS.
 * Truncation::                   Output truncation.
 * Languages::                    Selection of languages.
@@ -878,6 +879,77 @@ multiple lines with the first pony in common.
 In @code{ponyquotes} there are also quote files, each contain just one quote, just as
 when compiled to @code{quotes}. The source quote files are indentical to the compiled
 quote files, except that there name contains just the first pony.
+
+
+@node Balloon style files
+@section Balloon style files
+@cindex balloon style files
+@cindex bubble style files
+@cindex @command{ponythink}
+
+Balloon style files are located in the directory @code{balloons}, the ones ending with
+@code{.say} applies to @command{ponysay} and the ones ending with @code{.think} applies
+to @command{ponythink}.
+
+Balloon style consists of 20 strings. Each string is definied on separate lines, by their
+name and their value seperated with a colon (@code{name:value}), if the name is empty it
+continues the last one new line in the value. Only 10 of the strings may be multilined:
+@code{nw}, @code{nnw}, @code{n}, @code{nne}, @code{ne}, @code{sw}, @code{ssw}, @code{s}
+@code{sse} and @code{se}.
+
+The following strings are used, and must be definied in the files:
+@table @option
+@item \
+The character for the link to the balloon directed as @code{\}.
+@item /
+The character for the link to the balloon directed as @code{/}.
+@item ww
+The beginning of the balloon's line where the message is located if and only if the
+message contains only one line.
+@item ee
+The end of the balloon's line where the message is located if and only if the message
+contains only one line.
+@item nw
+The top left corner of the balloon.
+@item nnw
+If both this string and the @code{'nne'} string fits between the top corners, this
+is printed directly to the right of the top left corner.
+@item n
+The top edge of the balloon.
+@item nne
+If both this string and the @code{'nnw'} string fits between the top corners, this
+is printed directly to the right of the top top corner.
+@item ne
+The top right corner of the balloon.
+@item nee
+The end of the balloon's line where the message's first line is located if and only
+if the message contains more than one line.
+@item e
+The right edge of the balloon.
+@item see
+The end of the balloon's line where the message's last line is located if and only
+if the message contains more than one line.
+@item se
+The bottom right corner of the balloon.
+@item sse
+If both this string and the @code{'ssw'} string fits between the bottom corners, this
+is printed directly to the left of the bottom right corner.
+@item s
+The bottom edge of the balloon.
+@item ssw
+If both this string and the @code{'sse'} string fits between the bottom corners, this
+is printed directly to the right of the bottom left corner.
+@item sw
+The bottom left corner of the balloon.
+@item sww
+The beginning of the balloon's line where the message's last line is located if and
+only if the message contains more than one line.
+@item w
+The left edge of the balloon.
+@item nww
+The beginning of the balloon's line where the message's first line is located if and
+only if the message contains more than one line.
+@end table
 
 
 @node Printing in TTY with KMS
