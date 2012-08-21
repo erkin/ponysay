@@ -16,6 +16,7 @@ License: WTFPL
 '''
 
 import os
+import shutil
 import sys
 import random
 from subprocess import Popen, PIPE
