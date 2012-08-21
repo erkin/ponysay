@@ -5,7 +5,7 @@ _ponysay()
     local cur prev words cword
     _init_completion -n = || return
     
-    options='--version --help --list --altlist --pony --wrap --quote'
+    options='--version --help --list --altlist --pony --wrap --quote --balloonlist --balloon'
     COMPREPLY=( $( compgen -W "$options" -- "$cur" ) )
     
     if [ $prev = "-f" ] || [ $prev = "--pony" ]; then
@@ -15,6 +15,10 @@ _ponysay()
     elif [ $prev = "-q" ] || [ $prev = "--quote" ]; then
 	quoters=$('/usr/bin/ponysay' --quoters)
 	COMPREPLY=( $( compgen -W "$quoters" -- "$cur" ) )
+
+    elif [ $prev = "-b" ] || [ $prev = "--balloon" ]; then
+        balloons=$('/usr/bin/ponysay' --balloonlist)
+	COMPREPLY=( $( compgen -W "$balloons" -- "$cur" ) )
 
     elif [ $prev = "-W" ] || [ $prev = "--wrap" ]; then
 	cols=$(( `stty size | cut -d ' ' -f 2` - 10 ))

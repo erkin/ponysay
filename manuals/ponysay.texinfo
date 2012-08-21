@@ -159,8 +159,7 @@ supersedes file names.
 Specify the balloon style that should used, this can either be a file name or a
 balloon name printed by @command{ponysay -B}. This option can be used multiple
 times to specify a set of styles from which one will be selected randomly. If no
-pony is specified one will be selected randomly. Any existing balloon name
-supersedes file names.
+balloon style is specified a fallback style will be used.
 
 @item -q [PONY...]
 @itemx --quote [PONY...]
