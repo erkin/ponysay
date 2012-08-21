@@ -699,8 +699,13 @@ class Balloon():
         (self.sse, self.s, self.ssw) = (sse, s, ssw)
         (self.sww, self.w, self.nww) = (sww, w, nww)
         
-        minE = len(max([ne, nee, e, see, se, ee], key = len))
-        minW = len(max([nw, nww, e, sww, sw, ww], key = len))
+        _ne = max(ne, key = len)
+        _nw = max(nw, key = len)
+        _se = max(se, key = len)
+        _sw = max(sw, key = len)
+        
+        minE = len(max([_ne, nee, e, see, _se, ee], key = len))
+        minW = len(max([_nw, nww, e, sww, _sw, ww], key = len))
         minN = len(max([ne, nne, n, nnw, nw], key = len))
         minS = len(max([se, sse, s, ssw, sw], key = len))
         
@@ -712,19 +717,31 @@ class Balloon():
     Generates a balloon with a message
     '''
     def get(self, minw, minh, lines, lencalc):
-        h = 4 + lencalc(lines)
-        w = 6 + lencalc(max(lines, key = lencalc))
+        h = self.minheight + len(lines)
+        w = self.minwidth + lencalc(max(lines, key = lencalc))
         if w < minw:  w = minw
         if h < minh:  h = minh
         
-        rc = '/' + '-' * (w - 2) + '\\\n'
-        rc += '|' + ' ' * (w - 2) + '|\n'
-        for line in lines:
-            rc += '|  ' + line + ' ' * (w - lencalc(line) - 6) + '  |\n'
-        rc += '|' + ' ' * (w - 2) + '|\n'
-        rc += '\\' + '-' * (w - 2) + '/'
+        rc = []
         
-        return rc
+        for j in range(0, len(self.n)):
+            rc.append(self.nw[j] + self.n[j] * (w - len(self.nw[j]) - len(self.ne[j])) + self.ne[j])
+    
+        if len(lines) > 1:
+            (ws, es) = ({0 : self.nww, len(lines) - 1 : self.sww}, {0 : self.nee, len(lines) - 1 : self.see})
+            for j in range(1, len(lines) - 1):
+                ws[j] = self.w
+                es[j] = self.e
+        else:
+            (ws, es) = ({0 : self.ww}, {0 : self.ee})
+        
+        for j in range(0, len(lines)):
+            rc.append(ws[j] + lines[j] + ' ' * (w - lencalc(lines[j]) - len(self.w) - len(self.e)) + es[j])
+        
+        for j in range(0, len(self.s)):
+            rc.append(self.sw[j] + self.s[j] * (w - len(self.sw[j]) - len(self.se[j])) + self.se[j])
+        
+        return '\n'.join(rc)
 
 
 
@@ -743,9 +760,9 @@ class Backend():
         self.width = width
         
         if isthink:
-            self.balloon = Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], ['- '], '( ', '( ', '( ')
+            self.balloon = Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'], '( ', '( ', '( ')
         else:
-            self.balloon = Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' //', ['- '], ['-'], ['-'], ['-'], ['- '], '\\ ', '| ', '/ ')
+            self.balloon = Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
         
         self.link = {'\\' : self.balloon.link, '/' : self.balloon.linkmirror}
         
