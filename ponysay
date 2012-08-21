@@ -722,11 +722,6 @@ class Balloon():
         if w < minw:  w = minw
         if h < minh:  h = minh
         
-        rc = []
-        
-        for j in range(0, len(self.n)):
-            rc.append(self.nw[j] + self.n[j] * (w - len(self.nw[j]) - len(self.ne[j])) + self.ne[j])
-    
         if len(lines) > 1:
             (ws, es) = ({0 : self.nww, len(lines) - 1 : self.sww}, {0 : self.nee, len(lines) - 1 : self.see})
             for j in range(1, len(lines) - 1):
@@ -735,11 +730,26 @@ class Balloon():
         else:
             (ws, es) = ({0 : self.ww}, {0 : self.ee})
         
+        rc = []
+        
+        for j in range(0, len(self.n)):
+            outer = len(self.nw[j]) + len(self.ne[j])
+            inner = len(self.nnw[j]) + len(self.nne[j])
+            if outer + inner >= w:
+                rc.append(self.nw[j] + self.nnw[j] + self.n[j] * (w - outer - inner) + self.nne[j] + self.ne[j])
+            else:
+                rc.append(self.nw[j] + self.n[j] * (w - outer) + self.ne[j])
+        
         for j in range(0, len(lines)):
             rc.append(ws[j] + lines[j] + ' ' * (w - lencalc(lines[j]) - len(self.w) - len(self.e)) + es[j])
         
         for j in range(0, len(self.s)):
-            rc.append(self.sw[j] + self.s[j] * (w - len(self.sw[j]) - len(self.se[j])) + self.se[j])
+            outer = len(self.sw[j]) + len(self.se[j])
+            inner = len(self.ssw[j]) + len(self.sse[j])
+            if outer + inner >= w:
+                rc.append(self.sw[j] + self.ssw[j] + self.s[j] * (w - outer - inner) + self.sse[j] + self.se[j])
+            else:
+                rc.append(self.sw[j] + self.s[j] * (w - outer) + self.se[j])
         
         return '\n'.join(rc)
 
