@@ -228,8 +228,8 @@ function makeMakefile()
     done
     echo
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/bin/"'
-    echo -en '\t' ; echo 'install "ponysay"    "$(INSTALLDIR)/bin/ponysay"'
-    echo -en '\t' ; echo 'ln -sf  "ponysay"    "$(INSTALLDIR)/bin/ponythink"'
+    echo -en '\t' ; echo 'install "ponysay.install" "$(INSTALLDIR)/bin/ponysay"'
+    echo -en '\t' ; echo 'ln -sf  "ponysay"         "$(INSTALLDIR)/bin/ponythink"'
     echo
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/licenses/ponysay/"'
     for file in $licenseFiles; do

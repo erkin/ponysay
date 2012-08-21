@@ -1085,16 +1085,35 @@ class ColourStack():
     Constructor
     '''
     def __init__(self, autopush, autopop):
-        pass
+        self.autopush = autopush
+        self.autopop = autopop
+        self.lenpush = len(autopush)
+        self.lenpop = len(autopop)
+        self.bufproto = ' ' * (self.lenpush if self.lenpush > self.lenpop else self.lenpop)
+        self.stack = []
+        self.push()
+    
     
     def push(self):
+        self.stack = [[self.bufproto]] + self.stack
+        if len(self.stack) == 1:
+            return ''
         return ''
+    
     
     def pop(self):
         return ''
     
+    
     def feed(self, char):
-        return ''
+        buf = self.stack[0][0]
+        rc = ''
+        if buf[:-self.lenpush] == self.autopush:
+            rc = self.push()
+        elif buf[:-self.lenpop] == self.autopop:
+            rc = self.pop()
+        self.stack[0][0] = buf[1:] + char
+        return rc
 
 
 
