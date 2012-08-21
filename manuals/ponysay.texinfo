@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.1.1
+@set VERSION 2.2
 
 @copying
 This manual is for ponysay
@@ -1032,6 +1032,18 @@ first pony file in common.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 2.2
+
+@itemize @bullet
+@item
+Full support for arbitrary positioning of balloon in pony files.
+@item
+ANSI colour sequences in pony files are applied only to the pony image,
+not the balloon link or the balloon itself.
+@item
+Support for colours in the message.
+@end itemize
 
 @heading Version 2.1.1
 

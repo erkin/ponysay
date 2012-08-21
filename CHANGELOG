@@ -1,3 +1,13 @@
+Version 2.2
+
+	Full support for arbitrary positioning of balloon in pony files.
+
+	ANSI colour sequences in pony files are	applied	only to	the pony image,
+	not the	balloon	link or	the balloon itself.
+
+	Support for colours in the message.
+
+
 Version 2.1.1
 
 	Nothing worth mentioning.

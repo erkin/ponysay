@@ -958,6 +958,8 @@ class Backend():
         wrap = None
         if self.wrapcolumn is not None:
             wrap = self.wrapcolumn - left
+            if wrap < 8:
+                wrap = 8
         
         msg = self.message
         if wrap is not None:
@@ -1092,27 +1094,76 @@ class ColourStack():
         self.bufproto = ' ' * (self.lenpush if self.lenpush > self.lenpop else self.lenpop)
         self.stack = []
         self.push()
+        self.seq = None
     
     
     def push(self):
-        self.stack = [[self.bufproto]] + self.stack
+        self.stack = [[self.bufproto, None, None, [False] * 9]] + self.stack
         if len(self.stack) == 1:
-            return ''
-        return ''
+            return None
+        old = self.stack[1]
+        rc = '\033['
+        if old[1] is not None:  rc += '39;'
+        if old[2] is not None:  rc += '49;'
+        for i in range(0, 9):
+            if old[3][i]:
+                rc += '2%i;' % (i + 1)
+        return '' if len(rc) == 2 else (rc[:-1] + 'm')
     
     
     def pop(self):
-        return ''
+        old = self.stack[0]
+        self.stack = self.stack[1:]
+        rc = '\033['
+        if old[1] is not None:  rc += '39;'
+        if old[2] is not None:  rc += '49;'
+        for i in range(0, 9):
+            if old[3][i]:
+                rc += str(i + 21) + ';'
+        new = self.stack[0]
+        if new[1] is not None:  rc += new[1] + ';'
+        if new[2] is not None:  rc += new[2] + ';'
+        for i in range(0, 9):
+            if new[3][i]:
+                rc += str(i + 1) + ';'
+        return '' if len(rc) == 2 else (rc[:-1] + 'm')
     
     
     def feed(self, char):
+        if self.seq is not None:
+            self.seq += char
+            if (char == '~') or (('a' <= char) and (char <= 'z')) or (('A' <= char) and (char <= 'Z')):
+                if (self.seq[0] == '[') and (self.seq[-1] == 'm'):
+                    self.seq = self.seq[1:-1].split(';')
+                    (i, n) = (0, len(self.seq))
+                    while i < n:
+                        part = self.seq[i]
+                        p = 0 if part == '' else int(part)
+                        i += 1
+                        if p == '':                      self.stack[0][1:] = [None, None, [False] * 9]
+                        elif (1 <= p) and (p <= 9):      self.stack[0][3][p - 1] = True
+                        elif (21 <= p) and (p <= 29):    self.stack[0][3][p - 21] = False
+                        elif p == 39:                    self.stack[0][1] = None
+                        elif p == 40:                    self.stack[0][2] = None
+                        elif (30 <= p) and (p <= 37):    self.stack[0][1] = part
+                        elif (90 <= p) and (p <= 97):    self.stack[0][1] = part
+                        elif (40 <= p) and (p <= 47):    self.stack[0][2] = part
+                        elif (100 <= p) and (p <= 107):  self.stack[0][2] = part
+                        elif p == 38:
+                            self.stack[0][1] = '%s;%s;%s' % (part, self.seq[i], self.seq[i + 1])
+                            i += 2
+                        elif p == 48:
+                            self.stack[0][2] = '%s;%s;%s' % (part, self.seq[i], self.seq[i + 1])
+                            i += 2
+                self.seq = None
+        elif char == '\033':
+            self.seq = ''
         buf = self.stack[0][0]
+        buf = buf[1:] + char
         rc = ''
-        if buf[:-self.lenpush] == self.autopush:
-            rc = self.push()
-        elif buf[:-self.lenpop] == self.autopop:
-            rc = self.pop()
-        self.stack[0][0] = buf[1:] + char
+        if buf[-self.lenpush:] == self.autopush:  rc = self.push()
+        elif buf[-self.lenpop:] == self.autopop:  rc = self.pop()
+        self.stack[0][0] = buf
         return rc
 
 
