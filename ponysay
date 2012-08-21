@@ -958,6 +958,8 @@ class Backend():
         wrap = None
         if self.wrapcolumn is not None:
             wrap = self.wrapcolumn - left
+            if wrap < 8:
+                wrap = 8
         
         msg = self.message
         if wrap is not None:
