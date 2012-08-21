@@ -47,6 +47,7 @@ class Ponysay():
             args.help()
             return
         
+        
         if   args.opts['-h']        is not None:  args.help()
         elif args.opts['--quoters'] is not None:  self.quoters()
         elif args.opts['--onelist'] is not None:  self.onelist()
@@ -54,8 +55,17 @@ class Ponysay():
         elif args.opts['-l']        is not None:  self.list()
         elif args.opts['-L']        is not None:  self.linklist()
         elif args.opts['-B']        is not None:  self.balloonlist()
-        elif args.opts['-q']        is not None:  self.quote(args)
-        else:                                     self.print_pony(args)
+        else:
+            if (args.opts['-f'] is None) or (args.opts['-q'] is None) or (len(args.opts['-q']) == 0):
+                for ponydir in ponydirs:
+                    if os.path.isfile(ponydir + 'best.pony') or os.path.islink(ponydir + 'best.pony'):
+                        pony = os.path.realpath(ponydir + 'best.pony') # Canonical path
+                        if args.opts['-q'] is not None:  args.opts['-q'] = [pony]
+                        else:                            args.opts['-f'] = [pony]
+                        break
+            
+            if args.opts['-q'] is not None:  self.quote(args)
+            else:                            self.print_pony(args)
     
     
     ##
@@ -480,11 +490,19 @@ class Ponysay():
     def quote(self, args):
         pairs = self.__quotes()
         if len(args.opts['-q']) > 0:
-            ponyset = set(args.opts['-q'])
+            ponyset = {}
+            for pony in args.opts['-q']:
+                if (len(pony) > 5) and (pony[-5:] == '.pony'):
+                    ponyname = pony[:-5]
+                    if '/' in ponyname:
+                        ponyname = ponyname[ponyname.rindex('/') + 1:]
+                    ponyset[ponyname] = pony
+                else:
+                    ponyset[pony] = pony
             alts = []
             for pair in pairs:
                 if pair[0] in ponyset:
-                    alts.append(pair)
+                    alts.append((ponyset[pair[0]], pair[1]))
             pairs = alts
             
         if not len(pairs) == 0:
@@ -498,11 +516,11 @@ class Ponysay():
                     qfile.close()
             args.opts['-f'] = [pair[0]]
         elif len(args.opts['-q']) == 0:
-            sys.stderr.write('All the ponies are mute! Call the Princess!\n')
+            sys.stderr.write('Princess Celestia! All the ponies are mute!\n')
             exit(1)
         else:
             args.opts['-f'] = [args.opts['-q'][random.randrange(0, len(args.opts['-q']))]]
-            args.message = 'I got nuthin\' good to say :('
+            args.message = 'Zecora! Help me, I am mute!'
         
         self.print_pony(args)
     
