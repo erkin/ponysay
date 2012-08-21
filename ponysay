@@ -283,6 +283,48 @@ class Ponysay():
                 print(pony)
     
     
+    
+    ##
+    ## Balloon methods
+    ##
+    
+    '''
+    Creates the balloon style object
+    '''
+    def __getballoon(self, balloonfile):
+        if balloonfile is None:
+            if isthink:
+                return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'], '( ', '( ', '( ')
+            return Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
+        
+        map = {}
+        for elem in ('\\', '/', 'ww', 'ee', 'nw', 'nnw', 'n', 'nne', 'ne', 'nee', 'e', 'see', 'se', 'sse', 's', 'ssw', 'sw', 'sww', 'w', 'nww'):
+            map[elem] = []
+        
+        balloonstream = None
+        try:
+            balloonstream = open(balloonfile, 'r')
+            data = [line.replace('\n', '') for line in balloonstream.readlines()]
+        finally:
+            if balloonstream is not None:
+                balloonstream.close()
+        
+        last = None
+        for line in data:
+            if len(line) > 0:
+                if line[0] == ':':
+                    map[last].append(line[1:])
+                else:
+                    last = line[:line.index(':')]
+                    value = line[len(last) + 1:]
+                    map[last].append(value)
+        
+        return Balloon(map['\\'][0], map['/'][0], map['ww'][0], map['ee'][0], map['nw'], map['nnw'], map['n'],
+                       map['nne'], map['ne'], map['nee'][0], map['e'][0], map['see'][0], map['se'], map['sse'],
+                       map['s'], map['ssw'], map['sw'], map['sww'][0], map['w'][0], map['nww'][0])
+    
+    
+    
     ##
     ## Displaying methods
     ##
@@ -323,7 +365,7 @@ class Ponysay():
         widthtruncation = self.__gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
         messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
         
-        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation)
+        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation, balloon = self.__getballoon(None))
         backend.parse()
         output = backend.output
         if (len(output) > 0) and (output[-1] == '\n'):
@@ -649,7 +691,7 @@ class ArgParser():
             if first:
                 first = False
             else:
-                print('    or', end="")
+                print('    or', end='')
             print('\t%s' % (line))
         print()
         
@@ -761,18 +803,14 @@ Replacement for cowsay
 class Backend():
     '''
     Constructor
-    Takes message [string], ponyfile [filename string], wrapcolumn [None or an int] and width [None or an int]
+    Takes message [string], ponyfile [filename string], wrapcolumn [None or an int], width [None or an int] and balloon [Balloon object]
     '''
-    def __init__(self, message, ponyfile, wrapcolumn, width):
+    def __init__(self, message, ponyfile, wrapcolumn, width, balloon):
         self.message = message
         self.ponyfile = ponyfile
         self.wrapcolumn = wrapcolumn
         self.width = width
-        
-        if isthink:
-            self.balloon = Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'], '( ', '( ', '( ')
-        else:
-            self.balloon = Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
+        self.balloon = balloon
         
         self.link = {'\\' : self.balloon.link, '/' : self.balloon.linkmirror}
         
@@ -955,7 +993,7 @@ class Backend():
                     datalen = self.__len(data)
                     skip += datalen
                     nonskip += datalen
-                    data = data.replace("$", '$$')
+                    data = data.replace('$', '$$')
                     n += len(data)
                     self.pony = self.pony[:i] + data + self.pony[i:]
                     balloonLines[balloonLine] = None
@@ -1325,9 +1363,9 @@ opts.add_argumentless(['-h', '--help'],                      help = 'Print this 
 opts.add_argumentless(['-v', '--version'],                   help = 'Print the version of the program.')
 opts.add_argumentless(['-l', '--list'],                      help = 'List pony files.')
 opts.add_argumentless(['-L', '--altlist'],                   help = 'List pony files with alternatives.')
-opts.add_argumented(  ['-W', '--wrap'],     arg = "COLUMN",  help = 'Specify the column when the message should be wrapped.')
-opts.add_argumented(  ['-f', '--pony'],     arg = "PONY",    help = 'Select a pony.\nEither a file name or a pony name.')
-opts.add_variadic(    ['-q', '--quote'],    arg = "PONY",    help = 'Select a ponies which will quote themself.')
+opts.add_argumented(  ['-W', '--wrap'],     arg = 'COLUMN',  help = 'Specify the column when the message should be wrapped.')
+opts.add_argumented(  ['-f', '--pony'],     arg = 'PONY',    help = 'Select a pony.\nEither a file name or a pony name.')
+opts.add_variadic(    ['-q', '--quote'],    arg = 'PONY',    help = 'Select a ponies which will quote themself.')
 
 opts.parse()
 
