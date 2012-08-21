@@ -46,10 +46,6 @@ class Ponysay():
             args.help()
             return
         
-        if (args.opts['-l'] is not None) and pipelineout:
-            args.opts['--onelist'] = args.opts['-l']
-            args.opts['-l'] = None
-        
         if   args.opts['-h']        is not None:  args.help()
         elif args.opts['--quoters'] is not None:  self.quoters()
         elif args.opts['--onelist'] is not None:  self.onelist()
