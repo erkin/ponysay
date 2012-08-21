@@ -175,7 +175,7 @@ class Ponysay():
         
         if not names == None:
             for name in names:
-                if os.path.isfile(name):
+                if os.path.exists(name):
                     ponies[name] = name
         
         if names == None:
@@ -455,7 +455,7 @@ class Ponysay():
                     balloons[balloon] = balloondir + balloonfile
         
         for name in names:
-            if os.path.isfile(name):
+            if os.path.exists(name):
                 balloons[name] = name
         
         if names == None:
