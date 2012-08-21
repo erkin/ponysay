@@ -783,13 +783,17 @@ class Backend():
     def __processPony(self):
         self.output = ''
         
+        AUTO_PUSH = '\033[01010~'
+        AUTO_POP  = '\033[10101~'
+        
         variables = {'' : '$'}
         for key in self.link:
-            variables[key] = self.link[key]
+            variables[key] = AUTO_PUSH + self.link[key] + AUTO_POP
         
         indent = 0
         dollar = None
         balloonLines = None
+        colourstack = ColourStack(AUTO_PUSH, AUTO_POP)
         
         (i, n, lineindex, skip, nonskip) = (0, len(self.pony), 0, 0, 0)
         while i < n:
@@ -830,12 +834,15 @@ class Backend():
                             else:
                                 w = int(props)
                         balloon = self.__getballoon(w, h, indent).split('\n')
-                        self.output += balloon[0]
+                        balloon = [AUTO_PUSH + item + AUTO_POP for item in balloon]
+                        for b in balloon[0]:
+                            self.output += b + colourstack.feed(b)
                         if lineindex == 0:
                             balloonpre = '\n' + (' ' * indent)
                             for line in balloon[1:]:
                                 self.output += balloonpre;
-                                self.output += line;
+                                for b in line:
+                                    self.output += b + colourstack.feed(b);
                             indent = 0
                         elif len(balloon) > 1:
                             balloonLines = balloon
@@ -853,7 +860,8 @@ class Backend():
                 dollar += c
             elif c == '\033':
                 colour = self.__getcolour(self.pony, i - 1)
-                self.output += colour
+                for b in colour:
+                    self.output += b + colourstack.feed(b);
                 i += len(colour) - 1
             elif c == '\n':
                 self.output += c
@@ -878,15 +886,19 @@ class Backend():
                     if (skip == 0) or (nonskip > 0):
                         if nonskip > 0:
                             nonskip -= 1
-                        self.output += c
+                        self.output += c + colourstack.feed(c);
                         indent += 1
                     else:
                         skip -= 1
         
         if balloonLines is not None:
             for line in balloonLines[balloonLine:]:
-                self.output += ' ' * (balloonIndent - indent) + line + '\n'
+                data = ' ' * (balloonIndent - indent) + line + '\n'
+                for b in data:
+                    self.output += b + colourstack.feed(b);
                 indent = 0
+        
+        self.output = self.output.replace(AUTO_PUSH, '').replace(AUTO_POP, '')
     
     
     '''
@@ -1063,6 +1075,27 @@ class Backend():
             
             buf += '\n'
         return buf[:-1]
+
+
+'''
+ANSI colour stack
+'''
+class ColourStack():
+    '''
+    Constructor
+    '''
+    def __init__(self, autopush, autopop):
+        pass
+    
+    def push(self):
+        return ''
+    
+    def pop(self):
+        return ''
+    
+    def feed(self, char):
+        return ''
+
 
 
 
