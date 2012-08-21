@@ -995,19 +995,19 @@ class Balloon():
         rc = []
         
         for j in range(0, len(self.n)):
-            outer = len(self.nw[j]) + len(self.ne[j])
-            inner = len(self.nnw[j]) + len(self.nne[j])
+            outer = UCS.dispLen(self.nw[j]) + UCS.dispLen(self.ne[j])
+            inner = UCS.dispLen(self.nnw[j]) + UCS.dispLen(self.nne[j])
             if outer + inner >= w:
                 rc.append(self.nw[j] + self.nnw[j] + self.n[j] * (w - outer - inner) + self.nne[j] + self.ne[j])
             else:
                 rc.append(self.nw[j] + self.n[j] * (w - outer) + self.ne[j])
         
         for j in range(0, len(lines)):
-            rc.append(ws[j] + lines[j] + ' ' * (w - lencalc(lines[j]) - len(self.w) - len(self.e)) + es[j])
+            rc.append(ws[j] + lines[j] + ' ' * (w - lencalc(lines[j]) - UCS.dispLen(self.w) - UCS.dispLen(self.e)) + es[j])
         
         for j in range(0, len(self.s)):
-            outer = len(self.sw[j]) + len(self.se[j])
-            inner = len(self.ssw[j]) + len(self.sse[j])
+            outer = UCS.dispLen(self.sw[j]) + UCS.dispLen(self.se[j])
+            inner = UCS.dispLen(self.ssw[j]) + UCS.dispLen(self.sse[j])
             if outer + inner >= w:
                 rc.append(self.sw[j] + self.ssw[j] + self.s[j] * (w - outer - inner) + self.sse[j] + self.se[j])
             else:
@@ -1069,7 +1069,8 @@ class Backend():
                     x += nx
                 else:
                     buf += c
-                    x += 1
+                    if not UCS.isCombining(c):
+                        x += 1
             buf += '\n'
         self.message = buf[:-1]
     
@@ -1107,7 +1108,8 @@ class Backend():
                 else:
                     if x < self.width:
                         self.output += c
-                        x += 1
+                        if not UCS.isCombining(c):
+                            x += 1
             self.output += '\n'
         self.output = self.output[:-1]
     
@@ -1222,7 +1224,8 @@ class Backend():
                         if nonskip > 0:
                             nonskip -= 1
                         self.output += c + colourstack.feed(c);
-                        indent += 1
+                        if not UCS.isCombining(c):
+                            indent += 1
                     else:
                         skip -= 1
         
@@ -1302,7 +1305,7 @@ class Backend():
             msg = self.__wrapMessage(msg, wrap)
         lines = msg.split('\n')
         
-        return self.balloon.get(width, height, lines, self.__len)
+        return self.balloon.get(width, height, lines, lambda text : self.__len(text) - UCS.countCombining(text))
     
     
     '''
