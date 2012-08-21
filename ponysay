@@ -1356,7 +1356,7 @@ class ColourStack():
                         elif (1 <= p) and (p <= 9):      self.stack[0][3][p - 1] = True
                         elif (21 <= p) and (p <= 29):    self.stack[0][3][p - 21] = False
                         elif p == 39:                    self.stack[0][1] = None
-                        elif p == 40:                    self.stack[0][2] = None
+                        elif p == 49:                    self.stack[0][2] = None
                         elif (30 <= p) and (p <= 37):    self.stack[0][1] = part
                         elif (90 <= p) and (p <= 97):    self.stack[0][1] = part
                         elif (40 <= p) and (p <= 47):    self.stack[0][2] = part
