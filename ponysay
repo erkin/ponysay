@@ -46,16 +46,13 @@ class Ponysay():
             args.help()
             return
         
-        if (args.opts['-l'] is not None) and pipelineout:
-            args.opts['--onelist'] = args.opts['-l']
-            args.opts['-l'] = None
-        
         if   args.opts['-h']        is not None:  args.help()
         elif args.opts['--quoters'] is not None:  self.quoters()
         elif args.opts['--onelist'] is not None:  self.onelist()
         elif args.opts['-v']        is not None:  self.version()
         elif args.opts['-l']        is not None:  self.list()
         elif args.opts['-L']        is not None:  self.linklist()
+        elif args.opts['-B']        is not None:  self.balloonlist()
         elif args.opts['-q']        is not None:  self.quote(args)
         else:                                     self.print_pony(args)
     
@@ -65,21 +62,21 @@ class Ponysay():
     ##
     
     '''
-    Returns one file with full path, names is filter for names, also accepts filepaths.
+    Returns one file with full path, names is filter for names, also accepts filepaths
     '''
     def __getponypath(self, names = None):
         ponies = {}
-        
-        if not names == None:
-            for name in names:
-                if os.path.isfile(name):
-                    ponies[name] = name
         
         for ponydir in ponydirs:
             for ponyfile in os.listdir(ponydir):
                 pony = ponyfile[:-5]
                 if pony not in ponies:
                     ponies[pony] = ponydir + ponyfile
+        
+        if not names == None:
+            for name in names:
+                if os.path.isfile(name):
+                    ponies[name] = name
         
         if names == None:
             names = list(ponies.keys())
@@ -164,10 +161,13 @@ class Ponysay():
         quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
-            print('\033[1mponyfiles located in ' + ponydir + '\033[21m')
+            print('\033[1mponies located in ' + ponydir + '\033[21m')
             
-            ponies = os.listdir(ponydir)
-            ponies = [item[:-5] for item in ponies] # remove .pony from file name
+            _ponies = os.listdir(ponydir)
+            ponies = []
+            for pony in _ponies:
+                if (len(pony) > 5) and (pony[-5:] == '.pony'):
+                    ponies.append(pony[:-5])
             ponies.sort()
             
             width = len(max(ponies, key = len)) + 2 # Get the longest ponyfilename lenght + 2 spaces
@@ -180,7 +180,7 @@ class Ponysay():
                 if x > (termsize[1] - width): # If too wide, make new line
                     print()
                     x = 0
-                    
+            
             print('\n');
     
     
@@ -192,12 +192,15 @@ class Ponysay():
         quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
-            print('\033[1mponyfiles located in ' + ponydir + '\033[21m')
+            print('\033[1mponies located in ' + ponydir + '\033[21m')
             
-            files = os.listdir(ponydir)
-            files = [item[:-5] for item in files] # remove .pony from file name
-            files.sort()
-            pairs = [(item, os.readlink(ponydir + item + '.pony') if os.path.islink(ponydir + item + '.pony') else '') for item in files]
+            _ponies = os.listdir(ponydir)
+            ponies = []
+            for pony in _ponies:
+                if (len(pony) > 5) and (pony[-5:] == '.pony'):
+                    ponies.append(pony[:-5])
+            ponies.sort()
+            pairs = [(pony, os.readlink(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else '') for pony in ponies]
             
             ponymap = {}
             for pair in pairs:
@@ -243,7 +246,7 @@ class Ponysay():
             for pony in ponies:
                 spacing = ' ' * (width - widths[index])
                 index += 1
-                print(pony + spacing, end='') # Print ponyfilename
+                print(pony + spacing, end='') # Print pony file name
                 x += width
                 if x > (termsize[1] - width): # If too wide, make new line
                     print()
@@ -272,15 +275,130 @@ class Ponysay():
     '''
     def onelist(self):
         last = ''
-        ponies = []
+        _ponies = []
         for ponydir in ponydirs: # Loop ponydirs
-            ponies += os.listdir(ponydir)
-        ponies = [item[:-5] for item in ponies] # remove .pony from file name
+            _ponies += os.listdir(ponydir)
+        ponies = []
+        for pony in _ponies:
+            if (len(pony) > 5) and (pony[-5:] == '.pony'):
+                ponies.append(pony[:-5])
         ponies.sort()
         for pony in ponies:
             if not pony == last:
                 last = pony
                 print(pony)
+    
+    
+    
+    ##
+    ## Balloon methods
+    ##
+    
+    '''
+    Prints a list of all balloons
+    '''
+    def balloonlist(self):
+        termsize = self.__gettermsize()
+        balloonset = set()
+        
+        for balloondir in balloondirs:
+            for balloon in os.listdir(balloondir):
+                if isthink and (len(balloon) > 6) and (balloon[-6:] == '.think'):
+                    balloon = balloon[:-6]
+                elif (not isthink) and (len(balloon) > 4) and (balloon[-4:] == '.say'):
+                    balloon = balloon[:-4]
+                else:
+                    continue
+                if balloon not in balloonset:
+                    balloonset.add(balloon)
+        
+        balloons = list(balloonset)
+        balloons.sort()
+        
+        width = len(max(balloons, key = len)) + 2
+        
+        x = 0
+        for balloon in balloons:
+            spacing = ' ' * (width - len(balloon))
+            print(balloon + spacing, end='')
+            x += width
+            if x > (termsize[1] - width):
+                print()
+                x = 0
+        
+        print();
+    
+    
+    '''
+    Returns one file with full path, names is filter for style names, also accepts filepaths
+    '''
+    def __getballoonpath(self, names):
+        if names is None:
+            return None
+        balloons = {}
+        
+        for balloondir in balloondirs:
+            for balloon in os.listdir(balloondir):
+                balloonfile = balloon
+                if isthink and (len(balloon) > 6) and (balloon[-6:] == '.think'):
+                    balloon = balloon[:-6]
+                elif (not isthink) and (len(balloon) > 4) and (balloon[-4:] == '.say'):
+                    balloon = balloon[:-4]
+                else:
+                    continue
+                if balloon not in balloons:
+                    balloons[balloon] = balloondir + balloonfile
+        
+        for name in names:
+            if os.path.isfile(name):
+                balloons[name] = name
+        
+        if names == None:
+            names = list(balloons.keys())
+        
+        balloon = names[random.randrange(0, len(names))]
+        if balloon not in balloons:
+            sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
+            exit(1)
+        else:
+            return balloons[balloon]
+    
+    
+    '''
+    Creates the balloon style object
+    '''
+    def __getballoon(self, balloonfile):
+        if balloonfile is None:
+            if isthink:
+                return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'], '( ', '( ', '( ')
+            return Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
+        
+        map = {}
+        for elem in ('\\', '/', 'ww', 'ee', 'nw', 'nnw', 'n', 'nne', 'ne', 'nee', 'e', 'see', 'se', 'sse', 's', 'ssw', 'sw', 'sww', 'w', 'nww'):
+            map[elem] = []
+        
+        balloonstream = None
+        try:
+            balloonstream = open(balloonfile, 'r')
+            data = [line.replace('\n', '') for line in balloonstream.readlines()]
+        finally:
+            if balloonstream is not None:
+                balloonstream.close()
+        
+        last = None
+        for line in data:
+            if len(line) > 0:
+                if line[0] == ':':
+                    map[last].append(line[1:])
+                else:
+                    last = line[:line.index(':')]
+                    value = line[len(last) + 1:]
+                    map[last].append(value)
+        
+        return Balloon(map['\\'][0], map['/'][0], map['ww'][0], map['ee'][0], map['nw'], map['nnw'], map['n'],
+                       map['nne'], map['ne'], map['nee'][0], map['e'][0], map['see'][0], map['se'], map['sse'],
+                       map['s'], map['ssw'], map['sw'], map['sww'][0], map['w'][0], map['nww'][0])
+    
     
     
     ##
@@ -323,7 +441,9 @@ class Ponysay():
         widthtruncation = self.__gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
         messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
         
-        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation)
+        balloon = self.__getballoon(self.__getballoonpath(args.opts['-b']))
+        
+        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation, balloon = balloon)
         backend.parse()
         output = backend.output
         if (len(output) > 0) and (output[-1] == '\n'):
@@ -649,7 +769,7 @@ class ArgParser():
             if first:
                 first = False
             else:
-                print('    or', end="")
+                print('    or', end='')
             print('\t%s' % (line))
         print()
         
@@ -722,11 +842,6 @@ class Balloon():
         if w < minw:  w = minw
         if h < minh:  h = minh
         
-        rc = []
-        
-        for j in range(0, len(self.n)):
-            rc.append(self.nw[j] + self.n[j] * (w - len(self.nw[j]) - len(self.ne[j])) + self.ne[j])
-    
         if len(lines) > 1:
             (ws, es) = ({0 : self.nww, len(lines) - 1 : self.sww}, {0 : self.nee, len(lines) - 1 : self.see})
             for j in range(1, len(lines) - 1):
@@ -735,11 +850,26 @@ class Balloon():
         else:
             (ws, es) = ({0 : self.ww}, {0 : self.ee})
         
+        rc = []
+        
+        for j in range(0, len(self.n)):
+            outer = len(self.nw[j]) + len(self.ne[j])
+            inner = len(self.nnw[j]) + len(self.nne[j])
+            if outer + inner >= w:
+                rc.append(self.nw[j] + self.nnw[j] + self.n[j] * (w - outer - inner) + self.nne[j] + self.ne[j])
+            else:
+                rc.append(self.nw[j] + self.n[j] * (w - outer) + self.ne[j])
+        
         for j in range(0, len(lines)):
             rc.append(ws[j] + lines[j] + ' ' * (w - lencalc(lines[j]) - len(self.w) - len(self.e)) + es[j])
         
         for j in range(0, len(self.s)):
-            rc.append(self.sw[j] + self.s[j] * (w - len(self.sw[j]) - len(self.se[j])) + self.se[j])
+            outer = len(self.sw[j]) + len(self.se[j])
+            inner = len(self.ssw[j]) + len(self.sse[j])
+            if outer + inner >= w:
+                rc.append(self.sw[j] + self.ssw[j] + self.s[j] * (w - outer - inner) + self.sse[j] + self.se[j])
+            else:
+                rc.append(self.sw[j] + self.s[j] * (w - outer) + self.se[j])
         
         return '\n'.join(rc)
 
@@ -751,18 +881,14 @@ Replacement for cowsay
 class Backend():
     '''
     Constructor
-    Takes message [string], ponyfile [filename string], wrapcolumn [None or an int] and width [None or an int]
+    Takes message [string], ponyfile [filename string], wrapcolumn [None or an int], width [None or an int] and balloon [Balloon object]
     '''
-    def __init__(self, message, ponyfile, wrapcolumn, width):
+    def __init__(self, message, ponyfile, wrapcolumn, width, balloon):
         self.message = message
         self.ponyfile = ponyfile
         self.wrapcolumn = wrapcolumn
         self.width = width
-        
-        if isthink:
-            self.balloon = Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'], '( ', '( ', '( ')
-        else:
-            self.balloon = Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
+        self.balloon = balloon
         
         self.link = {'\\' : self.balloon.link, '/' : self.balloon.linkmirror}
         
@@ -945,7 +1071,7 @@ class Backend():
                     datalen = self.__len(data)
                     skip += datalen
                     nonskip += datalen
-                    data = data.replace("$", '$$')
+                    data = data.replace('$', '$$')
                     n += len(data)
                     self.pony = self.pony[:i] + data + self.pony[i:]
                     balloonLines[balloonLine] = None
@@ -1196,7 +1322,7 @@ class ColourStack():
                         part = self.seq[i]
                         p = 0 if part == '' else int(part)
                         i += 1
-                        if p == '':                      self.stack[0][1:] = [None, None, [False] * 9]
+                        if p == 0:                       self.stack[0][1:] = [None, None, [False] * 9]
                         elif (1 <= p) and (p <= 9):      self.stack[0][3][p - 1] = True
                         elif (21 <= p) and (p <= 29):    self.stack[0][3][p - 21] = False
                         elif p == 39:                    self.stack[0][1] = None
@@ -1240,7 +1366,8 @@ linuxvt = os.environ['TERM'] == 'linux'
 '''
 Whether the script is executed as ponythink
 '''
-isthink = (len(__file__) >= 8) and (__file__[-8:] == 'think.py')
+isthink =  (len(__file__) >= 5) and (__file__[-5:] == 'think')
+isthink = ((len(__file__) >= 8) and (__file__[-8:] == 'think.py')) or isthink
 
 
 '''
@@ -1251,7 +1378,7 @@ pipelinein = not sys.stdin.isatty()
 '''
 Whether stdout is piped
 '''
-pipelineout = False #not sys.stdout.isatty()  # currently impossible, we need to get rid of the little shell script first
+pipelineout = not sys.stdout.isatty()
 
 '''
 Whether stderr is piped
@@ -1281,15 +1408,26 @@ for quotedir in _quotedirs:
         quotedirs.append(quotedir)
 
 
+'''
+The directories where balloon style files are stored
+'''
+balloondirs = []
+_balloondirs = [HOME + '/.local/share/ponysay/balloons/',  INSTALLDIR + '/share/ponysay/balloons/']
+for balloondir in _balloondirs:
+    if os.path.isdir(balloondir):
+        balloondirs.append(balloondir)
+
+
 usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
 usage_wrap     = '--wrap \033[4mCOLUMN\033[24m'
-usage_listhelp = '(--list | ---altlist | --version | --help)'
+usage_balloon  = '--balloon \033[4mSTYLE\033[24m'
+usage_listhelp = '(--list | --altlist | --balloonlist | --version | --help)'
 usage_file     = '[--pony \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
 usage_quote    = '--quote [\033[4mPONY\033[24m...]'
 
-usage = '%s %s\n%s [%s] %s\n%s [%s] %s' % (usage_saythink, usage_listhelp,
-                                           usage_saythink, usage_wrap, usage_file,
-                                           usage_saythink, usage_wrap, usage_quote)
+usage = '%s %s\n%s [%s] [%s] %s\n%s [%s] [%s] %s' % (usage_saythink, usage_listhelp,
+                                                     usage_saythink, usage_wrap, usage_balloon, usage_file,
+                                                     usage_saythink, usage_wrap, usage_balloon, usage_quote)
 
 usage = usage.replace('\033[', '\0')
 for sym in ('[', ']', '(', ')', '|', '...'):
@@ -1311,13 +1449,15 @@ run `man ponysay`. Ponysay has so much more to offer than described here.''')
 opts.add_argumentless(['--quoters'])
 opts.add_argumentless(['--onelist'])
 
-opts.add_argumentless(['-h', '--help'],                      help = 'Print this help message.')
-opts.add_argumentless(['-v', '--version'],                   help = 'Print the version of the program.')
-opts.add_argumentless(['-l', '--list'],                      help = 'List pony files.')
-opts.add_argumentless(['-L', '--altlist'],                   help = 'List pony files with alternatives.')
-opts.add_argumented(  ['-W', '--wrap'],     arg = "COLUMN",  help = 'Specify the column when the message should be wrapped.')
-opts.add_argumented(  ['-f', '--pony'],     arg = "PONY",    help = 'Select a pony.\nEither a file name or a pony name.')
-opts.add_variadic(    ['-q', '--quote'],    arg = "PONY",    help = 'Select a ponies which will quote themself.')
+opts.add_argumentless(['-h', '--help'],                                   help = 'Print this help message.')
+opts.add_argumentless(['-v', '--version'],                                help = 'Print the version of the program.')
+opts.add_argumentless(['-l', '--list'],                                   help = 'List pony names.')
+opts.add_argumentless(['-L', '--altlist'],                                help = 'List pony names with alternatives.')
+opts.add_argumentless(['-B', '--balloonlist'],                            help = 'list balloon styles.')
+opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN',  help = 'Specify the column when the message should be wrapped.')
+opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',   help = 'Select a balloon style.')
+opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',    help = 'Select a pony.\nEither a file name or a pony name.')
+opts.add_variadic(    ['-q', '--quote'],                 arg = 'PONY',    help = 'Select a ponies which will quote themself.')
 
 opts.parse()
 

@@ -6,7 +6,7 @@ INFODESC=\''My Little Ponies for your terminal'\'
 SHELL='bash'
 
 completions='completion/bash-completion.sh completion/fish-completion.fish completion/zsh-completion.zsh'
-shareDirs='ponies ttyponies quotes'
+shareDirs='ponies ttyponies quotes balloons'
 manFiles='manuals/manpage.6 manuals/manpage.es.6'
 licenseFiles='COPYING'
 

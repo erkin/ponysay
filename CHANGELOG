@@ -7,6 +7,9 @@ Version 2.2
 
 	Support for colours in the message.
 
+	Support	custom balloon styles using the	option '-b', '-B' will list all
+	available. This list depends on whether you are invoking `ponysay` or `ponythink`
+
 
 Version 2.1.1
 
