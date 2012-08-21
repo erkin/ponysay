@@ -70,16 +70,16 @@ class Ponysay():
     def __getponypath(self, names = None):
         ponies = {}
         
-        if not names == None:
-            for name in names:
-                if os.path.isfile(name):
-                    ponies[name] = name
-        
         for ponydir in ponydirs:
             for ponyfile in os.listdir(ponydir):
                 pony = ponyfile[:-5]
                 if pony not in ponies:
                     ponies[pony] = ponydir + ponyfile
+        
+        if not names == None:
+            for name in names:
+                if os.path.isfile(name):
+                    ponies[name] = name
         
         if names == None:
             names = list(ponies.keys())
@@ -287,6 +287,35 @@ class Ponysay():
     ##
     ## Balloon methods
     ##
+    
+    '''
+    Returns one file with full path, names is filter for names, also accepts filepaths
+    '''
+    def __getballoonpath(self, names):
+        if names is None:
+            return None
+        balloons = {}
+        
+        for balloondir in balloondirs:
+            for balloonfile in os.listdir(balloondir):
+                balloon = balloonfile[:-5]
+                if balloon not in balloons:
+                    balloons[balloon] = balloondir + balloonfile
+        
+        for name in names:
+            if os.path.isfile(name):
+                balloons[name] = name
+        
+        if names == None:
+            names = list(balloons.keys())
+        
+        balloon = names[random.randrange(0, len(names))]
+        if balloon not in balloons:
+            sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
+            exit(1)
+        else:
+            return balloons[balloon]
+    
     
     '''
     Creates the balloon style object
@@ -1299,7 +1328,7 @@ pipelinein = not sys.stdin.isatty()
 '''
 Whether stdout is piped
 '''
-pipelineout = False #not sys.stdout.isatty()  # currently impossible, we need to get rid of the little shell script first
+pipelineout = not sys.stdout.isatty()
 
 '''
 Whether stderr is piped

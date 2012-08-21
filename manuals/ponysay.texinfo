@@ -132,8 +132,10 @@ Show summary of options.
 Show version of program.
 
 @item -f PONY
+@itemx --file PONY
 @itemx --pony PONY
 @cindex @command{-f}
+@cindex @command{--file}
 @cindex @command{--pony}
 Specify the pony that should printed, this can either be a file name or a pony
 name printed by @command{ponysay -l}. This option can be used multiple times to
@@ -145,8 +147,20 @@ If you have @command{util-say} installed, you can use .png-files as the
 arguments for this options.
 
 In versions earlier than version 2.0, the if the pony were a file name it had
-to include a `@code{/}'. This is not longer required and any existing file
-supersedes pony names.
+to include a `@code{/}'. This is not longer required and any existing pony name
+supersedes file names.
+
+@item -b STYLE
+@itemx --bubble STYLE
+@itemx --balloon STYLE
+@cindex @command{-b}
+@cindex @command{--bubble}
+@cindex @command{--balloon}
+Specify the balloon style that should used, this can either be a file name or a
+balloon name printed by @command{ponysay -B}. This option can be used multiple
+times to specify a set of styles from which one will be selected randomly. If no
+pony is specified one will be selected randomly. Any existing balloon name
+supersedes file names.
 
 @item -q [PONY...]
 @itemx --quote [PONY...]
@@ -185,6 +199,12 @@ is installed the ponies which have quotes, i.e. can be used with the
 (depending on the terminal.) This options differs from @command{-l} by
 printing alternative names (symbolic links) inside brackets after their
 target ponies.
+
+@item -B
+@itemx --balloonlist
+@cindex @command{-B}
+@cindex @command{--balloonlist}
+Prints a list of all balloon styles.
 @end table
 
 If neither @command{-q} is used nor any @var{message} is specified, @command{ponysay}
@@ -1043,6 +1063,10 @@ ANSI colour sequences in pony files are applied only to the pony image,
 not the balloon link or the balloon itself.
 @item
 Support for colours in the message.
+@item
+Support custom balloon styles using the option @code{-b}, @code{-B} will list
+all available. This list depends on whether you are invoking @command{ponysay}
+or @command{ponythink}
 @end itemize
 
 @heading Version 2.1.1
