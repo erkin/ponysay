@@ -24,7 +24,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = '2.2'
+VERSION = '2.3'
 
 
 '''
@@ -533,6 +533,8 @@ class Ponysay():
         if not linuxvt:
             return pony
         
+        KMS_VERSION = '1'
+        
         env_kms = os.environ['PONYSAY_KMS_PALETTE'] if 'PONYSAY_KMS_PALETTE' in os.environ else None
         if env_kms is None:  env_kms = ''
         
@@ -553,6 +555,28 @@ class Ponysay():
             cachedir = HOME + '/.cache/ponysay'
             if not os.path.isdir(cachedir):
                 os.makedirs(cachedir)
+        
+        newversion = False
+        if not os.path.isfile(cachedir + '/.version'):
+            newversion = True
+        else:
+            cachev = None
+            try:
+                cachev = open(cachedir + '/.version', 'r')
+                if ''.join(cachev.readlines()) == KMS_VERSION:
+                    newversion = True
+            finally:
+                if cachev is not None:
+                    cachev.close()
+        if newversion:
+            for cached in os.listdir(ponydir):
+                shutil.rmtree(cachedir + '/' + cached, False)
+            try:
+                cachev = open(cachedir + '/.version', 'w+')
+                cachev.write(KMS_VERSION)
+            finally:
+                if cachev is not None:
+                    cachev.close()
         
         kmsponies = cachedir + '/kmsponies/' + palettefile
         kmspony = (kmsponies + pony).replace('//', '/')

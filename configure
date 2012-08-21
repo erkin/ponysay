@@ -239,7 +239,6 @@ function makeMakefile()
     echo
     
     echo 'install-cache:'
-    echo -en '\t' ; echo 'if [ -d "/var/cache/ponysay" ]; then  rm -r "/var/cache/ponysay"; fi'
     echo -en '\t' ; echo 'mkdir -p "$(DESTDIR)/var/cache/ponysay/"'
     echo -en '\t' ; echo 'chmod 777 "$(DESTDIR)/var/cache/ponysay/"'
     echo
