@@ -280,6 +280,7 @@ symbolic link, @option{-q} cannot determine which quotes to use.
 @cindex startup
 @cindex on startup
 @cindex @file{.bashrc}
+@cindex @file{~/.bashrc}
 
 If you have @command{fortune} installed -- this program may be named
 @command{fortune-mod} in your GNU/Linux distributions package repository -- you can
@@ -313,6 +314,7 @@ script, but I haven't used the script so I wouldn't know for sure.
 @cindex tty
 @cindex linux vt
 @cindex @file{.bashrc}
+@cindex @file{~/.bashrc}
 
 If you use TTY and have a custom colour palette, you should also add to your
 @file{~/.bashrc}, before @code{fortune | ponysay}:
@@ -330,7 +332,8 @@ If you use TTY and have a custom colour palette, you should also add to your
 @node Running on screen
 @section Running on @command{screen}
 @cindex screen
-@cindex .bashrc
+@cindex @file{.bashrc}
+@cindex @file{~/.bashrc}
 
 @command{screen} will adapt ANSI colour escape sequences to your terminal's
 capabilities. This means that if your terminal reports itself as @code{xterm}
@@ -549,6 +552,9 @@ transparent background, and pixelated are the properties that makes a picture go
 @chapter Dependencies
 @cindex dependencies
 @cindex optional dependencies
+
+We have provided a script that should run one most, if not all shells, named
+@file{./dependency-test.sh} that will help you track down any missing package.
 
 @menu
 * Required runtime dependencies::       Required runtime dependencies.
@@ -1287,6 +1293,7 @@ Please inform us about your distribution so we can list it, everypony can see it
 @cindex change log
 @cindex versions
 @cindex previous releases
+
 
 @heading Version 2.3
 
