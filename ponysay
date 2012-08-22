@@ -25,7 +25,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = '2.3'
+VERSION = '2.4'
 
 
 '''
@@ -89,8 +89,7 @@ class Ponysay():
             for ponydir in ponydirs:
                 if os.path.isfile(ponydir + 'best.pony') or os.path.islink(ponydir + 'best.pony'):
                     pony = os.path.realpath(ponydir + 'best.pony') # Canonical path
-                    if args.opts['-q'] is not None:  args.opts['-q'] = [pony]
-                    else:                            args.opts['-f'] = [pony]
+                    args.opts['-f' if args.opts['-q'] is None else '-q'] = [pony]
                     break
     
     
@@ -275,10 +274,28 @@ class Ponysay():
     ##
     
     '''
+    Columnise a list and prints it
+    '''
+    def __columnise(self, ponies):
+        termwidth = termsize = self.__gettermsize()[1]
+        ponies.sort(key = lambda pony : pony[0])
+        widths = [UCS.dispLen(pony[0]) for pony in ponies]
+        width = max(widths) + 2 # longest pony file name + space between columns
+        x = termwidth - width
+        for j in range(0, len(ponies)):
+            print(ponies[j][1] + ' ' * (width - widths[j]), end='') # Print pony file name
+            x -= width
+            if x < 0: # If too wide, make new line
+                print()
+                x = termwidth - width
+        
+        print('' if x == 0 else '\n');
+    
+    
+    '''
     Lists the available ponies
     '''
     def list(self):
-        termsize = self.__gettermsize()
         quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
@@ -288,24 +305,12 @@ class Ponysay():
                 if (len(pony) > 5) and (pony[-5:] == '.pony'):
                     ponies.append(pony[:-5])
             self.__ucsise(ponies)
-            ponies.sort()
             
             if len(ponies) == 0:
                 continue
             print('\033[1mponies located in ' + ponydir + '\033[21m')
             
-            width = UCS.dispLen(max(ponies, key = UCS.dispLen)) + 2 # Get the longest ponyfilename lenght + 2 spaces
-            
-            x = 0
-            for pony in ponies:
-                spacing = ' ' * (width - UCS.dispLen(pony))
-                print(('\033[1m' + pony + '\033[21m' if (pony in quoters) else pony) + spacing, end='') # Print ponyfilename
-                x += width
-                if x > (termsize[1] - width): # If too wide, make new line
-                    print()
-                    x = 0
-            
-            print('' if x == 0 else '\n');
+            self.__columnise([(pony, '\033[1m' + pony + '\033[21m' if pony in quoters else pony) for pony in ponies])
     
     
     '''
@@ -327,7 +332,7 @@ class Ponysay():
             print('\033[1mponies located in ' + ponydir + '\033[21m')
             
             pseudolinkmap = {}
-            self.__ucsise(ponies, pseudolinkmap) ##TODO
+            self.__ucsise(ponies, pseudolinkmap)
             pairs = []
             for pony in ponies:
                 if pony in pseudolinkmap:
@@ -362,31 +367,15 @@ class Ponysay():
                     first = True
                     for sym in syms:
                         w += UCS.dispLen(sym)
-                        if not first:
-                            item += ' '
-                        else:
-                            first = False
+                        if first:  first = False
+                        else:      item += ' '
                         item += '\033[1m' + sym + '\033[21m' if (sym in quoters) else sym
                     item += ')'
-                ponies[item] = w
+                ponies[(item.replace('\033[1m', '').replace('\033[21m', ''), item)] = w
                 if width < w:
                     width = w
             
-            width += 2;
-            x = 0
-            index = 0
-            ponylist = list(ponies)
-            ponylist.sort(key = lambda pony : pony.split(' ')[0].replace('\033[1m', '').replace('\033[21m', ''))
-            for pony in ponylist:
-                spacing = ' ' * (width - ponies[pony])
-                index += 1
-                print(pony + spacing, end='') # Print pony file name
-                x += width
-                if x > termsize[1] - width: # If too wide, make new line
-                    print()
-                    x = 0
-            
-            print('' if x == 0 else '\n');
+            self.__columnise(list(ponies))
     
     
     '''
@@ -448,21 +437,7 @@ class Ponysay():
                 if balloon not in balloonset:
                     balloonset.add(balloon)
         
-        balloons = list(balloonset)
-        balloons.sort()
-        
-        width = UCS.dispLen(max(balloons, key = UCS.dispLen)) + 2
-        
-        x = 0
-        for balloon in balloons:
-            spacing = ' ' * (width - UCS.dispLen(balloon))
-            print(balloon + spacing, end='')
-            x += width
-            if x > (termsize[1] - width):
-                print()
-                x = 0
-        
-        print();
+        self.__columnise([(balloon, balloon) for balloon in list(balloonset)])
     
     
     '''
