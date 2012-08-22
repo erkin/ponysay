@@ -181,6 +181,13 @@ The argument can be a file name, but pony if it ends with @code{.pony}.
 Specify the screen column where the message should be wrapped,
 this is by default 40, which is inherited from @command{cowsay}.
 
+@item -c
+@itemx --compress
+@cindex @command{-c}
+@cindex @command{--compress}
+Compress the message in the same way @command{cowsay} does, that is basically
+without multiple spaces, one only paragraphs seperations.
+
 @item -l
 @itemx --list
 @cindex @command{-l}
@@ -345,6 +352,23 @@ fit the terminal.
 Export @code{PONYSAY_TRUNCATE_HEIGHT} with the value @code{yes}, @code{y}
 or @code{1}, if you want to truncate the output on the height even if you
 are not running @command{ponysay} under TTY.
+
+@item PONYSAY_UCS_ME
+@cindex PONYSAY_UCS_ME
+@cindex ucs
+@cindex universal character set
+@cindex unicode
+@cindex ascii
+Export @code{PONYSAY_UCS_ME} with the value @code{yes}, @code{y} or @code{1},
+if you want [simulated] symlink to pony files using Universal Character Set
+in their names. Otherwise pony files uses only ASCII. If you want to remove
+the ASCII:ised names export @code{PONYSAY_UCS_ME} with the value @code{harder},
+@code{h} or @code{2} instead.
+
+If you have not enabled this, UCS names are not usable, suggested or listed.
+If you use @code{yes} UCS names will be usable, suggested or listed. If you
+use @code{harder} ASCII:ised names will not be suggested or listed, but they
+will still be usable.
 
 @item PONYSAY_COWSAY
 @itemx PONYSAY_COWTHINK

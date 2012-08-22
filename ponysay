@@ -1639,15 +1639,14 @@ for balloondir in _balloondirs:
 
 
 usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
-usage_wrap     = '--wrap \033[4mCOLUMN\033[24m'
-usage_balloon  = '--balloon \033[4mSTYLE\033[24m'
-usage_listhelp = '(--list | --altlist | --balloonlist | --version | --help)'
-usage_file     = '[--pony \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
-usage_quote    = '--quote [\033[4mPONY\033[24m...]'
+usage_common   = '[-c] [-W \033[4mCOLUMN\033[24m] [-b \033[4mSTYLE\033[24m]'
+usage_listhelp = '(-l | -L | -B | -v | -h)'
+usage_file     = '[-f \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
+usage_quote    = '-q [\033[4mPONY\033[24m...]'
 
-usage = '%s %s\n%s [%s] [%s] %s\n%s [%s] [%s] %s' % (usage_saythink, usage_listhelp,
-                                                     usage_saythink, usage_wrap, usage_balloon, usage_file,
-                                                     usage_saythink, usage_wrap, usage_balloon, usage_quote)
+usage = '%s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
+                                       usage_saythink, usage_common, usage_file,
+                                       usage_saythink, usage_common, usage_quote)
 
 usage = usage.replace('\033[', '\0')
 for sym in ('[', ']', '(', ')', '|', '...'):
