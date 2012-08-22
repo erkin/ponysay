@@ -143,6 +143,10 @@ specify a set of ponies from which one will be selected randomly. If no pony is
 specified one will be selected randomly.
 
 @cindex @command{util-say}
+@cindex .png
+@cindex png images
+@cindex images, png
+@cindex portable network graphics
 If you have @command{util-say} installed, you can use .png-files as the
 arguments for this options.
 
@@ -185,8 +189,12 @@ this is by default 40, which is inherited from @command{cowsay}.
 @itemx --compress
 @cindex @command{-c}
 @cindex @command{--compress}
+@cindex figlet
+@cindex toilet
 Compress the message in the same way @command{cowsay} does, that is basically
-without multiple spaces, one only paragraphs seperations.
+without multiple spaces, one only paragraphs seperations. Using this options
+will mean that you cannot display @command{filet} and @command{TOIlet} style
+messages.
 
 @item -l
 @itemx --list
@@ -475,12 +483,6 @@ look different, maybe using box drawing characters.
 on the balloon–pony links. or any other placement of the balloon than at the top to
 the left.
 
-@cindex figlet
-@cindex toilet
-@command{cowsay}'s word wrapping handles single line breaks as normal blank spaces,
-this messes up messages created with programs such as @command{figlet} and @command{TOIlet}.
-
-
 
 
 @node Problems and requests
@@ -553,6 +555,7 @@ This is a wrapper for @command{cowsay}.
 For improved TTY support for user with custom colour palette and KMS support.
 It can be downloaded at @url{https://github.com/maandree/util-say}.
 
+@cindex .png
 @cindex png images
 @cindex images, png
 @cindex portable network graphics
@@ -851,10 +854,11 @@ but is still available at @url{https://github.com/maandree/kmsponies4ponysay}.
 * Pony anatomy::                 Anatomy of pony files.
 * Pony quote infrastructure::    Pony quote infrastructure.
 * Balloon style files::          Balloon style files.
-* Printing in TTY with KMS::     Printing in TTY with KMS.
+* Printing in TTY with KMS::     Printing in TTY with KMS support.
 * Truncation::                   Output truncation.
-* Languages::                    Selection of languages.
-* Shell auto-completion::        Things make auto-completion simpler.
+* Languages::                    Selection of programming languages.
+* Shell auto-completion::        Things that make auto-completion simpler.
+* Universal Character Set::      Something about Univeral Character Set support.
 @end menu
 
 
@@ -1075,6 +1079,30 @@ but does not exist, i.e. does not have a .pony-file, are not listed.
 Auto-completion scripts should not suggest these options.
 
 
+@node Universal Character Set
+@section Universal Character Set
+@cindex universal character set
+@cindex ucs
+@cindex unicode
+@cindex pony names
+
+In earlier versions of @command{ponysay} only the output truncationed supported
+Universal Character Set, though handcoded UTF-8 character counting. Now @command{ponysay}
+lets Python decode the data, Python store all 31 bits of a character in as one
+character, not in UTF-16 as some other languages does, this means that the code
+is agnostic to the chararacter encoding. However in Unicode 6.1 their are four ranges
+of combining characters, these do not take up any width in proper terminal, we
+their for have a class in the code named @code{UCS} that help us take them into
+consideration when determine the length of strings.
+
+Some ponies have names contains non-ASCII characters, read about it in
+@ref{Environment variables}. The UCS names are stored in the file @code{share/ucsmap},
+in it lines that are not empty and does not start with a hash (@code{#}) are parse, and
+contains a UCS name and a ASCII:ised name. The UCS name comes first, followed by the
+ASCII:ised name that it should replace or link to. The two names are separated by and
+simple left to right arrow character [U+2192], optionally with surrounding white space.
+
+
 
 @node Contributing
 @chapter Contributing
@@ -1125,6 +1153,35 @@ For more information see:
 @end example
 
 @*
+@cindex util-say
+@cindex .png
+@cindex png images
+@cindex images, png
+@cindex portable network graphics
+If you have util-say installed, which is required to build ponies, you can run @code{.png}
+files as argument for @command{ponysay -f}, this required that the file is named @code{.png}
+at the end.
+
+@cindex palette
+@cindex xterm palette
+@cindex pony palette
+@cindex colour palette
+The following @code{bash} code will print the palette the ponies (the terminals) use.
+@example
+c=16
+while ((c < 256)); do
+    echo -en "\e[48;5;${c}m  \e[49m"
+    c=$(( $c + 1 ))
+    if (( $(( c % 36 )) == 16 )); then
+        echo
+    fi
+done; echo
+@end example
+
+@*
+For the palette to be correct, which is especially important when you draw ponies, you
+must not redefine the colours in the range 16 to 255 (inclusive).
+
 @cindex ttypony
 When a pony is added please also add a ttypony version, i.e. the pony files used in TTY,
 but if you don't please state so in the pull request so we do not miss the create it;
