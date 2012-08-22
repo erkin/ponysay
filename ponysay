@@ -55,7 +55,11 @@ class Ponysay():
         elif args.opts['-l']        is not None:  self.list()
         elif args.opts['-L']        is not None:  self.linklist()
         elif args.opts['-B']        is not None:  self.balloonlist()
+        elif args.opts['++onelist'] is not None:  self.__extraponies(); self.onelist()
+        elif args.opts['+l']        is not None:  self.__extraponies(); self.list()
+        elif args.opts['+L']        is not None:  self.__extraponies(); self.linklist()
         else:
+            self.__extraponies(args)
             self.__bestpony(args)
             self.__ucsremap(args)
             if args.opts['-q'] is not None:  self.quote(args)
@@ -63,8 +67,19 @@ class Ponysay():
     
     
     ##
-    ## Auxiliary methods
+    ## Methods that run before the mane methods
     ##
+    
+    '''
+    Use extra ponies
+    '''
+    def __extraponies(self, args = None):
+        if args is None:
+            ponydirs[:] = extraponydirs
+        elif args.opts['-F'] is not None:
+            args.opts['-f'] = args.opts['-F']
+            ponydirs[:] = extraponydirs
+    
     
     '''
     Use best.pony if nothing else is set
@@ -117,6 +132,10 @@ class Ponysay():
                     if args.opts[flag][i] in map:
                         args.opts[flag][i] = map[args.opts[flag][i]]
     
+    
+    ##
+    ## Auxiliary methods
+    ##
     
     '''
     Apply USC:ise pony names according to UCS settings
@@ -263,8 +282,6 @@ class Ponysay():
         quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
-            print('\033[1mponies located in ' + ponydir + '\033[21m')
-            
             _ponies = os.listdir(ponydir)
             ponies = []
             for pony in _ponies:
@@ -272,6 +289,10 @@ class Ponysay():
                     ponies.append(pony[:-5])
             self.__ucsise(ponies)
             ponies.sort()
+            
+            if len(ponies) == 0:
+                continue
+            print('\033[1mponies located in ' + ponydir + '\033[21m')
             
             width = UCS.dispLen(max(ponies, key = UCS.dispLen)) + 2 # Get the longest ponyfilename lenght + 2 spaces
             
@@ -295,13 +316,16 @@ class Ponysay():
         quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
-            print('\033[1mponies located in ' + ponydir + '\033[21m')
-            
             _ponies = os.listdir(ponydir)
             ponies = []
             for pony in _ponies:
                 if (len(pony) > 5) and (pony[-5:] == '.pony'):
                     ponies.append(pony[:-5])
+            
+            if len(ponies) == 0:
+                continue
+            print('\033[1mponies located in ' + ponydir + '\033[21m')
+            
             pseudolinkmap = {}
             self.__ucsise(ponies, pseudolinkmap) ##TODO
             pairs = []
@@ -1597,6 +1621,12 @@ pipelineerr = not sys.stderr.isatty()
 
 
 '''
+Whether KMS is used
+'''
+usekms = Ponysay.isUsingKMS()
+
+
+'''
 Root share/ directories
 '''
 sharedirs = []
@@ -1607,15 +1637,25 @@ for sharedir in _sharedirs:
 
 
 '''
-The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY)
+The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
 '''
 ponydirs = []
-_kms = Ponysay.isUsingKMS()
-if linuxvt and not _kms:  _ponydirs = [d + 'ttyponies/' for d in sharedirs]
-else:                     _ponydirs = [d + 'ponies/' for d in sharedirs]
+if linuxvt and not usekms:  _ponydirs = [d + 'ttyponies/' for d in sharedirs]
+else:                       _ponydirs = [d + 'ponies/'    for d in sharedirs]
 for ponydir in _ponydirs:
     if os.path.isdir(ponydir):
         ponydirs.append(ponydir)
+
+
+'''
+The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
+'''
+extraponydirs = []
+if linuxvt and not usekms:  _extraponydirs = [d + 'extrattyponies/' for d in sharedirs]
+else:                       _extraponydirs = [d + 'extraponies/'    for d in sharedirs]
+for extraponydir in _extraponydirs:
+    if os.path.isdir(extraponydir):
+        extraponydirs.append(extraponydir)
 
 
 '''
@@ -1640,8 +1680,8 @@ for balloondir in _balloondirs:
 
 usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
 usage_common   = '[-c] [-W \033[4mCOLUMN\033[24m] [-b \033[4mSTYLE\033[24m]'
-usage_listhelp = '(-l | -L | -B | -v | -h)'
-usage_file     = '[-f \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
+usage_listhelp = '(-l | -L | -B | +l | +L | -v | -h)'
+usage_file     = '[(-f | -F) \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
 usage_quote    = '-q [\033[4mPONY\033[24m...]'
 
 usage = '%s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
@@ -1667,16 +1707,20 @@ run `man ponysay`. Ponysay has so much more to offer than described here.''')
 
 opts.add_argumentless(['--quoters'])
 opts.add_argumentless(['--onelist'])
+opts.add_argumentless(['++onelist'])
 
 opts.add_argumentless(['-h', '--help'],                                   help = 'Print this help message.')
 opts.add_argumentless(['-v', '--version'],                                help = 'Print the version of the program.')
 opts.add_argumentless(['-l', '--list'],                                   help = 'List pony names.')
 opts.add_argumentless(['-L', '--altlist'],                                help = 'List pony names with alternatives.')
+opts.add_argumentless(['+l', '++list'],                                   help = 'List non-MLP:FiM pony names.')
+opts.add_argumentless(['+L', '++altlist'],                                help = 'List non-MLP:FiM pony names with alternatives.')
 opts.add_argumentless(['-B', '--balloonlist'],                            help = 'List balloon styles.')
 opts.add_argumentless(['-c', '--compact'],                                help = 'Compress messages.')
 opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN',  help = 'Specify the column when the message should be wrapped.')
 opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',   help = 'Select a balloon style.')
 opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',    help = 'Select a pony.\nEither a file name or a pony name.')
+opts.add_argumented(  ['-F', '++file', '++pony'],        arg = 'PONY',    help = 'Select a non-MLP:FiM pony.')
 opts.add_variadic(    ['-q', '--quote'],                 arg = 'PONY',    help = 'Select a ponies which will quote themself.')
 
 opts.parse()
