@@ -56,24 +56,24 @@ class Ponysay():
         elif args.opts['-L']        is not None:  self.linklist()
         elif args.opts['-B']        is not None:  self.balloonlist()
         else:
+            self.__extraponies(args)
             self.__bestpony(args)
             self.__ucsremap(args)
-            self.__extraponies(args)
             if args.opts['-q'] is not None:  self.quote(args)
             else:                            self.print_pony(args)
     
     
     ##
-    ## Methods that run in the beginning of non-listing and non-help stuff
+    ## Methods that run before the mane methods
     ##
     
     '''
-    Use best.pony if nothing else is set
+    Use extra ponies
     '''
-    def __bestpony(self, args):
+    def __extraponies(self, args):
         if args.opts['-F'] is not None:
             args.opts['-f'] = args.opts['-F']
-            ponydirs = extraponydirs
+            ponydirs[:] = extraponydirs
     
     
     '''
@@ -1668,11 +1668,11 @@ for balloondir in _balloondirs:
         balloondirs.append(balloondir)
 
 
-usage_saythink  = '\033[34;1m(ponysay | ponythink)\033[21;39m'
-usage_common    = '[-c] [-W \033[4mCOLUMN\033[24m] [-b \033[4mSTYLE\033[24m]'
-usage_listhelp  = '(-l | -L | -B | -v | -h)'
-usage_file      = '[(-f | -F) \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
-usage_quote     = '-q [\033[4mPONY\033[24m...]'
+usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
+usage_common   = '[-c] [-W \033[4mCOLUMN\033[24m] [-b \033[4mSTYLE\033[24m]'
+usage_listhelp = '(-l | -L | -B | -v | -h)'
+usage_file     = '[(-f | -F) \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
+usage_quote    = '-q [\033[4mPONY\033[24m...]'
 
 usage = '%s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
                                        usage_saythink, usage_common, usage_file,
