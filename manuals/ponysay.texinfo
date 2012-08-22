@@ -1139,12 +1139,20 @@ Support for @code{best.pony} file.
 @item
 @code{-q} accepts file names.
 @item
-Improved Unicode support: treats combining characters as invisible 
+Improved Unicode support: treats combining characters as invisible.
 @item
-Optional support for UCS pony names
+Optional support for UCS pony names.
 @item
 Pony files and balloon style files can be pipes (as well as sockets, doors
-and as always regular files)
+and as always regular files.)
+@item
+Support cowsay style message compression.
+@item
+or @command{ponythink}
+Pony symlink added:
+@itemize @bullet
+@item @code{pinkieoink} → @code{oinkoinkoink}
+@end itemize
 @end itemize
 
 @heading Version 2.2
@@ -1160,7 +1168,6 @@ Support for colours in the message.
 @item
 Support custom balloon styles using the option @code{-b}, @code{-B} will list
 all available. This list depends on whether you are invoking @command{ponysay}
-or @command{ponythink}
 @end itemize
 
 @heading Version 2.1.1
@@ -1223,7 +1230,7 @@ Make file is improved.
 New ponies: @code{forestspirit}, @code{hollydash}, @code{raggedy}, @code{rhyme}
 @item
 @code{sindy} is renamed to @code{powderrouge}.
-Pony symlinks added:
+Pony symlink added:
 @itemize @bullet
 @item @code{sindy} → @code{powderrouge}
 @end itemize
