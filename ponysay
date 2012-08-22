@@ -533,6 +533,25 @@ class Ponysay():
         else:
             msg = args.message
         
+        if args.opts['-c'] is not None: ## This algorithm should give some result as cowsay's (according to tests)
+            buf = ''
+            last = ' '
+            CHARS = '\t \n'
+            for c in msg:
+                if (c in CHARS) and (last in CHARS):
+                    if last == '\n':
+                        buf += last
+                    last = c
+                else:
+                    buf += c
+                    last = c
+            msg = buf.strip(CHARS)
+            buf = ''
+            for c in msg:
+                if (c != '\n') or (last != '\n'):
+                    buf += c
+                    last = c
+            msg = buf.replace('\n', '\n\n')
         
         pony = self.__getponypath(args.opts['-f'])
         
@@ -1412,7 +1431,7 @@ class Backend():
                                 w -= indentc
             
             buf += '\n'
-        return buf[:-1]
+        return '\n'.join(line.rstrip() for line in buf[:-1].split('\n'))
 
 
 '''
@@ -1654,7 +1673,8 @@ opts.add_argumentless(['-h', '--help'],                                   help =
 opts.add_argumentless(['-v', '--version'],                                help = 'Print the version of the program.')
 opts.add_argumentless(['-l', '--list'],                                   help = 'List pony names.')
 opts.add_argumentless(['-L', '--altlist'],                                help = 'List pony names with alternatives.')
-opts.add_argumentless(['-B', '--balloonlist'],                            help = 'list balloon styles.')
+opts.add_argumentless(['-B', '--balloonlist'],                            help = 'List balloon styles.')
+opts.add_argumentless(['-c', '--compact'],                                help = 'Compress messages.')
 opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN',  help = 'Specify the column when the message should be wrapped.')
 opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',   help = 'Select a balloon style.')
 opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',    help = 'Select a pony.\nEither a file name or a pony name.')
