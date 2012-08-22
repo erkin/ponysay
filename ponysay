@@ -155,12 +155,11 @@ class Ponysay():
                 if pony in map:
                     ponies.append(map[pony])
                     if links is not None:
-                        links[map[pony]] = pony + '.pony'
+                        links[map[pony]] = pony
         else:
             for j in range(0, len(ponies)):
                 if ponies[j] in map:
                     ponies[j] = map[ponies[j]]
-    
     
     
     '''
@@ -251,6 +250,7 @@ class Ponysay():
         return termsize
     
     
+    
     ##
     ## Listing methods
     ##
@@ -304,7 +304,12 @@ class Ponysay():
                     ponies.append(pony[:-5])
             pseudolinkmap = {}
             self.__ucsise(ponies, pseudolinkmap) ##TODO
-            pairs = [(pony, os.path.realpath(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else None) for pony in ponies]
+            pairs = []
+            for pony in ponies:
+                if pony in pseudolinkmap:
+                    pairs.append((pony, pseudolinkmap[pony] + '.pony'));
+                else:
+                    pairs.append((pony, os.path.realpath(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else None))
             
             ponymap = {}
             for pair in pairs:
