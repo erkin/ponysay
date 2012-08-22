@@ -282,8 +282,6 @@ class Ponysay():
         quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
-            print('\033[1mponies located in ' + ponydir + '\033[21m')
-            
             _ponies = os.listdir(ponydir)
             ponies = []
             for pony in _ponies:
@@ -291,6 +289,10 @@ class Ponysay():
                     ponies.append(pony[:-5])
             self.__ucsise(ponies)
             ponies.sort()
+            
+            if len(ponies) == 0:
+                continue
+            print('\033[1mponies located in ' + ponydir + '\033[21m')
             
             width = UCS.dispLen(max(ponies, key = UCS.dispLen)) + 2 # Get the longest ponyfilename lenght + 2 spaces
             
@@ -314,13 +316,16 @@ class Ponysay():
         quoters = self.__quoters()
         
         for ponydir in ponydirs: # Loop ponydirs
-            print('\033[1mponies located in ' + ponydir + '\033[21m')
-            
             _ponies = os.listdir(ponydir)
             ponies = []
             for pony in _ponies:
                 if (len(pony) > 5) and (pony[-5:] == '.pony'):
                     ponies.append(pony[:-5])
+            
+            if len(ponies) == 0:
+                continue
+            print('\033[1mponies located in ' + ponydir + '\033[21m')
+            
             pseudolinkmap = {}
             self.__ucsise(ponies, pseudolinkmap) ##TODO
             pairs = []
