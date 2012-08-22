@@ -154,6 +154,8 @@ class Ponysay():
             for pony in ponies:
                 if pony in map:
                     ponies.append(map[pony])
+                    if links is not None:
+                        links[map[pony]] = pony + '.pony'
         else:
             for j in range(0, len(ponies)):
                 if ponies[j] in map:
@@ -282,7 +284,7 @@ class Ponysay():
                     print()
                     x = 0
             
-            print('\n');
+            print('' if x == 0 else '\n');
     
     
     '''
@@ -300,14 +302,13 @@ class Ponysay():
             for pony in _ponies:
                 if (len(pony) > 5) and (pony[-5:] == '.pony'):
                     ponies.append(pony[:-5])
-            pseudolinkmap = []
+            pseudolinkmap = {}
             self.__ucsise(ponies, pseudolinkmap) ##TODO
-            ponies.sort()
-            pairs = [(pony, os.path.realpath(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else '') for pony in ponies]
+            pairs = [(pony, os.path.realpath(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else None) for pony in ponies]
             
             ponymap = {}
             for pair in pairs:
-                if pair[1] == '':
+                if (pair[1] is None) or (pair[1] == ''):
                     if pair[0] not in ponymap:
                         ponymap[pair[0]] = []
                 else:
@@ -320,8 +321,7 @@ class Ponysay():
                         ponymap[target] = [pair[0]]
             
             width = 0
-            ponies = []
-            widths = []
+            ponies = {}
             for pony in ponymap:
                 w = UCS.dispLen(pony)
                 item = '\033[1m' + pony + '\033[21m' if (pony in quoters) else pony
@@ -338,24 +338,25 @@ class Ponysay():
                             first = False
                         item += '\033[1m' + sym + '\033[21m' if (sym in quoters) else sym
                     item += ')'
-                ponies.append(item)
-                widths.append(w)
+                ponies[item] = w
                 if width < w:
                     width = w
             
             width += 2;
             x = 0
             index = 0
-            for pony in ponies:
-                spacing = ' ' * (width - widths[index])
+            ponylist = list(ponies)
+            ponylist.sort(key = lambda pony : pony.split(' ')[0].replace('\033[1m', '').replace('\033[21m', ''))
+            for pony in ponylist:
+                spacing = ' ' * (width - ponies[pony])
                 index += 1
                 print(pony + spacing, end='') # Print pony file name
                 x += width
-                if x > (termsize[1] - width): # If too wide, make new line
+                if x > termsize[1] - width: # If too wide, make new line
                     print()
                     x = 0
             
-            print('\n');
+            print('' if x == 0 else '\n');
     
     
     '''
