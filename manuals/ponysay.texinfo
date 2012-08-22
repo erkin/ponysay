@@ -1033,10 +1033,49 @@ first pony file in common.
 @cindex versions
 @cindex previous releases
 
-@heading Version 2.2
+@heading Version 2.4
 
 @item
 New ponies: @code{blaze}
+@end itemize
+
+@heading Version 2.3
+
+@itemize @bullet
+@item
+Support for 'best.pony' file.
+@item
+`-q` accepts file names.
+@item
+Improved Unicode support: treats combining characters as invisible.
+@item
+Optional support for UCS pony names.
+@item
+Pony files and balloon style files can be pipes (as
+well as sockets, doors and as always regular files.)
+@item
+Support cowsay style message compression.
+@itemize @bullet
+@item @code{pinkieoink} → @code{oinkoinkoink}
+@end itemize
+@item
+Support for non-MLP:FiM ponies (known as extraponies),
+although the directory is currently empty.
+@end itemize
+
+@heading Version 2.2
+
+@itemize @bullet
+@item
+Full support for arbitrary positioning of balloon in pony files.
+@item
+ANSI colour sequences in pony files are	applied	only to	the pony image,
+not the	balloon	link or	the balloon itself.
+@item
+Support for colours in the message.
+@item
+Support	custom balloon styles using the	option '-b', '-B' will list all
+available. This list depends on whether you are invoking `ponysay` or `ponythink`.
 @end itemize
 
 @heading Version 2.1.1

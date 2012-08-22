@@ -1,6 +1,40 @@
-Version 2.2
+Version 2.4
 
 	New ponies: blaze
+
+Version 2.3
+
+	Support for 'best.pony' file.
+
+	`-q` accepts file names.
+
+	Improved Unicode support: treats combining characters as invisible.
+
+	Optional support for UCS pony names.
+
+	Pony files and balloon style files can be pipes (as
+	well as sockets, doors and as always regular files.)
+
+	Support cowsay style message compression.
+
+	Pony symlink added: pinkieoink → oinkoinkoink
+
+	Support for non-MLP:FiM ponies (known as extraponies),
+	although the directory is currently empty.
+
+
+Version 2.2
+
+	Full support for arbitrary positioning of balloon in pony files.
+
+	ANSI colour sequences in pony files are	applied	only to	the pony image,
+	not the	balloon	link or	the balloon itself.
+
+	Support for colours in the message.
+
+	Support	custom balloon styles using the	option '-b', '-B' will list all
+	available. This list depends on whether you are invoking `ponysay` or `ponythink`.
+
 
 Version 2.1.1
 
@@ -50,7 +84,7 @@ Version 1.3
 
 	Pony renamed: sindy to powderrouge
 
-	Pony symliks: sindy → powderrouge
+	Pony symlink added: sindy → powderrouge
 
 	PREFIX=/some-dir can be used when invoking make, the default value is /usr
 
