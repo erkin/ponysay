@@ -224,7 +224,7 @@ function makeMakefile()
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/ponysay/"'
     for dir in $shareDirs; do
 	echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/share/ponysay/'"$dir"'"'
-	echo -en '\t' ; echo 'cp -P "'"$dir"'/"*.* "$(INSTALLDIR)/share/ponysay/'"$dir"'/"'
+	echo -en '\t' ; echo 'cp -P "'"$dir"'/"* "$(INSTALLDIR)/share/ponysay/'"$dir"'/"'
     done
     echo
     echo -en '\t' ; echo 'mkdir -p "$(INSTALLDIR)/bin/"'
