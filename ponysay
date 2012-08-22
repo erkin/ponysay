@@ -55,6 +55,9 @@ class Ponysay():
         elif args.opts['-l']        is not None:  self.list()
         elif args.opts['-L']        is not None:  self.linklist()
         elif args.opts['-B']        is not None:  self.balloonlist()
+        elif args.opts['++onelist'] is not None:  self.__extraponies(); self.onelist()
+        elif args.opts['+l']        is not None:  self.__extraponies(); self.list()
+        elif args.opts['+L']        is not None:  self.__extraponies(); self.linklist()
         else:
             self.__extraponies(args)
             self.__bestpony(args)
@@ -70,8 +73,10 @@ class Ponysay():
     '''
     Use extra ponies
     '''
-    def __extraponies(self, args):
-        if args.opts['-F'] is not None:
+    def __extraponies(self, args = None):
+        if args is None:
+            ponydirs[:] = extraponydirs
+        elif args.opts['-F'] is not None:
             args.opts['-f'] = args.opts['-F']
             ponydirs[:] = extraponydirs
     
@@ -1697,11 +1702,14 @@ run `man ponysay`. Ponysay has so much more to offer than described here.''')
 
 opts.add_argumentless(['--quoters'])
 opts.add_argumentless(['--onelist'])
+opts.add_argumentless(['++onelist'])
 
 opts.add_argumentless(['-h', '--help'],                                   help = 'Print this help message.')
 opts.add_argumentless(['-v', '--version'],                                help = 'Print the version of the program.')
 opts.add_argumentless(['-l', '--list'],                                   help = 'List pony names.')
 opts.add_argumentless(['-L', '--altlist'],                                help = 'List pony names with alternatives.')
+opts.add_argumentless(['+l', '++list'],                                   help = 'List non-MLP:FiM pony names.')
+opts.add_argumentless(['+L', '++altlist'],                                help = 'List non-MLP:FiM pony names with alternatives.')
 opts.add_argumentless(['-B', '--balloonlist'],                            help = 'List balloon styles.')
 opts.add_argumentless(['-c', '--compact'],                                help = 'Compress messages.')
 opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN',  help = 'Specify the column when the message should be wrapped.')
