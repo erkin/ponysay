@@ -5,12 +5,16 @@ _ponysay()
     local cur prev words cword
     _init_completion -n = || return
     
-    options='--version --help --list --altlist --pony --wrap --quote --balloonlist --balloon'
+    options='--version --help --list --altlist --pony --wrap --quote --balloonlist --balloon --file ++file ++pony ++list ++altlist'
     COMPREPLY=( $( compgen -W "$options" -- "$cur" ) )
     
-    if [ $prev = "-f" ] || [ $prev = "--pony" ]; then
+    if [ $prev = "-f" ] || [ $prev = "--pony" ] || [ $prev = "--file" ]; then
 	ponies=$('/usr/bin/ponysay' --onelist)
 	COMPREPLY=( $( compgen -W "$ponies" -- "$cur" ) )
+
+    elif [ $prev = "-F" ] || [ $prev = "++pony" ] || [ $prev = "++file" ]; then
+	extraponies=$('/usr/bin/ponysay' ++onelist)
+	COMPREPLY=( $( compgen -W "$extraponies" -- "$cur" ) )
 
     elif [ $prev = "-q" ] || [ $prev = "--quote" ]; then
 	quoters=$('/usr/bin/ponysay' --quoters)

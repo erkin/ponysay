@@ -150,6 +150,15 @@ In versions earlier than version 2.0, the if the pony were a file name it had
 to include a `@code{/}'. This is not longer required and any existing pony name
 supersedes file names.
 
+@item -F
+@itemx ++file PONY
+@itemx ++pony PONY
+@cindex @command{-F}
+@cindex @command{++file}
+@cindex @command{++pony}
+Just as @command{-F}, but it uses extra (non-MLP:FiM) ponies instead of
+standard (MLP:FiM) ponies
+
 @item -b STYLE
 @itemx --bubble STYLE
 @itemx --balloon STYLE
@@ -198,7 +207,7 @@ is installed the ponies which have quotes, i.e. can be used with the
 (depending on the terminal.)
 
 @item -L
-@itemx --linklist
+@itemx --altlist
 @cindex @command{-L}
 @cindex @command{--altlist}
 Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
@@ -207,6 +216,20 @@ is installed the ponies which have quotes, i.e. can be used with the
 (depending on the terminal.) This options differs from @command{-l} by
 printing alternative names (symbolic links) inside brackets after their
 target ponies.
+
+@item +l
+@itemx ++list
+@cindex @command{+l}
+@cindex @command{++list}
+Just as @command{-l}, but it lists extra (non-MLP:FiM) ponies instead of
+standard (MLP:FiM) ponies
+
+@item +L
+@itemx ++altlist
+@cindex @command{+L}
+@cindex @command{++altlist}
+Just as @command{-L}, but it lists extra (non-MLP:FiM) ponies instead of
+standard (MLP:FiM) ponies
 
 @item -B
 @itemx --balloonlist
@@ -1058,14 +1081,19 @@ and only use Python 3, which as been accomplished in version 2.1.
 @cindex auto-completion, inner workings
 @cindex shell, auto-completion
 @cindex @command{--onelist}
+@cindex @command{++onelist}
 @cindex @command{--quoters}
 
 To make it easier to write auto-completion for shells, @command{ponysay} supports
-the two options @command{--onelist} and @command{--quoters}, which has not short
-versions.
+the two options @command{--onelist}, @command{++onelist} and @command{--quoters},
+which has nt short versions.
 
-Executing @command{ponysay --onelist} will list every available pony,
-independent of where it is located, the output is a sorted and consists only
+Executing @command{ponysay --onelist} will list every available standard (MLP:FiM)
+pony, independent of where it is located, the output is a sorted and consists only
+of one pony per line.
+
+Executing @command{ponysay ++onelist} will list every available extra (non-MLP:FiM)
+pony, independent of where it is located, the output is a sorted and consists only
 of one pony per line.
 
 @command{ponysay --quoters} work just as @command{ponysay --onelist}, excepts
@@ -1172,12 +1200,19 @@ and as always regular files.)
 @item
 Support cowsay style message compression.
 @item
-or @command{ponythink}
 Pony symlink added:
 @itemize @bullet
 @item @code{pinkieoink} → @code{oinkoinkoink}
 @end itemize
+@item
+Support for non-MLP:FiM ponies (known as extraponies), although the directory
+is currently empty.
+@c BEGIN the following is too descriptive for the plain/text change log
+This is implemented with the options @code{-F}, @code{+l}, and @code{+L}
+corresponding to @code{-f}, @code{-l}, and @code{-L}.
+@c END
 @end itemize
+
 
 @heading Version 2.2
 
@@ -1194,9 +1229,11 @@ Support custom balloon styles using the option @code{-b}, @code{-B} will list
 all available. This list depends on whether you are invoking @command{ponysay}
 @end itemize
 
+
 @heading Version 2.1.1
 
 Nothing worth mention.
+
 
 @heading Version 2.1
 
@@ -1221,6 +1258,7 @@ minimum size of balloon.
 @c END
 @end itemize
 
+
 @heading Version 2.0
 
 @itemize @bullet
@@ -1232,11 +1270,13 @@ All Perl scripts and almost all Bash are reimplemented in one Python 3 script.
 kmsponies4ponysay is included.
 @end itemize
 
+
 @heading Version 1.4.1
 @itemize @bullet
 @item
 Code is repaired and more portable.
 @end itemize
+
 
 @heading Version 1.4
 
@@ -1246,6 +1286,7 @@ Make file is improved.
 @end itemize
 
 @b{Note}: Identifies itself as version 1.3
+
 
 @heading Version 1.3
 
@@ -1262,6 +1303,7 @@ Pony symlink added:
 @code{PREFIX=/some-dir} can be used when invoking @command{make},
 the default value is @code{/usr}
 @end itemize
+
 
 @heading Version 1.2
 
@@ -1289,6 +1331,7 @@ file names including spaces.)
 @end itemize
 
 @b{Note}: Identifies itself as version 1.1
+
 
 @heading Version 1.1
 
@@ -1338,6 +1381,7 @@ Support for extension: ponyquotes4ponysay.
 Accepts arbitrary spaces in @command{-f} argument.
 @end itemize
 
+
 @heading Version 1.0
 
 @itemize @bullet
@@ -1367,6 +1411,7 @@ Pony symlinks added:
 Improved TTY support: ponies have low colours resolution, instead of monochrome,
 when the high colour resolution is not available.
 @end itemize
+
 
 @heading Version 0.10
 
@@ -1399,6 +1444,7 @@ Environment variables added: @code{PONYSAY_FULL_WIDTH}, @code{PONYSAY_SHELL_LINE
 @code{PONYSAY_TRUNCATE_HEIGHT}, @code{PONYSAY_BOTTOM}.
 @end itemize
 
+
 @heading Version 0.9
 
 @itemize @bullet
@@ -1417,6 +1463,7 @@ Support for TTY (Linux VT).
 @code{orange}, @code{raritysdad}, @code{raritysmom}, @code{royalnightguard}, @code{ruby},
 @code{sparkler}, @code{violet}.
 @end itemize
+
 
 @heading Version 0.8
 
@@ -1447,6 +1494,7 @@ Support for TTY (Linux VT).
 
 @b{Note}: Identifies itself as version 0.7
 
+
 @heading Version 0.7
 
 @itemize @bullet
@@ -1456,6 +1504,7 @@ Support for TTY (Linux VT).
 @cindex @command{-l}
 Support for listing ponies with @command{-l} option.
 @end itemize
+
 
 @heading Version 0.6
 
@@ -1469,12 +1518,14 @@ Dropping usage of utility @command{which}, using @command{hash} instead.
 
 @b{Note}: Identifies itself as version 0.5
 
+
 @heading Version 0.5
 
 @itemize @bullet
 @item
 Using utility @command{which} to determine existence of @command{cowsay}.
 @end itemize
+
 
 @heading Version 0.4
 
@@ -1491,12 +1542,14 @@ Select random pony if not specified.
 @command{-f} supports file names, and not only pony names.
 @end itemize
 
+
 @heading Version 0.3
 
 @itemize @bullet
 @item
 Fixed use of @code{.pony} files.
 @end itemize
+
 
 @heading Version 0.2
 
@@ -1511,6 +1564,7 @@ Pony files end with @code{.pony} instead of @code{.cow}.
 @cindex @command{-h}
 @command{-h} prints proper help.
 @end itemize
+
 
 @heading Version 0.1
 
