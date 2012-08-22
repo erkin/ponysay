@@ -556,8 +556,6 @@ properties that makes a picture good.
 @section Required runtime dependencies
 
 @table @option
-@item cowsay
-This is a wrapper for @command{cowsay}.
 @item coreutils
 @command{stty} is used to determine the size of the terminal.
 @item python
