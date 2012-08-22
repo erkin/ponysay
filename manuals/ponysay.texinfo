@@ -473,7 +473,8 @@ the height in TTY by default.
 Most terminals have support for 256 colours, we do however only use the top 240
 colours; this is because the lower 16 colours are usually, in contrast to the top 240,
 customised. We assume that the top 240 colours have their standard values. In TTY with
-KMS support we dot have any actual (except for @math{2^{24}} + full transparency.)
+KMS support we dot have any actual limit (except for @math{2^{24}} + full
+transparency.)
 
 @cindex xterm
 @cindex urxvt
