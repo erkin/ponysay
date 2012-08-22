@@ -1138,6 +1138,13 @@ first pony file in common.
 Support for @code{best.pony} file.
 @item
 @code{-q} accepts file names.
+@item
+Improved Unicode support: treats combining characters as invisible 
+@item
+Optional support for UCS pony names
+@item
+Pony files and balloon style files can be pipes (as well as sockets, doors
+and as always regular files)
 @end itemize
 
 @heading Version 2.2

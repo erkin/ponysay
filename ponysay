@@ -1305,7 +1305,7 @@ class Backend():
             msg = self.__wrapMessage(msg, wrap)
         lines = msg.split('\n')
         
-        return self.balloon.get(width, height, lines, lambda text : self.__len(text) - UCS.countCombining(text))
+        return self.balloon.get(width, height, lines, self.__len)
     
     
     '''

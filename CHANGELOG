@@ -4,6 +4,13 @@ Version 2.3
 
 	`-q` accepts file names.
 
+	Improved Unicode support: treats combining characters as invisible
+
+	Optional support for UCS pony names
+
+	Pony files and balloon style files can be pipes (as
+	well as sockets, doors and as always regular files.)
+
 
 Version 2.2
 
