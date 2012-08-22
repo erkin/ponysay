@@ -98,7 +98,7 @@ FAQ
 
 __Q:__ The output looks like a mess in _(TTY/PuTTY/other)_!
 
-__A:__ Unfortunately, there's nothing much we can do about it. See [issue 1](/erkin/ponysay/issues/1).
+__A:__ Unfortunately we cannot make it perfect, see [issue 1](/erkin/ponysay/issues/1). But we have done a lot, read more about how to get the best the current state of the art has to offer in the [manual](/erkin/ponysay/blob/master/ponysay.pdf?raw=true).
 
 __Q:__ You are missing _(my-favourite-pony)_!
 
@@ -106,5 +106,6 @@ __A:__ [Ask](/erkin/ponysay/issues) and we'll add!
 
 __Q:__ Which programs do you use to generate the pony files?
 
-__A:__ The pony files are actually mostly a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html)
-that are generated into cow files via [img2xterm](/rossy2401/img2xterm) or [util-say](/maandree/util-say).
+__A:__ The pony files are actually mostly a bunch of selected [browser ponies](//web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](/maandree/util-say).
+
+The [PDF manual](/erkin/ponysay/blob/master/ponysay.pdf?raw=true) should answer most of your questions.
