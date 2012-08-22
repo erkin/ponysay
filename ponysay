@@ -326,6 +326,7 @@ class Ponysay():
                 w = UCS.dispLen(pony)
                 item = '\033[1m' + pony + '\033[21m' if (pony in quoters) else pony
                 syms = ponymap[pony]
+                syms.sort()
                 if len(syms) > 0:
                     w += 2 + len(syms)
                     item += ' ('
