@@ -277,19 +277,31 @@ class Ponysay():
     Columnise a list and prints it
     '''
     def __columnise(self, ponies):
-        termwidth = termsize = self.__gettermsize()[1]
+        termwidth = self.__gettermsize()[1] + 2
         ponies.sort(key = lambda pony : pony[0])
         widths = [UCS.dispLen(pony[0]) for pony in ponies]
         width = max(widths) + 2 # longest pony file name + space between columns
-        x = termwidth - width
-        for j in range(0, len(ponies)):
-            print(ponies[j][1] + ' ' * (width - widths[j]), end='') # Print pony file name
-            x -= width
-            if x < 0: # If too wide, make new line
-                print()
-                x = termwidth - width
         
-        print('' if x == 0 else '\n');
+        cols = termwidth // width
+        rows = (len(ponies) + cols - 1) // cols
+        lines = []
+        for r in range(0, rows):  lines.append([])
+        
+        if cols == 0:
+            print('\n'.join(ponies))
+            return
+        
+        (y, x) = (0, 0)
+        for j in range(0, len(ponies)):
+            cell = ponies[j][1] + ' ' * (width - widths[j]);
+            lines[y].append(cell)
+            y += 1
+            if y == rows:
+                x += 1
+                y = 0
+        
+        print('\n'.join([''.join(line)[:-2] for line in lines]));
+        print()
     
     
     '''
