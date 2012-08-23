@@ -1106,9 +1106,9 @@ use Python 3, which as been accomplished in version 2.1.
 @section Shell auto-completion
 @cindex auto-completion, inner workings
 @cindex shell, auto-completion
-@cindex @command{--onelist}
-@cindex @command{++onelist}
-@cindex @command{--quoters}
+@cindex @option{--onelist}
+@cindex @option{++onelist}
+@cindex @option{--quoters}
 
 To make it easier to write auto-completion for shells, @command{ponysay} supports
 the two options @option{--onelist}, @option{++onelist} and @option{--quoters},
