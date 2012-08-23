@@ -307,9 +307,6 @@ function makeMakefile()
 '|                       |___/              |___/   |\\n'\\
 '\\\\--------------------------------------------------/'
 EOF
-    echo -en '\t' ; echo '@echo dummy | ./ponysay.install -f ./`if [[ "$$TERM" = "linux" ]]; then echo ttyponies; else echo ponies; fi`/pinkiecannon.pony | tail --lines=30 ; echo -e \\n'
-    echo
-    
     echo 'uninstall:'
     echo -en '\t' ; echo 'if [ -d "$/var/cache/ponysay" ]; then  rm -rf "$/var/cache/ponysay"; fi'
     for old in $installedDirs; do
