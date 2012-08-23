@@ -116,7 +116,7 @@ function correctPrefix()
 {
     for file in "$@"; do
 	echo -en '\t'
-	echo 'sed -e '\''s/'\''\'\'''\''\/usr\//'\''\'\''"$(SED_PREFIX)"'\''\//g'\'' < "'"$file"'" > "'"$file"'.install"'
+	echo 'sed -e '\''s/'\''\'\'''\''\/usr/'\''\'\''"$(SED_PREFIX)"'\''/g'\'' < "'"$file"'" > "'"$file"'.install"'
     done
 }
 
