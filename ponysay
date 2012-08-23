@@ -284,21 +284,35 @@ class Ponysay():
         
         cols = termwidth // width
         rows = (len(ponies) + cols - 1) // cols
-        lines = []
-        for r in range(0, rows):  lines.append([])
-        
-        if cols == 0:
-            print('\n'.join(ponies))
-            return
+        columns = []
+        for c in range(0, cols):  columns.append([])
         
         (y, x) = (0, 0)
         for j in range(0, len(ponies)):
             cell = ponies[j][1] + ' ' * (width - widths[j]);
-            lines[y].append(cell)
+            columns[x].append(cell)
             y += 1
             if y == rows:
                 x += 1
                 y = 0
+        
+        diff = rows * cols - len(ponies)
+        if diff > 2:
+            c = cols - 1
+            diff -= 1
+            while diff > 0:
+                columns[c] = columns[c - 1][-diff:] + columns[c]
+                c -= 1
+                columns[c] = columns[c][:-diff]
+                diff -= 1
+                pass
+        
+        lines = []
+        for r in range(0, rows):
+             lines.append([])
+             for c in range(0, cols):
+                 if r < len(columns[c]):
+                     line = lines[r].append(columns[c][r])
         
         print('\n'.join([''.join(line)[:-2] for line in lines]));
         print()
