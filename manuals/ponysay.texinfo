@@ -256,7 +256,7 @@ that nothing is piped to stdin, a help message will be printed. If you want to u
 @command{ponysay} without arguments and enter the message by hand, you can run
 @code{cat | ponysay}.
 
-@cindex file{best.pony}
+@cindex @file{best.pony}
 If no pony is selected, @command{ponysay} will look for a @file{best.pony} file,
 this should be a symbolic link to the pony you want as a default. If it is not a
 symbolic link, @option{-q} cannot determine which quotes to use.
@@ -1313,6 +1313,8 @@ and as always regular files.)
 @item
 Support cowsay style message compression.
 @item
+New ponies: @file{blaze}
+@item
 Pony symlink added:
 @itemize @bullet
 @item @file{pinkieoink} → @file{oinkoinkoink}
@@ -1340,6 +1342,7 @@ Support for colours in the message.
 @item
 Support custom balloon styles using the option @option{-b}, @option{-B} will list
 all available. This list depends on whether you are invoking @command{ponysay}
+or @command{ponythink}
 @end itemize
 
 
