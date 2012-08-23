@@ -1315,13 +1315,15 @@ Support cowsay style message compression.
 @item
 New ponies: @file{blaze}
 @item
+New extraponies: @file{fyrefly} (Tumblr), @file{surprise} (Tumblr), @file{woona}
+(moonstuck), @file{woonanohat} (moonstuck)
+@item
 Pony symlink added:
 @itemize @bullet
 @item @file{pinkieoink} → @file{oinkoinkoink}
 @end itemize
 @item
-Support for non-MLP:FiM ponies (known as extraponies), although the directory
-is currently empty.
+Support for non-MLP:FiM ponies (known as extraponies).
 @c BEGIN the following is too descriptive for the plain/text change log
 This is implemented with the options @option{-F}, @option{+l}, and @option{+L}
 corresponding to @option{-f}, @option{-l}, and @option{-L}.
