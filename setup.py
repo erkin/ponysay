@@ -6,11 +6,16 @@ import sys
 from subprocess import Popen, PIPE
 
 
+
+PONYSAY_VERSION = '2.5'
+
+
+
 class Setup():
     def __init__(self):
         usage_script = '\033[34;1msetup.py\033[21;39m'
-        usage_help   = '(--version | --help)'
-        usage_proc   = '\033[4mconfigurations\033[24m ([build] | prebuilt | install | (uninstall|clean)[-old])'
+        usage_help   = '(version | help)'
+        usage_proc   = '[\033[4mconfigurations\033[24m] ([build] | prebuilt | install | (uninstall|clean)[-old])'
         
         usage = '%s %s\n%s %s' % (usage_script, usage_help, usage_script, usage_proc)
         
@@ -23,12 +28,13 @@ class Setup():
                          description = 'installer for ponysay',
                          usage       = usage)
         
-        opts.add_argumentless(alternatives = ['-h', '--help'])
-        opts.add_argumentless(alternatives = ['-v', '--version'])
+        opts.add_argumentless(alternatives = ['--help'])
+        opts.add_argumentless(alternatives = ['--version'])
         
         opts.add_argumentless(help = 'Install everything that is not explicity excluded',                              alternatives = ['--everything', '--with-everything'])
         opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depedning on version',      alternatives = ['--minimal'])
         opts.add_argumentless(help = 'Install nothing that is not explicity included',                                 alternatives = ['--nothing', '--with-nothing'])
+        
         opts.add_argumentless(help = 'Do not install ponysay command',                                                 alternatives = ['--without-ponysay'])
         opts.add_argumentless(help = 'Install ponysay command',                                                        alternatives = ['--with-ponysay'])
         opts.add_argumentless(help = 'Do not install ponythink command',                                               alternatives = ['--without-ponythink'])
@@ -99,10 +105,120 @@ class Setup():
         opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',                   alternatives = ['--share-dir'], arg='SHAREDIR')
         opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',                   alternatives = ['--cache-dir'], arg='CACHEDIR')
         
+        opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',                                    alternatives = ['--dest-dir'], arg='DESTDIR')
+        
         opts.parse()
-        opts.help()
-        pass
+        
+        if len(opts.files) > 1) or (opts.opts['--help'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'help')):
+            opts.help()
+        elif (opts.opts['--version'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'version')):
+            print('Ponysay %s installer' % (PONYSAY_VERSION))
+        else:
+            if len(opts.files) == 0:
+                opts.files = ['build']
+            method = opts.files[0]
+            conf = self.configure(opts.opts)
+            if   method == 'build':          Setup.build       (conf)
+            elif method == 'prebuilt':       Setup.install     (conf)
+            elif method == 'install':        Setup.build       (conf); Setup.install(conf)
+            elif method == 'uninstall':      Setup.uninstall   (conf)
+            elif method == 'uninstall-old':  Setup.uninstallOld(conf)
+            elif method == 'clean':          Setup.clean       (conf)
+            elif method == 'clean-old':      Setup.cleanOld    (conf)
+            else:
+                opts.help()
+    
+    
+    '''
+    Parses configurations
+    '''
+    def configure(self, opts):
+        (defaults, conf) = ({}, {})
+        
+        manpages = (('en', 'English'), ('es', 'Spanish')) #'en' must be first
+        sharedirs = ('ponies', 'ttyponies', 'extraponies', 'extrattyponies', 'quotes', 'balloons')
+        sharefiles = (('ucs', 'ucsmap'))
+        commands = ('ponysay', 'ponythink')
+        shells = (('bash', '/usr/share/bash-completion/completions/ponysay'),
+                  ('fish', '/usr/share/fish/completions/ponysay.fish'),
+                  ('zsh', '/usr/share/zsh/site-functions/_ponysay'))
+        mansections = (('ponysay', '6'), ('cowsay', '1'), ('fortune', '6'))
+        
+        for command in commands:
+            conf[command] = True
+        conf['shared-cache'] = '/var/cache/ponysay'
+        for shell in shells:
+            conf[shell[0]] = shell[1]
+        conf['pdf'] = '/usr/doc'
+        conf['pdf-compression'] = 'gz'
+        conf['info'] = '/usr/share/info'
+        conf['info-install'] = True
+        conf['info-compression'] = 'gz'
+        for manpage in manpages:
+            conf['man-' + manpage[0]] = '/usr/share/man'
+            conf['man-' + manpage[0] + '-compression'] = 'gz'
+        for sharedir in sharedirs:
+            conf[sharedir] = '/usr/share/ponysay/' + sharedir
+        for sharefile in sharefiles:
+            conf[sharefile[0]] = '/usr/share/ponysay/' + sharefile[1]
+        conf['custom-env-python'] = 'python3'
+        
+        for key in conf:
+            defaults[key] = conf[key]
+        
+        for key in ('pdf', 'pdf-compression', 'custom-env-python'):
+            conf[key] = None
+        
+        for manpage in manpages:
+            if manpage is not manpage[0]:
+                for key in ('man-' + manpage[0], 'man-' + manpage[0] + '-compression'):
+                    conf[key] = None
+        
+        for coll in (('shell', '/usr/share', [item[0] for item in shells]),
+                     ('man', '/usr/share/man', ['man-' + item[0] for item in manpages]),
+                     ('man-compression', 'gz', ['man-' + item[0] + '-compression' for item in manpages])
+                    ):
+            if opts['--without-' + coll[0]] is not None:
+                for item in coll[2]:
+                    conf[item] = None
+            if opts['--with-' + coll[0]] is not None:
+                for item in coll[2]:
+                    defaults[item] = conf[item] = defaults[item].replace(coll[1], coll[1] if opts['--with-' + coll[0]][0] is None else opts['--with-' + coll[0]][0]);
+        
+        for key in conf:
+            if opts['--with-' + key] is not None:
+                if defaults[key] in (False, True):
+                    conf[key] = True
+                else:
+                    conf[key] = defaults[key] if opts['--with-' + key][0] is None else opts['--with-' + key][0]
+            if opts['--without-' + key] is not None:
+                conf[key] = False if defaults[key] in (False, True) else None
+        
+        for pair in (('pdf', 'pdf-compression'), ('info', 'info-install'), ('info', 'info-compression'), ('man-es', 'man-es-compression')):
+            if (conf[pair[0]] in (False, None)) and (conf[pair[1]] not in (False, None)):
+                conf[pair[0]] = defaults[pair[0]]
+        
+        for mansection in mansections:
+            if opts['--man-section-' + mansection[0]] is not None:
+                conf['man-section-' + mansection[0]] = opts['--man-section-' + mansection[0]]
+            else:
+                conf['man-section-' + mansection[0]] = mansection[1]
+        
+        return conf
 
+#        opts.add_argumented  (help = 'Set a prefix to all implicit directories\nDefault = /usr',                                  alternatives = ['--prefix'], arg='PREFIX')
+#        opts.add_argumentless(help = 'Change all implicit configurations to fit local user a installation for the current user',  alternatives = ['--private'])
+#        opts.add_argumentless(help = 'Change all implicit directories to fit installation to /opt',                               alternatives = ['--opt'])
+#        opts.add_argumented  (help = 'Set the system\'s directory for command executables\nDefault = $PREFIX/bin',                alternatives = ['--bin-dir'], arg='BINDIR')
+#        opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/lib\nNot used.', alternatives = ['--lib-dir'], arg='LIBDIR')
+#        opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',                   alternatives = ['--share-dir'], arg='SHAREDIR')
+#        opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',                   alternatives = ['--cache-dir'], arg='CACHEDIR')
+#        
+#        opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',                                    alternatives = ['--dest-dir'], arg='DESTDIR')
+#        
+#        opts.add_argumentless(help = 'Install everything that is not explicity excluded',                              alternatives = ['--everything', '--with-everything'])
+#        opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depedning on version',      alternatives = ['--minimal'])
+#        opts.add_argumentless(help = 'Install nothing that is not explicity included',                                 alternatives = ['--nothing', '--with-nothing'])
 
 
 
@@ -147,68 +263,45 @@ class ArgParser():
     def parse(self, argv = sys.argv):
         self.argcount = len(argv) - 1
         self.files = []
-        (dashed, get, dontget) = (False, 0, 0)
-        (argqueue, optqueue, deque) = ([], [], [])
-        for arg in argv[1:]:
-            deque.append(arg)
+        (argqueue, optqueue, get) = ([], [], False)
         
-        def unrecognised(arg):
-            sys.stderr.write('%s: fatal: unrecognised option %s. see --help or the manual\n' % (self.__program, arg))
-            exit(-1)
-        
-        while len(deque) != 0:
-            (arg, deque) = (deque[0], deque[1:]) 
-            if (get > 0) and (dontget == 0):
-                get -= 1
-                argqueue.append(arg)
-            elif dashed:       self.files.append(arg)
-            elif arg == '--':  dashed = True
-            elif (len(arg) > 1) and ((arg[0] == '-') or (arg[0] == '+')):
-                if (len(arg) > 2) and ((arg[:2] == '--') or (arg[:2] == '++')):
-                    if dontget > 0:
-                        dontget -= 1
-                    elif (arg in self.optmap) and (self.optmap[arg][1] == ARGUMENTLESS):
-                        optqueue.append(arg)
-                        argqueue.append(None)
-                    elif '=' in arg:
-                        arg_opt = arg[:arg.index('=')]
-                        if (arg_opt in self.optmap) and (self.optmap[arg_opt][1] == ARGUMENTED):
-                            optqueue.append(arg_opt)
-                            argqueue.append(arg[arg.index('=') + 1:])
-                        else:
-                            unrecognised(arg)
-                    elif (arg in self.optmap) and (self.optmap[arg][1] == ARGUMENTED):
-                        optqueue.append(arg)
-                        get += 1
+        for arg in argv:
+            if get:
+                get = False
+                if (len(arg) > 2) and (arg[:2] in ('--', '++')):
+                    argqueue.append(None)
+                else:
+                    argqueue.append(arg)
+                    continue
+            if (len(arg) > 2) and (arg[:2] in ('--', '++')):
+                if (arg in self.optmap) and (self.optmap[arg][1] == ARGUMENTLESS):
+                    optqueue.append(arg)
+                    argqueue.append(None)
+                elif '=' in arg:
+                    arg_opt = arg[:arg.index('=')]
+                    if (arg_opt in self.optmap) and (self.optmap[arg_opt][1] == ARGUMENTED):
+                        optqueue.append(arg_opt)
+                        argqueue.append(arg[arg.index('=') + 1:])
                     else:
                         unrecognised(arg)
+                elif (arg in self.optmap) and (self.optmap[arg][1] == ARGUMENTED):
+                    optqueue.append(arg)
+                    get = True
                 else:
-                    (i, n, sign) = (1, len(arg), arg[0])
-                    while i < n:
-                        (narg, i) = (sign + arg[i], i + 1)
-                        if narg in self.optmap:
-                            optqueue.append(narg)
-                            if self.optmap[narg][1] == ARGUMENTLESS:
-                                argqueue.append(None)
-                            else:
-                                nargarg = arg[i:]
-                                if len(nargarg) == 0:  get += 1
-                                else:                  argqueue.append(nargarg)
-                                break
-                        else:
-                            unrecognised(arg)
+                    sys.stderr.write('%s: fatal: unrecognised option %s. see --help or the manual\n' % (self.__program, arg))
+                    exit(-1)
             else:
                 self.files.append(arg)
         
         (i, n) = (0, len(optqueue))
+        if len(argqueue) < n:
+            argqueue.append(None)
         while i < n:
             (opt, arg, i) = (optqueue[i], argqueue[i], i + 1)
             opt = self.optmap[opt][0]
             if (opt not in self.opts) or (self.opts[opt] is None):
                 self.opts[opt] = []
             self.opts[opt].append(arg)
-        self.message = ' '.join(self.files) if len(self.files) > 0 else None
-    
     
     '''
     Prints a colourful help message
