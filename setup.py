@@ -163,8 +163,31 @@ class Setup():
             conf[sharefile[0]] = '/usr/share/ponysay/' + sharefile[1]
         conf['custom-env-python'] = 'python3'
         
+        if opts['--private'] is not None:
+            if opts['--prefix'] is None:
+                opts['--prefix'] = os.environ['HOME'] + "/.local"
+        
+        prefix = '/usr'
+        if opts['--prefix'] is not None:
+            prefix = opts['--prefix'][0]
+            for key in conf:
+                if conf.startswith('/usr'):
+                    conf[key] = prefix + conf[key][4:]
+        for dir in ('bin', 'lib', 'share'):
+            if opts['--' + dir + '-dir'] is not None:
+                d = opts['--' + dir + '-dir'][0]
+                for key in conf:
+                    if conf.startswith(prefix + '/' + dir):
+                        conf[key] = d + conf[key][5 + len(dir):]
+        if opts['--cache-dir'] is not None:
+            dir = opts['--cache-dir'][0]
+            for key in conf:
+                if conf.startswith('/var/cache'):
+                    conf[key] = d + conf[key][10:]
+        
         for key in conf:
             defaults[key] = conf[key]
+        
         
         for key in ('pdf', 'pdf-compression', 'custom-env-python'):
             conf[key] = None
@@ -173,6 +196,11 @@ class Setup():
             if manpage is not manpage[0]:
                 for key in ('man-' + manpage[0], 'man-' + manpage[0] + '-compression'):
                     conf[key] = None
+        
+        if opts['--private'] is not None:
+            for key in ('info-install', 'shared-cache'):
+                conf[key] = None
+        
         
         for coll in (('shell', '/usr/share', [item[0] for item in shells]),
                      ('man', '/usr/share/man', ['man-' + item[0] for item in manpages]),
@@ -204,17 +232,16 @@ class Setup():
             else:
                 conf['man-section-' + mansection[0]] = mansection[1]
         
+        
+        if opts['--dest-dir'] is not None:
+            destdir = opts['--dest-dir'][0]
+            for key in conf:
+                if (conf[key] is not None) and conf.startswith('/'):
+                    conf[key] = destdir + conf[key]
+            
         return conf
 
-#        opts.add_argumented  (help = 'Set a prefix to all implicit directories\nDefault = /usr',                                  alternatives = ['--prefix'], arg='PREFIX')
-#        opts.add_argumentless(help = 'Change all implicit configurations to fit local user a installation for the current user',  alternatives = ['--private'])
-#        opts.add_argumentless(help = 'Change all implicit directories to fit installation to /opt',                               alternatives = ['--opt'])
-#        opts.add_argumented  (help = 'Set the system\'s directory for command executables\nDefault = $PREFIX/bin',                alternatives = ['--bin-dir'], arg='BINDIR')
-#        opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/lib\nNot used.', alternatives = ['--lib-dir'], arg='LIBDIR')
-#        opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',                   alternatives = ['--share-dir'], arg='SHAREDIR')
-#        opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',                   alternatives = ['--cache-dir'], arg='CACHEDIR')
-#        
-#        opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',                                    alternatives = ['--dest-dir'], arg='DESTDIR')
+#        opts.add_argumentless(help = 'Change all implicit directories to fit installation to /opt',                    alternatives = ['--opt'])
 #        
 #        opts.add_argumentless(help = 'Install everything that is not explicity excluded',                              alternatives = ['--everything', '--with-everything'])
 #        opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depedning on version',      alternatives = ['--minimal'])
