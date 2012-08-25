@@ -87,8 +87,8 @@ Texts. A copy of the license is included in the section entitled
 @cindex overview
 
 @command{ponysay} displays an image of a My Little Pony pony saying a message provided
-by the user in a terminal, or a quote from the show My Litte Pony: Friendship is Magic
-(MLP:FiM). Historically @command{ponysay} was a wrapper fo cowsay, but has since
+by the user in a terminal, or a quote from the show My Little Pony: Friendship is Magic
+(MLP:FiM). Historically @command{ponysay} was a wrapper for cowsay, but has since
 version 2.1 become an independent reimplementation of @command{cowsay}.
 
 If a message is not provided, e.g. by piping, it accepts standard input. The pony
@@ -213,7 +213,7 @@ as with @command{cowsay}.
 @cindex @command{figlet}
 @cindex @command{TOIlet}
 Compress the message in the same way @command{cowsay} does, that is basically
-without multiple spaces, and only paragraphs seperations. Using this options
+without multiple spaces, and only paragraphs separations. Using this options
 will mean that you cannot display @command{figlet} and @command{TOIlet} style
 messages.
 
@@ -887,7 +887,7 @@ To perform an uninstallation of old files run @command{make uninstall-old}.
 * Truncation::                   Output truncation.
 * Languages::                    Selection of programming languages.
 * Shell auto-completion::        Things that make auto-completion simpler.
-* Universal Character Set::      Something about Univeral Character Set support.
+* Universal Character Set::      Something about Universal Character Set support.
 @end menu
 
 
@@ -907,7 +907,7 @@ between two dollar signs  and with a equality sign between the name and the valu
 (@code{$var=value$}). Variable names cannot include equality signs, but the value
 can; dollar signs can be used by placing an ESC character before the dollar sign.
 
-There are three predefinied variables: @code{$$} (empty variable name), @code{$\$}
+There are three predefined variables: @code{$$} (empty variable name), @code{$\$}
 and @code{$/$}. @code{$$} has a dollar sign (@code{$}) as its value, while @code{$\$}
 and @code{$/$} contains the characters for the link to the balloon directed in the
 same direction as the variable name's slash.
@@ -938,11 +938,11 @@ and a full stop (@code{.}) before the index.
 The source files are located in @file{ponyquotes/}, where their is a file named
 @file{ponies}. This file is called the pony map, and is the basis for how the
 compiled files are named. In the ponymap ponies with the same quotes are on the
-same line join togather with plus signs (@code{+}), if the lines because too long
+same line join together with plus signs (@code{+}), if the lines because too long
 for file names the line is split into multiple lines with the first pony in common.
 
 In @file{ponyquotes/} there are also quote files, each contain just one quote, just
-as when compiled to @file{quotes/}. The source quote files are indentical to the
+as when compiled to @file{quotes/}. The source quote files are identical to the
 compiled quote files, except that their name contains just the first pony.
 
 
@@ -956,13 +956,13 @@ Balloon style files are located in the directory @file{balloons/}, the ones endi
 with @file{.say} applies to @command{ponysay} and the ones ending with @file{.think}
 applies to @command{ponythink}.
 
-Balloon style consists of 20 strings. Each string is definied on separate lines, by
-their name and their value seperated with a colon (@code{name:value}), if the name is
+Balloon style consists of 20 strings. Each string is defined on separate lines, by
+their name and their value separated with a colon (@code{name:value}), if the name is
 empty it continues the last one on a new line in the value. Only 10 of the strings
 may be multi-lined: @var{nw}, @var{nnw}, @var{n}, @var{nne}, @var{ne}, @var{sw},
 @var{ssw}, @var{s}, @var{sse} and @var{se}.
 
-The following strings are used, and must be definied in the files:
+The following strings are used, and must be defined in the files:
 @table @var
 @item \
 The character for the link to the balloon directed as @code{\}.
@@ -1060,8 +1060,8 @@ height or the width. This requires only GNU Coreutils; earlier @command{tput row
 @command{tput cols} were used, this however required, the only de facto standard,
 package @command{ncurses}, some shells have environment variables for this.
 
-Since version 2.1 trunction is done internally in the Python script, before that it
-was done in a custom C porgram @command{truncater}, that was installed to
+Since version 2.1 truncation is done internally in the Python script, before that it
+was done in a custom C program @command{truncater}, that was installed to
 @file{/usr/lib/ponysay/truncater}. It recognised UTF-8 ANSI escape sequences,
 including OSI P and CSI m, which is essential for the truncation to be correct. It
 also expands tabs to every eighth column and resets the background colour when needed,
@@ -1069,10 +1069,10 @@ and writes ANSI escape sequences that are on the left side of the truncation. Th
 truncater stops CSI sequences on the first ASCII letter (@code{[a-zA-Z]}), but also
 stops escape sequences after the first character after the initial escape if it is
 not either @code{[} (CSI) or @code{]} (OSI). In the previous, C, program it supported
-UTF-8 by assumming that bytes do not match @code{10xxxxxx} and only those bytes were
+UTF-8 by assuming that bytes do not match @code{10xxxxxx} and only those bytes were
 visible. This now fixed internally in Python, but has also been improved to exclude
 combining characters from the set of visible characters. Another difference is that
-the background colours are not reset, instead ASNI colours after the truncation point
+the background colours are not reset, instead ANSI colours after the truncation point
 are still printed.
 
 
@@ -1127,11 +1127,11 @@ Auto-completion scripts should not suggest these options.
 @cindex unicode
 @cindex pony names
 
-In earlier versions of @command{ponysay} only the output truncationed supported
+In earlier versions of @command{ponysay} only the output truncation supported
 Universal Character Set, though handcoded UTF-8 character counting. Now
 @command{ponysay} lets Python decode the data, Python store all 31 bits of a
 character in as one character, not in UTF-16 as some other languages does, this
-means that the code is agnostic to the chararacter encoding. However in Unicode
+means that the code is agnostic to the character encoding. However in Unicode
 6.1 their are four ranges of combining characters, these do not take up any
 width in proper terminal, we therefore have a class in the code named @code{UCS}
 that help us take them into consideration when determine the length of a string.
@@ -1303,7 +1303,7 @@ devices used for terminals by Linux VT, which is @file{/dev/tty*}.
 @itemx Kernel Mode Setting
 @cindex kms
 @cindex kernel mode setting
-A feature in Linux alllowing mode setting in kernel-space, this gives the TTY,
+A feature in Linux allowing mode setting in kernel-space, this gives the TTY,
 for example better colour support. I would go to Wikipedia for more information.
 
 @item ttyponies
@@ -1338,15 +1338,15 @@ Pony files located in @file{~/.local/share/ponysay}.
 @item browser ponies
 @cindex browser ponies
 @cindex desktop ponies
-A Javascript program which is the source for most of our ponies. It is a port of
+A JavaScript program which is the source for most of our ponies. It is a port of
 @i{desktop ponies}.
 
 @item ponification
 @cindex ponification
-The process of converting English text to Equestian English.
+The process of converting English text to Equestrian English.
 
-@item Equestian English
-@cindex Equestian English
+@item Equestrian English
+@cindex Equestrian English
 The English dialect spoken by the ponies in MLP:FiM, the basic role is that it
 is American English with as many words and parts of words as possible exchanged
 to words having to do with ponies, including the work `pony' itself. This is
@@ -1367,19 +1367,19 @@ created with the command @command{ln -s TARGET SYMLINK}.
 
 @item ponyquotes
 @cindex ponyquotes
-A feature enabling ponies to quote themself from MLP:FiM.
+A feature enabling ponies to quote them self from MLP:FiM.
 
 @item environment variables
 @cindex environment variables
 Variables stored to the environment with the command @command{export VARIABLE=VALUE}.
-The varaible name is often written with the prefix @code{$} due to have they are read
+The variable name is often written with the prefix @code{$} due to have they are read
 in shell, using the command @command{echo $VARIABLE}.
 
 @item UCS
 @itemx Universal Character Set
 @cindex ucs
 @cindex universal character set
-The set of of character, develop by the Unicode Consortium. It definied a partially filled
+The set of of character, develop by the Unicode Consortium. It defined a partially filled
 space of @math{2^{31}} characters, some of which are not glyphs.
 
 @item combining characters
@@ -1399,14 +1399,14 @@ and lower case and upper case English alphabet characters @code{a-z}.
 @cindex short options
 Command line arguments starting with either exactly one hyphen (@code{-}) or exactly one
 plus sign (@code{+}), and have exactly one character beyond that. They may be argumentless,
-argumented, optionally argumented, or variadic (consumes are following argumetns).
+argumented, optionally argumented, or variadic (consumes are following arguments).
 
 @item long options
 @cindex long options
 Command line arguments starting with either at least two hyphens (@code{-}) or at least two
 plus signs (@code{+}), beyond that they have at least one character, but often at least one
 work. They by be argumentless, argumented, optionally argumented, or variadic (consumes are
-following argumetns).
+following arguments).
 
 @item completion
 @itemx auto-completion
@@ -1432,7 +1432,7 @@ standardise by ANSI.
 @cindex ANSI colour sequences
 @cindex ANSI colours
 @cindex colour sequences
-ANSI escape sequences defining a colour or other formating, known as CSI m, a sequence starting
+ANSI escape sequences defining a colour or other formatting, known as CSI m, a sequence starting
 with CSI and ending with an @code{m}. This is extended to 256 colours, from 16 colours, by
 @command{xterm} which is de facto standardise.
 
