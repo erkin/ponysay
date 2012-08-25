@@ -71,6 +71,7 @@ Texts. A copy of the license is included in the section entitled
 * Inner workings::                      Useful information for those whom want to help hack @command{ponysay}.
 * Contributing::                        Useful information for those whom want to help improve the world.
 * Distributing::                        Useful information for OS package repository package maintainers.
+* Terminology::                         Terminology.
 * Change log::                          Differences between the version of @command{ponysay}.
 * Ponysay contributors::                Ponysay contributors.
 * Ponysay license::                     Ponysay license.
@@ -333,6 +334,8 @@ If you use TTY and have a custom colour palette, you should also add to your
 @end example
 @end cartouche
 
+You should read more about this in @ref{KMS ponies}.
+
 
 @node Running on screen
 @section Running on @command{screen}
@@ -423,11 +426,11 @@ will still be usable.
 @cindex linux vt
 @cindex kmsponies
 @cindex kms
-@cindex kernel mode settings
+@cindex kernel mode setting
 
 @env{PONYSAY_KMS_PALETTE} or @env{PONYSAY_KMS_PALETTE_CMD} is used to tell
 ponysay how your TTY palette looks, this feature lets you get the best images
-in TTY if you have Kernel Mode Settings (KMS) support.
+in TTY if you have Kernel Mode Setting (KMS) support.
 
 See @ref{KMS ponies} for information on how to use this.
 @end table
@@ -451,7 +454,7 @@ See @ref{KMS ponies} for information on how to use this.
 @cindex tty
 @cindex linux vt
 @cindex kms
-@cindex kernel mode settings
+@cindex kernel mode setting
 @cindex environment variables
 @cindex @env{PONYSAY_KMS_PALETTE}
 @cindex @env{PONYSAY_KMS_PALETTE_CMD}
@@ -465,7 +468,7 @@ KMS ponies is an optional feature that required that you have @command{util-say>
 (@command{util-say<2} for @command{ponysay<2.1}) installed. It lets TTY users that
 have a custom TTY colour palette and KMS support get best TTY images that can be
 display at the current state of the art. KMS is supported on most computers, but due
-to lack of published specifications Nvidea drivers does not support KMS.
+to lack of published specifications Nvidia drivers does not support KMS.
 @command{util-say} can be downloaded at @url{https://github.com/maandree/util-say}.
 
 To use this feature your @file{~/.bashrc} (or equivalent for your shell) must keep
@@ -521,11 +524,11 @@ Ponysay works perfectly on @command{xterm}, @command{xterm} like terminals inclu
 @command{mate-terminal}.
 
 @cindex kms
-@cindex kernel mode settings
+@cindex kernel mode setting
 @cindex tty
 @cindex linux vt
 On Linux's native terminal Linux VT (TTY) it works less well, and not good at all
-without Kernel Mode Settings (KMS) support. See @url{https://github.com/erkin/ponysay/issues/1}
+without Kernel Mode Setting (KMS) support. See @url{https://github.com/erkin/ponysay/issues/1}
 for more information. @command{ponysay} clears the screen before printing to TTY, this
 is because if your graphics driver supports KMS, the colours will be messed by when the
 ponies position moves on the screen, this is also reason why the output is truncated on
@@ -1020,7 +1023,7 @@ only if the message contains more than one line.
 @cindex linux vt
 @cindex clearing tty
 @cindex kms
-@cindex kernel mode settings
+@cindex kernel mode setting
 
 Since Linux VT (TTY) does not have capabilities for returning the position of the
 cursor, the screen must always be cleared before printing the ponies to make sure
@@ -1038,14 +1041,14 @@ we would also turn off num. lock and caps. lock.
 @cindex truncation
 @cindex output truncation
 @cindex kms
-@cindex kernel mode settings
+@cindex kernel mode setting
 
 Ponysay supports three type of output truncations, cutting away overflow on the right
 and truncation the height by either keeping the bottom or keeping the top. By default
 the latest is enabled under TTY, cutting away overflow on the right is always enabled
 by default.
 
-Truncating the height in TTY is required under Kernel Mode Settings (KMS) support to
+Truncating the height in TTY is required under Kernel Mode Setting (KMS) support to
 keep the colours from being messed up when the ponies is moved in the screen during
 print. Prior to version 2.0 this was done either by piping to @command{head} (keeps
 the top) or by piping to @command{tail} (keeps the bottom.) @command{head} and
@@ -1273,6 +1276,175 @@ option @option{--everything}. Otherwise only the @command{info} manual and the
 English manpage will be installed for documentation.
 
 Please inform us about your distribution so we can list it so everypony can see it.
+
+
+
+@node Terminology
+@chapter Terminology
+@cindex terminology
+
+@table @i
+@item MLP:FiM
+@cindex MLP:FiM
+The television show My Little Pony: Friendship is Magic.
+
+@item My Little Pony
+@cindex my little pony
+The successor to My Pretty Pony, the toy not the short story by Stephen King.
+
+@item TTY
+@itemx Linux VT
+@cindex tty
+@cindex linux vt
+Linux's native terminal emulator. The name TTY comes from the file names for the
+devices used for terminals by Linux VT, which is @file{/dev/tty*}.
+
+@item KMS
+@itemx Kernel Mode Setting
+@cindex kms
+@cindex kernel mode setting
+A feature in Linux alllowing mode setting in kernel-space, this gives the TTY,
+for example better colour support. I would go to Wikipedia for more information.
+
+@item ttyponies
+@cindex ttyponies
+Pony files used in TTY.
+
+@item kmsponies
+@cindex kmsponies
+Pony files generated for use in TTY with custom TTY colour palette and KMS support.
+
+@item extraponies
+@itemx extra ponies
+@cindex extraponies
+@cindex extra ponies
+Pony files of ponies that are not a part of MLP:FiM.
+@item standard ponies
+@cindex standard ponies
+
+Pony files of ponies that are a part of MLP:FiM.
+@item systemponies
+@itemx sysponies
+@cindex systemponies
+@cindex sysponies
+Pony files located in @file{/usr/share/ponysay}.
+
+@item homeponies
+@itemx usrponies
+@cindex homeponies
+@cindex usrponies
+Pony files located in @file{~/.local/share/ponysay}.
+
+@item browser ponies
+@cindex browser ponies
+@cindex desktop ponies
+A Javascript program which is the source for most of our ponies. It is a port of
+@i{desktop ponies}.
+
+@item ponification
+@cindex ponification
+The process of converting English text to Equestian English.
+
+@item Equestian English
+@cindex Equestian English
+The English dialect spoken by the ponies in MLP:FiM, the basic role is that it
+is American English with as many words and parts of words as possible exchanged
+to words having to do with ponies, including the work `pony' itself. This is
+normally the language we, the developers, write in, except we may use another
+English, e.g. British English, as the base language.
+
+@item best.pony
+@cindex best.pony
+The pony you think is [the] best pony. It should be a symlink pony. It is a feature
+affecting the @option{-f}, @option{-F} and @option{-q} options.
+
+@item pony symlink
+@itemx symlink pony
+@cindex pony symlink
+@cindex symlink pony
+A pony file that is a symbolic link to another pony file. Symbolic links can be
+created with the command @command{ln -s TARGET SYMLINK}.
+
+@item ponyquotes
+@cindex ponyquotes
+A feature enabling ponies to quote themself from MLP:FiM.
+
+@item environment variables
+@cindex environment variables
+Variables stored to the environment with the command @command{export VARIABLE=VALUE}.
+The varaible name is often written with the prefix @code{$} due to have they are read
+in shell, using the command @command{echo $VARIABLE}.
+
+@item UCS
+@itemx Universal Character Set
+@cindex ucs
+@cindex universal character set
+The set of of character, develop by the Unicode Consortium. It definied a partially filled
+space of @math{2^{31}} characters, some of which are not glyphs.
+
+@item combining characters
+@cindex combining characters
+Character that have zero width and is used to compose characters with diacritical when
+there is no precomposed character to use.
+
+@item ASCII
+@itemx ASCII character
+@cindex ascii
+@cindex character
+American Standard Code for Information Interchange (ASCII) defines 128 characters, some
+are not glyphs. It contains control characters, basic punctuation, the decimal digit,
+and lower case and upper case English alphabet characters @code{a-z}.
+
+@item short options
+@cindex short options
+Command line arguments starting with either exactly one hyphen (@code{-}) or exactly one
+plus sign (@code{+}), and have exactly one character beyond that. They may be argumentless,
+argumented, optionally argumented, or variadic (consumes are following argumetns).
+
+@item long options
+@cindex long options
+Command line arguments starting with either at least two hyphens (@code{-}) or at least two
+plus signs (@code{+}), beyond that they have at least one character, but often at least one
+work. They by be argumentless, argumented, optionally argumented, or variadic (consumes are
+following argumetns).
+
+@item completion
+@itemx auto-completion
+@itemx shell completion
+@itemx shell auto-completion
+@cindex completion
+@cindex auto-completion
+@cindex shell completion
+@cindex shell auto-completion
+Provided by a shell dependent script, argument suggestion is provided of then by pressing
+the tab key.
+
+@item ANSI escape sequences
+@itemx escape sequences
+@cindex ANSI escape sequences
+@cindex escape sequences
+Character sequences starting with a ESC character, with a special interpretation for terminals
+standardise by ANSI.
+
+@item ANSI colour sequences
+@itemx ANSI colours
+@itemx colour sequences
+@cindex ANSI colour sequences
+@cindex ANSI colours
+@cindex colour sequences
+ANSI escape sequences defining a colour or other formating, known as CSI m, a sequence starting
+with CSI and ending with an @code{m}. This is extended to 256 colours, from 16 colours, by
+@command{xterm} which is de facto standardise.
+
+@item CSI
+@cindex CSI
+The character combination ESC followed by @code{[}, used in standardised ANSI escape sequences.
+
+@item OSI
+@cindex OSI
+The character combination ESC followed by @code{]}, used in non-standardised ANSI escape
+sequences.
+@end table
 
 
 
