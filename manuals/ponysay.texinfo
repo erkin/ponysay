@@ -63,11 +63,11 @@ Texts. A copy of the license is included in the section entitled
 * Invoking ponysay::                    How to run @command{ponysay}.
 * Advanced usage::                      Advanced usage of @command{ponysay}.
 * Environment variables::               Getting more from @command{ponysay} with environment variables.
+* Optional features::                   Get the most out of @command{ponysay} with optional features.
 * Limitations::                         Known limitations that may not be that easy to overcome.
 * Problems and requests::               Report issues and making requests.
 * Dependencies::                        Ponysay's dependencies.
 * Installing::                          How to install @command{ponysay}.
-* Extensions::                          Extensions.
 * Inner workings::                      Useful information for those whom want to help hack @command{ponysay}.
 * Contributing::                        Useful information for those whom want to help improve the world.
 * Distributing::                        Useful information for OS package repository package maintainers.
@@ -220,19 +220,18 @@ messages.
 @itemx --list
 @cindex @option{-l}
 @cindex @option{--list}
-Lists all installed ponies. If the extension @command{ponyquotes4ponysay} is
-installed the ponies which have quotes, i.e. can be used with the @option{-q}
-option, will be mark by being printed in bold or bright (depending on the terminal.)
+Lists all installed ponies. The ponies which have quotes, i.e. can be used with
+the @option{-q} option, will be marked by being printed in bold or bright (depending
+on the terminal.)
 
 @item -L
 @itemx --altlist
 @cindex @option{-L}
 @cindex @option{--altlist}
-Lists all installed ponies. If the extension @command{ponyquotes4ponysay}
-is installed the ponies which have quotes, i.e. can be used with the @option{-q}
-option, will be mark by being printed in bold or bright (depending on the terminal.)
-This options differs from @option{-l} by printing alternative names (symbolic links)
-inside brackets after their target ponies.
+Lists all installed ponies. The ponies which have quotes, i.e. can be used with
+the @option{-q} option, will be marked by being printed in bold or bright (depending
+on the terminal.) This options differs from @option{-l} by printing alternative
+names (symbolic links) inside brackets after their target ponies.
 
 @item +l
 @itemx ++list
@@ -416,29 +415,85 @@ If you use @code{yes} UCS names will be usable, suggested and listed. If you
 use @code{harder} ASCII:ised names will not be suggested or listed, but they
 will still be usable.
 
-@item PONYSAY_COWSAY
-@itemx PONYSAY_COWTHINK
-@cindex @env{PONYSAY_COWSAY}
-@cindex @env{PONYSAY_COWTHINK}
-@cindex custom cowsay
-@cindex replace cowsay
-Since version 2.1 this is no longer used as @command{cowsay} has been
-reimplemented inside @command{ponysay}, but it is possible we will add
-a way to replace that back-end.
+@item @env{PONYSAY_KMS_PALETTE}
+@itemx @env{PONYSAY_KMS_PALETTE_CMD}
+@cindex @env{PONYSAY_KMS_PALETTE}
+@cindex @env{PONYSAY_KMS_PALETTE_CMD}
+@cindex tty
+@cindex linux vt
+@cindex kmsponies
+@cindex kms
+@cindex kernel mode settings
 
-If you want to use another program than @command{cowsay} (the first
-@command{cowsay} found in @env{$PATH}), you can export @env{PONYSAY_COWSAY}
-with the value of that program. In earlier versions than version 2.0: If, and
-only if, @env{PONYSAY_COWSAY} does not have any value, @command{cowsay} is
-patch with @code{use utf8;} to the beginning. The @code{use utf8;} patch is
-introduced to make it easier to customise cowsay.
+@env{PONYSAY_KMS_PALETTE} or @env{PONYSAY_KMS_PALETTE_CMD} is used to tell
+ponysay how your TTY palette looks, this feature lets you get the best images
+in TTY if you have Kernel Mode Settings (KMS) support.
 
-@env{PONYSAY_COWTHINK} will be used instead of @env{PONYSAY_COWSAY} if
-you run @command{ponythink}.
+See @ref{KMS ponies} for information on how to use this.
 @end table
 
-See @ref{kmsponies4ponysay} for additional environment variables used by the
-extension @command{kmsponies4ponysay}.
+
+
+@node Optional features
+@chapter Optional features
+@cindex features, optional
+@cindex optional features
+@cindex optional dependencies
+
+@menu
+* KMS ponies::                 Improved TTY support under KMS support.
+@end menu
+
+
+@node KMS ponies
+@section KMS ponies
+@cindex kmsponies
+@cindex tty
+@cindex linux vt
+@cindex kms
+@cindex kernel mode settings
+@cindex environment variables
+@cindex @env{PONYSAY_KMS_PALETTE}
+@cindex @env{PONYSAY_KMS_PALETTE_CMD}
+@cindex @file{.bashrc}
+@cindex @file{~/.bashrc}
+@cindex cache
+@cindex @file{/var/cache/ponysay}
+@cindex @file{~/.cache/ponysay}
+
+KMS ponies is an optional feature that required that you have @command{util-say>=2}
+(@command{util-say<2} for @command{ponysay<2.1}) installed. It lets TTY users that
+have a custom TTY colour palette and KMS support get best TTY images that can be
+display at the current state of the art. KMS is supported on most computers, but due
+to lack of published specifications Nvidea drivers does not support KMS.
+@command{util-say} can be downloaded at @url{https://github.com/maandree/util-say}.
+
+To use this feature your @file{~/.bashrc} (or equivalent for your shell) must keep
+track of your colour palette; it is not possible for a program to ask to terminal.
+Either the shell should export a palette string to @env{$PONYSAY_KMS_PALETTE} or you
+should export a command to can get the palette string to
+@env{$PONYSAY_KMS_PALETTE_CMD}. The palette string should be the stream which sets
+the colour palette to the terminal when @command{echo}:ed; preferably, to increase
+speed and reduce cache usage, it should be consistent every time it is exported for
+every colours palette. So you may want to keep it sorted, always be in either upper
+case or lower case, and not contain an character that is not used to set the colour
+palette.
+
+Assuming you have a function in your @file{~/.bashrc}, to reset the colour palette
+to what you set it to last time in the terminal, named @command{reset-palette},
+your @file{~/.bashrc} should, for example, contain:
+@cartouche
+@example
+[ "$TERM" = "linux" ] &&
+    function ponysay
+    @{   export PONYSAY_KMS_PALETTE="$(reset-palette)"
+        exec ponysay "$@@"
+    @}
+@end example
+@end cartouche
+
+KMS ponies uses @file{/var/cache/ponysay/} or, if missing, @file{~/.cache/ponysay/}
+for cache space.
 
 
 
@@ -813,81 +868,6 @@ Well written package manages will uninstall files that the package is no longer
 using, i.e. if deleted, moved or renamed. To uninstall files that are not longer
 used, by the currently installed version you will need that versions @file{Makefile}.
 To perform an uninstallation of old files run @command{make uninstall-old}.
-
-
-
-@node Extensions
-@chapter Extensions
-@cindex extensions
-@cindex optional dependencies
-
-Ponysay does not support extensions, per se, but rather have optional features that
-are enabled when other packages are installed.
-
-@menu
-* ponyquotes4ponysay::     ponyquotes4ponysay: Quotes from My Little Ponies.
-* kmsponies4ponysay::      kmsponies4ponysay: Improved TTY support under KMS support.
-@end menu
-
-
-@node ponyquotes4ponysay
-@section ponyquotes4ponysay
-@cindex ponyquotes4ponysay
-@cindex quotes
-
-@command{ponyquotes4ponysay} is a package that adds support for MLP:FiM quotes that are
-displayed with the associated ponies. See @ref{Invoking ponysay} for more information.
-
-As of version 1.2 @command{ponyquotes4ponysay} is included in @command{ponysay},
-but is still available at @url{https://github.com/maandree/ponyquotes4ponysay}.
-
-
-@node kmsponies4ponysay
-@section kmsponies4ponysay
-@cindex kmsponies4ponysay
-@cindex tty
-@cindex linux vt
-@cindex kms
-@cindex kernel mode settings
-@cindex environment variables
-@cindex @env{PONYSAY_KMS_PALETTE}
-@cindex @env{PONYSAY_KMS_PALETTE_CMD}
-@cindex @file{.bashrc}
-
-@command{kmsponies4ponysay} is an extension for TTY users that have a custom TTY
-colour palette and KMS support. KMS is supported on most computers, but due to lack
-of published specifications Nvidea drivers does not support KMS.
-@command{kmsponies4ponysay} can be downloaded at
-@url{https://github.com/maandree/kmsponies4ponysay}.
-
-To use this extension your @file{~/.bashrc} (or equivalent for your shell) must keep
-track of your colour palette, it is not possible for a program to ask to terminal.
-Either the shell should export a palette string to @env{$PONYSAY_KMS_PALETTE} or you
-should export a command to can get the palette string to
-@env{$PONYSAY_KMS_PALETTE_CMD}. The palette string should be the stream which sets
-the colour palette to the terminal when @command{echo}:ed; preferably, to increase
-speed and reduce cache usage, it should be consistent every time it is exported for
-every colours palette. So you may want to keep it sorted, always be in either upper
-case or lower case, and not contain an character that is not used to set the colour
-palette.
-
-Assuming you have a function in your @file{~/.bashrc}, to reset the colour palette
-to what you set it to last time in the terminal, named @command{reset-palette},
-your @file{~/.bashrc} should, for example, contain:
-@cartouche
-@example
-[ "$TERM" = "linux" ] &&
-    function ponysay
-    @{   export PONYSAY_KMS_PALETTE="$(reset-palette)"
-        exec ponysay "$@@"
-    @}
-@end example
-@end cartouche
-
-@command{kmsponies4ponysay} uses @file{/var/cache/kmsponies4ponysay/} for cache space.
-
-As of version 2.0 @command{kmsponies4ponysay} is included in @command{ponysay},
-but is still available at @url{https://github.com/maandree/kmsponies4ponysay}.
 
 
 
