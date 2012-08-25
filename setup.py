@@ -122,17 +122,18 @@ class Setup():
             if len(opts.files) == 0:
                 opts.files = ['build']
             method = opts.files[0]
-            conf = self.configure(opts.opts)
-            self.viewconf(conf)
-            #if   method == 'build':          Setup.build       (conf)
-            #elif method == 'prebuilt':       Setup.install     (conf)
-            #elif method == 'install':        Setup.build       (conf); Setup.install(conf)
-            #elif method == 'uninstall':      Setup.uninstall   (conf)
-            #elif method == 'uninstall-old':  Setup.uninstallOld(conf)
-            #elif method == 'clean':          Setup.clean       (conf)
-            #elif method == 'clean-old':      Setup.cleanOld    (conf)
-            #else:
-            #    opts.help()
+            if   method == 'clean':      Setup.clean()
+            elif method == 'clean-old':  Setup.cleanOld()
+            else:
+                conf = self.configure(opts.opts)
+                self.viewconf(conf)
+                if   method == 'build':          Setup.build       (conf)
+                elif method == 'prebuilt':       Setup.install     (conf)
+                elif method == 'install':        Setup.build       (conf); Setup.install(conf); Setup.clean()
+                elif method == 'uninstall':      Setup.uninstall   (conf)
+                elif method == 'uninstall-old':  Setup.uninstallOld(conf)
+                else:
+                    opts.help()
     
     
     '''
@@ -182,6 +183,92 @@ class Setup():
     
     
     '''
+    Compile ponysay
+    '''
+    def build(self, conf):
+        print('\033[1;34m::\033[39mCompiling...\033[21m')
+        
+        pass
+    
+    
+    '''
+    Install compiled ponysay
+    '''
+    def install(self, conf):
+        print('\033[1;34m::\033[39mInstalling...\033[21m')
+        
+        pass
+    
+    
+    '''
+    Uninstall ponysay
+    '''
+    def uninstall(self, conf):
+        print('\033[1;34m::\033[39mUninstalling...\033[21m')
+        
+        pass
+    
+    
+    '''
+    Uninstall file ponysay no longer uses
+    '''
+    def uninstallOld(self, conf):
+        print('\033[1;34m::\033[39mUninstalling old files...\033[21m')
+        
+        instdir = conf['~prefix~'] + '/usr'
+        files = [instdir + f for f in ['bin/ponysaylist.pl', 'bin/ponysaytruncater', 'bin/ponysay.py', 'bin/ponythink.py']]
+        dirs = [instdir + d for d in ['lib/ponysay', 'share/ponies', 'share/ttyponies']]
+        #$(instdir)/lib/ponysay/truncater
+        #$(instdir)/lib/ponysay/list.pl
+        #$(instdir)/lib/ponysay/linklist.pl
+        #$(instdir)/lib/ponysay/pq4ps
+        #$(instdir)/lib/ponysay/pq4ps.pl
+        #$(instdir)/lib/ponysay/pq4ps-list
+        #$(instdir)/lib/ponysay/pq4ps-list.pl
+        
+        removeLists(files, dirs)
+    
+    
+    '''
+    Remove compiled files
+    '''
+    def clean(self):
+        print('\033[1;34m::\033[39mCleaning...\033[21m')
+        
+        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz', 'ponysay.install']
+        dirs = ['quotes']
+        for comp in ['gz', 'xz']:
+            for man in manpages:
+                if man is manpages[0]:  man = ''
+                else:                   man = '.' + man
+                files.append('manuals/manpage.0' + man + '.' + comp)
+        for shell in shells:
+            files.append('completion/%s-completion.%s.install' % (shell, 'is' if shell == 'bash' else shell))
+            files.append('completion/%s-completion-think.%s' % (shell, 'is' if shell == 'bash' else shell))
+        
+        removeLists(files, dirs)
+    
+    
+    '''
+    Remove compiled files ponysay is no longer compiling
+    '''
+    def cleanOld(self):
+        print('\033[1;34m::\033[39mCleaning old files...\033[21m')
+        
+        files = ['truncater', 'ponysaytruncater', 'ponysay.py.install', 'ponysay.install~']
+        dirs = []
+        
+        removeLists(files, dirs)
+    
+    
+    '''
+    Removes listed files and directories
+    '''
+    def removeLists(self, files, dirs):
+        pass ## TODO not implemented
+    
+    
+    '''
     Parses configurations
     '''
     def configure(self, opts):
@@ -218,6 +305,7 @@ class Setup():
                 if conf[key] not in (None, False, True):
                     if conf[key].startswith('/usr'):
                         conf[key] = prefix + conf[key][4:]
+        conf['~prefix~'] = prefix
         
         if opts['--opt'] is not None:
             if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/opt/ponysay/bin']
