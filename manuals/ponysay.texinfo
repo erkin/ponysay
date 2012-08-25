@@ -1459,6 +1459,8 @@ sequences.
 
 Nothing worth mentioning.
 
+@b{Note}: Identifies itself as version 2.3
+
 
 @heading Version 2.3
 
