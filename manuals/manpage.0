@@ -2,7 +2,7 @@
 .\" First parameter, NAME, should be all caps
 .\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
 .\" other parameters are allowed: see man(7), man(1)
-.TH PONYSAY 6 "July 12, 2012"
+.TH PONYSAY 0 "July 12, 2012"
 .\" Please adjust this date whenever revising the manpage.
 .\"
 .\" Some roff macros, for reference:
@@ -103,8 +103,8 @@ want to truncate the output on the height even if you are not running \fIponysay
 .SH BUG
 Bugs can be reported in <\fBhttps://github.com/erkin/ponysay/issues\fP>.
 .SH SEE ALSO
-.BR cowsay (1),
-.BR fortune (6).
+.BR cowsay (0),
+.BR fortune (0).
 .br
 .SH AUTHOR
 ponysay was written by Erkin Batu Altunbaş <erkinbatu@gmail.com>
