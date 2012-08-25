@@ -33,7 +33,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = '2.3'
+VERSION = 'dev'
 
 
 '''
