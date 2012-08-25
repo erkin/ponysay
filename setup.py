@@ -54,8 +54,8 @@ class Setup():
         opts.add_argumentless(help = 'Install nothing that is not explicity included',                                 alternatives = ['--nothing', '--with-nothing'])
         
         for command in commands:
-            opts.add_argumentless(help = 'Do not install the %s command' % (command),                                  alternatives = ['--without-' + command])
-            opts.add_argumentless(help = 'Install the %s command' % (command),                                         alternatives = ['--with-' + command])
+            opts.add_argumentless(help = 'Do not install the %s command' % (command),                                              alternatives = ['--without-' + command])
+            opts.add_argumented  (help = 'Install the %s command, and set file name\nDefualt = /usr/bin/%s' % (command, command),  alternatives = ['--with-' + command], arg='EXEC')
         
         opts.add_argumentless(help = 'Do not install a user shared cache',                                             alternatives = ['--without-shared-cache'])
         opts.add_argumented  (help = 'Install a user shared cache at CACHEDIR\nDefault = /var/cache/ponysay',          alternatives = [   '--with-shared-cache'], arg='CACHEDIR')
@@ -144,12 +144,12 @@ class Setup():
         YELLOW = '\033[33m%s\033[39m'
         
         for command in commands:
-            if conf[command]:                      print(GREEN  % ('', 'Installing command ' + command))
+            if conf[command]:                      print(GREEN  % ('Installing command ' + command + ' as ', conf[command]))
             else:                                  print(RED    % ('Skipping installion of command ' + command))
         if conf['shared-cache'] is not None:       print(GREEN  % ('Installing shared cache at ', conf['shared-cache']))
         else:                                      print(RED    % ('Skipping installation of shared cache'))
         for shell in [item[0] for item in shells]:
-            if conf[shell] is not None:            print(GREEN  % ('Installing auto-completion for ' + shell + ' to', conf[shell]))
+            if conf[shell] is not None:            print(GREEN  % ('Installing auto-completion for ' + shell + ' as ', conf[shell]))
             else:                                  print(RED    % ('Skipping installation of auto-completion for ' + shell))
         if conf['pdf'] is not None:                print(GREEN  % ('Installing PDF manual to ', conf['pdf']))
         else:                                      print(RED    % ('Skipping installation of PDF manual'))
@@ -157,7 +157,7 @@ class Setup():
         else:                                      print(RED    % ('Skipping compression of PDF manual'))
         if conf['info'] is not None:               print(GREEN  % ('Installing info manual to ', conf['info']))
         else:                                      print(RED    % ('Skipping installation of info manual'))
-        if conf['info-install'] is not None:       print(GREEN  % ('Installing info manual with install-info with description ', conf['info-install']))
+        if conf['info-install'] is not None:       print(GREEN  % ('Installing info manual with install-info with description: ', conf['info-install']))
         else:                                      print(RED    % ('Skipping installation of info manual with install-info'))
         if conf['info-compression'] is not None:   print(GREEN  % ('Compressing info manual with ', conf['info-compression']))
         else:                                      print(RED    % ('Skipping compression of info manual'))
@@ -188,7 +188,7 @@ class Setup():
         (defaults, conf) = ({}, {})
         
         for command in commands:
-            conf[command] = True
+            conf[command] = '/usr/bin/' + command
         conf['shared-cache'] = '/var/cache/ponysay'
         for shell in shells:
             conf[shell[0]] = shell[1]
@@ -209,20 +209,21 @@ class Setup():
         
         if opts['--private'] is not None:
             if opts['--prefix'] is None:
-                opts['--prefix'] = os.environ['HOME'] + '/.local'
+                opts['--prefix'] = [os.environ['HOME'] + '/.local']
         
         prefix = '/usr'
         if opts['--prefix'] is not None:
             prefix = opts['--prefix'][0]
             for key in conf:
-                if conf.startswith('/usr'):
-                    conf[key] = prefix + conf[key][4:]
+                if conf[key] not in (None, False, True):
+                    if conf[key].startswith('/usr'):
+                        conf[key] = prefix + conf[key][4:]
         
         if opts['--opt'] is not None:
-            if opts['--bin-dir']    is None:  opts['--bin-dir']    = ['/opt/ponysay/bin']
-            if opts['--lib-dir']    is None:  opts['--lib-dir']    = ['/opt/ponysay/lib']
-            if opts['--share-dir']  is None:  opts['--share-dir']  = ['/opt/ponysay/share']
-            if conf['shared-cache'] is None:  opts['shared-cache'] = ['/var/opt/ponysay/cache']
+            if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/opt/ponysay/bin']
+            if opts['--lib-dir']           is None:  opts['--lib-dir']           = ['/opt/ponysay/lib']
+            if opts['--share-dir']         is None:  opts['--share-dir']         = ['/opt/ponysay/share']
+            if opts['--with-shared-cache'] is None:  opts['--with-shared-cache'] = ['/var/opt/ponysay/cache']
         
         for dir in ['bin', 'lib', 'share']:
             if opts['--' + dir + '-dir'] is not None:
@@ -234,8 +235,14 @@ class Setup():
         if opts['--cache-dir'] is not None:
             dir = opts['--cache-dir'][0]
             for key in conf:
-                if conf.startswith('/var/cache'):
-                    conf[key] = d + conf[key][10:]
+                if conf[key] not in (None, False, True):
+                    if conf[key].startswith('/var/cache'):
+                        conf[key] = dir + conf[key][10:]
+        
+        
+        for key in conf:
+            defaults[key] = conf[key]
+        
         
         if opts['--nothing'] is not None:
             opts['--minimal'] = opts['--nothing']
@@ -243,14 +250,15 @@ class Setup():
         for key in ['custom-env-python']:
             conf[key] = None
         
-        if opts['--everything'] is not None:
+        
+        if opts['--everything'] is None:
             for key in ['pdf', 'pdf-compression']:
                 conf[key] = None
             
             nomanen = opts['--minimal'] is not None
             for manpage in manpages:
-                if manpage is not manpage[0] or nomanen:
-                    for key in ('man-' + manpage[0], 'man-' + manpage[0] + '-compression'):
+                if (manpage is not manpages[0]) or nomanen:
+                    for key in ['man-' + manpage[0]]:
                         conf[key] = None
         
         if (opts['--private'] is not None) or (opts['--minimal'] is not None):
@@ -263,10 +271,13 @@ class Setup():
             for sharedir in sharedirs:
                 if sharedir is not sharedirs[0]:
                     conf[sharedir[0]] = None
+            for sharefile in sharefiles:
+                conf[sharefile[0]] = None
         
         if opts['--nothing'] is not None:
             for command in commands:
-                conf[command] = True
+                conf[command] = False
+            conf[sharedirs[0][0]] = None
         
         
         for coll in [['shell', '/usr/share', [item[0] for item in shells]],
@@ -280,6 +291,7 @@ class Setup():
                 for item in coll[2]:
                     defaults[item] = conf[item] = defaults[item].replace(coll[1], coll[1] if opts['--with-' + coll[0]][0] is None else opts['--with-' + coll[0]][0]);
         
+        
         for key in conf:
             if opts['--with-' + key] is not None:
                 if defaults[key] in (False, True):
@@ -288,10 +300,6 @@ class Setup():
                     conf[key] = defaults[key] if opts['--with-' + key][0] is None else opts['--with-' + key][0]
             if opts['--without-' + key] is not None:
                 conf[key] = False if defaults[key] in (False, True) else None
-        
-        for pair in [('pdf', 'pdf-compression'), ('info', 'info-install'), ('info', 'info-compression'), ('man-es', 'man-es-compression')]:
-            if (conf[pair[0]] in (False, None)) and (conf[pair[1]] not in (False, None)):
-                conf[pair[0]] = defaults[pair[0]]
         
         for mansection in mansections:
             if opts['--man-section-' + mansection[0]] is not None:
@@ -303,8 +311,9 @@ class Setup():
         if opts['--dest-dir'] is not None:
             destdir = opts['--dest-dir'][0]
             for key in conf:
-                if (conf[key] is not None) and conf.startswith('/'):
-                    conf[key] = destdir + conf[key]
+                if conf[key] not in (None, False, True):
+                    if conf.startswith('/'):
+                        conf[key] = destdir + conf[key]
         
         return conf
 
