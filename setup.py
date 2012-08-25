@@ -172,10 +172,10 @@ class Setup():
                     conf[key] = prefix + conf[key][4:]
         
         if opts['--opt'] is not None:
-            if opts['--bin-dir']   is None:  opts['--bin-dir']   = ['/opt/ponysay/bin']
-            if opts['--lib-dir']   is None:  opts['--lib-dir']   = ['/opt/ponysay/lib']
-            if opts['--share-dir'] is None:  opts['--share-dir'] = ['/opt/ponysay/share']
-            if opts['--cache-dir'] is None:  opts['--cache-dir'] = ['/var/opt/ponysay/cache']
+            if opts['--bin-dir']    is None:  opts['--bin-dir']    = ['/opt/ponysay/bin']
+            if opts['--lib-dir']    is None:  opts['--lib-dir']    = ['/opt/ponysay/lib']
+            if opts['--share-dir']  is None:  opts['--share-dir']  = ['/opt/ponysay/share']
+            if conf['shared-cache'] is None:  opts['shared-cache'] = ['/var/opt/ponysay/cache']
         
         for dir in ('bin', 'lib', 'share'):
             if opts['--' + dir + '-dir'] is not None:
