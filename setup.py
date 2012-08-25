@@ -11,6 +11,23 @@ PONYSAY_VERSION = '2.5'
 
 
 
+
+#'en' must be first for manpages
+#'ponies' must be first for sharedirs
+
+manpages = (('en', 'English'), ('es', 'Spanish'))
+sharedirs = (('ponies', 'xterm ponies', 'PONYDIR'), ('ttyponies', 'tty ponies', 'TTYPONYDIR'),
+             ('extraponies', 'extra xterm ponies', 'XPONYDIR'), ('extrattyponies', 'extra tty ponies', 'XTTYPONYDIR'),
+             ('quotes', 'pony quotes', 'QUOTEDIR'), ('balloons', 'balloon styles', 'BALLOONDIR'))
+sharefiles = (('ucs', 'ucsmap'))
+commands = ('ponysay', 'ponythink')
+shells = (('bash', '/usr/share/bash-completion/completions/ponysay', 'GNU Bash'),
+          ('fish', '/usr/share/fish/completions/ponysay.fish', 'Friendly interactive shell'),
+          ('zsh', '/usr/share/zsh/site-functions/_ponysay', 'zsh'))
+mansections = (('ponysay', '6'), ('cowsay', '1'), ('fortune', '6'))
+
+
+
 class Setup():
     def __init__(self):
         usage_script = '\033[34;1msetup.py\033[21;39m'
@@ -28,6 +45,7 @@ class Setup():
                          description = 'installer for ponysay',
                          usage       = usage)
         
+        
         opts.add_argumentless(alternatives = ['--help'])
         opts.add_argumentless(alternatives = ['--version'])
         
@@ -35,20 +53,16 @@ class Setup():
         opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depending on version',      alternatives = ['--minimal'])
         opts.add_argumentless(help = 'Install nothing that is not explicity included',                                 alternatives = ['--nothing', '--with-nothing'])
         
-        opts.add_argumentless(help = 'Do not install ponysay command',                                                 alternatives = ['--without-ponysay'])
-        opts.add_argumentless(help = 'Install ponysay command',                                                        alternatives = ['--with-ponysay'])
-        opts.add_argumentless(help = 'Do not install ponythink command',                                               alternatives = ['--without-ponythink'])
-        opts.add_argumentless(help = 'Install ponythink command',                                                      alternatives = ['--with-ponythink'])
+        for command in commands:
+            opts.add_argumentless(help = 'Do not install the %s command' % (command),                                  alternatives = ['--without-' + command])
+            opts.add_argumentless(help = 'Install the %s command' % (command),                                         alternatives = ['--with-' + command])
         
         opts.add_argumentless(help = 'Do not install a user shared cache',                                             alternatives = ['--without-shared-cache'])
         opts.add_argumented  (help = 'Install a user shared cache at CACHEDIR\nDefault = /var/cache/ponysay',          alternatives = [   '--with-shared-cache'], arg='CACHEDIR')
         
-        opts.add_argumentless(help = 'Do not install completion for GNU Bash',                                         alternatives = ['--without-bash'])
-        opts.add_argumented  (help = 'Set file name for the completion for ponysay in GNU Bash',                       alternatives = [   '--with-bash'], arg='PONYSAY_BASH_FILE')
-        opts.add_argumentless(help = 'Do not install completion for Friendly interactive shell',                       alternatives = ['--without-fish'])
-        opts.add_argumented  (help = 'Set file name for the completion for ponysay in Friendly interactive shell',     alternatives = [   '--with-fish'], arg='PONYSAY_FISH_FILE')
-        opts.add_argumentless(help = 'Do not install completion for zsh',                                              alternatives = ['--without-zsh'])
-        opts.add_argumented  (help = 'Set file name for the completion for ponysay in zsh',                            alternatives = [   '--with-zsh'], arg='PONYSAY_ZSH_FILE')
+        for shell in shells:
+            opts.add_argumentless(help = 'Do not install completion for ' + shell[2],                           alternatives = ['--without-' + shell[0]])
+            opts.add_argumented  (help = 'Set file name for the completion for ponysay in' + shell[2],          alternatives = [   '--with-' + shell[0]], arg='PONYSAY_%s_FILE' % (shell[0].upper()))
         opts.add_argumentless(help = 'Only install explicitly included shell completions',                             alternatives = ['--without-shells'])
         opts.add_argumented  (help = 'Set share/ directory used for shell completions\nDefault = $SHAREDIR',           alternatives = [   '--with-shells'], arg='SHAREDIR')
         
@@ -63,35 +77,24 @@ class Setup():
         opts.add_argumentless(help = 'Do not compress info manual',                                                    alternatives = ['--without-info-compression'])
         opts.add_argumented  (help = 'Select compression for info manual\nDefault = gz, xz is also recognised',        alternatives = [   '--with-info-compression'], arg='COMPRESSION')
         
-        opts.add_argumentless(help = 'Do not install English manpage manual',                                          alternatives = ['--without-man-en'])
-        opts.add_argumented  (help = 'Set directory for English manpage\nDefault = $SHARE/man',                        alternatives = [   '--with-man-en'], arg='MANDIR')
-        opts.add_argumentless(help = 'Do not install Spanish manpage manual\nDefault.',                                alternatives = ['--without-man-es'])
-        opts.add_argumented  (help = 'Set directory for Spanish manpage\nDefault = $SHARE/man',                        alternatives = [   '--with-man-es'], arg='MANDIR')
+        for man in manpages:
+            opts.add_argumentless(help = 'Do not install %s manpage manual' % (man[1]),                                alternatives = ['--without-man-' + man[0]])
+            opts.add_argumented  (help = 'Set directory for %s manpage\nDefault = $SHARE/man' % (man[1]),              alternatives = [   '--with-man-' + man[0]], arg='MANDIR')
         opts.add_argumentless(help = 'Do not install any manpages',                                                    alternatives = ['--without-man'])
         opts.add_argumented  (help = 'Set directory for all man pages\nDefault = $SHARE/man',                          alternatives = [   '--with-man'], arg='MANDIR')
-        opts.add_argumentless(help = 'Do not compress English manpage',                                                alternatives = ['--without-man-en-compression'])
-        opts.add_argumented  (help = 'Select compression for English manpage\nDefault = gz, xz is also recognised',    alternatives = [   '--with-man-en-compression'], arg='COMPRESSION')
-        opts.add_argumentless(help = 'Do not compress Spanish manpage',                                                alternatives = ['--without-man-es-compression'])
-        opts.add_argumented  (help = 'Select compression for Spanish manpage\nDefault = gz, xz is also recognised',    alternatives = [   '--with-man-es-compression'], arg='COMPRESSION')
+        for man in manpages:
+            opts.add_argumentless(help = 'Do not compress %s manpage' % (man[1]),                                      alternatives = ['--without-man-%s-compression' % (man[0])])
+            opts.add_argumented  (help = 'Select compression for %s manpage\nDefault = gz, xz is also recognised' % (man[1]),
+                                                                                                                     alternatives = [   '--with-man-%s-compression' % (man[0])], arg='COMPRESSION')
         opts.add_argumentless(help = 'Do not compress any installed manpage',                                          alternatives = ['--without-man-compression'])
         opts.add_argumented  (help = 'Select compression for installed manpages\nDefault = gz, xz is also recognised', alternatives = [   '--with-man-compression'], arg='COMPRESSION')
         
-        opts.add_argumented  (help = 'Change the section for the ponysay manpage\nDefault = 6',                        alternatives = ['--man-section-ponysay'], arg='SECTION')
-        opts.add_argumented  (help = 'Change the section for the cowsay manpage\nDefault = 1',                         alternatives = ['--man-section-cowsay'],  arg='SECTION')
-        opts.add_argumented  (help = 'Change the section for the fortune manpage\nDefault = 6',                        alternatives = ['--man-section-fortune'], arg='SECTION')
+        for man in mansections:
+            opts.add_argumented  (help = 'Change the section for the %s manpage\nDefault = %s' % man,                  alternatives = ['--man-section-' + man[0]], arg='SECTION')
         
-        opts.add_argumentless(help = 'Do not install xterm ponies',                                                    alternatives = ['--without-ponies'])
-        opts.add_argumented  (help = 'Set directory for xterm ponies\nDefault = $SHAREDIR/ponysay/ponies',             alternatives = [   '--with-ponies'], arg='PONYDIR')
-        opts.add_argumentless(help = 'Do not install tty ponies',                                                      alternatives = ['--without-ttyponies'])
-        opts.add_argumented  (help = 'Set directory for tty ponies\nDefault = $SHAREDIR/ponysay/ttyponies',            alternatives = [   '--with-ttyponies'], arg='TTYPONYDIR')
-        opts.add_argumentless(help = 'Do not install extra xterm ponies',                                              alternatives = ['--without-extraponies'])
-        opts.add_argumented  (help = 'Set directory for extra xterm ponies\nDefault = $SHAREDIR/ponysay/extraponies',  alternatives = [   '--with-extraponies'], arg='XPONYDIR')
-        opts.add_argumentless(help = 'Do not install extra tty ponies',                                                alternatives = ['--without-extrattyponies'])
-        opts.add_argumented  (help = 'Set directory for extra tty ponies\nDefault = $SHAREDIR/ponysay/extrattyponies', alternatives = [   '--with-extrattyponies'], arg='XTTYPONYDIR')
-        opts.add_argumentless(help = 'Do not install pony quotes',                                                     alternatives = ['--without-quotes'])
-        opts.add_argumented  (help = 'Set directory for pony quotes\nDefault = $SHAREDIR/ponysay/quotes',              alternatives = [   '--with-quotes'], arg='QUOTEDIR')
-        opts.add_argumentless(help = 'Do not install balloon styles',                                                  alternatives = ['--without-balloons'])
-        opts.add_argumented  (help = 'Set directory for balloon styles\nDefault = $SHAREDIR/ponysay/balloons',         alternatives = [   '--with-balloons'], arg='BALLOONDIR')
+        for dir in sharedirs:
+            opts.add_argumentless(help = 'Do not install ' + dir[0],                                                   alternatives = ['--without-' + dir[0]])
+            opts.add_argumented  (help = 'Set directory for %s\nDefault = $SHAREDIR/ponysay/%s' % (dir[1], dir[0]),    alternatives = [   '--with-' + dir[0]], arg=dir[2])
         opts.add_argumentless(help = 'Do not install UCS pony name map',                                               alternatives = ['--without-ucs'])
         opts.add_argumented  (help = 'Set file for the UCS pony name map\nDefault = $SHAREDIR/ponysay/ucsmap',         alternatives = [   '--with-ucs'], arg='UCSFILE')
         
@@ -107,9 +110,11 @@ class Setup():
         
         opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',                                    alternatives = ['--dest-dir'], arg='DESTDIR')
         
+        
         opts.parse()
         
-        if len(opts.files) > 1) or (opts.opts['--help'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'help')):
+        
+        if (len(opts.files) > 1) or (opts.opts['--help'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'help')):
             opts.help()
         elif (opts.opts['--version'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'version')):
             print('Ponysay %s installer' % (PONYSAY_VERSION))
@@ -135,15 +140,6 @@ class Setup():
     def configure(self, opts):
         (defaults, conf) = ({}, {})
         
-        manpages = (('en', 'English'), ('es', 'Spanish')) #'en' must be first
-        sharedirs = ('ponies', 'ttyponies', 'extraponies', 'extrattyponies', 'quotes', 'balloons')
-        sharefiles = (('ucs', 'ucsmap'))
-        commands = ('ponysay', 'ponythink')
-        shells = (('bash', '/usr/share/bash-completion/completions/ponysay'),
-                  ('fish', '/usr/share/fish/completions/ponysay.fish'),
-                  ('zsh', '/usr/share/zsh/site-functions/_ponysay'))
-        mansections = (('ponysay', '6'), ('cowsay', '1'), ('fortune', '6'))
-        
         for command in commands:
             conf[command] = True
         conf['shared-cache'] = '/var/cache/ponysay'
@@ -158,7 +154,7 @@ class Setup():
             conf['man-' + manpage[0]] = '/usr/share/man'
             conf['man-' + manpage[0] + '-compression'] = 'gz'
         for sharedir in sharedirs:
-            conf[sharedir] = '/usr/share/ponysay/' + sharedir
+            conf[sharedir[0]] = '/usr/share/ponysay/' + sharedir[0]
         for sharefile in sharefiles:
             conf[sharefile[0]] = '/usr/share/ponysay/' + sharefile[1]
         conf['custom-env-python'] = 'python3'
@@ -218,11 +214,11 @@ class Setup():
                 conf[key] = None
         
         if opts['--minimal'] is not None:
-            for key in ['info', 'info-compression'] + [item[0] in item for shells]:
+            for key in ['info', 'info-compression'] + [item[0] for item in shells]:
                 conf[key] = None
-            for key in sharedirs:
-                if key is not sharedirs[0]:
-                    conf[key] = None
+            for sharedir in sharedirs:
+                if sharedir is not sharedirs[0]:
+                    conf[sharedir[0]] = None
         
         if opts['--nothing'] is not None:
             for command in commands:
