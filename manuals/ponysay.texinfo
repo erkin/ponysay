@@ -1888,6 +1888,7 @@ Patchers and other contributors of ponysay:
 @item Kyah ``L-four'' Rindlisbacher
 @item James ``rossy2401'' Ross-Gowan
 @item Louis ``kragniz'' Taylor
+@item Daniel ``gtmanfred'' Wallace
 @item Jannis ``sycoso''
 @item ``spider-mario''
 @end itemize
