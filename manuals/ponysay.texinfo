@@ -1267,7 +1267,7 @@ split into multiple lines, these lines should have their first pony file in comm
 If you are planning on maintaining @command{ponysay} in your favourite operating
 system you should first read @ref{Required runtime dependencies} and
 @ref{Optional runtime dependencies}. If your OS does not follow Filesystem Hierarchy
-Standard (FHS), e.g. installing amusement binaries in @file{/usr/games} instread of
+Standard (FHS), e.g. installing amusement binaries in @file{/usr/games} instead of
 @file{/usr/bin} or only supporting @file{/opt} equivalent directories you should
 read about configurations in @ref{Custom installations}.
 
