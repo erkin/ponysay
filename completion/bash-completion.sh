@@ -20,7 +20,7 @@ _ponysay()
 	quoters=$('/usr/bin/ponysay' --quoters)
 	COMPREPLY=( $( compgen -W "$quoters" -- "$cur" ) )
 
-    elif [ $prev = "-b" ] || [ $prev = "--balloon" ]; then
+    elif [ $prev = "-b" ] || [ $prev = "--balloon" ] || [ $prev = "--bubble" ]; then
         balloons=$('/usr/bin/ponysay' --balloonlist)
 	COMPREPLY=( $( compgen -W "$balloons" -- "$cur" ) )
 

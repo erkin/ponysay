@@ -227,7 +227,9 @@ on the terminal.)
 
 @item -L
 @itemx --altlist
+@itemx --symlist
 @cindex @option{-L}
+@cindex @option{--symlist}
 @cindex @option{--altlist}
 Lists all installed ponies. The ponies which have quotes, i.e. can be used with
 the @option{-q} option, will be marked by being printed in bold or bright (depending
@@ -242,8 +244,10 @@ Just as @option{-l}, except it lists extra (non-MLP:FiM) ponies instead of stand
 (MLP:FiM) ponies.
 
 @item +L
+@itemx ++symlist
 @itemx ++altlist
 @cindex @option{+L}
+@cindex @option{++symlist}
 @cindex @option{++altlist}
 Just as @option{-L}, except it lists extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies.
@@ -251,6 +255,7 @@ Just as @option{-L}, except it lists extra (non-MLP:FiM) ponies instead of stand
 @item -B
 @itemx --balloonlist
 @cindex @option{-B}
+@cindex @option{--bubblelist}
 @cindex @option{--balloonlist}
 Prints a list of all balloon styles.
 @end table
