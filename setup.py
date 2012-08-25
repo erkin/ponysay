@@ -32,7 +32,7 @@ class Setup():
         opts.add_argumentless(alternatives = ['--version'])
         
         opts.add_argumentless(help = 'Install everything that is not explicity excluded',                              alternatives = ['--everything', '--with-everything'])
-        opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depedning on version',      alternatives = ['--minimal'])
+        opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depending on version',      alternatives = ['--minimal'])
         opts.add_argumentless(help = 'Install nothing that is not explicity included',                                 alternatives = ['--nothing', '--with-nothing'])
         
         opts.add_argumentless(help = 'Do not install ponysay command',                                                 alternatives = ['--without-ponysay'])
@@ -59,7 +59,7 @@ class Setup():
         opts.add_argumentless(help = 'Do not install info manual',                                                     alternatives = ['--without-info'])
         opts.add_argumented  (help = 'Set directory for info manual\nDefault = $SHARE/info',                           alternatives = [   '--with-info'], arg='INFODIR')
         opts.add_argumentless(help = 'Do not use install-info when installing info manual',                            alternatives = ['--without-info-install'])
-        opts.add_argumentless(help = 'Use install-info when installing info manual\nDefault',                          alternatives = [   '--with-info-install'])
+        opts.add_argumented  (help = 'Use install-info when installing info manual, and set description\nDefault',     alternatives = [   '--with-info-install'], arg='DESCIPTION')
         opts.add_argumentless(help = 'Do not compress info manual',                                                    alternatives = ['--without-info-compression'])
         opts.add_argumented  (help = 'Select compression for info manual\nDefault = gz, xz is also recognised',        alternatives = [   '--with-info-compression'], arg='COMPRESSION')
         
@@ -152,7 +152,7 @@ class Setup():
         conf['pdf'] = '/usr/doc'
         conf['pdf-compression'] = 'gz'
         conf['info'] = '/usr/share/info'
-        conf['info-install'] = True
+        conf['info-install'] = 'My Little Ponies for your terminal'
         conf['info-compression'] = 'gz'
         for manpage in manpages:
             conf['man-' + manpage[0]] = '/usr/share/man'
@@ -163,9 +163,10 @@ class Setup():
             conf[sharefile[0]] = '/usr/share/ponysay/' + sharefile[1]
         conf['custom-env-python'] = 'python3'
         
+        
         if opts['--private'] is not None:
             if opts['--prefix'] is None:
-                opts['--prefix'] = os.environ['HOME'] + "/.local"
+                opts['--prefix'] = os.environ['HOME'] + '/.local'
         
         prefix = '/usr'
         if opts['--prefix'] is not None:
@@ -173,6 +174,13 @@ class Setup():
             for key in conf:
                 if conf.startswith('/usr'):
                     conf[key] = prefix + conf[key][4:]
+        
+        if opts['--opt'] is not None:
+            if opts['--bin-dir']   is None:  opts['--bin-dir']   = ['/opt/ponysay/bin']
+            if opts['--lib-dir']   is None:  opts['--lib-dir']   = ['/opt/ponysay/lib']
+            if opts['--share-dir'] is None:  opts['--share-dir'] = ['/opt/ponysay/share']
+            if opts['--cache-dir'] is None:  opts['--cache-dir'] = ['/var/opt/ponysay/cache']
+        
         for dir in ('bin', 'lib', 'share'):
             if opts['--' + dir + '-dir'] is not None:
                 d = opts['--' + dir + '-dir'][0]
@@ -189,17 +197,36 @@ class Setup():
             defaults[key] = conf[key]
         
         
-        for key in ('pdf', 'pdf-compression', 'custom-env-python'):
+        if opts['--nothing'] is not None:
+            opts['--minimal'] = opts['--nothing']
+        
+        for key in ('custom-env-python'):
             conf[key] = None
         
-        for manpage in manpages:
-            if manpage is not manpage[0]:
-                for key in ('man-' + manpage[0], 'man-' + manpage[0] + '-compression'):
-                    conf[key] = None
+        if opts['--everything'] is not None:
+            for key in ('pdf', 'pdf-compression'):
+                conf[key] = None
+            
+            nomanen = opts['--minimal'] is not None
+            for manpage in manpages:
+                if manpage is not manpage[0] or nomanen:
+                    for key in ('man-' + manpage[0], 'man-' + manpage[0] + '-compression'):
+                        conf[key] = None
         
-        if opts['--private'] is not None:
+        if (opts['--private'] is not None) or (opts['--minimal'] is not None):
             for key in ('info-install', 'shared-cache'):
                 conf[key] = None
+        
+        if opts['--minimal'] is not None:
+            for key in ['info', 'info-compression'] + [item[0] in item for shells]:
+                conf[key] = None
+            for key in sharedirs:
+                if key is not sharedirs[0]:
+                    conf[key] = None
+        
+        if opts['--nothing'] is not None:
+            for command in commands:
+                conf[command] = True
         
         
         for coll in (('shell', '/usr/share', [item[0] for item in shells]),
@@ -238,14 +265,8 @@ class Setup():
             for key in conf:
                 if (conf[key] is not None) and conf.startswith('/'):
                     conf[key] = destdir + conf[key]
-            
+        
         return conf
-
-#        opts.add_argumentless(help = 'Change all implicit directories to fit installation to /opt',                    alternatives = ['--opt'])
-#        
-#        opts.add_argumentless(help = 'Install everything that is not explicity excluded',                              alternatives = ['--everything', '--with-everything'])
-#        opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depedning on version',      alternatives = ['--minimal'])
-#        opts.add_argumentless(help = 'Install nothing that is not explicity included',                                 alternatives = ['--nothing', '--with-nothing'])
 
 
 
