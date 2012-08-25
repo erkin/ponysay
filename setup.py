@@ -122,16 +122,16 @@ class Setup():
             if len(opts.files) == 0:
                 opts.files = ['build']
             method = opts.files[0]
-            if   method == 'clean':      Setup.clean()
-            elif method == 'clean-old':  Setup.cleanOld()
+            if   method == 'clean':      self.clean()
+            elif method == 'clean-old':  self.cleanOld()
             else:
                 conf = self.configure(opts.opts)
                 self.viewconf(conf)
-                if   method == 'build':          Setup.build       (conf)
-                elif method == 'prebuilt':       Setup.install     (conf)
-                elif method == 'install':        Setup.build       (conf); Setup.install(conf); Setup.clean()
-                elif method == 'uninstall':      Setup.uninstall   (conf)
-                elif method == 'uninstall-old':  Setup.uninstallOld(conf)
+                if   method == 'build':          self.build       (conf)
+                elif method == 'prebuilt':       self.install     (conf)
+                elif method == 'install':        self.build       (conf); self.install(conf); self.clean()
+                elif method == 'uninstall':      self.uninstall   (conf)
+                elif method == 'uninstall-old':  self.uninstallOld(conf)
                 else:
                     opts.help()
     
@@ -226,7 +226,7 @@ class Setup():
         #$(instdir)/lib/ponysay/pq4ps-list
         #$(instdir)/lib/ponysay/pq4ps-list.pl
         
-        removeLists(files, dirs)
+        self.removeLists(files, dirs)
     
     
     '''
@@ -240,13 +240,13 @@ class Setup():
         for comp in ['gz', 'xz']:
             for man in manpages:
                 if man is manpages[0]:  man = ''
-                else:                   man = '.' + man
+                else:                   man = '.' + man[0]
                 files.append('manuals/manpage.0' + man + '.' + comp)
-        for shell in shells:
+        for shell in [item[0] for item in shells]:
             files.append('completion/%s-completion.%s.install' % (shell, 'is' if shell == 'bash' else shell))
-            files.append('completion/%s-completion-think.%s' % (shell, 'is' if shell == 'bash' else shell))
+            files.append('completion/%s-completion-think.%s'   % (shell, 'is' if shell == 'bash' else shell))
         
-        removeLists(files, dirs)
+        self.removeLists(files, dirs)
     
     
     '''
@@ -258,7 +258,7 @@ class Setup():
         files = ['truncater', 'ponysaytruncater', 'ponysay.py.install', 'ponysay.install~']
         dirs = []
         
-        removeLists(files, dirs)
+        self.removeLists(files, dirs)
     
     
     '''
@@ -450,7 +450,7 @@ class ArgParser():
         self.files = []
         (argqueue, optqueue, get) = ([], [], False)
         
-        for arg in argv:
+        for arg in argv[1:]:
             if get:
                 get = False
                 if (len(arg) > 2) and (arg[:2] in ('--', '++')):
