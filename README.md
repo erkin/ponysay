@@ -82,7 +82,7 @@ Dependencies
 
 `coreutils`: stty in coreutils used to determine size of the terminal
 
-`python>=3`: Written in python 3
+`python>=3`: written in python 3
 
 ### Package building dependencies
 
@@ -91,6 +91,8 @@ Dependencies
 `texinfo`: used for building info manual (suppressable with `./configure --without-info`)
 
 `info`: used for installing info manual to info's dir file (suppressable with `./configure --without-info-install`)
+
+`python>=3`: the installation process is written in python 3
 
 Run `./dependency-test.sh` if things are not working for you.
 
