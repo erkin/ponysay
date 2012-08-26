@@ -67,7 +67,7 @@ class Setup():
         
         opts.add_argumentless(help = 'Install everything that is not explicity excluded',                              alternatives = ['--everything', '--with-everything'])
         opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depending on version',      alternatives = ['--minimal'])
-        opts.add_argumentless(help = 'Install nothing (except legal documents] that is not explicity included',        alternatives = ['--nothing', '--with-nothing'])
+        opts.add_argumentless(help = 'Install nothing (except legal documents) that is not explicity included',        alternatives = ['--nothing', '--with-nothing'])
         
         for command in commands:
             opts.add_argumentless(help = 'Do not install the %s command' % (command),                                              alternatives = ['--without-' + command])
@@ -89,7 +89,7 @@ class Setup():
         opts.add_argumentless(help = 'Do not install info manual',                                                     alternatives = ['--without-info'])
         opts.add_argumented  (help = 'Set directory for info manual\nDefault = $SHARE/info',                           alternatives = [   '--with-info'], arg='INFODIR')
         opts.add_argumentless(help = 'Do not use install-info when installing info manual',                            alternatives = ['--without-info-install'])
-        opts.add_argumented  (help = 'Use install-info when installing info manual, and set description\nDefault',     alternatives = [   '--with-info-install'], arg='DESCIPTION')
+        opts.add_argumented  (help = 'Use install-info when installing info manual, and set description\nDefault',     alternatives = [   '--with-info-install'], arg='DESCRIPTION')
         opts.add_argumentless(help = 'Do not compress info manual',                                                    alternatives = ['--without-info-compression'])
         opts.add_argumented  (help = 'Select compression for info manual\nDefault = gz, xz is also recognised',        alternatives = [   '--with-info-compression'], arg='COMPRESSION')
         
@@ -114,19 +114,19 @@ class Setup():
         opts.add_argumentless(help = 'Do not install UCS pony name map',                                               alternatives = ['--without-ucs'])
         opts.add_argumented  (help = 'Set file for the UCS pony name map\nDefault = $SHAREDIR/ponysay/ucsmap',         alternatives = [   '--with-ucs'], arg='UCSFILE')
         
-        opts.add_argumentless(help = 'Let the installer set the env name for python in ponysay\nDefault',                         alternatives = ['--without-custom-env-python'])
-        opts.add_argumented  (help = 'Set the env name for python in ponysay',                                                    alternatives = ['--with-custom-env-python'], arg='PYTHON')
-        opts.add_argumented  (help = 'Set a prefix to all implicit directories\nDefault = /usr',                                  alternatives = ['--prefix'], arg='PREFIX')
-        opts.add_argumentless(help = 'Change all implicit configurations to fit local user a installation for the current user',  alternatives = ['--private'])
-        opts.add_argumentless(help = 'Change all implicit directories to fit installation to /opt',                               alternatives = ['--opt'])
-        opts.add_argumented  (help = 'Set the system\'s directory for command executables\nDefault = $PREFIX/bin',                alternatives = ['--bin-dir'], arg='BINDIR')
-        opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/lib\nNot used.', alternatives = ['--lib-dir'], arg='LIBDIR')
-        opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',                   alternatives = ['--share-dir'], arg='SHAREDIR')
-        opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',                   alternatives = ['--cache-dir'], arg='CACHEDIR')
+        opts.add_argumentless(help = 'Let the installer set the env name for python in ponysay\nDefault',                                 alternatives = ['--without-custom-env-python'])
+        opts.add_argumented  (help = 'Set the env name for python in ponysay',                                                            alternatives = ['--with-custom-env-python'], arg='PYTHON')
+        opts.add_argumented  (help = 'Set a prefix to all implicit directories\nDefault = /usr',                                          alternatives = ['--prefix'], arg='PREFIX')
+        opts.add_argumentless(help = 'Change all implicit configurations to fit local user a installation for the current user',          alternatives = ['--private'])
+        opts.add_argumentless(help = 'Change all implicit directories to fit installation to /opt',                                       alternatives = ['--opt'])
+        opts.add_argumented  (help = 'Set the system\'s directory for command executables\nDefault = $PREFIX/bin',                        alternatives = ['--bin-dir'], arg='BINDIR')
+        opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/lib/ponysay\nNot used.', alternatives = ['--lib-dir'], arg='LIBDIR')
+        opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',                           alternatives = ['--share-dir'], arg='SHAREDIR')
+        opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',                           alternatives = ['--cache-dir'], arg='CACHEDIR')
         
-        opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',                                    alternatives = ['--dest-dir'], arg='DESTDIR')
+        opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',                                            alternatives = ['--dest-dir'], arg='DESTDIR')
         
-        opts.add_argumented  (help = 'Set how to link identical files\nDefault = hard, copy and symbolic are also recognised',    alternatives = ['--linking'], arg='TYPE')
+        opts.add_argumented  (help = 'Set how to link identical files\nDefault = hard, copy and symbolic are also recognised',            alternatives = ['--linking'], arg='TYPE')
         
         
         opts.parse()
@@ -663,6 +663,8 @@ class Setup():
         for dir in ['bin', 'lib', 'share']:
             if opts['--' + dir + '-dir'] is not None:
                 d = opts['--' + dir + '-dir'][0]
+                if dir == 'lib':
+                    dir += '/ponysay'
                 for key in conf:
                     if conf[key] not in [None, True, False]:
                         if conf[key].startswith(prefix + '/' + dir):

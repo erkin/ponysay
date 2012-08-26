@@ -759,83 +759,274 @@ or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 in Spanish: @command{man -L es 6 ponysay}. To install the Spanish manual add the
 option @option{--with-man-es} when running @command{./configure}.
 
+@cindex @file{setup.py}
+@cindex @command{./setup.py}
+If your system does not have @command{sh}, @command{make} or @command{sed} or can
+use @command{./setup.py OPTIONS VERB} or @command{python3 setup.py OPTIONS VERB}
+(or @command{python} instead of @command{python3}) instead of
+@command{./configure OPTIONS && make VERB}. @command{./setup.py} recognised
+@command{./setup.py version} and @command{./setup.py help}, which is not supported
+by @command{make} or @command{./configure}.
+
 
 @node Custom installations
 @subsection Custom installations
 @cindex customised installations
 @cindex installation customisation
-@cindex make
+@cindex @file{setup.py}
+@cindex @command{./setup.py}
 @cindex @command{./configure}
+@cindex make
 @cindex configure
 
+@command{./configure} and @command{./setup.py} and recognises the same options.
+Whether the exception for with @option{--with-everything} and
+@option{--with-nothing}, every option that starts with @option{--with-} or
+@option{--without-} exists in both variants. @option{--with-} options install
+parts of the package. @option{--without-} options skipps installation of parts
+of the packages. With the same exception, @option{--without-} options take not
+arguments and @option{--with-} optionally takes an argument, if no argument is
+provided a default argument is implied.
+
+The configuration script recognised the following options, the default values for
+options with arguments are written after the equality sign (@code{=}) in the option:
+
+@table @option
+@item --everything
+@itemx --with-everything
 @cindex @option{--everything}
-A basic installation will install everything @command{ponysay} has to offer, except
-the prebuilt PDF manual and translated manpages. If you want to install exactly
-everything add the option @option{--everything} when running @command{./configure}.
+@cindex @option{--with-everything}
+Install everything that is not explicity excluded.
 
-@cindex @option{--with-pdf}
-@cindex PDF manual, with
-@cindex @option{--without-man}
-@cindex manpage, without
-@cindex @option{--without-info}
-@cindex @option{--without-info-install}
-@cindex @option{info} manual, without
-@cindex @option{--with-man-LANG}
-@cindex manpage translations
-After @option{--everything} it is possible to remove unwanted parts, this can of
-cause be done without @option{--everything}. If you want to install the PDF manual
-to @file{/usr/doc/ponysay.pdf} add the option @option{--with-pdf} when running
-@command{./configure}. To install a manpage translation add @option{--with-man-LANG}
-and substitute the language code for @code{LANG}. Currently the only translation
-is Spanish with the language code @code{es}. If you do not want the English manpage
-add the option @option{--without-man}. If you do not want the @command{info} manual
-add the option @option{--without-info}. If you are installing the @command{info}
-manual but are not privileged to execute @command{install-info} add the option
-@option{--without-info-install}.
+@item --minimal
+@cindex @option{--minimal}
+Install only the essentials. Note that this can vary depending on version. Currently
+this means that the commands, xterm ponies and legal documents is installed.
 
+@item --nothing
+@itemx --with-nothing
+@cindex @option{--nothing}
+@cindex @option{--with-nothing}
+Install nothing, except legal documents, that is not explicity included.
 
-The following argumentless options are also recognised:
-@itemize @bullet
-@item @option{--without-bash}
-@cindex @option{--without-bash}
-@cindex @command{bash}, without
-will skip installation of auto-completion for @command{ponysay} and
-@command{ponythink} under the GNU Bourne-again shell, @command{bash}.
-@item @option{--without-fish}
-@cindex @option{--without-fish}
-@cindex @command{fish}, without
-will skip installation of auto-completion for @command{ponysay} and
-@command{ponythink} under the Friendly interactive shell, @command{fish}.
-@item @option{--without-zsh}
-@cindex @option{--without-zsh}
-@cindex @command{zsh}, without
-will skip installation of auto-completion for @command{ponysay} and
-@command{ponythink} under the shell @command{zsh}.
-@item @option{--without-shared-cache}
+@item --with-ponysay=/usr/bin/ponysay
+@cindex @option{--with-ponysay}
+@cindex @option{--without-ponysay}
+Install the ponysay command, and set file name. (Default)
+
+@item --with-ponythink=/usr/bin/ponythink
+@cindex @option{--with-ponythink}
+@cindex @option{--without-ponytink}
+Install the ponythink command, and set file name. (Default)
+
+@item --with-shared-cache=/var/cache/ponysay
+@cindex @option{--with-shared-cache}
 @cindex @option{--without-shared-cache}
-@cindex cache
-@cindex kms
-will skip installing a shared cache for KMS support, when there is no
-shared cache, private one will be used at @file{~/.cache/ponysay}.
-@end itemize
+Install a user shared cache, this is only used by KMS ponies so far. (Default)
 
-@cindex @option{--prefix=TARGET}
-@cindex @file{/usr/games}
-The program is by default installed in @file{/usr}, if you want another target
-directory, you can add @option{--prefix=TARGET} when running @command{./configure}.
-For example to install @command{ponysay} in @file{/usr/local} you build the
-program by running @command{./configure --prefix=/usr/local}, and alike for
-installation and uninstallation. Notice the @command{=} cannot be substituted
-with white space.
+@item --with-bash=/usr/share/bash-completion/completions/ponysay
+@cindex @option{--with-bash}
+@cindex @option{--without-bash}
+Install auto-completion for installed commands in GNU Bash. Select the file name
+for the installed script for the ponysay command, the other commands modifies this
+file name. (Default)
 
-@cindex @command{--info-desc=DESCRIPTION}
-If you are not using @command{--without-info} you can add
-@command{--info-desc=DESCRIPTION} to specify the description @command{info}
-which provide when listing commands.
+@item --with-fish=/usr/share/fish/completions/ponysay.fish
+@cindex @option{--with-fish}
+@cindex @option{--without-fish}
+Install auto-completion for installed commands in Friendly interactive shell.
+Select the file name for the installed script for the ponysay command, the other
+commands modifies this file name. (Default)
 
-@cindex @command{--shell=SHELL}
-By default @command{bash} is in the make file, if you want to use another shell
-add the option @command{--shell=SHELL}.
+@item --with-zsh=/usr/share/zsh/site-functions/_ponysay
+@cindex @option{--with-zsh}
+@cindex @option{--without-zsh}
+Install auto-completion for installed commands in the zsh shell.
+Select the file name for the installed script for the ponysay command, the other
+commands modifies this file name. (Default)
+
+@item --with-shell=/usr/share
+@cindex @option{--with-shell}
+@cindex @option{--without-shell}
+@cindex @option{--with-bash}
+@cindex @option{--without-bash}
+@cindex @option{--with-fish}
+@cindex @option{--without-fish}
+@cindex @option{--with-zsh}
+@cindex @option{--without-zsh}
+Macro for @option{--with-bash}, @option{--with-fish} and @option{--with-zsh}.
+The argument is the used share/ directory that all shells have in common.
+
+@item --with-pdf=/usr/doc
+@cindex @option{--with-pdf}
+@cindex @option{--without-pdf}
+Install PDF manual, and select directory for it.
+
+@item --with-pdf-compression=gz
+@cindex @option{--with-pdf}
+@cindex @option{--with-pdf-compression}
+@cindex @option{--without-pdf-compression}
+Compress PDF manual, select compression by file name extension. This option
+does not imply @option{--with-pdf}. (Default)
+
+@item --with-info=/usr/share/info
+@cindex @option{--with-info}
+@cindex @option{--without-info}
+Install @command{info} manual, and select directory for it. (Default)
+
+@item --with-info-install=My Little Ponies for your terminal
+@cindex @option{--with-info-install}
+@cindex @option{--without-info-install}
+Use @command{install-info} when installing @command{info} manual. Set the
+description for the manual. This option does not imply @option{--with-info}. (Default)
+
+@item --with-info-compression=gz
+@cindex @option{--with-info}
+@cindex @option{--with-info-compression}
+@cindex @option{--without-info-compression}
+Compress @command{info} manual, select compression by file name extension.
+This option does not imply @option{--with-info}. (Default)
+
+@item --with-man-en=/usr/share/man
+@cindex @option{--with-man-en}
+@cindex @option{--without-man-en}
+Install English @command{man} manual. Set directory for @command{man} manuals.
+(Default)
+
+@item --with-man-es=/usr/share/man
+@cindex @option{--with-man-es}
+@cindex @option{--without-man-es}
+Install Spanish @command{man} manual. Set directory for @command{man} manuals.
+
+@item --with-man
+@cindex @option{--with-man}
+@cindex @option{--without-man}
+Macro for all @option{--with-man-LANG}.
+
+@item --with-man-en-compression=gz
+@cindex @option{--with-man-en-compression}
+@cindex @option{--without-man-en-compression}
+Compress English @command{man} manual, select compression by file name extension.
+This option does not imply @option{--with-man-en}. (Default)
+
+@item --with-man-es-compression=gz
+@cindex @option{--with-man-es-compression}
+@cindex @option{--without-man-es-compression}
+Compress Spanish @command{man} manual, select compression by file name extension.
+This option does not imply @option{--with-man-es}. (Default)
+
+@item --with-man-compression
+@cindex @option{--with-man-compression}
+@cindex @option{--without-man-compression}
+Macro for all @option{--with-man-LANG-compression}.
+
+@item --man-section-ponysay=6
+@cindex @option{--man-section-ponysay}
+Change the section for the ponysay manpage.
+
+@item --man-section-cowsay=1
+@cindex @option{--man-section-cowsay}
+Change the section for the cowsay manpage.
+
+@item --man-section-fortune=6
+@cindex @option{--man-section-fortune}
+Change the section for the fortune manpage.
+
+@item --with-ponies=/usr/share/ponysay/ponies
+@cindex @option{--with-ponies}
+@cindex @option{--without-ponies}
+Install standard xterm ponies, and select installation directory for them. (Default)
+
+@item --with-ttyponies=/usr/share/ponysay/ttyponies
+@cindex @option{--with-ttyponies}
+@cindex @option{--without-ttyponies}
+Install standard tty ponies, and select installation directory for them. (Default)
+
+@item --with-extraponies=/usr/share/ponysay/extraponies
+@cindex @option{--with-extraponies}
+@cindex @option{--without-extraponies}
+Install extra xterm ponies, and select installation directory for them. (Default)
+
+@item --with-extrattyponies=/usr/share/ponysay/extrattyponies
+@cindex @option{--with-extrattyponies}
+@cindex @option{--without-extrattyponies}
+Install extra tty ponies, and select installation directory for them. (Default)
+
+@item --with-quotes=/usr/share/ponysay/quotes
+@cindex @option{--with-quotes}
+@cindex @option{--without-quotes}
+Install pony quotes, and select installation directory for them. (Default)
+
+@item --with-balloons=/usr/share/ponysay/balloons
+@cindex @option{--with-balloons}
+@cindex @option{--without-balloons}
+Install balloon styles, and select installation directory for them. (Default)
+
+@item --with-ucs=/usr/share/ponysay/ucsmap
+@cindex @option{--with-ucs}
+@cindex @option{--without-ucs}
+Install UCS pony names, and select installation file name for the map. (Default)
+
+@item --without-custom-env-python
+@cindex @option{--without-custom-env-python}
+Let the installer set the @command{env} name for @command{python} in @file{ponysay}.
+(Default)
+
+@item --with-custom-env-python=python3
+@cindex @option{--with-custom-env-python}
+Set the @command{env} name for @command{python} in @file{ponysay}.
+
+@item --prefix=/usr
+@cindex @option{--prefix}
+Set a prefix to all implicit directories.
+
+@item --private
+@cindex @option{--private}
+Change all implicit configurations to fit local user a installation
+for the current user.
+
+@item --opt
+@cindex @option{--opt}
+Change all implicit directories to fit installation to @file{/opt}.
+
+@item --bin-dir=/usr/bin
+@cindex @option{--bin-dir}
+Set the system's directory for command executables.
+
+@item --lib-dir=/usr/lib/ponysay
+@cindex @option{--lib-dir}
+Set the system's directory for non-command executables. Currently their
+is not non-command executables, so this options has no effect, but bleeding
+edge distributors should specify it if it differs from prefered.
+
+@item --share-dir=/usr/share
+@cindex @option{--share-dir}
+Set the system's directory for resource files.
+
+@item --cache-dir=/var/cache
+@cindex @option{--cache-dir}
+Set the system's directory for cache directories.
+
+@item --dest-dir=
+@cindex @option{--dest-dir}
+Set off environment for installation.
+
+@item --linking=hard
+@cindex @option{--linking}
+Set how to link identical files. Directories cannot be hard linked on most
+systems, therefore directories or always symbolically linked of hard linked
+is specified.
+Recognised arguments are @code{copy}, @code{hard} and @code{symbolic}.
+@code{copy} implies that files and directories are not linked, but duplicated.
+@end table
+
+Recognised compressions are @option{gz} which uses @option{gzip -9}, and @option{xz}
+which uses @option{xz -9e}. @option{xz} is still exotic to bost programs, use using
+it is not recommended. Distributors are strongly disencouraged to compression for the
+PDF manual and should use @option{--without-pdf-compression}.
+
+You can run @command{./configure [OPTIONS] view} to make sure everything is correct
+before building and installing.
 
 
 
