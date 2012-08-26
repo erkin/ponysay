@@ -126,13 +126,13 @@ class Setup():
         
         opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',                                            alternatives = ['--dest-dir'], arg='DESTDIR')
         
-        opts.add_argumented  (help = 'Set how to link identical files\nDefault = hard, copy and symbolic are also recognised',            alternatives = ['--linking'], arg='TYPE')
+        opts.add_argumented  (help = 'Set how to link identical files\nDefault = symbolic, copy and hard are also recognised',            alternatives = ['--linking'], arg='TYPE')
         
         
         opts.parse()
         
         
-        self.linking = HARD
+        self.linking = SYMBOLIC
         if opts.opts['--linking'] is not None:
             self.linking = opts.opts['--linking'][0]
         

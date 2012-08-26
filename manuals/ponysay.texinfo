@@ -1013,13 +1013,16 @@ Set the system's directory for cache directories.
 @cindex @option{--dest-dir}
 Set off environment for installation.
 
-@item --linking=hard
+@item --linking=symbolic
 @cindex @option{--linking}
 Set how to link identical files. Directories cannot be hard linked on most
 systems, therefore directories or always symbolically linked of hard linked
 is specified.
 Recognised arguments are @code{copy}, @code{hard} and @code{symbolic}.
 @code{copy} implies that files and directories are not linked, but duplicated.
+@command{ponysay ±L} will give the same output as @command{ponysay ±l} if @code{copy}
+or @code{hard} is used. This is because it does link reading and not content or
+inode comparison.
 @end table
 
 Recognised compressions are @option{gz} which uses @option{gzip -9}, and @option{xz}
