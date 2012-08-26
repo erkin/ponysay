@@ -1371,9 +1371,23 @@ class Backend():
         msg = self.message
         if wrap is not None:
             msg = self.__wrapMessage(msg, wrap)
-        lines = msg.split('\n')
         
-        return self.balloon.get(width, height, lines, self.__len)
+        if '\033' in msg:
+            AUTO_PUSH = '\033[01010~'
+            AUTO_POP  = '\033[10101~'
+            cstack = ColourStack(AUTO_PUSH, AUTO_POP)
+            buf = ''
+            for c in msg:
+                if c == '\n':
+                    for cc in ('%s\n%s' % (AUTO_PUSH, AUTO_POP)):
+                        buf += cc
+                        buf += cstack.feed(cc)
+                else:
+                    buf += c
+                    buf += cstack.feed(c)
+            msg = buf
+        
+        return self.balloon.get(width, height, msg.split('\n'), self.__len)
     
     
     '''
