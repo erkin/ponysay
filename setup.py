@@ -48,7 +48,7 @@ class Setup():
     def __init__(self):
         usage_script = '\033[34;1msetup.py\033[21;39m'
         usage_help   = '(version | help)'
-        usage_proc   = '[\033[4mconfigurations\033[24m] ([build] | prebuilt | install | (uninstall|clean)[-old])'
+        usage_proc   = '[\033[4mconfigurations\033[24m] ([build] | prebuilt | install | (uninstall|clean)[-old] | view)'
         
         usage = '%s %s\n%s %s' % (usage_script, usage_help, usage_script, usage_proc)
         
@@ -155,7 +155,7 @@ class Setup():
                 elif method == 'install':        self.build       (conf); self.install(conf); self.clean()
                 elif method == 'uninstall':      self.uninstall   (conf)
                 elif method == 'uninstall-old':  self.uninstallOld(conf)
-                else:
+                elif not method == 'view':
                     opts.help()
     
     
@@ -201,7 +201,7 @@ class Setup():
             else:                                  print(RED    % ('Skipping installation of ' + file[1]))
         if conf['custom-env-python'] is not None:  print(GREEN  % ('Using custom env reference in python script shebang: ', conf['custom-env-python']))
         else:                                      print(YELLOW % ('Looking for best env reference in python script shebang'))
-        for miscfile in miscfiles:                 print(GREEN  % ('Installing %s to %s' % (miscfile[0]), conf[miscfile[0]]))
+        for miscfile in miscfiles:                 print(GREEN  % ('Installing ' + miscfile[0] + ' to ', conf[miscfile[0]]))
         
         print()
     
@@ -230,11 +230,11 @@ class Setup():
         env = conf['custom-env-python']
         if env is None:
             (out, err) = Popen(['env', 'python', '--version'], stdout=PIPE, stderr=PIPE).communicate()
-            out += err
+            out = out.decode('utf8', 'replace') + err.decode('utf8', 'replace')
             out = out.replace('\n', '')
-            env = env.split(' ')[1].split('.')[0]
+            env = out.split(' ')[1].split('.')[0]
             if int(env) < 3:  env = 'python3'
-            else              env = 'python'
+            else:             env = 'python'
         mane = False
         for command in commands:
             if conf[command] is not None:
@@ -252,7 +252,7 @@ class Setup():
                     data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
                 for sharefile in sharefiles:
                     data = data.replace('/usr/share/ponysay/' + sharefile[1], conf[sharefile[0]])
-                data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (VERSION))
+                data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
                 
                 fileout.write(data)
             finally:
@@ -285,7 +285,7 @@ class Setup():
                 ext = conf[key + '-compression']
                 if ext is not None:
                     dest = 'manuals/manpage' + lang + '.0.' + ext
-                    compress(src, dest, )
+                    compress(src, dest, ext)
         
         if conf['info'] is not None:
             print('makeinfo manuals/ponysay.texinfo')
@@ -298,7 +298,7 @@ class Setup():
             if conf[shell] is not None:
                 src = 'completion/%s-completion.%s' % (shell, 'sh' if shell == 'bash' else shell)
                 for command in commands:
-                    if conf[shell] in not None:
+                    if conf[shell] is not None:
                         dest = src + '.' + shell
                         (fileout, filein) = (None, None)
                         try:
@@ -319,21 +319,22 @@ class Setup():
                             if filein  is not None:  filein .close()
         
         if conf['quotes'] is not None:
-            removeLists([], ['quotes'])
+            self.removeLists([], ['quotes'])
             os.mkdir('quotes')
-            file = None
+            ponymap = None
             try:
-                file = open('ponyquotes/ponies', 'r')
-                ponies = [line.replace('\n', '').split('+') for line in file.readlines()]
-                for pony in ponies:
-                    print('Generating quote files for ' + pony)
-                    for file in os.listdir('ponyquotes'):
-                        if file.startswith(pony + '.'):
-                            if os.path.isfile('ponyquotes/' + file):
-                                shutil.copy(ponyquotes/ + file, 'quotes/' + '+'.join(ponies) + file[file.find('.'):]
+                ponymap = open('ponyquotes/ponies', 'r')
+                ponies = [line.replace('\n', '') for line in ponymap.readlines()]
+                for _ponies in ponies:
+                    for pony in _ponies.split('+'):
+                        print('Generating quote files for \033[34m' + pony + '\033[39m')
+                        for file in os.listdir('ponyquotes'):
+                            if file.startswith(pony + '.'):
+                                if os.path.isfile('ponyquotes/' + file):
+                                    shutil.copy('ponyquotes/' + file, 'quotes/' + _ponies + file[file.find('.'):])
             finally:
-                if file is not None:
-                    file.close()
+                if ponymap is not None:
+                    ponymap.close()
     
     
     '''
@@ -351,16 +352,16 @@ class Setup():
                 print('Setting mode for ponysay.install copies to 755')
                 if self.linking == COPY:
                     for dest in dests:
-                        os.chmod(dest, 0755)
+                        os.chmod(dest, 0o755)
                 else:
-                    os.chmod(dests[0], 0755)
+                    os.chmod(dests[0], 0o755)
         if conf['shared-cache'] is not None:
             dir = conf['shared-cache']
             pdir = dir[:rfind('/') + 1]
             print('Creating intermediate-level directories needed for ' + dir)
             os.makedirs(pdir)
             print('Creating directory ' + dir + ' with mode mask 777')
-            os.makedir(dir, 0777)
+            os.makedir(dir, 0o777)
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 for command in commands:
@@ -499,10 +500,10 @@ class Setup():
             for man in manpages:
                 if man is manpages[0]:  man = ''
                 else:                   man = '.' + man[0]
-                files.append('manuals/manpage' + man + '.0' + comp)
+                files.append('manuals/manpage' + man + '.0.' + comp)
         for shell in [item[0] for item in shells]:
-            for command in commands
-            files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
+            for command in commands:
+                files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
         
         self.removeLists(files, dirs)
     
@@ -532,7 +533,7 @@ class Setup():
                 os.unlink(file)
                 dir = file
                 while True:
-                    dir = dir[:dir.rfind(/) + 1]
+                    dir = dir[:dir.rfind('/') + 1]
                     if ('/ponysay/' in dir) and (len(os.listdir(dir)) == 0):
                         print('Removing newly empty directory %s' % (file))
                         os.rmdir(dir)
@@ -544,7 +545,7 @@ class Setup():
                 if os.path.islink(dir):  os.unlink(dir)
                 else:                    shutil.rmtree(dir)
                 while True:
-                    dir = dir[:dir.rfind(/) + 1]
+                    dir = dir[:dir.rfind('/') + 1]
                     if ('/ponysay/' in dir) and (len(os.listdir(dir)) == 0):
                         print('Removing newly empty directory %s' % (file))
                         os.rmdir(dir)
@@ -708,6 +709,8 @@ class Setup():
         
         
         for key in conf:
+            if '--with-' + key not in conf:
+                continue
             if opts['--with-' + key] is not None:
                 if defaults[key] in (False, True):
                     conf[key] = True
@@ -780,7 +783,7 @@ class ArgParser():
         for arg in argv[1:]:
             if get:
                 get = False
-                if (len(arg) > 2) and (arg[:2] in ('--', '++')):
+                if (arg is argv[-1]) or ((len(arg) > 2) and (arg[:2] in ('--', '++'))):
                     argqueue.append(None)
                 else:
                     argqueue.append(arg)
