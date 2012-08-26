@@ -212,7 +212,125 @@ class Setup():
     def build(self, conf):
         print('\033[1;34m::\033[39mCompiling...\033[21m')
         
-        pass
+        def compressCommand(ext):
+            if ext == 'gz':  return 'gzip -9 -f'
+            if ext == 'xz':  return 'xz -9e -f'
+        
+        def compress(source, destination, ext):
+            print('%s < %s > %s' % (compressCommand(ext), source, destination))
+            (fileout, filein) = (None, None)
+            try:
+                fileout = open(destination, 'w+')
+                filein = open(source, 'r')
+                Popen(compressCommand(ext).split(' '), stdout=fileout, stdin=filein).communicate()
+            finally:
+                if fileout is not None:  fileout.close()
+                if filein  is not None:  filein .close()
+        
+        env = conf['custom-env-python']
+        if env is None:
+            (out, err) = Popen(['env', 'python', '--version'], stdout=PIPE, stderr=PIPE).communicate()
+            out += err
+            out = out.replace('\n', '')
+            env = env.split(' ')[1].split('.')[0]
+            if int(env) < 3:  env = 'python3'
+            else              env = 'python'
+        mane = False
+        for command in commands:
+            if conf[command] is not None:
+                mane = True
+                break
+        if mane:
+            (fileout, filein) = (None, None)
+            try:
+                fileout = open('ponysay.install', 'w+')
+                filein = open('ponysay', 'r')
+                data = ''.join(filein.readlines())
+                
+                data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
+                for sharedir in [item[0] for item in sharedirs]:
+                    data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
+                
+                fileout.write(data)
+            finally:
+                if fileout is not None:  fileout.close()
+                if filein  is not None:  filein .close()
+        
+        for man in manpages:
+            key = 'man-' + man[0]
+            section = conf['man-section-ponysay']
+            if man is manpages[0]:  lang = ''
+            else:                   lang = '.' + man[0]
+            if conf[key] is not None:
+                src = 'manuals/manpage' + lang + '.0'
+                dest = src + '.install'
+                (fileout, filein) = (None, None)
+                try:
+                    fileout = open(dest, 'w+')
+                    filein = open(src, 'r')
+                    data = ''.join(filein.readlines())
+                    
+                    data = data.replace('\n.TH PONYSAY 0', '\n.TH PONYSAY ' + conf['man-section-ponysay'])
+                    for section in [item[0] for item in mansections]:
+                        data = data.replace('\n.BR %s (0)' % (section), '\n.BR %s (%s)' % (section, conf['man-section-' + section]))
+                    
+                    fileout.write(data)
+                finally:
+                    if fileout is not None:  fileout.close()
+                    if filein  is not None:  filein .close()
+                src = dest
+                ext = conf[key + '-compression']
+                if ext is not None:
+                    dest = 'manuals/manpage' + lang + '.0.' + ext
+                    compress(src, dest, )
+        
+        if conf['info'] is not None:
+            print('makeinfo manuals/ponysay.texinfo')
+            os.system('makeinfo manuals/ponysay.texinfo')
+            ext = conf['info-compression']
+            if ext is not None:
+                compress('ponysay.info', 'ponysay.info.' + ext, ext)
+        
+        for shell in [item[0] for item in shells]:
+            if conf[shell] is not None:
+                src = 'completion/%s-completion.%s' % (shell, 'sh' if shell == 'bash' else shell)
+                for command in commands:
+                    if conf[shell] in not None:
+                        dest = src + '.' + shell
+                        (fileout, filein) = (None, None)
+                        try:
+                            fileout = open(dest, 'w+')
+                            filein = open(src, 'r')
+                            data = ''.join(filein.readlines())
+                            
+                            data = data.replace('/usr/bin/ponysay', conf[command])
+                            data = data.replace('/ponysay', '\0')
+                            data = data.replace('ponysay', command)
+                            for sharedir in [item[0] for item in sharedirs]:
+                                data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
+                            data = data.replace('\0', '/ponysay')
+                            
+                            fileout.write(data)
+                        finally:
+                            if fileout is not None:  fileout.close()
+                            if filein  is not None:  filein .close()
+        
+        if conf['quotes'] is not None:
+            removeLists([], ['quotes'])
+            os.mkdir('quotes')
+            file = None
+            try:
+                file = open('ponyquotes/ponies', 'r')
+                ponies = [line.replace('\n', '').split('+') for line in file.readlines()]
+                for pony in ponies:
+                    print('Generating quote files for ' + pony)
+                    for file in os.listdir('ponyquotes'):
+                        if file.startswith(pony + '.'):
+                            if os.path.isfile('ponyquotes/' + file):
+                                shutil.copy(ponyquotes/ + file, 'quotes/' + '+'.join(ponies) + file[file.find('.'):]
+            finally:
+                if file is not None:
+                    file.close()
     
     
     '''
@@ -269,13 +387,17 @@ class Setup():
                 os.system(pair[0])
         for man in manpages:
             key = 'man-' + man[0]
+            section = conf['man-section-ponysay']
+            if man is manpages[0]:  sub = 'man' + section
+            else:                   sub = man[0] + '/man' + section
+            if man is manpages[0]:  lang = ''
+            else:                   lang = '.' + man[0]
             if conf[key] is not None:
-                src = 'manpage.0.' + ('install' if conf[key + '-compression'] is None else conf[key + '-compression'])
+                src = 'manuals/manpage' + lang + '.0.' + ('install' if conf[key + '-compression'] is None else conf[key + '-compression'])
                 dests = []
-                section = conf['man-section-ponysay']
                 for command in commands:
                     if conf[command] is not None:
-                        dest = '%s/%s.%s%s' % (conf[key], command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression'])
+                        dest = '%s/%s/%s.%s%s' % (conf[key], sub, command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression'])
                         dests.append(dest)
                 self.cp(False, src, dests)
         for dir in sharefiles:
@@ -315,13 +437,15 @@ class Setup():
                     files.append(file)
                     if conf['info-install'] is not None:
                         infos.append(file)
-        for man in [item[0] for item in manpages]:
+        for man in [item[0] for item in manpages]: ## TODO manpage languages
             key = 'man-' + man
+            section = conf['man-section-ponysay']
+            if man is manpages[0]:  sub = 'man' + section
+            else:                   sub = man[0] + '/man' + section
             if conf[key] is not None:
-                section = conf['man-section-ponysay']
                 for command in commands:
                     if conf[command] is not None:
-                        files.append('%s/%s.%s%s' % (conf[key], command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression']))
+                        files.append('%s/%s/%s.%s%s' % (conf[key], sub, command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression']))
         for dir in sharefiles:
             if conf[dir[0]] is not None:
                 dirs.append(conf[dir[0]])
@@ -372,7 +496,7 @@ class Setup():
             for man in manpages:
                 if man is manpages[0]:  man = ''
                 else:                   man = '.' + man[0]
-                files.append('manuals/manpage.0' + man + '.' + comp)
+                files.append('manuals/manpage' + man + '.0' + comp)
         for shell in [item[0] for item in shells]:
             for command in commands
             files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
@@ -506,8 +630,12 @@ class Setup():
         if opts['--opt'] is not None:
             if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/opt/ponysay/bin']
             if opts['--lib-dir']           is None:  opts['--lib-dir']           = ['/opt/ponysay/lib']
-            if opts['--share-dir']         is None:  opts['--share-dir']         = ['/opt/ponysay/share']
+            if opts['--share-dir']         is None:  opts['--share-dir']         = ['/usr/share']
             if opts['--with-shared-cache'] is None:  opts['--with-shared-cache'] = ['/var/opt/ponysay/cache']
+            for sharedir in sharedirs:
+                conf[sharedir[0]] = '/opt/ponysay/share/' + sharedir[0]
+            for sharefile in sharefiles:
+                conf[sharefile[0]] = '/opt/ponysay/share/' + sharefile[1]
         
         for dir in ['bin', 'lib', 'share']:
             if opts['--' + dir + '-dir'] is not None:
