@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# USAGE:  dev/dist.sh ttyponies
+#     or  dev/dist.sh pdfmanual
+#     or  dev/dist.sh tag VERSION [OTHER OPTIONS FOR `git tag`]
+
 
 ttyponies()
 {
@@ -34,16 +38,29 @@ ttyponies()
 
 pdfmanual()
 {
-	texi2pdf "manuals/ponysay.texinfo"
-	git add  "manuals/ponysay.texinfo" "ponysay.pdf"
-	for ext in `echo aux cp cps fn ky log pg toc tp vr`; do
-	    if [ -f "ponysay.\$\$ext" ]; then
-		unlink "ponysay.$ext"
-	    fi
-	done
-	if [ -d "ponysay.t2d" ]; then
-	    rm -r "ponysay.t2d";
+    texi2pdf "manuals/ponysay.texinfo"
+    git add  "manuals/ponysay.texinfo" "ponysay.pdf"
+    for ext in `echo aux cp cps fn ky log pg toc tp vr`; do
+	if [ -f "ponysay.\$\$ext" ]; then
+	    unlink "ponysay.$ext"
 	fi
+    done
+    if [ -d "ponysay.t2d" ]; then
+	rm -r "ponysay.t2d";
+    fi
+}
+
+
+tag()
+{
+    version=`./setup.py version`
+    if [ "version" = 'Ponysay '"$1"' installer' ]; then
+	git tag -a "$@" && git checkout "$1" && git push -u origin "$1"
+    else
+	echo 'Setup script reports. '"$version"
+	echo 'This is not consistent with desired tag version: '"$1"
+	echo 'Make sure the version is correct in setup.py and that all change logs are up to date'
+    fi
 }
 
 

@@ -839,7 +839,7 @@ class ArgParser():
             if (opt not in self.opts) or (self.opts[opt] is None):
                 self.opts[opt] = [arg]
             else:
-                    sys.stderr.write('%s: fatal: duplicate option %s\n' % (self.__program, arg))
+                sys.stderr.write('%s: fatal: duplicate option %s\n' % (self.__program, arg))
                 exit(-1)
     
     '''
