@@ -954,7 +954,6 @@ class ArgParser():
         print()
         if self.__longdescription is not None:
             print(self.__longdescription)
-            print()
         print()
         
         print('\033[1mUSAGE:\033[21m', end='')
@@ -968,7 +967,7 @@ class ArgParser():
         print()
         
         print('\033[1mSYNOPSIS:\033[21m')
-        print()
+        (lines, lens) = ([], [])
         for opt in self.__arguments:
             opt_type = opt[0]
             opt_alts = opt[1]
@@ -976,22 +975,39 @@ class ArgParser():
             opt_help = opt[3]
             if opt_help is None:
                 continue
-            for opt_alt in opt_alts:
-                if opt_alt is opt_alts[-1]:
-                    print('\t' + opt_alt, end='')
-                    if   opt_type == ARGUMENTED:  print(' \033[4m%s\033[24m'      % (opt_arg))
-                    elif opt_type == VARIADIC:    print(' [\033[4m%s\033[24m...]' % (opt_arg))
-                    else:                         print()
+            (line, l) = ('', 0)
+            first = opt_alts[0]
+            last = opt_alts[-1]
+            alts = ('', last) if first is last else (first, last)
+            for opt_alt in alts:
+                if opt_alt is alts[-1]:
+                    line += '%colour%' + opt_alt
+                    l += len(opt_alt)
+                    if   opt_type == ARGUMENTED:  line += ' \033[4m%s\033[24m'      % (opt_arg);  l += len(opt_arg) + 1
+                    elif opt_type == VARIADIC:    line += ' [\033[4m%s\033[24m...]' % (opt_arg);  l += len(opt_arg) + 6
                 else:
-                    print('\t\033[2m' + opt_alt + '\033[22m')
+                    line += '    \033[2m%s\033[22m  ' % (opt_alt)
+                    l += len(opt_alt) + 6
+            lines.append(line)
+            lens.append(l)
+        
+        col = max(lens)
+        col += 8 - ((col - 4) & 7)
+        index = 0
+        for opt in self.__arguments:
+            opt_help = opt[3]
+            if opt_help is None:
+                continue
             first = True
+            colour = '36' if (index & 1) == 0 else '34'
+            print(lines[index].replace('%colour%', '\033[%s;1m' % (colour)), end=' ' * (col - lens[index]))
             for line in opt_help.split('\n'):
                 if first:
                     first = False
-                    print('\t\t\033[32;1m%s\033[21;39m' % (line))
+                    print('%s' % (line), end='\033[21;39m\n')
                 else:
-                    print('\t\t%s' % (line))
-            print()
+                    print('%s\033[%sm%s\033[39m' % (' ' * col, colour, line))
+            index += 1
         
         print()
 
@@ -1692,17 +1708,19 @@ for ucsmap in _ucsmaps:
 
 
 usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
-usage_common   = '[-c] [-W \033[4mCOLUMN\033[24m] [-b \033[4mSTYLE\033[24m]'
+usage_common   = '[-c] [-W\033[4mCOLUMN\033[24m] [-b\033[4mSTYLE\033[24m]'
 usage_listhelp = '(-l | -L | -B | +l | +L | -v | -h)'
-usage_file     = '[(-f | -F) \033[4mPONY\033[24m]... ([--] \033[4mmessage\033[24m | <<<\033[4mmessage\033[24m)'
-usage_quote    = '-q [\033[4mPONY\033[24m...]'
+usage_file     = '[-f\033[4mPONY\033[24m]* [[--] \033[4mmessage\033[24m]'
+usage_xfile    = '[-F\033[4mPONY\033[24m]* [[--] \033[4mmessage\033[24m]'
+usage_quote    = '-q [\033[4mPONY\033[24m*]'
 
-usage = '%s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
-                                       usage_saythink, usage_common, usage_file,
-                                       usage_saythink, usage_common, usage_quote)
+usage = '%s %s\n%s %s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
+                                                 usage_saythink, usage_common, usage_file,
+                                                 usage_saythink, usage_common, usage_xfile,
+                                                 usage_saythink, usage_common, usage_quote)
 
 usage = usage.replace('\033[', '\0')
-for sym in ('[', ']', '(', ')', '|', '...'):
+for sym in ('[', ']', '(', ')', '|', '...', '*'):
     usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
 usage = usage.replace('\0', '\033[')
 
@@ -1730,7 +1748,7 @@ opts.add_argumentless(['+l', '++list'],                                   help =
 opts.add_argumentless(['+L', '++symlist', '++altlist'],                   help = 'List non-MLP:FiM pony names with alternatives.')
 opts.add_argumentless(['-B', '--bubblelist', '--balloonlist'],            help = 'List balloon styles.')
 opts.add_argumentless(['-c', '--compact'],                                help = 'Compress messages.')
-opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN',  help = 'Specify the column when the message should be wrapped.')
+opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN',  help = 'Specify column where the message should be wrapped.')
 opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',   help = 'Select a balloon style.')
 opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',    help = 'Select a pony.\nEither a file name or a pony name.')
 opts.add_argumented(  ['-F', '++file', '++pony'],        arg = 'PONY',    help = 'Select a non-MLP:FiM pony.')
