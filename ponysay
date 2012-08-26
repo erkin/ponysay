@@ -33,14 +33,7 @@ from subprocess import Popen, PIPE
 '''
 The version of ponysay
 '''
-VERSION = 'dev'
-
-
-'''
-The directory where ponysay is installed, this is modified when building with make
-'''
-INSTALLDIR = '/usr'
-
+VERSION = 'dev'  # this line should not be edited, it is fixed by the build system
 
 
 '''
@@ -114,11 +107,11 @@ class Ponysay():
             return
         
         maplines = []
-        for sharedir in sharedirs:
-            if os.path.isfile(sharedir + 'ucsmap'):
+        for ucsmap in ucsmaps:
+            if os.path.isfile(ucsmap):
                 mapfile = None
                 try:
-                    mapfile = open(sharedir + 'ucsmap', 'r')
+                    mapfile = open(ucsmap, 'r')
                     maplines += [line.replace('\n', '') for line in mapfile.readlines()]
                 finally:
                     if mapfile is not None:
@@ -157,11 +150,11 @@ class Ponysay():
             return
         
         maplines = []
-        for sharedir in sharedirs:
-            if os.path.isfile(sharedir + 'ucsmap'):
+        for ucsmap in ucsmaps:
+            if os.path.isfile(ucsmap):
                 mapfile = None
                 try:
-                    mapfile = open(sharedir + 'ucsmap', 'r')
+                    mapfile = open(ucsmap, 'r')
                     maplines += [line.replace('\n', '') for line in mapfile.readlines()]
                 finally:
                     if mapfile is not None:
@@ -1636,55 +1629,66 @@ usekms = Ponysay.isUsingKMS()
 
 
 '''
-Root share/ directories
-'''
-sharedirs = []
-_sharedirs = [HOME + '/.local/share/ponysay/',  INSTALLDIR + '/share/ponysay/']
-for sharedir in _sharedirs:
-    if os.path.isdir(sharedir):
-        sharedirs.append(sharedir)
-
-
-'''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
 '''
+set = set()
 ponydirs = []
-if linuxvt and not usekms:  _ponydirs = [d + 'ttyponies/' for d in sharedirs]
-else:                       _ponydirs = [d + 'ponies/'    for d in sharedirs]
+if linuxvt and not usekms:  _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
+else:                       _ponydirs = [HOME + '/.local/share/ponysay/ponies/',    '/usr/share/ponysay/ponies/']
 for ponydir in _ponydirs:
-    if os.path.isdir(ponydir):
+    if os.path.isdir(ponydir) and (ponydir not in set):
         ponydirs.append(ponydir)
+        set.add(ponydirs)
 
 
 '''
 The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
 '''
+set = set()
 extraponydirs = []
-if linuxvt and not usekms:  _extraponydirs = [d + 'extrattyponies/' for d in sharedirs]
-else:                       _extraponydirs = [d + 'extraponies/'    for d in sharedirs]
+if linuxvt and not usekms:  _extraponydirs = [HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
+else:                       _extraponydirs = [HOME + '/.local/share/ponysay/extraponies/',    '/usr/share/ponysay/extraponies/']
 for extraponydir in _extraponydirs:
-    if os.path.isdir(extraponydir):
+    if os.path.isdir(extraponydir) and (extraponydir not in set):
         extraponydirs.append(extraponydir)
+        set.add(extraponydirs)
 
 
 '''
 The directories where quotes files are stored
 '''
+set = set()
 quotedirs = []
-_quotedirs = [d + 'quotes/' for d in sharedirs]
+_quotedirs = [HOME + '/.local/share/ponysay/quotes/', '/usr/share/ponysay/quotes/']
 for quotedir in _quotedirs:
-    if os.path.isdir(quotedir):
+    if os.path.isdir(quotedir) and (quotedir not in set):
         quotedirs.append(quotedir)
+        set.add(quotedirs)
 
 
 '''
 The directories where balloon style files are stored
 '''
+set = set()
 balloondirs = []
-_balloondirs = [d + 'balloons/' for d in sharedirs]
+_balloondirs = [HOME + '/.local/share/ponysay/balloons/', '/usr/share/ponysay/balloons/']
 for balloondir in _balloondirs:
-    if os.path.isdir(balloondir):
+    if os.path.isdir(balloondir) and (balloondir not in set):
         balloondirs.append(balloondir)
+        set.add(balloondir)
+
+
+'''
+ucsmap files
+'''
+set = set()
+ucsmaps = []
+_ucsmaps = [HOME + '/.local/share/ponysay/ucsmap', '/usr/share/ponysay/ucsmap']
+for ucsmap in _ucsmaps:
+    if os.path.isdir(ucsmap) and (ucsmap not in set):
+        ucsmaps.append(ucsmap)
+        set.add(ucsmap)
+
 
 
 usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'

@@ -250,6 +250,9 @@ class Setup():
                 data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
                 for sharedir in [item[0] for item in sharedirs]:
                     data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
+                for sharefile in sharefiles:
+                    data = data.replace('/usr/share/ponysay/' + sharefile[1], conf[sharefile[0]])
+                data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (VERSION))
                 
                 fileout.write(data)
             finally:
