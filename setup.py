@@ -192,7 +192,7 @@ class Setup():
             key += '-compression'
             if conf[key] is not None:              print(GREEN  % ('Compressing ' + man[1] + ' manpage with ', conf[key]))
             else:                                  print(RED    % ('Skipping compression of ' + man[1] + ' manpage'))
-        for man in mansections:                    print(GREEN  % ('References to manpage for ' + man[1] + ' points to section ', conf['man-section-' + man[0]]))
+        for man in mansections:                    print(GREEN  % ('References to manpage for ' + man[0] + ' points to section ', conf['man-section-' + man[0]]))
         for dir in sharedirs:
             if conf[dir[0]] is not None:           print(GREEN  % ('Installing ' + dir[1] + ' to ', conf[dir[0]]))
             else:                                  print(RED    % ('Skipping installation of ' + dir[1]))
@@ -682,7 +682,7 @@ class Setup():
                 conf[key] = None
         
         if opts['--minimal'] is not None:
-            for key in ['info', 'info-compression'] + [item[0] for item in shells]:
+            for key in ['info'] + [item[0] for item in shells]:
                 conf[key] = None
             for sharedir in sharedirs:
                 if sharedir is not sharedirs[0]:
@@ -692,7 +692,7 @@ class Setup():
         
         if opts['--nothing'] is not None:
             for command in commands:
-                conf[command] = False
+                conf[command] = None
             conf[sharedirs[0][0]] = None
         
         
@@ -709,7 +709,7 @@ class Setup():
         
         
         for key in conf:
-            if '--with-' + key not in conf:
+            if '--with-' + key not in opts:
                 continue
             if opts['--with-' + key] is not None:
                 if defaults[key] in (False, True):
@@ -721,7 +721,7 @@ class Setup():
         
         for mansection in mansections:
             if opts['--man-section-' + mansection[0]] is not None:
-                conf['man-section-' + mansection[0]] = opts['--man-section-' + mansection[0]]
+                conf['man-section-' + mansection[0]] = opts['--man-section-' + mansection[0]][0]
             else:
                 conf['man-section-' + mansection[0]] = mansection[1]
         
