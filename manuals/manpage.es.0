@@ -46,37 +46,37 @@ un archivo, ambos o cadena de caracteres (vease man bash(1) para detalles de arc
 .SH OPCIONES
 El resumen de las opciones está incluido acontinuación.
 .TP
-.B \-h
+.B \-h, \-\-help
 Muestra la ayuda, un resumen de las opciones.
 .TP
-.B \-v
+.B \-v, \-\-version
 Muestra la versión del programa.
 .TP
-.B \-l
+.B \-l, \-\-list
 Lista los ponis disponibles.
 .TP
-.B \-L
+.B \-L, \-\-symlist, \-\-altlist
 Lista los ponis con nombres alternativos dentro de paréntesis.
 .TP
-.B \+l
+.B \+l, \+\+list
 Lista los ponis no pertenecientes a MLP:FiM disponibles.
 .TP
-.B \+L
+.B \+L, \+\+symlist, \+\+altlist
 Lista los ponis no pertenecientes a MLP:FiM con nombres alternativos dentro de paréntesis.
 .TP
-.B \-f \fInombre\fP
+.B \-f, \-\-file, \-\-pony \fInombre\fP
 Selecciona un poni específico (ya sea un archivo o el nombre directamente), puedes usar esta opción con múltiples ponis y de estos será elejído uno al azar.
 .TP
-.B \-F \fInombre\fP
+.B \-F, \+\+file, \+\+pony \fInombre\fP
 Selecciona un poni no pertenecientes a MLP:FiM (ya sea un archivo o el nombre directamente), puedes usar esta opción con múltiples ponis y de estos será elejído uno al azar.
 .TP
-.B \-q [\fInombre\fP...]
+.B \-q, \-\-quote [\fInombre\fP...]
 Usando esta opción un poni será mostrado dando una cita de My Little Pony: Frienship is magic
 (My Little Pony: La magia de la amistad). Este poni será seleccionado aleatoriamente salvo que
 uno o varios ponis sean agregados tras la opción \fI-q\fP, en cuyo caso se seleccionará aleatoriamente uno 
 de este conjunto.
 .TP
-.B \-W \fIcolumna\fP
+.B \-W, \-\-wrap \fIcolumna\fP
 El numero de columnas en el que será impreso el mensaje.
 .SH ENTORNO
 .TP

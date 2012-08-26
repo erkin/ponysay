@@ -46,39 +46,39 @@ For an extensive documentation run `info ponysay`.
 .SH OPTIONS
 A summary of options is included below.
 .TP
-.B \-h
+.B \-h, \-\-help
 Show summary of options.
 .TP
-.B \-v
+.B \-v, \-\-version
 Show version of program.
 .TP
-.B \-l
+.B \-l, \-\-list
 List pony files.
 .TP
-.B \-L
+.B \-L, \-\-symlist, \-\-altlist
 List pony files with alternative names inside brackets.
 .TP
-.B \+l
+.B \+l, \+\+list
 List non-MLP:FiM pony files.
 .TP
-.B \+L
+.B \+L, \+\+symlist, \+\+altlist
 List non-MLP:FiM pony files with alternative names inside brackets.
 .TP
-.B \-f \fIname\fP
+.B \-f, \-\-file, \-\-pony \fIname\fP
 Select a pony (either a file name or a pony name), you can use this options multiple times,
 and one of the will be selected randomly.
 .TP
-.B \-F \fIname\fP
+.B \-F, \+\+file, \+\+pony \fIname\fP
 Select a non-MLP:FiM pony (either a file name or a pony name), you can use this options
 multiple times, and one of the will be selected randomly.
 .TP
-.B \-q [\fIname\fP...]
+.B \-q, \-\-quote [\fIname\fP...]
 By using this option, a pony will be printed with quotes from her in My Little Pony:
 Friendship is Magic. The pony will be selected randomly, unless at least one pony
 is added as an argument after \fI-q\fP. If one or more ponies are added after \fI-q\fP
 the pony will be selected randomly from that set of ponies.
 .TP
-.B \-W \fIcolumn\fP
+.B \-W, \-\-wrap \fIcolumn\fP
 The screen column where the message should be wrapped.
 .SH ENVIRONMENT
 .TP
@@ -119,3 +119,4 @@ Mattias Andrée <maandree@kth.se> for the official ponysay release.
 .PP
 This program is licensed under WTFPL.
 .\" See file COPYING to see the license.
+    
