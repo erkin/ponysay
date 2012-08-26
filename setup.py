@@ -252,7 +252,7 @@ class Setup():
                     data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
                 for sharefile in sharefiles:
                     data = data.replace('/usr/share/ponysay/' + sharefile[1], conf[sharefile[0]])
-                data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
+                data = data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
                 
                 fileout.write(data)
             finally:
@@ -294,12 +294,17 @@ class Setup():
             if ext is not None:
                 compress('ponysay.info', 'ponysay.info.' + ext, ext)
         
+        if conf['pdf-compression'] is not None:
+            ext = conf['pdf-compression']
+            if ext is not None:
+                compress('ponysay.pdf', 'ponysay.pdf.' + ext, ext)
+        
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 src = 'completion/%s-completion.%s' % (shell, 'sh' if shell == 'bash' else shell)
                 for command in commands:
-                    if conf[shell] is not None:
-                        dest = src + '.' + shell
+                    if conf[command] is not None:
+                        dest = src + '.' + command
                         (fileout, filein) = (None, None)
                         try:
                             fileout = open(dest, 'w+')
@@ -335,6 +340,7 @@ class Setup():
             finally:
                 if ponymap is not None:
                     ponymap.close()
+        print()
     
     
     '''
@@ -357,11 +363,13 @@ class Setup():
                     os.chmod(dests[0], 0o755)
         if conf['shared-cache'] is not None:
             dir = conf['shared-cache']
-            pdir = dir[:rfind('/') + 1]
-            print('Creating intermediate-level directories needed for ' + dir)
-            os.makedirs(pdir)
-            print('Creating directory ' + dir + ' with mode mask 777')
-            os.makedir(dir, 0o777)
+            if not os.path.exists(dir):
+                pdir = dir[:dir.rfind('/') + 1]
+                if not os.path.exists(pdir):
+                    print('Creating intermediate-level directories needed for ' + dir)
+                    os.makedirs(pdir)
+                print('Creating directory ' + dir + ' with mode mask 777')
+                os.mkdir(dir, 0o777)
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 for command in commands:
@@ -404,7 +412,7 @@ class Setup():
                         dest = '%s/%s/%s.%s%s' % (conf[key], sub, command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression'])
                         dests.append(dest)
                 self.cp(False, src, dests)
-        for dir in sharefiles:
+        for dir in sharedirs:
             if conf[dir[0]] is not None:
                 self.cp(True, dir[0], [conf[dir[0]]])
         for file in sharefiles:
@@ -412,6 +420,7 @@ class Setup():
                 self.cp(False, 'share/' + file[1], [conf[file[0]]])
         for file in miscfiles:
             self.cp(False, file[0], [conf[file[0]]])
+        print()
     
     
     '''
@@ -420,7 +429,7 @@ class Setup():
     def uninstall(self, conf):
         print('\033[1;34m::\033[39mUninstalling...\033[21m')
         
-        (files, dirs, info) = ([], [], [])
+        (files, dirs, infos) = ([], [], [])
         
         for command in commands:
             if conf[command] is not None:
@@ -441,7 +450,7 @@ class Setup():
                     files.append(file)
                     if conf['info-install'] is not None:
                         infos.append(file)
-        for man in [item[0] for item in manpages]: ## TODO manpage languages
+        for man in [item[0] for item in manpages]:
             key = 'man-' + man
             section = conf['man-section-ponysay']
             if man is manpages[0]:  sub = 'man' + section
@@ -450,7 +459,7 @@ class Setup():
                 for command in commands:
                     if conf[command] is not None:
                         files.append('%s/%s/%s.%s%s' % (conf[key], sub, command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression']))
-        for dir in sharefiles:
+        for dir in sharedirs:
             if conf[dir[0]] is not None:
                 dirs.append(conf[dir[0]])
         for file in sharefiles:
@@ -466,6 +475,7 @@ class Setup():
             os.system(cmd)
         
         self.removeLists(files, dirs)
+        print()
     
     
     '''
@@ -486,6 +496,7 @@ class Setup():
         #$(instdir)/lib/ponysay/pq4ps-list.pl
         
         self.removeLists(files, dirs)
+        print()
     
     
     '''
@@ -506,6 +517,7 @@ class Setup():
                 files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
         
         self.removeLists(files, dirs)
+        print()
     
     
     '''
@@ -521,6 +533,7 @@ class Setup():
             files.append('completion/%s-completion-think.%s'   % (shell, 'sh' if shell == 'bash' else shell))
         
         self.removeLists(files, dirs)
+        print()
     
     
     '''
@@ -528,26 +541,26 @@ class Setup():
     '''
     def removeLists(self, files, dirs):
         for file in files:
-            if os.path.isfile(file):
+            if os.path.isfile(file) or os.path.islink(file):
                 print('Unlinking file %s' % (file))
                 os.unlink(file)
                 dir = file
                 while True:
-                    dir = dir[:dir.rfind('/') + 1]
-                    if ('/ponysay/' in dir) and (len(os.listdir(dir)) == 0):
-                        print('Removing newly empty directory %s' % (file))
+                    dir = dir[:dir.rfind('/')]
+                    if ('/ponysay/' in (dir + '/')) and (len(os.listdir(dir)) == 0):
+                        print('Removing newly empty directory %s' % (dir))
                         os.rmdir(dir)
                     else:
                         break;
         for dir in dirs:
-            if os.path.isdir(dir):
+            if os.path.isdir(dir) or os.path.islink(dir):
                 print('Cascadingly removing directory %s' % (dir))
                 if os.path.islink(dir):  os.unlink(dir)
                 else:                    shutil.rmtree(dir)
                 while True:
-                    dir = dir[:dir.rfind('/') + 1]
-                    if ('/ponysay/' in dir) and (len(os.listdir(dir)) == 0):
-                        print('Removing newly empty directory %s' % (file))
+                    dir = dir[:dir.rfind('/')]
+                    if ('/ponysay/' in (dir + '/')) and (len(os.listdir(dir)) == 0):
+                        print('Removing newly empty directory %s' % (dir))
                         os.rmdir(dir)
                     else:
                         break;
@@ -574,6 +587,8 @@ class Setup():
             if self.linking != COPY:
                 for dest in destinations[1:]:
                     print('Creating symbolic link %s with target directory %s' % (dest, target))
+                    if os.path.exists(dest):
+                        os.removeLists([], [dest])
                     os.symlink(target, dest)
         else:
             target = destinations[0]
@@ -583,10 +598,14 @@ class Setup():
             if self.linking == HARD:
                 for dest in destinations[1:]:
                     print('Creating hard link %s with target file %s' % (dest, target))
+                    if os.path.exists(dest):
+                        os.unlink(dest)
                     os.link(target, dest)
             elif self.linking == SYMBOLIC:
                 for dest in destinations[1:]:
                     print('Creating symbolic link %s with target file %s' % (dest, target))
+                    if os.path.exists(dest):
+                        os.unlink(dest)
                     os.symlink(target, dest)
     
     
