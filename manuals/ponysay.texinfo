@@ -717,10 +717,8 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 
 @menu
 * From upstream::               Installing manually from upstream (GitHub repository).
-* Arch Linux::                  Packages for Arch Linux.
-* Gentoo Linux::                Packages for Gentoo Linux.
-* Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
-* Uninstallation::              Uninstalling when installed manually.
+* Package repositories::        Packages distributed in OS package repositories.
+* Uninstalling::                Uninstalling when installed manually.
 @end menu
 
 
@@ -1033,9 +1031,19 @@ You can run @command{./configure [OPTIONS] view} to make sure everything is corr
 before building and installing.
 
 
+@node Package repositories
+@section Package repositories
+@cindex package repositories
+
+@menu
+* Arch Linux::                  Packages for Arch Linux.
+* Gentoo Linux::                Packages for Gentoo Linux.
+* Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
+@end menu
+
 
 @node Arch Linux
-@section Arch Linux
+@subsection Arch Linux
 @cindex arch linux
 
 The official Arch Linux package repositories contains @command{ponysay} as
@@ -1044,7 +1052,7 @@ bleeding edge git version of @command{ponysay} as @code{ponysay-git}.
 
 
 @node Gentoo Linux
-@section Gentoo Linux
+@subsection Gentoo Linux
 @cindex gentoo linux
 
 Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
@@ -1052,7 +1060,7 @@ contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
 
 
 @node Debian GNU/Linux
-@section Debian GNU/Linux and Ubuntu
+@subsection Debian GNU/Linux and Ubuntu
 @cindex debian gnu/linux
 @cindex ubuntu
 
@@ -1060,9 +1068,9 @@ A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay},
 and a PPA can be found at @url{https://launchpad.net/~blazemore/+archive/ponysay}.
 
 
-@node Uninstallation
-@section Uninstallation
-@cindex uninstallation
+@node Uninstalling
+@section Uninstalling
+@cindex uninstalling
 
 If you did not install @command{ponysay} with a package manager, but rather
 manually from the upstream, you can uninstall it by running @command{make uninstall}.
@@ -1476,6 +1484,38 @@ option @option{--everything}. Otherwise only the @command{info} manual and the
 English manpage will be installed for documentation.
 
 Please inform us about your distribution so we can list it so everypony can see it.
+
+@*
+The following is a reference distribution written in Arch Linux's PKGBUILD format.
+It is not complete, is not verbose enough or well written, it just contains the
+core of an stable @command{git} distribution.
+
+@cartouche
+@example
+pkgname=ponysay
+pkgver=2.5
+pkgrel=1
+pkgdesc="Cowsay reimplementation for ponies"
+arch=(any)
+url="https://github.com/erkin/ponysay"
+license=(WTFPL)
+depends=(python>=3 coreutils)
+optdepends=("util-say>=2: Improved TTY support with KMS and PNG files")
+makedepends=(git texinfo info gzip python>=3)
+
+build()
+@{   cd "$srcdir" && git clone git://github.com/erkin/ponysay.git ponysay
+    cd ponysay   && git checkout "$pkgver"
+    
+    ./setup.py --everything --without-pdf-compression  \
+               --bin-dir=/usr/bin --dest-dir="$pkgdir" build
+@}
+
+package()
+@{   cd "$srcdir/ponysay" && ./setup.py prebuilt
+@}
+@end example
+@end cartouche
 
 
 
