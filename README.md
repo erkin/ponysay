@@ -86,7 +86,7 @@ Dependencies
 
 ### Package building dependencies
 
-`gzip`: used for compressing manuals (suppressable with `./configure --without-info --without-man`)
+`gzip`: used for compressing manuals (suppressable with `./configure --without-info-compression --without-man-compression`)
 
 `texinfo`: used for building info manual (suppressable with `./configure --without-info`)
 
