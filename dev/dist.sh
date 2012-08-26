@@ -60,7 +60,7 @@ pdf()
 tag()
 {
     version=`./setup.py version`
-    if [ "version" = 'Ponysay '"$1"' installer' ]; then
+    if [ "$version" = 'Ponysay '"$1"' installer' ]; then
 	git tag -a "$@" && git checkout "$1" && git push -u origin "$1"
     else
 	echo 'Setup script reports. '"$version"
