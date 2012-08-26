@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import shutil
 import sys
 from subprocess import Popen, PIPE
 
@@ -11,20 +12,27 @@ PONYSAY_VERSION = '2.5'
 
 
 
+manpages = [('en', 'English'),  # must be first
+            ('es', 'Spanish')]
 
-#'en' must be first for manpages
-#'ponies' must be first for sharedirs
+sharedirs = [('ponies', 'xterm ponies', 'PONYDIR'),  # must be first
+             ('ttyponies', 'tty ponies', 'TTYPONYDIR'),
+             ('extraponies', 'extra xterm ponies', 'XPONYDIR'),
+             ('extrattyponies', 'extra tty ponies', 'XTTYPONYDIR'),
+             ('quotes', 'pony quotes', 'QUOTEDIR'),
+             ('balloons', 'balloon styles', 'BALLOONDIR')]
 
-manpages = [('en', 'English'), ('es', 'Spanish')]
-sharedirs = [('ponies', 'xterm ponies', 'PONYDIR'), ('ttyponies', 'tty ponies', 'TTYPONYDIR'),
-             ('extraponies', 'extra xterm ponies', 'XPONYDIR'), ('extrattyponies', 'extra tty ponies', 'XTTYPONYDIR'),
-             ('quotes', 'pony quotes', 'QUOTEDIR'), ('balloons', 'balloon styles', 'BALLOONDIR')]
 sharefiles = [('ucs', 'ucsmap')]
+
 commands = ['ponysay', 'ponythink']
+
 shells = [('bash', '/usr/share/bash-completion/completions/ponysay', 'GNU Bash'),
           ('fish', '/usr/share/fish/completions/ponysay.fish', 'Friendly interactive shell'),
           ('zsh', '/usr/share/zsh/site-functions/_ponysay', 'zsh')]
-mansections = [('ponysay', '6'), ('cowsay', '1'), ('fortune', '6')]
+
+mansections = [('ponysay', '6'),
+               ('cowsay', '1'),
+               ('fortune', '6')]
 
 
 
@@ -145,7 +153,7 @@ class Setup():
         YELLOW = '\033[33m%s\033[39m'
         
         for command in commands:
-            if conf[command]:                      print(GREEN  % ('Installing command ' + command + ' as ', conf[command]))
+            if conf[command] is not None:          print(GREEN  % ('Installing command ' + command + ' as ', conf[command]))
             else:                                  print(RED    % ('Skipping installion of command ' + command))
         if conf['shared-cache'] is not None:       print(GREEN  % ('Installing shared cache at ', conf['shared-cache']))
         else:                                      print(RED    % ('Skipping installation of shared cache'))
@@ -206,7 +214,48 @@ class Setup():
     def uninstall(self, conf):
         print('\033[1;34m::\033[39mUninstalling...\033[21m')
         
-        pass
+        (files, dirs, info) = ([], [], [])
+        
+        for command in commands:
+            if conf[command] is not None:
+                files.append(conf[command])
+        if conf['shared-cache'] is not None:
+            dirs.append(conf['shared-cache'])
+        for shell in [item[0] for item in shells]:
+            if conf[shell] is not None:
+                for command in commands:
+                    if conf[command] is not None:
+                        files.append(conf[shell].replace('ponysay', command))
+        if conf['pdf'] is not None:
+            files.append(conf['pdf'] + '/ponysay.pdf' + ('' if conf['pdf-compression'] is None else '.' + conf['pdf-compression']))
+        if conf['info'] is not None:
+            for command in commands:
+                if conf[command] is not None:
+                    file = conf['info'] + '/' + command + '.info' + ('' if conf['info-compression'] is None else '.' + conf['info-compression'])
+                    files.append(file)
+                    if conf['info-install'] is not None:
+                        infos.append(file)
+        for man in [item[0] for item in manpages]:
+            key = 'man-' + man
+            if conf[key] is not None:
+                section = conf['man-section-ponysay']
+                for command in commands:
+                    if conf[command] is not None:
+                        files.append('%s/%s.%s%s' % (conf[key], command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression']))
+        for dir in sharefiles:
+            if conf[dir[0]] is not None:
+                dirs.append(conf[dir[0]])
+        for file in sharefiles:
+            if conf[file[0]] is not None:
+                files.append(conf[file[0]])
+        
+        for info in infos:
+            cmdarr = ['install-info', '--delete', '--dir-file=' + conf['info'] + '/dir', info]
+            cmd = ' '.join(['\'%s\'' % (elem.replace('\'', '\'\\\'\'')) for elem in cmdarr])
+            print('Unstalling info manual ' + info + ' with install-info')
+            os.system(cmd)
+        
+        self.removeLists(files, dirs)
     
     
     '''
@@ -265,7 +314,30 @@ class Setup():
     Removes listed files and directories
     '''
     def removeLists(self, files, dirs):
-        pass ## TODO not implemented
+        for file in files:
+            if os.path.isfile(file):
+                print('Unlinking file %s' % (file))
+                os.unlink(file)
+                dir = file
+                while True:
+                    dir = dir[:dir.rfind(/) + 1]
+                    if ('/ponysay/' in dir) and (len(os.listdir(dir)) == 0):
+                        print('Removing newly empty directory %s' % (file))
+                        os.rmdir(dir)
+                    else:
+                        break;
+        for dir in dirs:
+            if os.path.isdir(dir):
+                print('Cascadingly removing directory %s' % (dir))
+                if os.path.islink(dir):  os.unlink(dir)
+                else:                    shutil.rmtree(dir)
+                while True:
+                    dir = dir[:dir.rfind(/) + 1]
+                    if ('/ponysay/' in dir) and (len(os.listdir(dir)) == 0):
+                        print('Removing newly empty directory %s' % (file))
+                        os.rmdir(dir)
+                    else:
+                        break;
     
     
     '''
