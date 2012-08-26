@@ -672,19 +672,24 @@ the file name) in addition to .pony-files or pony names.
 @section Package building dependencies
 
 @table @command
+@item python>=3
+Required to run the @file{./setup.py} file, which is also invoked from the
+make script.
 @item gzip
-Used for compressing manuals.
+Used for compressing manuals. (Optional, standard)
+@item xz
+Used for compressing manuals. (Optional, non-standard)
 @item texinfo
-@itemx info
-@command{texinfo} and @command{info} are required if you want this @command{info}
-manual.
+Used to compile this @command{info} manual. (Optional, standard)
+@item info
+Used to install this @command{info} manual with @command{install-info}.
+(Optional, standard)
 @item make
-Required to run the make script.
-@item coreutils
-The make script uses @command{install}, @command{unlink}, @command{rm}, @command{ln},
-@command{mkdir} and @command{cp} and @command{cut}.
+Required to run the make script. (Optional)
+@item sh
+Required to run the @command{./configure} script. (Optional)
 @item sed
-Used by the make script for @option{PREFIX} customisation.
+Used in the @command{./configure} script. (Optional)
 @end table
 
 
@@ -1649,6 +1654,11 @@ sequences.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+
+@heading Version 2.5
+
+Brand new highly configurable build system.
 
 
 @heading Version 2.4
