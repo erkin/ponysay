@@ -217,7 +217,7 @@ class Ponysay():
         quoteshash = set()
         _quotes = []
         for quotedir in quotedirs:
-            _quotes += [item[:item.index('.')] for item in os.listdir(INSTALLDIR + '/share/ponysay/quotes/')]
+            _quotes += [item[:item.index('.')] for item in os.listdir(quotedir)]
         for quote in _quotes:
             if not quote == '':
                 if not quote in quoteshash:
