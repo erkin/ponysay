@@ -34,6 +34,9 @@ mansections = [('ponysay', '6'),
                ('cowsay', '1'),
                ('fortune', '6')]
 
+miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
+             ('CREDITS', '/usr/share/licenses/ponysay/CREDITS')]
+
 
 
 
@@ -64,7 +67,7 @@ class Setup():
         
         opts.add_argumentless(help = 'Install everything that is not explicity excluded',                              alternatives = ['--everything', '--with-everything'])
         opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depending on version',      alternatives = ['--minimal'])
-        opts.add_argumentless(help = 'Install nothing that is not explicity included',                                 alternatives = ['--nothing', '--with-nothing'])
+        opts.add_argumentless(help = 'Install nothing (except legal documents] that is not explicity included',        alternatives = ['--nothing', '--with-nothing'])
         
         for command in commands:
             opts.add_argumentless(help = 'Do not install the %s command' % (command),                                              alternatives = ['--without-' + command])
@@ -198,6 +201,7 @@ class Setup():
             else:                                  print(RED    % ('Skipping installation of ' + file[1]))
         if conf['custom-env-python'] is not None:  print(GREEN  % ('Using custom env reference in python script shebang: ', conf['custom-env-python']))
         else:                                      print(YELLOW % ('Looking for best env reference in python script shebang'))
+        for miscfile in miscfiles:                 print(GREEN  % ('Installing %s to %s' % (miscfile[0]), conf[miscfile[0]]))
         
         print()
     
@@ -280,6 +284,8 @@ class Setup():
         for file in sharefiles:
             if conf[file[0]] is not None:
                 self.cp(False, 'share/' + file[1], [conf[file[0]]])
+        for file in miscfiles:
+            self.cp(False, file[0], [conf[file[0]]])
     
     
     '''
@@ -322,6 +328,8 @@ class Setup():
         for file in sharefiles:
             if conf[file[0]] is not None:
                 files.append(conf[file[0]])
+        for file in miscfiles:
+            files.append(conf[file[0]])
         
         for info in infos:
             cmdarr = ['install-info', '--delete', '--dir-file=' + conf['info'] + '/dir', info]
@@ -478,6 +486,8 @@ class Setup():
         for sharefile in sharefiles:
             conf[sharefile[0]] = '/usr/share/ponysay/' + sharefile[1]
         conf['custom-env-python'] = 'python3'
+        for miscfile in miscfiles:
+            conf[miscfile[0]] = miscfile[1]
         
         
         if opts['--private'] is not None:
