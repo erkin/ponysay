@@ -1487,7 +1487,7 @@ Please inform us about your distribution so we can list it so everypony can see 
 
 @*
 The following is a reference distribution written in Arch Linux's PKGBUILD format.
-It is not complete, is not verbose enough or well written, it just contains the
+It is not complete, proper, verbose enough or well written, it just contains the
 core of an stable @command{git} distribution.
 
 @cartouche
@@ -1495,24 +1495,24 @@ core of an stable @command{git} distribution.
 pkgname=ponysay
 pkgver=2.5
 pkgrel=1
-pkgdesc="Cowsay reimplementation for ponies"
 arch=(any)
+pkgdesc="Cowsay reimplementation for ponies"
 url="https://github.com/erkin/ponysay"
-license=(WTFPL 'GNU FDL v1.3')
+license=(WTFPL "GNU FDL v1.3")
 depends=(python>=3 coreutils)
 optdepends=("util-say>=2: Improved TTY support with KMS and PNG files")
 makedepends=(git texinfo info gzip python>=3)
 
 build()
-@{   cd "$srcdir" && git clone git://github.com/erkin/ponysay.git ponysay
-    cd ponysay   && git checkout "$pkgver"
+@{   cd "$srcdir"; git clone git://github.com/erkin/ponysay.git ponysay
+    cd ponysay  ; git checkout "$pkgver"
     
     ./setup.py --everything --without-pdf-compression  \
                --bin-dir=/usr/bin --dest-dir="$pkgdir" build
 @}
 
 package()
-@{   cd "$srcdir/ponysay" && ./setup.py prebuilt
+@{   cd "$srcdir/ponysay"; ./setup.py prebuilt
 @}
 @end example
 @end cartouche
