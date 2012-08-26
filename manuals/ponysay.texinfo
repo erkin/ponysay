@@ -698,14 +698,13 @@ Used in the @command{./configure} script. (Optional)
 @cindex contributing
 
 @table @command
-@item make
-Required to run @command{make -B ttyponies}.
-@item coreutils
-@command{ln} and @command{readlink} are used in the @command{ttyponies} subscript.
 @item bash
-Used in the ttyponies subscript.
+Required to run @command{dev/dist.sh}.
+@item coreutils
+@command{ln} and @command{readlink} are used in the @command{ttyponies} subscript
+of @command{dev/dist.sh}.
 @item util-say>=2
-Used by @command{make ttyponies} to build ttyponies from xterm ponies.
+Used by @command{dev/dist.sh ttyponies} to build ttyponies from xterm ponies.
 It can be downloaded at @url{https://github.com/maandree/util-say}.
 @end table
 
@@ -1435,12 +1434,12 @@ must not redefine the colours in the range 16 to 255 (inclusive).
 @cindex ttypony
 When a pony is added please also add a ttypony version, i.e. the pony files used in
 TTY, but if you don't please state so in the pull request so we do not miss the
-create it; the simplest way to do this is to run @command{make -B ttyponies} after
-adding the ponies to @file{ponies/}, running @command{make -B ttyponies} will build
+create it; the simplest way to do this is to run @command{dev/dist.sh ttyponies} after
+adding the ponies to @file{ponies/}, running @command{dev/dist.sh ttyponies} will build
 (or rebuild) all ttyponies with a pony present in @file{ponies/}, and creates all
 needed symlinks.
 
-To be able to run @command{make -B ttyponies} you must have the packages listed under
+To be able to run @command{dev/dist.sh ttyponies} you must have the packages listed under
 @ref{Dependencies for pony providers}.
 
 @cindex ponyquotes
