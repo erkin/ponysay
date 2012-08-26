@@ -36,6 +36,11 @@ mansections = [('ponysay', '6'),
 
 
 
+
+COPY = 'copy'
+HARD = 'hard'
+SYMBOLIC = 'symbolic'
+
 class Setup():
     def __init__(self):
         usage_script = '\033[34;1msetup.py\033[21;39m'
@@ -118,8 +123,15 @@ class Setup():
         
         opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',                                    alternatives = ['--dest-dir'], arg='DESTDIR')
         
+        opts.add_argumented  (help = 'Set how to link identical files\nDefault = hard, copy and symbolic are also recognised',    alternatives = ['--linking'], arg='TYPE')
+        
         
         opts.parse()
+        
+        
+        self.linking = HARD
+        if opts.opts['--linking'] is not None:
+            self.linking = opts.opts['--linking'][0]
         
         
         if (len(opts.files) > 1) or (opts.opts['--help'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'help')):
@@ -205,7 +217,69 @@ class Setup():
     def install(self, conf):
         print('\033[1;34m::\033[39mInstalling...\033[21m')
         
-        pass
+        for command in commands:
+            dests = []
+            if conf[command] is not None:
+                dests.append(conf[command])
+            if len(dests) > 0:
+                self.cp(False, 'ponysay.install', dests)
+                print('Setting mode for ponysay.install copies to 755')
+                if self.linking == COPY:
+                    for dest in dests:
+                        os.chmod(dest, 0755)
+                else:
+                    os.chmod(dests[0], 0755)
+        if conf['shared-cache'] is not None:
+            dir = conf['shared-cache']
+            pdir = dir[:rfind('/') + 1]
+            print('Creating intermediate-level directories needed for ' + dir)
+            os.makedirs(pdir)
+            print('Creating directory ' + dir + ' with mode mask 777')
+            os.makedir(dir, 0777)
+        for shell in [item[0] for item in shells]:
+            if conf[shell] is not None:
+                for command in commands:
+                    if conf[command] is not None:
+                        src = 'completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command)
+                        dest = conf[shell].replace('ponysay', command)
+                        self.cp(False, src, [dest])
+        if conf['pdf'] is not None:
+            src = 'ponysay.pdf' + ('' if conf['pdf-compression'] is None else '.' + conf['pdf-compression'])
+            dest = conf['pdf'] + '/' + src
+            self.cp(False, src, [dest])
+        if conf['info'] is not None:
+            installinfo = []
+            dests = []
+            ext = ('' if conf['info-compression'] is None else '.' + conf['info-compression'])
+            src = 'ponysay.info' + ext
+            for command in commands:
+                if conf[command] is not None:
+                    dests.append(conf['info'] + '/' + command + '.info' + ext)
+                    if conf['info-install'] is not None:
+                        cmdarr = ['install-info', '--entry=Miscellaneous', '--description=' + conf['info-install'], '--dir-file=' + conf['info'] + '/dir', dest]
+                        cmd = ' '.join(['\'%s\'' % (elem.replace('\'', '\'\\\'\'')) for elem in cmdarr])
+                        installinfo.append((cmd, 'Installing info manual ' + dest + ' with install-info'))
+            self.cp(False, src, dests)
+            for pair in installinfo:
+                print(pair[1])
+                os.system(pair[0])
+        for man in manpages:
+            key = 'man-' + man[0]
+            if conf[key] is not None:
+                src = 'manpage.0.' + ('install' if conf[key + '-compression'] is None else conf[key + '-compression'])
+                dests = []
+                section = conf['man-section-ponysay']
+                for command in commands:
+                    if conf[command] is not None:
+                        dest = '%s/%s.%s%s' % (conf[key], command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression'])
+                        dests.append(dest)
+                self.cp(False, src, dests)
+        for dir in sharefiles:
+            if conf[dir[0]] is not None:
+                self.cp(True, dir[0], [conf[dir[0]]])
+        for file in sharefiles:
+            if conf[file[0]] is not None:
+                self.cp(False, 'share/' + file[1], [conf[file[0]]])
     
     
     '''
@@ -252,7 +326,7 @@ class Setup():
         for info in infos:
             cmdarr = ['install-info', '--delete', '--dir-file=' + conf['info'] + '/dir', info]
             cmd = ' '.join(['\'%s\'' % (elem.replace('\'', '\'\\\'\'')) for elem in cmdarr])
-            print('Unstalling info manual ' + info + ' with install-info')
+            print('Uninstalling info manual ' + info + ' with install-info')
             os.system(cmd)
         
         self.removeLists(files, dirs)
@@ -286,14 +360,14 @@ class Setup():
         
         files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz', 'ponysay.install']
         dirs = ['quotes']
-        for comp in ['gz', 'xz']:
+        for comp in ['install', 'gz', 'xz']:
             for man in manpages:
                 if man is manpages[0]:  man = ''
                 else:                   man = '.' + man[0]
                 files.append('manuals/manpage.0' + man + '.' + comp)
         for shell in [item[0] for item in shells]:
-            files.append('completion/%s-completion.%s.install' % (shell, 'is' if shell == 'bash' else shell))
-            files.append('completion/%s-completion-think.%s'   % (shell, 'is' if shell == 'bash' else shell))
+            for command in commands
+            files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
         
         self.removeLists(files, dirs)
     
@@ -306,6 +380,9 @@ class Setup():
         
         files = ['truncater', 'ponysaytruncater', 'ponysay.py.install', 'ponysay.install~']
         dirs = []
+        for shell in [item[0] for item in shells]:
+            files.append('completion/%s-completion.%s.install' % (shell, 'sh' if shell == 'bash' else shell))
+            files.append('completion/%s-completion-think.%s'   % (shell, 'sh' if shell == 'bash' else shell))
         
         self.removeLists(files, dirs)
     
@@ -338,6 +415,43 @@ class Setup():
                         os.rmdir(dir)
                     else:
                         break;
+    
+    
+    '''
+    Copys a files or directory to multiple destinations
+    '''
+    def cp(self, recursive, source, destinations):
+        for dest in destinations:
+            dir = dest[:dest.rfind('/') + 1]
+            if not os.path.exists(dir):
+                print('Making directory ' + dir + ' with parents')
+                os.makedirs(dir)
+        if recursive:
+            target = destinations[0]
+            for dest in destinations if self.linking == COPY else [target]:
+                print('Copying directory %s to %s' % (source, dest))
+                if not os.path.exists(dest):
+                    os.mkdir(dest)
+                for file in os.listdir(source):
+                    src = source + '/' + file
+                    self.cp(os.path.isdir(src), src, [dest + '/' + file])
+            if self.linking != COPY:
+                for dest in destinations[1:]:
+                    print('Creating symbolic link %s with target directory %s' % (dest, target))
+                    os.symlink(target, dest)
+        else:
+            target = destinations[0]
+            for dest in destinations if self.linking == COPY else [target]:
+                print('Copying file %s to %s' % (source, dest))
+                shutil.copyfile(source, dest)
+            if self.linking == HARD:
+                for dest in destinations[1:]:
+                    print('Creating hard link %s with target file %s' % (dest, target))
+                    os.link(target, dest)
+            elif self.linking == SYMBOLIC:
+                for dest in destinations[1:]:
+                    print('Creating symbolic link %s with target file %s' % (dest, target))
+                    os.symlink(target, dest)
     
     
     '''
@@ -540,7 +654,8 @@ class ArgParser():
                         optqueue.append(arg_opt)
                         argqueue.append(arg[arg.index('=') + 1:])
                     else:
-                        unrecognised(arg)
+                        sys.stderr.write('%s: fatal: unrecognised option %s. see --help or the manual\n' % (self.__program, arg))
+                        exit(-1)
                 elif (arg in self.optmap) and (self.optmap[arg][1] == ARGUMENTED):
                     optqueue.append(arg)
                     get = True
