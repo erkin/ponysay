@@ -837,8 +837,10 @@ class ArgParser():
             (opt, arg, i) = (optqueue[i], argqueue[i], i + 1)
             opt = self.optmap[opt][0]
             if (opt not in self.opts) or (self.opts[opt] is None):
-                self.opts[opt] = []
-            self.opts[opt].append(arg)
+                self.opts[opt] = [arg]
+            else:
+                    sys.stderr.write('%s: fatal: duplicate option %s\n' % (self.__program, arg))
+                exit(-1)
     
     '''
     Prints a colourful help message
