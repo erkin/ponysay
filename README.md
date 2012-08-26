@@ -90,6 +90,8 @@ Dependencies
 
 `texinfo`: used for building info manual (suppressable with `./configure --without-info`)
 
+`info`: used for installing info manual to info's dir file (suppressable with `./configure --without-info-install`)
+
 Run `./dependency-test.sh` if things are not working for you.
 
 
