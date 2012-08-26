@@ -41,13 +41,19 @@ pdfmanual()
     texi2pdf "manuals/ponysay.texinfo"
     git add  "manuals/ponysay.texinfo" "ponysay.pdf"
     for ext in `echo aux cp cps fn ky log pg toc tp vr`; do
-	if [ -f "ponysay.\$\$ext" ]; then
+	if [ -f "ponysay.$ext" ]; then
 	    unlink "ponysay.$ext"
 	fi
     done
     if [ -d "ponysay.t2d" ]; then
 	rm -r "ponysay.t2d";
     fi
+}
+
+
+pdf()
+{
+    pdfmanual "$@"
 }
 
 
