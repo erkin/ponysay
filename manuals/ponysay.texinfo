@@ -1700,7 +1700,12 @@ sequences.
 
 @heading Version 2.5
 
+@itemize @bullet
+@item
 Brand new highly configurable build system.
+@item
+UTF-8 as I/O encoding is enforced. (Critical bug fix for ASCII locale users.)
+@end itemize
 
 
 @heading Version 2.4

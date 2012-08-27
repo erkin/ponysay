@@ -2,6 +2,8 @@ Version 2.5
 
 	Brand new highly configurable build system.
 
+	UTF-8 as I/O encoding is enforced. (Critical bug fix for ASCII locale users.)
+
 
 Version 2.4
 
