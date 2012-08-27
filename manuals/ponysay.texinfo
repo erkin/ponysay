@@ -1704,6 +1704,7 @@ sequences.
 New extraponies: @file{sealyra}
 @end itemize
 
+
 @heading Version 2.5
 
 @itemize @bullet
