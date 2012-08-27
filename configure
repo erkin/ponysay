@@ -12,9 +12,11 @@ function makeMakefile()
     echo
     echo -e 'default: all\n'
     echo -e 'all: build\n'
-    for func in $(echo 'build' 'prebuilt' 'install' 'uninstall' 'uninstall-old' 'clean' 'clean-old' 'view'); do
-	echo -e "$func"':\n\t./setup.py $(PARAMS) '"$func"'\n'
+    for func in $(echo 'build' 'prebuilt' 'uninstall' 'uninstall-old' 'clean' 'clean-old' 'view'); do
+	echo -e "$func"':\n\t./setup.py ---DESTDIR="$(DESTDIR)" ---PREFIX="$(PREFIX)" $(PARAMS) '"$func"'\n'
     done
+    echo -e 'install-build:\n\t./setup.py ---DESTDIR="$(DESTDIR)" ---PREFIX="$(PREFIX)" $(PARAMS) install\n'
+    echo -e 'install:\n\t./setup.py ---DESTDIR="$(DESTDIR)" ---PREFIX="$(PREFIX)" $(PARAMS) prebuilt\n'
 }
 
 
