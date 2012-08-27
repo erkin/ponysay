@@ -163,11 +163,26 @@ class Setup():
             else:
                 conf = self.configure(opts.opts)
                 self.viewconf(conf)
-                if   method == 'build':          self.build       (conf)
-                elif method == 'prebuilt':       self.install     (conf)
-                elif method == 'install':        self.build       (conf); self.install(conf); self.clean()
-                elif method == 'uninstall':      self.uninstall   (conf)
-                elif method == 'uninstall-old':  self.uninstallOld(conf)
+                
+                if method == 'build':
+                    self.build(conf)
+                    
+                elif method == 'prebuilt':
+                    self.applyDestDir(conf)
+                    self.install(conf)
+                    
+                elif method == 'install':
+                    self.build(conf)
+                    self.applyDestDir(conf)
+                    self.install(conf)
+                    self.clean()
+                    
+                elif method == 'uninstall':
+                    self.uninstall(conf)
+                    
+                elif method == 'uninstall-old':
+                    self.uninstallOld(conf)
+                    
                 elif not method == 'view':
                     opts.help()
     
@@ -793,14 +808,26 @@ class Setup():
                 conf['man-section-' + mansection[0]] = mansection[1]
         
         
-        if opts['--dest-dir'] is not None:
-            destdir = opts['--dest-dir'][0]
+        
+        self.destDir = None if opts['--dest-dir'] is None else opts['--dest-dir'][0]
+        
+        return conf
+    
+    
+    def applyDestDir(self, conf):
+        if self.destDir is not None:
             for key in conf:
                 if conf[key] not in (None, False, True):
                     if conf[key].startswith('/'):
-                        conf[key] = destdir + conf[key]
-        
-        return conf
+                        conf[key] = self.destDir + conf[key]
+    
+    
+    def unapplyDestDir(self, conf):
+        if self.destDir is not None:
+            for key in conf:
+                if conf[key] not in (None, False, True):
+                    if conf[key].startswith(self.destDir):
+                        conf[key] = conf[key][len(self.destDir):]
 
 
 
