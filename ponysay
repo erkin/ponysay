@@ -36,6 +36,14 @@ The version of ponysay
 VERSION = 'dev'  # this line should not be edited, it is fixed by the build system
 
 
+
+'''
+Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in programs by default, report them to Princess Celestia so she can banish them to the moon)
+'''
+def print(text, end = '\n'):
+    sys.stdout.buffer.write((text + end).encode('utf-8'))
+
+
 '''
 This is the mane class of ponysay
 '''
@@ -111,8 +119,8 @@ class Ponysay():
             if os.path.isfile(ucsmap):
                 mapfile = None
                 try:
-                    mapfile = open(ucsmap, 'r')
-                    maplines += [line.replace('\n', '') for line in mapfile.readlines()]
+                    mapfile = open(ucsmap, 'rb')
+                    maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
                 finally:
                     if mapfile is not None:
                         mapfile.close()
@@ -154,8 +162,8 @@ class Ponysay():
             if os.path.isfile(ucsmap):
                 mapfile = None
                 try:
-                    mapfile = open(ucsmap, 'r')
-                    maplines += [line.replace('\n', '') for line in mapfile.readlines()]
+                    mapfile = open(ucsmap, 'rb')
+                    maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
                 finally:
                     if mapfile is not None:
                         mapfile.close()
@@ -517,8 +525,8 @@ class Ponysay():
         
         balloonstream = None
         try:
-            balloonstream = open(balloonfile, 'r')
-            data = [line.replace('\n', '') for line in balloonstream.readlines()]
+            balloonstream = open(balloonfile, 'rb')
+            data = [line.replace('\n', '') for line in balloonstream.read().decode('utf8', 'replace').split('\n')]
         finally:
             if balloonstream is not None:
                 balloonstream.close()
@@ -627,7 +635,7 @@ class Ponysay():
                 for line in output.split('\n')[: lines]:
                     print(line)
         else:
-            print(output);
+            print(output)
     
     
     '''
@@ -655,8 +663,8 @@ class Ponysay():
             pair = pairs[random.randrange(0, len(pairs))]
             qfile = None
             try:
-                qfile = open(pair[1], 'r')
-                args.message = '\n'.join(qfile.readlines()).strip()
+                qfile = open(pair[1], 'rb')
+                args.message = qfile.read().decode('utf8', 'replace').strip()
             finally:
                 if qfile is not None:
                     qfile.close()
@@ -727,8 +735,8 @@ class Ponysay():
         else:
             cachev = None
             try:
-                cachev = open(cachedir + '/.version', 'r')
-                if ''.join(cachev.readlines()) == KMS_VERSION:
+                cachev = open(cachedir + '/.version', 'rb')
+                if cachev.read().decode('utf8', 'replace').replace('\n', '') == KMS_VERSION:
                     newversion = True
             finally:
                 if cachev is not None:
@@ -1149,8 +1157,8 @@ class Backend():
     def __loadFile(self):
         ponystream = None
         try:
-            ponystream = open(self.ponyfile, 'r')
-            self.pony = ''.join(ponystream.readlines())
+            ponystream = open(self.ponyfile, 'rb')
+            self.pony = ponystream.read().decode('utf8', 'replace')
         finally:
             if ponystream is not None:
                 ponystream.close()
