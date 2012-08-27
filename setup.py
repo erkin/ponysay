@@ -244,9 +244,9 @@ class Setup():
         if mane:
             (fileout, filein) = (None, None)
             try:
-                fileout = open('ponysay.install', 'w+')
-                filein = open('ponysay', 'r')
-                data = ''.join(filein.readlines())
+                fileout = open('ponysay.install', 'wb+')
+                filein = open('ponysay', 'rb')
+                data = filein.read().decode('utf-8', 'replace')
                 
                 data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
                 for sharedir in [item[0] for item in sharedirs]:
@@ -255,7 +255,7 @@ class Setup():
                     data = data.replace('/usr/share/ponysay/' + sharefile[1], conf[sharefile[0]])
                 data = data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
                 
-                fileout.write(data)
+                fileout.write(data.encode('utf-8'))
             finally:
                 if fileout is not None:  fileout.close()
                 if filein  is not None:  filein .close()
@@ -270,15 +270,15 @@ class Setup():
                 dest = src + '.install'
                 (fileout, filein) = (None, None)
                 try:
-                    fileout = open(dest, 'w+')
-                    filein = open(src, 'r')
-                    data = ''.join(filein.readlines())
+                    fileout = open(dest, 'wb+')
+                    filein = open(src, 'rb')
+                    data = filein.read().decode('utf-8', 'replace')
                     
                     data = data.replace('\n.TH PONYSAY 0', '\n.TH PONYSAY ' + conf['man-section-ponysay'])
                     for section in [item[0] for item in mansections]:
                         data = data.replace('\n.BR %s (0)' % (section), '\n.BR %s (%s)' % (section, conf['man-section-' + section]))
                     
-                    fileout.write(data)
+                    fileout.write(data.encode('utf-8'))
                 finally:
                     if fileout is not None:  fileout.close()
                     if filein  is not None:  filein .close()
@@ -308,9 +308,9 @@ class Setup():
                         dest = src + '.' + command
                         (fileout, filein) = (None, None)
                         try:
-                            fileout = open(dest, 'w+')
-                            filein = open(src, 'r')
-                            data = ''.join(filein.readlines())
+                            fileout = open(dest, 'wb+')
+                            filein = open(src, 'rb')
+                            data = filein.read().decode('utf-8', 'replace')
                             
                             data = data.replace('/usr/bin/ponysay', conf[command])
                             data = data.replace('/ponysay', '\0')
@@ -319,7 +319,7 @@ class Setup():
                                 data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
                             data = data.replace('\0', '/ponysay')
                             
-                            fileout.write(data)
+                            fileout.write(data.encode('utf-8'))
                         finally:
                             if fileout is not None:  fileout.close()
                             if filein  is not None:  filein .close()
@@ -329,8 +329,8 @@ class Setup():
             os.mkdir('quotes')
             ponymap = None
             try:
-                ponymap = open('ponyquotes/ponies', 'r')
-                ponies = [line.replace('\n', '') for line in ponymap.readlines()]
+                ponymap = open('ponyquotes/ponies', 'rb')
+                ponies = [line for line in ponymap.read().decode('utf-8', 'replace').split('\n')]
                 for _ponies in ponies:
                     for pony in _ponies.split('+'):
                         print('Generating quote files for \033[34m' + pony + '\033[39m')
