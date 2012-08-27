@@ -8,7 +8,7 @@ from subprocess import Popen, PIPE
 
 
 
-PONYSAY_VERSION = '2.5-rc1'
+PONYSAY_VERSION = '2.5-rc2'
 
 
 
@@ -350,18 +350,18 @@ class Setup():
     def install(self, conf):
         print('\033[1;34m::\033[39mInstalling...\033[21m')
         
+        dests = []
         for command in commands:
-            dests = []
             if conf[command] is not None:
                 dests.append(conf[command])
-            if len(dests) > 0:
-                self.cp(False, 'ponysay.install', dests)
-                print('Setting mode for ponysay.install copies to 755')
-                if self.linking == COPY:
-                    for dest in dests:
-                        os.chmod(dest, 0o755)
-                else:
-                    os.chmod(dests[0], 0o755)
+        if len(dests) > 0:
+            self.cp(False, 'ponysay.install', dests)
+            print('Setting mode for ponysay.install copies to 755')
+            if self.linking == COPY:
+                for dest in dests:
+                    os.chmod(dest, 0o755)
+            else:
+                os.chmod(dests[0], 0o755)
         if conf['shared-cache'] is not None:
             dir = conf['shared-cache']
             if not os.path.exists(dir):
@@ -571,6 +571,32 @@ class Setup():
     Copys a files or directory to multiple destinations
     '''
     def cp(self, recursive, source, destinations):
+        if os.path.islink(source) and (self.linking != COPY) and os.path.isdir(os.path.realpath(source)):
+            target = os.readlink(source)
+            for dest in destinations:
+                print('Creating symbolic link %s with target directory %s' % (dest, target))
+                if os.path.exists(dest):
+                    self.removeLists([], [dest])
+                os.symlink(target, dest)
+        if os.path.islink(source) and (self.linking != COPY) and os.path.isfile(os.path.realpath(source)):
+            target = os.readlink(source)
+            if self.linking == HARD:
+                for dest in destinations:
+                    print('Creating hard link %s with target file %s' % (dest, target))
+                    if os.path.exists(dest):
+                        self.removeLists([], [dest])
+                    mytarget = os.path.abspath(os.path.join(os.path.dirname(dest), target))
+                    if os.path.exists(mytarget):
+                        os.link(mytarget, dest)
+                    else:
+                        print('\033[31mTarget did not exists, using symlink instead\033[39m')
+                        os.symlink(target, dest)
+            else:
+                for dest in destinations:
+                    print('Creating symbolic link %s with target file %s' % (dest, target))
+                    if os.path.exists(dest):
+                        self.removeLists([], [dest])
+                    os.symlink(target, dest)
         for dest in destinations:
             dir = dest[:dest.rfind('/') + 1]
             if not os.path.exists(dir):
@@ -582,14 +608,20 @@ class Setup():
                 print('Copying directory %s to %s' % (source, dest))
                 if not os.path.exists(dest):
                     os.mkdir(dest)
+                links = []
                 for file in os.listdir(source):
                     src = source + '/' + file
-                    self.cp(os.path.isdir(src), src, [dest + '/' + file])
+                    if os.path.exists(src) and os.path.islink(src):
+                        links.append((os.path.isdir(src), src, [dest + '/' + file]))
+                    else:
+                        self.cp(os.path.isdir(src), src, [dest + '/' + file])
+                for link in links:
+                    self.cp(link[0], link[1], link[2])
             if self.linking != COPY:
                 for dest in destinations[1:]:
                     print('Creating symbolic link %s with target directory %s' % (dest, target))
                     if os.path.exists(dest):
-                        os.removeLists([], [dest])
+                        self.removeLists([], [dest])
                     os.symlink(target, dest)
         else:
             target = destinations[0]
