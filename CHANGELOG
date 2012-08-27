@@ -1,6 +1,8 @@
-version 2.6
+Version 2.5.1
 
 	New extra ponies: sealyra
+
+	Build system as compatibility with standard GNU Make build system.
 
 
 Version 2.5

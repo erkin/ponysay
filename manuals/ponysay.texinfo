@@ -1700,11 +1700,13 @@ sequences.
 @cindex versions
 @cindex previous releases
 
-@heading Version 2.6
+@heading Version 2.5.1
 
 @itemize @bullet
 @item
 New extraponies: @file{sealyra}
+@item
+Build system as compatibility with standard GNU Make build system.
 @end itemize
 
 
