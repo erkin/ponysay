@@ -692,6 +692,9 @@ Required to run the @command{./configure} script. (Optional)
 Used in the @command{./configure} script. (Optional)
 @end table
 
+Note that @command{info} may actually be a part of @command{texinfo};
+@command{sh} should be provided another shell, such as @command{bash}.
+
 
 @node Dependencies for pony providers
 @section Dependencies for pony providers

@@ -8,7 +8,7 @@ from subprocess import Popen, PIPE
 
 
 
-PONYSAY_VERSION = '2.5'
+PONYSAY_VERSION = '2.5.1'
 
 
 
@@ -64,6 +64,8 @@ class Setup():
         
         opts.add_argumentless(alternatives = ['--help'])
         opts.add_argumentless(alternatives = ['--version'])
+        opts.add_argumented  (alternatives = ['---DESTDIR'], arg="DESTDIR")
+        opts.add_argumented  (alternatives = ['---PREFIX'], arg="PREFIX")
         
         opts.add_argumentless(help = 'Install everything that is not explicity excluded',                              alternatives = ['--everything', '--with-everything'])
         opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depending on version',      alternatives = ['--minimal'])
@@ -135,6 +137,17 @@ class Setup():
         self.linking = SYMBOLIC
         if opts.opts['--linking'] is not None:
             self.linking = opts.opts['--linking'][0]
+        
+        
+        if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is not None):
+            destdir = opts.opts['---DESTDIR'][0]
+            if len(destdir) > 0:
+                opts.opts['--dest-dir'] = [destdir]
+            
+        if (opts.opts['---PREFIX'] is not None) and (opts.opts['--prefix'] is not None):
+            prefix = opts.opts['---PREFIX'][0]
+            if len(prefix) > 0:
+                opts.opts['--prefix'] = [prefix]
         
         
         if (len(opts.files) > 1) or (opts.opts['--help'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'help')):
@@ -784,7 +797,7 @@ class Setup():
             destdir = opts['--dest-dir'][0]
             for key in conf:
                 if conf[key] not in (None, False, True):
-                    if conf.startswith('/'):
+                    if conf[key].startswith('/'):
                         conf[key] = destdir + conf[key]
         
         return conf
