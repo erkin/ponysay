@@ -139,12 +139,12 @@ class Setup():
             self.linking = opts.opts['--linking'][0]
         
         
-        if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is not None):
+        if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is None):
             destdir = opts.opts['---DESTDIR'][0]
             if len(destdir) > 0:
                 opts.opts['--dest-dir'] = [destdir]
             
-        if (opts.opts['---PREFIX'] is not None) and (opts.opts['--prefix'] is not None):
+        if (opts.opts['---PREFIX'] is not None) and (opts.opts['--prefix'] is None):
             prefix = opts.opts['---PREFIX'][0]
             if len(prefix) > 0:
                 opts.opts['--prefix'] = [prefix]
