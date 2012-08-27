@@ -1697,6 +1697,12 @@ sequences.
 @cindex versions
 @cindex previous releases
 
+@heading Version 2.6
+
+@itemize @bullet
+@item
+New extraponies: @file{sealyra}
+@end itemize
 
 @heading Version 2.5
 
