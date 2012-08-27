@@ -41,7 +41,7 @@ VERSION = 'dev'  # this line should not be edited, it is fixed by the build syst
 Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in programs by default, report them to Princess Celestia so she can banish them to the moon)
 '''
 def print(text = '', end = '\n'):
-    sys.stdout.buffer.write((text + end).encode('utf-8'))
+    sys.stdout.buffer.write((str(text) + end).encode('utf-8'))
 
 
 '''

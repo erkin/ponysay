@@ -202,6 +202,7 @@ class Setup():
         if conf['custom-env-python'] is not None:  print(GREEN  % ('Using custom env reference in python script shebang: ', conf['custom-env-python']))
         else:                                      print(YELLOW % ('Looking for best env reference in python script shebang'))
         for miscfile in miscfiles:                 print(GREEN  % ('Installing ' + miscfile[0] + ' to ', conf[miscfile[0]]))
+        print('Prefered linking style: ' + self.linking)
         
         print()
     
