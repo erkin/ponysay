@@ -1700,6 +1700,15 @@ sequences.
 @cindex versions
 @cindex previous releases
 
+@heading Version 2.6
+
+@itemize @bullet
+@item
+New extraponies: @file{cutiemarkcrusaders}, @file{lemonhearts}, @file{thunderlane},
+@file{twilightstartswirlthebearded}
+@item
+@end itemize
+
 @heading Version 2.5.1
 
 @itemize @bullet
