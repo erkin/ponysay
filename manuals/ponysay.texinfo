@@ -1704,9 +1704,8 @@ sequences.
 
 @itemize @bullet
 @item
-New extraponies: @file{cutiemarkcrusaders}, @file{lemonhearts}, @file{thunderlane},
-@file{twilightstartswirlthebearded}
-@item
+New ponies: @file{cutiemarkcrusaders}, @file{lemonhearts}, @file{silverspeed},
+@file{thunderlane}, @file{twilightthebearded}
 @end itemize
 
 @heading Version 2.5.1
