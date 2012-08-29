@@ -1704,17 +1704,17 @@ sequences.
 
 @itemize @bullet
 @item
-New ponies: @file{cracky}, @file{cutiemarkcrusaders}, #file{hughjelly}, @file{lemonhearts},
-@file{silverspeed}, @file{thunderlane}, @file{twilightthebearded}
-@item 
-New extraponies: @file{twilight}
+New ponies: @file{cracky}, @file{cutiemarkcrusaders}, @file{firestreak},
+@file{hughjelly}, @file{lemonhearts}, @file{silverspeed}, @file{thunderlane},
+@file{timeturner}, @file{twilightthebearded},
 @item
-Pony symlink changed:
-@itemize @bullet
-@file{timeturner} no more is a simlink, now is timetirner pony.
-@file(dortor} and @file{doctornohat} moved to extraponies
-they mane is diferent fomr the TV.
-@item itemize
+New extraponies: @file{twilight} (Tumblr)
+@item
+@file{doctor} and @file{doctornohat} has become extraponies,
+because their mane style is differenct from in the TV show.
+And @file{timeturner} no longer links to any of them.
+@end itemize
+
 
 @heading Version 2.5.1
 

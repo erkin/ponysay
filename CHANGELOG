@@ -1,13 +1,13 @@
 Version 2.6
 
-	New ponies: Cracky (green dragon in 'dragon quest'), cutiemarkcrusaders, firestreak,
-		    hughjelly, lemonhearts, silverspeed, thunderlane,
-	            twilightthebearded
+	New ponies: cracky, cutiemarkcrusaders, firestreak, hughjelly, lemonhearts,
+	            silverspeed, thunderlane, timeturner, twilightthebearded
 
-	New extra ponies: twilight (version in surprise an fyrefly tumbr)
-	
-	Symlink changed: timeturner now is a fll idependant pony and no more point to a simlink
-			 doctor and doctornohat moved to extraponies, they mane differ from TV.
+	New extraponies: twilight (Tumblr)
+
+	doctor and doctornohat has become extraponies, because their mane style is
+	differenct from in the TV show. And timeturner no longer links to any of them.
+
 
 Version 2.5.1
 
