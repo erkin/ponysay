@@ -1704,9 +1704,17 @@ sequences.
 
 @itemize @bullet
 @item
-New ponies: @file{cutiemarkcrusaders}, @file{lemonhearts}, @file{silverspeed},
-@file{thunderlane}, @file{twilightthebearded}
-@end itemize
+New ponies: @file{cracky}, @file{cutiemarkcrusaders}, #file{hughjelly}, @file{lemonhearts},
+@file{silverspeed}, @file{thunderlane}, @file{twilightthebearded}
+@item 
+New extraponies: @file{twilight}
+@item
+Pony symlink changed:
+@itemize @bullet
+@file{timeturner} no more is a simlink, now is timetirner pony.
+@file(dortor} and @file{doctornohat} moved to extraponies
+they mane is diferent fomr the TV.
+@item itemize
 
 @heading Version 2.5.1
 
@@ -1852,6 +1860,7 @@ Make file is improved.
 New ponies: @file{forestspirit}, @file{hollydash}, @file{raggedy}, @file{rhyme}
 @item
 @file{sindy} is renamed to @file{powderrouge}.
+@item
 Pony symlink added:
 @itemize @bullet
 @item @file{sindy} → @file{powderrouge}
