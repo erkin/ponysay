@@ -98,6 +98,17 @@ no desea que la salida sea truncada para que calce en la terminal.
 .B PONYSAY_TRUNCATE_HEIGHT
 Exporte \fIPONYSAY_TRUNCATE_HEIGHT\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP, si
 desea truncar la salida en el largo aun si no se está dentro de una terminal \fIponysay\fP bajo TTY.
+
+.B PONYSAY_UCS_ME
+Exportar PONYSAY_UCS_ME con el valor yes, y o 1,
+Si es que busca 'simular enlaces simbólicos' a ponis usando 'Universal Character Set' (Set de caracteres universal)
+[UCS] apuntanto a sus nombres.
+.TP
+.B PONYSAY_KMS_PALETTE
+.B PONYSAY_KMS_PALETTE_CMD
+PONYSAY_KMS_PALETTE o PONYSAY_KMS_PALETTE_CMD es usado para llamar a
+ponysay usando la paleta TTY tal cual es, esto es usado para mostrar a las ponis usando la mejor calidad
+de colores posible si esta bajo TTY y si posee su video soporta 'Kernel Mode Seting' (KMS) y está activo.
 .SH BUGs
 .nf
 Los bugs pueden ser reportados en

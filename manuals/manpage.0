@@ -100,6 +100,17 @@ do not want the output to be truncated on the width to fit the terminal.
 .B PONYSAY_TRUNCATE_HEIGHT
 Export \fIPONYSAY_TRUNCATE_HEIGHT\fP with the value \fIyes\fP, \fIy\fP or \fI1\fP, if you
 want to truncate the output on the height even if you are not running \fIponysay\fP under TTY.
+.TP
+.B PONYSAY_UCS_ME
+Export PONYSAY_UCS_ME with the value yes, y or 1,
+if you want [simulated] symlink to pony files using Universal Character Set
+in their names.
+.TP
+.B PONYSAY_KMS_PALETTE
+.B PONYSAY_KMS_PALETTE_CMD
+PONYSAY_KMS_PALETTE or PONYSAY_KMS_PALETTE_CMD is used to tell
+ponysay how your TTY palette looks, this feature lets you get the best images
+in TTY if you have Kernel Mode Setting (KMS) support.
 .SH BUG
 Bugs can be reported in <\fBhttps://github.com/erkin/ponysay/issues\fP>.
 .SH SEE ALSO
