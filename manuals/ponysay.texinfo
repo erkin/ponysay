@@ -1704,11 +1704,20 @@ sequences.
 
 @itemize @bullet
 @item
-New ponies: @file{cracky}, @file{cutiemarkcrusaders}, @file{firestreak},
-@file{hughjelly}, @file{lemonhearts}, @file{silverspeed}, @file{thunderlane},
-@file{timeturner}, @file{twilightthebearded},
+New ponies: @file{applebloomdance}, @file{blueberrycake}, @file{cracky}, @file{cutiemarkcrusaders},
+@file{derpybags}, @file{derpycloud}, @file{firestreak}, @file{hughjelly}, @file{lemonhearts},
+@file{lyrabonbon}, @file{pictureperfect}, @file{quickfix}, @file{silverspeed}, 
+@file{rainbowhurricane}, @file{rainbowshadowbolt}, @file{silverspeed}, @file{surprise} (wonderbolt),
+@file{thunderlane}, @file{timeturner}, @file{twilightthebearded},
 @item
-New extraponies: @file{twilight} (Tumblr)
+New extraponies: @file{maria}, @file{twilight} (Tumblr)
+@item
+Pony symlink added:
+@itemize @bullet
+@item @file{bonbonlyra} → @file{lyrabonbon}
+@item @file{epona} → @file{quickfix}
+@item @file{clockwork} → @file{quickfix}
+@end itemize
 @item
 @file{doctor} and @file{doctornohat} has become extraponies,
 because their mane style is differenct from in the TV show.
