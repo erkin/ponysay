@@ -108,14 +108,14 @@ TTY.
 .B PONYSAY_UCS_ME
 Exportar \fIPONYSAY_UCS_ME\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP,
 Si es que busca 'simular enlaces simbólicos' a ponis usando 'Universal Character Set' (Set de
-caracteres universal) [UCS] apuntanto a sus nombres.
+caracteres universal) [UCS] apuntando a sus nombres.
 .TP
 .B PONYSAY_KMS_PALETTE
 .B PONYSAY_KMS_PALETTE_CMD
 \fIPONYSAY_KMS_PALETTE\fP o \fIPONYSAY_KMS_PALETTE_CMD\fP es usado para llamar a
 ponysay usando la paleta TTY tal cual es, esto es usado para mostrar a las ponis usando la mejor
-calidad de colores posible si esta bajo TTY y si posee su video soporta 'Kernel Mode Seting'
-(KMS) y está activo.
+calidad de colores posible si esta bajo TTY y si su video soporta 'Kernel Mode Seting'
+(KMS) y este está activo.
 .SH BUGs
 .nf
 Los bugs pueden ser reportados en
