@@ -1246,8 +1246,8 @@ class Backend():
                                 h = int(props[props.index(',') + 1:])
                             else:
                                 w = int(props)
-                        balloon = self.__getballoon(w, h, indent).split('\n')
-                        balloon = [AUTO_PUSH + item + AUTO_POP for item in balloon]
+                        balloon = self.__getballoon(w, h, indent)
+                        balloon = balloon.split('\n')
                         for b in balloon[0]:
                             self.output += b + colourstack.feed(b)
                         if lineindex == 0:
@@ -1507,45 +1507,33 @@ class ColourStack():
     '''
     def __init__(self, autopush, autopop):
         self.autopush = autopush
-        self.autopop = autopop
-        self.lenpush = len(autopush)
-        self.lenpop = len(autopop)
+        self.autopop  = autopop
+        self.lenpush  = len(autopush)
+        self.lenpop   = len(autopop)
         self.bufproto = ' ' * (self.lenpush if self.lenpush > self.lenpop else self.lenpop)
-        self.stack = []
+        self.stack    = []
         self.push()
-        self.seq = None
+        self.seq      = None
     
     
     def push(self):
         self.stack = [[self.bufproto, None, None, [False] * 9]] + self.stack
         if len(self.stack) == 1:
             return None
-        old = self.stack[1]
-        rc = '\033['
-        if old[1] is not None:  rc += '39;'
-        if old[2] is not None:  rc += '49;'
-        for i in range(0, 9):
-            if old[3][i]:
-                rc += '2%i;' % (i + 1)
-        return '' if len(rc) == 2 else (rc[:-1] + 'm')
+        return '\033[0m'
     
     
     def pop(self):
         old = self.stack[0]
         self.stack = self.stack[1:]
-        rc = '\033['
-        if old[1] is not None:  rc += '39;'
-        if old[2] is not None:  rc += '49;'
-        for i in range(0, 9):
-            if old[3][i]:
-                rc += str(i + 21) + ';'
+        rc = '\033[0;'
         new = self.stack[0]
         if new[1] is not None:  rc += new[1] + ';'
         if new[2] is not None:  rc += new[2] + ';'
         for i in range(0, 9):
             if new[3][i]:
                 rc += str(i + 1) + ';'
-        return '' if len(rc) == 2 else (rc[:-1] + 'm')
+        return rc[:-1] + 'm'
     
     
     def feed(self, char):
@@ -1580,8 +1568,8 @@ class ColourStack():
         buf = self.stack[0][0]
         buf = buf[1:] + char
         rc = ''
-        if buf[-self.lenpush:] == self.autopush:  rc = self.push()
-        elif buf[-self.lenpop:] == self.autopop:  rc = self.pop()
+        if   buf[-self.lenpush:] == self.autopush:  rc = self.push()
+        elif buf[-self.lenpop:]  == self.autopop:   rc = self.pop()
         self.stack[0][0] = buf
         return rc
 
