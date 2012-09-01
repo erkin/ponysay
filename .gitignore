@@ -1,0 +1,25 @@
+## Private workspace directory
+
+/_/
+
+
+## Backup files
+
+*~
+\#*\#
+.\#*
+*.swp
+*.bak
+
+
+## Compile files
+
+/completion/*-completion-think.*
+/manuals/manpage.*.gz
+/ponysay.info
+/ponysay.info.gz
+/truncater
+*.install
+/Makefile
+/quotes/
+
