@@ -39,7 +39,6 @@ ttyponies()
 pdfmanual()
 {
     texi2pdf "manuals/ponysay.texinfo"
-    git add  "manuals/ponysay.texinfo" "ponysay.pdf"
     for ext in `echo aux cp cps fn ky log pg toc tp vr`; do
 	if [ -f "ponysay.$ext" ]; then
 	    unlink "ponysay.$ext"
@@ -49,6 +48,7 @@ pdfmanual()
 	rm -r "ponysay.t2d";
     fi
     pdfjam --pagecolor 249,246,240 -o "ponysay.pdf" "ponysay.pdf"
+    git add  "manuals/ponysay.texinfo" "ponysay.pdf"
 }
 
 

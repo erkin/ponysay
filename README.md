@@ -9,9 +9,9 @@ Installation on GNU/Linux (or other Unix implementations)
 ---------------------------------------------------------
 
 [Download](/erkin/ponysay/downloads) or clone the project.
-In the terminal, `cd` into the ponysay directory and `./configure && make install`.
-You make need to be super user to run `make install`, on most systems this
-can be achieved by running `sudo make install`.
+In the terminal, `cd` into the ponysay directory and `./setup.py install` or `python3 setup.py install`.
+You may need to be super user to run `./setup.py install` without `--private`, on most systems this
+can be achieved by running `sudo ./setup.py install`.
 For more information we have provided you with an extensive [manual in PDF](https://github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true).
 
 In order to use ponysay, run:
@@ -26,7 +26,7 @@ Run `info ponysay`, `man 6 ponysay` or `ponysay -h` for more information.
 A Spanish manual is available: `man -L es 6 ponysay`.
 
 #### Arch Linux
-The package is in the official repositories as `community/ponysay`.
+The package is in the official repositories as `community/ponysay`, there is also a git version named `ponysay-git` in AUR.
 
 #### Gentoo Linux
 There is a package for Gentoo, to make installation and keeping it up to date easy. You can find it in [this overlay](/etu/aidstu-overlay). The package is named `games-misc/ponysay`.
@@ -80,7 +80,7 @@ Dependencies
 
 ### Required runtime dependencies
 
-`coreutils`: stty in coreutils used to determine size of the terminal
+`coreutils`: `stty` in coreutils used to determine size of the terminal
 
 `python>=3`: written in python 3
 
@@ -89,8 +89,6 @@ Dependencies
 `gzip`: used for compressing manuals (suppressable with `./configure --without-info-compression --without-man-compression`)
 
 `texinfo`: used for building info manual (suppressable with `./configure --without-info`)
-
-`info`: used for installing info manual to info's dir file (suppressable with `./configure --without-info-install`)
 
 `python>=3`: the installation process is written in python 3
 

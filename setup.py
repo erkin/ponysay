@@ -8,7 +8,7 @@ from subprocess import Popen, PIPE
 
 
 
-PONYSAY_VERSION = '2.5.1'
+PONYSAY_VERSION = '2.6'
 
 
 
@@ -67,68 +67,166 @@ class Setup():
         opts.add_argumented  (alternatives = ['---DESTDIR'], arg="DESTDIR")
         opts.add_argumented  (alternatives = ['---PREFIX'], arg="PREFIX")
         
-        opts.add_argumentless(help = 'Install everything that is not explicity excluded',                              alternatives = ['--everything', '--with-everything'])
-        opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depending on version',      alternatives = ['--minimal'])
-        opts.add_argumentless(help = 'Install nothing (except legal documents) that is not explicity included',        alternatives = ['--nothing', '--with-nothing'])
+        
+        opts.add_argumentless(help = 'Install everything that is not explicity excluded',
+                              alternatives = ['--everything', '--with-everything'])
+        
+        opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depending on version',
+                              alternatives = ['--minimal'])
+        
+        opts.add_argumentless(help = 'Install nothing (except legal documents) that is not explicity included',
+                              alternatives = ['--nothing', '--with-nothing'])
+        
         
         for command in commands:
-            opts.add_argumentless(help = 'Do not install the %s command' % (command),                                              alternatives = ['--without-' + command])
-            opts.add_argumented  (help = 'Install the %s command, and set file name\nDefualt = /usr/bin/%s' % (command, command),  alternatives = ['--with-' + command], arg='EXEC')
+            opts.add_argumentless(help = 'Do not install the %s command' % (command),
+                                  alternatives = ['--without-' + command, '--without-' + command + '-command'])
+            
+            opts.add_argumented  (help = 'Install the %s command, and set file name\nDefualt = /usr/bin/%s' % (command, command),
+                                  alternatives = ['--with-' + command, '--with-' + command + '-command'], arg='EXEC')
         
-        opts.add_argumentless(help = 'Do not install a user shared cache',                                             alternatives = ['--without-shared-cache'])
-        opts.add_argumented  (help = 'Install a user shared cache at CACHEDIR\nDefault = /var/cache/ponysay',          alternatives = [   '--with-shared-cache'], arg='CACHEDIR')
+        
+        opts.add_argumentless(help = 'Do not install a user shared cache',
+                              alternatives = ['--without-shared-cache'])
+        
+        opts.add_argumented  (help = 'Install a user shared cache at CACHEDIR\nDefault = /var/cache/ponysay',
+                              alternatives = [   '--with-shared-cache'], arg='CACHEDIR')
+        
         
         for shell in shells:
-            opts.add_argumentless(help = 'Do not install completion for ' + shell[2],                           alternatives = ['--without-' + shell[0]])
-            opts.add_argumented  (help = 'Set file name for the completion for ponysay in' + shell[2],          alternatives = [   '--with-' + shell[0]], arg='PONYSAY_%s_FILE' % (shell[0].upper()))
-        opts.add_argumentless(help = 'Only install explicitly included shell completions',                             alternatives = ['--without-shell'])
-        opts.add_argumented  (help = 'Set share/ directory used for shell completions\nDefault = $SHAREDIR',           alternatives = [   '--with-shell'], arg='SHAREDIR')
+            opts.add_argumentless(help = 'Do not install completion for ' + shell[2],
+                                  alternatives = ['--without-' + shell[0], '--without-' + shell[0] + '-completion'])
+            
+            opts.add_argumented  (help = 'Set file name for the completion for ponysay in' + shell[2],
+                                  alternatives = ['--with-' + shell[0], '--with-' + shell[0] + '-completion'], arg='PONYSAY_%s_FILE' % (shell[0].upper()))
         
-        opts.add_argumentless(help = 'Do not install PDF manual\nDefault',                                             alternatives = ['--without-pdf'])
-        opts.add_argumented  (help = 'Set directory for PDF manual\nDefault = $PREFIX/doc',                            alternatives = [   '--with-pdf'], arg='DOCDIR')
-        opts.add_argumentless(help = 'Do not compress PDF manual\nDefault',                                            alternatives = ['--without-pdf-compression'])
-        opts.add_argumented  (help = 'Select compression for PDF manual\nDefault = gz, xz is also recognised',         alternatives = [   '--with-pdf-compression'], arg='COMPRESSION')
-        opts.add_argumentless(help = 'Do not install info manual',                                                     alternatives = ['--without-info'])
-        opts.add_argumented  (help = 'Set directory for info manual\nDefault = $SHARE/info',                           alternatives = [   '--with-info'], arg='INFODIR')
-        opts.add_argumentless(help = 'Do not use install-info when installing info manual',                            alternatives = ['--without-info-install'])
-        opts.add_argumented  (help = 'Use install-info when installing info manual, and set description\nDefault',     alternatives = [   '--with-info-install'], arg='DESCRIPTION')
-        opts.add_argumentless(help = 'Do not compress info manual',                                                    alternatives = ['--without-info-compression'])
-        opts.add_argumented  (help = 'Select compression for info manual\nDefault = gz, xz is also recognised',        alternatives = [   '--with-info-compression'], arg='COMPRESSION')
+        
+        opts.add_argumentless(help = 'Only install explicitly included shell completions',
+                              alternatives = ['--without-shell' + '--without-shell-completion'])
+        
+        opts.add_argumented  (help = 'Set share/ directory used for shell completions\nDefault = $SHAREDIR',
+                              alternatives = ['--with-shell', '--with-shell-completion'], arg='SHAREDIR')
+        
+        
+        opts.add_argumentless(help = 'Do not install PDF manual\nDefault',
+                              alternatives = ['--without-pdf', '--without-pdf-manual'])
+        
+        opts.add_argumented  (help = 'Set directory for PDF manual\nDefault = $PREFIX/doc',
+                              alternatives = ['--with-pdf', '--with-pdf-manual'], arg='DOCDIR')
+        
+        opts.add_argumentless(help = 'Do not compress PDF manual\nDefault',
+                              alternatives = ['--without-pdf-compression', '--without-pdf-manual-compression'])
+        
+        opts.add_argumented  (help = 'Select compression for PDF manual\nDefault = gz, xz is also recognised',
+                              alternatives = ['--with-pdf-compression', '--with-pdf-manual-compression'], arg='COMPRESSION')
+        
+        opts.add_argumentless(help = 'Do not install info manual',
+                              alternatives = ['--without-info', '--without-info-manual'])
+        
+        opts.add_argumented  (help = 'Set directory for info manual\nDefault = $SHARE/info',
+                              alternatives = ['--with-info', '--with-info-manual'], arg='INFODIR')
+        
+        opts.add_argumentless(help = 'Do not use install-info when installing info manual',
+                              alternatives = ['--without-info-install', '--without-info-manual-install'])
+        
+        opts.add_argumented  (help = 'Use install-info when installing info manual, and set description\nDefault',
+                              alternatives = ['--with-info-install', '--with-info-manual-install'], arg='DESCRIPTION')
+        
+        opts.add_argumentless(help = 'Do not compress info manual',
+                              alternatives = ['--without-info-compression', '--without-info-manual-compression'])
+        
+        opts.add_argumented  (help = 'Select compression for info manual\nDefault = gz, xz is also recognised',
+                              alternatives = ['--with-info-compression', '--with-info-manual-compression'], arg='COMPRESSION')
+        
         
         for man in manpages:
-            opts.add_argumentless(help = 'Do not install %s manpage manual' % (man[1]),                                alternatives = ['--without-man-' + man[0]])
-            opts.add_argumented  (help = 'Set directory for %s manpage\nDefault = $SHARE/man' % (man[1]),              alternatives = [   '--with-man-' + man[0]], arg='MANDIR')
-        opts.add_argumentless(help = 'Do not install any manpages',                                                    alternatives = ['--without-man'])
-        opts.add_argumented  (help = 'Set directory for all man pages\nDefault = $SHARE/man',                          alternatives = [   '--with-man'], arg='MANDIR')
+            opts.add_argumentless(help = 'Do not install %s manpage manual' % (man[1]),
+                                  alternatives = ['--without-man-%s' % (man[0]), '--without-manpage-%s' % (man[0]), '--without-man-manual-%s' % (man[0]),
+                                                  '--without-%s-man' % (man[0]), '--without-%s-manpage' % (man[0]), '--without-%s-man-manual' % (man[0])])
+            
+            opts.add_argumented  (help = 'Set directory for %s manpage\nDefault = $SHARE/man' % (man[1]),
+                                  alternatives = ['--with-man-%s' % (man[0]), '--with-manpage-%s' % (man[0]), '--with-man-manual-%s' % (man[0]),
+                                                  '--with-%s-man' % (man[0]), '--with-%s-manpage' % (man[0]), '--with-%s-man-manual' % (man[0])], arg='MANDIR')
+        
+        
+        opts.add_argumentless(help = 'Do not install any manpages',
+                              alternatives = ['--without-man', '--without-manpage', '--without-man-manual'])
+        
+        opts.add_argumented  (help = 'Set directory for all man pages\nDefault = $SHARE/man',
+                              alternatives = ['--with-man', '--with-manpage', '--with-man-manual'], arg='MANDIR')
+        
         for man in manpages:
-            opts.add_argumentless(help = 'Do not compress %s manpage' % (man[1]),                                      alternatives = ['--without-man-%s-compression' % (man[0])])
+            opts.add_argumentless(help = 'Do not compress %s manpage' % (man[1]),
+                                  alternatives = ['--without-man-%s-compression' % (man[0]), '--without-manpage-%s-compression' % (man[0]), '--without-man-manual-%s-compression' % (man[0]),
+                                                  '--without-%s-man-compression' % (man[0]), '--without-%s-manpage-compression' % (man[0]), '--without-%s-man-manual-compression' % (man[0])])
+            
             opts.add_argumented  (help = 'Select compression for %s manpage\nDefault = gz, xz is also recognised' % (man[1]),
-                                                                                                                     alternatives = [   '--with-man-%s-compression' % (man[0])], arg='COMPRESSION')
-        opts.add_argumentless(help = 'Do not compress any installed manpage',                                          alternatives = ['--without-man-compression'])
-        opts.add_argumented  (help = 'Select compression for installed manpages\nDefault = gz, xz is also recognised', alternatives = [   '--with-man-compression'], arg='COMPRESSION')
+                                  alternatives = ['--with-man-%s-compression' % (man[0]), '--with-manpage-%s-compression' % (man[0]), '--with-man-manual-%s-compression' % (man[0]),
+                                                  '--with-%s-man-compression' % (man[0]), '--with-%s-manpage-compression' % (man[0]), '--with-%s-man-manual-compression' % (man[0])],
+                                  arg='COMPRESSION')
+        
+        opts.add_argumentless(help = 'Do not compress any installed manpage',
+                              alternatives = ['--without-man-compression', '--without-manpage-compression', '--without-man-manual-compression'])
+        
+        opts.add_argumented  (help = 'Select compression for installed manpages\nDefault = gz, xz is also recognised',
+                              alternatives = ['--with-man-compression', '--with-manpage-compression', '--with-man-manual-compression'], arg='COMPRESSION')
         
         for man in mansections:
-            opts.add_argumented  (help = 'Change the section for the %s manpage\nDefault = %s' % man,                  alternatives = ['--man-section-' + man[0]], arg='SECTION')
+            opts.add_argumented  (help = 'Change the section for the %s manpage\nDefault = %s' % man,
+                                  alternatives = ['--man-section-%s' % (man[0]), '--%s-manpage-section' % (man[0]),
+                                                  '--man-section-%s' % (man[0]), '--%s-manpage-section' % (man[0])], arg='SECTION')
+        
         
         for dir in sharedirs:
-            opts.add_argumentless(help = 'Do not install ' + dir[0],                                                   alternatives = ['--without-' + dir[0]])
-            opts.add_argumented  (help = 'Set directory for %s\nDefault = $SHAREDIR/ponysay/%s' % (dir[1], dir[0]),    alternatives = [   '--with-' + dir[0]], arg=dir[2])
-        opts.add_argumentless(help = 'Do not install UCS pony name map',                                               alternatives = ['--without-ucs'])
-        opts.add_argumented  (help = 'Set file for the UCS pony name map\nDefault = $SHAREDIR/ponysay/ucsmap',         alternatives = [   '--with-ucs'], arg='UCSFILE')
+            opts.add_argumentless(help = 'Do not install ' + dir[0],
+                                  alternatives = ['--without-' + dir[0]])
+            
+            opts.add_argumented  (help = 'Set directory for %s\nDefault = $SHAREDIR/ponysay/%s' % (dir[1], dir[0]),
+                                  alternatives = [   '--with-' + dir[0]], arg=dir[2])
         
-        opts.add_argumentless(help = 'Let the installer set the env name for python in ponysay\nDefault',                                 alternatives = ['--without-custom-env-python'])
-        opts.add_argumented  (help = 'Set the env name for python in ponysay',                                                            alternatives = ['--with-custom-env-python'], arg='PYTHON')
-        opts.add_argumented  (help = 'Set a prefix to all implicit directories\nDefault = /usr',                                          alternatives = ['--prefix'], arg='PREFIX')
-        opts.add_argumentless(help = 'Change all implicit configurations to fit local user a installation for the current user',          alternatives = ['--private'])
-        opts.add_argumentless(help = 'Change all implicit directories to fit installation to /opt',                                       alternatives = ['--opt'])
-        opts.add_argumented  (help = 'Set the system\'s directory for command executables\nDefault = $PREFIX/bin',                        alternatives = ['--bin-dir'], arg='BINDIR')
-        opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/lib/ponysay\nNot used.', alternatives = ['--lib-dir'], arg='LIBDIR')
-        opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',                           alternatives = ['--share-dir'], arg='SHAREDIR')
-        opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',                           alternatives = ['--cache-dir'], arg='CACHEDIR')
+        opts.add_argumentless(help = 'Do not install UCS pony name map',
+                              alternatives = ['--without-ucs', '--without-ucs-names'])
         
-        opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',                                            alternatives = ['--dest-dir'], arg='DESTDIR')
+        opts.add_argumented  (help = 'Set file for the UCS pony name map\nDefault = $SHAREDIR/ponysay/ucsmap',
+                              alternatives = ['--with-ucs', '--with-ucs-names'], arg='UCSFILE')
         
-        opts.add_argumented  (help = 'Set how to link identical files\nDefault = symbolic, copy and hard are also recognised',            alternatives = ['--linking'], arg='TYPE')
+        
+        opts.add_argumentless(help = 'Let the installer set the env name for python in ponysay\nDefault',
+                              alternatives = ['--without-custom-env-python'])
+        
+        opts.add_argumented  (help = 'Set the env name for python in ponysay',
+                              alternatives = ['--with-custom-env-python'], arg='PYTHON')
+        
+        
+        opts.add_argumented  (help = 'Set a prefix to all implicit directories\nDefault = /usr',
+                              alternatives = ['--prefix'], arg='PREFIX')
+        
+        opts.add_argumentless(help = 'Change all implicit configurations to fit local user a installation for the current user',
+                              alternatives = ['--private'])
+        
+        opts.add_argumentless(help = 'Change all implicit directories to fit installation to /opt',
+                              alternatives = ['--opt'])
+        
+        opts.add_argumented  (help = 'Set the system\'s directory for command executables\nDefault = $PREFIX/bin',
+                              alternatives = ['--bin-dir'], arg='BINDIR')
+        
+        opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/lib/ponysay\nNot used.',
+                              alternatives = ['--lib-dir'], arg='LIBDIR')
+        
+        opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',
+                              alternatives = ['--share-dir'], arg='SHAREDIR')
+        
+        opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',
+                              alternatives = ['--cache-dir'], arg='CACHEDIR')
+        
+        
+        opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',
+                              alternatives = ['--dest-dir'], arg='DESTDIR')
+        
+        
+        opts.add_argumented  (help = 'Set how to link identical files\nDefault = symbolic, copy and hard are also recognised',
+                              alternatives = ['--linking'], arg='TYPE')
+        
         
         
         opts.parse()
