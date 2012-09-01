@@ -102,7 +102,7 @@ class Setup():
         
         
         opts.add_argumentless(help = 'Only install explicitly included shell completions',
-                              alternatives = ['--without-shell' + '--without-shell-completion'])
+                              alternatives = ['--without-shell', '--without-shell-completion'])
         
         opts.add_argumented  (help = 'Set share/ directory used for shell completions\nDefault = $SHAREDIR',
                               alternatives = ['--with-shell', '--with-shell-completion'], arg='SHAREDIR')
@@ -459,11 +459,12 @@ class Setup():
                 ponies = [line for line in ponymap.read().decode('utf-8', 'replace').split('\n')]
                 for _ponies in ponies:
                     for pony in _ponies.split('+'):
-                        print('Generating quote files for \033[34m' + pony + '\033[39m')
-                        for file in os.listdir('ponyquotes'):
-                            if file.startswith(pony + '.'):
-                                if os.path.isfile('ponyquotes/' + file):
-                                    shutil.copy('ponyquotes/' + file, 'quotes/' + _ponies + file[file.find('.'):])
+                        if len(pony) > 0:
+                            print('Generating quote files for \033[34m' + pony + '\033[39m')
+                            for file in os.listdir('ponyquotes'):
+                                if file.startswith(pony + '.'):
+                                    if os.path.isfile('ponyquotes/' + file):
+                                        shutil.copy('ponyquotes/' + file, 'quotes/' + _ponies + file[file.find('.'):])
             finally:
                 if ponymap is not None:
                     ponymap.close()
