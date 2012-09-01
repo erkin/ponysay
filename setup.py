@@ -638,7 +638,8 @@ class Setup():
             for man in manpages:
                 if man is manpages[0]:  man = ''
                 else:                   man = '.' + man[0]
-                files.append('manuals/manpage' + man + '.0.' + comp)
+                for sec in range(0, 9):
+                    files.append('manuals/manpage%s.%s.%s' % (man, str(sec), comp))
         for shell in [item[0] for item in shells]:
             for command in commands:
                 files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
