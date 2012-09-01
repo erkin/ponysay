@@ -48,6 +48,7 @@ pdfmanual()
     if [ -d "ponysay.t2d" ]; then
 	rm -r "ponysay.t2d";
     fi
+    pdfjam --pagecolor 249,246,240 -o "ponysay.pdf" "ponysay.pdf"
 }
 
 
