@@ -1,13 +1,14 @@
 Version 2.6
 
-	New ponies: applebloomdance, blueberrycake, cracky, cutiemarkcrusaders, derpybags, derpycloud,
-		    firestreak, hughjelly, lemonhearts, lyrabonbon, pictureperfect, quickfix,
-		    rainbowhurricane, rainboshadowbolt, silverspeed, surprise (wonderbolt), thunderlane,
-		    timeturner, twilightthebearded
+	New ponies: applebloomdance, blueberrycake, cracky, cutiemarkcrusaders, derpybags,
+	            derpycloud, firestreak, hughjelly, lemonhearts, lyrabonbon, pictureperfect,
+	            quickfix, rainbowhurricane, rainboshadowbolt, silverspeed,
+	            surprise (wonderbolt), thunderlane, timeturner, twilightthebearded
 
 	New extraponies: maria (moonstuck, seapony), posey (tumbr), twilight (Tumblr)
 
-	Pony symlink added: (epona, clockwork) → quickfix
+	Pony symlink added: epona → quickfix
+	                    clockwork → quickfix
 			    bonbonlyra → lyrabonbon
 
 	doctor and doctornohat has become extraponies, because their mane style is

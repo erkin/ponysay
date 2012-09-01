@@ -33,14 +33,17 @@ ponysay \- Una reimplementación de cowsay usando ponis
 .\" TeX users may be more comfortable with the \fB<whatever>\fP and
 .\" \fI<whatever>\fP escape sequences to invode bold face and italics,
 .\" respectively.
-\fBponysay\fP muestra la imagen de un poni con un texto dado por el usuario, esto dentro de la terminal.
+\fBponysay\fP muestra la imagen de un poni con un texto dado por el usuario, esto dentro de la
+terminal.
 .br
 Si el \fImesaje\fP no es provisto, ponysay aceptará una orden estándar.
-El mensaje debería de tener alrededor de 40 columnas, y el o la poni devería de mostrar este mensaje
+El mensaje debería de tener alrededor de 40 columnas, y el o la poni devería de mostrar este
+mensaje
 en una salida estándar.
 .PP
-Si no se da ningún argumento, el programa solo aceptará mensajes estándares provistos por otros programas,
-un archivo, ambos o cadena de caracteres (vease man bash(1) para detalles de archivos y cadenas de caracteres.).
+Si no se da ningún argumento, el programa solo aceptará mensajes estándares provistos por otros
+programas, un archivo, ambos o cadena de caracteres (vease man bash(1) para detalles de archivos
+y cadenas de caracteres.)
 .PP
 \fBponythink\fP es a \fIponysay\fP como \fIcowthink\fP es a \fIcowsay\fP.
 .SH OPCIONES
@@ -65,31 +68,34 @@ Lista los ponis no pertenecientes a MLP:FiM disponibles.
 Lista los ponis no pertenecientes a MLP:FiM con nombres alternativos dentro de paréntesis.
 .TP
 .B \-f, \-\-file, \-\-pony \fInombre\fP
-Selecciona un poni específico (ya sea un archivo o el nombre directamente), puedes usar esta opción con múltiples ponis y de estos será elejído uno al azar.
+Selecciona un poni específico (ya sea un archivo o el nombre directamente), puedes usar esta
+opción con múltiples ponis y de estos será elejído uno al azar.
 .TP
 .B \-F, \+\+file, \+\+pony \fInombre\fP
-Selecciona un poni no pertenecientes a MLP:FiM (ya sea un archivo o el nombre directamente), puedes usar esta opción con múltiples ponis y de estos será elejído uno al azar.
+Selecciona un poni no pertenecientes a MLP:FiM (ya sea un archivo o el nombre directamente),
+puedes usar esta opción con múltiples ponis y de estos será elejído uno al azar.
 .TP
 .B \-q, \-\-quote [\fInombre\fP...]
 Usando esta opción un poni será mostrado dando una cita de My Little Pony: Frienship is magic
 (My Little Pony: La magia de la amistad). Este poni será seleccionado aleatoriamente salvo que
-uno o varios ponis sean agregados tras la opción \fI-q\fP, en cuyo caso se seleccionará aleatoriamente uno 
-de este conjunto.
+uno o varios ponis sean agregados tras la opción \fI-q\fP, en cuyo caso se seleccionará
+aleatoriamente uno de este conjunto.
 .TP
 .B \-W, \-\-wrap \fIcolumna\fP
 El numero de columnas en el que será impreso el mensaje.
 .SH ENTORNO
 .TP
 .B PONYSAY_BOTTOM
-Bajo TTY (Linux VT), si la imagen es mas larga que la anchura de la terminal en pantalla, solo el inicio de esta
+Bajo TTY (Linux VT), si la imagen es mas larga que la anchura de la terminal en pantalla, solo el
+inicio de esta
 es impreso, dejando solo dos líneas blancas. si desea que apesar de todo sea impreso el fondo del
 inicio puede exportar \fIPONYSAY_BOTTOM\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP.
 .TP
 .B PONYSAY_SHELL_LINES
-Bajo TTY (Linux VT), si la imagen es mas larga que la anchura de la terminal en pantalla, solo dos líneas blancas
-serán impresas. si desea más o menos lineas blancas, puede exportar \fIPONYSAY_SHELL_LINES\fP con
-el valor de cuantas líneas blancas desea. Naturalmente esto solo tomará efecto si la salida no es mas
-larga que la pantalla.
+Bajo TTY (Linux VT), si la imagen es mas larga que la anchura de la terminal en pantalla, solo dos
+líneas blancas serán impresas. si desea más o menos lineas blancas, puede exportar
+\fIPONYSAY_SHELL_LINES\fP con el valor de cuantas líneas blancas desea. Naturalmente esto solo
+tomará efecto si la salida no es mas larga que la pantalla.
 .TP
 .B PONYSAY_FULL_WIDTH
 Puede exportar \fIPONYSAY_FULL_WIDTH\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP, si usted
@@ -97,18 +103,19 @@ no desea que la salida sea truncada para que calce en la terminal.
 .TP
 .B PONYSAY_TRUNCATE_HEIGHT
 Exporte \fIPONYSAY_TRUNCATE_HEIGHT\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP, si
-desea truncar la salida en el largo aun si no se está dentro de una terminal \fIponysay\fP bajo TTY.
-
+desea truncar la salida en el largo aun si no se está dentro de una terminal \fIponysay\fP bajo
+TTY.
 .B PONYSAY_UCS_ME
-Exportar PONYSAY_UCS_ME con el valor yes, y o 1,
-Si es que busca 'simular enlaces simbólicos' a ponis usando 'Universal Character Set' (Set de caracteres universal)
-[UCS] apuntanto a sus nombres.
+Exportar \fIPONYSAY_UCS_ME\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP,
+Si es que busca 'simular enlaces simbólicos' a ponis usando 'Universal Character Set' (Set de
+caracteres universal) [UCS] apuntanto a sus nombres.
 .TP
 .B PONYSAY_KMS_PALETTE
 .B PONYSAY_KMS_PALETTE_CMD
-PONYSAY_KMS_PALETTE o PONYSAY_KMS_PALETTE_CMD es usado para llamar a
-ponysay usando la paleta TTY tal cual es, esto es usado para mostrar a las ponis usando la mejor calidad
-de colores posible si esta bajo TTY y si posee su video soporta 'Kernel Mode Seting' (KMS) y está activo.
+\fIPONYSAY_KMS_PALETTE\fP o \fIPONYSAY_KMS_PALETTE_CMD\fP es usado para llamar a
+ponysay usando la paleta TTY tal cual es, esto es usado para mostrar a las ponis usando la mejor
+calidad de colores posible si esta bajo TTY y si posee su video soporta 'Kernel Mode Seting'
+(KMS) y está activo.
 .SH BUGs
 .nf
 Los bugs pueden ser reportados en
