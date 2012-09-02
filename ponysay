@@ -211,7 +211,7 @@ class Ponysay():
         
         pony = names[random.randrange(0, len(names))]
         if pony not in ponies:
-            sys.stderr.write('I have never heared of any pony named %s\n' % (pony));
+            sys.stderr.write('I have never heard of anypony named %s\n' % (pony));
             exit(1)
         else:
             return ponies[pony]
