@@ -1821,14 +1821,15 @@ sequences.
 
 @itemize @bullet
 @item
-New ponies: @file{applebloomdance}, @file{blueberrycake}, @file{cracky},
-@file{cutiemarkcrusaders}, @file{derpybags}, @file{derpycloud}, @file{firestreak},
-@file{hughjelly}, @file{lemonhearts}, @file{lyrabonbon}, @file{pictureperfect}, @file{quickfix},
-@file{silverspeed}, @file{rainbowhurricane}, @file{rainbowshadowbolt}, @file{silverspeed},
-@file{surprise} (wonderbolt), @file{thunderlane}, @file{timeturner}, @file{twilightthebearded}
+New ponies: @file{applebloomdance}, @file{blueberry}, @file{blueberrycake}, @file{blueharvest},
+@file{cracky}, @file{cutiemarkcrusaders}, @file{derpybags}, @file{derpycloud}, @file{firestreak},
+@file{hughjelly}, @file{lemonhearts}, @file{lyrabonbon}, @file{noi}, @file{pictureperfect},
+@file{poppycock}, @file{quickfix}, @file{silverspeed}, @file{rainbowhurricane},
+@file{rainbowshadowbolt}, @file{silverspeed}, @file{surprise} (wonderbolt),
+@file{thunderlane}, @file{timeturner}, @file{twilightthebearded}
 @item
-New extraponies: @file{maria} (moonstuck, seapony), @file{posey} (Tumblr),
-@file{sparkler} (Tumblr), @file{twilight} (Tumblr)
+New extraponies: @file{faust} (Alicorn), @file{maria} (moonstuck, seapony), @file{posey} (Tumblr),
+@file{slanderpony}, @file{sparkler} (Tumblr), @file{twilight} (Tumblr)
 @item
 Pony symlink added:
 @itemize @bullet
