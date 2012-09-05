@@ -1828,7 +1828,7 @@ New ponies: @file{applebloomdance}, @file{blueberry}, @file{blueberrycake}, @fil
 @file{rainbowshadowbolt}, @file{silverspeed}, @file{surprise} (wonderbolt),
 @file{thunderlane}, @file{timeturner}, @file{twilightthebearded}
 @item
-New extraponies: @file{faust} (Alicorn), @file{maria} (moonstuck, seapony), @file{posey} (Tumblr),
+New extraponies: @file{faust} (alicorn), @file{maria} (Moonstuck, seapony), @file{posey} (Tumblr),
 @file{slanderpony}, @file{sparkler} (Tumblr), @file{twilight} (Tumblr)
 @item
 Pony symlink added:
