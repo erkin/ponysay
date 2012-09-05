@@ -1836,6 +1836,7 @@ Pony symlink added:
 @item @file{bonbonlyra} → @file{lyrabonbon}
 @item @file{epona} → @file{quickfix}
 @item @file{clockwork} → @file{quickfix}
+@item @file{lotusbloosom} → @file{lotus}
 @end itemize
 @item
 @file{doctor} and @file{doctornohat} has become extraponies,
