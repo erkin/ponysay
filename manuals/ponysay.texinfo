@@ -1828,15 +1828,15 @@ New ponies: @file{applebloomdance}, @file{blueberry}, @file{blueberrycake}, @fil
 @file{rainbowshadowbolt}, @file{silverspeed}, @file{surprise} (wonderbolt),
 @file{thunderlane}, @file{timeturner}, @file{twilightthebearded}
 @item
-New extraponies: @file{faust} (Alicorn), @file{maria} (moonstuck, seapony), @file{posey} (Tumblr),
+New extraponies: @file{faust} (alicorn), @file{maria} (Moonstuck, seapony), @file{posey} (Tumblr),
 @file{slanderpony}, @file{sparkler} (Tumblr), @file{twilight} (Tumblr)
 @item
 Pony symlink added:
 @itemize @bullet
-@item @file{bonbonlyra} → @file{lyrabonbon}
-@item @file{epona} → @file{quickfix}
-@item @file{clockwork} → @file{quickfix}
-@item @file{lotusbloosom} → @file{lotus}
+@item @file{bonbonlyra} @arrow{} @file{lyrabonbon}
+@item @file{epona} @arrow{} @file{quickfix}
+@item @file{clockwork} @arrow{} @file{quickfix}
+@item @file{lotusbloosom} @arrow{} @file{lotus}
 @end itemize
 @item
 @file{doctor} and @file{doctornohat} has become extraponies,
@@ -1898,7 +1898,7 @@ New extraponies: @file{fyrefly} (Tumblr), @file{surprise} (Tumblr), @file{woona}
 @item
 Pony symlink added:
 @itemize @bullet
-@item @file{pinkieoink} → @file{oinkoinkoink}
+@item @file{pinkieoink} @arrow{} @file{oinkoinkoink}
 @end itemize
 @item
 Support for non-MLP:FiM ponies (known as extraponies).
@@ -1994,7 +1994,7 @@ New ponies: @file{forestspirit}, @file{hollydash}, @file{raggedy}, @file{rhyme}
 @item
 Pony symlink added:
 @itemize @bullet
-@item @file{sindy} → @file{powderrouge}
+@item @file{sindy} @arrow{} @file{powderrouge}
 @end itemize
 @item
 @option{PREFIX=/some-dir} can be used when invoking @command{make},
@@ -2012,8 +2012,8 @@ Support for extension: kmsponies4ponysay.
 @item
 Pony symlinks added:
 @itemize @bullet
-@item @file{mrsparkle} → @file{nightlight}
-@item @file{elsie} → @file{prettyvision}
+@item @file{mrsparkle} @arrow{} @file{nightlight}
+@item @file{elsie} @arrow{} @file{prettyvision}
 @end itemize
 @item
 New ponies: @file{ace}, @file{blueblood}, @file{filthyrich}, @file{gingergold},
@@ -2052,13 +2052,13 @@ main script.
 @item
 Pony symlinks added:
 @itemize @bullet
-@item @file{amethyststar} → @file{sparkler}
-@item @file{berrypinch} → @file{ruby}
-@item @file{craftycrate} → @file{boxxy}
-@item @file{magnum} → @file{raritysdad}
-@item @file{pearl} → @file{raritysmom}
-@item @file{powderrouge} → @file{sindy}
-@item @file{royalribbo} → @file{violet}
+@item @file{amethyststar} @arrow{} @file{sparkler}
+@item @file{berrypinch} @arrow{} @file{ruby}
+@item @file{craftycrate} @arrow{} @file{boxxy}
+@item @file{magnum} @arrow{} @file{raritysdad}
+@item @file{pearl} @arrow{} @file{raritysmom}
+@item @file{powderrouge} @arrow{} @file{sindy}
+@item @file{royalribbo} @arrow{} @file{violet}
 @end itemize
 @item
 @w{New ponies:} @file{blossomforth}, @file{bonvoyage}, @file{cadance},
@@ -2069,7 +2069,7 @@ Pony symlinks added:
 @item
 Pony spelling removed: @file{fillycadence}.
 @item
-Pony symlink change: @file{perry} → @{@file{pokey} → @file{perrypierce}@}.
+Pony symlink change: @file{perry} @arrow{} @{@file{pokey} @arrow{} @file{perrypierce}@}.
 @item
 @cindex @option{-L}
 Option @option{-L} added, lists ponies with symlink mapping.
@@ -2103,9 +2103,9 @@ Spanish translation of the manpage is added.
 @item
 Pony symlinks added:
 @itemize @bullet
-@item @file{djpon-3} → @file{vinyl}
-@item @file{fillycadance} → @file{fillycadence}
-@item @file{horsepower} → @file{snowflake}
+@item @file{djpon-3} @arrow{} @file{vinyl}
+@item @file{fillycadance} @arrow{} @file{fillycadence}
+@item @file{horsepower} @arrow{} @file{snowflake}
 @end itemize
 @item
 Improved TTY support: ponies have low colours resolution, instead of monochrome,
@@ -2124,18 +2124,18 @@ The directories for pony directories are changed from @file{/usr/share} to
 @item
 Pony symlinks added:
 @itemize @bullet
-@item @file{carrottop} → @file{carrot}
-@item @file{goldenharvest} → @file{carrot}
-@item @file{harpass} → @file{lyra}
-@item @file{heartstrings} → @file{lyra}
-@item @file{lulamoon} → @file{trixie}
-@item @file{minuette} → @file{colgate}
-@item @file{noteworthy} → @file{blues}
-@item @file{perry} → @file{pokey}
-@item @file{pokeypierce} → @file{pokey}
-@item @file{timeturner} → @file{doctornohat}
-@item @file{trixielulamoon} → @file{trixie}
-@item @file{twilightvelvet} → @file{mrssparkle}
+@item @file{carrottop} @arrow{} @file{carrot}
+@item @file{goldenharvest} @arrow{} @file{carrot}
+@item @file{harpass} @arrow{} @file{lyra}
+@item @file{heartstrings} @arrow{} @file{lyra}
+@item @file{lulamoon} @arrow{} @file{trixie}
+@item @file{minuette} @arrow{} @file{colgate}
+@item @file{noteworthy} @arrow{} @file{blues}
+@item @file{perry} @arrow{} @file{pokey}
+@item @file{pokeypierce} @arrow{} @file{pokey}
+@item @file{timeturner} @arrow{} @file{doctornohat}
+@item @file{trixielulamoon} @arrow{} @file{trixie}
+@item @file{twilightvelvet} @arrow{} @file{mrssparkle}
 @end itemize
 @item
 Support for truncating output on height, enabled by default under TTY.
