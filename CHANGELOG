@@ -1,12 +1,13 @@
 Version 2.6
 
-	New ponies: applebloomdance, blueberry, blueberrycake, blueharvest, cracky, cutiemarkcrusaders,
-	            derpybags, derpycloud, firestreak, hughjelly, lemonhearts, lyrabonbon,
-	            noi, pictureperfect, poppycock, quickfix, rainbowhurricane, rainboshadowbolt,
-	            silverspeed, surprise (wonderbolt), thunderlane, timeturner, twilightthebearded
+	New ponies: applebloomdance, blueberry, blueberrycake, blueharvest, candylicious, 
+	            cherrycola, cracky, cutiemarkcrusaders, derpybags, derpycloud, firestreak,
+	            hughjelly, lemonhearts, lyrabonbon, noi, pictureperfect, pigpen,
+	            poppycock, quickfix, rainbowhurricane, rainboshadowbolt, silverspeed,
+	            surprise (wonderbolt), thunderlane, timeturner, twilightthebearded
 
-	New extraponies: faust (Alicorn), maria (moonstuck, seapony), posey (tumblr),
-			 slanterpony (Various tumblr), sparkler (tumblr), twilight (Tumblr)
+	New extraponies: faust (alicorn), maria (Moonstuck, seapony), posey (Tumblr),
+			 slanderpony (Various tumblr), sparkler (Tumblr), twilight (Tumblr)
 
 	Pony symlink added: epona → quickfix
 	                    clockwork → quickfix
@@ -57,8 +58,8 @@ Version 2.3
 
 	New ponies: blaze
 
-	New extraponies: fyrefly (Tumblr), surprise (Tumblr), woona (moonstuck),
-	                 woonanohat (moonstuck)
+	New extraponies: fyrefly (Tumblr), surprise (Tumblr), woona (Moonstuck),
+	                 woonanohat (Moonstuck)
 
 	Pony symlink added: pinkieoink → oinkoinkoink
 

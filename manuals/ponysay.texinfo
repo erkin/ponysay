@@ -1822,11 +1822,11 @@ sequences.
 @itemize @bullet
 @item
 New ponies: @file{applebloomdance}, @file{blueberry}, @file{blueberrycake}, @file{blueharvest},
-@file{cracky}, @file{cutiemarkcrusaders}, @file{derpybags}, @file{derpycloud}, @file{firestreak},
-@file{hughjelly}, @file{lemonhearts}, @file{lyrabonbon}, @file{noi}, @file{pictureperfect},
-@file{poppycock}, @file{quickfix}, @file{silverspeed}, @file{rainbowhurricane},
-@file{rainbowshadowbolt}, @file{silverspeed}, @file{surprise} (wonderbolt),
-@file{thunderlane}, @file{timeturner}, @file{twilightthebearded}
+@file{candylicious}, @file{cherrycola}, @file{cracky}, @file{cutiemarkcrusaders},
+@file{derpybags}, @file{derpycloud}, @file{firestreak}, @file{hughjelly}, @file{lemonhearts},
+@file{lyrabonbon}, @file{noi}, @file{pictureperfect}, @file{poppycock}, @file{quickfix},
+@file{silverspeed}, @file{rainbowhurricane}, @file{rainbowshadowbolt}, @file{silverspeed},
+@file{surprise} (wonderbolt), @file{thunderlane}, @file{timeturner}, @file{twilightthebearded}
 @item
 New extraponies: @file{faust} (alicorn), @file{maria} (Moonstuck, seapony), @file{posey} (Tumblr),
 @file{slanderpony}, @file{sparkler} (Tumblr), @file{twilight} (Tumblr)
