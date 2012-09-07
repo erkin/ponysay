@@ -1836,6 +1836,7 @@ Pony symlink added:
 @item @file{bonbonlyra} @arrow{} @file{lyrabonbon}
 @item @file{epona} @arrow{} @file{quickfix}
 @item @file{clockwork} @arrow{} @file{quickfix}
+@item @file{drhooves} @arrow{} @file{timeturner}
 @item @file{lotusbloosom} @arrow{} @file{lotus}
 @end itemize
 @item
