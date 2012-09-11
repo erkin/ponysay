@@ -705,7 +705,7 @@ class Setup():
                 print('Creating symbolic link %s with target directory %s' % (dest, target))
                 if os.path.exists(dest):
                     self.removeLists([], [dest])
-                os.symlink(target, dest)
+                self.symlink(target, dest)
         if os.path.islink(source) and (self.linking != COPY) and os.path.isfile(os.path.realpath(source)):
             target = os.readlink(source)
             if self.linking == HARD:
@@ -718,13 +718,13 @@ class Setup():
                         os.link(mytarget, dest)
                     else:
                         print('\033[31mTarget did not exists, using symlink instead\033[39m')
-                        os.symlink(target, dest)
+                        self.symlink(target, dest)
             else:
                 for dest in destinations:
                     print('Creating symbolic link %s with target file %s' % (dest, target))
                     if os.path.exists(dest):
                         self.removeLists([], [dest])
-                    os.symlink(target, dest)
+                    self.symlink(target, dest)
         for dest in destinations:
             dir = dest[:dest.rfind('/') + 1]
             if not os.path.exists(dir):
@@ -750,7 +750,7 @@ class Setup():
                     print('Creating symbolic link %s with target directory %s' % (dest, target))
                     if os.path.exists(dest):
                         self.removeLists([], [dest])
-                    os.symlink(target, dest)
+                    self.symlink(target, dest)
         else:
             target = destinations[0]
             for dest in destinations if self.linking == COPY else [target]:
@@ -767,7 +767,32 @@ class Setup():
                     print('Creating symbolic link %s with target file %s' % (dest, target))
                     if os.path.exists(dest):
                         os.unlink(dest)
-                    os.symlink(target, dest)
+                    self.symlink(target, dest)
+    
+    
+    '''
+    Create a symlink with a relative path
+    '''
+    def symlink(self, target, dest):
+        if target.startswith('./') or target.startswith('../'):
+            os.symlink(target, dest)
+        elif '/' not in target:
+            os.symlink('./' + target, dest)
+        else:
+            targets = target.split('/')
+            dests = dest.split('/')
+            
+            while (len(targets) > 1) and (len(target) > 1) and (targets[0] == dests[0]):
+                targets = targets[1:]
+                dests = dests[1:]
+                
+            if (len(dests) == 1):
+                targets = ['.'] + targets
+            else:
+                targets = (['..'] * (len(dests) - 1)) + targets
+            
+            print('>>>  ' + str(targets) + '  ->  ' + dest)
+            os.symlink('/'.join(targets), dest)
     
     
     '''
