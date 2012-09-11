@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.6
+@set VERSION 2.7
 
 @copying
 This manual is for ponysay
@@ -1816,6 +1816,16 @@ sequences.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 2.7
+@item
+New ponies: @file{basil}, @file{cloudkicker}, @file{flowertrio}, @file{frederickhorseshoepin},
+@file{joe}, @file{meadownsong}, @file{seaswirl}
+@item
+New extraponies: @file{drhooves1}, @file{drhooves2}, @file{drhooves3}, @file{drhooves4},
+@file{drhooves5}, @file{drhooves6}, @file{drhooves7}, @file{drhooves8}, @file{drhooves9},
+@file{drhooves10}, @file{drhooves11}
+@end itemize
 
 @heading Version 2.6
 
