@@ -28,6 +28,9 @@ A Spanish manual is available: `man -L es 6 ponysay`.
 #### Arch Linux
 The package is in the official repositories as `community/ponysay`, there is also a git version named `ponysay-git` in AUR.
 
+#### Chakra GNU/Linux
+Bleeding edge version of the package is available as `ponysay-git` in CCR.
+
 #### Gentoo Linux
 There is a package for Gentoo, to make installation and keeping it up to date easy. You can find it in [this overlay](/etu/aidstu-overlay). The package is named `games-misc/ponysay`.
 
