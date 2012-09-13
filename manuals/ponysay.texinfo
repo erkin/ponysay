@@ -1160,6 +1160,7 @@ before building and installing.
 
 @menu
 * Arch Linux::                  Packages for Arch Linux.
+* Chakra GNU/Linux::            Packages for Chakra GNU/Linux.
 * Gentoo Linux::                Packages for Gentoo Linux.
 * Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
 @end menu
@@ -1172,6 +1173,14 @@ before building and installing.
 The official Arch Linux package repositories contains @command{ponysay} as
 @w{@code{community/ponysay}}. The Arch Linux User Repository (AUR) contains a
 bleeding edge git version of @command{ponysay} as @code{ponysay-git}.
+
+
+@node Chakra Linux
+@subsection Chakra GNU/Linux
+@cindex chakra gnu/linux
+
+Chakra users can install a git verion of ponysay from Chakra Community
+Repository (CCR) named @code{ponysay-git}.
 
 
 @node Gentoo Linux
@@ -1818,6 +1827,7 @@ sequences.
 @cindex previous releases
 
 @heading Version 2.7
+@itemize @bullet
 @item
 New ponies: @file{basil}, @file{cloudkicker}, @file{flowertrio}, @file{frederickhorseshoepin},
 @file{joe}, @file{meadownsong}, @file{seaswirl}
