@@ -782,7 +782,7 @@ class Setup():
             targets = target.split('/')
             dests = dest.split('/')
             
-            while (len(targets) > 1) and (len(target) > 1) and (targets[0] == dests[0]):
+            while (len(targets) > 1) and (len(dests) > 1) and (targets[0] == dests[0]):
                 targets = targets[1:]
                 dests = dests[1:]
                 
