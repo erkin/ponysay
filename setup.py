@@ -791,7 +791,6 @@ class Setup():
             else:
                 targets = (['..'] * (len(dests) - 1)) + targets
             
-            print('>>>  ' + str(targets) + '  ->  ' + dest)
             os.symlink('/'.join(targets), dest)
     
     
