@@ -1835,9 +1835,10 @@ New ponies: @file{basil}, @file{cloudkicker}, @file{derpysad}, @file{flowertrio}
 @file{pinkiegummydisguise}, @file{seaswirl}, @file{theodoredonaldkerabatsos},
 @file{turf}, @file{waltercoltchak}
 @item
-New extraponies: @file{drhooves1}, @file{drhooves2}, @file{drhooves3}, @file{drhooves4},
-@file{drhooves5}, @file{drhooves6}, @file{drhooves7}, @file{drhooves8}, @file{drhooves9},
-@file{drhooves10}, @file{drhooves11}, @file{blueballblitz} (Varous fanfics, Shadowbolt)
+New extraponies: @file{blueballblitz} (Varous fanfics, Shadowbolt), @file{drhooves1},
+@file{drhooves2}, @file{drhooves3}, @file{drhooves4}, @file{drhooves5},
+@file{drhooves6}, @file{drhooves7}, @file{drhooves8}, @file{drhooves9}, @file{drhooves10},
+@file{drhooves11}, @file{pinkaminacupcake} (Fanfic)
 @end itemize
 
 @heading Version 2.6
