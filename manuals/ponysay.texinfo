@@ -1829,12 +1829,15 @@ sequences.
 @heading Version 2.7
 @itemize @bullet
 @item
-New ponies: @file{basil}, @file{cloudkicker}, @file{flowertrio}, @file{frederickhorseshoepin},
-@file{joe}, @file{meadownsong}, @file{seaswirl}
+New ponies: @file{basil}, @file{cloudkicker}, @file{derpysad}, @file{flowertrio},
+@file{frederickhorseshoepin}, @file{jeffletroski}, @file{jesuspezuna}, @file{joe},
+@file{joetuxedo}, @file{kerberos}, @file{manticore}, @file{meadownsong}, 
+@file{pinkiegummydisguise}, @file{seaswirl}, @file{theodoredonaldkerabatsos},
+@file{turf}, @file{waltercoltchak}
 @item
 New extraponies: @file{drhooves1}, @file{drhooves2}, @file{drhooves3}, @file{drhooves4},
 @file{drhooves5}, @file{drhooves6}, @file{drhooves7}, @file{drhooves8}, @file{drhooves9},
-@file{drhooves10}, @file{drhooves11}
+@file{drhooves10}, @file{drhooves11}, @file{blueballblitz} (Varous fanfics, Shadowbolt)
 @end itemize
 
 @heading Version 2.6
