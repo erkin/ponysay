@@ -1179,8 +1179,8 @@ bleeding edge git version of @command{ponysay} as @code{ponysay-git}.
 @subsection Chakra GNU/Linux
 @cindex chakra gnu/linux
 
-Chakra users can install a git verion of ponysay from Chakra Community
-Repository (CCR) named @code{ponysay-git}.
+Chakra users can install from (CCR) a stable version named a @code{ponysay}
+optionaly a git verion of ponysay is available as @code{ponysay-git}.
 
 
 @node Gentoo Linux
