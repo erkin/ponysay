@@ -1175,7 +1175,7 @@ The official Arch Linux package repositories contains @command{ponysay} as
 bleeding edge git version of @command{ponysay} as @code{ponysay-git}.
 
 
-@node Chakra Linux
+@node Chakra GNU/Linux
 @subsection Chakra GNU/Linux
 @cindex chakra gnu/linux
 
