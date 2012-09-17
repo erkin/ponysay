@@ -1160,7 +1160,7 @@ before building and installing.
 
 @menu
 * Arch Linux::                  Packages for Arch Linux.
-* Chakra GNU/Linux::            Packages for Chakra GNU/Linux.
+* Chakra::                      Packages for Chakra.
 * Gentoo Linux::                Packages for Gentoo Linux.
 * Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
 @end menu
@@ -1175,12 +1175,12 @@ The official Arch Linux package repositories contains @command{ponysay} as
 bleeding edge git version of @command{ponysay} as @code{ponysay-git}.
 
 
-@node Chakra GNU/Linux
-@subsection Chakra GNU/Linux
-@cindex chakra gnu/linux
+@node Chakra
+@subsection Chakra
+@cindex chakra
 
-Chakra users can install from (CCR) a stable version named a @code{ponysay}
-optionaly a git verion of ponysay is available as @code{ponysay-git}.
+Chakra users can install from (CCR) a stable version named a @code{ponysay},
+additionally a git verion of ponysay is available as @code{ponysay-git}.
 
 
 @node Gentoo Linux
