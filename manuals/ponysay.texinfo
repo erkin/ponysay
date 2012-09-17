@@ -1160,7 +1160,7 @@ before building and installing.
 
 @menu
 * Arch Linux::                  Packages for Arch Linux.
-* Chakra GNU/Linux::            Packages for Chakra GNU/Linux.
+* Chakra::                      Packages for Chakra.
 * Gentoo Linux::                Packages for Gentoo Linux.
 * Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
 @end menu
@@ -1175,12 +1175,12 @@ The official Arch Linux package repositories contains @command{ponysay} as
 bleeding edge git version of @command{ponysay} as @code{ponysay-git}.
 
 
-@node Chakra Linux
-@subsection Chakra GNU/Linux
-@cindex chakra gnu/linux
+@node Chakra
+@subsection Chakra
+@cindex chakra
 
-Chakra users can install from (CCR) a stable version named a @code{ponysay}
-optionaly a git verion of ponysay is available as @code{ponysay-git}.
+Chakra users can install from (CCR) a stable version named a @code{ponysay},
+additionally a git verion of ponysay is available as @code{ponysay-git}.
 
 
 @node Gentoo Linux
@@ -1836,10 +1836,14 @@ New ponies: @file{basil}, @file{cloudkicker}, @file{derpysad}, @file{flowertrio}
 @file{turf}, @file{waltercoltchak}
 @item
 New extraponies: @file{blueballblitz} (Varous fanfics, Shadowbolt), @file{drhooves1},
-@file{drhooves2}, @file{drhooves3}, @file{drhooves4}, @file{drhooves5},
-@file{drhooves6}, @file{drhooves7}, @file{drhooves8}, @file{drhooves9}, @file{drhooves10},
-@file{drhooves11}, @file{pinkaminacupcake} (Fanfic)
+@file{drhooves2}, @file{drhooves3}, @file{drhooves4}, @file{drhooves5}, @file{drhooves6},
+@file{drhooves7}, @file{drhooves8}, @file{drhooves9}, @file{drhooves10}, @file{drhooves11},
+@file{nyx} (Fanfic: Past Sins), @file{nyxdisguised} (Fanfic: Past Sins),
+@file{pinkaminacupcake} (Fanfic)
+@item
+@file{cracky} is renamed to @file{crackle}.
 @end itemize
+
 
 @heading Version 2.6
 

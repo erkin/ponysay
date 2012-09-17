@@ -28,7 +28,7 @@ A Spanish manual is available: `man -L es 6 ponysay`.
 #### Arch Linux
 The package is in the official repositories as `community/ponysay`, there is also a git version named `ponysay-git` in AUR.
 
-#### Chakra GNU/Linux
+#### Chakra
 A git version of the package is available as `ponysay-git` in CCR, alongside a stable package as `ponysay`.
 
 #### Gentoo Linux
