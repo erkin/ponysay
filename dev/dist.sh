@@ -39,7 +39,7 @@ ttyponies()
 pdfmanual()
 {
     texi2pdf "manuals/ponysay.texinfo"
-    for ext in `echo aux cp cps fn ky log pg toc tp vr bak`; do
+    for ext in `echo aux cp cps fn ky log pg toc tp vr op ops bak`; do
 	if [ -f "ponysay.$ext" ]; then
 	    unlink "ponysay.$ext"
 	fi
