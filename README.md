@@ -35,7 +35,7 @@ A git version of the package is available as `ponysay-git` in CCR, alongside a s
 There is a package for Gentoo, to make installation and keeping it up to date easy. You can find it in [this overlay](/etu/aidstu-overlay). The package is named `games-misc/ponysay`.
 
 #### Debian GNU/Linux and Ubuntu
-The DEB file can be found [here](http://roryholland.co.uk/misc.html#ponysay) and the PPA can be found [here](https://launchpad.net/~blazemore/+archive/ponysay).
+The DEB file can be found [here](http://roryholland.co.uk/misc.html#ponysay) and PPA:s can be found [here](https://launchpad.net/~vincent-c/+archive/ppa) and [here](https://launchpad.net/~blazemore/+archive/ponysay).
 
 ### Pony fortune on terminal startup 
 

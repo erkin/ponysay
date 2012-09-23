@@ -1197,7 +1197,8 @@ contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
 @cindex ubuntu
 
 A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay},
-and a PPA can be found at @url{https://launchpad.net/~blazemore/+archive/ponysay}.
+and PPA:s can be found at @url{https://launchpad.net/~vincent-c/+archive/ppa} and
+@url{https://launchpad.net/~blazemore/+archive/ponysay}.
 
 
 @node Uninstalling
