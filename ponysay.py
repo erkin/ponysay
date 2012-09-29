@@ -502,20 +502,26 @@ class Ponysay():
     Prints a list of all balloons
     '''
     def balloonlist(self):
+        ## Get the size of the terminal
         termsize = self.__gettermsize()
-        balloonset = set()
         
+        ## Get all balloons
+        balloonset = set()
         for balloondir in balloondirs:
             for balloon in os.listdir(balloondir):
+                ## Use .think if running ponythink, otherwise .say
                 if isthink and (len(balloon) > 6) and (balloon[-6:] == '.think'):
                     balloon = balloon[:-6]
                 elif (not isthink) and (len(balloon) > 4) and (balloon[-4:] == '.say'):
                     balloon = balloon[:-4]
                 else:
                     continue
+                
+                ## Add the balloon if there is none with the same name
                 if balloon not in balloonset:
                     balloonset.add(balloon)
         
+        ## Print all balloos, columnised
         self.__columnise([(balloon, balloon) for balloon in list(balloonset)])
     
     
@@ -523,29 +529,33 @@ class Ponysay():
     Returns one file with full path, names is filter for style names, also accepts filepaths
     '''
     def __getballoonpath(self, names):
+        ## Stop if their is no choosen balloon
         if names is None:
             return None
-        balloons = {}
         
+        ## Get all balloons
+        balloons = {}
         for balloondir in balloondirs:
             for balloon in os.listdir(balloondir):
                 balloonfile = balloon
+                ## Use .think if running ponythink, otherwise .say
                 if isthink and (len(balloon) > 6) and (balloon[-6:] == '.think'):
                     balloon = balloon[:-6]
                 elif (not isthink) and (len(balloon) > 4) and (balloon[-4:] == '.say'):
                     balloon = balloon[:-4]
                 else:
                     continue
+                
+                ## Add the balloon if there is none with the same name
                 if balloon not in balloons:
                     balloons[balloon] = balloondir + balloonfile
         
+        ## Support for explicit balloon file names
         for name in names:
             if os.path.exists(name):
                 balloons[name] = name
         
-        if names == None:
-            names = list(balloons.keys())
-        
+        ## Select a random balloon of the choosen ones
         balloon = names[random.randrange(0, len(names))]
         if balloon not in balloons:
             sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
