@@ -206,7 +206,7 @@ class Ponysay():
                 if pony not in ponies:
                     ponies[pony] = ponydir + ponyfile
         
-        ## Filter out all choosen ponies
+        ## Support for explicit pony file names
         if not names == None:
             for name in names:
                 if os.path.exists(name):
