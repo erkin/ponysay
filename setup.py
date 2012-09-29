@@ -210,8 +210,11 @@ class Setup():
         opts.add_argumented  (help = 'Set the system\'s directory for command executables\nDefault = $PREFIX/bin',
                               alternatives = ['--bin-dir'], arg='BINDIR')
         
-        opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/lib/ponysay\nNot used.',
+        opts.add_argumented  (help = 'Set the system\'s directory for non-executable libraries\nDefault = $PREFIX/lib/ponysay\nNot used.',
                               alternatives = ['--lib-dir'], arg='LIBDIR')
+        
+        opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/libexec/ponysay\nNot used.',
+                              alternatives = ['--libexec-dir'], arg='LIBDIR')
         
         opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',
                               alternatives = ['--share-dir'], arg='SHAREDIR')
@@ -841,6 +844,7 @@ class Setup():
         if opts['--opt'] is not None:
             if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/opt/ponysay/bin']
             if opts['--lib-dir']           is None:  opts['--lib-dir']           = ['/opt/ponysay/lib']
+            if opts['--libexec-dir']       is None:  opts['--libexec-dir']       = ['/opt/ponysay/libexec']
             if opts['--share-dir']         is None:  opts['--share-dir']         = ['/usr/share']
             if opts['--with-shared-cache'] is None:  opts['--with-shared-cache'] = ['/var/opt/ponysay/cache']
             for sharedir in sharedirs:
@@ -848,7 +852,7 @@ class Setup():
             for sharefile in sharefiles:
                 conf[sharefile[0]] = '/opt/ponysay/share/' + sharefile[1]
         
-        for dir in ['bin', 'lib', 'share']:
+        for dir in ['bin', 'lib', 'libexec', 'share']:
             if opts['--' + dir + '-dir'] is not None:
                 d = opts['--' + dir + '-dir'][0]
                 if dir == 'lib':

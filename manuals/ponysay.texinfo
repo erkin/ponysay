@@ -1133,6 +1133,12 @@ Set the system's directory for command executables.
 @item --lib-dir=/usr/lib/ponysay
 @opindex @option{--lib-dir}
 Set the system's directory for non-command executables. Currently their
+is not non-executable library, so this options has no effect, but bleeding
+edge distributors should specify it if it differs from prefered.
+
+@item --libexec-dir=/usr/libexec/ponysay
+@opindex @option{--libexec-dir}
+Set the system's directory for non-command executables. Currently their
 is not non-command executables, so this options has no effect, but bleeding
 edge distributors should specify it if it differs from prefered.
 
