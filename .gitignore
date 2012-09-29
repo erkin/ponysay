@@ -23,3 +23,21 @@
 /Makefile
 /quotes/
 
+
+## Texinfo manual stuff
+
+/ponysay.aux
+/ponysay.cp
+/ponysay.cps
+/ponysay.fn
+/ponysay.ky
+/ponysay.log
+/ponysay.pg
+/ponysay.toc
+/ponysay.tp
+/ponysay.vr
+/ponysay.op
+/ponysay.ops
+/ponysay.pgs
+/ponysay.vrs
+

@@ -10,6 +10,11 @@
 @c %**end of header
 @set VERSION 2.7
 
+@defindex op
+@synindex op vr
+@synindex cp pg
+
+
 @copying
 This manual is for ponysay
 (version @value{VERSION}),
@@ -36,9 +41,9 @@ Texts. A copy of the license is included in the section entitled
 @title Ponysay
 @c@subtitle Cowsay reimplementation for ponies.
 @c@subtitle Ponies for your terminal.
-@subtitle Infesting your terminal with ponies.
+@c@subtitle Infesting your terminal with ponies.
 @c@subtitle Surviving the zombiepony takeover.
-@c@subtitle Making your terminal about 20 % cooler.
+@subtitle Making your terminal about 20 % cooler.
 @subtitle Covers ponysay version @value{VERSION}.
 @c ** start of front page image **
 @c If print make a pdf or hard copy with the front cover
@@ -76,7 +81,8 @@ Texts. A copy of the license is included in the section entitled
 * Ponysay contributors::                Ponysay contributors.
 * Ponysay license::                     Ponysay license.
 * GNU Free Documentation License::      Copying and sharing this manual.
-* Concept index::                       Concept index.
+* Concept and program index::           Concept and program index.
+* Variable and option index::           Variable and option index.
 @end menu
 
 
@@ -110,7 +116,7 @@ way over e-mail.
 @cindex invoking
 @cindex options
 @cindex arguments
-@cindex ponythink
+@pindex ponythink
 
 The format for running the @command{ponysay} program is:
 
@@ -128,27 +134,27 @@ the same thing.
 @table @option
 
 @item --
-@cindex @option{--}
+@opindex @option{--}
 Parse the following arguments as parts of @code{@var{message}}.
 
 @item -h
 @itemx --help
-@cindex @option{-h}
-@cindex @option{--help}
+@opindex @option{-h}
+@opindex @option{--help}
 Show summary of options.
 
 @item -v
 @itemx --verion
-@cindex @option{-v}
-@cindex @option{--version}
+@opindex @option{-v}
+@opindex @option{--version}
 Show version of program.
 
 @item -f PONY
 @itemx --file PONY
 @itemx --pony PONY
-@cindex @option{-f}
-@cindex @option{--file}
-@cindex @option{--pony}
+@opindex @option{-f}
+@opindex @option{--file}
+@opindex @option{--pony}
 Specify the pony that should printed, this can either be a file name or a pony
 name printed by @command{ponysay -l}. This option can be used multiple times to
 specify a set of ponies from which one will be selected randomly. If no pony is
@@ -169,18 +175,18 @@ supersedes file names.
 @item -F
 @itemx ++file PONY
 @itemx ++pony PONY
-@cindex @option{-F}
-@cindex @option{++file}
-@cindex @option{++pony}
+@opindex @option{-F}
+@opindex @option{++file}
+@opindex @option{++pony}
 Just as @option{-F}, but it uses extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies
 
 @item -b STYLE
 @itemx --bubble STYLE
 @itemx --balloon STYLE
-@cindex @option{-b}
-@cindex @option{--bubble}
-@cindex @option{--balloon}
+@opindex @option{-b}
+@opindex @option{--bubble}
+@opindex @option{--balloon}
 Specify the balloon style that should used, this can either be a file name or a
 balloon name printed by @option{ponysay -B}. This option can be used multiple
 times to specify a set of styles from which one will be selected randomly. If no
@@ -188,8 +194,8 @@ balloon style is specified a fallback style will be used.
 
 @item -q [PONY...]
 @itemx --quote [PONY...]
-@cindex @option{-q}
-@cindex @option{--quote}
+@opindex @option{-q}
+@opindex @option{--quote}
 By using this option, a pony will be printed with quotes from her in My Little Pony:
 Friendship is Magic. The pony will be selected randomly, unless at least one pony
 is added as an argument after @option{-q}. If one or more ponies are added after
@@ -201,17 +207,17 @@ The argument can be a file name, but only if it ends with @file{.pony}.
 
 @item -W COLUMN
 @itemx --wrap COLUMN
-@cindex @option{-W}
-@cindex @option{--wrap}
+@opindex @option{-W}
+@opindex @option{--wrap}
 Specify the screen column where the message should be wrapped, this is by default 40,
 as with @command{cowsay}.
 
 @item -c
 @itemx --compress
-@cindex @option{-c}
-@cindex @option{--compress}
-@cindex @command{figlet}
-@cindex @command{TOIlet}
+@opindex @option{-c}
+@opindex @option{--compress}
+@pindex @command{figlet}
+@pindex @command{TOIlet}
 Compress the message in the same way @command{cowsay} does, that is basically
 without multiple spaces, and only paragraphs separations. Using this options
 will mean that you cannot display @command{figlet} and @command{TOIlet} style
@@ -219,8 +225,8 @@ messages.
 
 @item -l
 @itemx --list
-@cindex @option{-l}
-@cindex @option{--list}
+@opindex @option{-l}
+@opindex @option{--list}
 Lists all installed ponies. The ponies which have quotes, i.e. can be used with
 the @option{-q} option, will be marked by being printed in bold or bright (depending
 on the terminal.)
@@ -228,9 +234,9 @@ on the terminal.)
 @item -L
 @itemx --altlist
 @itemx --symlist
-@cindex @option{-L}
-@cindex @option{--symlist}
-@cindex @option{--altlist}
+@opindex @option{-L}
+@opindex @option{--symlist}
+@opindex @option{--altlist}
 Lists all installed ponies. The ponies which have quotes, i.e. can be used with
 the @option{-q} option, will be marked by being printed in bold or bright (depending
 on the terminal.) This options differs from @option{-l} by printing alternative
@@ -238,29 +244,29 @@ names (symbolic links) inside brackets after their target ponies.
 
 @item +l
 @itemx ++list
-@cindex @option{+l}
-@cindex @option{++list}
+@opindex @option{+l}
+@opindex @option{++list}
 Just as @option{-l}, except it lists extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies.
 
 @item +L
 @itemx ++symlist
 @itemx ++altlist
-@cindex @option{+L}
-@cindex @option{++symlist}
-@cindex @option{++altlist}
+@opindex @option{+L}
+@opindex @option{++symlist}
+@opindex @option{++altlist}
 Just as @option{-L}, except it lists extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies.
 
 @item -B
 @itemx --balloonlist
-@cindex @option{-B}
-@cindex @option{--bubblelist}
-@cindex @option{--balloonlist}
+@opindex @option{-B}
+@opindex @option{--bubblelist}
+@opindex @option{--balloonlist}
 Prints a list of all balloon styles.
 @end table
 
-@cindex @var{message}
+@opindex @var{message}
 If neither @option{-q} is used nor any @var{message} is specified, @command{ponysay}
 will read the message from stdin (standard input); however, if no arguments are used
 and nothing is piped to stdin, a help message will be printed. If you want to use
@@ -287,7 +293,7 @@ a symbolic link, @option{-q} cannot determine which quotes to use.
 
 @node Fortune cookies
 @section Fortune cookies
-@cindex fortune
+@pindex fortune
 @cindex startup
 @cindex on startup
 @cindex @file{.bashrc}
@@ -307,7 +313,7 @@ described in the previous paragraph every time you open a terminal.
 @section Ponification
 @cindex ponification
 @cindex text ponification
-@cindex ponypipe
+@pindex ponypipe
 
 You can ponify messages (i.e. replaces words search as `everyone' with `everypony') by
 using @code{fortune | ponypipe} instead of using @command{fortune}. @command{ponypipe}
@@ -323,7 +329,7 @@ script, but I haven't used the script so I wouldn't know for sure.
 @node Running on TTY
 @section Running on TTY
 @cindex tty
-@cindex linux vt
+@pindex linux vt
 @cindex @file{.bashrc}
 @cindex @file{~/.bashrc}
 
@@ -344,7 +350,7 @@ You should read more about this in @ref{KMS ponies}.
 
 @node Running on screen
 @section Running on @command{screen}
-@cindex screen
+@pindex screen
 @cindex @file{.bashrc}
 @cindex @file{~/.bashrc}
 
@@ -378,7 +384,7 @@ can be done by adding to your @file{~/.bashrc}:
 
 @table @env
 @item PONYSAY_BOTTOM
-@cindex @env{PONYSAY_BOTTOM}
+@vindex @env{PONYSAY_BOTTOM}
 @cindex tty
 Under TTY (Linux VT), if the output is larger the the screen's height, only
 the beginning is printed, leaving two blank lines. If you want the bottom
@@ -386,7 +392,7 @@ to be printed rather the the beginning you can export @env{PONYSAY_BOTTOM}
 with the value @code{yes}, @code{y} or @code{1}.
 
 @item PONYSAY_SHELL_LINES
-@cindex @env{PONYSAY_SHELL_LINES}
+@vindex @env{PONYSAY_SHELL_LINES}
 @cindex tty
 Under TTY (Linux VT), if the output is larger than the screen's height, two
 lines are left blank. If you want more, or less, blank lines you can export
@@ -395,19 +401,19 @@ Naturally this takes effect eve n if the output is not actually larger than
 the screen.
  
 @item PONYSAY_FULL_WIDTH
-@cindex @env{PONYSAY_FULL_WIDTH}
+@vindex @env{PONYSAY_FULL_WIDTH}
 You can export @env{PONYSAY_FULL_WIDTH} with the value @code{yes}, @code{y}
 or @code{1}, if you do not want the output to be truncated on the width to
 fit the terminal.
 
 @item PONYSAY_TRUNCATE_HEIGHT
-@cindex @env{PONYSAY_TRUNCATE_HEIGHT}
+@vindex @env{PONYSAY_TRUNCATE_HEIGHT}
 Export @env{PONYSAY_TRUNCATE_HEIGHT} with the value @code{yes}, @code{y}
 or @code{1}, if you want to truncate the output on the height even if you
 are not running @command{ponysay} under TTY.
 
 @item PONYSAY_UCS_ME
-@cindex @env{PONYSAY_UCS_ME}
+@vindex @env{PONYSAY_UCS_ME}
 @cindex ucs
 @cindex universal character set
 @cindex unicode
@@ -425,10 +431,10 @@ will still be usable.
 
 @item @env{PONYSAY_KMS_PALETTE}
 @itemx @env{PONYSAY_KMS_PALETTE_CMD}
-@cindex @env{PONYSAY_KMS_PALETTE}
-@cindex @env{PONYSAY_KMS_PALETTE_CMD}
+@vindex @env{PONYSAY_KMS_PALETTE}
+@vindex @env{PONYSAY_KMS_PALETTE_CMD}
 @cindex tty
-@cindex linux vt
+@pindex linux vt
 @cindex kmsponies
 @cindex kms
 @cindex kernel mode setting
@@ -457,12 +463,12 @@ See @ref{KMS ponies} for information on how to use this.
 @section KMS ponies
 @cindex kmsponies
 @cindex tty
-@cindex linux vt
+@pindex linux vt
 @cindex kms
 @cindex kernel mode setting
 @cindex environment variables
-@cindex @env{PONYSAY_KMS_PALETTE}
-@cindex @env{PONYSAY_KMS_PALETTE_CMD}
+@vindex @env{PONYSAY_KMS_PALETTE}
+@vindex @env{PONYSAY_KMS_PALETTE_CMD}
 @cindex @file{.bashrc}
 @cindex @file{~/.bashrc}
 @cindex cache
@@ -521,8 +527,8 @@ for cache space.
 @cindex fonts
 @cindex broken ponies
 
-@cindex xterm
-@cindex putty
+@pindex xterm
+@pindex putty
 Ponysay works perfectly on @command{xterm}, @command{xterm} like terminals including
 @command{putty}, settings may however need to be customised for Unicode Character Set
 (UCS) support, but less well, depending on font, on VTE based terminals including
@@ -531,7 +537,7 @@ Ponysay works perfectly on @command{xterm}, @command{xterm} like terminals inclu
 @cindex kms
 @cindex kernel mode setting
 @cindex tty
-@cindex linux vt
+@pindex linux vt
 On Linux's native terminal Linux VT (TTY) it works less well, and not good at all
 without Kernel Mode Setting (KMS) support. See @url{https://github.com/erkin/ponysay/issues/1}
 for more information. @command{ponysay} clears the screen before printing to TTY, this
@@ -545,26 +551,26 @@ customised. We assume that the top 240 colours have their standard values. In TT
 KMS support we dot have any actual limit (except for @math{2^{24}} + full
 transparency.)
 
-@cindex xterm
-@cindex urxvt
-@cindex putty
-@cindex rxvt
-@cindex mrxvt
-@cindex Eterm
-@cindex aterm
+@pindex xterm
+@pindex urxvt
+@pindex putty
+@pindex rxvt
+@pindex mrxvt
+@pindex Eterm
+@pindex aterm
 @command{ponysay} works perfectly on @command{xterm}, @command{urxvt} and
 @command{putty}, but @command{rxvt}, @command{mrxvt} and @command{Eterm} do not have
 UTF-8 support and are currently not supported. Additionally @command{aterm} have
 neither UTF-8 support nor 256 colour support, and is therefore not yet supported.
 
-@cindex 9term
+@pindex 9term
 Due to extreme limitations in @command{9term} @command{ponysay} will never be able to
 run on it.
 
 
 @node Cowsay
 @section Cowsay
-@cindex cowsay
+@pindex cowsay
 
 This section describes the limitation of @command{cowsay}, but since version 2.1
 @command{cowsay} is no longer used because of it. So none of the following limitations
@@ -654,7 +660,7 @@ We have provided a script that should run one most, if not all shells, named
 @cindex @command{util-say}
 @cindex kms
 @cindex tty
-@cindex linux vt
+@pindex linux vt
 For improved TTY support for user with custom colour palette and KMS support.
 It can be downloaded at @url{https://github.com/maandree/util-say}.
 
@@ -673,13 +679,20 @@ the file name) in addition to .pony-files or pony names.
 
 @table @command
 @item python>=3@footnote{Sometimes distributed as @command{python3} rather than @command{python}.}
+@pindex @command{python}
+@pindex @command{python3}
 Required to run the @file{./setup.py} file, which is also invoked from the
 make script.
 @item gzip
+@pindex @command{gzip}
 Used for compressing manuals. (Optional, standard)
 @item xz
+@pindex @command{xz}
 Used for compressing manuals. (Optional, non-standard)
 @item texinfo
+@pindex @command{texinfo}
+@pindex @command{info}
+@pindex @command{install-info}
 Used to compile this @command{info} manual. (Optional, standard)
 @item info@footnote{Normally a part of @command{texinfo}.}
 Used to install this @command{info} manual with @command{install-info}.
@@ -693,8 +706,10 @@ Used to install this @command{info} manual with @command{install-info}.
 
 @table @command
 @item bash
+@pindex @command{bash}
 Required to run @command{dev/dist.sh}.
 @item coreutils
+@pindex @command{coreutils}
 @command{ln} and @command{readlink} are used in the @command{ttyponies} subscript
 of @command{dev/dist.sh}.
 @item util-say>=2
@@ -707,7 +722,7 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @node Installing
 @chapter Installing
 @cindex installing
-@cindex make
+@pindex @command{make}
 
 @menu
 * From upstream::               Installing manually from upstream (GitHub repository).
@@ -728,8 +743,8 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @node Installations basics
 @subsection Installations basics
 @cindex @file{setup.py}
-@cindex @command{./setup.py}
-@cindex @command{make}
+@pindex @command{./setup.py}
+@pindex @command{make}
 @cindex basic installation
 
 
@@ -764,9 +779,9 @@ option @option{--with-man-es} when running @command{./configure}.
 @cindex customised installations
 @cindex installation customisation
 @cindex @file{setup.py}
-@cindex @command{./setup.py}
-@cindex @command{./configure}
-@cindex make
+@pindex @command{./setup.py}
+@pindex @command{./configure}
+@pindex @command{make}
 @cindex configure
 
 With the exception for with @option{--with-everything} and @option{--with-nothing},
@@ -782,137 +797,137 @@ options with arguments are written after the equality sign (@code{=}) in the opt
 @table @option
 @item --everything
 @itemx --with-everything
-@cindex @option{--everything}
-@cindex @option{--with-everything}
+@opindex @option{--everything}
+@opindex @option{--with-everything}
 Install everything that is not explicity excluded.
 
 @item --minimal
-@cindex @option{--minimal}
+@opindex @option{--minimal}
 Install only the essentials. Note that this can vary depending on version. Currently
 this means that the commands, xterm ponies and legal documents is installed.
 
 @item --nothing
 @itemx --with-nothing
-@cindex @option{--nothing}
-@cindex @option{--with-nothing}
+@opindex @option{--nothing}
+@opindex @option{--with-nothing}
 Install nothing, except legal documents, that is not explicity included.
 
 @item --with-ponysay
 @itemx --with-ponysay-command=/usr/bin/ponysay
-@cindex @option{--with-ponysay}
-@cindex @option{--without-ponysay}
-@cindex @option{--with-ponysay-command}
-@cindex @option{--without-ponysay-command}
+@opindex @option{--with-ponysay}
+@opindex @option{--without-ponysay}
+@opindex @option{--with-ponysay-command}
+@opindex @option{--without-ponysay-command}
 Install the ponysay command, and set file name. (Default)
 
 @item --with-ponythink
 @itemx --with-ponythink-command=/usr/bin/ponythink
-@cindex @option{--with-ponythink}
-@cindex @option{--without-ponytink}
-@cindex @option{--with-ponythink-command}
-@cindex @option{--without-ponytink-command}
+@opindex @option{--with-ponythink}
+@opindex @option{--without-ponytink}
+@opindex @option{--with-ponythink-command}
+@opindex @option{--without-ponytink-command}
 Install the ponythink command, and set file name. (Default)
 
 @item --with-shared-cache=/var/cache/ponysay
-@cindex @option{--with-shared-cache}
-@cindex @option{--without-shared-cache}
+@opindex @option{--with-shared-cache}
+@opindex @option{--without-shared-cache}
 Install a user shared cache, this is only used by KMS ponies so far. (Default)
 
 @item --with-bash
 @item --with-bash-completion=/usr/share/bash-completion/completions/ponysay
-@cindex @option{--with-bash}
-@cindex @option{--without-bash}
-@cindex @option{--with-bash-completion}
-@cindex @option{--without-bash-completion}
+@opindex @option{--with-bash}
+@opindex @option{--without-bash}
+@opindex @option{--with-bash-completion}
+@opindex @option{--without-bash-completion}
 Install auto-completion for installed commands in GNU Bash. Select the file name
 for the installed script for the ponysay command, the other commands modifies this
 file name. (Default)
 
 @item --with-fish
 @itemx --with-fish-completion=/usr/share/fish/completions/ponysay.fish
-@cindex @option{--with-fish}
-@cindex @option{--without-fish}
-@cindex @option{--with-fish-completion}
-@cindex @option{--without-fish-completion}
+@opindex @option{--with-fish}
+@opindex @option{--without-fish}
+@opindex @option{--with-fish-completion}
+@opindex @option{--without-fish-completion}
 Install auto-completion for installed commands in Friendly interactive shell.
 Select the file name for the installed script for the ponysay command, the other
 commands modifies this file name. (Default)
 
 @item --with-zsh
 @itemx --with-zsh-completion=/usr/share/zsh/site-functions/_ponysay
-@cindex @option{--with-zsh}
-@cindex @option{--without-zsh}
-@cindex @option{--with-zsh-completion}
-@cindex @option{--without-zsh-completion}
+@opindex @option{--with-zsh}
+@opindex @option{--without-zsh}
+@opindex @option{--with-zsh-completion}
+@opindex @option{--without-zsh-completion}
 Install auto-completion for installed commands in the zsh shell.
 Select the file name for the installed script for the ponysay command, the other
 commands modifies this file name. (Default)
 
 @item --with-shell
 @itemx --with-shell-completion=/usr/share
-@cindex @option{--with-shell}
-@cindex @option{--without-shell}
-@cindex @option{--with-bash}
-@cindex @option{--without-bash}
-@cindex @option{--with-fish}
-@cindex @option{--without-fish}
-@cindex @option{--with-zsh}
-@cindex @option{--without-zsh}
-@cindex @option{--with-shell-completion}
-@cindex @option{--without-shell-completion}
-@cindex @option{--with-bash-completion}
-@cindex @option{--without-bash-completion}
-@cindex @option{--with-fish-completion}
-@cindex @option{--without-fish-completion}
-@cindex @option{--with-zsh-completion}
-@cindex @option{--without-zsh-completion}
+@opindex @option{--with-shell}
+@opindex @option{--without-shell}
+@opindex @option{--with-bash}
+@opindex @option{--without-bash}
+@opindex @option{--with-fish}
+@opindex @option{--without-fish}
+@opindex @option{--with-zsh}
+@opindex @option{--without-zsh}
+@opindex @option{--with-shell-completion}
+@opindex @option{--without-shell-completion}
+@opindex @option{--with-bash-completion}
+@opindex @option{--without-bash-completion}
+@opindex @option{--with-fish-completion}
+@opindex @option{--without-fish-completion}
+@opindex @option{--with-zsh-completion}
+@opindex @option{--without-zsh-completion}
 Macro for @option{--with-bash}, @option{--with-fish} and @option{--with-zsh}.
 The argument is the used share/ directory that all shells have in common.
 
 @item --with-pdf
 @itemx --with-pdf-manual=/usr/doc
-@cindex @option{--with-pdf}
-@cindex @option{--without-pdf}
-@cindex @option{--with-pdf-manual}
-@cindex @option{--without-pdf-manual}
+@opindex @option{--with-pdf}
+@opindex @option{--without-pdf}
+@opindex @option{--with-pdf-manual}
+@opindex @option{--without-pdf-manual}
 Install PDF manual, and select directory for it.
 
 @item --with-pdf-compression
 @itemx --with-pdf-manual-compression=gz
-@cindex @option{--with-pdf}
-@cindex @option{--with-pdf-manual}
-@cindex @option{--with-pdf-compression}
-@cindex @option{--without-pdf-compression}
-@cindex @option{--with-pdf-manual-compression}
-@cindex @option{--without-pdf-manual-compression}
+@opindex @option{--with-pdf}
+@opindex @option{--with-pdf-manual}
+@opindex @option{--with-pdf-compression}
+@opindex @option{--without-pdf-compression}
+@opindex @option{--with-pdf-manual-compression}
+@opindex @option{--without-pdf-manual-compression}
 Compress PDF manual, select compression by file name extension. This option
 does not imply @option{--with-pdf}. (Default)
 
 @item --with-info
 @itemx --with-info-manual=/usr/share/info
-@cindex @option{--with-info}
-@cindex @option{--without-info}
-@cindex @option{--with-info-manual}
-@cindex @option{--without-info-manual}
+@opindex @option{--with-info}
+@opindex @option{--without-info}
+@opindex @option{--with-info-manual}
+@opindex @option{--without-info-manual}
 Install @command{info} manual, and select directory for it. (Default)
 
 @item --with-info-install
 @itemx --with-info-manual-install=My Little Ponies for your terminal
-@cindex @option{--with-info-install}
-@cindex @option{--without-info-install}
-@cindex @option{--with-info-manual-install}
-@cindex @option{--without-info-manual-install}
+@opindex @option{--with-info-install}
+@opindex @option{--without-info-install}
+@opindex @option{--with-info-manual-install}
+@opindex @option{--without-info-manual-install}
 Use @command{install-info} when installing @command{info} manual. Set the
 description for the manual. This option does not imply @option{--with-info}. (Default)
 
 @item --with-info-compression
 @itemx --with-info-manual-compression=gz
-@cindex @option{--with-info}
-@cindex @option{--with-info-compression}
-@cindex @option{--without-info-compression}
-@cindex @option{--with-info-manual}
-@cindex @option{--with-info-manual-compression}
-@cindex @option{--without-info-manual-compression}
+@opindex @option{--with-info}
+@opindex @option{--with-info-compression}
+@opindex @option{--without-info-compression}
+@opindex @option{--with-info-manual}
+@opindex @option{--with-info-manual-compression}
+@opindex @option{--without-info-manual-compression}
 Compress @command{info} manual, select compression by file name extension.
 This option does not imply @option{--with-info}. (Default)
 
@@ -922,18 +937,18 @@ This option does not imply @option{--with-info}. (Default)
 @itemx --with-en-man
 @itemx --with-en-manpage
 @itemx --with-en-man-manual=/usr/share/man
-@cindex @option{--with-man-en}
-@cindex @option{--without-man-en}
-@cindex @option{--with-manpage-en}
-@cindex @option{--without-manpage-en}
-@cindex @option{--with-man-manual-en}
-@cindex @option{--without-man-manual-en}
-@cindex @option{--with-en-man}
-@cindex @option{--without-en-man}
-@cindex @option{--with-en-manpage}
-@cindex @option{--without-en-manpage}
-@cindex @option{--with-en-man-manual}
-@cindex @option{--without-en-man-manual}
+@opindex @option{--with-man-en}
+@opindex @option{--without-man-en}
+@opindex @option{--with-manpage-en}
+@opindex @option{--without-manpage-en}
+@opindex @option{--with-man-manual-en}
+@opindex @option{--without-man-manual-en}
+@opindex @option{--with-en-man}
+@opindex @option{--without-en-man}
+@opindex @option{--with-en-manpage}
+@opindex @option{--without-en-manpage}
+@opindex @option{--with-en-man-manual}
+@opindex @option{--without-en-man-manual}
 Install English @command{man} manual. Set directory for @command{man} manuals.
 (Default)
 
@@ -943,29 +958,29 @@ Install English @command{man} manual. Set directory for @command{man} manuals.
 @itemx --with-es-man
 @itemx --with-es-manpage
 @itemx --with-es-man-manual=/usr/share/man
-@cindex @option{--with-man-es}
-@cindex @option{--without-man-es}
-@cindex @option{--with-manpage-es}
-@cindex @option{--without-manpage-es}
-@cindex @option{--with-man-manual-es}
-@cindex @option{--without-man-manual-es}
-@cindex @option{--with-es-man}
-@cindex @option{--without-es-man}
-@cindex @option{--with-es-manpage}
-@cindex @option{--without-es-manpage}
-@cindex @option{--with-es-man-manual}
-@cindex @option{--without-es-man-manual}
+@opindex @option{--with-man-es}
+@opindex @option{--without-man-es}
+@opindex @option{--with-manpage-es}
+@opindex @option{--without-manpage-es}
+@opindex @option{--with-man-manual-es}
+@opindex @option{--without-man-manual-es}
+@opindex @option{--with-es-man}
+@opindex @option{--without-es-man}
+@opindex @option{--with-es-manpage}
+@opindex @option{--without-es-manpage}
+@opindex @option{--with-es-man-manual}
+@opindex @option{--without-es-man-manual}
 Install Spanish @command{man} manual. Set directory for @command{man} manuals.
 
 @item --with-man
 @itemx --with-manpage
 @itemx --with-man-manual
-@cindex @option{--with-man}
-@cindex @option{--without-man}
-@cindex @option{--with-manpage}
-@cindex @option{--without-manpage}
-@cindex @option{--with-man-manual}
-@cindex @option{--without-man-manual}
+@opindex @option{--with-man}
+@opindex @option{--without-man}
+@opindex @option{--with-manpage}
+@opindex @option{--without-manpage}
+@opindex @option{--with-man-manual}
+@opindex @option{--without-man-manual}
 Macro for all @option{--with-man-LANG}.
 
 @item --with-man-en-compression
@@ -974,18 +989,18 @@ Macro for all @option{--with-man-LANG}.
 @itemx --with-en-man-compression
 @itemx --with-en-manpage-compression
 @itemx --with-en-man-manual-compression=gz
-@cindex @option{--with-man-en-compression}
-@cindex @option{--without-man-en-compression}
-@cindex @option{--with-manpage-en-compression}
-@cindex @option{--without-manpage-en-compression}
-@cindex @option{--with-man-manual-en-compression}
-@cindex @option{--without-man-manual-en-compression}
-@cindex @option{--with-en-man-compression}
-@cindex @option{--without-en-man-compression}
-@cindex @option{--with-en-manpage-compression}
-@cindex @option{--without-en-manpage-compression}
-@cindex @option{--with-en-man-manual-compression}
-@cindex @option{--without-en-man-manual-compression}
+@opindex @option{--with-man-en-compression}
+@opindex @option{--without-man-en-compression}
+@opindex @option{--with-manpage-en-compression}
+@opindex @option{--without-manpage-en-compression}
+@opindex @option{--with-man-manual-en-compression}
+@opindex @option{--without-man-manual-en-compression}
+@opindex @option{--with-en-man-compression}
+@opindex @option{--without-en-man-compression}
+@opindex @option{--with-en-manpage-compression}
+@opindex @option{--without-en-manpage-compression}
+@opindex @option{--with-en-man-manual-compression}
+@opindex @option{--without-en-man-manual-compression}
 Compress English @command{man} manual, select compression by file name extension.
 This option does not imply @option{--with-man-en}. (Default)
 
@@ -995,146 +1010,146 @@ This option does not imply @option{--with-man-en}. (Default)
 @itemx --with-es-man-compression
 @itemx --with-es-manpage-compression
 @itemx --with-es-man-manual-compression=gz
-@cindex @option{--with-man-es-compression}
-@cindex @option{--without-man-es-compression}
-@cindex @option{--with-manpage-es-compression}
-@cindex @option{--without-manpage-es-compression}
-@cindex @option{--with-man-manual-es-compression}
-@cindex @option{--without-man-manual-es-compression}
-@cindex @option{--with-es-man-compression}
-@cindex @option{--without-es-man-compression}
-@cindex @option{--with-es-manpage-compression}
-@cindex @option{--without-es-manpage-compression}
-@cindex @option{--with-es-man-manual-compression}
-@cindex @option{--without-es-man-manual-compression}
+@opindex @option{--with-man-es-compression}
+@opindex @option{--without-man-es-compression}
+@opindex @option{--with-manpage-es-compression}
+@opindex @option{--without-manpage-es-compression}
+@opindex @option{--with-man-manual-es-compression}
+@opindex @option{--without-man-manual-es-compression}
+@opindex @option{--with-es-man-compression}
+@opindex @option{--without-es-man-compression}
+@opindex @option{--with-es-manpage-compression}
+@opindex @option{--without-es-manpage-compression}
+@opindex @option{--with-es-man-manual-compression}
+@opindex @option{--without-es-man-manual-compression}
 Compress Spanish @command{man} manual, select compression by file name extension.
 This option does not imply @option{--with-man-es}. (Default)
 
 @item --with-man-compression
 @itemx --with-manpage-compression
 @itemx --with-man-manual-compression
-@cindex @option{--with-man-compression}
-@cindex @option{--without-man-compression}
-@cindex @option{--with-manpage-compression}
-@cindex @option{--without-manpage-compression}
-@cindex @option{--with-man-manual-compression}
-@cindex @option{--without-man-manual-compression}
+@opindex @option{--with-man-compression}
+@opindex @option{--without-man-compression}
+@opindex @option{--with-manpage-compression}
+@opindex @option{--without-manpage-compression}
+@opindex @option{--with-man-manual-compression}
+@opindex @option{--without-man-manual-compression}
 Macro for all @option{--with-man-LANG-compression}.
 
 @item --man-section-ponysay
 @itemx --man-sectionpage-ponysay
 @itemx --ponysay-man-section
 @itemx --ponysay-manpage-section=6
-@cindex @option{--man-section-ponysay}
-@cindex @option{--manpage-section-ponysay}
-@cindex @option{--ponysay-man-section}
-@cindex @option{--ponysay-manpage-section}
+@opindex @option{--man-section-ponysay}
+@opindex @option{--manpage-section-ponysay}
+@opindex @option{--ponysay-man-section}
+@opindex @option{--ponysay-manpage-section}
 Change the section for the @command{ponysay} manpage.
 
 @item --man-section-cowsay
 @itemx --manpage-section-cowsay
 @itemx --cowsay-man-section
 @itemx --cowsay-manpage-section=1
-@cindex @option{--man-section-cowsay}
-@cindex @option{--manpage-section-cowsay}
-@cindex @option{--cowsay-man-section}
-@cindex @option{--cowsay-manpage-section}
+@opindex @option{--man-section-cowsay}
+@opindex @option{--manpage-section-cowsay}
+@opindex @option{--cowsay-man-section}
+@opindex @option{--cowsay-manpage-section}
 Change the section for the @command{cowsay} manpage.
 
 @item --man-section-fortune
 @itemx --manpage-section-fortune
 @itemx --fortune-man-section
 @itemx --fortune-manpage-section=6
-@cindex @option{--man-section-fortune}
-@cindex @option{--manpage-section-fortune}
-@cindex @option{--fortune-man-section}
-@cindex @option{--fortune-manpage-section}
+@opindex @option{--man-section-fortune}
+@opindex @option{--manpage-section-fortune}
+@opindex @option{--fortune-man-section}
+@opindex @option{--fortune-manpage-section}
 Change the section for the @command{fortune} manpage.
 
 @item --with-ponies=/usr/share/ponysay/ponies
-@cindex @option{--with-ponies}
-@cindex @option{--without-ponies}
+@opindex @option{--with-ponies}
+@opindex @option{--without-ponies}
 Install standard xterm ponies, and select installation directory for them. (Default)
 
 @item --with-ttyponies=/usr/share/ponysay/ttyponies
-@cindex @option{--with-ttyponies}
-@cindex @option{--without-ttyponies}
+@opindex @option{--with-ttyponies}
+@opindex @option{--without-ttyponies}
 Install standard tty ponies, and select installation directory for them. (Default)
 
 @item --with-extraponies=/usr/share/ponysay/extraponies
-@cindex @option{--with-extraponies}
-@cindex @option{--without-extraponies}
+@opindex @option{--with-extraponies}
+@opindex @option{--without-extraponies}
 Install extra xterm ponies, and select installation directory for them. (Default)
 
 @item --with-extrattyponies=/usr/share/ponysay/extrattyponies
-@cindex @option{--with-extrattyponies}
-@cindex @option{--without-extrattyponies}
+@opindex @option{--with-extrattyponies}
+@opindex @option{--without-extrattyponies}
 Install extra tty ponies, and select installation directory for them. (Default)
 
 @item --with-quotes=/usr/share/ponysay/quotes
-@cindex @option{--with-quotes}
-@cindex @option{--without-quotes}
+@opindex @option{--with-quotes}
+@opindex @option{--without-quotes}
 Install pony quotes, and select installation directory for them. (Default)
 
 @item --with-balloons=/usr/share/ponysay/balloons
-@cindex @option{--with-balloons}
-@cindex @option{--without-balloons}
+@opindex @option{--with-balloons}
+@opindex @option{--without-balloons}
 Install balloon styles, and select installation directory for them. (Default)
 
 @item --with-ucs
 @itemx --with-ucs-names=/usr/share/ponysay/ucsmap
-@cindex @option{--with-ucs}
-@cindex @option{--without-ucs}
-@cindex @option{--with-ucs-names}
-@cindex @option{--without-ucs-names}
+@opindex @option{--with-ucs}
+@opindex @option{--without-ucs}
+@opindex @option{--with-ucs-names}
+@opindex @option{--without-ucs-names}
 Install UCS pony names, and select installation file name for the map. (Default)
 
 @item --without-custom-env-python
-@cindex @option{--without-custom-env-python}
+@opindex @option{--without-custom-env-python}
 Let the installer set the @command{env} name for @command{python} in @file{ponysay}.
 (Default)
 
 @item --with-custom-env-python=python3
-@cindex @option{--with-custom-env-python}
+@opindex @option{--with-custom-env-python}
 Set the @command{env} name for @command{python} in @file{ponysay}.
 
 @item --prefix=/usr
-@cindex @option{--prefix}
+@opindex @option{--prefix}
 Set a prefix to all implicit directories.
 
 @item --private
-@cindex @option{--private}
+@opindex @option{--private}
 Change all implicit configurations to fit local user a installation
 for the current user.
 
 @item --opt
-@cindex @option{--opt}
+@opindex @option{--opt}
 Change all implicit directories to fit installation to @file{/opt}.
 
 @item --bin-dir=/usr/bin
-@cindex @option{--bin-dir}
+@opindex @option{--bin-dir}
 Set the system's directory for command executables.
 
 @item --lib-dir=/usr/lib/ponysay
-@cindex @option{--lib-dir}
+@opindex @option{--lib-dir}
 Set the system's directory for non-command executables. Currently their
 is not non-command executables, so this options has no effect, but bleeding
 edge distributors should specify it if it differs from prefered.
 
 @item --share-dir=/usr/share
-@cindex @option{--share-dir}
+@opindex @option{--share-dir}
 Set the system's directory for resource files.
 
 @item --cache-dir=/var/cache
-@cindex @option{--cache-dir}
+@opindex @option{--cache-dir}
 Set the system's directory for cache directories.
 
 @item --dest-dir=
-@cindex @option{--dest-dir}
+@opindex @option{--dest-dir}
 Set off environment for installation.
 
 @item --linking=symbolic
-@cindex @option{--linking}
+@opindex @option{--linking}
 Set how to link identical files. Directories cannot be hard linked on most
 systems, therefore directories or always symbolically linked of hard linked
 is specified.
@@ -1291,7 +1306,7 @@ compiled quote files, except that their name contains just the first pony.
 @section Balloon style files
 @cindex balloon style files
 @cindex bubble style files
-@cindex ponythink
+@pindex ponythink
 
 Balloon style files are located in the directory @file{balloons/}, the ones ending
 with @file{.say} applies to @command{ponysay} and the ones ending with @file{.think}
@@ -1361,7 +1376,7 @@ only if the message contains more than one line.
 @node Printing in TTY with KMS
 @section Printing in TTY with KMS
 @cindex tty
-@cindex linux vt
+@pindex linux vt
 @cindex clearing tty
 @cindex kms
 @cindex kernel mode setting
@@ -1421,7 +1436,7 @@ are still printed.
 @section Languages
 @cindex languages
 @cindex script languages
-@cindex programming languages
+@cindex program languages
 
 Before version 2.0 @command{ponysay} was written primarily in GNU Bash script; the
 truncater was however written in C, because it is simple, fast, does not pose
@@ -1438,9 +1453,9 @@ use Python 3, which as been accomplished in version 2.1.
 @section Shell auto-completion
 @cindex auto-completion, inner workings
 @cindex shell, auto-completion
-@cindex @option{--onelist}
-@cindex @option{++onelist}
-@cindex @option{--quoters}
+@opindex @option{--onelist}
+@opindex @option{++onelist}
+@opindex @option{--quoters}
 
 To make it easier to write auto-completion for shells, @command{ponysay} supports
 the two options @option{--onelist}, @option{++onelist} and @option{--quoters},
@@ -1523,8 +1538,8 @@ as good as possible when marked in the terminal (somewhat compromised by the fir
 aspect,) and same width on all rows.
 
 Using util-say:
-@cindex util-say
-@cindex @command{img2ponysay}
+@pindex util-say
+@pindex @command{img2ponysay}
 @cartouche
 @example
 @code{img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE}
@@ -1540,7 +1555,7 @@ For more information see:
 @end cartouche
 
 @*
-@cindex util-say
+@pindex util-say
 @cindex .png
 @cindex png images
 @cindex images, png
@@ -1668,7 +1683,7 @@ The successor to My Pretty Pony, the toy not the short story by Stephen King.
 @item TTY
 @itemx Linux VT
 @cindex tty
-@cindex linux vt
+@pindex linux vt
 Linux's native terminal emulator. The name TTY comes from the file names for the
 devices used for terminals by Linux VT, which is @file{/dev/tty*}.
 
@@ -1839,10 +1854,12 @@ New ponies: @file{basil}, @file{cloudkicker}, @file{cow}, @file{derpysad},
 New extraponies: @file{blueballblitz} (Varous fanfics, Shadowbolt), @file{drhooves1},
 @file{drhooves2}, @file{drhooves3}, @file{drhooves4}, @file{drhooves5}, @file{drhooves6},
 @file{drhooves7}, @file{drhooves8}, @file{drhooves9}, @file{drhooves10}, @file{drhooves11},
-@file{nyx} (Fanfic: Past Sins), @file{nyxdisguised} (Fanfic: Past Sins) 
+@file{nyx} (Fanfic: Past Sins), @file{nyxdisguised} (Fanfic: Past Sins),
+@file{pinkaminacupcake} (Fanfic)
 @item
-@file{crtacky} is renamed to @file{crackle}.
+@file{cracky} is renamed to @file{crackle}.
 @end itemize
+
 
 @heading Version 2.6
 
@@ -2050,7 +2067,7 @@ New ponies: @file{ace}, @file{blueblood}, @file{filthyrich}, @file{gingergold},
 @item
 @file{elsie} is renamed to @file{prettyvision}.
 @item
-@cindex @option{-f}
+@opindex @option{-f}
 Arbitrary spaces in @option{-f} argument is not longer accepted (it causes
 problems with file names including spaces.)
 @end itemize
@@ -2099,12 +2116,12 @@ Pony spelling removed: @file{fillycadence}.
 @item
 Pony symlink change: @file{perry} @arrow{} @{@file{pokey} @arrow{} @file{perrypierce}@}.
 @item
-@cindex @option{-L}
+@opindex @option{-L}
 Option @option{-L} added, lists ponies with symlink mapping.
 @item
 Support for extension: ponyquotes4ponysay.
 @item
-@cindex @option{-f}
+@opindex @option{-f}
 Accepts arbitrary spaces in @option{-f} argument.
 @end itemize
 
@@ -2232,7 +2249,7 @@ Support for TTY (Linux VT).
 @w{New ponies:} @file{carrot}, @file{octavia}, @file{trixie}, @file{vinyl},
 @file{zecora}.
 @item
-@cindex @option{-l}
+@opindex @option{-l}
 Support for listing ponies with @option{-l} option.
 @end itemize
 
@@ -2264,12 +2281,12 @@ Using utility @command{which} to determine existence of @command{cowsay}.
 @item
 @file{.cow} files are removed.
 @item
-@cindex @option{-W}
+@opindex @option{-W}
 Support for @option{-W} option.
 @item
 Select random pony if not specified.
 @item
-@cindex @option{-f}
+@opindex @option{-f}
 @option{-f} supports file names, and not only pony names.
 @end itemize
 
@@ -2292,7 +2309,7 @@ Pony files end with @file{.pony} instead of @file{.cow}.
 @item
 @file{.cow} files are kept but not used.
 @item
-@cindex @option{-h}
+@opindex @option{-h}
 @option{-h} prints proper help.
 @end itemize
 
@@ -2387,9 +2404,14 @@ TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 @appendix GNU Free Documentation License
 @include fdl.texinfo
 
-@node Concept index
-@appendix Concept index
-@printindex cp
+
+@node Concept and program index
+@appendix Concept and program index
+@printindex pg
+
+@node Variable and option index
+@appendix Variable and option index
+@printindex vr
 
 
 @bye
