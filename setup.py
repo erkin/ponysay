@@ -374,7 +374,10 @@ class Setup():
                 filein = open('ponysay', 'rb')
                 data = filein.read().decode('utf-8', 'replace')
                 
-                data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
+                if '#!/usr/bin/env python3' in data:
+                    data = data.replace('#!/usr/bin/env python3', '#!/usr/bin/env ' + env)
+                else:
+                    data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
                 for sharedir in [item[0] for item in sharedirs]:
                     data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
                 for sharefile in sharefiles:
