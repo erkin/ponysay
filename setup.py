@@ -371,7 +371,7 @@ class Setup():
             (fileout, filein) = (None, None)
             try:
                 fileout = open('ponysay.install', 'wb+')
-                filein = open('ponysay', 'rb')
+                filein = open('ponysay.py', 'rb')
                 data = filein.read().decode('utf-8', 'replace')
                 
                 if '#!/usr/bin/env python3' in data:
