@@ -46,6 +46,14 @@ def print(text = '', end = '\n'):
 
 
 '''
+Checks whether a text ends with a specific text, but has more
+'''
+def endswith(text, ending):
+    return text.endswith(ending) and not (text == ending);
+
+
+
+'''
 This is the mane class of ponysay
 '''
 class Ponysay():
@@ -174,7 +182,7 @@ class Ponysay():
         map = {}
         stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
         for line in maplines:
-            if (len(line) > 0) and not (line[0] == '#'):
+            if not line.startswith('#'):
                 s = line.index('→')
                 ucs   = line[:s]    .strip(stripset)
                 ascii = line[s + 1:].strip(stripset)
@@ -361,7 +369,7 @@ class Ponysay():
             ## Remove .pony from all files and skip those that does not have .pony
             ponies = []
             for pony in _ponies:
-                if (len(pony) > 5) and (pony[-5:] == '.pony'):
+                if endswith(pony, '.pony'):
                     ponies.append(pony[:-5])
             
             ## UCS:ise pony names, they are already sorted
@@ -389,7 +397,7 @@ class Ponysay():
             ## Remove .pony from all files and skip those that does not have .pony
             ponies = []
             for pony in _ponies:
-                if (len(pony) > 5) and (pony[-5:] == '.pony'):
+                if endswith(pony, '.pony'):
                     ponies.append(pony[:-5])
             
             ## If there are no ponies in the directory skip to next directory, otherwise, print the directories name
@@ -478,7 +486,7 @@ class Ponysay():
         ## Remove .pony from all files and skip those that does not have .pony
         ponies = []
         for pony in _ponies:
-            if (len(pony) > 5) and (pony[-5:] == '.pony'):
+            if endswith(pony, '.pony'):
                 ponies.append(pony[:-5])
         
         ## USC:ise and sort
@@ -510,9 +518,9 @@ class Ponysay():
         for balloondir in balloondirs:
             for balloon in os.listdir(balloondir):
                 ## Use .think if running ponythink, otherwise .say
-                if isthink and (len(balloon) > 6) and (balloon[-6:] == '.think'):
+                if isthink and endswith(balloon, '.think'):
                     balloon = balloon[:-6]
-                elif (not isthink) and (len(balloon) > 4) and (balloon[-4:] == '.say'):
+                elif (not isthink) and endswith(balloon, '.say'):
                     balloon = balloon[:-4]
                 else:
                     continue
@@ -539,9 +547,9 @@ class Ponysay():
             for balloon in os.listdir(balloondir):
                 balloonfile = balloon
                 ## Use .think if running ponythink, otherwise .say
-                if isthink and (len(balloon) > 6) and (balloon[-6:] == '.think'):
+                if isthink and endswith(balloon, '.think'):
                     balloon = balloon[:-6]
-                elif (not isthink) and (len(balloon) > 4) and (balloon[-4:] == '.say'):
+                elif (not isthink) and endswith(balloon, '.say'):
                     balloon = balloon[:-4]
                 else:
                     continue
@@ -648,7 +656,7 @@ class Ponysay():
         pony = self.__getponypath(args.opts['-f'])
         
         ## Use PNG file as pony file
-        if (len(pony) > 4) and (pony[-4:].lower() == '.png'):
+        if endswith(pony.lower(), '.png'):
             pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
             pngcmd = ('img2ponysay -p -- ' if linuxvt else 'img2ponysay -- ') + pony
             pngpipe = os.pipe()
@@ -675,7 +683,7 @@ class Ponysay():
         backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation, balloon = balloon)
         backend.parse()
         output = backend.output
-        if (len(output) > 0) and (output[-1] == '\n'):
+        if output.endswith('\n'):
             output = output[:-1]
         
         
@@ -711,7 +719,7 @@ class Ponysay():
         if len(args.opts['-q']) > 0:
             ponyset = {}
             for pony in args.opts['-q']:
-                if (len(pony) > 5) and (pony[-5:] == '.pony'):
+                if endswith(pony, '.pony'):
                     ponyname = pony[:-5]
                     if '/' in ponyname:
                         ponyname = ponyname[ponyname.rindex('/') + 1:]
@@ -1286,7 +1294,7 @@ class Backend():
                         name = dollar[:find('=')]
                         value = dollar[find('=') + 1:]
                         variables[name] = value
-                    elif (len(dollar) < 7) or not (dollar[:7] == 'balloon'):
+                    elif not dollar.startswith('balloon'):
                         data = variables[dollar].replace('$', '$$')
                         if data == '$$': # if not handled specially we will get an infinity loop
                             if (skip == 0) or (nonskip > 0):
@@ -1819,8 +1827,8 @@ opts.add_argumentless(['-l', '--list'],                                  help = 
 opts.add_argumentless(['-L', '--symlist', '--altlist'],                  help = 'List pony names with alternatives.')
 opts.add_argumentless(['+l', '++list'],                                  help = 'List non-MLP:FiM pony names.')
 opts.add_argumentless(['+L', '++symlist', '++altlist'],                  help = 'List non-MLP:FiM pony names with alternatives.')
-opts.add_argumentless(['-A', '--all'],                                   help = 'List MLP:FIM and non-MLP:FiM pony names.')
-opts.add_argumentless(['+A', '++all'],                                   help = 'List MLP:FIM and non-MLP:FiM pony names with alternatives.')
+opts.add_argumentless(['-A', '--all'],                                   help = 'List all pony names.')
+opts.add_argumentless(['+A', '++all'],                                   help = 'List all pony names with alternatives.')
 opts.add_argumentless(['-B', '--bubblelist', '--balloonlist'],           help = 'List balloon styles.')
 opts.add_argumentless(['-c', '--compact'],                               help = 'Compress messages.')
 opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN', help = 'Specify column where the message should be wrapped.')
