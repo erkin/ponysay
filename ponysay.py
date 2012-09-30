@@ -568,18 +568,22 @@ class Ponysay():
     Creates the balloon style object
     '''
     def __getballoon(self, balloonfile):
+        ## Use default balloon if none is specified
         if balloonfile is None:
             if isthink:
                 return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'], '( ', '( ', '( ')
             return Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
         
+        ## Initialise map for balloon parts
         map = {}
         for elem in ('\\', '/', 'ww', 'ee', 'nw', 'nnw', 'n', 'nne', 'ne', 'nee', 'e', 'see', 'se', 'sse', 's', 'ssw', 'sw', 'sww', 'w', 'nww'):
             map[elem] = []
         
+        ## Read all lines in the balloon file
         with open(balloonfile, 'rb') as balloonstream:
             data = [line.replace('\n', '') for line in balloonstream.read().decode('utf8', 'replace').split('\n')]
         
+        ## Parse the balloon file, and fill the map
         last = None
         for line in data:
             if len(line) > 0:
@@ -590,6 +594,7 @@ class Ponysay():
                     value = line[len(last) + 1:]
                     map[last].append(value)
         
+        ## Return the balloon
         return Balloon(map['\\'][0], map['/'][0], map['ww'][0], map['ee'][0], map['nw'], map['nnw'], map['n'],
                        map['nne'], map['ne'], map['nee'][0], map['e'][0], map['see'][0], map['se'], map['sse'],
                        map['s'], map['ssw'], map['sw'], map['sww'][0], map['w'][0], map['nww'][0])
@@ -604,6 +609,7 @@ class Ponysay():
     Prints the name of the program and the version of the program
     '''
     def version(self):
+        ## Prints the "ponysay $VERSION", if this is modified, ./dev/dist.sh must be modified accordingly
         print('%s %s' % ('ponysay', VERSION))
     
     
@@ -611,12 +617,14 @@ class Ponysay():
     Print the pony with a speech or though bubble. message, pony and wrap from args are used.
     '''
     def print_pony(self, args):
+        ## Get message and remove tailing whitespace from stdin (but not for each line)
         if args.message == None:
             msg = ''.join(sys.stdin.readlines()).rstrip()
         else:
             msg = args.message
         
-        if args.opts['-c'] is not None: ## This algorithm should give some result as cowsay's (according to tests)
+        ## This algorithm should give some result as cowsay's (according to tests)
+        if args.opts['-c'] is not None:
             buf = ''
             last = ' '
             CHARS = '\t \n'
@@ -636,8 +644,10 @@ class Ponysay():
                     last = c
             msg = buf.replace('\n', '\n\n')
         
+        ## Get the pony
         pony = self.__getponypath(args.opts['-f'])
         
+        ## Use PNG file as pony file
         if (len(pony) > 4) and (pony[-4:].lower() == '.png'):
             pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
             pngcmd = ('img2ponysay -p -- ' if linuxvt else 'img2ponysay -- ') + pony
@@ -645,18 +655,23 @@ class Ponysay():
             Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
             pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
         
+        ## If KMS is utilies, select a KMS pony file and create it if necessary
         pony = self.__kms(pony)
         
+        ## If in Linux VT clean the terminal (See info/pdf-manual [Printing in TTY with KMS])
         if linuxvt:
             print('\033[H\033[2J', end='')
         
+        ## Width Get truncation and wrapping
         env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
         if env_width is None:  env_width = ''
         widthtruncation = self.__gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
         messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
         
+        ## Get balloon object
         balloon = self.__getballoon(self.__getballoonpath(args.opts['-b']))
         
+        ## Run cowsay replacement
         backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation, balloon = balloon)
         backend.parse()
         output = backend.output
@@ -664,6 +679,7 @@ class Ponysay():
             output = output[:-1]
         
         
+        ## Load height trunction settings
         env_bottom = os.environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
         if env_bottom is None:  env_bottom = ''
         
@@ -673,9 +689,8 @@ class Ponysay():
         env_lines = os.environ['PONYSAY_SHELL_LINES'] if 'PONYSAY_SHELL_LINES' in os.environ else None
         if (env_lines is None) or (env_lines == ''):  env_lines = '2'
         
+        ## Print the output, truncated on height is so set
         lines = self.__gettermsize()[0] - int(env_lines)
-        
-        
         if linuxvt or (env_height is ('yes', 'y', '1')):
             if env_bottom is ('yes', 'y', '1'):
                 for line in output.split('\n')[: -lines]:
@@ -691,6 +706,7 @@ class Ponysay():
     Print the pony with a speech or though bubble and a self quote
     '''
     def quote(self, args):
+        ## Get all quotes, and if any pony is choosen just keep them
         pairs = self.__quotes()
         if len(args.opts['-q']) > 0:
             ponyset = {}
@@ -707,7 +723,8 @@ class Ponysay():
                 if pair[0] in ponyset:
                     alts.append((ponyset[pair[0]], pair[1]))
             pairs = alts
-            
+        
+        ## Select a random pony–quote-pair, load it and print it
         if not len(pairs) == 0:
             pair = pairs[random.randrange(0, len(pairs))]
             with open(pair[1], 'rb') as qfile:
@@ -724,22 +741,26 @@ class Ponysay():
     
     
     '''
-    Indentifies whether KMS support is utilised
+    Identifies whether KMS support is utilised
     '''
     @staticmethod
     def isUsingKMS():
+        ## KMS is not utilised if Linux VT is not used
         if not linuxvt:
             return False
         
+        ## Read the PONYSAY_KMS_PALETTE environment variable
         env_kms = os.environ['PONYSAY_KMS_PALETTE'] if 'PONYSAY_KMS_PALETTE' in os.environ else None
         if env_kms is None:  env_kms = ''
         
+        ## Read the PONYSAY_KMS_PALETTE_CMD environment variable, and run it
         env_kms_cmd = os.environ['PONYSAY_KMS_PALETTE_CMD'] if 'PONYSAY_KMS_PALETTE_CMD' in os.environ else None
         if (env_kms_cmd is not None) and (not env_kms_cmd == ''):
             env_kms = Popen(shlex.split(env_kms_cmd), stdout=PIPE, stdin=sys.stderr).communicate()[0].decode('utf8', 'replace')
             if env_kms[-1] == '\n':
                 env_kms = env_kms[:-1]
         
+        ## If the palette string is empty KMS is not utilised
         return env_kms != ''
     
     
@@ -747,32 +768,40 @@ class Ponysay():
     Returns the file name of the input pony converted to a KMS pony, or if KMS is not used, the input pony itself
     '''
     def __kms(self, pony):
+        ## If not in Linux VT, return the pony as is
         if not linuxvt:
             return pony
         
+        ## KMS support version constant
         KMS_VERSION = '1'
         
+        ## Read the PONYSAY_KMS_PALETTE environment variable
         env_kms = os.environ['PONYSAY_KMS_PALETTE'] if 'PONYSAY_KMS_PALETTE' in os.environ else None
         if env_kms is None:  env_kms = ''
         
+        ## Read the PONYSAY_KMS_PALETTE_CMD environment variable, and run it
         env_kms_cmd = os.environ['PONYSAY_KMS_PALETTE_CMD'] if 'PONYSAY_KMS_PALETTE_CMD' in os.environ else None
         if (env_kms_cmd is not None) and (not env_kms_cmd == ''):
             env_kms = Popen(shlex.split(env_kms_cmd), stdout=PIPE, stdin=sys.stderr).communicate()[0].decode('utf8', 'replace')
             if env_kms[-1] == '\n':
                 env_kms = env_kms[:-1]
         
+        ## If not using KMS, return the pony as is
         if env_kms == '':
             return pony
         
+        ## Store palette string and a clong with just the essentials
         palette = env_kms
         palettefile = env_kms.replace('\033]P', '')
         
+        ## Get and in necessary make cache directory
         cachedir = '/var/cache/ponysay'
         if not os.path.isdir(cachedir):
             cachedir = HOME + '/.cache/ponysay'
             if not os.path.isdir(cachedir):
                 os.makedirs(cachedir)
         
+        ## KMS support version control, clean everything if not matching
         newversion = False
         if not os.path.isfile(cachedir + '/.version'):
             newversion = True
@@ -790,20 +819,24 @@ class Ponysay():
             with open(cachedir + '/.version', 'w+') as cachev:
                 cachev.write(KMS_VERSION)
         
+        ## Get kmspony directory and kmspony file
         kmsponies = cachedir + '/kmsponies/' + palettefile
         kmspony = (kmsponies + pony).replace('//', '/')
         
+        ## If the kmspony is missing, create it
         if not os.path.isfile(kmspony):
+            ## Protokmsponies are uncolourful ttyponies
             protokmsponies = cachedir + '/protokmsponies/'
             protokmspony = (protokmsponies + pony).replace('//', '/')
-            
             protokmsponydir = protokmspony[:protokmspony.rindex('/')]
             kmsponydir      =      kmspony[:     kmspony.rindex('/')]
             
+            ## Change file names to be shell friendly
             _protokmspony = '\'' + protokmspony.replace('\'', '\'\\\'\'') + '\''
             _kmspony      = '\'' +      kmspony.replace('\'', '\'\\\'\'') + '\''
             _pony         = '\'' +         pony.replace('\'', '\'\\\'\'') + '\''
             
+            ## Create protokmspony is missing
             if not os.path.isfile(protokmspony):
                 if not os.path.isdir(protokmsponydir):
                     os.makedirs(protokmsponydir)
@@ -811,6 +844,7 @@ class Ponysay():
                     sys.stderr.write('Unable to run ponysay2ttyponysay successfully, you need util-say for KMS support\n')
                     exit(1)
             
+            ## Create kmspony
             if not os.path.isdir(kmsponydir):
                 os.makedirs(kmsponydir)
             if not os.system('tty2colourfultty -p ' + palette + ' < ' + _protokmspony + ' > ' + _kmspony) == 0:
