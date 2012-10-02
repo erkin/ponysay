@@ -83,6 +83,15 @@ aleatoriamente uno de este conjunto.
 .TP
 .B \-W, \-\-wrap \fIcolumna\fP
 El numero de columnas en el que será impreso el mensaje.
+.TP
+.B \-A. \-\-all \fIcolumn\fP
+Muestra todos los ponis, tanto pertenecientes a MLP:FiM cono no pertenecientes a esta
+la primera lista son los pertenecientes a esta y la subsiguente los no pertenecientes.
+.TP
+.B \+A, \+\+all \fIcolumn\fP
+Muestra todos los ponies incluyendo sus nombres alternativos, estos pertenecientes a
+MLP:FiM cono no pertenecientes, la primera lista seran los pertenecientes y la
+subsiguente los no pertenecientes.
 .SH ENTORNO
 .TP
 .B PONYSAY_BOTTOM
