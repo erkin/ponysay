@@ -114,6 +114,7 @@ no desea que la salida sea truncada para que calce en la terminal.
 Exporte \fIPONYSAY_TRUNCATE_HEIGHT\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP, si
 desea truncar la salida en el largo aun si no se está dentro de una terminal \fIponysay\fP bajo
 TTY.
+.TP
 .B PONYSAY_UCS_ME
 Exportar \fIPONYSAY_UCS_ME\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP,
 Si es que busca 'simular enlaces simbólicos' a ponis usando 'Universal Character Set' (Set de
