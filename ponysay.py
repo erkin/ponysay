@@ -1711,6 +1711,168 @@ class UCS():
 
 
 '''
+Class used for correcting spellos and typos,
+
+Note that this implementation will not find that correctly spelled word are correct faster than it corrects words.
+It is also limited to words of size 0 to 127 (inclusive)
+'''
+class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised Java, may not be the nicest, or even fast, Python code
+    def __init__(self, directories, ending):
+        self.weights = {'k' : {'c' : 0.25, 'g' : 0.75, 'q' : 0.125},
+                        'c' : {'k' : 0.25, 'g' : 0.75, 's' : 0.5, 'z' : 0.5, 'q' : 0.125},
+                        's' : {'z' : 0.25, 'c' : 0.5},
+                        'z' : {'s' : 0.25, 'c' : 0.5},
+                        'g' : {'k' : 0.75, 'c' : 0.75, 'q' : 0.9},
+                        'o' : {'u' : 0.5},
+                        'u' : {'o' : 0.5, 'v' : 0.75, 'w' : 0.5},
+                        'b' : {'v' : 0.75},
+                        'v' : {'b' : 0.75, 'w' : 0.5, 'u' : 0.7},
+                        'w' : {'v' : 0.5, 'u' : 0.5},
+                        'q' : {'c' : 0.125, 'k' : 0.125, 'g' : 0.9}}
+        
+        self.corrections = None
+        self.dictionary = [None] * 513
+        self.reusable = [0] * 512
+        self.dictionaryEnd = 512
+        self.closestDistance = 0
+        
+        self.M = [None] * 128
+        for y in range(0, 128):
+            self.M[y] = [0] * 128
+            self.M[y][0] = y
+        m0 = self.M[0]
+        x = 127
+        while x > -1:
+            m0[x] = x
+            x -= 1
+        
+        previous = ""
+        self.dictionary[-1] = previous;
+        
+        for directory in directories:
+            for filename : os.listdir(directory):
+                if (not endswith(filename, ending)) or (len(filename) - len(ending) > 127):
+                    continue
+                proper = filename[:-len(ending)]
+                
+                if dictionaryEnd == 0:
+                    dictionaryEnd = len(self.dictionary)
+                    self.reusable = [0] * dictionaryEnd + self.reusable
+                    self.dictionary = [None] * dictionaryEnd + self.dictionary
+                
+                dictionaryEnd -= 1
+                dictionary[dictionaryEnd] = proper
+                prevCommon = min(len(previous), len(proper))
+                for i in range(0, prevCommon):
+                    if previous[i] != proper[i]:
+                        prevCommon = i
+                        break
+                previous = dictionary[dictionaryEnd]
+                reusable[dictionaryEnd] = prevCommon
+    
+    
+    '''
+    Finds the closests correct spelled word.
+    The input is just one word, and the output is tuple
+    with a list of the closest spellings, and the weigthed distance.
+    '''
+    def correct(self, used):
+        if len(used) < 127:
+            return ([used], 0)
+        
+        __correct(used)
+        return (seld.corrections, self.closestDistance)
+    
+    
+    def __correct(self, used):
+        self.closestDistance = 0x7FFFFFFF
+        previous = self.dictionary[-1]
+        prevLen = 0
+        usedLen = len(used)
+        
+        proper = None
+        prevCommon = 0
+        
+        d = len(self.dictionary)
+        while d > self.dictionaryEnd:
+            d -= 1
+            proper = self.dictionary[d]
+            if abs(len(proper) - usedLen) <= self.closestDistance:
+                if previous == self.dictionary[d + 1]:
+                    prevCommon = self.reusable[d];
+                else:
+                    prevCommon = min(prevLen, len(proper))
+                    for i in range(0, prevCommon):
+                        if previous[i] != proper[i]:
+                            prevCommon = i
+                            break
+                
+                skip = min(prevLen, len(proper))
+                i = prevCommon
+                while i <  skip:
+                    for u in range(0, usedLen):
+                        if (used[u] == previous[i]) or (used[u] == proper[i]):
+                            skip = i
+                            break
+                    i += 1
+                
+                common = min(skip, min(usedLen, len(proper)))
+                for i in range(0, common):
+                    if used[i] != proper[i]:
+                        common = i
+                        break
+                
+                distance = self.__distance(proper, skip, proper.length, used, common, usedLen)
+                
+                if self.closestDistance > distance:
+                    self.closestDistance = distance
+                    corrections = [proper]
+                elif self.closestDistance == distance:
+                    corrections.append(proper)
+                
+                previous = proper;
+                if distance >= 0x7FFFFF00:
+                    prevLen = distance & 255
+                else:
+                    prevLen = len(proper)
+    
+    
+    def __distance(self, proper, y0, yn, used, x0, xn):
+        my = self.M[y0]
+        for y in range(y0, yn):
+            best = 0x7FFFFFFF
+            p = proper[y]
+            myy = self.M[y + 1] # only one array bound check, and at most one + ☺
+            x = x0
+            while x < xn:
+                change = my[x]
+                u = used[x]
+                if p == u:
+                    # commence black magick … twilight would be so disappointed
+                    x += 1
+                    myy[x] = change
+                    best = min(best, change)
+                remove = myy[x]
+                add = my[x + 1]
+                
+                cw = 1
+                if my[x] in self.weights:
+                    if p in self.weights[u]:
+                      cw = self.weights[u][p]
+                
+                myy[x] = min(cw + change, 1 + min(remove, add))
+                if best > myy[x]:
+                    best = myy[x]
+            
+            if best > self.closestDistance:
+                return 0x7FFFFFFF | y
+            my = myy
+        return my[xn]
+    
+
+
+
+'''
 The user's home directory
 '''
 HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
