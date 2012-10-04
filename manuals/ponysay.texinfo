@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.7
+@set VERSION 2.8
 
 @defindex op
 @synindex op vr
@@ -1847,6 +1847,18 @@ sequences.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+
+@heading Version 2.8
+@itemize @bullet
+@item
+Support for explicit hypthenation using soft hyphens had been added to the word wrapper.
+@item
+Support for explicit non-word wrapping using non-breaking space had been added to the word wrapper.
+@item
+The word wrapper colours the inserted hyphens in red.
+@end itemize
+
 
 @heading Version 2.7
 @itemize @bullet

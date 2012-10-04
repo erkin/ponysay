@@ -1473,6 +1473,8 @@ class Backend():
     Wraps the message
     '''
     def __wrapMessage(self, message, wrap):
+        AUTO_PUSH = '\033[01010~'
+        AUTO_POP  = '\033[10101~'
         lines = message.split('\n')
         buf = ''
         for line in lines:
@@ -1484,10 +1486,11 @@ class Backend():
             (i, n) = (0, len(line))
             while i <= n:
                 d = None
-                if i != n:
+                if i < n:
                     d = line[i]
                 i += 1
                 if d == '\033':  # TODO this should use self.__getcolour()
+                    ## Invisible stuff
                     b[bi] = d
                     bi += 1
                     b[bi] = line[i]
@@ -1513,6 +1516,7 @@ class Backend():
                                 bi += 1
                                 i += 1
                 elif (d is not None) and (d != ' '):
+                    ## Fetch word
                     if indent == -1:
                         indent = i - 1
                         for j in range(0, indent):
@@ -1520,27 +1524,46 @@ class Backend():
                                 indentc += 1
                     b[bi] = d
                     bi += 1
-                    if not UCS.isCombining(d):
+                    if (not UCS.isCombining(d)) and (d != '­'):
                         cols += 1
                     map[cols] = bi
                 else:
+                    ## Wrap?
                     mm = 0
-                    while (w > 8) and (cols > w + 3):
-                        mm += w - 1
-                        m = map[mm]
-                        for bb in b[:m]:
+                    bisub = 0
+                    iwrap = wrap - (0 if indent == 1 else indentc)
+                    
+                    while ((w > 8) and (cols > w + 5)) or (cols > iwrap): # TODO make configurable
+                        ## wrap
+                        x = w;
+                        nbsp = b[map[mm + x]] == ' '
+                        m = map[mm + x]
+                        
+                        if ('­' in b[bisub : m]) and not nbsp:
+                            hyphen = m - 1
+                            while b[hyphen] != '­':
+                                hyphen -= 1
+                            while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hythenated correctly
+                                x -= 1
+                            x += 1
+                            m = map[mm + x]
+                        
+                        mm += x - (0 if nbsp else 1) ## − 1 so we have space for a hythen
+                        
+                        for bb in b[bisub : m]:
                             buf += bb
-                        buf += '-\n'
-                        cols -= w - 1
-                        m += w -1
-                        bi -= m
-                        bb = b[m:]
-                        for j in range(0, bi):
-                            b[j] = bb[j]
-                        w = wrap
+                        buf += '\n' if nbsp else '\0\n'
+                        cols -= x - (0 if nbsp else 1)
+                        bisub = m
+                        
+                        w = iwrap
                         if indent != -1:
                             buf += line[:indent]
-                            w -= indentc
+                    
+                    for j in range(bisub, bi):
+                        b[j - bisub] = b[j]
+                    bi -= bisub
+                    
                     if cols > w:
                         buf += '\n'
                         w = wrap
@@ -1552,7 +1575,7 @@ class Backend():
                     w -= cols
                     cols = 0
                     bi = 0
-                    if d == -1:
+                    if d is None:
                         i += 1
                     else:
                         if w > 0:
@@ -1564,9 +1587,12 @@ class Backend():
                             if indent != -1:
                                 buf + line[:indent]
                                 w -= indentc
-            
             buf += '\n'
-        return '\n'.join(line.rstrip() for line in buf[:-1].split('\n'))
+        
+        rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
+        rc = rc.replace('­', ''); # remove soft hyphens
+        rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, '\033[31m-', AUTO_POP)) # TODO make configurable
+        return rc
 
 
 '''
