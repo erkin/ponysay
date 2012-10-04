@@ -264,6 +264,22 @@ Just as @option{-L}, except it lists extra (non-MLP:FiM) ponies instead of stand
 @opindex @option{--bubblelist}
 @opindex @option{--balloonlist}
 Prints a list of all balloon styles.
+
+@item -A
+@itemx --balloonlist
+@opindex @option{-A}
+@opindex @option{--all}
+@opindex @option{--all}
+Show all ponies, MLP-FiM and non-MLP-FiM, in this case the first list are MLP:FiM
+and the second are non-MLP-FiM.
+
+@item +A
+@itemx --balloonlist
+@opindex @option{+A}
+@opindex @option{++all}
+@opindex @option{++all}
+Show both ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM
+the first list are the MLP:FiM and the second one are non-MLP:FiM.
 @end table
 
 @opindex @var{message}
@@ -1848,9 +1864,15 @@ sequences.
 @cindex versions
 @cindex previous releases
 
-
 @heading Version 2.8
 @itemize @bullet
+@item
+New ponies: @file{airheart}, @file{bastionyorsets}, @file{peppermoon}, @file{sunnyrays}
+@item
+Pony symlink added:
+@itemize @bullet
+@item @file{georgewashingtony} @arrow{} @file{bastionyorsets}
+@end itemize
 @item
 Support for explicit hypthenation using soft hyphens had been added to the word wrapper.
 @item
