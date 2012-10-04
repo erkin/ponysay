@@ -1,9 +1,18 @@
 Version 2.8
+
 	New ponies: airheart, bastionyorsets, peppermoon, sunnyrays
 
 	Pony symlink added: georgewachingtony → bastionyorsets
 
+	Support for explicit hypthenation using soft hyphens had been added to the word wrapper.
+
+	Support for explicit non-word wrapping using non-breaking space had been added to the word wrapper.
+
+	The word wrapper colours the inserted hyphens in red.
+
+
 Version 2.7
+
 	New ponies: basil, cloudkicker, cerberus, cow, derpysad, flowertrio, frederickhorseshoepin,
 	            horsemd, jeffletroski, jesuspezuna, joe, joetuxedo, manticore, meadowsong,
 	            meliot, pinkiegummydisguise, seaswirl, theodoredonaldkerabatsos, turf,
