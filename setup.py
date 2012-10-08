@@ -8,7 +8,7 @@ from subprocess import Popen, PIPE
 
 
 
-PONYSAY_VERSION = '2.7'
+PONYSAY_VERSION = '2.8'
 
 
 
@@ -502,8 +502,8 @@ class Setup():
                 if not os.path.exists(pdir):
                     print('Creating intermediate-level directories needed for ' + dir)
                     os.makedirs(pdir)
-                print('Creating directory ' + dir + ' with mode mask 777')
-                os.mkdir(dir, 0o777)
+                print('Creating directory ' + dir + ' with mode mask 6777')
+                os.mkdir(dir, 0o6777)
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 for command in commands:
