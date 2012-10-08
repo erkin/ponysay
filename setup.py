@@ -502,8 +502,10 @@ class Setup():
                 if not os.path.exists(pdir):
                     print('Creating intermediate-level directories needed for ' + dir)
                     os.makedirs(pdir)
-                print('Creating directory ' + dir + ' with mode mask 6777')
-                os.mkdir(dir, 0o6777)
+                print('Creating directory ' + dir)
+                os.mkdir(dir)
+                print('Setting permission mode mask for ' + dir + ' to 6777')
+                Popen('chmod 6777 -- ' + dir, shell=True).wait()
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 for command in commands:
