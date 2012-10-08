@@ -804,10 +804,13 @@ class Ponysay():
         
         ## Get and in necessary make cache directory
         cachedir = '/var/cache/ponysay'
+        shared = True
         if not os.path.isdir(cachedir):
             cachedir = HOME + '/.cache/ponysay'
+            shared = False
             if not os.path.isdir(cachedir):
                 os.makedirs(cachedir)
+        _cachedir = '\'' + cachedir.replace('\'', '\'\\\'\'') + '\''
         
         ## KMS support version control, clean everything if not matching
         newversion = False
@@ -815,7 +818,7 @@ class Ponysay():
             newversion = True
         else:
             with open(cachedir + '/.version', 'rb') as cachev:
-                if cachev.read().decode('utf8', 'replace').replace('\n', '') == KMS_VERSION:
+                if cachev.read().decode('utf8', 'replace').replace('\n', '') != KMS_VERSION:
                     newversion = True
         if newversion:
             for cached in os.listdir(cachedir):
@@ -826,6 +829,8 @@ class Ponysay():
                     os.remove(cached)
             with open(cachedir + '/.version', 'w+') as cachev:
                 cachev.write(KMS_VERSION)
+                if shared:
+                    Popen('chmod 666 -- ' + _cachedir + '/.version', shell=True).wait()
         
         ## Get kmspony directory and kmspony file
         kmsponies = cachedir + '/kmsponies/' + palettefile
@@ -848,16 +853,24 @@ class Ponysay():
             if not os.path.isfile(protokmspony):
                 if not os.path.isdir(protokmsponydir):
                     os.makedirs(protokmsponydir)
+                    if shared:
+                        Popen('chmod -R 6777 -- ' + _cachedir, shell=True).wait()
                 if not os.system('ponysay2ttyponysay < ' + _pony + ' > ' + _protokmspony) == 0:
                     sys.stderr.write('Unable to run ponysay2ttyponysay successfully, you need util-say for KMS support\n')
                     exit(1)
+                if shared:
+                    Popen('chmod 666 -- ' + _protokmspony, shell=True).wait()
             
             ## Create kmspony
             if not os.path.isdir(kmsponydir):
                 os.makedirs(kmsponydir)
+                if shared:
+                    Popen('chmod -R 6777 -- ' + _cachedir, shell=True).wait()
             if not os.system('tty2colourfultty -p ' + palette + ' < ' + _protokmspony + ' > ' + _kmspony) == 0:
                 sys.stderr.write('Unable to run tty2colourfultty successfully, you need util-say for KMS support\n')
                 exit(1)
+            if shared:
+                Popen('chmod 666 -- ' + _kmspony, shell=True).wait()
         
         return kmspony
 
