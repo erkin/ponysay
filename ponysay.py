@@ -1750,7 +1750,7 @@ class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised 
         self.dictionary[-1] = previous;
         
         for directory in directories:
-            for filename : os.listdir(directory):
+            for filename in os.listdir(directory):
                 if (not endswith(filename, ending)) or (len(filename) - len(ending) > 127):
                     continue
                 proper = filename[:-len(ending)]
