@@ -506,6 +506,8 @@ class Setup():
                 os.mkdir(dir)
                 print('Setting permission mode mask for ' + dir + ' to 6777')
                 Popen('chmod -R 6777 -- ' + dir, shell=True).wait()
+                print('Setting group for ' + dir + ' users')
+                Popen('chown -R :users -- ' + dir, shell=True).wait()
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 for command in commands:
