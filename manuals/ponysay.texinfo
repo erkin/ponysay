@@ -1867,7 +1867,7 @@ sequences.
 @heading Version 2.8
 @itemize @bullet
 @item
-New ponies: @file{airheart}, @file{bastionyorsets}, @file{peppermoon}, @file{shinngarmorwedingi},
+New ponies: @file{airheart}, @file{bastionyorsets}, @file{peppermoon}, @file{shiningarmorwedding},
 @file{starlight}, @file{sunnyrays}, @file{tenderheart}, @file{tomtherock}
 @item
 Pony symlink added:
