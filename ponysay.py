@@ -1304,8 +1304,8 @@ class Backend():
             if c == '$':
                 if dollar is not None:
                     if '=' in dollar:
-                        name = dollar[:find('=')]
-                        value = dollar[find('=') + 1:]
+                        name = dollar[:dollar.find('=')]
+                        value = dollar[dollar.find('=') + 1:]
                         variables[name] = value
                     elif not dollar.startswith('balloon'):
                         data = variables[dollar].replace('$', '$$')
