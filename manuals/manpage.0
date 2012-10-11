@@ -92,6 +92,12 @@ the first list are the MLP:FiM and the second one are non-MLP:FiM.
 .TP
 .B \-o, \-\-pony\-only, \-\-ponyonly
 Just print the pony, nothing else like the speech balloon.
+.TP
+.B \+c, \-\-colour [\fIansi-colour\fP]
+Colour the balloon, including link and message. For more colouring features, se the \fIinfo\fP
+manual. The argument, \fIansi-colour\fP, should be a ANSI colour sequence without leading CSI
+and without a tailing \fIm\fP, for example \fI1;31\fP will make it in red and bold (or bright
+depending on the terminal.)
 .SH ENVIRONMENT
 .TP
 .B PONYSAY_BOTTOM

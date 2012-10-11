@@ -20,7 +20,6 @@ Authors of ponysay.py:
          Sven-Hendrik "svenstaro" Haase:   Major contributor of the first implementation
          Jan Alexander "heftig" Steffens:  Major contributor of the first implementation
          Kyah "L-four" Rindlisbacher:      Patched the first implementation
-
 '''
 
 import os
@@ -99,6 +98,16 @@ class Ponysay():
         elif args.opts['-A']        is not None:  self.list(); self.__extraponies(); self.list()
         elif args.opts['+A']        is not None:  self.linklist(); self.__extraponies(); self.linklist()
         else:
+            ## Colouring features
+            if args.opts['--colour-pony'] is not None:
+                mode += '\033[' + ';'.join(args.opts['--colour-pony']) + 'm'
+            else:
+                mode += '\033[0m'
+            if args.opts['+c'] is not None:
+                if args.opts['--colour-msg']    is None:  args.opts['--colour-msg']    = args.opts['+c']
+                if args.opts['--colour-link']   is None:  args.opts['--colour-link']   = args.opts['+c']
+                if args.opts['--colour-bubble'] is None:  args.opts['--colour-bubble'] = args.opts['+c']
+            
             ## Other extra features
             self.__extraponies(args)
             self.__bestpony(args)
@@ -656,6 +665,8 @@ class Ponysay():
             msg = ''.join(sys.stdin.readlines()).rstrip()
         else:
             msg = args.message
+        if args.opts['--colour-msg'] is not None:
+            msg = '\033[' + ';'.join(args.opts['--colour-msg']) + 'm' + msg
         
         ## This algorithm should give some result as cowsay's (according to tests)
         if args.opts['-c'] is not None:
@@ -705,8 +716,24 @@ class Ponysay():
         ## Get balloon object
         balloon = self.__getballoon(self.__getballoonpath(args.opts['-b'])) if args.opts['-o'] is None else None
         
+        ## Get hyphen style
+        hyphencolour = ''
+        if args.opts['--colour-wrap'] is not None:
+            hyphencolour = '\033[' + ';'.join(args.opts['--colour-wrap']) + 'm'
+        hyphen = '\033[31m' + hyphencolour + '-'
+        
+        ## Link and balloon colouring
+        linkcolour = ''
+        if args.opts['--colour-link'] is not None:
+            linkcolour = '\033[' + ';'.join(args.opts['--colour-link']) + 'm'
+        ballooncolour = ''
+        if args.opts['--colour-bubble'] is not None:
+            ballooncolour = '\033[' + ';'.join(args.opts['--colour-bubble']) + 'm'
+        
+        
         ## Run cowsay replacement
-        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation, balloon = balloon)
+        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40,
+                          width = widthtruncation, balloon = balloon, hyphen = hyphen, linkcolour = linkcolour, ballooncolour = ballooncolour)
         backend.parse()
         output = backend.output
         if output.endswith('\n'):
@@ -1215,17 +1242,21 @@ class Backend():
     '''
     Constructor
     Takes message [string], ponyfile [filename string], wrapcolumn [None or an int],
-          width [None or an int] and balloon [None or Balloon object]
+          width [None or an int], balloon [None or Balloon object], hyphen [string],
+          linkcolour [string] and ballooncolour [string]
     '''
-    def __init__(self, message, ponyfile, wrapcolumn, width, balloon):
+    def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour):
         self.message = message
         self.ponyfile = ponyfile
         self.wrapcolumn = wrapcolumn
         self.width = width
         self.balloon = balloon
+        self.hyphen = hyphen
+        self.ballooncolour = ballooncolour
         
         if self.balloon is not None:
-            self.link = {'\\' : self.balloon.link, '/' : self.balloon.linkmirror}
+            self.link = {'\\' : linkcolour + self.balloon.link,
+                         '/'  : linkcolour + self.balloon.linkmirror}
         else:
             self.link = {}
         
@@ -1363,6 +1394,7 @@ class Backend():
                                 w = int(props)
                         balloon = self.__getballoon(w, h, indent)
                         balloon = balloon.split('\n')
+                        balloon = [AUTO_PUSH + self.ballooncolour + item + AUTO_POP for item in balloon]
                         for b in balloon[0]:
                             self.output += b + colourstack.feed(b)
                         if lineindex == 0:
@@ -1495,22 +1527,15 @@ class Backend():
         if wrap is not None:
             msg = self.__wrapMessage(msg, wrap)
         
-        if '\033' in msg:
-            AUTO_PUSH = '\033[01010~'
-            AUTO_POP  = '\033[10101~'
-            cstack = ColourStack(AUTO_PUSH, AUTO_POP)
-            buf = ''
-            for c in msg:
-                if c == '\n':
-                    for cc in ('%s\n%s' % (AUTO_PUSH, AUTO_POP)):
-                        buf += cc
-                        buf += cstack.feed(cc)
-                else:
-                    buf += c
-                    buf += cstack.feed(c)
-            msg = buf
+        AUTO_PUSH = '\033[01010~'
+        AUTO_POP  = '\033[10101~'
+        cstack = ColourStack(AUTO_PUSH, AUTO_POP)
+        buf = ''
+        for c in msg.replace('\n', AUTO_PUSH + self.ballooncolour + '\n' + AUTO_POP) + self.ballooncolour:
+            buf += c
+            buf += cstack.feed(c)
         
-        return self.balloon.get(width, height, msg.split('\n'), self.__len)
+        return self.balloon.get(width, height, buf.split('\n'), self.__len)
     
     
     '''
@@ -1587,7 +1612,7 @@ class Backend():
                             hyphen = m - 1
                             while b[hyphen] != '­':
                                 hyphen -= 1
-                            while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hythenated correctly
+                            while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hyphenated correctly
                                 x -= 1
                             x += 1
                             m = map[mm + x]
@@ -1635,7 +1660,7 @@ class Backend():
         
         rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
         rc = rc.replace('­', ''); # remove soft hyphens
-        rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, '\033[31m-', AUTO_POP)) # TODO make configurable
+        rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP)) # TODO make configurable
         return rc
 
 
@@ -2074,6 +2099,13 @@ opts.add_argumentless(['++onelist'])
 opts.add_argumentless(['-X', '--256-colours', '--256colours', '--x-colours'])
 opts.add_argumentless(['-V', '--tty-colours', '--ttycolours', '--vt-colours'])
 opts.add_argumentless(['-K', '--kms-colours', '--kmscolours'])
+
+opts.add_argumented(['+c', '--colour'],                      arg = 'COLOUR')
+opts.add_argumented(['--colour-bubble', '--colour-balloon'], arg = 'COLOUR')
+opts.add_argumented(['--colour-link'],                       arg = 'COLOUR')
+opts.add_argumented(['--colour-msg', '--colour-message'],    arg = 'COLOUR')
+opts.add_argumented(['--colour-pony'],                       arg = 'COLOUR')
+opts.add_argumented(['--colour-wrap', '--colour-hyphen'],    arg = 'COLOUR')
 
 opts.add_argumentless(['-h', '--help'],                                  help = 'Print this help message.')
 opts.add_argumentless(['-v', '--version'],                               help = 'Print the version of the program.')

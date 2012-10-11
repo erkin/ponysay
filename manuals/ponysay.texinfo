@@ -322,6 +322,45 @@ compatibilies.
 Use Linux VT's compatbilies with KMS utilisation, despite your terminal's actual
 compatibilies.
 
+@item +c
+@itemx --colour ANSI-COLOUR
+@opindex @option{+c}
+@opindex @option{--colour}
+Colour the balloon, including link and message (the parts that are not individually
+specified.) The argument, should be a ANSI colour sequence without leading CSI and
+without a tailing ‘m’, for example @code{1;31} will make it in red and bold (or bright
+depending on the terminal.)
+
+@item --colour-bubble
+@itemx --colour-balloon ANSI-COLOUR
+@opindex @option{--colour-bubble}
+@opindex @option{--colour-balloon}
+Just like @option{--colour}, but it only colours the balloon, without the message
+or link.
+
+@item --colour-link ANSI-COLOUR
+@opindex @option{--colour-link}
+Just like @option{--colour}, but it only colours the balloon link.
+
+@item --colour-msg
+@itemx --colour-message ANSI-COLOUR
+@opindex @option{--colour-msg}
+@opindex @option{--colour-message}
+Just like @option{--colour}, but it only colours the message.
+
+@item --colour-pony ANSI-COLOUR
+@opindex @option{--colour-pony}
+Just like @option{--colour}, but it colours the pony. This colouring has no
+effect ony regular pony files, as it has its own colouring.
+
+@item --colour-wrap
+@itemx --colour-hyphen ANSI-COLOUR
+@opindex @option{--colour-wrap}
+@opindex @option{--colour-hyphen}
+Just like @option{--colour}, but it colours hyphen added by the word wrapping.
+By default this is red (@code{31}), if you want uncoloured use @code{0},
+without @code{0} or @code{39}, the default @code{31} is presistent.
+
 @end table
 
 @opindex @var{message}
@@ -1926,6 +1965,8 @@ The word wrapper colours the inserted hyphens in red.
 Support for terminal capabilities emulation with the flags @option{-X}, @option{-V} and @option{-K}.
 @item
 Support for printing just the pony, using the flag @option{-o}.
+@item
+Colouring option flags are added.
 @end itemize
 
 
