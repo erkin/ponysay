@@ -282,6 +282,38 @@ and the second are non-MLP:FiM.
 @opindex @option{--altall}
 List all ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM
 the first list are the MLP:FiM and the second one are non-MLP:FiM.
+
+@item -X
+@itemx --256-colours
+@itemx --256colours
+@itemx --x-colours
+@opindex @option{-X}
+@opindex @option{--256-colours}
+@opindex @option{--256colours}
+@opindex @option{--x-colours}
+Use @command{xterm}'s 256-colour support (supported by most X11 terminals), despite
+your terminal's actual compatibilies. 
+
+@item -V
+@itemx --tty-colours
+@itemx --ttycolours
+@itemx --vt-colours
+@opindex @option{-V}
+@opindex @option{--tty-colours}
+@opindex @option{--ttycolours}
+@opindex @option{--vt-colours}
+Use Linux VT's compatbilies without KMS utilisation, despite your terminal's actual
+compatibilies.
+
+@item -K
+@itemx --kms-colours
+@itemx --kmscolours
+@opindex @option{-K}
+@opindex @option{--kms-colours}
+@opindex @option{--kmscolours}
+Use Linux VT's compatbilies with KMS utilisation, despite your terminal's actual
+compatibilies.
+
 @end table
 
 @opindex @var{message}
