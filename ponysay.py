@@ -65,6 +65,27 @@ class Ponysay():
             args.help()
             return
         
+        ## Modifyable global variables
+        global linuxvt
+        global usekms
+        global mode
+        global ponydirs
+        global extraponydirs
+        
+        ## Emulate termial capabilities
+        if args.opts['-X'] is not None:
+            linuxvt = False
+            usekms = False
+        elif args.opts['-V'] is not None:
+            linuxvt = True
+            usekms = False
+        elif args.opts['-K'] is not None:
+            linuxvt = True
+            usekms = True
+        ponydirs = vtponydirs if linuxvt and not usekms else xponydirs
+        extraponydirs = extravtponydirs if linuxvt and not usekms else extraxponydirs
+        
+        ## Run modes
         if   args.opts['-h']        is not None:  args.help()
         elif args.opts['--quoters'] is not None:  self.quoters()
         elif args.opts['--onelist'] is not None:  self.onelist()
@@ -78,21 +99,6 @@ class Ponysay():
         elif args.opts['-A']        is not None:  self.list(); self.__extraponies(); self.list()
         elif args.opts['+A']        is not None:  self.linklist(); self.__extraponies(); self.linklist()
         else:
-            global linuxvt
-            global usekms
-            global mode
-            
-            ## Emulate termial capabilities
-            if args.opts['-X'] is not None:
-                linuxvt = False
-                usekms = False
-            elif args.opts['-V'] is not None:
-                linuxvt = True
-                usekms = False
-            elif args.opts['-K'] is not None:
-                linuxvt = True
-                usekms = True
-            
             ## Other extra features
             self.__extraponies(args)
             self.__bestpony(args)
@@ -1957,25 +1963,37 @@ mode = ''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
 '''
 appendset = set()
-ponydirs = []
-if linuxvt and not usekms:  _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
-else:                       _ponydirs = [HOME + '/.local/share/ponysay/ponies/',    '/usr/share/ponysay/ponies/']
+xponydirs = []
+_ponydirs = [HOME + '/.local/share/ponysay/ponies/', '/usr/share/ponysay/ponies/']
 for ponydir in _ponydirs:
     if os.path.isdir(ponydir) and (ponydir not in appendset):
-        ponydirs.append(ponydir)
+        xponydirs.append(ponydir)
+        appendset.add(ponydir)
+appendset = set()
+vtponydirs = []
+_ponydirs = [HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
+for ponydir in _ponydirs:
+    if os.path.isdir(ponydir) and (ponydir not in appendset):
+        vtponydirs.append(ponydir)
         appendset.add(ponydir)
 
 
 '''
 The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
 '''
-appendsetset = set()
-extraponydirs = []
-if linuxvt and not usekms:  _extraponydirs = [HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
-else:                       _extraponydirs = [HOME + '/.local/share/ponysay/extraponies/',    '/usr/share/ponysay/extraponies/']
+appendset = set()
+extraxponydirs = []
+_extraponydirs = [HOME + '/.local/share/ponysay/extraponies/', '/usr/share/ponysay/extraponies/']
 for extraponydir in _extraponydirs:
     if os.path.isdir(extraponydir) and (extraponydir not in appendset):
-        extraponydirs.append(extraponydir)
+        extraxponydirs.append(extraponydir)
+        appendset.add(extraponydir)
+appendset = set()
+extravtponydirs = []
+_extraponydirs = [HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
+for extraponydir in _extraponydirs:
+    if os.path.isdir(extraponydir) and (extraponydir not in appendset):
+        extravtponydirs.append(extraponydir)
         appendset.add(extraponydir)
 
 
