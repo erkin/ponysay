@@ -13,6 +13,8 @@ Version 2.8
 
 	Support for terminal capabilities emulation with the flags -X, -V and -K.
 
+	Support for printing just the pony, using the flag -o.
+
 
 Version 2.7
 

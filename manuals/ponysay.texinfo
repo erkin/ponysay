@@ -283,6 +283,14 @@ and the second are non-MLP:FiM.
 List all ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM
 the first list are the MLP:FiM and the second one are non-MLP:FiM.
 
+@item -o
+@itemx --pony-only
+@itemx --ponyonly
+@opindex @option{-o}
+@opindex @option{--pony-only}
+@opindex @option{--ponyonly}
+Print just the pony, nothing else like the speech balloon.
+
 @item -X
 @itemx --256-colours
 @itemx --256colours
@@ -1916,6 +1924,8 @@ Support for explicit non-word wrapping using non-breaking space had been added t
 The word wrapper colours the inserted hyphens in red.
 @item
 Support for terminal capabilities emulation with the flags @option{-X}, @option{-V} and @option{-K}.
+@item
+Support for printing just the pony, using the flag @option{-o}.
 @end itemize
 
 
