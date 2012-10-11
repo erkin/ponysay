@@ -1901,7 +1901,8 @@ sequences.
 @heading Version 2.8
 @itemize @bullet
 @item
-New ponies: @file{airheart}, @file{bastionyorsets}, @file{peppermoon}, @file{sunnyrays}
+New ponies: @file{airheart}, @file{bastionyorsets}, @file{peppermoon}, @file{shiningarmorwedding},
+@file{starlight}, @file{sunnyrays}, @file{tenderheart}, @file{tom}
 @item
 Pony symlink added:
 @itemize @bullet
