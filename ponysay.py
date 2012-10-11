@@ -703,7 +703,7 @@ class Ponysay():
         messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
         
         ## Get balloon object
-        balloon = self.__getballoon(self.__getballoonpath(args.opts['-b']))
+        balloon = self.__getballoon(self.__getballoonpath(args.opts['-b'])) if args.opts['-o'] is None else None
         
         ## Run cowsay replacement
         backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation, balloon = balloon)
@@ -1214,7 +1214,8 @@ Replacement for cowsay
 class Backend():
     '''
     Constructor
-    Takes message [string], ponyfile [filename string], wrapcolumn [None or an int], width [None or an int] and balloon [Balloon object]
+    Takes message [string], ponyfile [filename string], wrapcolumn [None or an int],
+          width [None or an int] and balloon [None or Balloon object]
     '''
     def __init__(self, message, ponyfile, wrapcolumn, width, balloon):
         self.message = message
@@ -1223,7 +1224,10 @@ class Backend():
         self.width = width
         self.balloon = balloon
         
-        self.link = {'\\' : self.balloon.link, '/' : self.balloon.linkmirror}
+        if self.balloon is not None:
+            self.link = {'\\' : self.balloon.link, '/' : self.balloon.linkmirror}
+        else:
+            self.link = {}
         
         self.output = ''
         self.pony = None
@@ -1347,7 +1351,7 @@ class Backend():
                         else:
                             n += len(data)
                             self.pony = self.pony[:i] + data + self.pony[i:]
-                    else:
+                    elif self.balloon is not None:
                         (w, h) = (0, 0)
                         props = dollar[7:]
                         if len(props) > 0:
