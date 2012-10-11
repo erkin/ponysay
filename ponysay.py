@@ -78,6 +78,10 @@ class Ponysay():
         elif args.opts['-A']        is not None:  self.list(); self.__extraponies(); self.list()
         elif args.opts['+A']        is not None:  self.linklist(); self.__extraponies(); self.linklist()
         else:
+            global linuxvt
+            global usekms
+            global mode
+            
             ## Emulate termial capabilities
             if args.opts['-X'] is not None:
                 linuxvt = False
@@ -93,6 +97,8 @@ class Ponysay():
             self.__extraponies(args)
             self.__bestpony(args)
             self.__ucsremap(args)
+            if args.opts['-o'] is not None:
+                mode += '$/= $$\\= $'
             
             ## The stuff
             if args.opts['-q'] is not None:  self.quote(args)
@@ -1223,6 +1229,7 @@ class Backend():
     def parse(self):
         self.__expandMessage()
         self.__loadFile()
+        self.pony = mode + self.pony
         self.__processPony()
         self.__truncate()
     
@@ -1941,6 +1948,12 @@ usekms = Ponysay.isUsingKMS()
 
 
 '''
+Mode string that modifies or adds $ variables in the pony image
+'''
+mode = ''
+
+
+'''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
 '''
 appendset = set()
@@ -2050,6 +2063,7 @@ opts.add_argumentless(['-A', '--all'],                                   help = 
 opts.add_argumentless(['+A', '++all', '--symall', '--altall'],           help = 'List all pony names with alternatives.')
 opts.add_argumentless(['-B', '--bubblelist', '--balloonlist'],           help = 'List balloon styles.')
 opts.add_argumentless(['-c', '--compact'],                               help = 'Compress messages.')
+opts.add_argumentless(['-o', '--pony-only', '--ponyonly'],               help = 'Print only the pony.')
 opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN', help = 'Specify column where the message should be wrapped.')
 opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',  help = 'Select a balloon style.')
 opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',   help = 'Select a pony.\nEither a file name or a pony name.')
