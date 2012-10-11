@@ -82,12 +82,12 @@ the pony will be selected randomly from that set of ponies.
 .B \-W, \-\-wrap \fIcolumn\fP
 The screen column where the message should be wrapped.
 .TP
-.B \-A, \-\-all \fIcolumn\fP
-Show all ponies, MLP-FiM and non-MLP-FiM, in this case the first list are MLP:FiM
+.B \-A, \-\-all
+List all pony files, MLP-FiM and non-MLP-FiM, in this case the first list are MLP:FiM
 and the second are non-MLP-FiM.
 .TP
-.B \+A, \+\+all \fIcolumn\fP
-Show both ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM
+.B \+A, \+\+all, \-\-symall, \-\-altall
+List all pony files, including alternatives names inside brackets, these from MLP:FiM and non-MLP:FiM
 the first list are the MLP:FiM and the second one are non-MLP:FiM.
 .SH ENVIRONMENT
 .TP

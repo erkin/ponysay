@@ -78,9 +78,23 @@ class Ponysay():
         elif args.opts['-A']        is not None:  self.list(); self.__extraponies(); self.list()
         elif args.opts['+A']        is not None:  self.linklist(); self.__extraponies(); self.linklist()
         else:
+            ## Emulate termial capabilities
+            if args.opts['-X'] is not None:
+                linuxvt = False
+                usekms = False
+            elif args.opts['-V'] is not None:
+                linuxvt = True
+                usekms = False
+            elif args.opts['-K'] is not None:
+                linuxvt = True
+                usekms = True
+            
+            ## Other extra features
             self.__extraponies(args)
             self.__bestpony(args)
             self.__ucsremap(args)
+            
+            ## The stuff
             if args.opts['-q'] is not None:  self.quote(args)
             else:                            self.print_pony(args)
     
@@ -2022,6 +2036,10 @@ opts.add_argumentless(['--quoters'])
 opts.add_argumentless(['--onelist'])
 opts.add_argumentless(['++onelist'])
 
+opts.add_argumentless(['-X', '--256-colours', '--256colours', '--x-colours'])
+opts.add_argumentless(['-V', '--tty-colours', '--ttycolours', '--vt-colours'])
+opts.add_argumentless(['-K', '--kms-colours', '--kmscolours'])
+
 opts.add_argumentless(['-h', '--help'],                                  help = 'Print this help message.')
 opts.add_argumentless(['-v', '--version'],                               help = 'Print the version of the program.')
 opts.add_argumentless(['-l', '--list'],                                  help = 'List pony names.')
@@ -2029,7 +2047,7 @@ opts.add_argumentless(['-L', '--symlist', '--altlist'],                  help = 
 opts.add_argumentless(['+l', '++list'],                                  help = 'List non-MLP:FiM pony names.')
 opts.add_argumentless(['+L', '++symlist', '++altlist'],                  help = 'List non-MLP:FiM pony names with alternatives.')
 opts.add_argumentless(['-A', '--all'],                                   help = 'List all pony names.')
-opts.add_argumentless(['+A', '++all'],                                   help = 'List all pony names with alternatives.')
+opts.add_argumentless(['+A', '++all', '--symall', '--altall'],           help = 'List all pony names with alternatives.')
 opts.add_argumentless(['-B', '--bubblelist', '--balloonlist'],           help = 'List balloon styles.')
 opts.add_argumentless(['-c', '--compact'],                               help = 'Compress messages.')
 opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN', help = 'Specify column where the message should be wrapped.')

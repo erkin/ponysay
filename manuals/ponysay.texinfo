@@ -266,19 +266,21 @@ Just as @option{-L}, except it lists extra (non-MLP:FiM) ponies instead of stand
 Prints a list of all balloon styles.
 
 @item -A
-@itemx --balloonlist
+@itemx --all
 @opindex @option{-A}
 @opindex @option{--all}
-@opindex @option{--all}
-Show all ponies, MLP-FiM and non-MLP-FiM, in this case the first list are MLP:FiM
-and the second are non-MLP-FiM.
+List all ponies, MLP:FiM and non-MLP:FiM, in this case the first list are MLP:FiM
+and the second are non-MLP:FiM.
 
 @item +A
-@itemx --balloonlist
+@itemx ++all
+@itemx --symall
+@itemx --altall
 @opindex @option{+A}
 @opindex @option{++all}
-@opindex @option{++all}
-Show both ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM
+@opindex @option{--symall}
+@opindex @option{--altall}
+List all ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM
 the first list are the MLP:FiM and the second one are non-MLP:FiM.
 @end table
 
