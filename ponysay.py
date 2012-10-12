@@ -1340,9 +1340,18 @@ Replacement for cowsay
 class Backend():
     '''
     Constructor
-    Takes message [string], ponyfile [filename string], wrapcolumn [None or an int],
+    Takes wrapcolumn [None or an int],
           width [None or an int], balloon [None or Balloon object], hyphen [string],
           linkcolour [string] and ballooncolour [string]
+    
+    @param  message:str        The message spoken by the pony
+    @param  ponyfile:str       The pony file
+    @param  wrapcolumn:int     The column at where to wrap the message, `None` for no wrapping
+    @param  width:int          The width of the screen, `None` if truncation should not be applied
+    @param  balloon:Balloon    The balloon style object, `None` if only the pony should be printed
+    @param  hyphen:str         How hyphens added by the wordwrapper should be printed
+    @param  linkcolour:str     How to colour the link character, empty string if none
+    @param  ballooncolour:str  How to colour the balloon, empty string if none
     '''
     def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour):
         self.message = message
@@ -1621,6 +1630,11 @@ class Backend():
     
     '''
     Generates a balloon with the message
+    
+    @param   width:int   The minimum width of the balloon
+    @param   height:int  The minimum height of the balloon
+    @param   left:int    The column where the balloon starts
+    @return  :str        The balloon the the message as a string
     '''
     def __getballoon(self, width, height, left):
         wrap = None
@@ -1640,9 +1654,13 @@ class Backend():
     
     '''
     Wraps the message
+    
+    @param   message:str  The message to wrap
+    @param   wrap:int     The width at where to force wrapping
+    @return  :str         The message wrapped
     '''
     def __wrapMessage(self, message, wrap):
-        AUTO_PUSH = '\033[01010~'
+        AUTO_PUSH = '\033[0101y0~'
         AUTO_POP  = '\033[10101~'
         msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP);
         cstack = ColourStack(AUTO_PUSH, AUTO_POP)
@@ -1771,10 +1789,15 @@ class Backend():
 
 '''
 ANSI colour stack
+
+This is used to make layers with independent coloursations
 '''
 class ColourStack():
     '''
     Constructor
+    
+    @param  autopush:str  String that, when used, will create a new independently colourised layer
+    @param  autopop:str   String that, when used, will end the current layer and continue of the previous layer
     '''
     def __init__(self, autopush, autopop):
         self.autopush = autopush
@@ -1787,6 +1810,11 @@ class ColourStack():
         self.seq      = None
     
     
+    '''
+    Create a new independently colourised layer
+    
+    @return  :str  String that should be inserted into your buffer
+    '''
     def push(self):
         self.stack = [[self.bufproto, None, None, [False] * 9]] + self.stack
         if len(self.stack) == 1:
@@ -1794,6 +1822,11 @@ class ColourStack():
         return '\033[0m'
     
     
+    '''
+    End the current layer and continue of the previous layer
+    
+    @return  :str  String that should be inserted into your buffer
+    '''
     def pop(self):
         old = self.stack[0]
         self.stack = self.stack[1:]
@@ -1807,6 +1840,13 @@ class ColourStack():
         return rc[:-1] + 'm'
     
     
+    '''
+    Use this, in sequence, for which character in your buffer that contains yor autopush and autopop
+    string, the automatically get push and pop string to insert after each character
+    
+    @param   :chr  One character in your buffer
+    @return  :str  The text to insert after the input character
+    '''
     def feed(self, char):
         if self.seq is not None:
             self.seq += char
@@ -1852,6 +1892,9 @@ UCS utility class
 class UCS():
     '''
     Checks whether a character is a combining character
+    
+    @param   char:chr  The character to test
+    @return  :bool     Whether the character is a combining character
     '''
     @staticmethod
     def isCombining(char):
@@ -1865,6 +1908,9 @@ class UCS():
     
     '''
     Gets the number of combining characters in a string
+    
+    @param   string:str  A text to count combining characters in
+    @return  :int        The number of combining characters in the string
     '''
     @staticmethod
     def countCombining(string):
@@ -1877,6 +1923,9 @@ class UCS():
     
     '''
     Gets length of a string not counting combining characters
+    
+    @param   string:str  The text of which to determine the monospaced width
+    @return              The determine the monospaced width of the text, provided it does not have escape sequnces
     '''
     @staticmethod
     def dispLen(string):
@@ -1891,6 +1940,12 @@ Note that this implementation will not find that correctly spelled word are corr
 It is also limited to words of size 0 to 127 (inclusive)
 '''
 class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimised Java, may not be the nicest, or even fast, Python code
+    '''
+    Constructor
+    
+    @param  directories:list<str>  List of directories that contains the file names with the correct spelling
+    @param  ending:str             The file name ending of the correctly spelled file names, this is removed for the name
+    '''
     def __init__(self, directories, ending):
         self.weights = {'k' : {'c' : 0.25, 'g' : 0.75, 'q' : 0.125},
                         'c' : {'k' : 0.25, 'g' : 0.75, 's' : 0.5, 'z' : 0.5, 'q' : 0.125},
@@ -1946,9 +2001,10 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
     
     
     '''
-    Finds the closests correct spelled word.
-    The input is just one word, and the output is tuple
-    with a list of the closest spellings, and the weigthed distance.
+    Finds the closests correct spelled word
+    
+    @param   used:str                               The word to correct
+    @return  (words, distance):(list<string>, int)  A list the closest spellings and the weighted distance
     '''
     def correct(self, used):
         if len(used) < 127:
@@ -1958,6 +2014,11 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
         return (seld.corrections, self.closestDistance)
     
     
+    '''
+    Finds the closests correct spelled word
+    
+    @param  used:str  The word to correct, it must satisfy all restrictions
+    '''
     def __correct(self, used):
         self.closestDistance = 0x7FFFFFFF
         previous = self.dictionary[-1]
@@ -2011,6 +2072,17 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
                     prevLen = len(proper)
     
     
+    '''
+    Calculate the distance between a correct word and a incorrect word
+    
+    @param   proper:str  The correct word
+    @param   y0:int      The offset for `proper`
+    @param   yn:int      The length, before applying `y0`, of `proper`
+    @param   used:str    The incorrect word
+    @param   x0:int      The offset for `used`
+    @param   xn:int      The length, before applying `x0`, of `used`
+    @return  :float      The distance between the words
+    '''
     def __distance(self, proper, y0, yn, used, x0, xn):
         my = self.M[y0]
         for y in range(y0, yn):
