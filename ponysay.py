@@ -1335,14 +1335,11 @@ class Balloon():
 
 
 '''
-Replacement for cowsay
+Super-ultra-extreme-awesomazing replacement for cowsay
 '''
 class Backend():
     '''
     Constructor
-    Takes wrapcolumn [None or an int],
-          width [None or an int], balloon [None or Balloon object], hyphen [string],
-          linkcolour [string] and ballooncolour [string]
     
     @param  message:str        The message spoken by the pony
     @param  ponyfile:str       The pony file
