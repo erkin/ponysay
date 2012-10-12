@@ -720,7 +720,7 @@ class Ponysay():
         hyphencolour = ''
         if args.opts['--colour-wrap'] is not None:
             hyphencolour = '\033[' + ';'.join(args.opts['--colour-wrap']) + 'm'
-        hyphen = '\033[31m' + hyphencolour + '-'
+        hyphen = '\033[31m' + hyphencolour + '-' # TODO make configurable
         
         ## Link and balloon colouring
         linkcolour = ''
@@ -1527,15 +1527,9 @@ class Backend():
         if wrap is not None:
             msg = self.__wrapMessage(msg, wrap)
         
-        AUTO_PUSH = '\033[01010~'
-        AUTO_POP  = '\033[10101~'
-        cstack = ColourStack(AUTO_PUSH, AUTO_POP)
-        buf = ''
-        for c in msg.replace('\n', AUTO_PUSH + self.ballooncolour + '\n' + AUTO_POP) + self.ballooncolour:
-            buf += c
-            buf += cstack.feed(c)
+        msg = msg.replace('\n', '\033[0m%s\n' % (self.ballooncolour)) + '\033[0m' + self.ballooncolour
         
-        return self.balloon.get(width, height, buf.split('\n'), self.__len)
+        return self.balloon.get(width, height, msg.split('\n'), self.__len);
     
     
     '''
@@ -1544,7 +1538,12 @@ class Backend():
     def __wrapMessage(self, message, wrap):
         AUTO_PUSH = '\033[01010~'
         AUTO_POP  = '\033[10101~'
-        lines = message.split('\n')
+        msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP);
+        cstack = ColourStack(AUTO_PUSH, AUTO_POP)
+        buf = ''
+        for c in msg:
+            buf += c + cstack.feed(c)
+        lines = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
         buf = ''
         for line in lines:
             b = [None] * len(line)
@@ -1660,7 +1659,7 @@ class Backend():
         
         rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
         rc = rc.replace('­', ''); # remove soft hyphens
-        rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP)) # TODO make configurable
+        rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
         return rc
 
 
