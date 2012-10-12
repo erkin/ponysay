@@ -38,7 +38,11 @@ VERSION = 'dev'  # this line should not be edited, it is fixed by the build syst
 
 
 '''
-Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in programs by default, report them to Princess Celestia so she can banish them to the moon)
+Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in
+programs by default, report them to Princess Celestia so she can banish them to the moon)
+
+@param  text:str  The text to print (empty string is default)
+@param  end:str   The appendix to the text to print (line breaking is default)
 '''
 def print(text = '', end = '\n'):
     sys.stdout.buffer.write((str(text) + end).encode('utf-8'))
@@ -46,6 +50,10 @@ def print(text = '', end = '\n'):
 
 '''
 Checks whether a text ends with a specific text, but has more
+
+@param   text    The text to test
+@param   ending  The desired end of the text
+@return  :bool   The result of the test
 '''
 def endswith(text, ending):
     return text.endswith(ending) and not (text == ending);
@@ -58,6 +66,8 @@ This is the mane class of ponysay
 class Ponysay():
     '''
     Starts the part of the program the arguments indicate
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def __init__(self, args):
         if (args.argcount == 0) and not pipelinein:
@@ -120,12 +130,14 @@ class Ponysay():
             else:                            self.print_pony(args)
     
     
-    ##
-    ## Methods that run before the mane methods
-    ##
+    ##############################################
+    ## Methods that run before the mane methods ##
+    ##############################################
     
     '''
     Use extra ponies
+    
+    @param  args:ArgParser  Parsed command line arguments, may be `None`
     '''
     def __extraponies(self, args = None):
         ## If extraponies are used, change ponydir to extraponydir
@@ -138,6 +150,8 @@ class Ponysay():
     
     '''
     Use best.pony if nothing else is set
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def __bestpony(self, args):
         ## Set best.pony as the pony to display if none is selected
@@ -151,6 +165,8 @@ class Ponysay():
     
     '''
     Apply pony name remapping to args according to UCS settings
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def __ucsremap(self, args):
         ## Read UCS configurations
@@ -188,12 +204,15 @@ class Ponysay():
                         args.opts[flag][i] = map[args.opts[flag][i]]
     
     
-    ##
-    ## Auxiliary methods
-    ##
+    #######################
+    ## Auxiliary methods ##
+    #######################
     
     '''
     Apply USC:ise pony names according to UCS settings
+    
+    @param  ponies:list<str>  List of all ponies (of interrest)
+    @param  links:map<str>    Map to fill with simulated symlink ponies, may be `None`
     '''
     def __ucsise(self, ponies, links = None):
         ## Read UCS configurations
@@ -238,6 +257,9 @@ class Ponysay():
     
     '''
     Returns one file with full path, names is filter for names, also accepts filepaths
+    
+    @param   names:list<str>  Ponies to choose from, may be `None`
+    @return  :str             The file name of a pony
     '''
     def __getponypath(self, names = None):
         ponies = {}
@@ -270,6 +292,8 @@ class Ponysay():
     
     '''
     Returns a set with all ponies that have quotes and are displayable
+    
+    @return  :set<str>  All ponies that have quotes and are displayable
     '''
     def __quoters(self):
         ## List all unique quote files
@@ -300,6 +324,8 @@ class Ponysay():
     
     '''
     Returns a list with all (pony, quote file) pairs
+    
+    @return  (pony, quote):(str, str)  All ponies–quote file-pairs
     '''
     def __quotes(self):
         ## Get all ponyquote files
@@ -324,6 +350,8 @@ class Ponysay():
     
     '''
     Gets the size of the terminal in (rows, columns)
+    
+    @return  (rows, columns):(int, int)  The number or lines and the number of columns in the terminal's display area
     '''
     def __gettermsize(self):
         ## Call `stty` to determine the size of the terminal, this way is better then using python's ncurses
@@ -334,12 +362,14 @@ class Ponysay():
     
     
     
-    ##
-    ## Listing methods
-    ##
+    #####################
+    ## Listing methods ##
+    #####################
     
     '''
     Columnise a list and prints it
+    
+    @param  ponies:list<(str, str)>  All items to list, each item should have to elements: unformated name, formated name
     '''
     def __columnise(self, ponies):
         ## Get terminal width, and a 2 which is the space between columns
@@ -536,10 +566,9 @@ class Ponysay():
                 print(pony)
     
     
-    
-    ##
-    ## Balloon methods
-    ##
+    #####################
+    ## Balloon methods ##
+    #####################
     
     '''
     Prints a list of all balloons
@@ -570,6 +599,9 @@ class Ponysay():
     
     '''
     Returns one file with full path, names is filter for style names, also accepts filepaths
+    
+    @param  names:list<str>  Balloons to choose from, may be `None`
+    @param  :str             The file name of the balloon, will be `None` iff `names` is `None`
     '''
     def __getballoonpath(self, names):
         ## Stop if their is no choosen balloon
@@ -609,6 +641,9 @@ class Ponysay():
     
     '''
     Creates the balloon style object
+    
+    @param   balloonfile:str  The file with the balloon style, may be `None`
+    @return  :Balloon         Instance describing the balloon's style
     '''
     def __getballoon(self, balloonfile):
         ## Use default balloon if none is specified
@@ -644,9 +679,9 @@ class Ponysay():
     
     
     
-    ##
-    ## Displaying methods
-    ##
+    ########################
+    ## Displaying methods ##
+    ########################
     
     '''
     Prints the name of the program and the version of the program
@@ -658,6 +693,8 @@ class Ponysay():
     
     '''
     Print the pony with a speech or though bubble. message, pony and wrap from args are used.
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def print_pony(self, args):
         ## Get message and remove tailing whitespace from stdin (but not for each line)
@@ -765,6 +802,8 @@ class Ponysay():
     
     '''
     Print the pony with a speech or though bubble and a self quote
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def quote(self, args):
         ## Get all quotes, and if any pony is choosen just keep them
@@ -827,6 +866,9 @@ class Ponysay():
     
     '''
     Returns the file name of the input pony converted to a KMS pony, or if KMS is not used, the input pony itself
+    
+    @param   pony:str  Choosen pony file
+    @return  :str      Pony file to display
     '''
     def __kms(self, pony):
         ## If not in Linux VT, return the pony as is
@@ -929,9 +971,21 @@ class Ponysay():
 
 
 
+'''
+Option takes no arguments
+'''
 ARGUMENTLESS = 0
+
+'''
+Option takes one argument per instance
+'''
 ARGUMENTED = 1
+
+'''
+Option consumes all following arguments
+'''
 VARIADIC = 2
+
 '''
 Simple argument parser
 '''
@@ -939,6 +993,11 @@ class ArgParser():
     '''
     Constructor.
     The short description is printed on same line as the program name
+    
+    @param  program:str          The name of the program
+    @param  description:str      Short, single-line, description of the program
+    @param  usage:str            Formated, multi-line, usage text
+    @param  longdescription:str  Long, multi-line, description of the program, may be `None`
     '''
     def __init__(self, program, description, usage, longdescription = None):
         self.__program = program
@@ -952,6 +1011,9 @@ class ArgParser():
     
     '''
     Add option that takes no arguments
+    
+    @param  alternatives:list<str>  Option names
+    @param  help:str                Short description, use `None` to hide the option
     '''
     def add_argumentless(self, alternatives, help = None):
         ARGUMENTLESS
@@ -963,6 +1025,10 @@ class ArgParser():
     
     '''
     Add option that takes one argument
+    
+    @param  alternatives:list<str>  Option names
+    @param  arg:str                 The name of the takes argument, one word
+    @param  help:str                Short description, use `None` to hide the option
     '''
     def add_argumented(self, alternatives, arg, help = None):
         self.__arguments.append((ARGUMENTED, alternatives, arg, help))
@@ -973,6 +1039,10 @@ class ArgParser():
     
     '''
     Add option that takes all following argument
+    
+    @param  alternatives:list<str>  Option names
+    @param  arg:str                 The name of the takes arguments, one word
+    @param  help:str                Short description, use `None` to hide the option
     '''
     def add_variadic(self, alternatives, arg, help = None):
         self.__arguments.append((VARIADIC, alternatives, arg, help))
@@ -984,6 +1054,8 @@ class ArgParser():
     
     '''
     Parse arguments
+    
+    @param  args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
     '''
     def parse(self, argv = sys.argv):
         self.argcount = len(argv) - 1
@@ -1169,6 +1241,27 @@ Balloon format class
 class Balloon():
     '''
     Constructor
+    
+    @param  link:str        The \-directional balloon line character
+    @param  linkmirror:str  The /-directional balloon line character
+    @param  ww:str          See the info manual
+    @param  ee:str          See the info manual
+    @param  nw:list<str>    See the info manual
+    @param  nnw:list<str>   See the info manual
+    @param  n:list<str>     See the info manual
+    @param  nne:list<str>   See the info manual
+    @param  ne:list<str>    See the info manual
+    @param  nee:str         See the info manual
+    @param  e:str           See the info manual
+    @param  see:str         See the info manual
+    @param  se:list<str>    See the info manual
+    @param  sse:list<str>   See the info manual
+    @param  s:list<str>     See the info manual
+    @param  ssw:list<str>   See the info manual
+    @param  sw:list<str>    See the info manual
+    @param  sww:str         See the info manual
+    @param  w:str           See the info manual
+    @param  nww:str         See the info manual
     '''
     def __init__(self, link, linkmirror, ww, ee, nw, nnw, n, nne, ne, nee, e, see, se, sse, s, ssw, sw, sww, w, nww):
         (self.link, self.linkmirror) = (link, linkmirror)
@@ -1195,6 +1288,12 @@ class Balloon():
     
     '''
     Generates a balloon with a message
+    
+    @param   minw:int          The minimum number of columns of the balloon
+    @param   minh:int          The minimum number of lines of the balloon
+    @param   lines:list<str>   The text lines to display
+    @param   lencalc:int(str)  Function used to compute the length of a text line
+    @return  :str              The balloon as a formated string
     '''
     def get(self, minw, minh, lines, lencalc):
         h = self.minheight + len(lines)
@@ -1464,6 +1563,10 @@ class Backend():
     
     '''
     Gets colour code att the currect offset in a buffer
+    
+    @param   input:str   The input buffer
+    @param   offset:int  The offset at where to start reading, a escape must begin here
+    @return  :str        The escape sequence
     '''
     def __getcolour(self, input, offset):
         (i, n) = (offset, len(input))
@@ -1499,6 +1602,9 @@ class Backend():
     
     '''
     Calculates the number of visible characters in a text
+    
+    @param   input:str  The input buffer
+    @return  :int       The number of visible characters
     '''
     def __len(self, input):
         (rc, i, n) = (0, 0, len(input))
@@ -1784,7 +1890,7 @@ Class used for correcting spellos and typos,
 Note that this implementation will not find that correctly spelled word are correct faster than it corrects words.
 It is also limited to words of size 0 to 127 (inclusive)
 '''
-class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised Java, may not be the nicest, or even fast, Python code
+class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimised Java, may not be the nicest, or even fast, Python code
     def __init__(self, directories, ending):
         self.weights = {'k' : {'c' : 0.25, 'g' : 0.75, 'q' : 0.125},
                         'c' : {'k' : 0.25, 'g' : 0.75, 's' : 0.5, 'z' : 0.5, 'q' : 0.125},
