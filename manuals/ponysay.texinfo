@@ -1868,7 +1868,7 @@ sequences.
 @itemize @bullet
 @item
 New ponies: @file{airheart}, @file{bastionyorsets}, @file{gustavelegrand}, @file{peppermoon},
-@file{pinkacopter}, @file{pinkiefly}, @file{pinkieparade}, @file{pinkieparasol},
+@file{pinkacopter}, @file{pinkiefly}, @file{pinkieparade}, @file{pinkieumbrellahat},
 @file{shiningarmorwedding}, @file{starlight}, @file{sunnyrays}, @file{sweatiesing}, 
 @file{tenderheart}, @file{tom}, @file{twilightspike}
 @item
