@@ -1872,6 +1872,8 @@ New ponies: @file{airheart}, @file{bastionyorsets}, @file{gustavelegrand}, @file
 @file{shiningarmorwedding}, @file{starlight}, @file{sunnyrays}, @file{sweatiesing}, 
 @file{tenderheart}, @file{tom}, @file{twilightspike}
 @item
+New extraponies: @file{blueberry}, @file{drhoovesdiscorded} (Tumblr)
+@item
 Pony symlink added:
 @itemize @bullet
 @item @file{georgewashingtony} @arrow{} @file{bastionyorsets}
