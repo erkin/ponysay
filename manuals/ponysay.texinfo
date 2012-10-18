@@ -1865,12 +1865,15 @@ sequences.
 @heading Version 2.8
 @itemize @bullet
 @item
-New ponies: @file{airheart}, @file{bastionyorsets}, @file{gustavelegrand}, @file{peppermoon},
-@file{pinkacopter}, @file{pinkiefly}, @file{pinkieparade}, @file{pinkieumbrellahat},
-@file{shiningarmorwedding}, @file{starlight}, @file{sunnyrays}, @file{sweatiesing}, 
-@file{tenderheart}, @file{tom}, @file{twilightspike}
+New ponies: @file{airheart}, @file{bastionyorsets}, @file{gustavelegrand}, @file{milkyway},
+@file{peppermoon}, @file{pinkacopter}, @file{pinkiefly}, @file{pinkieparade},
+@file{pinkieumbrellahat}, @file{shiningarmorwedding}, @file{soaringofficer}, 
+@file{starlight}, @file{sunnyrays}, @file{sweatiesing}, @file{tenderheart}, @file{tom},
+@file{twilightspike}, @file{zecorabalance}
 @item
-New extraponies: @file{blueberry}, @file{drhoovesdiscorded} (Tumblr)
+New extraponies: @file{applejack} (Tumblr), @file{applejack-63}, @file{artemis}, @file{blueberry},
+@file{butterscotch}, @file{drhoovesdiscorded} (Tumblr), @file{duskshine}, @file{elusive},
+@file{rainbowblitz}
 @item
 Pony symlink added:
 @itemize @bullet
