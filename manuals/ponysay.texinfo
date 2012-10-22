@@ -1958,7 +1958,7 @@ Pony symlink added:
 @item @file{georgewashingtony} @arrow{} @file{bastionyorsets}
 @end itemize
 @item
-Support for explicit hypthenation using soft hyphens had been added to the word wrapper.
+Support for explicit hyphenation using soft hyphens had been added to the word wrapper.
 @item
 Support for explicit non-word wrapping using non-breaking space had been added to the word wrapper.
 @item
