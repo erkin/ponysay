@@ -1,3 +1,13 @@
+Version 2.9
+
+	The option -q works like -f and -F, it takes one argument, and may be used multiple
+	times for more arguments.
+
+	The old option -q is renamed to --q.
+
+	The options --f and --F has been added.
+
+
 Version 2.8
 
 	New ponies: airheart, bastionyorsets, peppermoon, shiningarmorwedding, starlight,

@@ -172,7 +172,7 @@ In versions earlier than version 2.0, the if the pony were a file name it had to
 include a `@code{/}'. This is not longer required and any existing pony name
 supersedes file names.
 
-@item -F
+@item -F PONY
 @itemx ++file PONY
 @itemx ++pony PONY
 @opindex @option{-F}
@@ -180,6 +180,54 @@ supersedes file names.
 @opindex @option{++pony}
 Just as @option{-F}, but it uses extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies
+
+@item -q PONY
+@itemx --quote PONY
+@opindex @option{-q}
+@opindex @option{--quote}
+@cindex quotes
+@cindex pony quotes
+By using this option, a pony will be printed with quotes from her in My Little Pony:
+Friendship is Magic. The pony will be selected randomly, unless at least one pony
+is added as an argument to @option{-q}. If one or more ponies are added as an argument
+to @option{-q}, the pony will be selected randomly from that set of ponies.
+This option requires the extension @command{ponyquotes4ponysay}, which is included
+by default since version 1.2.
+
+The argument can be a file name, but only if it ends with @file{.pony}.
+
+@item --f [PONY...]
+@itemx --files [PONY...]
+@itemx --ponies [PONY...]
+@opindex @option{--f}
+@opindex @option{--files}
+@opindex @option{--ponies}
+Variadic variant of @option{-f}, meaning that all arguments added after this one
+will parsed as an argument to this option. Additionally, those options are added
+to @option{-f}.
+
+@item --F [PONY...]
+@itemx ++files [PONY...]
+@itemx ++ponies [PONY...]
+@opindex @option{--F}
+@opindex @option{++files}
+@opindex @option{++ponies}
+Variadic variant of @option{-F}, meaning that all arguments added after this one
+will parsed as an argument to this option. Additionally, those options are added
+to @option{-F}.
+
+@item --q [PONY...]
+@itemx --quotes [PONY...]
+@opindex @option{--q}
+@opindex @option{--quotes}
+@cindex quotes
+@cindex pony quotes
+Variadic variant of @option{-q}, meaning that all arguments added after this one
+will parsed as an argument to this option. Additionally, those options are added
+to @option{-q}.
+
+An important feature of this options, is that you can but it in the end of the
+command line, without any argument to get a quote from any pony with a quote.
 
 @item -b STYLE
 @itemx --bubble STYLE
@@ -191,19 +239,6 @@ Specify the balloon style that should used, this can either be a file name or a
 balloon name printed by @option{ponysay -B}. This option can be used multiple
 times to specify a set of styles from which one will be selected randomly. If no
 balloon style is specified a fallback style will be used.
-
-@item -q [PONY...]
-@itemx --quote [PONY...]
-@opindex @option{-q}
-@opindex @option{--quote}
-By using this option, a pony will be printed with quotes from her in My Little Pony:
-Friendship is Magic. The pony will be selected randomly, unless at least one pony
-is added as an argument after @option{-q}. If one or more ponies are added after
-@option{-q}, the pony will be selected randomly from that set of ponies.
-This option requires the extension @command{ponyquotes4ponysay}, which is included
-by default since version 1.2.
-
-The argument can be a file name, but only if it ends with @file{.pony}.
 
 @item -W COLUMN
 @itemx --wrap COLUMN
@@ -1946,6 +1981,18 @@ sequences.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 2.9
+@itemize @bullet
+@item
+The option @option{-q} works like @option{-f} and @option{-F}, it takes one argument, and
+may be used multiple times for more arguments.
+@item
+The old option @option{-q} is renamed to @option{--q}.
+@item
+The options @option{--f} and @option{--F} has been added.
+@end itemize
+
 
 @heading Version 2.8
 @itemize @bullet

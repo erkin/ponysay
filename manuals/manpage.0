@@ -76,8 +76,8 @@ multiple times, and one of the will be selected randomly.
 .B \-q, \-\-quote [\fIname\fP...]
 By using this option, a pony will be printed with quotes from her in My Little Pony:
 Friendship is Magic. The pony will be selected randomly, unless at least one pony
-is added as an argument after \fI-q\fP. If one or more ponies are added after \fI-q\fP
-the pony will be selected randomly from that set of ponies.
+is added as an argument to \fI-q\fP. If one or more ponies are added as an argument
+to \fI-q\fP the pony will be selected randomly from that set of ponies.
 .TP
 .B \-W, \-\-wrap \fIcolumn\fP
 The screen column where the message should be wrapped.
