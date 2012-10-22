@@ -92,6 +92,15 @@ la primera lista son los pertenecientes a esta y la subsiguente los no perteneci
 Lista todos los ponis incluyendo sus nombres alternativos, estos pertenecientes a
 MLP:FiM cono no pertenecientes, la primera lista seran los pertenecientes y la
 subsiguente los no pertenecientes.
+.TP
+.B \-o, \-\-pony\-only, \-\-ponyonly
+Solo muestra al poni, No asi con los demás elementos.
+.TP
+.B \+c, \-\-colour [\fIansi-colour\fP]
+Colorea el globo, Incluyendo mensajes y enlaces. Para más información acerca del coloreo vea las páginas
+\fIinfo\fP. El argumento o \fIansi-colour\fP, Puede ser una secuencia de colores ANSI sin precedir de CSI
+y sin la cola \fIm\fP, por ejemplo \fI1;31\fP puede referirse al color rojo y en negrita (o claro
+dependiendo de la terminal.)
 .SH ENTORNO
 .TP
 .B PONYSAY_BOTTOM
