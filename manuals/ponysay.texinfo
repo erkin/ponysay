@@ -1969,6 +1969,8 @@ Support for terminal capabilities emulation with the flags @option{-X}, @option{
 Support for printing just the pony, using the flag @option{-o}.
 @item
 Colouring option flags are added.
+@item
+Automatic correction of incorrectly spelled pony names and balloon style names added.
 @end itemize
 
 
