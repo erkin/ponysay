@@ -259,17 +259,19 @@ class Ponysay():
     Returns one file with full path, names is filter for names, also accepts filepaths
     
     @param   names:list<str>  Ponies to choose from, may be `None`
+    @param   alt:bool         For method internal use...
     @return  :str             The file name of a pony
     '''
-    def __getponypath(self, names = None):
+    def __getponypath(self, names = None, alt = False):
         ponies = {}
         
         ## List all pony files, without the .pony ending
         for ponydir in ponydirs:
             for ponyfile in os.listdir(ponydir):
-                pony = ponyfile[:-5]
-                if pony not in ponies:
-                    ponies[pony] = ponydir + ponyfile
+                if endswith(ponyfile, ".pony"):
+                    pony = ponyfile[:-5]
+                    if pony not in ponies:
+                        ponies[pony] = ponydir + ponyfile
         
         ## Support for explicit pony file names
         if not names == None:
@@ -284,6 +286,11 @@ class Ponysay():
         ## Select a random pony of the choosen onles
         pony = names[random.randrange(0, len(names))]
         if pony not in ponies:
+            if not alt:
+                autocorrect = SpelloCorrecter(ponydirs, '.pony')
+                (alternatives, dist) = autocorrect.correct(pony)
+                if len(alternatives) > 0:
+                    return self.__getponypath(alternatives, True)
             sys.stderr.write('I have never heard of anypony named %s\n' % (pony));
             exit(1)
         else:
@@ -405,7 +412,6 @@ class Ponysay():
                 c -= 1
                 columns[c] = columns[c][:-diff]
                 diff -= 1
-                pass
         
         ## Create rows from columns
         lines = []
@@ -601,9 +607,10 @@ class Ponysay():
     Returns one file with full path, names is filter for style names, also accepts filepaths
     
     @param  names:list<str>  Balloons to choose from, may be `None`
+    @param  alt:bool         For method internal use
     @param  :str             The file name of the balloon, will be `None` iff `names` is `None`
     '''
-    def __getballoonpath(self, names):
+    def __getballoonpath(self, names, alt = False):
         ## Stop if their is no choosen balloon
         if names is None:
             return None
@@ -633,6 +640,11 @@ class Ponysay():
         ## Select a random balloon of the choosen ones
         balloon = names[random.randrange(0, len(names))]
         if balloon not in balloons:
+            if not alt:
+                autocorrect = SpelloCorrecter(balloondirs, '.think' if isthink else '.say')
+                alternatives = autocorrect.correct(balloon)[0]
+                if len(alternatives) > 0:
+                    return self.__getponypath(alternatives, True)
             sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
             exit(1)
         else:
@@ -1981,20 +1993,36 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
                     continue
                 proper = filename[:-len(ending)]
                 
-                if dictionaryEnd == 0:
-                    dictionaryEnd = len(self.dictionary)
-                    self.reusable = [0] * dictionaryEnd + self.reusable
-                    self.dictionary = [None] * dictionaryEnd + self.dictionary
+                if self.dictionaryEnd == 0:
+                    self.dictionaryEnd = len(self.dictionary)
+                    self.reusable = [0] * self.dictionaryEnd + self.reusable
+                    self.dictionary = [None] * self.dictionaryEnd + self.dictionary
                 
-                dictionaryEnd -= 1
-                dictionary[dictionaryEnd] = proper
+                self.dictionaryEnd -= 1
+                self.dictionary[self.dictionaryEnd] = proper
+                
                 prevCommon = min(len(previous), len(proper))
                 for i in range(0, prevCommon):
                     if previous[i] != proper[i]:
                         prevCommon = i
                         break
-                previous = dictionary[dictionaryEnd]
-                reusable[dictionaryEnd] = prevCommon
+                previous = proper
+                self.reusable[self.dictionaryEnd] = prevCommon
+        #part = self.dictionary[self.dictionaryEnd : len(self.dictionary) - 1]
+        #part.sort()
+        #self.dictionary[self.dictionaryEnd : len(self.dictionary) - 1] = part
+        #
+        #index = len(self.dictionary) - 1
+        #while index >= self.dictionaryEnd:
+        #    proper = self.dictionary[index]
+        #    prevCommon = min(len(previous), len(proper))
+        #    for i in range(0, prevCommon):
+        #        if previous[i] != proper[i]:
+        #            prevCommon = i
+        #            break
+        #    previous = proper
+        #    self.reusable[self.dictionaryEnd] = prevCommon
+        #    index -= 1;
     
     
     '''
@@ -2004,11 +2032,11 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
     @return  (words, distance):(list<string>, int)  A list the closest spellings and the weighted distance
     '''
     def correct(self, used):
-        if len(used) < 127:
+        if len(used) > 127:
             return ([used], 0)
         
-        __correct(used)
-        return (seld.corrections, self.closestDistance)
+        self.__correct(used)
+        return (self.corrections, self.closestDistance)
     
     
     '''
@@ -2025,7 +2053,7 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
         proper = None
         prevCommon = 0
         
-        d = len(self.dictionary)
+        d = len(self.dictionary) - 1
         while d > self.dictionaryEnd:
             d -= 1
             proper = self.dictionary[d]
@@ -2041,7 +2069,7 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
                 
                 skip = min(prevLen, len(proper))
                 i = prevCommon
-                while i <  skip:
+                while i < skip:
                     for u in range(0, usedLen):
                         if (used[u] == previous[i]) or (used[u] == proper[i]):
                             skip = i
@@ -2054,13 +2082,13 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
                         common = i
                         break
                 
-                distance = self.__distance(proper, skip, proper.length, used, common, usedLen)
+                distance = self.__distance(proper, skip, len(proper), used, common, usedLen)
                 
                 if self.closestDistance > distance:
                     self.closestDistance = distance
-                    corrections = [proper]
+                    self.corrections = [proper]
                 elif self.closestDistance == distance:
-                    corrections.append(proper)
+                    self.corrections.append(proper)
                 
                 previous = proper;
                 if distance >= 0x7FFFFF00:
@@ -2102,13 +2130,14 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
                 if my[x] in self.weights:
                     if p in self.weights[u]:
                       cw = self.weights[u][p]
+                x += 1
                 
                 myy[x] = min(cw + change, 1 + min(remove, add))
                 if best > myy[x]:
                     best = myy[x]
             
             if best > self.closestDistance:
-                return 0x7FFFFFFF | y
+                return 0x7FFFFF00 | y
             my = myy
         return my[xn]
     
