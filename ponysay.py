@@ -80,6 +80,7 @@ class Ponysay():
     def __init__(self, args):
         if (args.argcount == 0) and not pipelinein:
             args.help()
+            exit(254)
             return
         
         ## Modifyable global variables
@@ -154,6 +155,8 @@ class Ponysay():
                 self.print_pony(args)
             else:
                 args.help()
+                exit(255)
+                return
     
     
     ##############################################
