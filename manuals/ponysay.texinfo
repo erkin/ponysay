@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.8
+@set VERSION 2.9
 
 @defindex op
 @synindex op vr
@@ -1946,6 +1946,13 @@ sequences.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 2.9
+@itemize @bullet
+@item
+New extraponies: @file{molestia} (Tumblr)
+@item
+@end itemize
 
 @heading Version 2.8
 @itemize @bullet
