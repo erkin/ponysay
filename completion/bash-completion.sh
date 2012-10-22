@@ -5,7 +5,8 @@ _ponysay()
     local cur prev words cword
     _init_completion -n = || return
     
-    options='--version --help --list --altlist --pony --wrap --quote --balloonlist --balloon --file ++file ++pony ++list ++altlist'
+    options="--version --help --list --altlist --pony --wrap --quote --balloonlist --balloon --file ++file ++pony ++list ++altlist --all ++all"
+    options="$options --256-colours --tty-colours --kms-colours"
     COMPREPLY=( $( compgen -W "$options" -- "$cur" ) )
     
     if [ $prev = "-f" ] || [ $prev = "--pony" ] || [ $prev = "--file" ]; then

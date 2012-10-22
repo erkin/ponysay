@@ -4,7 +4,7 @@ Version 2.8
 	            pinkieparade, pinkieumbrellahat, raritycomplaining, shiningarmorwedding, soarinofficer,
 	            starlight, sunnyrays, sweatiesing, tenderheart, tom, twilightspike, zecorabalance
 
-	New extraponies: applejack (Tumblr), applejack-63, artemis, blueberry, butterscotch, 
+	New extraponies: applejack (Tumblr), applejack-63, artemis, blueberry, butterscotch,
 			 drhoovesdiscorded (Tumblr), duskshine, elusive, rainbowblitz
 
 	Pony symlink added: georgewachingtony → bastionyorsets
@@ -14,6 +14,14 @@ Version 2.8
 	Support for explicit non-word wrapping using non-breaking space had been added to the word wrapper.
 
 	The word wrapper colours the inserted hyphens in red.
+
+	Support for terminal capabilities emulation with the flags -X, -V and -K.
+
+	Support for printing just the pony, using the flag -o.
+
+	Colouring option flags are added.
+
+	Automatic correction of incorrectly spelled pony names and balloon style names added.
 
 
 Version 2.7

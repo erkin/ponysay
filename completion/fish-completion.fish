@@ -9,7 +9,7 @@ set -g quoters  ('/usr/bin/ponysay' --quoters)
 set -g balloons ('/usr/bin/ponysay' --balloonlist)
 
 
-## TODO: update with options [see info manual]:  +l  +L  ++list  ++altlist  ++file  --file  ++pony
+## TODO: update with options [see info manual]:  +l  +L  ++list  ++altlist  ++file  --file  ++pony  {-A, +A, -V, -K, -X}(with alternative)
 complete --command ponysay --short-option h --long-option help                                           --description 'help of ponysay'
 complete --command ponysay --short-option v --long-option version                                        --description 'version of ponysay'
 complete --command ponysay --short-option l --long-option list                                           --description 'list pony names'

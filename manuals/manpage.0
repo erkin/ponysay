@@ -82,13 +82,22 @@ the pony will be selected randomly from that set of ponies.
 .B \-W, \-\-wrap \fIcolumn\fP
 The screen column where the message should be wrapped.
 .TP
-.B \-A, \-\-all \fIcolumn\fP
-Show all ponies, MLP-FiM and non-MLP-FiM, in this case the first list are MLP:FiM
+.B \-A, \-\-all
+List all pony files, MLP-FiM and non-MLP-FiM, in this case the first list are MLP:FiM
 and the second are non-MLP-FiM.
 .TP
-.B \+A, \+\+all \fIcolumn\fP
-Show both ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM
+.B \+A, \+\+all, \-\-symall, \-\-altall
+List all pony files, including alternatives names inside brackets, these from MLP:FiM and non-MLP:FiM
 the first list are the MLP:FiM and the second one are non-MLP:FiM.
+.TP
+.B \-o, \-\-pony\-only, \-\-ponyonly
+Just print the pony, nothing else like the speech balloon.
+.TP
+.B \+c, \-\-colour [\fIansi-colour\fP]
+Colour the balloon, including link and message. For more colouring features, se the \fIinfo\fP
+manual. The argument, \fIansi-colour\fP, should be a ANSI colour sequence without leading CSI
+and without a tailing \fIm\fP, for example \fI1;31\fP will make it in red and bold (or bright
+depending on the terminal.)
 .SH ENVIRONMENT
 .TP
 .B PONYSAY_BOTTOM
