@@ -175,7 +175,7 @@ class Ponysay():
         if   env_ucs in ('yes',    'y', '1'):  ucs_conf = 1
         elif env_ucs in ('harder', 'h', '2'):  ucs_conf = 2
         
-        ## Stop USC is not used
+        ## Stop UCS is not used
         if ucs_conf == 0:
             return
         
@@ -186,7 +186,7 @@ class Ponysay():
                 with open(ucsmap, 'rb') as mapfile:
                     maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
         
-        ## Create USC → ASCII mapping from read lines
+        ## Create UCS → ASCII mapping from read lines
         map = {}
         stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
         for line in maplines:
@@ -196,7 +196,7 @@ class Ponysay():
                 ascii = line[s + 1:].strip(stripset)
                 map[ucs] = ascii
         
-        ## Apply USC → ASCII mapping to -f and -q arguments
+        ## Apply UCS → ASCII mapping to -f and -q arguments
         for flag in ('-f', '-q'):
             if args.opts[flag] is not None:
                 for i in range(0, len(args.opts[flag])):
@@ -209,7 +209,7 @@ class Ponysay():
     #######################
     
     '''
-    Apply USC:ise pony names according to UCS settings
+    Apply UCS:ise pony names according to UCS settings
     
     @param  ponies:list<str>  List of all ponies (of interrest)
     @param  links:map<str>    Map to fill with simulated symlink ponies, may be `None`
@@ -221,7 +221,7 @@ class Ponysay():
         if   env_ucs in ('yes',    'y', '1'):  ucs_conf = 1
         elif env_ucs in ('harder', 'h', '2'):  ucs_conf = 2
         
-        ## Stop USC is not used
+        ## Stop UCS is not used
         if ucs_conf == 0:
             return
         
@@ -232,7 +232,7 @@ class Ponysay():
                 with open(ucsmap, 'rb') as mapfile:
                     maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
         
-        ## Create USC → ASCII mapping from read lines
+        ## Create UCS → ASCII mapping from read lines
         map = {}
         stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
         for line in maplines:
@@ -242,7 +242,7 @@ class Ponysay():
                 ascii = line[s + 1:].strip(stripset)
                 map[ascii] = ucs
         
-        ## Apply USC → ACII mapping to ponies, by alias if weak settings
+        ## Apply UCS → ACII mapping to ponies, by alias if weak settings
         if ucs_conf == 1:
             for pony in ponies:
                 if pony in map:
@@ -527,7 +527,7 @@ class Ponysay():
         ## Get all quoters
         ponies = self.__quoters()
         
-        ## USC:ise and sort
+        ## UCS:ise and sort
         self.__ucsise(ponies)
         ponies.sort()
         
@@ -554,7 +554,7 @@ class Ponysay():
             if endswith(pony, '.pony'):
                 ponies.append(pony[:-5])
         
-        ## USC:ise and sort
+        ## UCS:ise and sort
         self.__ucsise(ponies)
         ponies.sort()
         
