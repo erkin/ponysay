@@ -754,12 +754,14 @@ We have provided a script that should run one most, if not all shells, named
 
 @table @command
 @item util-say>=2
-@cindex @command{util-say}
+@pindex @command{util-say}
 @cindex kms
 @cindex tty
 @pindex linux vt
 For improved TTY support for user with custom colour palette and KMS support.
-It can be downloaded at @url{https://github.com/maandree/util-say}.
+It can be downloaded at @url{https://github.com/maandree/util-say}. If this is
+used @command{chmod} from @command{coreutils} is also required.
+
 
 @cindex .png
 @cindex png images
