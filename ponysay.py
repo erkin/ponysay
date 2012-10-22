@@ -150,8 +150,10 @@ class Ponysay():
                 self.quote(args)
                 if warn:
                     printerr('-q cannot be used at the same time as -f or -F.')
-            else:
+            elif not unrecognised:
                 self.print_pony(args)
+            else:
+                args.help()
     
     
     ##############################################
@@ -1091,7 +1093,8 @@ class ArgParser():
     '''
     Parse arguments
     
-    @param  args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
+    @param   args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
+    @return  :bool           Whether no unrecognised option is used
     '''
     def parse(self, argv = sys.argv):
         self.argcount = len(argv) - 1
@@ -1107,9 +1110,11 @@ class ArgParser():
         tmpdashed = False
         get = 0
         dontget = 0
+        self.rc = True
         
         def unrecognised(arg):
             sys.stderr.write('%s: warning: unrecognised option %s\n' % (self.__program, arg))
+            self.rc = False
         
         while len(deque) != 0:
             arg = deque[0]
@@ -1202,6 +1207,8 @@ class ArgParser():
                     break
         
         self.message = ' '.join(self.files) if len(self.files) > 0 else None
+        
+        return self.rc
     
     
     '''
@@ -2008,7 +2015,7 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
             m0[x] = x
             x -= 1
         
-        previous = ""
+        previous = ''
         self.dictionary[-1] = previous;
         
         for directory in directories:
@@ -2046,7 +2053,7 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
         #            break
         #    previous = proper
         #    self.reusable[self.dictionaryEnd] = prevCommon
-        #    index -= 1;
+        #    index -= 1;    
     
     
     '''
@@ -2353,8 +2360,11 @@ opts.add_argumented(  ['-q', '--quote'],                 arg = 'PONY',   help = 
 opts.add_variadic(    ['--f', '--files', '--ponies'],    arg = 'PONY')
 opts.add_variadic(    ['--F', '++files', '++ponies'],    arg = 'PONY')
 opts.add_variadic(    ['--q', '--quotes'],               arg = 'PONY')
- 
-opts.parse()
+
+'''
+Whether at least one unrecognised option was used
+'''
+unrecognised = not opts.parse()
 
 
 
