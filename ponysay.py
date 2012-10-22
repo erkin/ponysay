@@ -2130,8 +2130,8 @@ linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
 '''
 Whether the script is executed as ponythink
 '''
-isthink =  (len(__file__) >= 5) and (__file__[-5:] == 'think')
-isthink = ((len(__file__) >= 8) and (__file__[-8:] == 'think.py')) or isthink
+isthink =  (len(__file__) >= len('think'))    and (__file__.endswith('think'))
+isthink = ((len(__file__) >= len('think.py')) and (__file__.endswith('think.py'))) or isthink
 
 
 '''
