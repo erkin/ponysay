@@ -319,7 +319,7 @@ class Ponysay():
             if not alt:
                 autocorrect = SpelloCorrecter(ponydirs, '.pony')
                 (alternatives, dist) = autocorrect.correct(pony)
-                if len(alternatives) > 0:
+                if (len(alternatives) > 0) and (dist <= 5): # TODO the limit `dist` should be configureable
                     return self.__getponypath(alternatives, True)
             sys.stderr.write('I have never heard of anypony named %s\n' % (pony));
             exit(1)
@@ -672,8 +672,8 @@ class Ponysay():
         if balloon not in balloons:
             if not alt:
                 autocorrect = SpelloCorrecter(balloondirs, '.think' if isthink else '.say')
-                alternatives = autocorrect.correct(balloon)[0]
-                if len(alternatives) > 0:
+                (alternatives, dist) = autocorrect.correct(balloon)
+                if (len(alternatives) > 0) and (dist <= 5): # TODO the limit `dist` should be configureable
                     return self.__getponypath(alternatives, True)
             sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
             exit(1)

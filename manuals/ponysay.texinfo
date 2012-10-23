@@ -1991,6 +1991,9 @@ may be used multiple times for more arguments.
 The old option @option{-q} is renamed to @option{--q}.
 @item
 The options @option{--f} and @option{--F} has been added.
+@item
+Weighted distance for autocorrection on pony names and boolean style name is set to 5, rather
+than unlimited. Currently this cannot be modified (without editing the source code.)
 @end itemize
 
 

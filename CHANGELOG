@@ -7,6 +7,9 @@ Version 2.9
 
 	The options --f and --F has been added.
 
+	Weighted distance for autocorrection on pony names and boolean style name is set to 5, rather
+	than unlimited. Currently this cannot be modified (without editing the source code.)
+
 
 Version 2.8
 
