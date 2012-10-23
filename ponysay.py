@@ -56,6 +56,21 @@ stderr equivalent to print()
 def printerr(text = '', end = '\n'):
     sys.stderr.buffer.write((str(text) + end).encode('utf-8'))
 
+fd3 = None
+'''
+/proc/self/fd/3 equivalent to print()
+
+@param  text:str  The text to print (empty string is default)
+@param  end:str   The appendix to the text to print (line breaking is default)
+'''
+def printinfo(text = '', end = '\n'):
+    global fd3
+    if os.path.exists('/proc/self/fd/3'):
+        if fd3 is None:
+            fd3 = os.fdopen(3, 'w')
+        fd3.write(str(text) + end)
+
+
 '''
 Checks whether a text ends with a specific text, but has more
 
@@ -674,7 +689,7 @@ class Ponysay():
                 autocorrect = SpelloCorrecter(balloondirs, '.think' if isthink else '.say')
                 (alternatives, dist) = autocorrect.correct(balloon)
                 if (len(alternatives) > 0) and (dist <= 5): # TODO the limit `dist` should be configureable
-                    return self.__getponypath(alternatives, True)
+                    return self.__getballoonpath(alternatives, True)
             sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
             exit(1)
         else:
@@ -770,6 +785,7 @@ class Ponysay():
         
         ## Get the pony
         pony = self.__getponypath(args.opts['-f'])
+        printinfo('pony file: ' + pony)
         
         ## Use PNG file as pony file
         if endswith(pony.lower(), '.png'):
@@ -793,7 +809,9 @@ class Ponysay():
         messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
         
         ## Get balloon object
-        balloon = self.__getballoon(self.__getballoonpath(args.opts['-b'])) if args.opts['-o'] is None else None
+        balloonfile = self.__getballoonpath(args.opts['-b'])
+        printinfo('balloon style file: ' + str(balloonfile))
+        balloon = self.__getballoon(balloonfile) if args.opts['-o'] is None else None
         
         ## Get hyphen style
         hyphencolour = ''
@@ -1422,6 +1440,11 @@ class Backend():
     def parse(self):
         self.__expandMessage()
         self.__loadFile()
+        if self.pony.startswith('$$$\n'):
+            self.pony = self.pony[4:]
+            infoend = self.pony.index('\n$$$\n')
+            printinfo(self.pony[:infoend])
+            self.pony = self.pony[infoend + 5:]
         self.pony = mode + self.pony
         self.__processPony()
         self.__truncate()
