@@ -1510,10 +1510,10 @@ class Backend():
         while i < n:
             c = self.pony[i]
             if c == '\t':
-                n += 8 - (indent & 7)
-                ed = ' ' * (7 - (indent & 7))
+                n += 7 - (indent & 7)
+                ed = ' ' * (8 - (indent & 7))
                 c = ' '
-                self.pony = self.pony[:i] + ed + self.pony[i:]
+                self.pony = self.pony[:i] + ed + self.pony[i + 1:]
             i += 1
             if c == '$':
                 if dollar is not None:
