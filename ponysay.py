@@ -20,7 +20,6 @@ Authors of ponysay.py:
          Sven-Hendrik "svenstaro" Haase:   Major contributor of the first implementation
          Jan Alexander "heftig" Steffens:  Major contributor of the first implementation
          Kyah "L-four" Rindlisbacher:      Patched the first implementation
-
 '''
 
 import os
@@ -39,7 +38,11 @@ VERSION = 'dev'  # this line should not be edited, it is fixed by the build syst
 
 
 '''
-Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in programs by default, report them to Princess Celestia so she can banish them to the moon)
+Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in
+programs by default, report them to Princess Celestia so she can banish them to the moon)
+
+@param  text:str  The text to print (empty string is default)
+@param  end:str   The appendix to the text to print (line breaking is default)
 '''
 def print(text = '', end = '\n'):
     sys.stdout.buffer.write((str(text) + end).encode('utf-8'))
@@ -47,6 +50,10 @@ def print(text = '', end = '\n'):
 
 '''
 Checks whether a text ends with a specific text, but has more
+
+@param   text    The text to test
+@param   ending  The desired end of the text
+@return  :bool   The result of the test
 '''
 def endswith(text, ending):
     return text.endswith(ending) and not (text == ending);
@@ -59,12 +66,35 @@ This is the mane class of ponysay
 class Ponysay():
     '''
     Starts the part of the program the arguments indicate
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def __init__(self, args):
         if (args.argcount == 0) and not pipelinein:
             args.help()
             return
         
+        ## Modifyable global variables
+        global linuxvt
+        global usekms
+        global mode
+        global ponydirs
+        global extraponydirs
+        
+        ## Emulate termial capabilities
+        if args.opts['-X'] is not None:
+            linuxvt = False
+            usekms = False
+        elif args.opts['-V'] is not None:
+            linuxvt = True
+            usekms = False
+        elif args.opts['-K'] is not None:
+            linuxvt = True
+            usekms = True
+        ponydirs = vtponydirs if linuxvt and not usekms else xponydirs
+        extraponydirs = extravtponydirs if linuxvt and not usekms else extraxponydirs
+        
+        ## Run modes
         if   args.opts['-h']        is not None:  args.help()
         elif args.opts['--quoters'] is not None:  self.quoters()
         elif args.opts['--onelist'] is not None:  self.onelist()
@@ -78,19 +108,36 @@ class Ponysay():
         elif args.opts['-A']        is not None:  self.list(); self.__extraponies(); self.list()
         elif args.opts['+A']        is not None:  self.linklist(); self.__extraponies(); self.linklist()
         else:
+            ## Colouring features
+            if args.opts['--colour-pony'] is not None:
+                mode += '\033[' + ';'.join(args.opts['--colour-pony']) + 'm'
+            else:
+                mode += '\033[0m'
+            if args.opts['+c'] is not None:
+                if args.opts['--colour-msg']    is None:  args.opts['--colour-msg']    = args.opts['+c']
+                if args.opts['--colour-link']   is None:  args.opts['--colour-link']   = args.opts['+c']
+                if args.opts['--colour-bubble'] is None:  args.opts['--colour-bubble'] = args.opts['+c']
+            
+            ## Other extra features
             self.__extraponies(args)
             self.__bestpony(args)
             self.__ucsremap(args)
+            if args.opts['-o'] is not None:
+                mode += '$/= $$\\= $'
+            
+            ## The stuff
             if args.opts['-q'] is not None:  self.quote(args)
             else:                            self.print_pony(args)
     
     
-    ##
-    ## Methods that run before the mane methods
-    ##
+    ##############################################
+    ## Methods that run before the mane methods ##
+    ##############################################
     
     '''
     Use extra ponies
+    
+    @param  args:ArgParser  Parsed command line arguments, may be `None`
     '''
     def __extraponies(self, args = None):
         ## If extraponies are used, change ponydir to extraponydir
@@ -103,6 +150,8 @@ class Ponysay():
     
     '''
     Use best.pony if nothing else is set
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def __bestpony(self, args):
         ## Set best.pony as the pony to display if none is selected
@@ -116,6 +165,8 @@ class Ponysay():
     
     '''
     Apply pony name remapping to args according to UCS settings
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def __ucsremap(self, args):
         ## Read UCS configurations
@@ -124,7 +175,7 @@ class Ponysay():
         if   env_ucs in ('yes',    'y', '1'):  ucs_conf = 1
         elif env_ucs in ('harder', 'h', '2'):  ucs_conf = 2
         
-        ## Stop USC is not used
+        ## Stop UCS is not used
         if ucs_conf == 0:
             return
         
@@ -135,7 +186,7 @@ class Ponysay():
                 with open(ucsmap, 'rb') as mapfile:
                     maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
         
-        ## Create USC → ASCII mapping from read lines
+        ## Create UCS → ASCII mapping from read lines
         map = {}
         stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
         for line in maplines:
@@ -145,7 +196,7 @@ class Ponysay():
                 ascii = line[s + 1:].strip(stripset)
                 map[ucs] = ascii
         
-        ## Apply USC → ASCII mapping to -f and -q arguments
+        ## Apply UCS → ASCII mapping to -f and -q arguments
         for flag in ('-f', '-q'):
             if args.opts[flag] is not None:
                 for i in range(0, len(args.opts[flag])):
@@ -153,12 +204,15 @@ class Ponysay():
                         args.opts[flag][i] = map[args.opts[flag][i]]
     
     
-    ##
-    ## Auxiliary methods
-    ##
+    #######################
+    ## Auxiliary methods ##
+    #######################
     
     '''
-    Apply USC:ise pony names according to UCS settings
+    Apply UCS:ise pony names according to UCS settings
+    
+    @param  ponies:list<str>  List of all ponies (of interrest)
+    @param  links:map<str>    Map to fill with simulated symlink ponies, may be `None`
     '''
     def __ucsise(self, ponies, links = None):
         ## Read UCS configurations
@@ -167,7 +221,7 @@ class Ponysay():
         if   env_ucs in ('yes',    'y', '1'):  ucs_conf = 1
         elif env_ucs in ('harder', 'h', '2'):  ucs_conf = 2
         
-        ## Stop USC is not used
+        ## Stop UCS is not used
         if ucs_conf == 0:
             return
         
@@ -178,7 +232,7 @@ class Ponysay():
                 with open(ucsmap, 'rb') as mapfile:
                     maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
         
-        ## Create USC → ASCII mapping from read lines
+        ## Create UCS → ASCII mapping from read lines
         map = {}
         stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
         for line in maplines:
@@ -188,7 +242,7 @@ class Ponysay():
                 ascii = line[s + 1:].strip(stripset)
                 map[ascii] = ucs
         
-        ## Apply USC → ACII mapping to ponies, by alias if weak settings
+        ## Apply UCS → ACII mapping to ponies, by alias if weak settings
         if ucs_conf == 1:
             for pony in ponies:
                 if pony in map:
@@ -203,16 +257,21 @@ class Ponysay():
     
     '''
     Returns one file with full path, names is filter for names, also accepts filepaths
+    
+    @param   names:list<str>  Ponies to choose from, may be `None`
+    @param   alt:bool         For method internal use...
+    @return  :str             The file name of a pony
     '''
-    def __getponypath(self, names = None):
+    def __getponypath(self, names = None, alt = False):
         ponies = {}
         
         ## List all pony files, without the .pony ending
         for ponydir in ponydirs:
             for ponyfile in os.listdir(ponydir):
-                pony = ponyfile[:-5]
-                if pony not in ponies:
-                    ponies[pony] = ponydir + ponyfile
+                if endswith(ponyfile, ".pony"):
+                    pony = ponyfile[:-5]
+                    if pony not in ponies:
+                        ponies[pony] = ponydir + ponyfile
         
         ## Support for explicit pony file names
         if not names == None:
@@ -227,6 +286,11 @@ class Ponysay():
         ## Select a random pony of the choosen onles
         pony = names[random.randrange(0, len(names))]
         if pony not in ponies:
+            if not alt:
+                autocorrect = SpelloCorrecter(ponydirs, '.pony')
+                (alternatives, dist) = autocorrect.correct(pony)
+                if len(alternatives) > 0:
+                    return self.__getponypath(alternatives, True)
             sys.stderr.write('I have never heard of anypony named %s\n' % (pony));
             exit(1)
         else:
@@ -235,6 +299,8 @@ class Ponysay():
     
     '''
     Returns a set with all ponies that have quotes and are displayable
+    
+    @return  :set<str>  All ponies that have quotes and are displayable
     '''
     def __quoters(self):
         ## List all unique quote files
@@ -265,6 +331,8 @@ class Ponysay():
     
     '''
     Returns a list with all (pony, quote file) pairs
+    
+    @return  (pony, quote):(str, str)  All ponies–quote file-pairs
     '''
     def __quotes(self):
         ## Get all ponyquote files
@@ -289,6 +357,8 @@ class Ponysay():
     
     '''
     Gets the size of the terminal in (rows, columns)
+    
+    @return  (rows, columns):(int, int)  The number or lines and the number of columns in the terminal's display area
     '''
     def __gettermsize(self):
         ## Call `stty` to determine the size of the terminal, this way is better then using python's ncurses
@@ -299,12 +369,14 @@ class Ponysay():
     
     
     
-    ##
-    ## Listing methods
-    ##
+    #####################
+    ## Listing methods ##
+    #####################
     
     '''
     Columnise a list and prints it
+    
+    @param  ponies:list<(str, str)>  All items to list, each item should have to elements: unformated name, formated name
     '''
     def __columnise(self, ponies):
         ## Get terminal width, and a 2 which is the space between columns
@@ -340,7 +412,6 @@ class Ponysay():
                 c -= 1
                 columns[c] = columns[c][:-diff]
                 diff -= 1
-                pass
         
         ## Create rows from columns
         lines = []
@@ -462,7 +533,7 @@ class Ponysay():
         ## Get all quoters
         ponies = self.__quoters()
         
-        ## USC:ise and sort
+        ## UCS:ise and sort
         self.__ucsise(ponies)
         ponies.sort()
         
@@ -489,7 +560,7 @@ class Ponysay():
             if endswith(pony, '.pony'):
                 ponies.append(pony[:-5])
         
-        ## USC:ise and sort
+        ## UCS:ise and sort
         self.__ucsise(ponies)
         ponies.sort()
         
@@ -501,10 +572,9 @@ class Ponysay():
                 print(pony)
     
     
-    
-    ##
-    ## Balloon methods
-    ##
+    #####################
+    ## Balloon methods ##
+    #####################
     
     '''
     Prints a list of all balloons
@@ -535,8 +605,12 @@ class Ponysay():
     
     '''
     Returns one file with full path, names is filter for style names, also accepts filepaths
+    
+    @param  names:list<str>  Balloons to choose from, may be `None`
+    @param  alt:bool         For method internal use
+    @param  :str             The file name of the balloon, will be `None` iff `names` is `None`
     '''
-    def __getballoonpath(self, names):
+    def __getballoonpath(self, names, alt = False):
         ## Stop if their is no choosen balloon
         if names is None:
             return None
@@ -566,6 +640,11 @@ class Ponysay():
         ## Select a random balloon of the choosen ones
         balloon = names[random.randrange(0, len(names))]
         if balloon not in balloons:
+            if not alt:
+                autocorrect = SpelloCorrecter(balloondirs, '.think' if isthink else '.say')
+                alternatives = autocorrect.correct(balloon)[0]
+                if len(alternatives) > 0:
+                    return self.__getponypath(alternatives, True)
             sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
             exit(1)
         else:
@@ -574,6 +653,9 @@ class Ponysay():
     
     '''
     Creates the balloon style object
+    
+    @param   balloonfile:str  The file with the balloon style, may be `None`
+    @return  :Balloon         Instance describing the balloon's style
     '''
     def __getballoon(self, balloonfile):
         ## Use default balloon if none is specified
@@ -609,9 +691,9 @@ class Ponysay():
     
     
     
-    ##
-    ## Displaying methods
-    ##
+    ########################
+    ## Displaying methods ##
+    ########################
     
     '''
     Prints the name of the program and the version of the program
@@ -623,6 +705,8 @@ class Ponysay():
     
     '''
     Print the pony with a speech or though bubble. message, pony and wrap from args are used.
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def print_pony(self, args):
         ## Get message and remove tailing whitespace from stdin (but not for each line)
@@ -630,6 +714,8 @@ class Ponysay():
             msg = ''.join(sys.stdin.readlines()).rstrip()
         else:
             msg = args.message
+        if args.opts['--colour-msg'] is not None:
+            msg = '\033[' + ';'.join(args.opts['--colour-msg']) + 'm' + msg
         
         ## This algorithm should give some result as cowsay's (according to tests)
         if args.opts['-c'] is not None:
@@ -677,10 +763,26 @@ class Ponysay():
         messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
         
         ## Get balloon object
-        balloon = self.__getballoon(self.__getballoonpath(args.opts['-b']))
+        balloon = self.__getballoon(self.__getballoonpath(args.opts['-b'])) if args.opts['-o'] is None else None
+        
+        ## Get hyphen style
+        hyphencolour = ''
+        if args.opts['--colour-wrap'] is not None:
+            hyphencolour = '\033[' + ';'.join(args.opts['--colour-wrap']) + 'm'
+        hyphen = '\033[31m' + hyphencolour + '-' # TODO make configurable
+        
+        ## Link and balloon colouring
+        linkcolour = ''
+        if args.opts['--colour-link'] is not None:
+            linkcolour = '\033[' + ';'.join(args.opts['--colour-link']) + 'm'
+        ballooncolour = ''
+        if args.opts['--colour-bubble'] is not None:
+            ballooncolour = '\033[' + ';'.join(args.opts['--colour-bubble']) + 'm'
+        
         
         ## Run cowsay replacement
-        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40, width = widthtruncation, balloon = balloon)
+        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40,
+                          width = widthtruncation, balloon = balloon, hyphen = hyphen, linkcolour = linkcolour, ballooncolour = ballooncolour)
         backend.parse()
         output = backend.output
         if output.endswith('\n'):
@@ -712,6 +814,8 @@ class Ponysay():
     
     '''
     Print the pony with a speech or though bubble and a self quote
+    
+    @param  args:ArgParser  Parsed command line arguments
     '''
     def quote(self, args):
         ## Get all quotes, and if any pony is choosen just keep them
@@ -774,6 +878,9 @@ class Ponysay():
     
     '''
     Returns the file name of the input pony converted to a KMS pony, or if KMS is not used, the input pony itself
+    
+    @param   pony:str  Choosen pony file
+    @return  :str      Pony file to display
     '''
     def __kms(self, pony):
         ## If not in Linux VT, return the pony as is
@@ -876,9 +983,21 @@ class Ponysay():
 
 
 
+'''
+Option takes no arguments
+'''
 ARGUMENTLESS = 0
+
+'''
+Option takes one argument per instance
+'''
 ARGUMENTED = 1
+
+'''
+Option consumes all following arguments
+'''
 VARIADIC = 2
+
 '''
 Simple argument parser
 '''
@@ -886,6 +1005,11 @@ class ArgParser():
     '''
     Constructor.
     The short description is printed on same line as the program name
+    
+    @param  program:str          The name of the program
+    @param  description:str      Short, single-line, description of the program
+    @param  usage:str            Formated, multi-line, usage text
+    @param  longdescription:str  Long, multi-line, description of the program, may be `None`
     '''
     def __init__(self, program, description, usage, longdescription = None):
         self.__program = program
@@ -899,6 +1023,9 @@ class ArgParser():
     
     '''
     Add option that takes no arguments
+    
+    @param  alternatives:list<str>  Option names
+    @param  help:str                Short description, use `None` to hide the option
     '''
     def add_argumentless(self, alternatives, help = None):
         ARGUMENTLESS
@@ -910,6 +1037,10 @@ class ArgParser():
     
     '''
     Add option that takes one argument
+    
+    @param  alternatives:list<str>  Option names
+    @param  arg:str                 The name of the takes argument, one word
+    @param  help:str                Short description, use `None` to hide the option
     '''
     def add_argumented(self, alternatives, arg, help = None):
         self.__arguments.append((ARGUMENTED, alternatives, arg, help))
@@ -920,6 +1051,10 @@ class ArgParser():
     
     '''
     Add option that takes all following argument
+    
+    @param  alternatives:list<str>  Option names
+    @param  arg:str                 The name of the takes arguments, one word
+    @param  help:str                Short description, use `None` to hide the option
     '''
     def add_variadic(self, alternatives, arg, help = None):
         self.__arguments.append((VARIADIC, alternatives, arg, help))
@@ -931,6 +1066,8 @@ class ArgParser():
     
     '''
     Parse arguments
+    
+    @param  args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
     '''
     def parse(self, argv = sys.argv):
         self.argcount = len(argv) - 1
@@ -1116,6 +1253,27 @@ Balloon format class
 class Balloon():
     '''
     Constructor
+    
+    @param  link:str        The \-directional balloon line character
+    @param  linkmirror:str  The /-directional balloon line character
+    @param  ww:str          See the info manual
+    @param  ee:str          See the info manual
+    @param  nw:list<str>    See the info manual
+    @param  nnw:list<str>   See the info manual
+    @param  n:list<str>     See the info manual
+    @param  nne:list<str>   See the info manual
+    @param  ne:list<str>    See the info manual
+    @param  nee:str         See the info manual
+    @param  e:str           See the info manual
+    @param  see:str         See the info manual
+    @param  se:list<str>    See the info manual
+    @param  sse:list<str>   See the info manual
+    @param  s:list<str>     See the info manual
+    @param  ssw:list<str>   See the info manual
+    @param  sw:list<str>    See the info manual
+    @param  sww:str         See the info manual
+    @param  w:str           See the info manual
+    @param  nww:str         See the info manual
     '''
     def __init__(self, link, linkmirror, ww, ee, nw, nnw, n, nne, ne, nee, e, see, se, sse, s, ssw, sw, sww, w, nww):
         (self.link, self.linkmirror) = (link, linkmirror)
@@ -1142,6 +1300,12 @@ class Balloon():
     
     '''
     Generates a balloon with a message
+    
+    @param   minw:int          The minimum number of columns of the balloon
+    @param   minh:int          The minimum number of lines of the balloon
+    @param   lines:list<str>   The text lines to display
+    @param   lencalc:int(str)  Function used to compute the length of a text line
+    @return  :str              The balloon as a formated string
     '''
     def get(self, minw, minh, lines, lencalc):
         h = self.minheight + len(lines)
@@ -1183,21 +1347,35 @@ class Balloon():
 
 
 '''
-Replacement for cowsay
+Super-ultra-extreme-awesomazing replacement for cowsay
 '''
 class Backend():
     '''
     Constructor
-    Takes message [string], ponyfile [filename string], wrapcolumn [None or an int], width [None or an int] and balloon [Balloon object]
+    
+    @param  message:str        The message spoken by the pony
+    @param  ponyfile:str       The pony file
+    @param  wrapcolumn:int     The column at where to wrap the message, `None` for no wrapping
+    @param  width:int          The width of the screen, `None` if truncation should not be applied
+    @param  balloon:Balloon    The balloon style object, `None` if only the pony should be printed
+    @param  hyphen:str         How hyphens added by the wordwrapper should be printed
+    @param  linkcolour:str     How to colour the link character, empty string if none
+    @param  ballooncolour:str  How to colour the balloon, empty string if none
     '''
-    def __init__(self, message, ponyfile, wrapcolumn, width, balloon):
+    def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour):
         self.message = message
         self.ponyfile = ponyfile
         self.wrapcolumn = wrapcolumn
         self.width = width
         self.balloon = balloon
+        self.hyphen = hyphen
+        self.ballooncolour = ballooncolour
         
-        self.link = {'\\' : self.balloon.link, '/' : self.balloon.linkmirror}
+        if self.balloon is not None:
+            self.link = {'\\' : linkcolour + self.balloon.link,
+                         '/'  : linkcolour + self.balloon.linkmirror}
+        else:
+            self.link = {}
         
         self.output = ''
         self.pony = None
@@ -1209,6 +1387,7 @@ class Backend():
     def parse(self):
         self.__expandMessage()
         self.__loadFile()
+        self.pony = mode + self.pony
         self.__processPony()
         self.__truncate()
     
@@ -1320,7 +1499,7 @@ class Backend():
                         else:
                             n += len(data)
                             self.pony = self.pony[:i] + data + self.pony[i:]
-                    else:
+                    elif self.balloon is not None:
                         (w, h) = (0, 0)
                         props = dollar[7:]
                         if len(props) > 0:
@@ -1332,6 +1511,7 @@ class Backend():
                                 w = int(props)
                         balloon = self.__getballoon(w, h, indent)
                         balloon = balloon.split('\n')
+                        balloon = [AUTO_PUSH + self.ballooncolour + item + AUTO_POP for item in balloon]
                         for b in balloon[0]:
                             self.output += b + colourstack.feed(b)
                         if lineindex == 0:
@@ -1401,6 +1581,10 @@ class Backend():
     
     '''
     Gets colour code att the currect offset in a buffer
+    
+    @param   input:str   The input buffer
+    @param   offset:int  The offset at where to start reading, a escape must begin here
+    @return  :str        The escape sequence
     '''
     def __getcolour(self, input, offset):
         (i, n) = (offset, len(input))
@@ -1436,6 +1620,9 @@ class Backend():
     
     '''
     Calculates the number of visible characters in a text
+    
+    @param   input:str  The input buffer
+    @return  :int       The number of visible characters
     '''
     def __len(self, input):
         (rc, i, n) = (0, 0, len(input))
@@ -1452,6 +1639,11 @@ class Backend():
     
     '''
     Generates a balloon with the message
+    
+    @param   width:int   The minimum width of the balloon
+    @param   height:int  The minimum height of the balloon
+    @param   left:int    The column where the balloon starts
+    @return  :str        The balloon the the message as a string
     '''
     def __getballoon(self, width, height, left):
         wrap = None
@@ -1464,31 +1656,27 @@ class Backend():
         if wrap is not None:
             msg = self.__wrapMessage(msg, wrap)
         
-        if '\033' in msg:
-            AUTO_PUSH = '\033[01010~'
-            AUTO_POP  = '\033[10101~'
-            cstack = ColourStack(AUTO_PUSH, AUTO_POP)
-            buf = ''
-            for c in msg:
-                if c == '\n':
-                    for cc in ('%s\n%s' % (AUTO_PUSH, AUTO_POP)):
-                        buf += cc
-                        buf += cstack.feed(cc)
-                else:
-                    buf += c
-                    buf += cstack.feed(c)
-            msg = buf
+        msg = msg.replace('\n', '\033[0m%s\n' % (self.ballooncolour)) + '\033[0m' + self.ballooncolour
         
-        return self.balloon.get(width, height, msg.split('\n'), self.__len)
+        return self.balloon.get(width, height, msg.split('\n'), self.__len);
     
     
     '''
     Wraps the message
+    
+    @param   message:str  The message to wrap
+    @param   wrap:int     The width at where to force wrapping
+    @return  :str         The message wrapped
     '''
     def __wrapMessage(self, message, wrap):
-        AUTO_PUSH = '\033[01010~'
+        AUTO_PUSH = '\033[0101y0~'
         AUTO_POP  = '\033[10101~'
-        lines = message.split('\n')
+        msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP);
+        cstack = ColourStack(AUTO_PUSH, AUTO_POP)
+        buf = ''
+        for c in msg:
+            buf += c + cstack.feed(c)
+        lines = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
         buf = ''
         for line in lines:
             b = [None] * len(line)
@@ -1556,7 +1744,7 @@ class Backend():
                             hyphen = m - 1
                             while b[hyphen] != '­':
                                 hyphen -= 1
-                            while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hythenated correctly
+                            while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hyphenated correctly
                                 x -= 1
                             x += 1
                             m = map[mm + x]
@@ -1604,16 +1792,21 @@ class Backend():
         
         rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
         rc = rc.replace('­', ''); # remove soft hyphens
-        rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, '\033[31m-', AUTO_POP)) # TODO make configurable
+        rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
         return rc
 
 
 '''
 ANSI colour stack
+
+This is used to make layers with independent coloursations
 '''
 class ColourStack():
     '''
     Constructor
+    
+    @param  autopush:str  String that, when used, will create a new independently colourised layer
+    @param  autopop:str   String that, when used, will end the current layer and continue of the previous layer
     '''
     def __init__(self, autopush, autopop):
         self.autopush = autopush
@@ -1626,6 +1819,11 @@ class ColourStack():
         self.seq      = None
     
     
+    '''
+    Create a new independently colourised layer
+    
+    @return  :str  String that should be inserted into your buffer
+    '''
     def push(self):
         self.stack = [[self.bufproto, None, None, [False] * 9]] + self.stack
         if len(self.stack) == 1:
@@ -1633,6 +1831,11 @@ class ColourStack():
         return '\033[0m'
     
     
+    '''
+    End the current layer and continue of the previous layer
+    
+    @return  :str  String that should be inserted into your buffer
+    '''
     def pop(self):
         old = self.stack[0]
         self.stack = self.stack[1:]
@@ -1646,6 +1849,13 @@ class ColourStack():
         return rc[:-1] + 'm'
     
     
+    '''
+    Use this, in sequence, for which character in your buffer that contains yor autopush and autopop
+    string, the automatically get push and pop string to insert after each character
+    
+    @param   :chr  One character in your buffer
+    @return  :str  The text to insert after the input character
+    '''
     def feed(self, char):
         if self.seq is not None:
             self.seq += char
@@ -1691,6 +1901,9 @@ UCS utility class
 class UCS():
     '''
     Checks whether a character is a combining character
+    
+    @param   char:chr  The character to test
+    @return  :bool     Whether the character is a combining character
     '''
     @staticmethod
     def isCombining(char):
@@ -1704,6 +1917,9 @@ class UCS():
     
     '''
     Gets the number of combining characters in a string
+    
+    @param   string:str  A text to count combining characters in
+    @return  :int        The number of combining characters in the string
     '''
     @staticmethod
     def countCombining(string):
@@ -1716,6 +1932,9 @@ class UCS():
     
     '''
     Gets length of a string not counting combining characters
+    
+    @param   string:str  The text of which to determine the monospaced width
+    @return              The determine the monospaced width of the text, provided it does not have escape sequnces
     '''
     @staticmethod
     def dispLen(string):
@@ -1729,7 +1948,13 @@ Class used for correcting spellos and typos,
 Note that this implementation will not find that correctly spelled word are correct faster than it corrects words.
 It is also limited to words of size 0 to 127 (inclusive)
 '''
-class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised Java, may not be the nicest, or even fast, Python code
+class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimised Java, may not be the nicest, or even fast, Python code
+    '''
+    Constructor
+    
+    @param  directories:list<str>  List of directories that contains the file names with the correct spelling
+    @param  ending:str             The file name ending of the correctly spelled file names, this is removed for the name
+    '''
     def __init__(self, directories, ending):
         self.weights = {'k' : {'c' : 0.25, 'g' : 0.75, 'q' : 0.125},
                         'c' : {'k' : 0.25, 'g' : 0.75, 's' : 0.5, 'z' : 0.5, 'q' : 0.125},
@@ -1768,35 +1993,57 @@ class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised 
                     continue
                 proper = filename[:-len(ending)]
                 
-                if dictionaryEnd == 0:
-                    dictionaryEnd = len(self.dictionary)
-                    self.reusable = [0] * dictionaryEnd + self.reusable
-                    self.dictionary = [None] * dictionaryEnd + self.dictionary
+                if self.dictionaryEnd == 0:
+                    self.dictionaryEnd = len(self.dictionary)
+                    self.reusable = [0] * self.dictionaryEnd + self.reusable
+                    self.dictionary = [None] * self.dictionaryEnd + self.dictionary
                 
-                dictionaryEnd -= 1
-                dictionary[dictionaryEnd] = proper
+                self.dictionaryEnd -= 1
+                self.dictionary[self.dictionaryEnd] = proper
+                
                 prevCommon = min(len(previous), len(proper))
                 for i in range(0, prevCommon):
                     if previous[i] != proper[i]:
                         prevCommon = i
                         break
-                previous = dictionary[dictionaryEnd]
-                reusable[dictionaryEnd] = prevCommon
+                previous = proper
+                self.reusable[self.dictionaryEnd] = prevCommon
+        #part = self.dictionary[self.dictionaryEnd : len(self.dictionary) - 1]
+        #part.sort()
+        #self.dictionary[self.dictionaryEnd : len(self.dictionary) - 1] = part
+        #
+        #index = len(self.dictionary) - 1
+        #while index >= self.dictionaryEnd:
+        #    proper = self.dictionary[index]
+        #    prevCommon = min(len(previous), len(proper))
+        #    for i in range(0, prevCommon):
+        #        if previous[i] != proper[i]:
+        #            prevCommon = i
+        #            break
+        #    previous = proper
+        #    self.reusable[self.dictionaryEnd] = prevCommon
+        #    index -= 1;
     
     
     '''
-    Finds the closests correct spelled word.
-    The input is just one word, and the output is tuple
-    with a list of the closest spellings, and the weigthed distance.
+    Finds the closests correct spelled word
+    
+    @param   used:str                               The word to correct
+    @return  (words, distance):(list<string>, int)  A list the closest spellings and the weighted distance
     '''
     def correct(self, used):
-        if len(used) < 127:
+        if len(used) > 127:
             return ([used], 0)
         
-        __correct(used)
-        return (seld.corrections, self.closestDistance)
+        self.__correct(used)
+        return (self.corrections, self.closestDistance)
     
     
+    '''
+    Finds the closests correct spelled word
+    
+    @param  used:str  The word to correct, it must satisfy all restrictions
+    '''
     def __correct(self, used):
         self.closestDistance = 0x7FFFFFFF
         previous = self.dictionary[-1]
@@ -1806,7 +2053,7 @@ class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised 
         proper = None
         prevCommon = 0
         
-        d = len(self.dictionary)
+        d = len(self.dictionary) - 1
         while d > self.dictionaryEnd:
             d -= 1
             proper = self.dictionary[d]
@@ -1822,7 +2069,7 @@ class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised 
                 
                 skip = min(prevLen, len(proper))
                 i = prevCommon
-                while i <  skip:
+                while i < skip:
                     for u in range(0, usedLen):
                         if (used[u] == previous[i]) or (used[u] == proper[i]):
                             skip = i
@@ -1835,13 +2082,13 @@ class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised 
                         common = i
                         break
                 
-                distance = self.__distance(proper, skip, proper.length, used, common, usedLen)
+                distance = self.__distance(proper, skip, len(proper), used, common, usedLen)
                 
                 if self.closestDistance > distance:
                     self.closestDistance = distance
-                    corrections = [proper]
+                    self.corrections = [proper]
                 elif self.closestDistance == distance:
-                    corrections.append(proper)
+                    self.corrections.append(proper)
                 
                 previous = proper;
                 if distance >= 0x7FFFFF00:
@@ -1850,6 +2097,17 @@ class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised 
                     prevLen = len(proper)
     
     
+    '''
+    Calculate the distance between a correct word and a incorrect word
+    
+    @param   proper:str  The correct word
+    @param   y0:int      The offset for `proper`
+    @param   yn:int      The length, before applying `y0`, of `proper`
+    @param   used:str    The incorrect word
+    @param   x0:int      The offset for `used`
+    @param   xn:int      The length, before applying `x0`, of `used`
+    @return  :float      The distance between the words
+    '''
     def __distance(self, proper, y0, yn, used, x0, xn):
         my = self.M[y0]
         for y in range(y0, yn):
@@ -1872,13 +2130,14 @@ class SpelloCorrecter: # Naïvely and quickly proted and adapted from optimised 
                 if my[x] in self.weights:
                     if p in self.weights[u]:
                       cw = self.weights[u][p]
+                x += 1
                 
                 myy[x] = min(cw + change, 1 + min(remove, add))
                 if best > myy[x]:
                     best = myy[x]
             
             if best > self.closestDistance:
-                return 0x7FFFFFFF | y
+                return 0x7FFFFF00 | y
             my = myy
         return my[xn]
     
@@ -1900,8 +2159,8 @@ linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
 '''
 Whether the script is executed as ponythink
 '''
-isthink =  (len(__file__) >= 5) and (__file__[-5:] == 'think')
-isthink = ((len(__file__) >= 8) and (__file__[-8:] == 'think.py')) or isthink
+isthink =  (len(__file__) >= len('think'))    and (__file__.endswith('think'))
+isthink = ((len(__file__) >= len('think.py')) and (__file__.endswith('think.py'))) or isthink
 
 
 '''
@@ -1927,28 +2186,46 @@ usekms = Ponysay.isUsingKMS()
 
 
 '''
+Mode string that modifies or adds $ variables in the pony image
+'''
+mode = ''
+
+
+'''
 The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
 '''
 appendset = set()
-ponydirs = []
-if linuxvt and not usekms:  _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
-else:                       _ponydirs = [HOME + '/.local/share/ponysay/ponies/',    '/usr/share/ponysay/ponies/']
+xponydirs = []
+_ponydirs = [HOME + '/.local/share/ponysay/ponies/', '/usr/share/ponysay/ponies/']
 for ponydir in _ponydirs:
     if os.path.isdir(ponydir) and (ponydir not in appendset):
-        ponydirs.append(ponydir)
+        xponydirs.append(ponydir)
+        appendset.add(ponydir)
+appendset = set()
+vtponydirs = []
+_ponydirs = [HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
+for ponydir in _ponydirs:
+    if os.path.isdir(ponydir) and (ponydir not in appendset):
+        vtponydirs.append(ponydir)
         appendset.add(ponydir)
 
 
 '''
 The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
 '''
-appendsetset = set()
-extraponydirs = []
-if linuxvt and not usekms:  _extraponydirs = [HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
-else:                       _extraponydirs = [HOME + '/.local/share/ponysay/extraponies/',    '/usr/share/ponysay/extraponies/']
+appendset = set()
+extraxponydirs = []
+_extraponydirs = [HOME + '/.local/share/ponysay/extraponies/', '/usr/share/ponysay/extraponies/']
 for extraponydir in _extraponydirs:
     if os.path.isdir(extraponydir) and (extraponydir not in appendset):
-        extraponydirs.append(extraponydir)
+        extraxponydirs.append(extraponydir)
+        appendset.add(extraponydir)
+appendset = set()
+extravtponydirs = []
+_extraponydirs = [HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
+for extraponydir in _extraponydirs:
+    if os.path.isdir(extraponydir) and (extraponydir not in appendset):
+        extravtponydirs.append(extraponydir)
         appendset.add(extraponydir)
 
 
@@ -2022,6 +2299,17 @@ opts.add_argumentless(['--quoters'])
 opts.add_argumentless(['--onelist'])
 opts.add_argumentless(['++onelist'])
 
+opts.add_argumentless(['-X', '--256-colours', '--256colours', '--x-colours'])
+opts.add_argumentless(['-V', '--tty-colours', '--ttycolours', '--vt-colours'])
+opts.add_argumentless(['-K', '--kms-colours', '--kmscolours'])
+
+opts.add_argumented(['+c', '--colour'],                      arg = 'COLOUR')
+opts.add_argumented(['--colour-bubble', '--colour-balloon'], arg = 'COLOUR')
+opts.add_argumented(['--colour-link'],                       arg = 'COLOUR')
+opts.add_argumented(['--colour-msg', '--colour-message'],    arg = 'COLOUR')
+opts.add_argumented(['--colour-pony'],                       arg = 'COLOUR')
+opts.add_argumented(['--colour-wrap', '--colour-hyphen'],    arg = 'COLOUR')
+
 opts.add_argumentless(['-h', '--help'],                                  help = 'Print this help message.')
 opts.add_argumentless(['-v', '--version'],                               help = 'Print the version of the program.')
 opts.add_argumentless(['-l', '--list'],                                  help = 'List pony names.')
@@ -2029,9 +2317,10 @@ opts.add_argumentless(['-L', '--symlist', '--altlist'],                  help = 
 opts.add_argumentless(['+l', '++list'],                                  help = 'List non-MLP:FiM pony names.')
 opts.add_argumentless(['+L', '++symlist', '++altlist'],                  help = 'List non-MLP:FiM pony names with alternatives.')
 opts.add_argumentless(['-A', '--all'],                                   help = 'List all pony names.')
-opts.add_argumentless(['+A', '++all'],                                   help = 'List all pony names with alternatives.')
+opts.add_argumentless(['+A', '++all', '--symall', '--altall'],           help = 'List all pony names with alternatives.')
 opts.add_argumentless(['-B', '--bubblelist', '--balloonlist'],           help = 'List balloon styles.')
 opts.add_argumentless(['-c', '--compact'],                               help = 'Compress messages.')
+opts.add_argumentless(['-o', '--pony-only', '--ponyonly'],               help = 'Print only the pony.')
 opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN', help = 'Specify column where the message should be wrapped.')
 opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',  help = 'Select a balloon style.')
 opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',   help = 'Select a pony.\nEither a file name or a pony name.')

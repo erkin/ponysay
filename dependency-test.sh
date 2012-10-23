@@ -15,6 +15,7 @@ ro=0
 (hash mkdir        2>/dev/null) || (br=1 ; echo 'Missing mkdir, install coreutils [build required]')
 (hash cp           2>/dev/null) || (br=1 ; echo 'Missing cp, install coreutils [build required]')
 (hash cut          2>/dev/null) || (br=1 ; echo 'Missing cut, install coreutils [build required]')
+(hash chmod        2>/dev/null) || (br=1 ; echo 'Missing chmod, install coreutils [build required]')
 
 (hash bash         2>/dev/null) || (bs=1 ; echo 'Missing bash, install bash [build recommended]')
 
@@ -32,6 +33,7 @@ ro=0
 
 (hash tty2colourfultty   2>/dev/null) || (ro=1 ; echo 'Missing tty2colourfultty, install util-say [runtime optional]')
 (hash ponysay2ttyponysay 2>/dev/null) || (ro=1 ; echo 'Missing ponysay2ttyponysay, install util-say [runtime optional]')
+(hash chmod              2>/dev/null) || (rr=1 ; echo 'Missing chmod, install coreutils [runtime optional]')
 
 ( (test $br = 1) || (test $rr = 1) || (test $ro = 1) ) && echo
 

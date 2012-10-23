@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.8
+@set VERSION 2.9
 
 @defindex op
 @synindex op vr
@@ -266,20 +266,101 @@ Just as @option{-L}, except it lists extra (non-MLP:FiM) ponies instead of stand
 Prints a list of all balloon styles.
 
 @item -A
-@itemx --balloonlist
+@itemx --all
 @opindex @option{-A}
 @opindex @option{--all}
-@opindex @option{--all}
-Show all ponies, MLP-FiM and non-MLP-FiM, in this case the first list are MLP:FiM
-and the second are non-MLP-FiM.
+List all ponies, MLP:FiM and non-MLP:FiM, in this case the first list are MLP:FiM
+and the second are non-MLP:FiM.
 
 @item +A
-@itemx --balloonlist
+@itemx ++all
+@itemx --symall
+@itemx --altall
 @opindex @option{+A}
 @opindex @option{++all}
-@opindex @option{++all}
-Show both ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM
-the first list are the MLP:FiM and the second one are non-MLP:FiM.
+@opindex @option{--symall}
+@opindex @option{--altall}
+List all ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM.
+The first list are the MLP:FiM and the second one are non-MLP:FiM.
+
+@item -o
+@itemx --pony-only
+@itemx --ponyonly
+@opindex @option{-o}
+@opindex @option{--pony-only}
+@opindex @option{--ponyonly}
+Print just the pony, nothing else like the speech balloon.
+
+@item -X
+@itemx --256-colours
+@itemx --256colours
+@itemx --x-colours
+@opindex @option{-X}
+@opindex @option{--256-colours}
+@opindex @option{--256colours}
+@opindex @option{--x-colours}
+Use @command{xterm}'s 256-colour support (supported by most X11 terminals), despite
+your terminal's actual compatibilies. 
+
+@item -V
+@itemx --tty-colours
+@itemx --ttycolours
+@itemx --vt-colours
+@opindex @option{-V}
+@opindex @option{--tty-colours}
+@opindex @option{--ttycolours}
+@opindex @option{--vt-colours}
+Use Linux VT's compatbilies without KMS utilisation, despite your terminal's actual
+compatibilies.
+
+@item -K
+@itemx --kms-colours
+@itemx --kmscolours
+@opindex @option{-K}
+@opindex @option{--kms-colours}
+@opindex @option{--kmscolours}
+Use Linux VT's compatbilies with KMS utilisation, despite your terminal's actual
+compatibilies.
+
+@item +c
+@itemx --colour ANSI-COLOUR
+@opindex @option{+c}
+@opindex @option{--colour}
+Colour the balloon, including link and message (the parts that are not individually
+specified.) The argument, should be a ANSI colour sequence without leading CSI and
+without a tailing ‘m’, for example @code{1;31} will make it in red and bold (or bright
+depending on the terminal.)
+
+@item --colour-bubble
+@itemx --colour-balloon ANSI-COLOUR
+@opindex @option{--colour-bubble}
+@opindex @option{--colour-balloon}
+Just like @option{--colour}, but it only colours the balloon, without the message
+or link.
+
+@item --colour-link ANSI-COLOUR
+@opindex @option{--colour-link}
+Just like @option{--colour}, but it only colours the balloon link.
+
+@item --colour-msg
+@itemx --colour-message ANSI-COLOUR
+@opindex @option{--colour-msg}
+@opindex @option{--colour-message}
+Just like @option{--colour}, but it only colours the message.
+
+@item --colour-pony ANSI-COLOUR
+@opindex @option{--colour-pony}
+Just like @option{--colour}, but it colours the pony. This colouring has no
+effect ony regular pony files, as it has its own colouring.
+
+@item --colour-wrap
+@itemx --colour-hyphen ANSI-COLOUR
+@opindex @option{--colour-wrap}
+@opindex @option{--colour-hyphen}
+Just like @option{--colour}, but it colours hyphen added by the word wrapping.
+By default this is red (@code{31}), if you want uncoloured use @code{0},
+without @code{0} or @code{39}, the default @code{31} is presistent.
+
 @end table
 
 @opindex @var{message}
@@ -673,12 +754,14 @@ We have provided a script that should run one most, if not all shells, named
 
 @table @command
 @item util-say>=2
-@cindex @command{util-say}
+@pindex @command{util-say}
 @cindex kms
 @cindex tty
 @pindex linux vt
 For improved TTY support for user with custom colour palette and KMS support.
-It can be downloaded at @url{https://github.com/maandree/util-say}.
+It can be downloaded at @url{https://github.com/maandree/util-say}. If this is
+used @command{chmod} from @command{coreutils} is also required.
+
 
 @cindex .png
 @cindex png images
@@ -1864,24 +1947,44 @@ sequences.
 @cindex versions
 @cindex previous releases
 
+@heading Version 2.9
+@itemize @bullet
+@item
+New extraponies: @file{molestia} (Tumblr)
+@item
+@end itemize
+
 @heading Version 2.8
 @itemize @bullet
 @item
-New ponies: @file{airheart}, @file{bastionyorsets}, @file{gustavelegrand}, @file{peppermoon},
-@file{pinkacopter}, @file{pinkiefly}, @file{pinkieparade}, @file{pinkieumbrellahat},
-@file{shiningarmorwedding}, @file{starlight}, @file{sunnyrays}, @file{sweatiesing}, 
-@file{tenderheart}, @file{tom}, @file{twilightspike}
+New ponies: @file{airheart}, @file{bastionyorsets}, @file{gustavelegrand}, @file{milkyway},
+@file{peppermoon}, @file{pinkacopter}, @file{pinkiefly}, @file{pinkieparade},
+@file{pinkieumbrellahat}, @file{shiningarmorwedding}, @file{soaringofficer}, 
+@file{starlight}, @file{sunnyrays}, @file{sweatiesing}, @file{tenderheart}, @file{tom},
+@file{twilightspike}, @file{zecorabalance}
+@item
+New extraponies: @file{applejack} (Tumblr), @file{applejack-63}, @file{artemis}, @file{blueberry},
+@file{butterscotch}, @file{drhoovesdiscorded} (Tumblr), @file{duskshine}, @file{elusive},
+@file{rainbowblitz}
 @item
 Pony symlink added:
 @itemize @bullet
 @item @file{georgewashingtony} @arrow{} @file{bastionyorsets}
 @end itemize
 @item
-Support for explicit hypthenation using soft hyphens had been added to the word wrapper.
+Support for explicit hyphenation using soft hyphens had been added to the word wrapper.
 @item
 Support for explicit non-word wrapping using non-breaking space had been added to the word wrapper.
 @item
 The word wrapper colours the inserted hyphens in red.
+@item
+Support for terminal capabilities emulation with the flags @option{-X}, @option{-V} and @option{-K}.
+@item
+Support for printing just the pony, using the flag @option{-o}.
+@item
+Colouring option flags are added.
+@item
+Automatic correction of incorrectly spelled pony names and balloon style names added.
 @end itemize
 
 
