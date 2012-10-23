@@ -887,6 +887,7 @@ class Ponysay():
         ## Select a random pony–quote-pair, load it and print it
         if not len(pairs) == 0:
             pair = pairs[random.randrange(0, len(pairs))]
+            printinfo('quote file: ' + pair[1])
             with open(pair[1], 'rb') as qfile:
                 args.message = qfile.read().decode('utf8', 'replace').strip()
             args.opts['-f'] = [pair[0]]

@@ -10,6 +10,8 @@ Version 2.9
 	Weighted distance for autocorrection on pony names and boolean style name is set to 5, rather
 	than unlimited. Currently this cannot be modified (without editing the source code.)
 
+	If file descriptor 3 is definied when ponysay is executed, extra information is printed to it.
+
 
 Version 2.8
 

@@ -116,7 +116,7 @@ way over e-mail.
 @cindex invoking
 @cindex options
 @cindex arguments
-@pindex ponythink
+@pindex @command{ponythink}
 
 The format for running the @command{ponysay} program is:
 
@@ -324,7 +324,8 @@ the first list are the MLP:FiM and the second one are non-MLP:FiM.
 @opindex @option{-o}
 @opindex @option{--pony-only}
 @opindex @option{--ponyonly}
-Print just the pony, nothing else like the speech balloon.
+Print just the pony, nothing else like the speech balloon. Naturally the
+@command{ponysay} will not wait for a message from stdin.
 
 @item -X
 @itemx --256-colours
@@ -411,11 +412,13 @@ this file should be a symbolic link to the pony you want as a default. If it is 
 a symbolic link, @option{-q} cannot determine which quotes to use.
 
 
+
 @node Advanced usage
 @chapter Advanced usage of @command{ponysay}.
 @cindex advanced usage
 
 @menu
+* Extra information::   Displaying extra information.
 * Fortune cookies::     Displaying with fortune cookies.
 * Ponification::        Ponify your fortune cookies.
 * Running on TTY::      Running on TTY (Linux VT).
@@ -423,9 +426,28 @@ a symbolic link, @option{-q} cannot determine which quotes to use.
 @end menu
 
 
+
+@node Extra information
+@section Extra information
+@cindex file descriptor 3
+@cindex extra information
+@cindex verbose mode
+@pindex @command{tee}
+If file descriptor 3 is definied when @command{ponysay} is executed, extra information
+is printed to it. The printed information includes the name of the pony file, the name
+of the balloon style file, and if definied in the pony file, file meta data and comment.
+
+In most shells, a file descriptor 3 can defined using @command{3> FILE}, and linked to
+stderr using @command{3>&2}. For example, you can print the information to @file{~/info}
+by running @command{ponysay I\'m just the cutest pony! | 3> ~/info}.
+
+The message is not stored this way, for that you can use @command{tee}. However, if you
+use @option{-q} the quote file is printed to file descriptor 3.
+
+
 @node Fortune cookies
 @section Fortune cookies
-@pindex fortune
+@pindex @command{fortune}
 @cindex startup
 @cindex on startup
 @cindex @file{.bashrc}
@@ -445,7 +467,7 @@ described in the previous paragraph every time you open a terminal.
 @section Ponification
 @cindex ponification
 @cindex text ponification
-@pindex ponypipe
+@pindex @command{ponypipe}
 
 You can ponify messages (i.e. replaces words search as `everyone' with `everypony') by
 using @code{fortune | ponypipe} instead of using @command{fortune}. @command{ponypipe}
@@ -482,7 +504,7 @@ You should read more about this in @ref{KMS ponies}.
 
 @node Running on screen
 @section Running on @command{screen}
-@pindex screen
+@pindex @command{screen}
 @cindex @file{.bashrc}
 @cindex @file{~/.bashrc}
 
@@ -702,7 +724,7 @@ run on it.
 
 @node Cowsay
 @section Cowsay
-@pindex cowsay
+@pindex @command{cowsay}
 
 This section describes the limitation of @command{cowsay}, but since version 2.1
 @command{cowsay} is no longer used because of it. So none of the following limitations
@@ -1994,6 +2016,9 @@ The options @option{--f} and @option{--F} has been added.
 @item
 Weighted distance for autocorrection on pony names and boolean style name is set to 5, rather
 than unlimited. Currently this cannot be modified (without editing the source code.)
+@item
+If file descriptor 3 is definied when @command{ponysay} is executed, extra information is
+printed to it.
 @end itemize
 
 
