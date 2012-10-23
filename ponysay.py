@@ -138,6 +138,7 @@ class Ponysay():
             self.__ucsremap(args)
             if args.opts['-o'] is not None:
                 mode += '$/= $$\\= $'
+                args.message = ''
             
             ## The stuff
             if args.opts['-q'] is not None:
