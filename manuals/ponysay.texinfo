@@ -1892,13 +1892,13 @@ and lower case and upper case English alphabet characters @code{a-z}.
 @cindex short options
 Command line arguments starting with either exactly one hyphen (@code{-}) or exactly one
 plus sign (@code{+}), and have exactly one character beyond that. They may be argumentless,
-argumented, optionally argumented, or variadic (consumes are following arguments).
+argumented, optionally argumented, or variadic (consumes all following arguments).
 
 @item long options
 @cindex long options
 Command line arguments starting with either at least two hyphens (@code{-}) or at least two
 plus signs (@code{+}), beyond that they have at least one character, but often at least one
-work. They by be argumentless, argumented, optionally argumented, or variadic (consumes are
+work. They by be argumentless, argumented, optionally argumented, or variadic (consumes all
 following arguments).
 
 @item completion
@@ -1951,7 +1951,6 @@ sequences.
 @itemize @bullet
 @item
 New extraponies: @file{molestia} (Tumblr)
-@item
 @end itemize
 
 @heading Version 2.8
