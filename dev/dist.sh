@@ -3,6 +3,7 @@
 # USAGE:  dev/dist.sh ttyponies
 #     or  dev/dist.sh pdfmanual
 #     or  dev/dist.sh tag VERSION [OTHER OPTIONS FOR `git tag`]
+#     or  dev/dist.sh beigepdf
 
 
 ttyponies()
@@ -47,8 +48,13 @@ pdfmanual()
     if [ -d "ponysay.t2d" ]; then
 	rm -r "ponysay.t2d";
     fi
-    pdfjam --pagecolor 249,246,240 -o "ponysay.pdf" "ponysay.pdf"
-    git add  "manuals/ponysay.texinfo" "ponysay.pdf"
+    git add "manuals/ponysay.texinfo" "ponysay.pdf"
+}
+
+
+beigepdf()
+{
+    pdfjam --pagecolor 249,246,240 -o "ponysay+beige.pdf" "ponysay.pdf"
 }
 
 
