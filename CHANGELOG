@@ -2,6 +2,19 @@ Version 2.9
 
 	New extraponies: molestia (Tumblr)
 
+	The option -q works like -f and -F, it takes one argument, and may be used multiple
+	times for more arguments.
+
+	The old option -q is renamed to --q.
+
+	The options --f and --F has been added.
+
+	Weighted distance for autocorrection on pony names and boolean style name is set to 5, rather
+	than unlimited. Currently this cannot be modified (without editing the source code.)
+
+	If file descriptor 3 is definied when ponysay is executed, extra information is printed to it.
+
+
 Version 2.8
 
 	New ponies: airheart, bastionyorsets, gustavelegrand, milkyway, peppermoon, pinkacopter, pinkiefly,

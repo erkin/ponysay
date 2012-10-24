@@ -47,6 +47,29 @@ programs by default, report them to Princess Celestia so she can banish them to 
 def print(text = '', end = '\n'):
     sys.stdout.buffer.write((str(text) + end).encode('utf-8'))
 
+'''
+stderr equivalent to print()
+
+@param  text:str  The text to print (empty string is default)
+@param  end:str   The appendix to the text to print (line breaking is default)
+'''
+def printerr(text = '', end = '\n'):
+    sys.stderr.buffer.write((str(text) + end).encode('utf-8'))
+
+fd3 = None
+'''
+/proc/self/fd/3 equivalent to print()
+
+@param  text:str  The text to print (empty string is default)
+@param  end:str   The appendix to the text to print (line breaking is default)
+'''
+def printinfo(text = '', end = '\n'):
+    global fd3
+    if os.path.exists('/proc/self/fd/3'):
+        if fd3 is None:
+            fd3 = os.fdopen(3, 'w')
+        fd3.write(str(text) + end)
+
 
 '''
 Checks whether a text ends with a specific text, but has more
@@ -56,7 +79,7 @@ Checks whether a text ends with a specific text, but has more
 @return  :bool   The result of the test
 '''
 def endswith(text, ending):
-    return text.endswith(ending) and not (text == ending);
+    return text.endswith(ending) and not (text == ending)
 
 
 
@@ -72,6 +95,7 @@ class Ponysay():
     def __init__(self, args):
         if (args.argcount == 0) and not pipelinein:
             args.help()
+            exit(254)
             return
         
         ## Modifyable global variables
@@ -82,17 +106,22 @@ class Ponysay():
         global extraponydirs
         
         ## Emulate termial capabilities
-        if args.opts['-X'] is not None:
-            linuxvt = False
-            usekms = False
-        elif args.opts['-V'] is not None:
-            linuxvt = True
-            usekms = False
-        elif args.opts['-K'] is not None:
-            linuxvt = True
-            usekms = True
+        if   args.opts['-X'] is not None:  (linuxvt, usekms) = (False, False)
+        elif args.opts['-V'] is not None:  (linuxvt, usekms) = (True, False)
+        elif args.opts['-K'] is not None:  (linuxvt, usekms) = (True, True)
         ponydirs = vtponydirs if linuxvt and not usekms else xponydirs
         extraponydirs = extravtponydirs if linuxvt and not usekms else extraxponydirs
+        
+        ## Variadic variants of -f, -F and -q
+        if    args.opts['--f'] is not None:
+            if args.opts['-f'] is not None:  args.opts['-f'] += args.opts['--f']
+            else:                            args.opts['-f']  = args.opts['--f']
+        if    args.opts['--F'] is not None:
+            if args.opts['-F'] is not None:  args.opts['-F'] += args.opts['--F']
+            else:                            args.opts['-F']  = args.opts['--F']
+        if    args.opts['--q'] is not None:
+            if args.opts['-q'] is not None:  args.opts['-q'] += args.opts['--q']
+            else:                            args.opts['-q']  = args.opts['--q']
         
         ## Run modes
         if   args.opts['-h']        is not None:  args.help()
@@ -124,10 +153,26 @@ class Ponysay():
             self.__ucsremap(args)
             if args.opts['-o'] is not None:
                 mode += '$/= $$\\= $'
+                args.message = ''
             
             ## The stuff
-            if args.opts['-q'] is not None:  self.quote(args)
-            else:                            self.print_pony(args)
+            if args.opts['-q'] is not None:
+                warn = (args.opts['-f'] is not None) or (args.opts['-F'] is not None)
+                if (len(args.opts['-q']) == 1) and ((args.opts['-q'][0] == '-f') or (args.opts['-q'][0] == '-F')):
+                    warn = True
+                    if args.opts['-q'][0] == '-f':
+                        args.opts['-q'] = args.files
+                        if args.opts['-f'] is not None:
+                            args.opts['-q'] += args.opts['-f']
+                self.quote(args)
+                if warn:
+                    printerr('-q cannot be used at the same time as -f or -F.')
+            elif not unrecognised:
+                self.print_pony(args)
+            else:
+                args.help()
+                exit(255)
+                return
     
     
     ##############################################
@@ -289,7 +334,7 @@ class Ponysay():
             if not alt:
                 autocorrect = SpelloCorrecter(ponydirs, '.pony')
                 (alternatives, dist) = autocorrect.correct(pony)
-                if len(alternatives) > 0:
+                if (len(alternatives) > 0) and (dist <= 5): # TODO the limit `dist` should be configureable
                     return self.__getponypath(alternatives, True)
             sys.stderr.write('I have never heard of anypony named %s\n' % (pony));
             exit(1)
@@ -362,10 +407,13 @@ class Ponysay():
     '''
     def __gettermsize(self):
         ## Call `stty` to determine the size of the terminal, this way is better then using python's ncurses
-        termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=sys.stderr).communicate()[0]
-        termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
-        termsize = [int(item) for item in termsize]
-        return termsize
+        for channel in (sys.stderr, sys.stdout, sys.stdin):
+            termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
+            if len(termsize) > 0:
+                termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
+                termsize = [int(item) for item in termsize]
+                return termsize
+        return (24, 80) # fall back to minimal sane size
     
     
     
@@ -642,9 +690,9 @@ class Ponysay():
         if balloon not in balloons:
             if not alt:
                 autocorrect = SpelloCorrecter(balloondirs, '.think' if isthink else '.say')
-                alternatives = autocorrect.correct(balloon)[0]
-                if len(alternatives) > 0:
-                    return self.__getponypath(alternatives, True)
+                (alternatives, dist) = autocorrect.correct(balloon)
+                if (len(alternatives) > 0) and (dist <= 5): # TODO the limit `dist` should be configureable
+                    return self.__getballoonpath(alternatives, True)
             sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
             exit(1)
         else:
@@ -661,8 +709,8 @@ class Ponysay():
         ## Use default balloon if none is specified
         if balloonfile is None:
             if isthink:
-                return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'], '( ', '( ', '( ')
-            return Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
+                return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )',  ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'],  '( ', '( ', '( ')
+            return    Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
         
         ## Initialise map for balloon parts
         map = {}
@@ -671,7 +719,8 @@ class Ponysay():
         
         ## Read all lines in the balloon file
         with open(balloonfile, 'rb') as balloonstream:
-            data = [line.replace('\n', '') for line in balloonstream.read().decode('utf8', 'replace').split('\n')]
+            data = balloonstream.read().decode('utf8', 'replace')
+            data = [line.replace('\n', '') for line in data.split('\n')]
         
         ## Parse the balloon file, and fill the map
         last = None
@@ -740,6 +789,7 @@ class Ponysay():
         
         ## Get the pony
         pony = self.__getponypath(args.opts['-f'])
+        printinfo('pony file: ' + pony)
         
         ## Use PNG file as pony file
         if endswith(pony.lower(), '.png'):
@@ -763,7 +813,9 @@ class Ponysay():
         messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
         
         ## Get balloon object
-        balloon = self.__getballoon(self.__getballoonpath(args.opts['-b'])) if args.opts['-o'] is None else None
+        balloonfile = self.__getballoonpath(args.opts['-b'])
+        printinfo('balloon style file: ' + str(balloonfile))
+        balloon = self.__getballoon(balloonfile) if args.opts['-o'] is None else None
         
         ## Get hyphen style
         hyphencolour = ''
@@ -839,6 +891,7 @@ class Ponysay():
         ## Select a random pony–quote-pair, load it and print it
         if not len(pairs) == 0:
             pair = pairs[random.randrange(0, len(pairs))]
+            printinfo('quote file: ' + pair[1])
             with open(pair[1], 'rb') as qfile:
                 args.message = qfile.read().decode('utf8', 'replace').strip()
             args.opts['-f'] = [pair[0]]
@@ -1067,7 +1120,8 @@ class ArgParser():
     '''
     Parse arguments
     
-    @param  args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
+    @param   args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
+    @return  :bool           Whether no unrecognised option is used
     '''
     def parse(self, argv = sys.argv):
         self.argcount = len(argv) - 1
@@ -1083,9 +1137,11 @@ class ArgParser():
         tmpdashed = False
         get = 0
         dontget = 0
+        self.rc = True
         
         def unrecognised(arg):
             sys.stderr.write('%s: warning: unrecognised option %s\n' % (self.__program, arg))
+            self.rc = False
         
         while len(deque) != 0:
             arg = deque[0]
@@ -1178,6 +1234,8 @@ class ArgParser():
                     break
         
         self.message = ' '.join(self.files) if len(self.files) > 0 else None
+        
+        return self.rc
     
     
     '''
@@ -1294,7 +1352,7 @@ class Balloon():
         minN = len(max([ne, nne, n, nnw, nw], key = len))
         minS = len(max([se, sse, s, ssw, sw], key = len))
         
-        self.minwidth = minE + minE
+        self.minwidth  = minE + minE
         self.minheight = minN + minS
     
     
@@ -1326,7 +1384,7 @@ class Balloon():
         for j in range(0, len(self.n)):
             outer = UCS.dispLen(self.nw[j]) + UCS.dispLen(self.ne[j])
             inner = UCS.dispLen(self.nnw[j]) + UCS.dispLen(self.nne[j])
-            if outer + inner >= w:
+            if outer + inner <= w:
                 rc.append(self.nw[j] + self.nnw[j] + self.n[j] * (w - outer - inner) + self.nne[j] + self.ne[j])
             else:
                 rc.append(self.nw[j] + self.n[j] * (w - outer) + self.ne[j])
@@ -1337,7 +1395,7 @@ class Balloon():
         for j in range(0, len(self.s)):
             outer = UCS.dispLen(self.sw[j]) + UCS.dispLen(self.se[j])
             inner = UCS.dispLen(self.ssw[j]) + UCS.dispLen(self.sse[j])
-            if outer + inner >= w:
+            if outer + inner <= w:
                 rc.append(self.sw[j] + self.ssw[j] + self.s[j] * (w - outer - inner) + self.sse[j] + self.se[j])
             else:
                 rc.append(self.sw[j] + self.s[j] * (w - outer) + self.se[j])
@@ -1365,7 +1423,7 @@ class Backend():
     def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour):
         self.message = message
         self.ponyfile = ponyfile
-        self.wrapcolumn = wrapcolumn
+        self.wrapcolumn = None if wrapcolumn is None else wrapcolumn - balloon.minwidth
         self.width = width
         self.balloon = balloon
         self.hyphen = hyphen
@@ -1386,10 +1444,39 @@ class Backend():
     '''
     def parse(self):
         self.__expandMessage()
+        self.__unpadMessage()
         self.__loadFile()
+        
+        if self.pony.startswith('$$$\n'):
+            self.pony = self.pony[4:]
+            infoend = self.pony.index('\n$$$\n')
+            printinfo(self.pony[:infoend])
+            self.pony = self.pony[infoend + 5:]
         self.pony = mode + self.pony
+        
         self.__processPony()
         self.__truncate()
+    
+    
+    '''
+    Remove padding spaces fortune cookies are padded with whitespace (damn featherbrains)
+    '''
+    def __unpadMessage(self):
+        lines = self.message.split('\n')
+        for spaces in (8, 4, 2, 1):
+            padded = True
+            for line in lines:
+                if not line.startswith(' ' * spaces):
+                    padded = False
+                    break
+            if padded:
+                for i in range(0, len(lines)):
+                    line = lines[i]
+                    while line.startswith(' ' * spaces):
+                        line = line[spaces:]
+                    lines[i] = line
+        lines = [line.rstrip(' ') for line in lines]
+        self.message = '\n'.join(lines)
     
     
     '''
@@ -1475,10 +1562,10 @@ class Backend():
         while i < n:
             c = self.pony[i]
             if c == '\t':
-                n += 8 - (indent & 7)
-                ed = ' ' * (7 - (indent & 7))
+                n += 7 - (indent & 7)
+                ed = ' ' * (8 - (indent & 7))
                 c = ' '
-                self.pony = self.pony[:i] + ed + self.pony[i:]
+                self.pony = self.pony[:i] + ed + self.pony[i + 1:]
             i += 1
             if c == '$':
                 if dollar is not None:
@@ -1669,131 +1756,149 @@ class Backend():
     @return  :str         The message wrapped
     '''
     def __wrapMessage(self, message, wrap):
-        AUTO_PUSH = '\033[0101y0~'
-        AUTO_POP  = '\033[10101~'
-        msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP);
-        cstack = ColourStack(AUTO_PUSH, AUTO_POP)
         buf = ''
-        for c in msg:
-            buf += c + cstack.feed(c)
-        lines = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
-        buf = ''
-        for line in lines:
-            b = [None] * len(line)
-            map = {}
-            (bi, cols, w) = (0, 0, wrap)
-            (indent, indentc) = (-1, 0)
+        try:
+            AUTO_PUSH = '\033[01010~'
+            AUTO_POP  = '\033[10101~'
+            msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP);
+            cstack = ColourStack(AUTO_PUSH, AUTO_POP)
+            for c in msg:
+                buf += c + cstack.feed(c)
+            lines = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
+            buf = ''
             
-            (i, n) = (0, len(line))
-            while i <= n:
-                d = None
-                if i < n:
-                    d = line[i]
-                i += 1
-                if d == '\033':  # TODO this should use self.__getcolour()
-                    ## Invisible stuff
-                    b[bi] = d
-                    bi += 1
-                    b[bi] = line[i]
-                    d = line[i]
-                    bi += 1
+            for line in lines:
+                b = [None] * len(line)
+                map = {0 : 0}
+                (bi, cols, w) = (0, 0, wrap)
+                (indent, indentc) = (-1, 0)
+                
+                (i, n) = (0, len(line))
+                while i <= n:
+                    d = None
+                    if i < n:
+                        d = line[i]
                     i += 1
-                    if d == '[':
-                        while True:
-                            b[bi] = line[i]
-                            d = line[i]
-                            bi += 1
-                            i += 1
-                            if (('a' <= d) and (d <= 'z')) or (('A' <= d) and (d <= 'Z')) or (d == '~'):
-                                break
-                    elif d == ']':
+                    if d == '\033':  # TODO this should use self.__getcolour()
+                        ## Invisible stuff
+                        b[bi] = d
+                        bi += 1
                         b[bi] = line[i]
                         d = line[i]
                         bi += 1
                         i += 1
-                        if d == 'P':
-                            for j in range(0, 7):
+                        if d == '[':
+                            while True:
                                 b[bi] = line[i]
+                                d = line[i]
                                 bi += 1
                                 i += 1
-                elif (d is not None) and (d != ' '):
-                    ## Fetch word
-                    if indent == -1:
-                        indent = i - 1
-                        for j in range(0, indent):
-                            if line[j] == ' ':
-                                indentc += 1
-                    b[bi] = d
-                    bi += 1
-                    if (not UCS.isCombining(d)) and (d != '­'):
-                        cols += 1
-                    map[cols] = bi
-                else:
-                    ## Wrap?
-                    mm = 0
-                    bisub = 0
-                    iwrap = wrap - (0 if indent == 1 else indentc)
-                    
-                    while ((w > 8) and (cols > w + 5)) or (cols > iwrap): # TODO make configurable
-                        ## wrap
-                        x = w;
-                        nbsp = b[map[mm + x]] == ' '
-                        m = map[mm + x]
-                        
-                        if ('­' in b[bisub : m]) and not nbsp:
-                            hyphen = m - 1
-                            while b[hyphen] != '­':
-                                hyphen -= 1
-                            while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hyphenated correctly
-                                x -= 1
-                            x += 1
-                            m = map[mm + x]
-                        
-                        mm += x - (0 if nbsp else 1) ## − 1 so we have space for a hythen
-                        
-                        for bb in b[bisub : m]:
-                            buf += bb
-                        buf += '\n' if nbsp else '\0\n'
-                        cols -= x - (0 if nbsp else 1)
-                        bisub = m
-                        
-                        w = iwrap
-                        if indent != -1:
-                            buf += line[:indent]
-                    
-                    for j in range(bisub, bi):
-                        b[j - bisub] = b[j]
-                    bi -= bisub
-                    
-                    if cols > w:
-                        buf += '\n'
-                        w = wrap
-                        if indent != -1:
-                            buf += line[:indent]
-                            w -= indentc
-                    for bb in b[:bi]:
-                        buf += bb
-                    w -= cols
-                    cols = 0
-                    bi = 0
-                    if d is None:
-                        i += 1
+                                if (('a' <= d) and (d <= 'z')) or (('A' <= d) and (d <= 'Z')) or (d == '~'):
+                                    break
+                        elif d == ']':
+                            b[bi] = line[i]
+                            d = line[i]
+                            bi += 1
+                            i += 1
+                            if d == 'P':
+                                for j in range(0, 7):
+                                    b[bi] = line[i]
+                                    bi += 1
+                                    i += 1
+                    elif (d is not None) and (d != ' '):
+                        ## Fetch word
+                        if indent == -1:
+                            indent = i - 1
+                            for j in range(0, indent):
+                                if line[j] == ' ':
+                                    indentc += 1
+                        b[bi] = d
+                        bi += 1
+                        if (not UCS.isCombining(d)) and (d != '­'):
+                            cols += 1
+                        map[cols] = bi
                     else:
-                        if w > 0:
-                            buf += ' '
-                            w -= 1
-                        else:
+                        ## Wrap?
+                        mm = 0
+                        bisub = 0
+                        iwrap = wrap - (0 if indent == 1 else indentc)
+                            
+                        while ((w > 8) and (cols > w + 5)) or (cols > iwrap): # TODO make configurable
+                            ## wrap
+                            x = w;
+                            if mm + x not in map: # Too much whitespace ?
+                                cols = 0
+                                break
+                            nbsp = b[map[mm + x]] == ' '
+                            m = map[mm + x]
+                            
+                            if ('­' in b[bisub : m]) and not nbsp:
+                                hyphen = m - 1
+                                while b[hyphen] != '­':
+                                    hyphen -= 1
+                                while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hyphenated correctly
+                                    x -= 1
+                                x += 1
+                                m = map[mm + x]
+                            
+                            mm += x - (0 if nbsp else 1) ## − 1 so we have space for a hythen
+                            
+                            for bb in b[bisub : m]:
+                                buf += bb
+                            buf += '\n' if nbsp else '\0\n'
+                            cols -= x - (0 if nbsp else 1)
+                            bisub = m
+                            
+                            w = iwrap
+                            if indent != -1:
+                                buf += line[:indent]
+                        
+                        for j in range(bisub, bi):
+                            b[j - bisub] = b[j]
+                        bi -= bisub
+                        
+                        if cols > w:
                             buf += '\n'
                             w = wrap
                             if indent != -1:
-                                buf + line[:indent]
+                                buf += line[:indent]
                                 w -= indentc
-            buf += '\n'
-        
-        rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
-        rc = rc.replace('­', ''); # remove soft hyphens
-        rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
-        return rc
+                        for bb in b[:bi]:
+                            buf += bb
+                        w -= cols
+                        cols = 0
+                        bi = 0
+                        if d is None:
+                            i += 1
+                        else:
+                            if w > 0:
+                                buf += ' '
+                                w -= 1
+                            else:
+                                buf += '\n'
+                                w = wrap
+                                if indent != -1:
+                                    buf + line[:indent]
+                                    w -= indentc
+                buf += '\n'
+            
+            rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
+            rc = rc.replace('­', ''); # remove soft hyphens
+            rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
+            return rc
+        except Exception as err:
+            import traceback
+            errormessage = ''.join(traceback.format_exception(type(err), err, None))
+            rc = '\n'.join(line.rstrip() for line in buf.split('\n'));
+            rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
+            errormessage += '\n---- WRAPPING BUFFER ----\n\n' + rc
+            try:
+                if os.readlink('/proc/self/fd/2') != os.readlink('/proc/self/fd/1'):
+                    printerr(errormessage, end='')
+                    return message
+            except:
+                pass
+            return message + '\n\n\033[0;1;31m---- EXCEPTION IN PONYSAY WHILE WRAPPING ----\033[0m\n\n' + errormessage
 
 
 '''
@@ -1825,7 +1930,7 @@ class ColourStack():
     @return  :str  String that should be inserted into your buffer
     '''
     def push(self):
-        self.stack = [[self.bufproto, None, None, [False] * 9]] + self.stack
+        self.stack.insert(0, [self.bufproto, None, None, [False] * 9])
         if len(self.stack) == 1:
             return None
         return '\033[0m'
@@ -1837,9 +1942,10 @@ class ColourStack():
     @return  :str  String that should be inserted into your buffer
     '''
     def pop(self):
-        old = self.stack[0]
-        self.stack = self.stack[1:]
+        old = self.stack.pop(0)
         rc = '\033[0;'
+        if len(self.stack) == 0: # last resort in case something made it pop too mush
+            push()
         new = self.stack[0]
         if new[1] is not None:  rc += new[1] + ';'
         if new[2] is not None:  rc += new[2] + ';'
@@ -1984,7 +2090,7 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
             m0[x] = x
             x -= 1
         
-        previous = ""
+        previous = ''
         self.dictionary[-1] = previous;
         
         for directory in directories:
@@ -2022,7 +2128,7 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
         #            break
         #    previous = proper
         #    self.reusable[self.dictionaryEnd] = prevCommon
-        #    index -= 1;
+        #    index -= 1;    
     
     
     '''
@@ -2270,8 +2376,8 @@ usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
 usage_common   = '[-c] [-W\033[4mCOLUMN\033[24m] [-b\033[4mSTYLE\033[24m]'
 usage_listhelp = '(-l | -L | -B | +l | +L | -v | -h)'
 usage_file     = '[-f\033[4mPONY\033[24m]* [[--] \033[4mmessage\033[24m]'
-usage_xfile    = '[-F\033[4mPONY\033[24m]* [[--] \033[4mmessage\033[24m]'
-usage_quote    = '-q [\033[4mPONY\033[24m*]'
+usage_xfile    = '(-F\033[4mPONY\033[24m)* [[--] \033[4mmessage\033[24m]'
+usage_quote    = '(-q \033[4mPONY\033[24m)*'
 
 usage = '%s %s\n%s %s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
                                                  usage_saythink, usage_common, usage_file,
@@ -2325,9 +2431,15 @@ opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN', help = 
 opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',  help = 'Select a balloon style.')
 opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',   help = 'Select a pony.\nEither a file name or a pony name.')
 opts.add_argumented(  ['-F', '++file', '++pony'],        arg = 'PONY',   help = 'Select a non-MLP:FiM pony.')
-opts.add_variadic(    ['-q', '--quote'],                 arg = 'PONY',   help = 'Select a ponies which will quote themself.')
- 
-opts.parse()
+opts.add_argumented(  ['-q', '--quote'],                 arg = 'PONY',   help = 'Select a pony which will quote herself.')
+opts.add_variadic(    ['--f', '--files', '--ponies'],    arg = 'PONY')
+opts.add_variadic(    ['--F', '++files', '++ponies'],    arg = 'PONY')
+opts.add_variadic(    ['--q', '--quotes'],               arg = 'PONY')
+
+'''
+Whether at least one unrecognised option was used
+'''
+unrecognised = not opts.parse()
 
 
 
