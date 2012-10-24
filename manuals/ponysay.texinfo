@@ -869,7 +869,7 @@ or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 @command{ponysay} comes with this @command{info} manual and a manpage in section 6,
 @command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
 in Spanish: @command{man -L es 6 ponysay}. To install the Spanish manual add the
-option @option{--with-man-es} when running @command{./configure}.
+option @option{--with-man-es} when running @command{./setup.py}.
 
 
 
@@ -1266,11 +1266,11 @@ inode comparison.
 @end table
 
 Recognised compressions are @option{gz} which uses @option{gzip -9}, and @option{xz}
-which uses @option{xz -9e}. @option{xz} is still exotic to bost programs, use using
+which uses @option{xz -9e}. @option{xz} is still exotic to most programs, use using
 it is not recommended. Distributors are strongly disencouraged to compression for the
 PDF manual and should use @option{--without-pdf-compression}.
 
-You can run @command{./configure [OPTIONS] view} to make sure everything is correct
+You can run @command{./setup.py [OPTIONS] view} to make sure everything is correct
 before building and installing.
 
 
