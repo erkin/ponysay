@@ -79,7 +79,7 @@ Checks whether a text ends with a specific text, but has more
 @return  :bool   The result of the test
 '''
 def endswith(text, ending):
-    return text.endswith(ending) and not (text == ending);
+    return text.endswith(ending) and not (text == ending)
 
 
 
@@ -407,10 +407,13 @@ class Ponysay():
     '''
     def __gettermsize(self):
         ## Call `stty` to determine the size of the terminal, this way is better then using python's ncurses
-        termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=sys.stderr).communicate()[0]
-        termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
-        termsize = [int(item) for item in termsize]
-        return termsize
+        for channel in (sys.stderr, sys.stdout, sys.stdin):
+            termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
+            if len(termsize) > 0:
+                termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
+                termsize = [int(item) for item in termsize]
+                return termsize
+        return (24, 80) # fall back to minimal sane size
     
     
     
@@ -706,8 +709,8 @@ class Ponysay():
         ## Use default balloon if none is specified
         if balloonfile is None:
             if isthink:
-                return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )', ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'], '( ', '( ', '( ')
-            return Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
+                return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )',  ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'],  '( ', '( ', '( ')
+            return    Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
         
         ## Initialise map for balloon parts
         map = {}
@@ -716,7 +719,8 @@ class Ponysay():
         
         ## Read all lines in the balloon file
         with open(balloonfile, 'rb') as balloonstream:
-            data = [line.replace('\n', '') for line in balloonstream.read().decode('utf8', 'replace').split('\n')]
+            data = balloonstream.read().decode('utf8', 'replace')
+            data = [line.replace('\n', '') for line in data.split('\n')]
         
         ## Parse the balloon file, and fill the map
         last = None
@@ -1380,7 +1384,7 @@ class Balloon():
         for j in range(0, len(self.n)):
             outer = UCS.dispLen(self.nw[j]) + UCS.dispLen(self.ne[j])
             inner = UCS.dispLen(self.nnw[j]) + UCS.dispLen(self.nne[j])
-            if outer + inner >= w:
+            if outer + inner <= w:
                 rc.append(self.nw[j] + self.nnw[j] + self.n[j] * (w - outer - inner) + self.nne[j] + self.ne[j])
             else:
                 rc.append(self.nw[j] + self.n[j] * (w - outer) + self.ne[j])
@@ -1391,7 +1395,7 @@ class Balloon():
         for j in range(0, len(self.s)):
             outer = UCS.dispLen(self.sw[j]) + UCS.dispLen(self.se[j])
             inner = UCS.dispLen(self.ssw[j]) + UCS.dispLen(self.sse[j])
-            if outer + inner >= w:
+            if outer + inner <= w:
                 rc.append(self.sw[j] + self.ssw[j] + self.s[j] * (w - outer - inner) + self.sse[j] + self.se[j])
             else:
                 rc.append(self.sw[j] + self.s[j] * (w - outer) + self.se[j])
@@ -1440,15 +1444,39 @@ class Backend():
     '''
     def parse(self):
         self.__expandMessage()
+        self.__unpadMessage()
         self.__loadFile()
+        
         if self.pony.startswith('$$$\n'):
             self.pony = self.pony[4:]
             infoend = self.pony.index('\n$$$\n')
             printinfo(self.pony[:infoend])
             self.pony = self.pony[infoend + 5:]
         self.pony = mode + self.pony
+        
         self.__processPony()
         self.__truncate()
+    
+    
+    '''
+    Remove padding spaces fortune cookies are padded with whitespace (damn featherbrains)
+    '''
+    def __unpadMessage(self):
+        lines = self.message.split('\n')
+        for spaces in (8, 4, 2, 1):
+            padded = True
+            for line in lines:
+                if not line.startswith(' ' * spaces):
+                    padded = False
+                    break
+            if padded:
+                for i in range(0, len(lines)):
+                    line = lines[i]
+                    while line.startswith(' ' * spaces):
+                        line = line[spaces:]
+                    lines[i] = line
+        lines = [line.rstrip(' ') for line in lines]
+        self.message = '\n'.join(lines)
     
     
     '''
@@ -1728,131 +1756,149 @@ class Backend():
     @return  :str         The message wrapped
     '''
     def __wrapMessage(self, message, wrap):
-        AUTO_PUSH = '\033[0101y0~'
-        AUTO_POP  = '\033[10101~'
-        msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP);
-        cstack = ColourStack(AUTO_PUSH, AUTO_POP)
         buf = ''
-        for c in msg:
-            buf += c + cstack.feed(c)
-        lines = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
-        buf = ''
-        for line in lines:
-            b = [None] * len(line)
-            map = {}
-            (bi, cols, w) = (0, 0, wrap)
-            (indent, indentc) = (-1, 0)
+        try:
+            AUTO_PUSH = '\033[01010~'
+            AUTO_POP  = '\033[10101~'
+            msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP);
+            cstack = ColourStack(AUTO_PUSH, AUTO_POP)
+            for c in msg:
+                buf += c + cstack.feed(c)
+            lines = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
+            buf = ''
             
-            (i, n) = (0, len(line))
-            while i <= n:
-                d = None
-                if i < n:
-                    d = line[i]
-                i += 1
-                if d == '\033':  # TODO this should use self.__getcolour()
-                    ## Invisible stuff
-                    b[bi] = d
-                    bi += 1
-                    b[bi] = line[i]
-                    d = line[i]
-                    bi += 1
+            for line in lines:
+                b = [None] * len(line)
+                map = {0 : 0}
+                (bi, cols, w) = (0, 0, wrap)
+                (indent, indentc) = (-1, 0)
+                
+                (i, n) = (0, len(line))
+                while i <= n:
+                    d = None
+                    if i < n:
+                        d = line[i]
                     i += 1
-                    if d == '[':
-                        while True:
-                            b[bi] = line[i]
-                            d = line[i]
-                            bi += 1
-                            i += 1
-                            if (('a' <= d) and (d <= 'z')) or (('A' <= d) and (d <= 'Z')) or (d == '~'):
-                                break
-                    elif d == ']':
+                    if d == '\033':  # TODO this should use self.__getcolour()
+                        ## Invisible stuff
+                        b[bi] = d
+                        bi += 1
                         b[bi] = line[i]
                         d = line[i]
                         bi += 1
                         i += 1
-                        if d == 'P':
-                            for j in range(0, 7):
+                        if d == '[':
+                            while True:
                                 b[bi] = line[i]
+                                d = line[i]
                                 bi += 1
                                 i += 1
-                elif (d is not None) and (d != ' '):
-                    ## Fetch word
-                    if indent == -1:
-                        indent = i - 1
-                        for j in range(0, indent):
-                            if line[j] == ' ':
-                                indentc += 1
-                    b[bi] = d
-                    bi += 1
-                    if (not UCS.isCombining(d)) and (d != '­'):
-                        cols += 1
-                    map[cols] = bi
-                else:
-                    ## Wrap?
-                    mm = 0
-                    bisub = 0
-                    iwrap = wrap - (0 if indent == 1 else indentc)
-                    
-                    while ((w > 8) and (cols > w + 5)) or (cols > iwrap): # TODO make configurable
-                        ## wrap
-                        x = w;
-                        nbsp = b[map[mm + x]] == ' '
-                        m = map[mm + x]
-                        
-                        if ('­' in b[bisub : m]) and not nbsp:
-                            hyphen = m - 1
-                            while b[hyphen] != '­':
-                                hyphen -= 1
-                            while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hyphenated correctly
-                                x -= 1
-                            x += 1
-                            m = map[mm + x]
-                        
-                        mm += x - (0 if nbsp else 1) ## − 1 so we have space for a hythen
-                        
-                        for bb in b[bisub : m]:
-                            buf += bb
-                        buf += '\n' if nbsp else '\0\n'
-                        cols -= x - (0 if nbsp else 1)
-                        bisub = m
-                        
-                        w = iwrap
-                        if indent != -1:
-                            buf += line[:indent]
-                    
-                    for j in range(bisub, bi):
-                        b[j - bisub] = b[j]
-                    bi -= bisub
-                    
-                    if cols > w:
-                        buf += '\n'
-                        w = wrap
-                        if indent != -1:
-                            buf += line[:indent]
-                            w -= indentc
-                    for bb in b[:bi]:
-                        buf += bb
-                    w -= cols
-                    cols = 0
-                    bi = 0
-                    if d is None:
-                        i += 1
+                                if (('a' <= d) and (d <= 'z')) or (('A' <= d) and (d <= 'Z')) or (d == '~'):
+                                    break
+                        elif d == ']':
+                            b[bi] = line[i]
+                            d = line[i]
+                            bi += 1
+                            i += 1
+                            if d == 'P':
+                                for j in range(0, 7):
+                                    b[bi] = line[i]
+                                    bi += 1
+                                    i += 1
+                    elif (d is not None) and (d != ' '):
+                        ## Fetch word
+                        if indent == -1:
+                            indent = i - 1
+                            for j in range(0, indent):
+                                if line[j] == ' ':
+                                    indentc += 1
+                        b[bi] = d
+                        bi += 1
+                        if (not UCS.isCombining(d)) and (d != '­'):
+                            cols += 1
+                        map[cols] = bi
                     else:
-                        if w > 0:
-                            buf += ' '
-                            w -= 1
-                        else:
+                        ## Wrap?
+                        mm = 0
+                        bisub = 0
+                        iwrap = wrap - (0 if indent == 1 else indentc)
+                            
+                        while ((w > 8) and (cols > w + 5)) or (cols > iwrap): # TODO make configurable
+                            ## wrap
+                            x = w;
+                            if mm + x not in map: # Too much whitespace ?
+                                cols = 0
+                                break
+                            nbsp = b[map[mm + x]] == ' '
+                            m = map[mm + x]
+                            
+                            if ('­' in b[bisub : m]) and not nbsp:
+                                hyphen = m - 1
+                                while b[hyphen] != '­':
+                                    hyphen -= 1
+                                while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hyphenated correctly
+                                    x -= 1
+                                x += 1
+                                m = map[mm + x]
+                            
+                            mm += x - (0 if nbsp else 1) ## − 1 so we have space for a hythen
+                            
+                            for bb in b[bisub : m]:
+                                buf += bb
+                            buf += '\n' if nbsp else '\0\n'
+                            cols -= x - (0 if nbsp else 1)
+                            bisub = m
+                            
+                            w = iwrap
+                            if indent != -1:
+                                buf += line[:indent]
+                        
+                        for j in range(bisub, bi):
+                            b[j - bisub] = b[j]
+                        bi -= bisub
+                        
+                        if cols > w:
                             buf += '\n'
                             w = wrap
                             if indent != -1:
-                                buf + line[:indent]
+                                buf += line[:indent]
                                 w -= indentc
-            buf += '\n'
-        
-        rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
-        rc = rc.replace('­', ''); # remove soft hyphens
-        rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
-        return rc
+                        for bb in b[:bi]:
+                            buf += bb
+                        w -= cols
+                        cols = 0
+                        bi = 0
+                        if d is None:
+                            i += 1
+                        else:
+                            if w > 0:
+                                buf += ' '
+                                w -= 1
+                            else:
+                                buf += '\n'
+                                w = wrap
+                                if indent != -1:
+                                    buf + line[:indent]
+                                    w -= indentc
+                buf += '\n'
+            
+            rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
+            rc = rc.replace('­', ''); # remove soft hyphens
+            rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
+            return rc
+        except Exception as err:
+            import traceback
+            errormessage = ''.join(traceback.format_exception(type(err), err, None))
+            rc = '\n'.join(line.rstrip() for line in buf.split('\n'));
+            rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
+            errormessage += '\n---- WRAPPING BUFFER ----\n\n' + rc
+            try:
+                if os.readlink('/proc/self/fd/2') != os.readlink('/proc/self/fd/1'):
+                    printerr(errormessage, end='')
+                    return message
+            except:
+                pass
+            return message + '\n\n\033[0;1;31m---- EXCEPTION IN PONYSAY WHILE WRAPPING ----\033[0m\n\n' + errormessage
 
 
 '''
@@ -1884,7 +1930,7 @@ class ColourStack():
     @return  :str  String that should be inserted into your buffer
     '''
     def push(self):
-        self.stack = [[self.bufproto, None, None, [False] * 9]] + self.stack
+        self.stack.insert(0, [self.bufproto, None, None, [False] * 9])
         if len(self.stack) == 1:
             return None
         return '\033[0m'
@@ -1896,9 +1942,10 @@ class ColourStack():
     @return  :str  String that should be inserted into your buffer
     '''
     def pop(self):
-        old = self.stack[0]
-        self.stack = self.stack[1:]
+        old = self.stack.pop(0)
         rc = '\033[0;'
+        if len(self.stack) == 0: # last resort in case something made it pop too mush
+            push()
         new = self.stack[0]
         if new[1] is not None:  rc += new[1] + ';'
         if new[2] is not None:  rc += new[2] + ';'
