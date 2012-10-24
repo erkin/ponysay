@@ -1348,7 +1348,7 @@ class Balloon():
         minN = len(max([ne, nne, n, nnw, nw], key = len))
         minS = len(max([se, sse, s, ssw, sw], key = len))
         
-        self.minwidth = minE + minE
+        self.minwidth  = minE + minE
         self.minheight = minN + minS
     
     
@@ -1419,7 +1419,7 @@ class Backend():
     def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour):
         self.message = message
         self.ponyfile = ponyfile
-        self.wrapcolumn = wrapcolumn
+        self.wrapcolumn = None if wrapcolumn is None else wrapcolumn - balloon.minwidth
         self.width = width
         self.balloon = balloon
         self.hyphen = hyphen
