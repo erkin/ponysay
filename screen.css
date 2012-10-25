@@ -30,11 +30,13 @@ table.header {
 }
 
 #left {
-    width : 500px;
+    width : 540px;
 }
 
 #right {
-    width : 100%;
+}
+
+#text {
 }
 
 .title {
