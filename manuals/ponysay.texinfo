@@ -216,6 +216,9 @@ Variadic variant of @option{-F}, meaning that all arguments added after this one
 will parsed as an argument to this option. Additionally, those options are added
 to @option{-F}.
 
+An important feature of this options, is that you can but it in the end of the
+command line, without any argument to get a random non-MLP:FiM pony.
+
 @item --q [PONY...]
 @itemx --quotes [PONY...]
 @opindex @option{--q}

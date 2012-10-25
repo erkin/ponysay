@@ -319,13 +319,13 @@ class Ponysay():
                         ponies[pony] = ponydir + ponyfile
         
         ## Support for explicit pony file names
-        if not names == None:
+        if names is not None:
             for name in names:
                 if os.path.exists(name):
                     ponies[name] = name
         
         ## If there is not select ponies, choose all of them
-        if names == None:
+        if (names is None) or (len(names) == 0):
             names = list(ponies.keys())
         
         ## Select a random pony of the choosen onles
