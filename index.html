@@ -1,145 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
-
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>ponysay by erkin</title>
-  </head>
-
-  <body>
-    <a id="forkme_banner" href="https://github.com/erkin/ponysay">Fork Me on GitHub</a>
-    <div class="shell">
-      
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>ponysay</h1>
-            <h2>Pony wrapper for cowsay.</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
-      
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/erkin/ponysay/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/erkin/ponysay/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
-      
-      <span class="banner-fix"></span>
-      
-      <section id="main_content">
-        <h2>ponysay</h2>
-	
-	<p><strong>ponysay</strong> - A <a href="http://www.nog.net/~tony/warez/cowsay.shtml">cowsay</a> wrapper with ponies.</p>
-	
-	<p>The pony files are <a href="http://web.student.tuwien.ac.at/%7Ee0427417/browser-ponies/ponies.html">desktop/browser ponies</a> converted using <a href="https://github.com/rossy2401/img2xterm">img2xterm</a>.</p>
-
-	<p><img src="http://i.imgur.com/xOJbE.png" alt="Derp">
-	  Today your terminal, tomorrow the world!</p>
-
-	<h2>Installation on Linux (or other Unix)</h2>
-
-	<p>If you do not already have <code>cowsay</code> you will need to install it</p>
-
-	<pre><code>apt-get install cowsay # assuming dpkg
-	</code></pre>
-
-	<p><a href="https://github.com/erkin/ponysay/downloads">Download</a> the latest project. In the terminal, <code>cd</code> into the ponysay directory and run</p>
-
-	<pre><code>sudo make
-	</code></pre>
-	
-	<p>This will install ponysay into the $PREFIX (<code>/usr</code> by default). In order to use ponysay, run</p>
-	
-	<pre><code>ponysay "I am just the cutest pony"
-	</code></pre>
-	
-	<p>Or if you have a specific pony in your mind:</p>
-	
-	<pre><code>ponysay -f pinkie "Partay!~"
-	</code></pre>
-	
-	<h3>Pony fortune on terminal startup</h3>
-	
-	<p>This requires that you have the <code>fortune</code> utility installed</p>
-	
-	<pre><code>apt-get install fortune
-	</code></pre>
-	
-	<p>You can try <a href="http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/">this</a> script to ponify fortunes.</p>
-	
-	<p>Edit your <code>~/.bashrc</code> and add this to the end of the file</p>
-	
-	<pre><code>fortune | ponysay
-	</code></pre>
-	
-	<p>Now every time you open a terminal a pony should give your fortune</p>
-	
-	<h3>Ponies in TTY (Linux VT)</h3>
-	
-	<p>If you have a custom colour palette edit your <code>~/.bashrc</code> and add</p>
-	
-	<pre><code>if [ "$TERM" = "linux" ]; then
-	    function ponysay
-	    {
-	        exec ponysay $@
-	        #RESET PALETTE HERE
-	    }
-	fi
-	</code></pre>
-	
-	<h2>Installation on Microsoft™ Windows®</h2>
-
-	<p><a href="http://i.imgur.com/2nP5N.png">¯\_(ツ)_/¯</a></p>
-
-	<h2>FAQ</h2>
-
-	<p><strong>Q:</strong> The output looks like a mess in <em>(TTY/PuTTY/other)</em>!</p>
-
-	<p><strong>A:</strong> Unfortunately, there's nothing much we can do about terminals not supporting colour sequences.
-	PuTTY disables UTF-8 by default, enabling it should solve the problem.
-	See <a href="https://github.com/erkin/ponysay/issues/1">issue 1</a>.</p>
-
-	<p><strong>Q:</strong> You are missing <em>(my-favourite-pony)</em>!</p>
-
-	<p><strong>A:</strong> Ask and we'll add!</p>
-
-	<p><strong>Q:</strong> Which programs do you use to generate the pony files?</p>
-
-	<p><strong>A:</strong> The pony files are actually a bunch of selected <a href="http://web.student.tuwien.ac.at/%7Ee0427417/browser-ponies/ponies.html">browser ponies</a> that are generated into cow files via <a href="https://github.com/rossy2401/img2xterm">img2xterm</a>.</p>
-	
-      </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/erkin">erkin</a> can be found on <a href="https://github.com/erkin/ponysay">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
-
-    </div>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     
+    <link rel="stylesheet" type="text/css" href="screen.css" media="screen"/>
+    
+    <title>ponysay</title>
+  </head>
+  <body>
+    <div class="header">
+      <table class="header" valign="middle">
+	<tr>
+	  <td class="title">
+            ponysay
+	  </td>
+	  <td style="width : 100%;">
+            C
+	  </td>
+	</tr>
+      </table>
+    </div>
+    <table class="main">
+      <col id="left"/>
+      <col id="right"/>
+      <tr>
+	<td>
+	  <table>
+	    <tr>
+	      <td>
+		<img alt="ponysay example" src="bonbonlyra.png"/>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>
+		A
+	      </td>
+	    </tr>
+	  </table>
+	</td>
+	<td valign="top">
+	  B
+	</td>
+      </tr>
+    <table/>
   </body>
 </html>
