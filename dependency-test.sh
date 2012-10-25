@@ -23,13 +23,14 @@ ro=0
 (hash makeinfo     2>/dev/null) || (bo=1 ; echo 'Missing makeinfo, install texinfo [build optional]')
 (hash install-info 2>/dev/null) || (bo=1 ; echo 'Missing install-info, install info [build optional]')
 
-(hash stty         2>/dev/null) || (rr=1 ; echo 'Missing stty, install coreutils [runtime required]')
-(hash python       2>/dev/null) || (rr=1 ; echo 'Missing python, install python>=3 [runtime required]')
+(hash python       2>/dev/null) || (rr=1 ; echo 'Missing python, install python>=3 [build+runtime required]')
 
 (hash cut 2>/dev/null) && (hash python 2>/dev/null) &&
     (test ! $(env python --version 2>&1 | cut -d ' ' -f 2 | cut -d '.' -f 1) = 3) && (
 	(hash python3 2>/dev/null) ||
-	    (rr=1 ; echo 'Missing python>=3, install python (may be named python3) [runtime required]'))
+	    (rr=1 ; echo 'Missing python>=3, install python (may be named python3) [build+runtime required]'))
+
+(hash stty         2>/dev/null) || (rr=1 ; echo 'Missing stty, install coreutils [runtime required]')
 
 (hash tty2colourfultty   2>/dev/null) || (ro=1 ; echo 'Missing tty2colourfultty, install util-say [runtime optional]')
 (hash ponysay2ttyponysay 2>/dev/null) || (ro=1 ; echo 'Missing ponysay2ttyponysay, install util-say [runtime optional]')

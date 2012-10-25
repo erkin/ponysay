@@ -116,7 +116,7 @@ way over e-mail.
 @cindex invoking
 @cindex options
 @cindex arguments
-@pindex ponythink
+@pindex @command{ponythink}
 
 The format for running the @command{ponysay} program is:
 
@@ -172,7 +172,7 @@ In versions earlier than version 2.0, the if the pony were a file name it had to
 include a `@code{/}'. This is not longer required and any existing pony name
 supersedes file names.
 
-@item -F
+@item -F PONY
 @itemx ++file PONY
 @itemx ++pony PONY
 @opindex @option{-F}
@@ -180,6 +180,54 @@ supersedes file names.
 @opindex @option{++pony}
 Just as @option{-F}, but it uses extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies
+
+@item -q PONY
+@itemx --quote PONY
+@opindex @option{-q}
+@opindex @option{--quote}
+@cindex quotes
+@cindex pony quotes
+By using this option, a pony will be printed with quotes from her in My Little Pony:
+Friendship is Magic. The pony will be selected randomly, unless at least one pony
+is added as an argument to @option{-q}. If one or more ponies are added as an argument
+to @option{-q}, the pony will be selected randomly from that set of ponies.
+This option requires the extension @command{ponyquotes4ponysay}, which is included
+by default since version 1.2.
+
+The argument can be a file name, but only if it ends with @file{.pony}.
+
+@item --f [PONY...]
+@itemx --files [PONY...]
+@itemx --ponies [PONY...]
+@opindex @option{--f}
+@opindex @option{--files}
+@opindex @option{--ponies}
+Variadic variant of @option{-f}, meaning that all arguments added after this one
+will parsed as an argument to this option. Additionally, those options are added
+to @option{-f}.
+
+@item --F [PONY...]
+@itemx ++files [PONY...]
+@itemx ++ponies [PONY...]
+@opindex @option{--F}
+@opindex @option{++files}
+@opindex @option{++ponies}
+Variadic variant of @option{-F}, meaning that all arguments added after this one
+will parsed as an argument to this option. Additionally, those options are added
+to @option{-F}.
+
+@item --q [PONY...]
+@itemx --quotes [PONY...]
+@opindex @option{--q}
+@opindex @option{--quotes}
+@cindex quotes
+@cindex pony quotes
+Variadic variant of @option{-q}, meaning that all arguments added after this one
+will parsed as an argument to this option. Additionally, those options are added
+to @option{-q}.
+
+An important feature of this options, is that you can but it in the end of the
+command line, without any argument to get a quote from any pony with a quote.
 
 @item -b STYLE
 @itemx --bubble STYLE
@@ -191,19 +239,6 @@ Specify the balloon style that should used, this can either be a file name or a
 balloon name printed by @option{ponysay -B}. This option can be used multiple
 times to specify a set of styles from which one will be selected randomly. If no
 balloon style is specified a fallback style will be used.
-
-@item -q [PONY...]
-@itemx --quote [PONY...]
-@opindex @option{-q}
-@opindex @option{--quote}
-By using this option, a pony will be printed with quotes from her in My Little Pony:
-Friendship is Magic. The pony will be selected randomly, unless at least one pony
-is added as an argument after @option{-q}. If one or more ponies are added after
-@option{-q}, the pony will be selected randomly from that set of ponies.
-This option requires the extension @command{ponyquotes4ponysay}, which is included
-by default since version 1.2.
-
-The argument can be a file name, but only if it ends with @file{.pony}.
 
 @item -W COLUMN
 @itemx --wrap COLUMN
@@ -289,7 +324,8 @@ The first list are the MLP:FiM and the second one are non-MLP:FiM.
 @opindex @option{-o}
 @opindex @option{--pony-only}
 @opindex @option{--ponyonly}
-Print just the pony, nothing else like the speech balloon.
+Print just the pony, nothing else like the speech balloon. Naturally the
+@command{ponysay} will not wait for a message from stdin.
 
 @item -X
 @itemx --256-colours
@@ -376,11 +412,13 @@ this file should be a symbolic link to the pony you want as a default. If it is 
 a symbolic link, @option{-q} cannot determine which quotes to use.
 
 
+
 @node Advanced usage
 @chapter Advanced usage of @command{ponysay}.
 @cindex advanced usage
 
 @menu
+* Extra information::   Displaying extra information.
 * Fortune cookies::     Displaying with fortune cookies.
 * Ponification::        Ponify your fortune cookies.
 * Running on TTY::      Running on TTY (Linux VT).
@@ -388,9 +426,28 @@ a symbolic link, @option{-q} cannot determine which quotes to use.
 @end menu
 
 
+
+@node Extra information
+@section Extra information
+@cindex file descriptor 3
+@cindex extra information
+@cindex verbose mode
+@pindex @command{tee}
+If file descriptor 3 is definied when @command{ponysay} is executed, extra information
+is printed to it. The printed information includes the name of the pony file, the name
+of the balloon style file, and if definied in the pony file, file meta data and comment.
+
+In most shells, a file descriptor 3 can defined using @command{3> FILE}, and linked to
+stderr using @command{3>&2}. For example, you can print the information to @file{~/info}
+by running @command{ponysay I\'m just the cutest pony! | 3> ~/info}.
+
+The message is not stored this way, for that you can use @command{tee}. However, if you
+use @option{-q} the quote file is printed to file descriptor 3.
+
+
 @node Fortune cookies
 @section Fortune cookies
-@pindex fortune
+@pindex @command{fortune}
 @cindex startup
 @cindex on startup
 @cindex @file{.bashrc}
@@ -410,7 +467,7 @@ described in the previous paragraph every time you open a terminal.
 @section Ponification
 @cindex ponification
 @cindex text ponification
-@pindex ponypipe
+@pindex @command{ponypipe}
 
 You can ponify messages (i.e. replaces words search as `everyone' with `everypony') by
 using @code{fortune | ponypipe} instead of using @command{fortune}. @command{ponypipe}
@@ -447,7 +504,7 @@ You should read more about this in @ref{KMS ponies}.
 
 @node Running on screen
 @section Running on @command{screen}
-@pindex screen
+@pindex @command{screen}
 @cindex @file{.bashrc}
 @cindex @file{~/.bashrc}
 
@@ -667,7 +724,7 @@ run on it.
 
 @node Cowsay
 @section Cowsay
-@pindex cowsay
+@pindex @command{cowsay}
 
 This section describes the limitation of @command{cowsay}, but since version 2.1
 @command{cowsay} is no longer used because of it. So none of the following limitations
@@ -1951,7 +2008,21 @@ sequences.
 @itemize @bullet
 @item
 New extraponies: @file{molestia} (Tumblr)
+@item
+The option @option{-q} works like @option{-f} and @option{-F}, it takes one argument, and
+may be used multiple times for more arguments.
+@item
+The old option @option{-q} is renamed to @option{--q}.
+@item
+The options @option{--f} and @option{--F} has been added.
+@item
+Weighted distance for autocorrection on pony names and boolean style name is set to 5, rather
+than unlimited. Currently this cannot be modified (without editing the source code.)
+@item
+If file descriptor 3 is definied when @command{ponysay} is executed, extra information is
+printed to it.
 @end itemize
+
 
 @heading Version 2.8
 @itemize @bullet
