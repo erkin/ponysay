@@ -13,7 +13,8 @@ div.header {
     border-right : 0;
     border-top : 0;
     border-bottom : 1px solid rgb(0, 0, 0);
-    width : 100%;y
+    width : 100%;
+    height : 60px;
 }
 
 table.header {
@@ -26,6 +27,7 @@ table.header {
 
 .main {
     width : 100%;
+    height : 100%;
     border : 0;
 }
 
@@ -34,16 +36,35 @@ table.header {
 }
 
 #right {
+    height : 100%;
 }
 
 #text {
+    left : 540px;
+    right : 0px;
+    top : 1px;
+    bottom : 4px;
+    position : absolute;
+}
+
+#page {
+    border : 0;
+    height : 100%;
+    width : 100%;
 }
 
 .title {
-    padding : 4px 20px 8px 10px;
+    padding : 4px 0px 8px 10px;
     font-size : 26pt;
     text-decoration : none;
 }
+
+
+a:link    {color : #000000; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
+a:active  {color : #000000; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
+a:visited {color : #000000; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
+a:hover   {color : #484848; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
+a:focus   {color : #000000; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
 
 
 @font-face {
@@ -100,3 +121,4 @@ table.header {
   font-weight : 800;
   font-style : normal;
 }
+
