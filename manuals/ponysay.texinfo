@@ -1323,7 +1323,7 @@ inode comparison.
 @end table
 
 Recognised compressions are @option{gz} which uses @option{gzip -9}, and @option{xz}
-which uses @option{xz -9e}. @option{xz} is still exotic to most programs, use using
+which uses @option{xz -9e}. @option{xz} is still exotic to most programs, using
 it is not recommended. Distributors are strongly disencouraged to compression for the
 PDF manual and should use @option{--without-pdf-compression}.
 
