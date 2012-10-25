@@ -439,7 +439,7 @@ of the balloon style file, and if definied in the pony file, file meta data and 
 
 In most shells, a file descriptor 3 can defined using @command{3> FILE}, and linked to
 stderr using @command{3>&2}. For example, you can print the information to @file{~/info}
-by running @command{ponysay I\'m just the cutest pony! | 3> ~/info}.
+by running @command{ponysay I\'m just the cutest pony! 3> ~/info}.
 
 The message is not stored this way, for that you can use @command{tee}. However, if you
 use @option{-q} the quote file is printed to file descriptor 3.
