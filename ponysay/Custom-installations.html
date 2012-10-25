@@ -1,0 +1,183 @@
+<html lang="en">
+<head>
+<title>Custom installations - Ponysay</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Ponysay">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="From-upstream.html#From-upstream" title="From upstream">
+<link rel="prev" href="Installations-basics.html#Installations-basics" title="Installations basics">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for ponysay
+(version 2.9),
+
+Copyright (C) 2012 Mattias Andrée
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with no Front-Cover Texts,
+     and with no Back-Cover Texts. A copy of the license is included in
+     the section entitled ``GNU Free Documentation License''.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Custom-installations"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Installations-basics.html#Installations-basics">Installations basics</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="From-upstream.html#From-upstream">From upstream</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.1.2 Custom installations</h4>
+
+<p><a name="index-customised-installations-197"></a><a name="index-installation-customisation-198"></a><a name="index-g_t_0040file_007bsetup_002epy_007d-199"></a><a name="index-g_t_0040command_007b_002e_002fsetup_002epy_007d-200"></a><a name="index-g_t_0040command_007b_002e_002fconfigure_007d-201"></a><a name="index-g_t_0040command_007bmake_007d-202"></a><a name="index-configure-203"></a>
+With the exception for with <samp><span class="option">--with-everything</span></samp> and <samp><span class="option">--with-nothing</span></samp>,
+every option that starts with <samp><span class="option">--with-</span></samp> or <samp><span class="option">--without-</span></samp> exists in both
+variants. <samp><span class="option">--with-</span></samp> options install parts of the package. <samp><span class="option">--without-</span></samp>
+options skips installation of parts of the packages. With the same exception,
+<samp><span class="option">--without-</span></samp> options take not arguments and <samp><span class="option">--with-</span></samp> optionally takes
+an argument, if no argument is provided a default argument is implied.
+
+   <p>The configuration script recognised the following options, the default values for
+options with arguments are written after the equality sign (<code>=</code>) in the option:
+
+     <dl>
+<dt><samp><span class="option">--everything</span></samp><dt><samp><span class="option">--with-everything</span></samp><dd><a name="index-g_t_0040option_007b_002d_002deverything_007d-204"></a><a name="index-g_t_0040option_007b_002d_002dwith_002deverything_007d-205"></a>Install everything that is not explicity excluded.
+
+     <br><dt><samp><span class="option">--minimal</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dminimal_007d-206"></a>Install only the essentials. Note that this can vary depending on version. Currently
+this means that the commands, xterm ponies and legal documents is installed.
+
+     <br><dt><samp><span class="option">--nothing</span></samp><dt><samp><span class="option">--with-nothing</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dnothing_007d-207"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dnothing_007d-208"></a>Install nothing, except legal documents, that is not explicity included.
+
+     <br><dt><samp><span class="option">--with-ponysay</span></samp><dt><samp><span class="option">--with-ponysay-command=/usr/bin/ponysay</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dponysay_007d-209"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dponysay_007d-210"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dponysay_002dcommand_007d-211"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dponysay_002dcommand_007d-212"></a>Install the ponysay command, and set file name. (Default)
+
+     <br><dt><samp><span class="option">--with-ponythink</span></samp><dt><samp><span class="option">--with-ponythink-command=/usr/bin/ponythink</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dponythink_007d-213"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dponytink_007d-214"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dponythink_002dcommand_007d-215"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dponytink_002dcommand_007d-216"></a>Install the ponythink command, and set file name. (Default)
+
+     <br><dt><samp><span class="option">--with-shared-cache=/var/cache/ponysay</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dshared_002dcache_007d-217"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dshared_002dcache_007d-218"></a>Install a user shared cache, this is only used by KMS ponies so far. (Default)
+
+     <br><dt><samp><span class="option">--with-bash</span></samp><br><dt><samp><span class="option">--with-bash-completion=/usr/share/bash-completion/completions/ponysay</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dbash_007d-219"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dbash_007d-220"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dbash_002dcompletion_007d-221"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dbash_002dcompletion_007d-222"></a>Install auto-completion for installed commands in GNU Bash. Select the file name
+for the installed script for the ponysay command, the other commands modifies this
+file name. (Default)
+
+     <br><dt><samp><span class="option">--with-fish</span></samp><dt><samp><span class="option">--with-fish-completion=/usr/share/fish/completions/ponysay.fish</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dfish_007d-223"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dfish_007d-224"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dfish_002dcompletion_007d-225"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dfish_002dcompletion_007d-226"></a>Install auto-completion for installed commands in Friendly interactive shell. 
+Select the file name for the installed script for the ponysay command, the other
+commands modifies this file name. (Default)
+
+     <br><dt><samp><span class="option">--with-zsh</span></samp><dt><samp><span class="option">--with-zsh-completion=/usr/share/zsh/site-functions/_ponysay</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dzsh_007d-227"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dzsh_007d-228"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dzsh_002dcompletion_007d-229"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dzsh_002dcompletion_007d-230"></a>Install auto-completion for installed commands in the zsh shell. 
+Select the file name for the installed script for the ponysay command, the other
+commands modifies this file name. (Default)
+
+     <br><dt><samp><span class="option">--with-shell</span></samp><dt><samp><span class="option">--with-shell-completion=/usr/share</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dshell_007d-231"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dshell_007d-232"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dbash_007d-233"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dbash_007d-234"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dfish_007d-235"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dfish_007d-236"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dzsh_007d-237"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dzsh_007d-238"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dshell_002dcompletion_007d-239"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dshell_002dcompletion_007d-240"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dbash_002dcompletion_007d-241"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dbash_002dcompletion_007d-242"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dfish_002dcompletion_007d-243"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dfish_002dcompletion_007d-244"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dzsh_002dcompletion_007d-245"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dzsh_002dcompletion_007d-246"></a>Macro for <samp><span class="option">--with-bash</span></samp>, <samp><span class="option">--with-fish</span></samp> and <samp><span class="option">--with-zsh</span></samp>. 
+The argument is the used share/ directory that all shells have in common.
+
+     <br><dt><samp><span class="option">--with-pdf</span></samp><dt><samp><span class="option">--with-pdf-manual=/usr/doc</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dpdf_007d-247"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dpdf_007d-248"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dpdf_002dmanual_007d-249"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dpdf_002dmanual_007d-250"></a>Install PDF manual, and select directory for it.
+
+     <br><dt><samp><span class="option">--with-pdf-compression</span></samp><dt><samp><span class="option">--with-pdf-manual-compression=gz</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dpdf_007d-251"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dpdf_002dmanual_007d-252"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dpdf_002dcompression_007d-253"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dpdf_002dcompression_007d-254"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dpdf_002dmanual_002dcompression_007d-255"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dpdf_002dmanual_002dcompression_007d-256"></a>Compress PDF manual, select compression by file name extension. This option
+does not imply <samp><span class="option">--with-pdf</span></samp>. (Default)
+
+     <br><dt><samp><span class="option">--with-info</span></samp><dt><samp><span class="option">--with-info-manual=/usr/share/info</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dinfo_007d-257"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dinfo_007d-258"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dinfo_002dmanual_007d-259"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dinfo_002dmanual_007d-260"></a>Install <samp><span class="command">info</span></samp> manual, and select directory for it. (Default)
+
+     <br><dt><samp><span class="option">--with-info-install</span></samp><dt><samp><span class="option">--with-info-manual-install=My Little Ponies for your terminal</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dinfo_002dinstall_007d-261"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dinfo_002dinstall_007d-262"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dinfo_002dmanual_002dinstall_007d-263"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dinfo_002dmanual_002dinstall_007d-264"></a>Use <samp><span class="command">install-info</span></samp> when installing <samp><span class="command">info</span></samp> manual. Set the
+description for the manual. This option does not imply <samp><span class="option">--with-info</span></samp>. (Default)
+
+     <br><dt><samp><span class="option">--with-info-compression</span></samp><dt><samp><span class="option">--with-info-manual-compression=gz</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dinfo_007d-265"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dinfo_002dcompression_007d-266"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dinfo_002dcompression_007d-267"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dinfo_002dmanual_007d-268"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dinfo_002dmanual_002dcompression_007d-269"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dinfo_002dmanual_002dcompression_007d-270"></a>Compress <samp><span class="command">info</span></samp> manual, select compression by file name extension. 
+This option does not imply <samp><span class="option">--with-info</span></samp>. (Default)
+
+     <br><dt><samp><span class="option">--with-man-en</span></samp><dt><samp><span class="option">--with-manpage-en</span></samp><dt><samp><span class="option">--with-man-manual-en</span></samp><dt><samp><span class="option">--with-en-man</span></samp><dt><samp><span class="option">--with-en-manpage</span></samp><dt><samp><span class="option">--with-en-man-manual=/usr/share/man</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002den_007d-271"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002den_007d-272"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dmanpage_002den_007d-273"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dmanpage_002den_007d-274"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002dmanual_002den_007d-275"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002dmanual_002den_007d-276"></a><a name="index-g_t_0040option_007b_002d_002dwith_002den_002dman_007d-277"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002den_002dman_007d-278"></a><a name="index-g_t_0040option_007b_002d_002dwith_002den_002dmanpage_007d-279"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002den_002dmanpage_007d-280"></a><a name="index-g_t_0040option_007b_002d_002dwith_002den_002dman_002dmanual_007d-281"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002den_002dman_002dmanual_007d-282"></a>Install English <samp><span class="command">man</span></samp> manual. Set directory for <samp><span class="command">man</span></samp> manuals. 
+(Default)
+
+     <br><dt><samp><span class="option">--with-man-es</span></samp><dt><samp><span class="option">--with-manpage-es</span></samp><dt><samp><span class="option">--with-man-manual-es</span></samp><dt><samp><span class="option">--with-es-man</span></samp><dt><samp><span class="option">--with-es-manpage</span></samp><dt><samp><span class="option">--with-es-man-manual=/usr/share/man</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002des_007d-283"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002des_007d-284"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dmanpage_002des_007d-285"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dmanpage_002des_007d-286"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002dmanual_002des_007d-287"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002dmanual_002des_007d-288"></a><a name="index-g_t_0040option_007b_002d_002dwith_002des_002dman_007d-289"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002des_002dman_007d-290"></a><a name="index-g_t_0040option_007b_002d_002dwith_002des_002dmanpage_007d-291"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002des_002dmanpage_007d-292"></a><a name="index-g_t_0040option_007b_002d_002dwith_002des_002dman_002dmanual_007d-293"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002des_002dman_002dmanual_007d-294"></a>Install Spanish <samp><span class="command">man</span></samp> manual. Set directory for <samp><span class="command">man</span></samp> manuals.
+
+     <br><dt><samp><span class="option">--with-man</span></samp><dt><samp><span class="option">--with-manpage</span></samp><dt><samp><span class="option">--with-man-manual</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dman_007d-295"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_007d-296"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dmanpage_007d-297"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dmanpage_007d-298"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002dmanual_007d-299"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002dmanual_007d-300"></a>Macro for all <samp><span class="option">--with-man-LANG</span></samp>.
+
+     <br><dt><samp><span class="option">--with-man-en-compression</span></samp><dt><samp><span class="option">--with-manpage-en-compression</span></samp><dt><samp><span class="option">--with-man-manual-en-compression</span></samp><dt><samp><span class="option">--with-en-man-compression</span></samp><dt><samp><span class="option">--with-en-manpage-compression</span></samp><dt><samp><span class="option">--with-en-man-manual-compression=gz</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002den_002dcompression_007d-301"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002den_002dcompression_007d-302"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dmanpage_002den_002dcompression_007d-303"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dmanpage_002den_002dcompression_007d-304"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002dmanual_002den_002dcompression_007d-305"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002dmanual_002den_002dcompression_007d-306"></a><a name="index-g_t_0040option_007b_002d_002dwith_002den_002dman_002dcompression_007d-307"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002den_002dman_002dcompression_007d-308"></a><a name="index-g_t_0040option_007b_002d_002dwith_002den_002dmanpage_002dcompression_007d-309"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002den_002dmanpage_002dcompression_007d-310"></a><a name="index-g_t_0040option_007b_002d_002dwith_002den_002dman_002dmanual_002dcompression_007d-311"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002den_002dman_002dmanual_002dcompression_007d-312"></a>Compress English <samp><span class="command">man</span></samp> manual, select compression by file name extension. 
+This option does not imply <samp><span class="option">--with-man-en</span></samp>. (Default)
+
+     <br><dt><samp><span class="option">--with-man-es-compression</span></samp><dt><samp><span class="option">--with-manpage-es-compression</span></samp><dt><samp><span class="option">--with-man-manual-es-compression</span></samp><dt><samp><span class="option">--with-es-man-compression</span></samp><dt><samp><span class="option">--with-es-manpage-compression</span></samp><dt><samp><span class="option">--with-es-man-manual-compression=gz</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002des_002dcompression_007d-313"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002des_002dcompression_007d-314"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dmanpage_002des_002dcompression_007d-315"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dmanpage_002des_002dcompression_007d-316"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002dmanual_002des_002dcompression_007d-317"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002dmanual_002des_002dcompression_007d-318"></a><a name="index-g_t_0040option_007b_002d_002dwith_002des_002dman_002dcompression_007d-319"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002des_002dman_002dcompression_007d-320"></a><a name="index-g_t_0040option_007b_002d_002dwith_002des_002dmanpage_002dcompression_007d-321"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002des_002dmanpage_002dcompression_007d-322"></a><a name="index-g_t_0040option_007b_002d_002dwith_002des_002dman_002dmanual_002dcompression_007d-323"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002des_002dman_002dmanual_002dcompression_007d-324"></a>Compress Spanish <samp><span class="command">man</span></samp> manual, select compression by file name extension. 
+This option does not imply <samp><span class="option">--with-man-es</span></samp>. (Default)
+
+     <br><dt><samp><span class="option">--with-man-compression</span></samp><dt><samp><span class="option">--with-manpage-compression</span></samp><dt><samp><span class="option">--with-man-manual-compression</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002dcompression_007d-325"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002dcompression_007d-326"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dmanpage_002dcompression_007d-327"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dmanpage_002dcompression_007d-328"></a><a name="index-g_t_0040option_007b_002d_002dwith_002dman_002dmanual_002dcompression_007d-329"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dman_002dmanual_002dcompression_007d-330"></a>Macro for all <samp><span class="option">--with-man-LANG-compression</span></samp>.
+
+     <br><dt><samp><span class="option">--man-section-ponysay</span></samp><dt><samp><span class="option">--man-sectionpage-ponysay</span></samp><dt><samp><span class="option">--ponysay-man-section</span></samp><dt><samp><span class="option">--ponysay-manpage-section=6</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dman_002dsection_002dponysay_007d-331"></a><a name="index-g_t_0040option_007b_002d_002dmanpage_002dsection_002dponysay_007d-332"></a><a name="index-g_t_0040option_007b_002d_002dponysay_002dman_002dsection_007d-333"></a><a name="index-g_t_0040option_007b_002d_002dponysay_002dmanpage_002dsection_007d-334"></a>Change the section for the <samp><span class="command">ponysay</span></samp> manpage.
+
+     <br><dt><samp><span class="option">--man-section-cowsay</span></samp><dt><samp><span class="option">--manpage-section-cowsay</span></samp><dt><samp><span class="option">--cowsay-man-section</span></samp><dt><samp><span class="option">--cowsay-manpage-section=1</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dman_002dsection_002dcowsay_007d-335"></a><a name="index-g_t_0040option_007b_002d_002dmanpage_002dsection_002dcowsay_007d-336"></a><a name="index-g_t_0040option_007b_002d_002dcowsay_002dman_002dsection_007d-337"></a><a name="index-g_t_0040option_007b_002d_002dcowsay_002dmanpage_002dsection_007d-338"></a>Change the section for the <samp><span class="command">cowsay</span></samp> manpage.
+
+     <br><dt><samp><span class="option">--man-section-fortune</span></samp><dt><samp><span class="option">--manpage-section-fortune</span></samp><dt><samp><span class="option">--fortune-man-section</span></samp><dt><samp><span class="option">--fortune-manpage-section=6</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dman_002dsection_002dfortune_007d-339"></a><a name="index-g_t_0040option_007b_002d_002dmanpage_002dsection_002dfortune_007d-340"></a><a name="index-g_t_0040option_007b_002d_002dfortune_002dman_002dsection_007d-341"></a><a name="index-g_t_0040option_007b_002d_002dfortune_002dmanpage_002dsection_007d-342"></a>Change the section for the <samp><span class="command">fortune</span></samp> manpage.
+
+     <br><dt><samp><span class="option">--with-ponies=/usr/share/ponysay/ponies</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dponies_007d-343"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dponies_007d-344"></a>Install standard xterm ponies, and select installation directory for them. (Default)
+
+     <br><dt><samp><span class="option">--with-ttyponies=/usr/share/ponysay/ttyponies</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dttyponies_007d-345"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dttyponies_007d-346"></a>Install standard tty ponies, and select installation directory for them. (Default)
+
+     <br><dt><samp><span class="option">--with-extraponies=/usr/share/ponysay/extraponies</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dextraponies_007d-347"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dextraponies_007d-348"></a>Install extra xterm ponies, and select installation directory for them. (Default)
+
+     <br><dt><samp><span class="option">--with-extrattyponies=/usr/share/ponysay/extrattyponies</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dextrattyponies_007d-349"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dextrattyponies_007d-350"></a>Install extra tty ponies, and select installation directory for them. (Default)
+
+     <br><dt><samp><span class="option">--with-quotes=/usr/share/ponysay/quotes</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dquotes_007d-351"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dquotes_007d-352"></a>Install pony quotes, and select installation directory for them. (Default)
+
+     <br><dt><samp><span class="option">--with-balloons=/usr/share/ponysay/balloons</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dballoons_007d-353"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002dballoons_007d-354"></a>Install balloon styles, and select installation directory for them. (Default)
+
+     <br><dt><samp><span class="option">--with-ucs</span></samp><dt><samp><span class="option">--with-ucs-names=/usr/share/ponysay/ucsmap</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002ducs_007d-355"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002ducs_007d-356"></a><a name="index-g_t_0040option_007b_002d_002dwith_002ducs_002dnames_007d-357"></a><a name="index-g_t_0040option_007b_002d_002dwithout_002ducs_002dnames_007d-358"></a>Install UCS pony names, and select installation file name for the map. (Default)
+
+     <br><dt><samp><span class="option">--without-custom-env-python</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwithout_002dcustom_002denv_002dpython_007d-359"></a>Let the installer set the <samp><span class="command">env</span></samp> name for <samp><span class="command">python</span></samp> in <samp><span class="file">ponysay</span></samp>. 
+(Default)
+
+     <br><dt><samp><span class="option">--with-custom-env-python=python3</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dwith_002dcustom_002denv_002dpython_007d-360"></a>Set the <samp><span class="command">env</span></samp> name for <samp><span class="command">python</span></samp> in <samp><span class="file">ponysay</span></samp>.
+
+     <br><dt><samp><span class="option">--prefix=/usr</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dprefix_007d-361"></a>Set a prefix to all implicit directories.
+
+     <br><dt><samp><span class="option">--private</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dprivate_007d-362"></a>Change all implicit configurations to fit local user a installation
+for the current user.
+
+     <br><dt><samp><span class="option">--opt</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dopt_007d-363"></a>Change all implicit directories to fit installation to <samp><span class="file">/opt</span></samp>.
+
+     <br><dt><samp><span class="option">--bin-dir=/usr/bin</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dbin_002ddir_007d-364"></a>Set the system's directory for command executables.
+
+     <br><dt><samp><span class="option">--lib-dir=/usr/lib/ponysay</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dlib_002ddir_007d-365"></a>Set the system's directory for non-command executables. Currently their
+is not non-executable library, so this options has no effect, but bleeding
+edge distributors should specify it if it differs from prefered.
+
+     <br><dt><samp><span class="option">--libexec-dir=/usr/libexec/ponysay</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dlibexec_002ddir_007d-366"></a>Set the system's directory for non-command executables. Currently their
+is not non-command executables, so this options has no effect, but bleeding
+edge distributors should specify it if it differs from prefered.
+
+     <br><dt><samp><span class="option">--share-dir=/usr/share</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dshare_002ddir_007d-367"></a>Set the system's directory for resource files.
+
+     <br><dt><samp><span class="option">--cache-dir=/var/cache</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dcache_002ddir_007d-368"></a>Set the system's directory for cache directories.
+
+     <br><dt><samp><span class="option">--dest-dir=</span></samp><dd><a name="index-g_t_0040option_007b_002d_002ddest_002ddir_007d-369"></a>Set off environment for installation.
+
+     <br><dt><samp><span class="option">--linking=symbolic</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dlinking_007d-370"></a>Set how to link identical files. Directories cannot be hard linked on most
+systems, therefore directories or always symbolically linked of hard linked
+is specified. 
+Recognised arguments are <code>copy</code>, <code>hard</code> and <code>symbolic</code>. 
+<code>copy</code> implies that files and directories are not linked, but duplicated. 
+<samp><span class="command">ponysay -L</span></samp> will give the same output as <samp><span class="command">ponysay -l</span></samp> if <code>copy</code>
+or <code>hard</code> is used. This is because it does link reading and not content or
+inode comparison. 
+</dl>
+
+   <p>Recognised compressions are <samp><span class="option">gz</span></samp> which uses <samp><span class="option">gzip -9</span></samp>, and <samp><span class="option">xz</span></samp>
+which uses <samp><span class="option">xz -9e</span></samp>. <samp><span class="option">xz</span></samp> is still exotic to bost programs, use using
+it is not recommended. Distributors are strongly disencouraged to compression for the
+PDF manual and should use <samp><span class="option">--without-pdf-compression</span></samp>.
+
+   <p>You can run <samp><span class="command">./configure [OPTIONS] view</span></samp> to make sure everything is correct
+before building and installing.
+
+   </body></html>
+

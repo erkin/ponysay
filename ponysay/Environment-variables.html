@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+<title>Environment variables - Ponysay</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Ponysay">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Advanced-usage.html#Advanced-usage" title="Advanced usage">
+<link rel="next" href="Optional-features.html#Optional-features" title="Optional features">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for ponysay
+(version 2.9),
+
+Copyright (C) 2012 Mattias Andrée
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with no Front-Cover Texts,
+     and with no Back-Cover Texts. A copy of the license is included in
+     the section entitled ``GNU Free Documentation License''.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Environment-variables"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Optional-features.html#Optional-features">Optional features</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Advanced-usage.html#Advanced-usage">Advanced usage</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<h2 class="chapter">4 Environment variables</h2>
+
+<p><a name="index-environment-variables-110"></a><a name="index-truncation-111"></a>
+<samp><span class="command">ponysay</span></samp> supports the follow environment variables:
+
+     <dl>
+<dt><samp><span class="env">PONYSAY_BOTTOM</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fBOTTOM_007d-112"></a><a name="index-tty-113"></a>Under TTY (Linux VT), if the output is larger the the screen's height, only
+the beginning is printed, leaving two blank lines. If you want the bottom
+to be printed rather the the beginning you can export <samp><span class="env">PONYSAY_BOTTOM</span></samp>
+with the value <code>yes</code>, <code>y</code> or <code>1</code>.
+
+     <br><dt><samp><span class="env">PONYSAY_SHELL_LINES</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fSHELL_005fLINES_007d-114"></a><a name="index-tty-115"></a>Under TTY (Linux VT), if the output is larger than the screen's height, two
+lines are left blank. If you want more, or less, blank lines you can export
+<samp><span class="env">PONYSAY_SHELL_LINES</span></samp> with the value of how many blank lines you want. 
+Naturally this takes effect eve n if the output is not actually larger than
+the screen.
+
+     <br><dt><samp><span class="env">PONYSAY_FULL_WIDTH</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fFULL_005fWIDTH_007d-116"></a>You can export <samp><span class="env">PONYSAY_FULL_WIDTH</span></samp> with the value <code>yes</code>, <code>y</code>
+or <code>1</code>, if you do not want the output to be truncated on the width to
+fit the terminal.
+
+     <br><dt><samp><span class="env">PONYSAY_TRUNCATE_HEIGHT</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fTRUNCATE_005fHEIGHT_007d-117"></a>Export <samp><span class="env">PONYSAY_TRUNCATE_HEIGHT</span></samp> with the value <code>yes</code>, <code>y</code>
+or <code>1</code>, if you want to truncate the output on the height even if you
+are not running <samp><span class="command">ponysay</span></samp> under TTY.
+
+     <br><dt><samp><span class="env">PONYSAY_UCS_ME</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fUCS_005fME_007d-118"></a><a name="index-ucs-119"></a><a name="index-universal-character-set-120"></a><a name="index-unicode-121"></a><a name="index-ascii-122"></a>Export <samp><span class="env">PONYSAY_UCS_ME</span></samp> with the value <code>yes</code>, <code>y</code> or <code>1</code>,
+if you want [simulated] symlink to pony files using Universal Character Set
+in their names. Otherwise pony files uses only ASCII. If you want to remove
+the ASCII:ised names export <samp><span class="env">PONYSAY_UCS_ME</span></samp> with the value <code>harder</code>,
+<code>h</code> or <code>2</code> instead.
+
+     <p>If you have not enabled this, UCS names are not usable, suggested or listed. 
+If you use <code>yes</code> UCS names will be usable, suggested and listed. If you
+use <code>harder</code> ASCII:ised names will not be suggested or listed, but they
+will still be usable.
+
+     <br><dt><samp><samp><span class="env">PONYSAY_KMS_PALETTE</span></samp></samp><dt><samp><samp><span class="env">PONYSAY_KMS_PALETTE_CMD</span></samp></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fKMS_005fPALETTE_007d-123"></a><a name="index-g_t_0040env_007bPONYSAY_005fKMS_005fPALETTE_005fCMD_007d-124"></a><a name="index-tty-125"></a><a name="index-linux-vt-126"></a><a name="index-kmsponies-127"></a><a name="index-kms-128"></a><a name="index-kernel-mode-setting-129"></a>
+<samp><span class="env">PONYSAY_KMS_PALETTE</span></samp> or <samp><span class="env">PONYSAY_KMS_PALETTE_CMD</span></samp> is used to tell
+ponysay how your TTY palette looks, this feature lets you get the best images
+in TTY if you have Kernel Mode Setting (KMS) support.
+
+     <p>See <a href="KMS-ponies.html#KMS-ponies">KMS ponies</a> for information on how to use this. 
+</dl>
+
+   </body></html>
+

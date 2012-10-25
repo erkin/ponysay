@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+<title>Shell auto-completion - Ponysay</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Ponysay">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Inner-workings.html#Inner-workings" title="Inner workings">
+<link rel="prev" href="Languages.html#Languages" title="Languages">
+<link rel="next" href="Universal-Character-Set.html#Universal-Character-Set" title="Universal Character Set">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for ponysay
+(version 2.9),
+
+Copyright (C) 2012 Mattias Andrée
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with no Front-Cover Texts,
+     and with no Back-Cover Texts. A copy of the license is included in
+     the section entitled ``GNU Free Documentation License''.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Shell-auto-completion"></a>
+<a name="Shell-auto_002dcompletion"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Universal-Character-Set.html#Universal-Character-Set">Universal Character Set</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Languages.html#Languages">Languages</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Inner-workings.html#Inner-workings">Inner workings</a>
+<hr>
+</div>
+
+<h3 class="section">10.7 Shell auto-completion</h3>
+
+<p><a name="index-auto_002dcompletion_002c-inner-workings-399"></a><a name="index-shell_002c-auto_002dcompletion-400"></a><a name="index-g_t_0040option_007b_002d_002donelist_007d-401"></a><a name="index-g_t_0040option_007b_002b_002bonelist_007d-402"></a><a name="index-g_t_0040option_007b_002d_002dquoters_007d-403"></a>
+To make it easier to write auto-completion for shells, <samp><span class="command">ponysay</span></samp> supports
+the two options <samp><span class="option">--onelist</span></samp>, <samp><span class="option">++onelist</span></samp> and <samp><span class="option">--quoters</span></samp>,
+which has no short versions.
+
+   <p>Executing <samp><span class="command">ponysay --onelist</span></samp> will list every available standard (MLP:FiM)
+pony, independent of where it is located, the output is a sorted and consists only
+of one pony per line.
+
+   <p>Executing <samp><span class="command">ponysay ++onelist</span></samp> will list every available extra (non-MLP:FiM)
+pony, independent of where it is located, the output is a sorted and consists only
+of one pony per line.
+
+   <p><samp><span class="command">ponysay --quoters</span></samp> work just as <samp><span class="command">ponysay --onelist</span></samp>, excepts
+it limits the ponies to those that have quotes. Ponies that have quotes,
+but does not exist, i.e. does not have a .pony-file, are not listed.
+
+   <p>Auto-completion scripts should not suggest these options.
+
+   </body></html>
+
