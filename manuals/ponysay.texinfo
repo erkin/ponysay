@@ -1340,9 +1340,12 @@ before building and installing.
 
 @menu
 * Arch Linux::                  Packages for Arch Linux.
+* Arch Linux ARM::              Packages for Arch Linux ARM.
 * Chakra::                      Packages for Chakra.
-* Gentoo Linux::                Packages for Gentoo Linux.
 * Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
+* Gentoo Linux::                Packages for Gentoo Linux.
+* Parabola GNU/Linux::          Packages for Parabola GNU/Linux.
+* Source Mage GNU/Linux::       Packages for Source Mage GNU/Linux.
 @end menu
 
 
@@ -1351,24 +1354,26 @@ before building and installing.
 @cindex arch linux
 
 The official Arch Linux package repositories contains @command{ponysay} as
-@w{@code{community/ponysay}}. The Arch Linux User Repository (AUR) contains a
-bleeding edge git version of @command{ponysay} as @code{ponysay-git}.
+@w{@code{community/ponysay}} (developer maintained). The Arch Linux User Repository
+(AUR) contains a bleeding edge git version of @command{ponysay} as
+@w{@code{ponysay-git}} (user maintained).
+
+
+@node Arch Linux ARM
+@subsection Arch Linux ARM
+@cindex arch linux arm
+
+@w{@code{community/ponysay}} from Arch Linux (@ref{Arch Linux}) is also available
+for Arch Linux ARM.
 
 
 @node Chakra
 @subsection Chakra
 @cindex chakra
 
-Chakra users can install from (CCR) a stable version named a @code{ponysay},
-additionally a git verion of ponysay is available as @code{ponysay-git}.
-
-
-@node Gentoo Linux
-@subsection Gentoo Linux
-@cindex gentoo linux
-
-Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
-contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
+Chakra users can install from (CCR) a stable version named a @code{ponysay}
+(developer maintained Arch Linux mirror), additionally a git verion of ponysay is
+available as @code{ponysay-git} (developer maintained Arch Linux mirror).
 
 
 @node Debian GNU/Linux
@@ -1376,9 +1381,34 @@ contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
 @cindex debian gnu/linux
 @cindex ubuntu
 
-A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay},
-and PPA:s can be found at @url{https://launchpad.net/~vincent-c/+archive/ppa} and
-@url{https://launchpad.net/~blazemore/+archive/ponysay}.
+A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay}
+(user maintained), and PPA:s can be found at
+@url{https://launchpad.net/~vincent-c/+archive/ppa} (user maintained) and
+@url{https://launchpad.net/~blazemore/+archive/ponysay} (user maintained).
+
+
+@node Gentoo Linux
+@subsection Gentoo Linux
+@cindex gentoo linux
+
+Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
+contains @command{ponysay} as @w{@code{games-misc/ponysay}} (developer maintained).
+
+
+@node Parabola GNU/Linux
+@subsection Parabola GNU/Linux
+@cindex parabola gnu/linux
+
+@w{@code{community/ponysay}} from Arch Linux (@ref{Arch Linux}) is also available
+for Parabola GNU/Linux.
+
+
+@node Source Mage GNU/Linux
+@subsection Source Mage GNU/Linux
+@cindex source mage gnu/linux
+
+The spell @w{@code{util/ponysay}} (user maintained) is available in Grimoire for
+Source Mage @w{GNU/Linux}.
 
 
 @node Uninstalling
