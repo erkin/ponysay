@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+<title>Installations basics - Ponysay</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Ponysay">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="From-upstream.html#From-upstream" title="From upstream">
+<link rel="next" href="Custom-installations.html#Custom-installations" title="Custom installations">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for ponysay
+(version 2.9),
+
+Copyright (C) 2012 Mattias Andrée
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with no Front-Cover Texts,
+     and with no Back-Cover Texts. A copy of the license is included in
+     the section entitled ``GNU Free Documentation License''.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+<link rel="stylesheet" type="text/css" href="../../info.css"></head>
+<body>
+<div class="node">
+<a name="Installations-basics"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Custom-installations.html#Custom-installations">Custom installations</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="From-upstream.html#From-upstream">From upstream</a>
+<hr>
+</div>
+
+<h4 class="subsection">9.1.1 Installations basics</h4>
+
+<p><a name="index-g_t_0040file_007bsetup_002epy_007d-192"></a><a name="index-g_t_0040command_007b_002e_002fsetup_002epy_007d-193"></a><a name="index-g_t_0040command_007bmake_007d-194"></a><a name="index-basic-installation-195"></a>
+
+   <p>Before installing <samp><span class="command">ponysay</span></samp>, make sure your system have the packages listed
+under <a href="Required-runtime-dependencies.html#Required-runtime-dependencies">Required runtime dependencies</a> and <a href="Package-building-dependencies.html#Package-building-dependencies">Package building dependencies</a>
+installed.
+
+   <p>Tarballs can be downloaded at <a href="https://github.com/erkin/ponysay/tarball/master">https://github.com/erkin/ponysay/tarball/master</a>
+for bleeding edge, or from <a href="https://github.com/erkin/ponysay/tags">https://github.com/erkin/ponysay/tags</a> for releases.
+
+   <p>If you have <samp><span class="command">git</span></samp> you can <samp><span class="command">clone</span></samp> the project URL
+<a href="https://github.com/erkin/ponysay.git">https://github.com/erkin/ponysay.git</a>.
+
+   <p>In the terminal, <samp><span class="command">cd</span></samp> into the ponysay directory and execute
+<samp><span class="command">./setup.py install</span></samp> or <samp><span class="command">python3 setup.py install</span></samp>. This will install
+<samp><span class="command">ponysay</span></samp> into <samp><span class="file">/usr</span></samp>, normally meaning you need to run as root, e.g. by
+running <samp><span class="command">sudo ./setup.py install</span></samp>.
+
+   <p>Now you will be to use ponysay, run: <samp><span class="command">ponysay "I am just the cutest pony!"</span></samp>,
+or if have a specific pony in your mind: <samp><span class="command">ponysay -f pinkie "Partay!~"</span></samp>.
+
+   <p><a name="index-manpage-translations-196"></a><samp><span class="command">ponysay</span></samp> comes with this <samp><span class="command">info</span></samp> manual and a manpage in section 6,
+<samp><span class="command">man 6 ponysay</span></samp> (or just <samp><span class="command">man ponysay</span></samp>). The manpage is also available
+in Spanish: <samp><span class="command">man -L es 6 ponysay</span></samp>. To install the Spanish manual add the
+option <samp><span class="option">--with-man-es</span></samp> when running <samp><span class="command">./setup.py</span></samp>.
+
+   </body></html>
+

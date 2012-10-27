@@ -1,0 +1,173 @@
+<html lang="en">
+<head>
+<title>Ponysay</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Ponysay">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="../index.html#dir" title="(dir)">
+<link rel="next" href="Overview.html#Overview" title="Overview">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for ponysay
+(version 2.9),
+
+Copyright (C) 2012 Mattias Andrée
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with no Front-Cover Texts,
+     and with no Back-Cover Texts. A copy of the license is included in
+     the section entitled ``GNU Free Documentation License''.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+<link rel="stylesheet" type="text/css" href="../../info.css"></head>
+<body>
+<div class="node">
+<a name="Top"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Overview.html#Overview">Overview</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
+<hr>
+</div>
+
+<h2 class="unnumbered">Ponysay: ponies for your terminal</h2>
+
+<p>This manual is for ponysay
+(version 2.9),
+
+   <p>Copyright &copy; 2012 Mattias Andrée
+
+   <blockquote>
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+&ldquo;GNU Free Documentation License&rdquo;. 
+</blockquote>
+
+<div class="contents">
+<h2>Table of Contents</h2>
+<ul>
+<li><a name="toc_Top" href="index.html#Top">Ponysay: ponies for your terminal</a>
+<li><a name="toc_Overview" href="Overview.html#Overview">1 Overview</a>
+<li><a name="toc_Invoking-ponysay" href="Invoking-ponysay.html#Invoking-ponysay">2 Invoking <samp><span class="command">ponysay</span></samp></a>
+<li><a name="toc_Advanced-usage" href="Advanced-usage.html#Advanced-usage">3 Advanced usage of <samp><span class="command">ponysay</span></samp>.</a>
+<ul>
+<li><a href="Extra-information.html#Extra-information">3.1 Extra information</a>
+<li><a href="Fortune-cookies.html#Fortune-cookies">3.2 Fortune cookies</a>
+<li><a href="Ponification.html#Ponification">3.3 Ponification</a>
+<li><a href="Running-on-TTY.html#Running-on-TTY">3.4 Running on TTY</a>
+<li><a href="Running-on-screen.html#Running-on-screen">3.5 Running on <samp><span class="command">screen</span></samp></a>
+</li></ul>
+<li><a name="toc_Environment-variables" href="Environment-variables.html#Environment-variables">4 Environment variables</a>
+<li><a name="toc_Optional-features" href="Optional-features.html#Optional-features">5 Optional features</a>
+<ul>
+<li><a href="KMS-ponies.html#KMS-ponies">5.1 KMS ponies</a>
+</li></ul>
+<li><a name="toc_Limitations" href="Limitations.html#Limitations">6 Limitations</a>
+<ul>
+<li><a href="Terminals.html#Terminals">6.1 Terminals</a>
+<li><a href="Cowsay.html#Cowsay">6.2 Cowsay</a>
+</li></ul>
+<li><a name="toc_Problems-and-requests" href="Problems-and-requests.html#Problems-and-requests">7 Problems and requests</a>
+<ul>
+<li><a href="Problems.html#Problems">7.1 Reporting bugs</a>
+<li><a href="Requests.html#Requests">7.2 Requesting ponies</a>
+</li></ul>
+<li><a name="toc_Dependencies" href="Dependencies.html#Dependencies">8 Dependencies</a>
+<ul>
+<li><a href="Required-runtime-dependencies.html#Required-runtime-dependencies">8.1 Required runtime dependencies</a>
+<li><a href="Optional-runtime-dependencies.html#Optional-runtime-dependencies">8.2 Optional runtime dependencies</a>
+<li><a href="Package-building-dependencies.html#Package-building-dependencies">8.3 Package building dependencies</a>
+<li><a href="Dependencies-for-pony-providers.html#Dependencies-for-pony-providers">8.4 Dependencies for pony providers</a>
+</li></ul>
+<li><a name="toc_Installing" href="Installing.html#Installing">9 Installing</a>
+<ul>
+<li><a href="From-upstream.html#From-upstream">9.1 From upstream</a>
+<ul>
+<li><a href="Installations-basics.html#Installations-basics">9.1.1 Installations basics</a>
+<li><a href="Custom-installations.html#Custom-installations">9.1.2 Custom installations</a>
+</li></ul>
+<li><a href="Package-repositories.html#Package-repositories">9.2 Package repositories</a>
+<ul>
+<li><a href="Arch-Linux.html#Arch-Linux">9.2.1 Arch Linux</a>
+<li><a href="Arch-Linux-ARM.html#Arch-Linux-ARM">9.2.2 Arch Linux ARM</a>
+<li><a href="Chakra.html#Chakra">9.2.3 Chakra</a>
+<li><a href="Debian-GNU_002fLinux.html#Debian-GNU_002fLinux">9.2.4 Debian GNU/Linux and Ubuntu</a>
+<li><a href="Gentoo-Linux.html#Gentoo-Linux">9.2.5 Gentoo Linux</a>
+<li><a href="Parabola-GNU_002fLinux.html#Parabola-GNU_002fLinux">9.2.6 Parabola GNU/Linux</a>
+<li><a href="Source-Mage-GNU_002fLinux.html#Source-Mage-GNU_002fLinux">9.2.7 Source Mage GNU/Linux</a>
+</li></ul>
+<li><a href="Uninstalling.html#Uninstalling">9.3 Uninstalling</a>
+</li></ul>
+<li><a name="toc_Inner-workings" href="Inner-workings.html#Inner-workings">10 Inner workings</a>
+<ul>
+<li><a href="Pony-anatomy.html#Pony-anatomy">10.1 Pony anatomy</a>
+<li><a href="Pony-quote-infrastructure.html#Pony-quote-infrastructure">10.2 Pony quote infrastructure</a>
+<li><a href="Balloon-style-files.html#Balloon-style-files">10.3 Balloon style files</a>
+<li><a href="Printing-in-TTY-with-KMS.html#Printing-in-TTY-with-KMS">10.4 Printing in TTY with KMS</a>
+<li><a href="Truncation.html#Truncation">10.5 Truncation</a>
+<li><a href="Languages.html#Languages">10.6 Languages</a>
+<li><a href="Shell-auto_002dcompletion.html#Shell-auto_002dcompletion">10.7 Shell auto-completion</a>
+<li><a href="Universal-Character-Set.html#Universal-Character-Set">10.8 Universal Character Set</a>
+</li></ul>
+<li><a name="toc_Contributing" href="Contributing.html#Contributing">11 Contributing</a>
+<ul>
+<li><a href="Providing-ponies.html#Providing-ponies">11.1 Providing ponies</a>
+</li></ul>
+<li><a name="toc_Distributing" href="Distributing.html#Distributing">12 Distributing</a>
+<li><a name="toc_Terminology" href="Terminology.html#Terminology">13 Terminology</a>
+<li><a name="toc_Change-log" href="Change-log.html#Change-log">Appendix A Change log</a>
+<li><a name="toc_Ponysay-contributors" href="Ponysay-contributors.html#Ponysay-contributors">Appendix B Ponysay contributors</a>
+<li><a name="toc_Ponysay-license" href="Ponysay-license.html#Ponysay-license">Appendix C Ponysay license</a>
+<li><a name="toc_GNU-Free-Documentation-License" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">Appendix D GNU Free Documentation License</a>
+<li><a name="toc_Concept-and-program-index" href="Concept-and-program-index.html#Concept-and-program-index">Appendix E Concept and program index</a>
+<li><a name="toc_Variable-and-option-index" href="Variable-and-option-index.html#Variable-and-option-index">Appendix F Variable and option index</a>
+</li></ul>
+</div>
+
+<ul class="menu">
+<li><a accesskey="1" href="Overview.html#Overview">Overview</a>:                             Brief overview of <samp><span class="command">ponysay</span></samp>. 
+<li><a accesskey="2" href="Invoking-ponysay.html#Invoking-ponysay">Invoking ponysay</a>:                     How to run <samp><span class="command">ponysay</span></samp>. 
+<li><a accesskey="3" href="Advanced-usage.html#Advanced-usage">Advanced usage</a>:                       Advanced usage of <samp><span class="command">ponysay</span></samp>. 
+<li><a accesskey="4" href="Environment-variables.html#Environment-variables">Environment variables</a>:                Getting more from <samp><span class="command">ponysay</span></samp> with environment variables. 
+<li><a accesskey="5" href="Optional-features.html#Optional-features">Optional features</a>:                    Get the most out of <samp><span class="command">ponysay</span></samp> with optional features. 
+<li><a accesskey="6" href="Limitations.html#Limitations">Limitations</a>:                          Known limitations that may not be that easy to overcome. 
+<li><a accesskey="7" href="Problems-and-requests.html#Problems-and-requests">Problems and requests</a>:                Report issues and making requests. 
+<li><a accesskey="8" href="Dependencies.html#Dependencies">Dependencies</a>:                         Ponysay's dependencies. 
+<li><a accesskey="9" href="Installing.html#Installing">Installing</a>:                           How to install <samp><span class="command">ponysay</span></samp>. 
+<li><a href="Inner-workings.html#Inner-workings">Inner workings</a>:                       Useful information for those whom want to help hack <samp><span class="command">ponysay</span></samp>. 
+<li><a href="Contributing.html#Contributing">Contributing</a>:                         Useful information for those whom want to help improve the world. 
+<li><a href="Distributing.html#Distributing">Distributing</a>:                         Useful information for OS package repository package maintainers. 
+<li><a href="Terminology.html#Terminology">Terminology</a>:                          Terminology. 
+<li><a href="Change-log.html#Change-log">Change log</a>:                           Differences between the version of <samp><span class="command">ponysay</span></samp>. 
+<li><a href="Ponysay-contributors.html#Ponysay-contributors">Ponysay contributors</a>:                 Ponysay contributors. 
+<li><a href="Ponysay-license.html#Ponysay-license">Ponysay license</a>:                      Ponysay license. 
+<li><a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a>:       Copying and sharing this manual. 
+<li><a href="Concept-and-program-index.html#Concept-and-program-index">Concept and program index</a>:            Concept and program index. 
+<li><a href="Variable-and-option-index.html#Variable-and-option-index">Variable and option index</a>:            Variable and option index. 
+</ul>
+
+   </body></html>
+
+<!--
+
+Local Variables:
+coding: utf-8
+End:
+
+-->

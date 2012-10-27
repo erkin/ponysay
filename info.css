@@ -6,3 +6,11 @@ body {
     font-size : 11pt;
 }
 
+
+a:link    {color : #CD656C; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
+a:active  {color : #CD656C; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
+a:visited {color : #854146; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
+a:hover   {color : #EB5E6A; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
+a:focus   {color : #CD656C; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
+
+
