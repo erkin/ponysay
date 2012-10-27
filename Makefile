@@ -13,7 +13,7 @@ manual-update:
 	git mv "./ponysay" "./pages"
 	(for file in $$(echo "./pages/ponysay/*"); do							\
 	   mv $$file $${file}~;										\
-	   sed -e 's/^<\/head>$$/<link rel="stylesheet" type="text\/css" href="info.css">\\n<\/head>/'	\
+	   sed -e 's/^<\/head>$$/<link rel="stylesheet" type="text\/css" href="info.css"><\/head>/'	\
 	          < $${file}~ > $$file;									\
 	   rm $${file}~;										\
 	   git add $${file};										\
