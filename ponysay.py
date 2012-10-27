@@ -806,11 +806,19 @@ class Ponysay():
         if linuxvt:
             print('\033[H\033[2J', end='')
         
-        ## Width Get truncation and wrapping
+        ## Get width truncation and wrapping
         env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
         if env_width is None:  env_width = ''
         widthtruncation = self.__gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
-        messagewrap = int(args.opts['-W'][0]) if args.opts['-W'] is not None else None
+        messagewrap = 40
+        if (args.opts['-W'] is not None) and (len(args.opts['-W'][0]) > 0):
+            messagewrap = args.opts['-W'][0]
+            if messagewrap[0] in 'nmsNMS': # m is left to n on QWERTY and s is left to n on Dvorak
+                messagewrap = None
+            elif messagewrap[0] in 'iouIOU': # o is left to i on QWERTY and u is right to i on Dvorak
+                messagewrap = self.__gettermsize()[1]
+            else:
+                messagewrap = int(args.opts['-W'][0])
         
         ## Get balloon object
         balloonfile = self.__getballoonpath(args.opts['-b'])
@@ -833,8 +841,8 @@ class Ponysay():
         
         
         ## Run cowsay replacement
-        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap if messagewrap is not None else 40,
-                          width = widthtruncation, balloon = balloon, hyphen = hyphen, linkcolour = linkcolour, ballooncolour = ballooncolour)
+        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap, width = widthtruncation,
+                          balloon = balloon, hyphen = hyphen, linkcolour = linkcolour, ballooncolour = ballooncolour)
         backend.parse()
         output = backend.output
         if output.endswith('\n'):

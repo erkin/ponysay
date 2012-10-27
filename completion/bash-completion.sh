@@ -27,7 +27,7 @@ _ponysay()
 
     elif [ $prev = "-W" ] || [ $prev = "--wrap" ]; then
 	cols=$(( `stty size | cut -d ' ' -f 2` - 10 ))
-	COMPREPLY=( $cols  $(( $cols / 2 ))  100  60 )
+	COMPREPLY=( $cols  $(( $cols / 2 ))  100  60  none  inherit )
 
     fi
 }

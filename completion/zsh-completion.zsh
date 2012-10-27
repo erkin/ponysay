@@ -1,3 +1,4 @@
+# zsh completion for ponysay            -*- shell-script -*-
 #compdef ponysay ponythink
 _opts=(
     '(--version -v)'{-v,--version}'[Show version and exit]'
@@ -9,7 +10,7 @@ _opts=(
     '(-B --balloonlist)'{-B,--balloonlist}'[list balloon style names]'
     '(-b --ballon)'{-b,--balloon}'[Selecy a balloon style]: :_path_files -W '/usr/share/ponysay/balloons' -g "*(\:r)"'
     '(-c --compact)'{-c,--compat}'[Compress messages.]'
-    '(-W --wrap)'{-W,--wrap}'[The screen column where the message should be wrapped]'
+    '(-W --wrap)'{-W,--wrap}'[The screen column where the message should be wrapped]' # TODO arguments `none` and `inherit` should be suggested
     )
 _tty_select=(
     '(-q --quite)'{-q,--quote}'[Select ponies for MLP:FiM quotes]: :_path_files -W '/usr/share/ponysay/ttyponies' -g "*(\:r)"'
