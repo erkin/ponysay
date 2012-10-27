@@ -6,7 +6,7 @@ manual-update:
 	 makeinfo --html "./manuals/ponysay.texinfo"		\
 	 git add "./ponysay"					\
 	 git stash						\
-	 git checkout $(BRANCH)					\
+	 git checkout $$branch					\
 	 git rm "./pages/ponysay/*"				\
 	 git stash pop						\
 	)
