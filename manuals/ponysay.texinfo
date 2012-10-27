@@ -2006,6 +2006,7 @@ sequences.
 
 @heading Version 2.9
 @itemize @bullet
+New ponies: @file{pinkieumbrelahatfear}, @file{twilighttime}
 @item
 New extraponies: @file{molestia} (Tumblr)
 @item
