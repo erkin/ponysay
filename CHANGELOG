@@ -16,6 +16,8 @@ Version 2.9
 
 	If file descriptor 3 is definied when ponysay is executed, extra information is printed to it.
 
+	Arguments starting with n or i is allowed for -W.
+
 
 Version 2.8
 

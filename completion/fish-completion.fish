@@ -1,6 +1,4 @@
-# FISH completions for ponysay
-# https://github.com/erkin/ponysay/
-#
+# fish completion for ponysay            -*- shell-script -*-
 # Author: Elis Axelsson <etu AT elis DOT nu>
 
 set -g ponies   ('/usr/bin/ponysay' --onelist)
@@ -19,7 +17,7 @@ complete --command ponysay --short-option f --long-option pony        --argument
 complete --command ponysay --short-option F                           --arguments "$xponies"             --description 'extra pony'
 complete --command ponysay --short-option q --long-option quote       --arguments "$quoters"  --no-files --description 'pony'
 complete --command ponysay --short-option b --long-option balloon     --arguments "$balloons" --no-files --description 'balloon style'
-complete --command ponysay --short-option W --long-option wrap        --arguments 'Integer'              --description 'specify the column when the message should be wrapped'
+complete --command ponysay --short-option W --long-option wrap        --arguments 'Integer'              --description 'specify the column when the message should be wrapped' ## TODO arguments `none` and `inherit` should be suggested
 complete --command ponysay                                            --arguments 'MESSAGE'
 
 

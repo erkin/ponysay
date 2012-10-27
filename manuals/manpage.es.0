@@ -82,7 +82,9 @@ uno o varios ponis sean agregados tras la opción \fI-q\fP, en cuyo caso se sele
 aleatoriamente uno de este conjunto.
 .TP
 .B \-W, \-\-wrap \fIcolumna\fP
-El numero de columnas en el que será impreso el mensaje.
+La columna donde el mensage será truncado, el globo puede tomar en consideración un largo mayor
+si el argumento no es un numero, pero si inicia con \fIn\fP , no hay contenido y si es \fIi\fP
+el largo de la terminal es usado es su lugar.
 .TP
 .B \-A. \-\-all 
 Lista todos los ponis, tanto pertenecientes a MLP:FiM cono no pertenecientes a esta

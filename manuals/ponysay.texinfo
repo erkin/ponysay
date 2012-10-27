@@ -216,6 +216,9 @@ Variadic variant of @option{-F}, meaning that all arguments added after this one
 will parsed as an argument to this option. Additionally, those options are added
 to @option{-F}.
 
+An important feature of this options, is that you can but it in the end of the
+command line, without any argument to get a random non-MLP:FiM pony.
+
 @item --q [PONY...]
 @itemx --quotes [PONY...]
 @opindex @option{--q}
@@ -245,7 +248,16 @@ balloon style is specified a fallback style will be used.
 @opindex @option{-W}
 @opindex @option{--wrap}
 Specify the screen column where the message should be wrapped, this is by default 40,
-as with @command{cowsay}.
+as with @command{cowsay}. The balloon's extra width is taken into consideration.
+
+If the argument is not a number, but starts instead with @code{n} (for ‘none’ or
+‘no’), no wrapping is done, and if it starts with @code{i} (for ‘inherit’) the width
+of the terminal is used.
+
+@code{n} and @code{i} is case insensitive, so you may use @code{N} and @code{I}
+instead. Additionally, typo correction is for QWERTY and Dvorak is built in to
+@command{ponysay}; the nearest key, either to the left or to the right, depending
+on which hand is used to press the key, is also allowed.
 
 @item -c
 @itemx --compress
@@ -1337,9 +1349,12 @@ before building and installing.
 
 @menu
 * Arch Linux::                  Packages for Arch Linux.
+* Arch Linux ARM::              Packages for Arch Linux ARM.
 * Chakra::                      Packages for Chakra.
-* Gentoo Linux::                Packages for Gentoo Linux.
 * Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
+* Gentoo Linux::                Packages for Gentoo Linux.
+* Parabola GNU/Linux::          Packages for Parabola GNU/Linux.
+* Source Mage GNU/Linux::       Packages for Source Mage GNU/Linux.
 @end menu
 
 
@@ -1348,24 +1363,26 @@ before building and installing.
 @cindex arch linux
 
 The official Arch Linux package repositories contains @command{ponysay} as
-@w{@code{community/ponysay}}. The Arch Linux User Repository (AUR) contains a
-bleeding edge git version of @command{ponysay} as @code{ponysay-git}.
+@w{@code{community/ponysay}} (developer maintained). The Arch Linux User Repository
+(AUR) contains a bleeding edge git version of @command{ponysay} as
+@w{@code{ponysay-git}} (user maintained).
+
+
+@node Arch Linux ARM
+@subsection Arch Linux ARM
+@cindex arch linux arm
+
+@w{@code{community/ponysay}} from Arch Linux (@ref{Arch Linux}) is also available
+for Arch Linux ARM.
 
 
 @node Chakra
 @subsection Chakra
 @cindex chakra
 
-Chakra users can install from (CCR) a stable version named a @code{ponysay},
-additionally a git verion of ponysay is available as @code{ponysay-git}.
-
-
-@node Gentoo Linux
-@subsection Gentoo Linux
-@cindex gentoo linux
-
-Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
-contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
+Chakra users can install from (CCR) a stable version named a @code{ponysay}
+(developer maintained Arch Linux mirror), additionally a git verion of ponysay is
+available as @code{ponysay-git} (developer maintained Arch Linux mirror).
 
 
 @node Debian GNU/Linux
@@ -1373,9 +1390,34 @@ contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
 @cindex debian gnu/linux
 @cindex ubuntu
 
-A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay},
-and PPA:s can be found at @url{https://launchpad.net/~vincent-c/+archive/ppa} and
-@url{https://launchpad.net/~blazemore/+archive/ponysay}.
+A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay}
+(user maintained), and PPA:s can be found at
+@url{https://launchpad.net/~vincent-c/+archive/ppa} (user maintained) and
+@url{https://launchpad.net/~blazemore/+archive/ponysay} (user maintained).
+
+
+@node Gentoo Linux
+@subsection Gentoo Linux
+@cindex gentoo linux
+
+Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
+contains @command{ponysay} as @w{@code{games-misc/ponysay}} (developer maintained).
+
+
+@node Parabola GNU/Linux
+@subsection Parabola GNU/Linux
+@cindex parabola gnu/linux
+
+@w{@code{community/ponysay}} from Arch Linux (@ref{Arch Linux}) is also available
+for Parabola GNU/Linux.
+
+
+@node Source Mage GNU/Linux
+@subsection Source Mage GNU/Linux
+@cindex source mage gnu/linux
+
+The spell @w{@code{util/ponysay}} (user maintained) is available in Grimoire for
+Source Mage @w{GNU/Linux}.
 
 
 @node Uninstalling
@@ -2022,6 +2064,8 @@ than unlimited. Currently this cannot be modified (without editing the source co
 @item
 If file descriptor 3 is definied when @command{ponysay} is executed, extra information is
 printed to it.
+@item
+Arguments starting with @code{n} or @code{i} is allowed for @option{-W}.
 @end itemize
 
 
