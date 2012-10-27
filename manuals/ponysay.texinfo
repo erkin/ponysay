@@ -1748,7 +1748,7 @@ Using util-say:
 @example
 @code{img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE}
 
-@code{PONY}_FILE should end with @file{.pony} and be localed in @file{ponies/},
+@code{PONY_FILE} should end with @file{.pony} and be localed in @file{ponies/},
 or @file{extraponies/} if the pony is not a MLP:FiM pony.
 
 Omit @option{-2} if the source image does not use double pixel size.
