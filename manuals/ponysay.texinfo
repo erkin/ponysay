@@ -248,9 +248,11 @@ balloon style is specified a fallback style will be used.
 @opindex @option{-W}
 @opindex @option{--wrap}
 Specify the screen column where the message should be wrapped, this is by default 40,
-as with @command{cowsay}. If the argument is not an integer, but starts instead with
-@code{n} (for ‘none’ or ‘no’), no wrapping is done, and if it starts with @code{i}
-(for ‘inherit’) the width of the terminal is used.
+as with @command{cowsay}. The balloon's extra width is taken into consideration.
+
+If the argument is not an integer, but starts instead with @code{n} (for ‘none’ or
+‘no’), no wrapping is done, and if it starts with @code{i} (for ‘inherit’) the width
+of the terminal is used.
 
 @code{n} and @code{i} is case insensitive, so you may use @code{N} and @code{I}
 instead. Additionally, typo correction is for QWERTY and Dvorak is built in to
