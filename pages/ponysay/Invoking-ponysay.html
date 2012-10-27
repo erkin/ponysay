@@ -97,6 +97,9 @@ to <samp><span class="option">-f</span></samp>.
 will parsed as an argument to this option. Additionally, those options are added
 to <samp><span class="option">-F</span></samp>.
 
+     <p>An important feature of this options, is that you can but it in the end of the
+command line, without any argument to get a random non-MLP:FiM pony.
+
      <br><dt><samp><span class="option">--q [PONY...]</span></samp><dt><samp><span class="option">--quotes [PONY...]</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dq_007d-32"></a><a name="index-g_t_0040option_007b_002d_002dquotes_007d-33"></a><a name="index-quotes-34"></a><a name="index-pony-quotes-35"></a>Variadic variant of <samp><span class="option">-q</span></samp>, meaning that all arguments added after this one
 will parsed as an argument to this option. Additionally, those options are added
 to <samp><span class="option">-q</span></samp>.
@@ -110,7 +113,16 @@ times to specify a set of styles from which one will be selected randomly. If no
 balloon style is specified a fallback style will be used.
 
      <br><dt><samp><span class="option">-W COLUMN</span></samp><dt><samp><span class="option">--wrap COLUMN</span></samp><dd><a name="index-g_t_0040option_007b_002dW_007d-39"></a><a name="index-g_t_0040option_007b_002d_002dwrap_007d-40"></a>Specify the screen column where the message should be wrapped, this is by default 40,
-as with <samp><span class="command">cowsay</span></samp>.
+as with <samp><span class="command">cowsay</span></samp>. The balloon's extra width is taken into consideration.
+
+     <p>If the argument is not a number, but starts instead with <code>n</code> (for ‘none’ or
+‘no’), no wrapping is done, and if it starts with <code>i</code> (for ‘inherit’) the width
+of the terminal is used.
+
+     <p><code>n</code> and <code>i</code> is case insensitive, so you may use <code>N</code> and <code>I</code>
+instead. Additionally, typo correction is for QWERTY and Dvorak is built in to
+<samp><span class="command">ponysay</span></samp>; the nearest key, either to the left or to the right, depending
+on which hand is used to press the key, is also allowed.
 
      <br><dt><samp><span class="option">-c</span></samp><dt><samp><span class="option">--compress</span></samp><dd><a name="index-g_t_0040option_007b_002dc_007d-41"></a><a name="index-g_t_0040option_007b_002d_002dcompress_007d-42"></a><a name="index-g_t_0040command_007bfiglet_007d-43"></a><a name="index-g_t_0040command_007bTOIlet_007d-44"></a>Compress the message in the same way <samp><span class="command">cowsay</span></samp> does, that is basically
 without multiple spaces, and only paragraphs separations. Using this options

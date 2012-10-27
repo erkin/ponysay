@@ -51,7 +51,7 @@ of the balloon style file, and if definied in the pony file, file meta data and 
 
    <p>In most shells, a file descriptor 3 can defined using <samp><span class="command">3&gt; FILE</span></samp>, and linked to
 stderr using <samp><span class="command">3&gt;&amp;2</span></samp>. For example, you can print the information to <samp><span class="file">~/info</span></samp>
-by running <samp><span class="command">ponysay I\'m just the cutest pony! | 3&gt; ~/info</span></samp>.
+by running <samp><span class="command">ponysay I\'m just the cutest pony! 3&gt; ~/info</span></samp>.
 
    <p>The message is not stored this way, for that you can use <samp><span class="command">tee</span></samp>. However, if you
 use <samp><span class="option">-q</span></samp> the quote file is printed to file descriptor 3.

@@ -43,7 +43,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Contributing.html#Contributing">Contrib
 
 <h3 class="section">11.1 Providing ponies</h3>
 
-<p><a name="index-create-pony-file-409"></a>
+<p><a name="index-create-pony-file-412"></a>
 Most pony images are browser ponies or desktop ponies, browser ponies is a port of
 desktop ponies, implementing it in JavaScript. Browser ponies are available at
 <a href="https://github.com/panzi/Browser-Ponies">https://github.com/panzi/Browser-Ponies</a>. Desktop ponies are available at
@@ -68,7 +68,7 @@ as good as possible when marked in the terminal (somewhat compromised by the fir
 aspect,) and same width on all rows.
 
    <p>Using util-say:
-<a name="index-util_002dsay-410"></a><a name="index-g_t_0040command_007bimg2ponysay_007d-411"></a><p><table class="cartouche" summary="cartouche" border="1"><tr><td>
+<a name="index-util_002dsay-413"></a><a name="index-g_t_0040command_007bimg2ponysay_007d-414"></a><p><table class="cartouche" summary="cartouche" border="1"><tr><td>
 <pre class="example">     <code>img2ponysay -2 -- SOURCE_IMAGE &gt; PONY_FILE</code>
      
      <code>PONY</code>_FILE should end with <samp><span class="file">.pony</span></samp> and be localed in <samp><span class="file">ponies/</span></samp>,
@@ -82,11 +82,11 @@ aspect,) and same width on all rows.
    </td></tr></table>
 
    <p><br>
-<a name="index-util_002dsay-412"></a><a name="index-g_t_002epng-413"></a><a name="index-png-images-414"></a><a name="index-images_002c-png-415"></a><a name="index-portable-network-graphics-416"></a>If you have util-say installed, which is required to build ponies, you can use PNG
+<a name="index-util_002dsay-415"></a><a name="index-g_t_002epng-416"></a><a name="index-png-images-417"></a><a name="index-images_002c-png-418"></a><a name="index-portable-network-graphics-419"></a>If you have util-say installed, which is required to build ponies, you can use PNG
 files as argument the for <samp><span class="command">ponysay -f</span></samp>, this requires that the file is named
 <samp><span class="file">.png</span></samp> at the end.
 
-   <p><a name="index-palette-417"></a><a name="index-xterm-palette-418"></a><a name="index-pony-palette-419"></a><a name="index-colour-palette-420"></a>The following <samp><span class="command">bash</span></samp> code will print the palette the ponies (the terminals)
+   <p><a name="index-palette-420"></a><a name="index-xterm-palette-421"></a><a name="index-pony-palette-422"></a><a name="index-colour-palette-423"></a>The following <samp><span class="command">bash</span></samp> code will print the palette the ponies (the terminals)
 use:
 <p><table class="cartouche" summary="cartouche" border="1"><tr><td>
 <pre class="example">     c=16
@@ -104,7 +104,7 @@ use:
 For the palette to be correct, which is especially important when you draw ponies, you
 must not redefine the colours in the range 16 to 255 (inclusive).
 
-   <p><a name="index-ttypony-421"></a>When a pony is added please also add a ttypony version, i.e. the pony files used in
+   <p><a name="index-ttypony-424"></a>When a pony is added please also add a ttypony version, i.e. the pony files used in
 TTY, but if you don't please state so in the pull request so we do not miss the
 create it; the simplest way to do this is to run <samp><span class="command">dev/dist.sh ttyponies</span></samp> after
 adding the ponies to <samp><span class="file">ponies/</span></samp>, running <samp><span class="command">dev/dist.sh ttyponies</span></samp> will build
@@ -114,7 +114,7 @@ needed symlinks.
    <p>To be able to run <samp><span class="command">dev/dist.sh ttyponies</span></samp> you must have the packages listed under
 <a href="Dependencies-for-pony-providers.html#Dependencies-for-pony-providers">Dependencies for pony providers</a>.
 
-   <p><a name="index-ponyquotes-422"></a><a name="index-quotes-423"></a>Also when adding new ponies, please map them up in the file <samp><span class="file">ponyquotes/ponies</span></samp>. 
+   <p><a name="index-ponyquotes-425"></a><a name="index-quotes-426"></a>Also when adding new ponies, please map them up in the file <samp><span class="file">ponyquotes/ponies</span></samp>. 
 If the pony is a new pony without any other alternative image just add it to a new
 line, without <samp><span class="file">.pony</span></samp>, preferably in its alphabetical position. If the file is
 a symlink add it to the same line as the target pony, and if the pony has and

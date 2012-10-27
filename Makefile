@@ -9,5 +9,6 @@ manual-update:
 	 git checkout $$branch					;\
 	 git rm "./pages/ponysay/*"				;\
 	 git stash pop						;\
+	 git mv "./ponysay" "./pages"                           ;\
 	)
 
