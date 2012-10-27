@@ -15,6 +15,10 @@ div.header {
     border-bottom : 1px solid rgb(0, 0, 0);
     width : 100%;
     height : 60px;
+    /*
+    font-family : 'Celestia Redux Alternate', 'Celestia Redux', 'Open Sans', sans-serif;
+    font-size : 14pt;
+    */
 }
 
 table.header {
@@ -54,7 +58,16 @@ table.header {
 }
 
 .title {
-    padding : 4px 0px 8px 10px;
+    passing : 4px 0px 8px 10px;
+    /*
+    position : relative;
+    left : 0px;
+    top : -8px;
+    margin-top : 10px;
+    padding-left : 10px;
+    padding-right : 10px;
+    font-family : 'Celestia Redux Alternate', 'Celestia Redux', 'Open Sans', sans-serif;
+    */
     font-size : 26pt;
     text-decoration : none;
 }
@@ -66,6 +79,22 @@ a:visited {color : #000000; text-decoration : none; border : 0px solid #FFFFFF; 
 a:hover   {color : #484848; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
 a:focus   {color : #000000; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
 
+
+/*
+@font-face {
+    font-family : 'Celestia Redux Alternate';
+    src : url('./fonts/CelestiaMediumRedux_alt1.55.ttf');
+    font-weight : normal;
+    font-style : normal;
+}
+
+@font-face {
+    font-family : 'Celestia Redux';
+    src : url('./fonts/CelestiaMediumRedux1.55.ttf');
+    font-weight : normal;
+    font-style : normal;
+}
+*/
 
 @font-face {
     font-family : 'Open Sans';
