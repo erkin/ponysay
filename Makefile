@@ -7,8 +7,8 @@ manual-update:
 	 git add "./ponysay"					;\
 	 git stash						;\
 	 git checkout $$branch					;\
-	 git rm "./pages/ponysay/*"				;\
-	 git stash pop						;\
-	 git mv "./ponysay" "./pages"                           ;\
 	)
+	git rm "./pages/ponysay/*"
+	git stash pop
+	git mv "./ponysay" "./pages"
 
