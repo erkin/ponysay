@@ -14,3 +14,48 @@ a:hover   {color : #EB5E6A; text-decoration : none; border : 0px solid #FFFFFF; 
 a:focus   {color : #CD656C; text-decoration : none; border : 0px solid #FFFFFF; background-color : transparent;}
 
 
+code {
+    color : #1B708F;
+}
+
+.option {
+    color : #007877;
+}
+
+.command {
+    color : #7C5385;
+}
+
+.file {
+    color : #267D5B;
+}
+
+.env {
+    color : #998235;
+}
+
+.var {
+    color : #000000;
+}
+
+
+a.option:hover {
+    color : #00A09F;
+}
+
+a.command:hover {
+    color : #A46EB0;
+}
+
+a.file:hover {
+    color : #0EC287;
+}
+
+a.env:hover {
+    color : #CCAD47;
+}
+
+a.var:hover {
+    color : #555555;
+}
+
