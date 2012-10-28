@@ -172,13 +172,13 @@ In versions earlier than version 2.0, the if the pony were a file name it had to
 include a `@code{/}'. This is not longer required and any existing pony name
 supersedes file names.
 
-@item -F PONY
+@item +f PONY
 @itemx ++file PONY
 @itemx ++pony PONY
-@opindex @option{-F}
+@opindex @option{+f}
 @opindex @option{++file}
 @opindex @option{++pony}
-Just as @option{-F}, but it uses extra (non-MLP:FiM) ponies instead of standard
+Just as @option{+f}, but it uses extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies
 
 @item -q PONY
@@ -206,15 +206,15 @@ Variadic variant of @option{-f}, meaning that all arguments added after this one
 will parsed as an argument to this option. Additionally, those options are added
 to @option{-f}.
 
-@item --F [PONY...]
+@item ++f [PONY...]
 @itemx ++files [PONY...]
 @itemx ++ponies [PONY...]
-@opindex @option{--F}
+@opindex @option{++f}
 @opindex @option{++files}
 @opindex @option{++ponies}
-Variadic variant of @option{-F}, meaning that all arguments added after this one
+Variadic variant of @option{+f}, meaning that all arguments added after this one
 will parsed as an argument to this option. Additionally, those options are added
-to @option{-F}.
+to @option{+f}.
 
 An important feature of this options, is that you can but it in the end of the
 command line, without any argument to get a random non-MLP:FiM pony.
@@ -1948,7 +1948,7 @@ English, e.g. British English, as the base language.
 @item best.pony
 @cindex best.pony
 The pony you think is [the] best pony. It should be a symlink pony. It is a feature
-affecting the @option{-f}, @option{-F} and @option{-q} options.
+affecting the @option{-f}, @option{+f} and @option{-q} options.
 
 @item pony symlink
 @itemx symlink pony

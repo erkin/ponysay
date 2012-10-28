@@ -71,7 +71,7 @@ Lista los ponis no pertenecientes a MLP:FiM con nombres alternativos dentro de p
 Selecciona un poni específico (ya sea un archivo o el nombre directamente), puedes usar esta
 opción con múltiples ponis y de estos será elejído uno al azar.
 .TP
-.B \-F, \+\+file, \+\+pony \fInombre\fP
+.B \+f, \+\+file, \+\+pony \fInombre\fP
 Selecciona un poni no pertenecientes a MLP:FiM (ya sea un archivo o el nombre directamente),
 puedes usar esta opción con múltiples ponis y de estos será elejído uno al azar.
 .TP

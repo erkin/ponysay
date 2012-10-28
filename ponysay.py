@@ -112,13 +112,13 @@ class Ponysay():
         ponydirs = vtponydirs if linuxvt and not usekms else xponydirs
         extraponydirs = extravtponydirs if linuxvt and not usekms else extraxponydirs
         
-        ## Variadic variants of -f, -F and -q
+        ## Variadic variants of -f, +f and -q
         if    args.opts['--f'] is not None:
             if args.opts['-f'] is not None:  args.opts['-f'] += args.opts['--f']
             else:                            args.opts['-f']  = args.opts['--f']
-        if    args.opts['--F'] is not None:
-            if args.opts['-F'] is not None:  args.opts['-F'] += args.opts['--F']
-            else:                            args.opts['-F']  = args.opts['--F']
+        if    args.opts['++f'] is not None:
+            if args.opts['+f'] is not None:  args.opts['+f'] += args.opts['++f']
+            else:                            args.opts['+f']  = args.opts['++F']
         if    args.opts['--q'] is not None:
             if args.opts['-q'] is not None:  args.opts['-q'] += args.opts['--q']
             else:                            args.opts['-q']  = args.opts['--q']
@@ -157,8 +157,8 @@ class Ponysay():
             
             ## The stuff
             if args.opts['-q'] is not None:
-                warn = (args.opts['-f'] is not None) or (args.opts['-F'] is not None)
-                if (len(args.opts['-q']) == 1) and ((args.opts['-q'][0] == '-f') or (args.opts['-q'][0] == '-F')):
+                warn = (args.opts['-f'] is not None) or (args.opts['+f'] is not None)
+                if (len(args.opts['-q']) == 1) and ((args.opts['-q'][0] == '-f') or (args.opts['-q'][0] == '+f')):
                     warn = True
                     if args.opts['-q'][0] == '-f':
                         args.opts['-q'] = args.files
@@ -166,7 +166,7 @@ class Ponysay():
                             args.opts['-q'] += args.opts['-f']
                 self.quote(args)
                 if warn:
-                    printerr('-q cannot be used at the same time as -f or -F.')
+                    printerr('-q cannot be used at the same time as -f or +f.')
             elif not unrecognised:
                 self.print_pony(args)
             else:
@@ -188,8 +188,8 @@ class Ponysay():
         ## If extraponies are used, change ponydir to extraponydir
         if args is None:
             ponydirs[:] = extraponydirs
-        elif args.opts['-F'] is not None:
-            args.opts['-f'] = args.opts['-F']
+        elif args.opts['+f'] is not None:
+            args.opts['-f'] = args.opts['+f']
             ponydirs[:] = extraponydirs
     
     
@@ -2384,7 +2384,7 @@ usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
 usage_common   = '[-c] [-W\033[4mCOLUMN\033[24m] [-b\033[4mSTYLE\033[24m]'
 usage_listhelp = '(-l | -L | -B | +l | +L | -v | -h)'
 usage_file     = '[-f\033[4mPONY\033[24m]* [[--] \033[4mmessage\033[24m]'
-usage_xfile    = '(-F\033[4mPONY\033[24m)* [[--] \033[4mmessage\033[24m]'
+usage_xfile    = '(+f\033[4mPONY\033[24m)* [[--] \033[4mmessage\033[24m]'
 usage_quote    = '(-q \033[4mPONY\033[24m)*'
 
 usage = '%s %s\n%s %s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
@@ -2438,10 +2438,10 @@ opts.add_argumentless(['-o', '--pony-only', '--ponyonly'],               help = 
 opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN', help = 'Specify column where the message should be wrapped.')
 opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',  help = 'Select a balloon style.')
 opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',   help = 'Select a pony.\nEither a file name or a pony name.')
-opts.add_argumented(  ['-F', '++file', '++pony'],        arg = 'PONY',   help = 'Select a non-MLP:FiM pony.')
+opts.add_argumented(  ['+f', '++file', '++pony'],        arg = 'PONY',   help = 'Select a non-MLP:FiM pony.')
 opts.add_argumented(  ['-q', '--quote'],                 arg = 'PONY',   help = 'Select a pony which will quote herself.')
 opts.add_variadic(    ['--f', '--files', '--ponies'],    arg = 'PONY')
-opts.add_variadic(    ['--F', '++files', '++ponies'],    arg = 'PONY')
+opts.add_variadic(    ['++f', '++files', '++ponies'],    arg = 'PONY')
 opts.add_variadic(    ['--q', '--quotes'],               arg = 'PONY')
 
 '''

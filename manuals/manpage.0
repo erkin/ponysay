@@ -69,7 +69,7 @@ List non-MLP:FiM pony files with alternative names inside brackets.
 Select a pony (either a file name or a pony name), you can use this options multiple times,
 and one of the will be selected randomly.
 .TP
-.B \-F, \+\+file, \+\+pony \fIname\fP
+.B \+f, \+\+file, \+\+pony \fIname\fP
 Select a non-MLP:FiM pony (either a file name or a pony name), you can use this options
 multiple times, and one of the will be selected randomly.
 .TP
