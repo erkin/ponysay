@@ -2097,6 +2097,8 @@ Environment variable @env{PONYSAY_WRAP_HYPHEN} has been added.
 Environment variable @env{PONYSAY_WRAP_LIMIT} has been added.
 @item
 Environment variable @env{PONYSAY_WRAP_EXCEED} has been added.
+@item
+Added support for @file{~/.ponysay.rc}.
 @end itemize
 
 

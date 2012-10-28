@@ -10,6 +10,8 @@ Version 3.0
 
 	Environment variable 'PONYSAY_WRAP_EXCEED' has been added.
 
+	Added support for ~/.ponysayrc.
+
 
 Version 2.9.1
 
