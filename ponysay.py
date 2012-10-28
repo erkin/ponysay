@@ -334,7 +334,9 @@ class Ponysay():
             if not alt:
                 autocorrect = SpelloCorrecter(ponydirs, '.pony')
                 (alternatives, dist) = autocorrect.correct(pony)
-                if (len(alternatives) > 0) and (dist <= 5): # TODO the limit `dist` should be configureable
+                limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
+                limit = 5 if len(limit) == 0 else int(dist)
+                if (len(alternatives) > 0) and (dist <= limit):
                     return self.__getponypath(alternatives, True)
             sys.stderr.write('I have never heard of anypony named %s\n' % (pony));
             exit(1)
@@ -691,7 +693,9 @@ class Ponysay():
             if not alt:
                 autocorrect = SpelloCorrecter(balloondirs, '.think' if isthink else '.say')
                 (alternatives, dist) = autocorrect.correct(balloon)
-                if (len(alternatives) > 0) and (dist <= 5): # TODO the limit `dist` should be configureable
+                limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
+                limit = 5 if len(limit) == 0 else int(dist)
+                if (len(alternatives) > 0) and (dist <= limit):
                     return self.__getballoonpath(alternatives, True)
             sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
             exit(1)
@@ -826,10 +830,13 @@ class Ponysay():
         balloon = self.__getballoon(balloonfile) if args.opts['-o'] is None else None
         
         ## Get hyphen style
+        hyphen = environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
+        if (hyphen is None) or (len(hyphen) == 0):
+            hyphen = '-'
         hyphencolour = ''
         if args.opts['--colour-wrap'] is not None:
             hyphencolour = '\033[' + ';'.join(args.opts['--colour-wrap']) + 'm'
-        hyphen = '\033[31m' + hyphencolour + '-' # TODO make configurable
+        hyphen = '\033[31m' + hyphencolour + hyphen
         
         ## Link and balloon colouring
         linkcolour = ''

@@ -2,6 +2,10 @@ Version 3.0
 
 	Renamed option -F to +f and option --F to ++f.
 
+	Environment variable 'PONYSAY_TYPO_LIMIT' has been added.
+
+	Environment variable 'PONYSAY_WRAP_HYPHEN' has been added.
+
 
 Version 2.9
 

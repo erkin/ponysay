@@ -610,6 +610,29 @@ ponysay how your TTY palette looks, this feature lets you get the best images
 in TTY if you have Kernel Mode Setting (KMS) support.
 
 See @ref{KMS ponies} for information on how to use this.
+
+@item @env{PONYSAY_TYPO_LIMIT}
+@vindex @env{PONYSAY_TYPO_LIMIT}
+@cindex auto correction
+@cindex typo correction
+@cindex spello correction
+
+ponysay is able to auto correct misspelled pony names and balloon style name.
+Without consideration for transpositioning, the distance between two words are
+measured in the number of edits needed to get from one word to the other, with
+weighting on some character changes used to favour spellos over typos.
+
+By default if the weighted distance is greater than 5 for the closest words,
+auto correction ignored. This limit can be changed by exporting the limit to
+@env{PONYSAY_TYPO_LIMIT}; setting the limit to zero will disable auto correction.
+
+@item @env{PONYSAY_WRAP_HYPHEN}
+@vindex @env{PONYSAY_WRAP_HYPHEN}
+@cindex wrapping
+
+You can export what ponysay should use instead of a hyphen when wrapping messages.
+The hythen is red by default, if you want to change the colour or other formating,
+should should do so using the option @option{--colour-hyphen} (@option{--colour-wrap}).
 @end table
 
 
@@ -2050,6 +2073,10 @@ sequences.
 @itemize @bullet
 @item
 Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}.
+@item
+Environment variable @env{PONYSAY_TYPO_LIMIT} has been added.
+@item
+Environment variable @env{PONYSAY_WRAP_HYPHEN} has been added.
 @end itemize
 
 
