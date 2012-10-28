@@ -1431,7 +1431,7 @@ class Backend():
     def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour):
         self.message = message
         self.ponyfile = ponyfile
-        self.wrapcolumn = None if wrapcolumn is None else wrapcolumn - balloon.minwidth
+        self.wrapcolumn = None if wrapcolumn is None else wrapcolumn - (0 if balloon is None else balloon.minwidth)
         self.width = width
         self.balloon = balloon
         self.hyphen = hyphen
@@ -2254,7 +2254,7 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
                 return 0x7FFFFF00 | y
             my = myy
         return my[xn]
-    
+
 
 
 
