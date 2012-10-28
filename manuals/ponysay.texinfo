@@ -2046,8 +2046,16 @@ sequences.
 @cindex versions
 @cindex previous releases
 
+@heading Version 3.0
+@itemize @bullet
+@item
+Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}.
+@end itemize
+
+
 @heading Version 2.9
 @itemize @bullet
+@item
 New ponies: @file{pinkieumbrelahatfear}, @file{twilighttime}
 @item
 New extraponies: @file{molestia} (Tumblr)
