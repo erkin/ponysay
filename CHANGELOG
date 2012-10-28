@@ -11,6 +11,11 @@ Version 3.0
 	Environment variable 'PONYSAY_WRAP_EXCEED' has been added.
 
 
+Version 2.9.1
+
+	Bug fix: correction in the -W option broke the -o option.
+
+
 Version 2.9
 
 	New ponies: pinkieumbrelahatfear, twilighttime
