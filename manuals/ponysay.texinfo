@@ -306,6 +306,7 @@ Just as @option{-L}, except it lists extra (non-MLP:FiM) ponies instead of stand
 (MLP:FiM) ponies.
 
 @item -B
+@itemx --bubblelist
 @itemx --balloonlist
 @opindex @option{-B}
 @opindex @option{--bubblelist}
