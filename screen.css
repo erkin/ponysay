@@ -13,7 +13,6 @@ div.header {
     border-right : 0;
     border-top : 0;
     border-bottom : 1px solid rgb(0, 0, 0);
-    width : 100%;
     height : 60px;
     /*
     font-family : 'Celestia Redux Alternate', 'Celestia Redux', 'Open Sans', sans-serif;
@@ -25,7 +24,6 @@ table.header {
     background-color : rgb(200, 221, 242);
     color : rgb(0, 0, 0);
     border : 0;
-    width : 100%;
     height : 100%;
 }
 
@@ -40,6 +38,10 @@ table.main {
     width : 100%;
     height : 100%;
     border : 0;
+}
+
+.headspace {
+    width : 8px;
 }
 
 #left {
