@@ -2273,200 +2273,200 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
 
 
 '''
-The user's home directory
+Start the program from ponysay.__init__ if this is the executed file
 '''
-HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
+if __name__ == '__main__':
+    '''
+    The user's home directory
+    '''
+    HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
+    
+    
+    '''
+    Whether the program is execute in Linux VT (TTY)
+    '''
+    linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
+    
+    
+    '''
+    Whether the script is executed as ponythink
+    '''
+    isthink =  (len(__file__) >= len('think'))    and (__file__.endswith('think'))
+    isthink = ((len(__file__) >= len('think.py')) and (__file__.endswith('think.py'))) or isthink
+    
+    
+    '''
+    Whether stdin is piped
+    '''
+    pipelinein = not sys.stdin.isatty()
+    
+    '''
+    Whether stdout is piped
+    '''
+    pipelineout = not sys.stdout.isatty()
+    
+    '''
+    Whether stderr is piped
+    '''
+    pipelineerr = not sys.stderr.isatty()
+    
+    
+    '''
+    Whether KMS is used
+    '''
+    usekms = Ponysay.isUsingKMS()
 
 
-'''
-Whether the program is execute in Linux VT (TTY)
-'''
-linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
-
-
-'''
-Whether the script is executed as ponythink
-'''
-isthink =  (len(__file__) >= len('think'))    and (__file__.endswith('think'))
-isthink = ((len(__file__) >= len('think.py')) and (__file__.endswith('think.py'))) or isthink
-
-
-'''
-Whether stdin is piped
-'''
-pipelinein = not sys.stdin.isatty()
-
-'''
-Whether stdout is piped
-'''
-pipelineout = not sys.stdout.isatty()
-
-'''
-Whether stderr is piped
-'''
-pipelineerr = not sys.stderr.isatty()
-
-
-'''
-Whether KMS is used
-'''
-usekms = Ponysay.isUsingKMS()
-
-
-'''
-Mode string that modifies or adds $ variables in the pony image
-'''
-mode = ''
-
-
-'''
-The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-'''
-appendset = set()
-xponydirs = []
-_ponydirs = [HOME + '/.local/share/ponysay/ponies/', '/usr/share/ponysay/ponies/']
-for ponydir in _ponydirs:
-    if os.path.isdir(ponydir) and (ponydir not in appendset):
-        xponydirs.append(ponydir)
-        appendset.add(ponydir)
-appendset = set()
-vtponydirs = []
-_ponydirs = [HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
-for ponydir in _ponydirs:
-    if os.path.isdir(ponydir) and (ponydir not in appendset):
-        vtponydirs.append(ponydir)
-        appendset.add(ponydir)
-
-
-'''
-The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-'''
-appendset = set()
-extraxponydirs = []
-_extraponydirs = [HOME + '/.local/share/ponysay/extraponies/', '/usr/share/ponysay/extraponies/']
-for extraponydir in _extraponydirs:
-    if os.path.isdir(extraponydir) and (extraponydir not in appendset):
-        extraxponydirs.append(extraponydir)
-        appendset.add(extraponydir)
-appendset = set()
-extravtponydirs = []
-_extraponydirs = [HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
-for extraponydir in _extraponydirs:
-    if os.path.isdir(extraponydir) and (extraponydir not in appendset):
-        extravtponydirs.append(extraponydir)
-        appendset.add(extraponydir)
-
-
-'''
-The directories where quotes files are stored
-'''
-appendset = set()
-quotedirs = []
-_quotedirs = [HOME + '/.local/share/ponysay/quotes/', '/usr/share/ponysay/quotes/']
-for quotedir in _quotedirs:
-    if os.path.isdir(quotedir) and (quotedir not in appendset):
-        quotedirs.append(quotedir)
-        appendset.add(quotedir)
-
-
-'''
-The directories where balloon style files are stored
-'''
-appendset = set()
-balloondirs = []
-_balloondirs = [HOME + '/.local/share/ponysay/balloons/', '/usr/share/ponysay/balloons/']
-for balloondir in _balloondirs:
-    if os.path.isdir(balloondir) and (balloondir not in appendset):
-        balloondirs.append(balloondir)
-        appendset.add(balloondir)
-
-
-'''
-ucsmap files
-'''
-appendset = set()
-ucsmaps = []
-_ucsmaps = [HOME + '/.local/share/ponysay/ucsmap', '/usr/share/ponysay/ucsmap']
-for ucsmap in _ucsmaps:
-    if os.path.isdir(ucsmap) and (ucsmap not in appendset):
-        ucsmaps.append(ucsmap)
-        appendset.add(ucsmap)
-
-
-
-usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
-usage_common   = '[-c] [-W\033[4mCOLUMN\033[24m] [-b\033[4mSTYLE\033[24m]'
-usage_listhelp = '(-l | -L | -B | +l | +L | -v | -h)'
-usage_file     = '[-f\033[4mPONY\033[24m]* [[--] \033[4mmessage\033[24m]'
-usage_xfile    = '(+f\033[4mPONY\033[24m)* [[--] \033[4mmessage\033[24m]'
-usage_quote    = '(-q \033[4mPONY\033[24m)*'
-
-usage = '%s %s\n%s %s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
-                                                 usage_saythink, usage_common, usage_file,
-                                                 usage_saythink, usage_common, usage_xfile,
-                                                 usage_saythink, usage_common, usage_quote)
-
-usage = usage.replace('\033[', '\0')
-for sym in ('[', ']', '(', ')', '|', '...', '*'):
-    usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
-usage = usage.replace('\0', '\033[')
-
-'''
-Argument parsing
-'''
-opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
-                 description = 'cowsay reimplemention for ponies',
-                 usage       = usage,
-                 longdescription =
+    '''
+    Mode string that modifies or adds $ variables in the pony image
+    '''
+    mode = ''
+    
+    
+    '''
+    The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
+    '''
+    appendset = set()
+    xponydirs = []
+    _ponydirs = [HOME + '/.local/share/ponysay/ponies/', '/usr/share/ponysay/ponies/']
+    for ponydir in _ponydirs:
+        if os.path.isdir(ponydir) and (ponydir not in appendset):
+            xponydirs.append(ponydir)
+            appendset.add(ponydir)
+    appendset = set()
+    vtponydirs = []
+    _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
+    for ponydir in _ponydirs:
+        if os.path.isdir(ponydir) and (ponydir not in appendset):
+            vtponydirs.append(ponydir)
+            appendset.add(ponydir)
+    
+    
+    '''
+    The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
+    '''
+    appendset = set()
+    extraxponydirs = []
+    _extraponydirs = [HOME + '/.local/share/ponysay/extraponies/', '/usr/share/ponysay/extraponies/']
+    for extraponydir in _extraponydirs:
+        if os.path.isdir(extraponydir) and (extraponydir not in appendset):
+            extraxponydirs.append(extraponydir)
+            appendset.add(extraponydir)
+    appendset = set()
+    extravtponydirs = []
+    _extraponydirs = [HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
+    for extraponydir in _extraponydirs:
+        if os.path.isdir(extraponydir) and (extraponydir not in appendset):
+            extravtponydirs.append(extraponydir)
+            appendset.add(extraponydir)
+    
+    
+    '''
+    The directories where quotes files are stored
+    '''
+    appendset = set()
+    quotedirs = []
+    _quotedirs = [HOME + '/.local/share/ponysay/quotes/', '/usr/share/ponysay/quotes/']
+    for quotedir in _quotedirs:
+        if os.path.isdir(quotedir) and (quotedir not in appendset):
+            quotedirs.append(quotedir)
+            appendset.add(quotedir)
+    
+    
+    '''
+    The directories where balloon style files are stored
+    '''
+    appendset = set()
+    balloondirs = []
+    _balloondirs = [HOME + '/.local/share/ponysay/balloons/', '/usr/share/ponysay/balloons/']
+    for balloondir in _balloondirs:
+        if os.path.isdir(balloondir) and (balloondir not in appendset):
+            balloondirs.append(balloondir)
+            appendset.add(balloondir)
+    
+    
+    '''
+    ucsmap files
+    '''
+    appendset = set()
+    ucsmaps = []
+    _ucsmaps = [HOME + '/.local/share/ponysay/ucsmap', '/usr/share/ponysay/ucsmap']
+    for ucsmap in _ucsmaps:
+        if os.path.isdir(ucsmap) and (ucsmap not in appendset):
+            ucsmaps.append(ucsmap)
+            appendset.add(ucsmap)
+    
+    
+    
+    usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
+    usage_common   = '[-c] [-W\033[4mCOLUMN\033[24m] [-b\033[4mSTYLE\033[24m]'
+    usage_listhelp = '(-l | -L | -B | +l | +L | -v | -h)'
+    usage_file     = '[-f\033[4mPONY\033[24m]* [[--] \033[4mmessage\033[24m]'
+    usage_xfile    = '(+f\033[4mPONY\033[24m)* [[--] \033[4mmessage\033[24m]'
+    usage_quote    = '(-q \033[4mPONY\033[24m)*'
+    
+    usage = '%s %s\n%s %s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
+                                                     usage_saythink, usage_common, usage_file,
+                                                     usage_saythink, usage_common, usage_xfile,
+                                                     usage_saythink, usage_common, usage_quote)
+    
+    usage = usage.replace('\033[', '\0')
+    for sym in ('[', ']', '(', ')', '|', '...', '*'):
+        usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
+    usage = usage.replace('\0', '\033[')
+    
+    '''
+    Argument parsing
+    '''
+    opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
+                     description = 'cowsay reimplemention for ponies',
+                     usage       = usage,
+                     longdescription =
 '''Ponysay displays an image of a pony saying some text provided by the user.
 If \033[4mmessage\033[24m is not provided, it accepts standard input. For an extensive
 documentation run `info ponysay`, or for just a little more help than this
 run `man ponysay`. Ponysay has so much more to offer than described here.''')
-
-opts.add_argumentless(['--quoters'])
-opts.add_argumentless(['--onelist'])
-opts.add_argumentless(['++onelist'])
-
-opts.add_argumentless(['-X', '--256-colours', '--256colours', '--x-colours'])
-opts.add_argumentless(['-V', '--tty-colours', '--ttycolours', '--vt-colours'])
-opts.add_argumentless(['-K', '--kms-colours', '--kmscolours'])
-
-opts.add_argumented(['+c', '--colour'],                      arg = 'COLOUR')
-opts.add_argumented(['--colour-bubble', '--colour-balloon'], arg = 'COLOUR')
-opts.add_argumented(['--colour-link'],                       arg = 'COLOUR')
-opts.add_argumented(['--colour-msg', '--colour-message'],    arg = 'COLOUR')
-opts.add_argumented(['--colour-pony'],                       arg = 'COLOUR')
-opts.add_argumented(['--colour-wrap', '--colour-hyphen'],    arg = 'COLOUR')
-
-opts.add_argumentless(['-h', '--help'],                                  help = 'Print this help message.')
-opts.add_argumentless(['-v', '--version'],                               help = 'Print the version of the program.')
-opts.add_argumentless(['-l', '--list'],                                  help = 'List pony names.')
-opts.add_argumentless(['-L', '--symlist', '--altlist'],                  help = 'List pony names with alternatives.')
-opts.add_argumentless(['+l', '++list'],                                  help = 'List non-MLP:FiM pony names.')
-opts.add_argumentless(['+L', '++symlist', '++altlist'],                  help = 'List non-MLP:FiM pony names with alternatives.')
-opts.add_argumentless(['-A', '--all'],                                   help = 'List all pony names.')
-opts.add_argumentless(['+A', '++all', '--symall', '--altall'],           help = 'List all pony names with alternatives.')
-opts.add_argumentless(['-B', '--bubblelist', '--balloonlist'],           help = 'List balloon styles.')
-opts.add_argumentless(['-c', '--compact'],                               help = 'Compress messages.')
-opts.add_argumentless(['-o', '--pony-only', '--ponyonly'],               help = 'Print only the pony.')
-opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN', help = 'Specify column where the message should be wrapped.')
-opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',  help = 'Select a balloon style.')
-opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',   help = 'Select a pony.\nEither a file name or a pony name.')
-opts.add_argumented(  ['+f', '++file', '++pony'],        arg = 'PONY',   help = 'Select a non-MLP:FiM pony.')
-opts.add_argumented(  ['-q', '--quote'],                 arg = 'PONY',   help = 'Select a pony which will quote herself.')
-opts.add_variadic(    ['--f', '--files', '--ponies'],    arg = 'PONY')
-opts.add_variadic(    ['++f', '++files', '++ponies'],    arg = 'PONY')
-opts.add_variadic(    ['--q', '--quotes'],               arg = 'PONY')
-
-'''
-Whether at least one unrecognised option was used
-'''
-unrecognised = not opts.parse()
-
-
-
-'''
-Start the program from ponysay.__init__ if this is the executed file
-'''
-if __name__ == '__main__':
+    
+    opts.add_argumentless(['--quoters'])
+    opts.add_argumentless(['--onelist'])
+    opts.add_argumentless(['++onelist'])
+    
+    opts.add_argumentless(['-X', '--256-colours', '--256colours', '--x-colours'])
+    opts.add_argumentless(['-V', '--tty-colours', '--ttycolours', '--vt-colours'])
+    opts.add_argumentless(['-K', '--kms-colours', '--kmscolours'])
+    
+    opts.add_argumented(['+c', '--colour'],                      arg = 'COLOUR')
+    opts.add_argumented(['--colour-bubble', '--colour-balloon'], arg = 'COLOUR')
+    opts.add_argumented(['--colour-link'],                       arg = 'COLOUR')
+    opts.add_argumented(['--colour-msg', '--colour-message'],    arg = 'COLOUR')
+    opts.add_argumented(['--colour-pony'],                       arg = 'COLOUR')
+    opts.add_argumented(['--colour-wrap', '--colour-hyphen'],    arg = 'COLOUR')
+    
+    opts.add_argumentless(['-h', '--help'],                                  help = 'Print this help message.')
+    opts.add_argumentless(['-v', '--version'],                               help = 'Print the version of the program.')
+    opts.add_argumentless(['-l', '--list'],                                  help = 'List pony names.')
+    opts.add_argumentless(['-L', '--symlist', '--altlist'],                  help = 'List pony names with alternatives.')
+    opts.add_argumentless(['+l', '++list'],                                  help = 'List non-MLP:FiM pony names.')
+    opts.add_argumentless(['+L', '++symlist', '++altlist'],                  help = 'List non-MLP:FiM pony names with alternatives.')
+    opts.add_argumentless(['-A', '--all'],                                   help = 'List all pony names.')
+    opts.add_argumentless(['+A', '++all', '--symall', '--altall'],           help = 'List all pony names with alternatives.')
+    opts.add_argumentless(['-B', '--bubblelist', '--balloonlist'],           help = 'List balloon styles.')
+    opts.add_argumentless(['-c', '--compact'],                               help = 'Compress messages.')
+    opts.add_argumentless(['-o', '--pony-only', '--ponyonly'],               help = 'Print only the pony.')
+    opts.add_argumented(  ['-W', '--wrap'],                  arg = 'COLUMN', help = 'Specify column where the message should be wrapped.')
+    opts.add_argumented(  ['-b', '--bubble', '--balloon'],   arg = 'STYLE',  help = 'Select a balloon style.')
+    opts.add_argumented(  ['-f', '--file', '--pony'],        arg = 'PONY',   help = 'Select a pony.\nEither a file name or a pony name.')
+    opts.add_argumented(  ['+f', '++file', '++pony'],        arg = 'PONY',   help = 'Select a non-MLP:FiM pony.')
+    opts.add_argumented(  ['-q', '--quote'],                 arg = 'PONY',   help = 'Select a pony which will quote herself.')
+    opts.add_variadic(    ['--f', '--files', '--ponies'],    arg = 'PONY')
+    opts.add_variadic(    ['++f', '++files', '++ponies'],    arg = 'PONY')
+    opts.add_variadic(    ['--q', '--quotes'],               arg = 'PONY')
+    
+    '''
+    Whether at least one unrecognised option was used
+    '''
+    unrecognised = not opts.parse()
+    
+    
+    ## Start
     Ponysay(opts)
