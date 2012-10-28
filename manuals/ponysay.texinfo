@@ -435,6 +435,7 @@ a symbolic link, @option{-q} cannot determine which quotes to use.
 * Ponification::        Ponify your fortune cookies.
 * Running on TTY::      Running on TTY (Linux VT).
 * Running on screen::   Running on @command{screen}.
+* ~/.ponysayrc::        Using the @file{~/.ponysayrc} file.
 @end menu
 
 
@@ -538,6 +539,34 @@ can be done by adding to your @file{~/.bashrc}:
     @}
 @end example
 @end cartouche
+
+
+@node ~/.ponysayrc
+@section @file{~/.ponysayrc}
+@cindex @file{~/.ponysayrc}
+@cindex environment variables
+
+If you have the file @file{~/.ponysayrc} (@file{.ponysayrc} in your home directory,
+the home directory can be spoofed by changing the system environment @env{HOME},)
+the first thing @command{ponysay} does is running that file. This can be used for
+modifing environment variables (see @ref{Environment variables}). For your convience
+this can be done by modifing the map @code{env}. The code in @file{~/.ponysayrc} must
+be written in Python 3.
+
+For example if you want to set the @env{PONYSAY_SHELL_LINES} to 5, but only 1 if you
+are using Linux VT (TTY), your @file{~/.ponysayrc} may look like this:
+@cartouche
+@example
+if env[TERM] == 'linux':
+    env[PONYSAY_SHELL_LINES] = 1
+else:
+    env[PONYSAY_SHELL_LINES] = 5
+@end example
+@end cartouche
+
+You can examine the source code of @command{ponysay} to figure out some nice hacking
+you may want to do, everything in the source code can be used directly as long as it
+is defined before @file{~/.ponysayrc} is interpreted.
 
 
 
