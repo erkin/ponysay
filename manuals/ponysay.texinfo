@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.9
+@set VERSION 2.9.1
 
 @defindex op
 @synindex op vr
@@ -2045,6 +2045,13 @@ sequences.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 2.9.1
+@itemize @bullet
+@item
+Bug fix: correction in the -W option broke the -o option.
+@end itemize
+
 
 @heading Version 2.9
 @itemize @bullet
