@@ -15,12 +15,12 @@ _opts=(
 _tty_select=(
     '(-q --quite)'{-q,--quote}'[Select ponies for MLP:FiM quotes]: :_path_files -W '/usr/share/ponysay/ttyponies' -g "*(\:r)"'
     '(-f --pony)'{-f,--pony}'[select pony]: :_path_files -W '/usr/share/ponysay/ttyponies/' -g "*(\:r)"'
-    '(-F ++pony)'{-F,++pony}'[Select a extra pony]: :_path_files -W '/usr/share/ponysay/extrattyponies' -g "*(\:r)"'
+    '(+f ++pony)'{+f,++pony}'[Select a extra pony]: :_path_files -W '/usr/share/ponysay/extrattyponies' -g "*(\:r)"'
     )
 _select=(
     '(-q --quite)'{-q,--quote}'[Select ponies for MLP:FiM quotes]: :_path_files -W '/usr/share/ponysay/ponies' -g "*(\:r)"'
     '(-f --pony)'{-f,--pony}'[select pony]: :_path_files -W '/usr/share/ponysay/ponies/' -g "*(\:r)"'
-    '(-F ++pony)'{-F,++pony}'[Select a extra pony]: :_path_files -W '/usr/share/ponysay/extraponies' -g "*(\:r)"'
+    '(+f ++pony)'{+f,++pony}'[Select a extra pony]: :_path_files -W '/usr/share/ponysay/extraponies' -g "*(\:r)"'
     )
 if [[ "${(f)"$(tty)"##*/}" == "tty*" ]]; then
     _arguments \

@@ -13,7 +13,7 @@ _ponysay()
 	ponies=$('/usr/bin/ponysay' --onelist)
 	COMPREPLY=( $( compgen -W "$ponies" -- "$cur" ) )
 
-    elif [ $prev = "-F" ] || [ $prev = "++pony" ] || [ $prev = "++file" ]; then
+    elif [ $prev = "+f" ] || [ $prev = "++pony" ] || [ $prev = "++file" ]; then
 	extraponies=$('/usr/bin/ponysay' ++onelist)
 	COMPREPLY=( $( compgen -W "$extraponies" -- "$cur" ) )
 
