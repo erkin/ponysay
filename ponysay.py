@@ -830,7 +830,7 @@ class Ponysay():
         balloon = self.__getballoon(balloonfile) if args.opts['-o'] is None else None
         
         ## Get hyphen style
-        hyphen = environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
+        hyphen = os.environ['PONYSAY_WRAP_HYPHEN'] if 'PONYSAY_WRAP_HYPHEN' in os.environ else None
         if (hyphen is None) or (len(hyphen) == 0):
             hyphen = '-'
         hyphencolour = ''
@@ -2280,6 +2280,16 @@ if __name__ == '__main__':
     The user's home directory
     '''
     HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
+    
+    ## Change system enviroments with ~/.ponysayrc
+    if os.path.exists(HOME + '/.ponysayrc'):
+        with open(HOME + '/.ponysayrc', 'rb') as ponysayrc:
+            code = ponysayrc.read().decode('utf8', 'replace') + '\n'
+            env = os.environ
+            code = compile(code, HOME + '/.ponysayrc', 'exec')
+            exec(code)
+    
+    HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~') # in case ~/.ponysayrc changes it
     
     
     '''
