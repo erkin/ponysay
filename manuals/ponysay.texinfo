@@ -633,6 +633,22 @@ auto correction ignored. This limit can be changed by exporting the limit to
 You can export what ponysay should use instead of a hyphen when wrapping messages.
 The hythen is red by default, if you want to change the colour or other formating,
 should should do so using the option @option{--colour-hyphen} (@option{--colour-wrap}).
+
+@item @env{PONYSAY_WRAP_LIMIT}
+@vindex @env{PONYSAY_WRAP_LIMIT}
+@cindex wrapping
+
+Defines how long a word mush be to be hyphenated. This is used for to wrap words that
+are long so the output gets as pretty as possible. This s not the only condition under
+which a word can be hyphenated, it can also be hyphenated if the word cannot fit
+otherwise. The default value is 8.
+
+@item @env{PONYSAY_WRAP_EXCEED}
+@vindex @env{PONYSAY_WRAP_EXCEED}
+@cindex wrapping
+
+Defines how much a word must exceed the wrapping point to be hyphenated. This setting
+is used togather with @env{PONYSAY_WRAP_LIMIT}. The default value is 5.
 @end table
 
 
@@ -2077,6 +2093,10 @@ Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f
 Environment variable @env{PONYSAY_TYPO_LIMIT} has been added.
 @item
 Environment variable @env{PONYSAY_WRAP_HYPHEN} has been added.
+@item
+Environment variable @env{PONYSAY_WRAP_LIMIT} has been added.
+@item
+Environment variable @env{PONYSAY_WRAP_EXCEED} has been added.
 @end itemize
 
 

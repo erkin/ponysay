@@ -1771,6 +1771,12 @@ class Backend():
     @return  :str         The message wrapped
     '''
     def __wrapMessage(self, message, wrap):
+        wraplimit = os.environ['PONYSAY_WRAP_LIMIT'] if 'PONYSAY_WRAP_LIMIT' in os.environ else ''
+        wraplimit = 8 if len(wraplimit) == 0 else int(wraplimit)
+        
+        wrapexceed = os.environ['PONYSAY_WRAP_EXCEED'] if 'PONYSAY_WRAP_EXCEED' in os.environ else ''
+        wrapexceed = 5 if len(wrapexceed) == 0 else int(wrapexceed)
+        
         buf = ''
         try:
             AUTO_PUSH = '\033[01010~'
@@ -1837,11 +1843,11 @@ class Backend():
                         mm = 0
                         bisub = 0
                         iwrap = wrap - (0 if indent == 1 else indentc)
-                            
-                        while ((w > 8) and (cols > w + 5)) or (cols > iwrap): # TODO make configurable
+                        
+                        while ((w > wraplimit) and (cols > w + wrapexceed)) or (cols > iwrap):
                             ## wrap
                             x = w;
-                            if mm + x not in map: # Too much whitespace ?
+                            if mm + x not in map: # Too much whitespace?
                                 cols = 0
                                 break
                             nbsp = b[map[mm + x]] == ' '
@@ -1879,7 +1885,8 @@ class Backend():
                                 buf += line[:indent]
                                 w -= indentc
                         for bb in b[:bi]:
-                            buf += bb
+                            if bb is not None:
+                                buf += bb
                         w -= cols
                         cols = 0
                         bi = 0

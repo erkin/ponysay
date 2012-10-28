@@ -6,6 +6,10 @@ Version 3.0
 
 	Environment variable 'PONYSAY_WRAP_HYPHEN' has been added.
 
+	Environment variable 'PONYSAY_WRAP_LIMIT' has been added.
+
+	Environment variable 'PONYSAY_WRAP_EXCEED' has been added.
+
 
 Version 2.9
 
