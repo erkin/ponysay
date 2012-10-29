@@ -2415,7 +2415,7 @@ if __name__ == '__main__':
     usage_listhelp = '(-l | -L | -B | +l | +L | -v | -h)'
     usage_file     = '[-f\033[4mPONY\033[24m]* [[--] \033[4mmessage\033[24m]'
     usage_xfile    = '(+f\033[4mPONY\033[24m)* [[--] \033[4mmessage\033[24m]'
-    usage_quote    = '(-q \033[4mPONY\033[24m)*'
+    usage_quote    = '(-q\033[4mPONY\033[24m)*'
     
     usage = '%s %s\n%s %s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
                                                      usage_saythink, usage_common, usage_file,
