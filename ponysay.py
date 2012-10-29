@@ -585,6 +585,7 @@ class Ponysay():
         
         ## UCS:ise and sort
         self.__ucsise(ponies)
+        ponies = list(ponies)
         ponies.sort()
         
         ## Print each one on a seperate line, but skip duplicates
