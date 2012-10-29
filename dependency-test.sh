@@ -7,6 +7,7 @@ rr=0 # runtime required
 ro=0 # runtime optional
 pv=0 # python version
 
+
 (hash chmod        2>/dev/null) || (br=1 ; ro=1 ; echo 'Missing chmod, install coreutils [build+runtime required]')
 
 (hash gzip         2>/dev/null) || (bo=1 ;        echo 'Missing gzip, install gzip [build optional]')
@@ -17,8 +18,8 @@ pv=0 # python version
 
 (hash cut 2>/dev/null) && (hash python 2>/dev/null) &&
     (test ! $(env python --version 2>&1 | cut -d ' ' -f 2 | cut -d '.' -f 1) = 3) && (
-	(hash python3 2>/dev/null) ||
-	    (br=1 ; rr=1 ; pv=1 ;                 echo 'Missing python>=3, install python (may be named python3) [build+runtime required]'))
+        (hash python3 2>/dev/null) ||
+            (br=1 ; rr=1 ; pv=1 ;                 echo 'Missing python>=3, install python (may be named python3) [build+runtime required]'))
 
 (hash stty         2>/dev/null) || (rr=1 ;        echo 'Missing stty, install coreutils [runtime required]')
 
@@ -36,3 +37,4 @@ pv=0 # python version
     echo && echo 'Everything appears to be in order, enjoy ponysay!'
 
 echo
+
