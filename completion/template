@@ -4,7 +4,7 @@
 	(multiple unargumented
 		((options -h --help)                      (complete --help)        (desc 'Show summary of options'))
 		((options -v --version)                   (complete --version)     (desc 'Show version of program'))
-		((options -c --compress)                  (complete --compress)    (desc 'Compress message'))
+		((options -c --compress --compact)        (complete --compact)     (desc 'Compress message'))
 		((options -l --list)                      (complete --list)        (desc 'List all MLP:FiM ponies'))
 		((options -L --altlist --symlist)         (complete --symlist)     (desc 'List all MLP:FiM ponies, with symlink mapping'))
 		((options +l ++list)                      (complete ++list)        (desc 'List all non-MLP:FiM ponies'))
