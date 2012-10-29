@@ -267,6 +267,7 @@ on which hand is used to press the key, is also allowed.
 @itemx --compress
 @opindex @option{-c}
 @opindex @option{--compress}
+@opindex @option{--compact}
 @pindex @command{figlet}
 @pindex @command{TOIlet}
 Compress the message in the same way @command{cowsay} does, that is basically
