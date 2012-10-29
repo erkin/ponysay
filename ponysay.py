@@ -1230,15 +1230,16 @@ class ArgParser():
         n = len(optqueue)
         while i < n:
             opt = optqueue[i]
-            arg = argqueue[i]
+            arg = argqueue[i] if len(argqueue) > i else None
             i += 1
             opt = self.optmap[opt][0]
             if (opt not in self.opts) or (self.opts[opt] is None):
                 self.opts[opt] = []
-            self.opts[opt].append(arg)
+            if len(argqueue) >= i:
+                self.opts[opt].append(arg)
         
         for arg in self.__arguments:
-            if (arg[0] == VARIADIC):
+            if arg[0] == VARIADIC:
                 varopt = self.opts[arg[1][0]]
                 if varopt is not None:
                     additional = ','.join(self.files).split(',') if len(self.files) > 0 else []
