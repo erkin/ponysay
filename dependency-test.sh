@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Compatible with  bash  dash  zsh
+# but not with     fish
+
+
+
 br=0 # build required
 bs=0 # build recommended
 bo=0 # build optional

@@ -871,6 +871,9 @@ transparent background, and pixelated are the properties that makes a picture go
 
 We have provided a script that should run one most, if not all shells, named
 @file{./dependency-test.sh} that will help you track down any missing package.
+The script works in @command{bash}, @command{dash} and @command{zsh}, but not
+in @command{fish}, so case you @command{sh} links to @command{fish}, run
+@command{bash dependency-test.sh} (or with one of the other compatible shells.)
 
 @menu
 * Required runtime dependencies::       Required runtime dependencies.
