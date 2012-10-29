@@ -357,6 +357,8 @@ class Setup():
                 if fileout is not None:  fileout.close()
                 if filein  is not None:  filein .close()
         
+        (fileout, filein) = (None, None)
+        
         env = conf['custom-env-python']
         if env is None:
             (out, err) = Popen(['env', 'python', '--version'], stdout=PIPE, stderr=PIPE).communicate()
@@ -371,7 +373,6 @@ class Setup():
                 mane = True
                 break
         if mane:
-            (fileout, filein) = (None, None)
             try:
                 fileout = open('ponysay.install', 'wb+')
                 filein = open('ponysay.py', 'rb')
@@ -432,16 +433,44 @@ class Setup():
             if ext is not None:
                 compress('ponysay.pdf', 'ponysay.pdf.' + ext, ext)
         
+        for command in commands:
+            source = 'completion/template'
+            sourceed = 'completion/template.%s' % (command)
+            try:
+                fileout = open(sourceed, 'wb+')
+                filein = open(source, 'rb')
+                data = filein.read().decode('utf-8', 'replace')
+                
+                if data.startswith('(ponysay\n'):
+                    data = ('(%s ' % command) + data[len('(ponysay\n'):]
+                elif data.startswith('(ponysay '):
+                    data = ('(%s ' % command) + data[len('(ponysay '):]
+                elif '\n(ponysay\n' in data:
+                    edpos = data.find('\n(ponysay\n')
+                    data = data[:edpos] + ('\n(%s\n' % command) + data[edpas + len('\n(ponysay\n'):]
+                elif '\n(ponysay ' in data:
+                    data = data[:edpos] + ('\n(%s ' % command) + data[edpas + len('\n(ponysay '):]
+                else:
+                    raise Exception('File %s does not look like expected' % source)
+                
+                fileout.write(data.encode('utf-8'))
+            finally:
+                if fileout is not None:  fileout.close()
+                if filein  is not None:  filein .close()
+        
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
-                src = 'completion/%s-completion.%s' % (shell, 'sh' if shell == 'bash' else shell)
                 for command in commands:
+                    sourceed = 'completion/template.%s' % (command)
+                    generated = 'completion/%s-completion.%s' % (shell, command)
+                    generatorcmd = './completion/auto-auto-complete.py %s --output %s --source %s' % (shell, generated, sourceed)
+                    Popen(generatorcmd.split(' ')).communicate()
                     if conf[command] is not None:
-                        dest = src + '.' + command
+                        dest = generated + '.install'
                         (fileout, filein) = (None, None)
                         try:
                             fileout = open(dest, 'wb+')
-                            filein = open(src, 'rb')
+                            filein = open(generated, 'rb')
                             data = filein.read().decode('utf-8', 'replace')
                             
                             data = data.replace('/usr/bin/ponysay', conf[command])
@@ -512,7 +541,7 @@ class Setup():
             if conf[shell] is not None:
                 for command in commands:
                     if conf[command] is not None:
-                        src = 'completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command)
+                        src = 'completion/%s-completion.%s.install' % (shell, command)
                         dest = conf[shell].replace('ponysay', command)
                         self.cp(False, src, [dest])
         if conf['pdf'] is not None:
@@ -653,7 +682,8 @@ class Setup():
                     files.append('manuals/manpage%s.%s.%s' % (man, str(sec), comp))
         for shell in [item[0] for item in shells]:
             for command in commands:
-                files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
+                files.append('completion/%s-completion.%s' % (shell, command))
+                files.append('completion/%s-completion.%s.install' % (shell, command))
         
         self.removeLists(files, dirs)
         print()
@@ -670,6 +700,9 @@ class Setup():
         for shell in [item[0] for item in shells]:
             files.append('completion/%s-completion.%s.install' % (shell, 'sh' if shell == 'bash' else shell))
             files.append('completion/%s-completion-think.%s'   % (shell, 'sh' if shell == 'bash' else shell))
+        for shell in [item[0] for item in shells]:
+            for command in commands:
+                files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
         
         self.removeLists(files, dirs)
         print()
