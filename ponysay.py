@@ -2412,7 +2412,7 @@ if __name__ == '__main__':
     
     usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
     usage_common   = '[-c] [-W\033[4mCOLUMN\033[24m] [-b\033[4mSTYLE\033[24m]'
-    usage_listhelp = '(-l | -L | -B | +l | +L | -v | -h)'
+    usage_listhelp = '(-l | -L | -B | +l | +L | -A | + A | -v | -h)'
     usage_file     = '[-f\033[4mPONY\033[24m]* [[--] \033[4mmessage\033[24m]'
     usage_xfile    = '(+f\033[4mPONY\033[24m)* [[--] \033[4mmessage\033[24m]'
     usage_quote    = '(-q\033[4mPONY\033[24m)*'
