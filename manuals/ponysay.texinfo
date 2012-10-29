@@ -217,7 +217,9 @@ will parsed as an argument to this option. Additionally, those options are added
 to @option{+f}.
 
 An important feature of this options, is that you can but it in the end of the
-command line, without any argument to get a random non-MLP:FiM pony.
+command line, without any argument to get a random non-MLP:FiM pony. However,
+altough it is not nice, since version 3.0, @option{+f} can also be unargumented
+if at the end of the command line.
 
 @item --q [PONY...]
 @itemx --quotes [PONY...]
@@ -231,6 +233,8 @@ to @option{-q}.
 
 An important feature of this options, is that you can but it in the end of the
 command line, without any argument to get a quote from any pony with a quote.
+However, altough it is not nice, since version 3.0, @option{-q} can also be
+unargumented if at the end of the command line.
 
 @item -b STYLE
 @itemx --bubble STYLE
@@ -2129,6 +2133,8 @@ Environment variable @env{PONYSAY_WRAP_LIMIT} has been added.
 Environment variable @env{PONYSAY_WRAP_EXCEED} has been added.
 @item
 Added support for @file{~/.ponysay.rc}.
+@item
+@option{-f}, @option{+f} and @option{-q} may be unargumented if that are at the end of the command line.
 @end itemize
 
 

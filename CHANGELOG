@@ -12,6 +12,8 @@ Version 3.0
 
 	Added support for ~/.ponysayrc.
 
+	-f, +f and -q may be unargumented if that are at the end of the command line.
+
 
 Version 2.9.1
 
