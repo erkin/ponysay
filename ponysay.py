@@ -1595,6 +1595,8 @@ class Backend():
         self.hyphen = hyphen
         self.ballooncolour = ballooncolour
         self.mode = mode
+        self.balloontop = 0
+        self.balloonbottom = 0
         
         if self.balloon is not None:
             self.link = {'\\' : linkcolour + self.balloon.link,
@@ -1617,7 +1619,20 @@ class Backend():
         if self.pony.startswith('$$$\n'):
             self.pony = self.pony[4:]
             infoend = self.pony.index('\n$$$\n')
-            printinfo(self.pony[:infoend])
+            info = self.pony[:infoend].split('\n')
+            for line in info:
+                sep = line.find(':')
+                if sep > 0:
+                    key = line[:sep].strip()
+                    if key == 'BALLOON TOP':
+                        value = line[sep + 1:].strip()
+                        if len(value) > 0:
+                            self.balloontop = int(value)
+                    if key == 'BALLOON BOTTOM':
+                        value = line[sep + 1:].strip()
+                        if len(value) > 0:
+                            self.balloonbottom = int(value)
+            printinfo(info)
             self.pony = self.pony[infoend + 5:]
         self.pony = self.mode + self.pony
         
@@ -1831,6 +1846,12 @@ class Backend():
                 indent = 0
         
         self.output = self.output.replace(AUTO_PUSH, '').replace(AUTO_POP, '')
+        
+        if self.balloon is not None:
+            if (self.balloontop > 0) or (self.balloonbottom > 0):
+                self.output = self.output.split('\n')
+                self.output = self.output[self.balloontop : ~(self.balloonbottom)]
+                self.output = '\n'.join(self.output)
     
     
     '''
