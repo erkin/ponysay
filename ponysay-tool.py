@@ -70,7 +70,7 @@ class PonysayTool():
                 exit(254)
         
         elif opts['-v'] is not None:
-            print('%s %s' % ('ponysay', VERSION))
+            print('%s %s' % ('ponysay-tool', VERSION))
         
         elif (opts['--edit'] is not None) and (len(opts['--edit']) == 1):
             pony = opts['--edit'][0]
@@ -92,12 +92,58 @@ class PonysayTool():
                 if linuxvt: print('\033[?0c', end='') # restore cursor
                 print('\033[?1049l', end='') # terminate terminal
         
+        elif (opts['--edit-rm'] is not None) and (len(opts['--edit-rm']) == 1):
+            ponyfile = opts['--edit-rm'][0]
+            pony = None
+            with open(ponyfile, 'rb') as file:
+                pony = file.read().decode('utf8', 'replace')
+            if pony.startswith('$$$\n'):
+                pony = pony[3:]
+                pony = pony[pony.index('\n$$$\n') + 5:]
+                with open(ponyfile, 'wb') as file:
+                    file.write(pony.encode('utf8'))
+        
+        elif (opts['--edit-stash'] is not None) and (len(opts['--edit-stash']) == 1):
+            ponyfile = opts['--edit-stash'][0]
+            pony = None
+            with open(ponyfile, 'rb') as file:
+                pony = file.read().decode('utf8', 'replace')
+            if pony.startswith('$$$\n'):
+                pony = pony[3:]
+                pony = pony[:pony.index('\n$$$\n')]
+                print('$$$' + pony + '\n$$$\n', end='')
+            else
+            print('$$$\n$$$\n', end='')
+        
+        elif (opts['--edit-apply'] is not None) and (len(opts['--edit-apply']) == 1):
+            data = ''
+            while True:
+                line = input()
+                if data == '':
+                    if line != '$$$':
+                        printerr('Bad stash')
+                        exit(251)
+                    data += '$$$\n'
+                else:
+                    data += line + '\n'
+                    if line == '$$$':
+                        break
+            ponyfile = opts['--edit-apply'][0]
+            pony = None
+            with open(ponyfile, 'rb') as file:
+                pony = file.read().decode('utf8', 'replace')
+            if pony.startswith('$$$\n'):
+                pony = pony[3:]
+                pony = pony[pony.index('\n$$$\n') + 5:]
+            with open(ponyfile, 'wb') as file:
+                file.write((data + pony).encode('utf8'))
+        
         else:
             exit(253)
     
     
     '''
-    Edit a pony file's meta data
+    Edit a pony file's metadata
     
     @param  ponyfile:str  A pony file to edit
     '''
@@ -560,7 +606,10 @@ if __name__ == '__main__':
     usage_program = '\033[34;1mponysay-tool\033[21;39m'
     
     usage = '\n'.join(['%s %s' % (usage_program, '(--help | --version)'),
-                       '%s %s' % (usage_program, '--edit \033[4mPONY-FILE\033[24m'),])
+                       '%s %s' % (usage_program, '(--edit | --edit-rm) \033[33mPONY-FILE\033[39m'),
+                       '%s %s' % (usage_program, '--edit-stash \033[33mPONY-FILE\033[39m > \033[33mSTASH-FILE\033[39m'),
+                       '%s %s' % (usage_program, '--edit-apply \033[33mPONY-FILE\033[39m < \033[33mSTASH-FILE\033[39m'),
+                      ])
     
     usage = usage.replace('\033[', '\0')
     for sym in ('[', ']', '(', ')', '|', '...', '*'):
@@ -577,7 +626,10 @@ if __name__ == '__main__':
     
     opts.add_argumentless(['-h', '--help'],                         help = 'Print this help message.')
     opts.add_argumentless(['-v', '--version'],                      help = 'Print the version of the program.')
-    opts.add_argumented(  ['--edit'],           arg = 'PONY-FILE',  help = 'Edit a pony file\'s meta data')
+    opts.add_argumented(  ['--edit'],           arg = 'PONY-FILE',  help = 'Edit a pony file\'s metadata')
+    opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',  help = 'Remove metadata from a pony file')
+    opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',  help = 'Apply metadata from stdin to a pony file')
+    opts.add_argumented(  ['--edit-stash'],     arg = 'PONY-FILE',  help = 'Print applyable metadata from a pony file')
     
     '''
     Whether at least one unrecognised option was used
