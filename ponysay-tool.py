@@ -73,11 +73,13 @@ class PonysayTool():
             print('%s %s' % ('ponysay', VERSION))
         
         elif (opts['--edit'] is not None) and (len(opts['--edit']) == 1):
+            print('\033[?1049h', end='') # initialise terminal
             pony = opts['--edit'][0]
             if not os.path.isfile(pony):
                 printerr('%s is not an existing regular file' % pony)
                 exit(252)
             self.editmeta(pony)
+            print('\033[?1049l', end='') # terminate terminal
         
         else:
             exit(253)
@@ -131,7 +133,7 @@ class PonysayTool():
         cut = 0
         while (len(comment) > cut) and (len(comment[cut]) == 0):
             cut += 1
-        comment = [''] + comment[cut:]
+        comment = comment[cut:]
         
         
         stdout = sys.stdout
@@ -156,11 +158,67 @@ class PonysayTool():
         printpony = sys.stdout.buf[:-1].split('\n')
         sys.stdout = stdout
         
+        preprint = '\033[H\033[2J'
+        if printpony[0].startswith(preprint):
+            printpony[0] = printpony[0][len(preprint):]
         ponyheight = len(printpony)
         ponywidth = Backend.len(max(printpony, key = Backend.len))
         
-        print('\n'.join(printpony))
-        print(str(ponyheight) + '×' + str(ponywidth))
+        ## Call `stty` to determine the size of the terminal, this way is better then using python's ncurses
+        termsize = None
+        for channel in (sys.stdout, sys.stdin, sys.stderr):
+            termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
+            if len(termsize) > 0:
+                termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
+                termsize = [int(item) for item in termsize]
+                break
+        if termsize is None:
+            print('\033[?1049l', end='')
+        
+        AUTO_PUSH = '\033[01010~'
+        AUTO_POP  = '\033[10101~'
+        modprintpony = '\n'.join(printpony).replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
+        colourstack = ColourStack(AUTO_PUSH, AUTO_POP)
+        buf = ''
+        for c in modprintpony:
+            buf += c + colourstack.feed(c)
+        modprintpony = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '')
+        
+        printpony = [('\033[21;39;49;0m%s%s\033[21;39;49;0m' % (' ' * (termsize[1] - ponywidth), line)) for line in modprintpony.split('\n')]
+        
+        
+        print(preprint, end='')
+        print('\n'.join(printpony), end='')
+        print('\033[H', end='')
+        print('Please see the info manual for details on how to fill out this form')
+        print()
+        
+        
+        if 'WIDTH'  in data:  del data['WIDTH']
+        if 'HEIGHT' in data:  del data['HEIGHT']
+        data['comment'] = '\n'.join(comment)
+        fields = [key for key in data]
+        fields.sort()
+        standardfields = ['GROUP NAME', 'NAME', 'OTHER NAMES', 'APPEARANCE', 'KIND',
+                          'GROUP', 'BALLOON', 'LINK', 'LINK ON', 'COAT', 'MANE', 'EYE',
+                          'AURA', 'DISPLAY', 'MASTER', 'SOURCE', 'MEDIA', 'comment']
+        for standard in standardfields:
+            if standard in fields:
+                del fields[fields.index(standard)]
+            if standard not in data:
+                data[standard] = ''
+        
+        fields = standardfields[:-1] + fields + [standardfields[-1]]
+        
+        
+        for key in fields:
+            print('\033[1m%s:\033[21m' % key)
+        
+        input()
+        
+        comment = data['comment']
+        del data['comment']
+        comment = ('\n' + comment + '\n').replace('\n$$$\n', '\n$$$ ($$$)\n')[:-1]
 
 
 
