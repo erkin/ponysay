@@ -82,12 +82,12 @@ class PonysayTool():
                 print('\033[?1049h', end='') # initialise terminal
                 if linuxvt: print('\033[?8c', end='') # use full block for cursor (_ is used by default in linux vt)
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
-                cmd %= ('-echo -icanon -isig', os.path.realpath('/dev/stdout'))
+                cmd %= ('-echo -icanon -isig -ixoff -ixon', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
                 self.editmeta(pony)
             finally:
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
-                cmd %= ('echo icanon isig', os.path.realpath('/dev/stdout'))
+                cmd %= ('echo icanon isig ixoff ixon', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
                 if linuxvt: print('\033[?0c', end='') # restore cursor
                 print('\033[?1049l', end='') # terminate terminal
@@ -211,9 +211,9 @@ class PonysayTool():
         data['comment'] = '\n'.join(comment)
         fields = [key for key in data]
         fields.sort()
-        standardfields = ['GROUP NAME', 'NAME', 'OTHER NAMES', 'APPEARANCE', 'KIND',
-                          'GROUP', 'BALLOON', 'LINK', 'LINK ON', 'COAT', 'MANE', 'EYE',
-                          'AURA', 'DISPLAY', 'MASTER', 'SOURCE', 'MEDIA', 'comment']
+        standardfields = ['GROUP NAME', 'NAME', 'OTHER NAMES', 'APPEARANCE', 'KIND', 'GROUP',
+                          'BALLOON', 'LINK', 'LINK ON', 'COAT', 'MANE', 'EYE', 'AURA', 'DISPLAY',
+                          'MASTER', 'SOURCE', 'MEDIA', 'FREE', 'comment']
         for standard in standardfields:
             if standard in fields:
                 del fields[fields.index(standard)]
@@ -298,36 +298,123 @@ class TextArea:
                 y += 1
         
         (termh, termw) = self.termsize
+        (y, x) = (0, 0)
+        mark = None
         
         def status(text):
-            print('\033[%i;%iH\033[7m%s\033[0m' % (termh - 1, 1, ' (' + text + ') ' + '-' * (termw - len(' (' + text + ') '))), end='')
+            print('\033[%i;%iH\033[7m%s\033[27m\033[%i;%iH' % (termh - 1, 1, ' (' + text + ') ' + '-' * (termw - len(' (' + text + ') ')), self.top + y, innerleft + x), end='')
         
         status('unmodified')
         
         print('\033[%i;%iH' % (self.top, innerleft), end='')
-        (y, x) = (0, 0)
         
         def alert(text):
-            print('\033[%i;%iH\033[2K%s\033[%i;%iH' % (termh, 1, text, self.top + y, innerleft + x), end='')
+            if text is None:
+                alert('')
+            else:
+                print('\033[%i;%iH\033[2K%s\033[%i;%iH' % (termh, 1, text, self.top + y, innerleft + x), end='')
         
+        modified = False
+        override = False
+        
+        (oldy, oldx, oldmark) = (y, x, mark)
+        stored = None
         alerted = False
+        edited = False
         while True:
+            if (oldmark is not None) and (oldmark >= 0):
+                if oldmark < oldx:
+                    print('\033[%i;%iH\033[49m%s\033[%i;%iH' % (self.top + oldy, innerleft + oldmark, datalines[y][oldmark : oldx], self.top + y, innerleft + x), end='')
+                elif oldmark > oldx:
+                    print('\033[%i;%iH\033[49m%s\033[%i;%iH' % (self.top + oldy, innerleft + oldx, datalines[y][oldx : oldmark], self.top + y, innerleft + x), end='')
+            if (mark is not None) and (mark >= 0):
+                if mark < x:
+                    print('\033[%i;%iH\033[44m%s\033[49m\033[%i;%iH' % (self.top + y, innerleft + mark, datalines[y][mark : x], self.top + y, innerleft + x), end='')
+                elif mark > x:
+                    print('\033[%i;%iH\033[44m%s\033[49m\033[%i;%iH' % (self.top + y, innerleft + x, datalines[y][x : mark], self.top + y, innerleft + x), end='')
+            (oldy, oldx, oldmark) = (y, x, mark)
+            if edited:
+                edited = False
+                if not modified:
+                    modified = True
+                    status('modified' + (' override' if override else ''))
             sys.stdout.flush()
-            d = sys.stdin.read(1)
+            if stored is None:
+                d = sys.stdin.read(1)
+            else:
+                d = stored
+                stored = None
             if alerted:
                 alerted = False
-                alert('')
-            if (ord(d) == 127) or (ord(d) == 8):
+                alert(None)
+            if ord(d) == ord('@') - ord('@'):
+                if mark is None:
+                    mark = x
+                    alert('Mark set')
+                elif mark == ~x:
+                    mark = x
+                    alert('Mark activated')
+                elif mark == x:
+                    mark = ~x
+                    alert('Mark deactivated')
+                else:
+                    mark = x
+                    alert('Mark set')
+            elif ord(d) == ord('X') - ord('@'):
+                alert('C-x')
+                alerted = True
+                sys.stdout.flush()
+                d = sys.stdin.read(1)
+                alert(str(ord(d)))
+                sys.stdout.flush()
+                if ord(d) == ord('X') - ord('@'):
+                    if (mark is not None) and (mark >= 0):
+                        x ^= mark; mark ^= x; x ^= mark
+                        alert('Mark swapped')
+                    else:
+                        alert('No mark is activated')
+                elif ord(d) == ord('S') - ord('@'):
+                    # TODO saver()
+                    status('unmodified' + (' override' if override else ''))
+                    alert('Saved')
+                elif ord(d) == ord('C') - ord('@'):
+                    break
+                else:
+                    stored = d
+                    alerted = False
+                    alert(None)
+            elif (ord(d) == 127) or (ord(d) == 8):
+                removed = 1
+                if (mark is not None) and (mark >= 0) and (mark != x):
+                    if mark > x:
+                        x ^= mark; mark ^= x; x ^= mark
+                    removed = x - mark
                 if x == 0:
                     alert('At beginning')
                     alerted = True
                     continue
                 dataline = datalines[y]
-                datalines[y] = dataline = dataline[:x - 1] + dataline[x:]
-                x -= 1
-                print('\033[%i;%iH%s \033[%i;%iH' % (self.top + y, innerleft, dataline, self.top + y, innerleft + x), end='')
+                datalines[y] = dataline = dataline[:x - removed] + dataline[x:]
+                x -= removed
+                mark = None
+                print('\033[%i;%iH%s%s\033[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * removed, self.top + y, innerleft + x), end='')
+                edited = True
             elif ord(d) < ord(' '):
-                if d == '\033':
+                if ord(d) == ord('F') - ord('@'):
+                    if x < len(datalines[y]):
+                        x += 1
+                        print('\033[C', end='')
+                    else:
+                        alert('At end')
+                        alerted = True
+                elif ord(d) == ord('B') - ord('@'):
+                    if x > 0:
+                        x -= 1
+                        print('\033[D', end='')
+                    else:
+                        alert('At beginning')
+                        alerted = True
+                elif d == '\033':
                     d = sys.stdin.read(1)
                     if d == '[':
                         d = sys.stdin.read(1)
@@ -336,25 +423,43 @@ class TextArea:
                                 x += 1
                                 print('\033[C', end='')
                             else:
-                                alert('At beginning')
+                                alert('At end')
                                 alerted = True
                         elif d == 'D':
                             if x > 0:
                                 x -= 1
                                 print('\033[D', end='')
                             else:
-                                alert('At end')
+                                alert('At beginning')
                                 alerted = True
+                        elif d == '2':
+                            d = sys.stdin.read(1)
+                            if d == '~':
+                                override = not override
+                                status(('modified' if modified else 'unmodified') + (' override' if override else ''))
                         elif d == '3':
                             d = sys.stdin.read(1)
                             if d == '~':
+                                removed = 1
+                                if (mark is not None) and (mark >= 0) and (mark != x):
+                                    if mark < x:
+                                        x ^= mark; mark ^= x; x ^= mark
+                                    removed = mark - x
                                 dataline = datalines[y]
                                 if x == len(dataline):
                                     alert('At end')
                                     alerted = True
                                     continue
-                                datalines[y] = dataline = dataline[:x] + dataline[x + 1:]
-                                print('\033[%i;%iH%s \033[%i;%iH' % (self.top + y, innerleft, dataline, self.top + y, innerleft + x), end='')
+                                datalines[y] = dataline = dataline[:x] + dataline[x + removed:]
+                                print('\033[%i;%iH%s%s\033[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * removed, self.top + y, innerleft + x), end='')
+                                mark = None
+                                edited = True
+                        else:
+                            while True:
+                                d = sys.stdin.read(1)
+                                if (ord('a') <= ord(d)) and (ord(d) <= ord('z')): break
+                                if (ord('A') <= ord(d)) and (ord(d) <= ord('Z')): break
+                                if d == '~': break
                     elif d == 'O':
                         d = sys.stdin.read(1)
                         if d == 'H':
@@ -365,12 +470,23 @@ class TextArea:
                 elif d == '\n':
                     break
             else:
-                dataline = datalines[y];
-                print(d + dataline[x:], end='')
-                if len(dataline) - x > 0:
-                    print('\033[%iD' % (len(dataline) - x), end='')
-                datalines[y] = dataline[:x] + d + dataline[x:]
-                x += 1
+                insert = d
+                if len(insert) == 0:
+                    continue
+                dataline = datalines[y]
+                if (not override) or (x == len(dataline)):
+                    print(insert + dataline[x:], end='')
+                    if len(dataline) - x > 0:
+                        print('\033[%iD' % (len(dataline) - x), end='')
+                    datalines[y] = dataline[:x] + insert + dataline[x:]
+                    if (mark is not None) and (mark >= 0):
+                        if mark >= x:
+                            mark += len(insert)
+                else:
+                    print(insert, end='')
+                    datalines[y] = dataline[:x] + insert + dataline[x + 1:]
+                x += len(insert)
+                edited = True
 
 
 
