@@ -213,7 +213,7 @@ class PonysayTool():
         fields.sort()
         standardfields = ['GROUP NAME', 'NAME', 'OTHER NAMES', 'APPEARANCE', 'KIND', 'GROUP',
                           'BALLOON', 'LINK', 'LINK ON', 'COAT', 'MANE', 'EYE', 'AURA', 'DISPLAY',
-                          'MASTER', 'SOURCE', 'MEDIA', 'FREE', 'comment']
+                          'MASTER', 'SOURCE', 'MEDIA', 'LICENSE', 'FREE', 'comment']
         for standard in standardfields:
             if standard in fields:
                 del fields[fields.index(standard)]
