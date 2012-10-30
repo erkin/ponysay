@@ -283,12 +283,18 @@ class TextArea:
         dispfields = [item + ':  ' for item in self.fields]
         innerleft = UCS.dispLen(max(dispfields, key = UCS.dispLen)) + self.left
         
+        leftlines = []
+        datalines = []
+        
+        firstline = True
         y = self.top
         for key in self.fields:
             first = True
-            for unused in self.datamap[key].split('\n'):
-                print('\033[%i;%iH\033[34m%s:\033[39m' % (y, self.left, '>' if (key == 'comment') and not first else key), end='')
-                first = False
+            for line in self.datamap[key].split('\n'):
+                print('\033[%i;%iH\033[%s34m%s:\033[%s39m' % (y, self.left, '1;' if firstline else '', '>' if (key == 'comment') and not first else key, '21;' if firstline else''), end='')
+                leftlines.append(key)
+                datalines.append(line)
+                first = firstline = False
                 y += 1
         
         (termh, termw) = self.termsize
@@ -301,17 +307,70 @@ class TextArea:
         print('\033[%i;%iH' % (self.top, innerleft), end='')
         (y, x) = (0, 0)
         
+        def alert(text):
+            print('\033[%i;%iH\033[2K%s\033[%i;%iH' % (termh, 1, text, self.top + y, innerleft + x), end='')
+        
+        alerted = False
         while True:
             sys.stdout.flush()
             d = sys.stdin.read(1)
-            if d == '\n':
-                break
-            if ord(d) < ord(' '):
-                print('\033[%i;%iH%s\033[%i;%iH' % (termh, 1, '(%s)' % ord(d), self.top + y, innerleft + x), end='')
+            if alerted:
+                alerted = False
+                alert('')
+            if (ord(d) == 127) or (ord(d) == 8):
+                if x == 0:
+                    alert('At beginning')
+                    alerted = True
+                    continue
+                dataline = datalines[y]
+                datalines[y] = dataline = dataline[:x - 1] + dataline[x:]
+                x -= 1
+                print('\033[%i;%iH%s \033[%i;%iH' % (self.top + y, innerleft, dataline, self.top + y, innerleft + x), end='')
+            elif ord(d) < ord(' '):
+                if d == '\033':
+                    d = sys.stdin.read(1)
+                    if d == '[':
+                        d = sys.stdin.read(1)
+                        if d == 'C':
+                            if x < len(datalines[y]):
+                                x += 1
+                                print('\033[C', end='')
+                            else:
+                                alert('At beginning')
+                                alerted = True
+                        elif d == 'D':
+                            if x > 0:
+                                x -= 1
+                                print('\033[D', end='')
+                            else:
+                                alert('At end')
+                                alerted = True
+                        elif d == '3':
+                            d = sys.stdin.read(1)
+                            if d == '~':
+                                dataline = datalines[y]
+                                if x == len(dataline):
+                                    alert('At end')
+                                    alerted = True
+                                    continue
+                                datalines[y] = dataline = dataline[:x] + dataline[x + 1:]
+                                print('\033[%i;%iH%s \033[%i;%iH' % (self.top + y, innerleft, dataline, self.top + y, innerleft + x), end='')
+                    elif d == 'O':
+                        d = sys.stdin.read(1)
+                        if d == 'H':
+                            x = 0
+                        elif d == 'F':
+                            x = len(datalines[y])
+                        print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
+                elif d == '\n':
+                    break
             else:
-                print(d, end='')
+                dataline = datalines[y];
+                print(d + dataline[x:], end='')
+                if len(dataline) - x > 0:
+                    print('\033[%iD' % (len(dataline) - x), end='')
+                datalines[y] = dataline[:x] + d + dataline[x:]
                 x += 1
-            
 
 
 
