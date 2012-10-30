@@ -77,8 +77,10 @@ class PonysayTool():
             if not os.path.isfile(pony):
                 printerr('%s is not an existing regular file' % pony)
                 exit(252)
+            linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
             try:
                 print('\033[?1049h', end='') # initialise terminal
+                if linuxvt: print('\033[?8c', end='') # use full block for cursor (_ is used by default in linux vt)
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
                 cmd %= ('-echo -icanon -isig', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
@@ -87,6 +89,7 @@ class PonysayTool():
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
                 cmd %= ('echo icanon isig', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
+                if linuxvt: print('\033[?0c', end='') # restore cursor
                 print('\033[?1049l', end='') # terminate terminal
         
         else:
