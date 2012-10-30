@@ -411,6 +411,7 @@ class TextArea:
                 else:
                     mark = x
                     alert('Mark set')
+                alerted = True
             elif ord(d) == ord('X') - ord('@'):
                 alert('C-x')
                 alerted = True
@@ -462,6 +463,7 @@ class TextArea:
                 if ord(d) == ord('P') - ord('@'):
                     if y == 0:
                         alert('At first line')
+                        alerted = True
                     else:
                         y -= 1
                         mark = None
@@ -514,6 +516,7 @@ class TextArea:
                         elif d == 'B':
                             if y == len(datalines) - 1:
                                 alert('At last line')
+                                alerted = True
                             else:
                                 stored = chr(ord('N') - ord('@'))
                         elif d == 'C':
