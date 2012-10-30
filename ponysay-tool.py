@@ -73,13 +73,21 @@ class PonysayTool():
             print('%s %s' % ('ponysay', VERSION))
         
         elif (opts['--edit'] is not None) and (len(opts['--edit']) == 1):
-            print('\033[?1049h', end='') # initialise terminal
             pony = opts['--edit'][0]
             if not os.path.isfile(pony):
                 printerr('%s is not an existing regular file' % pony)
                 exit(252)
-            self.editmeta(pony)
-            print('\033[?1049l', end='') # terminate terminal
+            try:
+                print('\033[?1049h', end='') # initialise terminal
+                cmd = 'stty %s < %s > /dev/null 2> /dev/null'
+                cmd %= ('-echo -icanon -isig', os.path.realpath('/dev/stdout'))
+                Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
+                self.editmeta(pony)
+            finally:
+                cmd = 'stty %s < %s > /dev/null 2> /dev/null'
+                cmd %= ('echo icanon isig', os.path.realpath('/dev/stdout'))
+                Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
+                print('\033[?1049l', end='') # terminate terminal
         
         else:
             exit(253)
@@ -172,8 +180,6 @@ class PonysayTool():
                 termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
                 termsize = [int(item) for item in termsize]
                 break
-        if termsize is None:
-            print('\033[?1049l', end='')
         
         AUTO_PUSH = '\033[01010~'
         AUTO_POP  = '\033[10101~'
@@ -212,13 +218,13 @@ class PonysayTool():
         
         
         for key in fields:
-            print('\033[1m%s:\033[21m' % key)
+            print('\033[34m%s:\033[39m' % key)
         
         input()
         
         comment = data['comment']
         del data['comment']
-        comment = ('\n' + comment + '\n').replace('\n$$$\n', '\n$$$ ($$$)\n')[:-1]
+        comment = ('\n' + comment + '\n').replace('\n$$$\n', '\n\\$$$\n')[:-1]
 
 
 
