@@ -18,6 +18,9 @@ Version 3.0
 
 	ponysay-tool --kms generates all kmsponies for the current TTY palette.
 
+	Pony metadata tags BALLOON TOP and BALLOON BOTTOM can be used to specify how
+	much extra height the balloon causes at the top and at the bottom of the pony.
+
 
 Version 2.9.1
 
