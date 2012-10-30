@@ -112,8 +112,8 @@ class PonysayTool():
                 pony = pony[3:]
                 pony = pony[:pony.index('\n$$$\n')]
                 print('$$$' + pony + '\n$$$\n', end='')
-            else
-            print('$$$\n$$$\n', end='')
+            else:
+                print('$$$\n$$$\n', end='')
         
         elif (opts['--edit-apply'] is not None) and (len(opts['--edit-apply']) == 1):
             data = ''
