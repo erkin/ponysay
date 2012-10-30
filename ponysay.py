@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-ponysay.py - Ponysay, cowsay reimplementation for ponies
+ponysay - Ponysay, cowsay reimplementation for ponies
 Copyright (C) 2012  Erkin Batu Altunbaş et al.
 
 This program is free software. It comes without any warranty, to
@@ -88,29 +88,164 @@ This is the mane class of ponysay
 '''
 class Ponysay():
     '''
+    Constructor
+    '''
+    def __init__(self):
+        '''
+        The user's home directory
+        '''
+        self.HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
+        
+        ## Change system enviroments with ~/.ponysayrc
+        if os.path.exists(self.HOME + '/.ponysayrc'):
+            with open(self.HOME + '/.ponysayrc', 'rb') as ponysayrc:
+                code = ponysayrc.read().decode('utf8', 'replace') + '\n'
+                env = os.environ
+                code = compile(code, self.HOME + '/.ponysayrc', 'exec')
+                exec(code)
+        
+        self.HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~') # in case ~/.ponysayrc changes it
+        
+        
+        '''
+        Whether any unrecognised options was parsed, this should be set by the invoker before run()
+        '''
+        self.unrecognised = False
+        
+        
+        '''
+        Whether the program is execute in Linux VT (TTY)
+        '''
+        self.linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
+        
+        
+        '''
+        Whether the script is executed as ponythink
+        '''
+        self.isthink =  (len(__file__) >= len('think'))    and (__file__.endswith('think'))
+        self.isthink = ((len(__file__) >= len('think.py')) and (__file__.endswith('think.py'))) or self.isthink
+        
+        
+        '''
+        Whether stdin is piped
+        '''
+        self.pipelinein = not sys.stdin.isatty()
+        
+        '''
+        Whether stdout is piped
+        '''
+        self.pipelineout = not sys.stdout.isatty()
+        
+        '''
+        Whether stderr is piped
+        '''
+        self.pipelineerr = not sys.stderr.isatty()
+        
+        
+        '''
+        Whether KMS is used
+        '''
+        self.usekms = self.isUsingKMS()
+        
+        
+        '''
+        Mode string that modifies or adds $ variables in the pony image
+        '''
+        self.mode = ''
+        
+        
+        '''
+        The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
+        '''
+        appendset = set()
+        self.xponydirs = []
+        _ponydirs = [self.HOME + '/.local/share/ponysay/ponies/', '/usr/share/ponysay/ponies/']
+        for ponydir in _ponydirs:
+            if os.path.isdir(ponydir) and (ponydir not in appendset):
+                self.xponydirs.append(ponydir)
+                appendset.add(ponydir)
+        appendset = set()
+        self.vtponydirs = []
+        _ponydirs = [self.HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
+        for ponydir in _ponydirs:
+            if os.path.isdir(ponydir) and (ponydir not in appendset):
+                self.vtponydirs.append(ponydir)
+                appendset.add(ponydir)
+        
+        
+        '''
+        The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
+        '''
+        appendset = set()
+        self.extraxponydirs = []
+        _extraponydirs = [self.HOME + '/.local/share/ponysay/extraponies/', '/usr/share/ponysay/extraponies/']
+        for extraponydir in _extraponydirs:
+            if os.path.isdir(extraponydir) and (extraponydir not in appendset):
+                self.extraxponydirs.append(extraponydir)
+                appendset.add(extraponydir)
+        appendset = set()
+        self.extravtponydirs = []
+        _extraponydirs = [self.HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
+        for extraponydir in _extraponydirs:
+            if os.path.isdir(extraponydir) and (extraponydir not in appendset):
+                self.extravtponydirs.append(extraponydir)
+                appendset.add(extraponydir)
+        
+        
+        '''
+        The directories where quotes files are stored
+        '''
+        appendset = set()
+        self.quotedirs = []
+        _quotedirs = [self.HOME + '/.local/share/ponysay/quotes/', '/usr/share/ponysay/quotes/']
+        for quotedir in _quotedirs:
+            if os.path.isdir(quotedir) and (quotedir not in appendset):
+                self.quotedirs.append(quotedir)
+                appendset.add(quotedir)
+        
+        
+        '''
+        The directories where balloon style files are stored
+        '''
+        appendset = set()
+        self.balloondirs = []
+        _balloondirs = [self.HOME + '/.local/share/ponysay/balloons/', '/usr/share/ponysay/balloons/']
+        for balloondir in _balloondirs:
+            if os.path.isdir(balloondir) and (balloondir not in appendset):
+                self.balloondirs.append(balloondir)
+                appendset.add(balloondir)
+        
+        
+        '''
+        ucsmap files
+        '''
+        appendset = set()
+        self.ucsmaps = []
+        _ucsmaps = [self.HOME + '/.local/share/ponysay/ucsmap', '/usr/share/ponysay/ucsmap']
+        for ucsmap in _ucsmaps:
+            if os.path.isdir(ucsmap) and (ucsmap not in appendset):
+                self.ucsmaps.append(ucsmap)
+                appendset.add(ucsmap)
+    
+    
+    
+    '''
     Starts the part of the program the arguments indicate
     
     @param  args:ArgParser  Parsed command line arguments
     '''
-    def __init__(self, args):
-        if (args.argcount == 0) and not pipelinein:
+    def run(self, args):
+        if (args.argcount == 0) and not self.pipelinein:
             args.help()
             exit(254)
             return
         
-        ## Modifyable global variables
-        global linuxvt
-        global usekms
-        global mode
-        global ponydirs
-        global extraponydirs
-        
         ## Emulate termial capabilities
-        if   args.opts['-X'] is not None:  (linuxvt, usekms) = (False, False)
-        elif args.opts['-V'] is not None:  (linuxvt, usekms) = (True, False)
-        elif args.opts['-K'] is not None:  (linuxvt, usekms) = (True, True)
-        ponydirs = vtponydirs if linuxvt and not usekms else xponydirs
-        extraponydirs = extravtponydirs if linuxvt and not usekms else extraxponydirs
+        if   args.opts['-X'] is not None:  (self.linuxvt, self.usekms) = (False, False)
+        elif args.opts['-V'] is not None:  (self.linuxvt, self.usekms) = (True, False)
+        elif args.opts['-K'] is not None:  (self.linuxvt, self.usekms) = (True, True)
+        self.ponydirs      = self.vtponydirs      if self.linuxvt and not self.usekms else self.xponydirs
+        self.extraponydirs = self.extravtponydirs if self.linuxvt and not self.usekms else self.extraxponydirs
         
         ## Variadic variants of -f, +f and -q
         if    args.opts['--f'] is not None:
@@ -139,9 +274,9 @@ class Ponysay():
         else:
             ## Colouring features
             if args.opts['--colour-pony'] is not None:
-                mode += '\033[' + ';'.join(args.opts['--colour-pony']) + 'm'
+                self.mode += '\033[' + ';'.join(args.opts['--colour-pony']) + 'm'
             else:
-                mode += '\033[0m'
+                self.mode += '\033[0m'
             if args.opts['+c'] is not None:
                 if args.opts['--colour-msg']    is None:  args.opts['--colour-msg']    = args.opts['+c']
                 if args.opts['--colour-link']   is None:  args.opts['--colour-link']   = args.opts['+c']
@@ -152,7 +287,7 @@ class Ponysay():
             self.__bestpony(args)
             self.__ucsremap(args)
             if args.opts['-o'] is not None:
-                mode += '$/= $$\\= $'
+                self.mode += '$/= $$\\= $'
                 args.message = ''
             
             ## The stuff
@@ -167,7 +302,7 @@ class Ponysay():
                 self.quote(args)
                 if warn:
                     printerr('-q cannot be used at the same time as -f or +f.')
-            elif not unrecognised:
+            elif not self.unrecognised:
                 self.print_pony(args)
             else:
                 args.help()
@@ -187,10 +322,10 @@ class Ponysay():
     def __extraponies(self, args = None):
         ## If extraponies are used, change ponydir to extraponydir
         if args is None:
-            ponydirs[:] = extraponydirs
+            self.ponydirs[:] = self.extraponydirs
         elif args.opts['+f'] is not None:
             args.opts['-f'] = args.opts['+f']
-            ponydirs[:] = extraponydirs
+            self.ponydirs[:] = self.extraponydirs
     
     
     '''
@@ -201,7 +336,7 @@ class Ponysay():
     def __bestpony(self, args):
         ## Set best.pony as the pony to display if none is selected
         if (args.opts['-f'] is None) or (args.opts['-q'] is None) or (len(args.opts['-q']) == 0):
-            for ponydir in ponydirs:
+            for ponydir in self.ponydirs:
                 if os.path.isfile(ponydir + 'best.pony') or os.path.islink(ponydir + 'best.pony'):
                     pony = os.path.realpath(ponydir + 'best.pony') # Canonical path
                     args.opts['-f' if args.opts['-q'] is None else '-q'] = [pony]
@@ -226,7 +361,7 @@ class Ponysay():
         
         ## Read all lines in all UCS → ASCII map files
         maplines = []
-        for ucsmap in ucsmaps:
+        for ucsmap in self.ucsmaps:
             if os.path.isfile(ucsmap):
                 with open(ucsmap, 'rb') as mapfile:
                     maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
@@ -272,7 +407,7 @@ class Ponysay():
         
         ## Read all lines in all UCS → ASCII map files
         maplines = []
-        for ucsmap in ucsmaps:
+        for ucsmap in self.ucsmaps:
             if os.path.isfile(ucsmap):
                 with open(ucsmap, 'rb') as mapfile:
                     maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
@@ -311,7 +446,7 @@ class Ponysay():
         ponies = {}
         
         ## List all pony files, without the .pony ending
-        for ponydir in ponydirs:
+        for ponydir in self.ponydirs:
             for ponyfile in os.listdir(ponydir):
                 if endswith(ponyfile, ".pony"):
                     pony = ponyfile[:-5]
@@ -332,7 +467,7 @@ class Ponysay():
         pony = names[random.randrange(0, len(names))]
         if pony not in ponies:
             if not alt:
-                autocorrect = SpelloCorrecter(ponydirs, '.pony')
+                autocorrect = SpelloCorrecter(self.ponydirs, '.pony')
                 (alternatives, dist) = autocorrect.correct(pony)
                 limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
                 limit = 5 if len(limit) == 0 else int(dist)
@@ -354,7 +489,7 @@ class Ponysay():
         quotes = []
         quoteshash = set()
         _quotes = []
-        for quotedir in quotedirs:
+        for quotedir in self.quotedirs:
             _quotes += [item[:item.index('.')] for item in os.listdir(quotedir)]
         for quote in _quotes:
             if not quote == '':
@@ -364,7 +499,7 @@ class Ponysay():
         
         ## Create a set of all ponyes that have quotes
         ponies = set()
-        for ponydir in ponydirs:
+        for ponydir in self.ponydirs:
             for pony in os.listdir(ponydir):
                 if not pony[0] == '.':
                     p = pony[:-5] # remove .pony
@@ -384,12 +519,12 @@ class Ponysay():
     def __quotes(self):
         ## Get all ponyquote files
         quotes = []
-        for quotedir in quotedirs:
+        for quotedir in self.quotedirs:
             quotes += [quotedir + item for item in os.listdir(quotedir)]
         
         ## Create list of all pony–quote file-pairs
         rc = []
-        for ponydir in ponydirs:
+        for ponydir in self.ponydirs:
             for pony in os.listdir(ponydir):
                 if not pony[0] == '.':
                     p = pony[:-5] # remove .pony
@@ -483,7 +618,7 @@ class Ponysay():
         ## Get all quoters
         quoters = self.__quoters()
         
-        for ponydir in ponydirs: # Loop ponydirs
+        for ponydir in self.ponydirs: # Loop ponydirs
             ## Get all ponies in the directory
             _ponies = os.listdir(ponydir)
             
@@ -511,7 +646,7 @@ class Ponysay():
         termsize = self.__gettermsize()
         quoters = self.__quoters()
         
-        for ponydir in ponydirs: # Loop ponydirs
+        for ponydir in self.ponydirs: # Loop ponydirs
             ## Get all pony files in the directory
             _ponies = os.listdir(ponydir)
             
@@ -602,7 +737,7 @@ class Ponysay():
     def onelist(self):
         ## Get all pony files
         _ponies = []
-        for ponydir in ponydirs: # Loop ponydirs
+        for ponydir in self.ponydirs: # Loop ponydirs
             _ponies += os.listdir(ponydir)
         
         ## Remove .pony from all files and skip those that does not have .pony
@@ -636,12 +771,12 @@ class Ponysay():
         
         ## Get all balloons
         balloonset = set()
-        for balloondir in balloondirs:
+        for balloondir in self.balloondirs:
             for balloon in os.listdir(balloondir):
                 ## Use .think if running ponythink, otherwise .say
-                if isthink and endswith(balloon, '.think'):
+                if self.isthink and endswith(balloon, '.think'):
                     balloon = balloon[:-6]
-                elif (not isthink) and endswith(balloon, '.say'):
+                elif (not self.isthink) and endswith(balloon, '.say'):
                     balloon = balloon[:-4]
                 else:
                     continue
@@ -668,13 +803,13 @@ class Ponysay():
         
         ## Get all balloons
         balloons = {}
-        for balloondir in balloondirs:
+        for balloondir in self.balloondirs:
             for balloon in os.listdir(balloondir):
                 balloonfile = balloon
                 ## Use .think if running ponythink, otherwise .say
-                if isthink and endswith(balloon, '.think'):
+                if self.isthink and endswith(balloon, '.think'):
                     balloon = balloon[:-6]
-                elif (not isthink) and endswith(balloon, '.say'):
+                elif (not self.isthink) and endswith(balloon, '.say'):
                     balloon = balloon[:-4]
                 else:
                     continue
@@ -692,7 +827,7 @@ class Ponysay():
         balloon = names[random.randrange(0, len(names))]
         if balloon not in balloons:
             if not alt:
-                autocorrect = SpelloCorrecter(balloondirs, '.think' if isthink else '.say')
+                autocorrect = SpelloCorrecter(self.balloondirs, '.think' if self.isthink else '.say')
                 (alternatives, dist) = autocorrect.correct(balloon)
                 limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
                 limit = 5 if len(limit) == 0 else int(dist)
@@ -713,7 +848,7 @@ class Ponysay():
     def __getballoon(self, balloonfile):
         ## Use default balloon if none is specified
         if balloonfile is None:
-            if isthink:
+            if self.isthink:
                 return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )',  ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'],  '( ', '( ', '( ')
             return    Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
         
@@ -799,7 +934,7 @@ class Ponysay():
         ## Use PNG file as pony file
         if endswith(pony.lower(), '.png'):
             pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
-            pngcmd = ('img2ponysay -p -- ' if linuxvt else 'img2ponysay -- ') + pony
+            pngcmd = ('img2ponysay -p -- ' if self.linuxvt else 'img2ponysay -- ') + pony
             pngpipe = os.pipe()
             Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
             pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
@@ -808,7 +943,7 @@ class Ponysay():
         pony = self.__kms(pony)
         
         ## If in Linux VT clean the terminal (See info/pdf-manual [Printing in TTY with KMS])
-        if linuxvt:
+        if self.linuxvt:
             print('\033[H\033[2J', end='')
         
         ## Get width truncation and wrapping
@@ -849,8 +984,8 @@ class Ponysay():
         
         
         ## Run cowsay replacement
-        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap, width = widthtruncation,
-                          balloon = balloon, hyphen = hyphen, linkcolour = linkcolour, ballooncolour = ballooncolour)
+        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap, width = widthtruncation, balloon = balloon,
+                          hyphen = hyphen, linkcolour = linkcolour, ballooncolour = ballooncolour, mode = self.mode)
         backend.parse()
         output = backend.output
         if output.endswith('\n'):
@@ -869,7 +1004,7 @@ class Ponysay():
         
         ## Print the output, truncated on height is so set
         lines = self.__gettermsize()[0] - int(env_lines)
-        if linuxvt or (env_height is ('yes', 'y', '1')):
+        if self.linuxvt or (env_height is ('yes', 'y', '1')):
             if env_bottom is ('yes', 'y', '1'):
                 for line in output.split('\n')[: -lines]:
                     print(line)
@@ -924,10 +1059,9 @@ class Ponysay():
     '''
     Identifies whether KMS support is utilised
     '''
-    @staticmethod
-    def isUsingKMS():
+    def isUsingKMS(self):
         ## KMS is not utilised if Linux VT is not used
-        if not linuxvt:
+        if not self.linuxvt:
             return False
         
         ## Read the PONYSAY_KMS_PALETTE environment variable
@@ -953,7 +1087,7 @@ class Ponysay():
     '''
     def __kms(self, pony):
         ## If not in Linux VT, return the pony as is
-        if not linuxvt:
+        if not self.linuxvt:
             return pony
         
         ## KMS support version constant
@@ -982,7 +1116,7 @@ class Ponysay():
         cachedir = '/var/cache/ponysay'
         shared = True
         if not os.path.isdir(cachedir):
-            cachedir = HOME + '/.cache/ponysay'
+            cachedir = self.HOME + '/.cache/ponysay'
             shared = False
             if not os.path.isdir(cachedir):
                 os.makedirs(cachedir)
@@ -1081,6 +1215,7 @@ class ArgParser():
     @param  longdescription:str  Long, multi-line, description of the program, may be `None`
     '''
     def __init__(self, program, description, usage, longdescription = None):
+        self.linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
         self.__program = program
         self.__description = description
         self.__usage = usage
@@ -1259,7 +1394,7 @@ class ArgParser():
     Prints a colourful help message
     '''
     def help(self):
-        print('\033[1m%s\033[21m %s %s' % (self.__program, '-' if linuxvt else '—', self.__description))
+        print('\033[1m%s\033[21m %s %s' % (self.__program, '-' if self.linuxvt else '—', self.__description))
         print()
         if self.__longdescription is not None:
             print(self.__longdescription)
@@ -1275,6 +1410,18 @@ class ArgParser():
             print('\t%s' % (line))
         print()
         
+        maxfirstlen = []
+        for opt in self.__arguments:
+            opt_alts = opt[1]
+            opt_help = opt[3]
+            if opt_help is None:
+                continue
+            first = opt_alts[0]
+            last = opt_alts[-1]
+            if first is not last:
+                maxfirstlen.append(first)
+        maxfirstlen = len(max(maxfirstlen, key = len))
+        
         print('\033[1mSYNOPSIS:\033[21m')
         (lines, lens) = ([], [])
         for opt in self.__arguments:
@@ -1287,7 +1434,8 @@ class ArgParser():
             (line, l) = ('', 0)
             first = opt_alts[0]
             last = opt_alts[-1]
-            alts = ('', last) if first is last else (first, last)
+            alts = ['', last] if first is last else [first, last]
+            alts[0] += ' ' * (maxfirstlen - len(alts[0]))
             for opt_alt in alts:
                 if opt_alt is alts[-1]:
                     line += '%colour%' + opt_alt
@@ -1436,8 +1584,9 @@ class Backend():
     @param  hyphen:str         How hyphens added by the wordwrapper should be printed
     @param  linkcolour:str     How to colour the link character, empty string if none
     @param  ballooncolour:str  How to colour the balloon, empty string if none
+    @param  mode:str           Mode string for the pony
     '''
-    def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour):
+    def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour, mode):
         self.message = message
         self.ponyfile = ponyfile
         self.wrapcolumn = None if wrapcolumn is None else wrapcolumn - (0 if balloon is None else balloon.minwidth)
@@ -1445,6 +1594,7 @@ class Backend():
         self.balloon = balloon
         self.hyphen = hyphen
         self.ballooncolour = ballooncolour
+        self.mode = mode
         
         if self.balloon is not None:
             self.link = {'\\' : linkcolour + self.balloon.link,
@@ -1469,7 +1619,7 @@ class Backend():
             infoend = self.pony.index('\n$$$\n')
             printinfo(self.pony[:infoend])
             self.pony = self.pony[infoend + 5:]
-        self.pony = mode + self.pony
+        self.pony = self.mode + self.pony
         
         self.__processPony()
         self.__truncate()
@@ -2278,138 +2428,6 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
 Start the program from ponysay.__init__ if this is the executed file
 '''
 if __name__ == '__main__':
-    '''
-    The user's home directory
-    '''
-    HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
-    
-    ## Change system enviroments with ~/.ponysayrc
-    if os.path.exists(HOME + '/.ponysayrc'):
-        with open(HOME + '/.ponysayrc', 'rb') as ponysayrc:
-            code = ponysayrc.read().decode('utf8', 'replace') + '\n'
-            env = os.environ
-            code = compile(code, HOME + '/.ponysayrc', 'exec')
-            exec(code)
-    
-    HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~') # in case ~/.ponysayrc changes it
-    
-    
-    '''
-    Whether the program is execute in Linux VT (TTY)
-    '''
-    linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
-    
-    
-    '''
-    Whether the script is executed as ponythink
-    '''
-    isthink =  (len(__file__) >= len('think'))    and (__file__.endswith('think'))
-    isthink = ((len(__file__) >= len('think.py')) and (__file__.endswith('think.py'))) or isthink
-    
-    
-    '''
-    Whether stdin is piped
-    '''
-    pipelinein = not sys.stdin.isatty()
-    
-    '''
-    Whether stdout is piped
-    '''
-    pipelineout = not sys.stdout.isatty()
-    
-    '''
-    Whether stderr is piped
-    '''
-    pipelineerr = not sys.stderr.isatty()
-    
-    
-    '''
-    Whether KMS is used
-    '''
-    usekms = Ponysay.isUsingKMS()
-
-
-    '''
-    Mode string that modifies or adds $ variables in the pony image
-    '''
-    mode = ''
-    
-    
-    '''
-    The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-    '''
-    appendset = set()
-    xponydirs = []
-    _ponydirs = [HOME + '/.local/share/ponysay/ponies/', '/usr/share/ponysay/ponies/']
-    for ponydir in _ponydirs:
-        if os.path.isdir(ponydir) and (ponydir not in appendset):
-            xponydirs.append(ponydir)
-            appendset.add(ponydir)
-    appendset = set()
-    vtponydirs = []
-    _ponydirs = [HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
-    for ponydir in _ponydirs:
-        if os.path.isdir(ponydir) and (ponydir not in appendset):
-            vtponydirs.append(ponydir)
-            appendset.add(ponydir)
-    
-    
-    '''
-    The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-    '''
-    appendset = set()
-    extraxponydirs = []
-    _extraponydirs = [HOME + '/.local/share/ponysay/extraponies/', '/usr/share/ponysay/extraponies/']
-    for extraponydir in _extraponydirs:
-        if os.path.isdir(extraponydir) and (extraponydir not in appendset):
-            extraxponydirs.append(extraponydir)
-            appendset.add(extraponydir)
-    appendset = set()
-    extravtponydirs = []
-    _extraponydirs = [HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
-    for extraponydir in _extraponydirs:
-        if os.path.isdir(extraponydir) and (extraponydir not in appendset):
-            extravtponydirs.append(extraponydir)
-            appendset.add(extraponydir)
-    
-    
-    '''
-    The directories where quotes files are stored
-    '''
-    appendset = set()
-    quotedirs = []
-    _quotedirs = [HOME + '/.local/share/ponysay/quotes/', '/usr/share/ponysay/quotes/']
-    for quotedir in _quotedirs:
-        if os.path.isdir(quotedir) and (quotedir not in appendset):
-            quotedirs.append(quotedir)
-            appendset.add(quotedir)
-    
-    
-    '''
-    The directories where balloon style files are stored
-    '''
-    appendset = set()
-    balloondirs = []
-    _balloondirs = [HOME + '/.local/share/ponysay/balloons/', '/usr/share/ponysay/balloons/']
-    for balloondir in _balloondirs:
-        if os.path.isdir(balloondir) and (balloondir not in appendset):
-            balloondirs.append(balloondir)
-            appendset.add(balloondir)
-    
-    
-    '''
-    ucsmap files
-    '''
-    appendset = set()
-    ucsmaps = []
-    _ucsmaps = [HOME + '/.local/share/ponysay/ucsmap', '/usr/share/ponysay/ucsmap']
-    for ucsmap in _ucsmaps:
-        if os.path.isdir(ucsmap) and (ucsmap not in appendset):
-            ucsmaps.append(ucsmap)
-            appendset.add(ucsmap)
-    
-    
-    
     usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
     usage_common   = '[-c] [-W\033[4mCOLUMN\033[24m] [-b\033[4mSTYLE\033[24m]'
     usage_listhelp = '(-l | -L | -B | +l | +L | -A | + A | -v | -h)'
@@ -2481,4 +2499,6 @@ run `man ponysay`. Ponysay has so much more to offer than described here.''')
     
     
     ## Start
-    Ponysay(opts)
+    ponysay = Ponysay()
+    ponysay.unrecognised = unrecognised
+    ponysay.run(opts)
