@@ -1353,7 +1353,6 @@ before building and installing.
 * Chakra::                      Packages for Chakra.
 * Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
 * Gentoo Linux::                Packages for Gentoo Linux.
-* Parabola GNU/Linux::          Packages for Parabola GNU/Linux.
 * Source Mage GNU/Linux::       Packages for Source Mage GNU/Linux.
 @end menu
 
@@ -1402,14 +1401,6 @@ A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay}
 
 Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
 contains @command{ponysay} as @w{@code{games-misc/ponysay}} (developer maintained).
-
-
-@node Parabola GNU/Linux
-@subsection Parabola GNU/Linux
-@cindex parabola gnu/linux
-
-@w{@code{community/ponysay}} from Arch Linux (@ref{Arch Linux}) is also available
-for Parabola GNU/Linux.
 
 
 @node Source Mage GNU/Linux
