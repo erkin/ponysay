@@ -72,6 +72,9 @@ class PonysayTool():
         elif opts['-v'] is not None:
             print('%s %s' % ('ponysay-tool', VERSION))
         
+        elif opts['--kms'] is not None:
+            self.generateKMS()
+        
         elif (opts['--edit'] is not None) and (len(opts['--edit']) == 1):
             pony = opts['--edit'][0]
             if not os.path.isfile(pony):
@@ -140,6 +143,63 @@ class PonysayTool():
         
         else:
             exit(253)
+    
+    
+    '''
+    Generate all kmsponies for the current TTY palette
+    '''
+    def generateKMS(self):
+        class PhonyArgParser:
+            def __init__(self, key, value):
+                self.argcount = 3
+                self.message = ponyfile
+                self.opts = self
+                self.key = key
+                self.value = value
+            def __getitem__(self, key):
+                return [self.value] if key == self.key else None
+        
+        class StringInputStream:
+            def __init__(self):
+                self.buf = ''
+                class Buffer:
+                    def __init__(self, parent):
+                        self.parent = parent
+                    def write(self, data):
+                        self.parent.buf += data.decode('utf8', 'replace')
+                    def flush(self):
+                        pass
+                self.buffer = Buffer(self)
+            def flush(self):
+                pass
+            def isatty(self):
+                return True
+        
+        stdout = sys.stdout
+        
+        sys.stdout = StringInputStream()
+        ponysay = Ponysay()
+        ponysay.run(PhonyArgParser('--onelist', None))
+        stdponies = sys.stdout.buf[:-1].split('\n')
+        
+        sys.stdout = StringInputStream()
+        ponysay = Ponysay()
+        ponysay.run(PhonyArgParser('++onelist', None))
+        extraponies = sys.stdout.buf[:-1].split('\n')
+        
+        for pony in stdponies:
+            printerr('Genering standard kmspony: %s' % pony)
+            sys.stdout = StringInputStream()
+            ponysay = Ponysay()
+            ponysay.run(PhonyArgParser('--pony', pony))
+        
+        for pony in extraponies:
+            printerr('Genering extra kmspony: %s' % pony)
+            sys.stdout = StringInputStream()
+            ponysay = Ponysay()
+            ponysay.run(PhonyArgParser('++pony', pony))
+        
+        sys.stdout = stdout
     
     
     '''
@@ -608,7 +668,7 @@ if __name__ == '__main__':
     
     usage_program = '\033[34;1mponysay-tool\033[21;39m'
     
-    usage = '\n'.join(['%s %s' % (usage_program, '(--help | --version)'),
+    usage = '\n'.join(['%s %s' % (usage_program, '(--help | --version | --kms)'),
                        '%s %s' % (usage_program, '(--edit | --edit-rm) \033[33mPONY-FILE\033[39m'),
                        '%s %s' % (usage_program, '--edit-stash \033[33mPONY-FILE\033[39m > \033[33mSTASH-FILE\033[39m'),
                        '%s %s' % (usage_program, '--edit-apply \033[33mPONY-FILE\033[39m < \033[33mSTASH-FILE\033[39m'),
@@ -629,6 +689,7 @@ if __name__ == '__main__':
     
     opts.add_argumentless(['-h', '--help'],                         help = 'Print this help message.')
     opts.add_argumentless(['-v', '--version'],                      help = 'Print the version of the program.')
+    opts.add_argumentless(['--kms'],                                help = 'Generate all kmsponies for the current TTY palette')
     opts.add_argumented(  ['--edit'],           arg = 'PONY-FILE',  help = 'Edit a pony file\'s metadata')
     opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',  help = 'Remove metadata from a pony file')
     opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',  help = 'Apply metadata from stdin to a pony file')
