@@ -1658,7 +1658,7 @@ class Backend():
                 c = line[i]
                 i += 1
                 if c == '\033':
-                    colour = self.__getcolour(line, i - 1)
+                    colour = Backend.getcolour(line, i - 1)
                     i += len(colour) - 1
                     buf += colour
                 elif c == '\t':
@@ -1695,7 +1695,7 @@ class Backend():
                 c = line[i]
                 i += 1
                 if c == '\033':
-                    colour = self.__getcolour(line, i - 1)
+                    colour = Backend.getcolour(line, i - 1)
                     i += len(colour) - 1
                     self.output += colour
                 else:
@@ -1779,7 +1779,7 @@ class Backend():
                             balloonLines = balloon
                             balloonLine = 0
                             balloonIndent = indent
-                            indent += self.__len(balloonLines[0])
+                            indent += Backend.len(balloonLines[0])
                             balloonLines[0] = None
                     dollar = None
                 else:
@@ -1790,7 +1790,7 @@ class Backend():
                     i += 1
                 dollar += c
             elif c == '\033':
-                colour = self.__getcolour(self.pony, i - 1)
+                colour = Backend.getcolour(self.pony, i - 1)
                 for b in colour:
                     self.output += b + colourstack.feed(b);
                 i += len(colour) - 1
@@ -1806,7 +1806,7 @@ class Backend():
             else:
                 if (balloonLines is not None) and (balloonLines[balloonLine] is not None) and (balloonIndent == indent):
                     data = balloonLines[balloonLine]
-                    datalen = self.__len(data)
+                    datalen = Backend.len(data)
                     skip += datalen
                     nonskip += datalen
                     data = data.replace('$', '$$')
@@ -1840,7 +1840,8 @@ class Backend():
     @param   offset:int  The offset at where to start reading, a escape must begin here
     @return  :str        The escape sequence
     '''
-    def __getcolour(self, input, offset):
+    @staticmethod
+    def getcolour(input, offset):
         (i, n) = (offset, len(input))
         rc = input[i]
         i += 1
@@ -1878,12 +1879,13 @@ class Backend():
     @param   input:str  The input buffer
     @return  :int       The number of visible characters
     '''
-    def __len(self, input):
+    @staticmethod
+    def len(input):
         (rc, i, n) = (0, 0, len(input))
         while i < n:
             c = input[i]
             if c == '\033':
-                i += len(self.__getcolour(input, i))
+                i += len(Backend.getcolour(input, i))
             else:
                 i += 1
                 if not UCS.isCombining(c):
@@ -1912,7 +1914,7 @@ class Backend():
         
         msg = msg.replace('\n', '\033[0m%s\n' % (self.ballooncolour)) + '\033[0m' + self.ballooncolour
         
-        return self.balloon.get(width, height, msg.split('\n'), self.__len);
+        return self.balloon.get(width, height, msg.split('\n'), Backend.len);
     
     
     '''
@@ -1952,7 +1954,7 @@ class Backend():
                     if i < n:
                         d = line[i]
                     i += 1
-                    if d == '\033':  # TODO this should use self.__getcolour()
+                    if d == '\033':  # TODO this should use Backend.getcolour()
                         ## Invisible stuff
                         b[bi] = d
                         bi += 1

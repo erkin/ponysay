@@ -13,9 +13,7 @@ http://sam.zoy.org/wtfpl/COPYING for more details.
 '''
 
 import os
-import shutil
 import sys
-import random
 from subprocess import Popen, PIPE
 
 from ponysay import *
@@ -107,7 +105,7 @@ class PonysayTool():
             meta = data[1:][:sep]
             image = data[sep + 1:]
         
-        class PhonyArgsParser:
+        class PhonyArgParser:
             def __init__(self):
                 self.argcount = 3
                 self.message = ponyfile
@@ -115,8 +113,54 @@ class PonysayTool():
             def __getitem__(self, key):
                 return [ponyfile] if key == '-f' else None
         
+        
+        data = {}
+        comment = []
+        for line in data:
+            if ': ' in line:
+                key = line.replace('\t', ' ')
+                key = key[:key.find(': ')]
+                key = key.strip(' ')
+                if key == key.upper():
+                    value = line.replace('\t', ' ')
+                    value = keyvalue[key.find(': ') + 2:]
+                    data[key] = value.strip(' ')
+                else:
+                    comment.append(line)
+        
+        cut = 0
+        while (len(comment) > cut) and (len(comment[cut]) == 0):
+            cut += 1
+        comment = [''] + comment[cut:]
+        
+        
+        stdout = sys.stdout
+        class StringInputStream:
+            def __init__(self):
+                self.buf = ''
+                class Buffer:
+                    def __init__(self, parent):
+                        self.parent = parent
+                    def write(self, data):
+                        self.parent.buf += data.decode('utf8', 'replace')
+                    def flush(self):
+                        pass
+                self.buffer = Buffer(self)
+            def flush(self):
+                pass
+            def isatty(self):
+                return True
+        sys.stdout = StringInputStream()
         ponysay = Ponysay()
-        ponysay.run(PhonyArgsParser())
+        ponysay.run(PhonyArgParser())
+        printpony = sys.stdout.buf[:-1].split('\n')
+        sys.stdout = stdout
+        
+        ponyheight = len(printpony)
+        ponywidth = Backend.len(max(printpony, key = Backend.len))
+        
+        print('\n'.join(printpony))
+        print(str(ponyheight) + '×' + str(ponywidth))
 
 
 

@@ -42,3 +42,8 @@
 /ponysay.pgs
 /ponysay.vrs
 
+
+## Python cache files
+
+__pycache__/
+
