@@ -115,8 +115,9 @@ class PonysayTool():
             sep = 1
             while data[sep] != '$$$':
                 sep += 1
-            meta = data[1:][:sep]
+            meta = data[1 : sep]
             image = data[sep + 1:]
+        
         
         class PhonyArgParser:
             def __init__(self):
@@ -129,14 +130,14 @@ class PonysayTool():
         
         data = {}
         comment = []
-        for line in data:
+        for line in meta:
             if ': ' in line:
                 key = line.replace('\t', ' ')
                 key = key[:key.find(': ')]
                 key = key.strip(' ')
                 if key == key.upper():
                     value = line.replace('\t', ' ')
-                    value = keyvalue[key.find(': ') + 2:]
+                    value = value[value.find(': ') + 2:]
                     if key not in data:
                         data[key] = value.strip(' ')
                     else:
@@ -226,7 +227,7 @@ class PonysayTool():
             class Saver:
                 def __init__(self, ponyfile, ponyheight, ponywidth, data, image):
                     (self.ponyfile, self.ponyheight, self.ponywidth, self.data, self.image) = (ponyfile, ponyheight, ponywidth, data, image)
-                def ____(self):
+                def __call__(self): # functor
                     comment = self.data['comment']
                     comment = ('\n' + comment + '\n').replace('\n$$$\n', '\n\\$$$\n')[:-1]
                     
@@ -280,22 +281,15 @@ class TextArea:
     @param  saver  Save method
     '''
     def run(self, saver):
-        dispfields = [item + ':  ' for item in self.fields]
-        innerleft = UCS.dispLen(max(dispfields, key = UCS.dispLen)) + self.left
+        innerleft = UCS.dispLen(max(self.fields, key = UCS.dispLen)) + self.left + 3
         
         leftlines = []
         datalines = []
         
-        firstline = True
-        y = self.top
         for key in self.fields:
-            first = True
             for line in self.datamap[key].split('\n'):
-                print('\033[%i;%iH\033[%s34m%s:\033[%s39m' % (y, self.left, '1;' if firstline else '', '>' if (key == 'comment') and not first else key, '21;' if firstline else''), end='')
                 leftlines.append(key)
                 datalines.append(line)
-                first = firstline = False
-                y += 1
         
         (termh, termw) = self.termsize
         (y, x) = (0, 0)
@@ -318,20 +312,31 @@ class TextArea:
         override = False
         
         (oldy, oldx, oldmark) = (y, x, mark)
-        stored = None
+        stored = chr(ord('L') - ord('@'))
         alerted = False
         edited = False
+        print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
         while True:
             if (oldmark is not None) and (oldmark >= 0):
                 if oldmark < oldx:
-                    print('\033[%i;%iH\033[49m%s\033[%i;%iH' % (self.top + oldy, innerleft + oldmark, datalines[y][oldmark : oldx], self.top + y, innerleft + x), end='')
+                    print('\033[%i;%iH\033[49m%s\033[%i;%iH' % (self.top + oldy, innerleft + oldmark, datalines[oldy][oldmark : oldx], self.top + y, innerleft + x), end='')
                 elif oldmark > oldx:
-                    print('\033[%i;%iH\033[49m%s\033[%i;%iH' % (self.top + oldy, innerleft + oldx, datalines[y][oldx : oldmark], self.top + y, innerleft + x), end='')
+                    print('\033[%i;%iH\033[49m%s\033[%i;%iH' % (self.top + oldy, innerleft + oldx, datalines[oldy][oldx : oldmark], self.top + y, innerleft + x), end='')
             if (mark is not None) and (mark >= 0):
                 if mark < x:
-                    print('\033[%i;%iH\033[44m%s\033[49m\033[%i;%iH' % (self.top + y, innerleft + mark, datalines[y][mark : x], self.top + y, innerleft + x), end='')
+                    print('\033[%i;%iH\033[44;37m%s\033[49;39m\033[%i;%iH' % (self.top + y, innerleft + mark, datalines[y][mark : x], self.top + y, innerleft + x), end='')
                 elif mark > x:
-                    print('\033[%i;%iH\033[44m%s\033[49m\033[%i;%iH' % (self.top + y, innerleft + x, datalines[y][x : mark], self.top + y, innerleft + x), end='')
+                    print('\033[%i;%iH\033[44;37m%s\033[49;39m\033[%i;%iH' % (self.top + y, innerleft + x, datalines[y][x : mark], self.top + y, innerleft + x), end='')
+            if y != oldy:
+                if (oldy > 0) and (leftlines[oldy - 1] == leftlines[oldy]) and (leftlines[oldy] == leftlines[-1]):
+                    print('\033[%i;%iH\033[34m%s\033[39m' % (self.top + oldy, self.left, '>'), end='')
+                else:
+                    print('\033[%i;%iH\033[34m%s:\033[39m' % (self.top + oldy, self.left, leftlines[oldy]), end='')
+                if (y > 0) and (leftlines[y - 1] == leftlines[y]) and (leftlines[y] == leftlines[-1]):
+                    print('\033[%i;%iH\033[1;34m%s\033[21;39m' % (self.top + y, self.left, '>'), end='')
+                else:
+                    print('\033[%i;%iH\033[1;34m%s:\033[21;39m' % (self.top + y, self.left, leftlines[y]), end='')
+                print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
             (oldy, oldx, oldmark) = (y, x, mark)
             if edited:
                 edited = False
@@ -374,7 +379,15 @@ class TextArea:
                     else:
                         alert('No mark is activated')
                 elif ord(d) == ord('S') - ord('@'):
-                    # TODO saver()
+                    last = ''
+                    for row in range(0, len(datalines)):
+                        current = leftlines[row]
+                        if current == last:
+                            self.datamap[current] += '\n' + datalines[row]
+                        else:
+                            self.datamap[current] = datalines[row]
+                            last = current
+                    saver()
                     status('unmodified' + (' override' if override else ''))
                     alert('Saved')
                 elif ord(d) == ord('C') - ord('@'):
@@ -400,7 +413,21 @@ class TextArea:
                 print('\033[%i;%iH%s%s\033[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * removed, self.top + y, innerleft + x), end='')
                 edited = True
             elif ord(d) < ord(' '):
-                if ord(d) == ord('F') - ord('@'):
+                if ord(d) == ord('P') - ord('@'):
+                    if y == 0:
+                        alert('At first line')
+                    else:
+                        y -= 1
+                        mark = None
+                        x = 0
+                elif ord(d) == ord('N') - ord('@'):
+                    if y == len(datalines) - 1:
+                        datalines.append('')
+                        leftlines.append(leftlines[-1])
+                    y += 1
+                    mark = None
+                    x = 0
+                elif ord(d) == ord('F') - ord('@'):
                     if x < len(datalines[y]):
                         x += 1
                         print('\033[C', end='')
@@ -414,24 +441,39 @@ class TextArea:
                     else:
                         alert('At beginning')
                         alerted = True
+                elif ord(d) == ord('O') - ord('@'):
+                    leftlines[y : y] = [leftlines[y]]
+                    datalines[y : y] = ['']
+                    y += 1
+                    mark = None
+                    x = 0
+                    stored = chr(ord('L') - ord('@'))
+                elif ord(d) == ord('L') - ord('@'):
+                    empty = '\033[0m' + (' ' * self.width + '\n') * len(datalines)
+                    print('\033[%i;%iH%s' % (self.top, self.left, empty), end='')
+                    for row in range(0, len(leftlines)):
+                        leftline = leftlines[row] + ':'
+                        if (leftlines[row - 1] == leftlines[row]) and (leftlines[row] == leftlines[-1]):
+                            leftline = '>'
+                        print('\033[%i;%iH\033[%s34m%s\033[%s39m' % (self.top + row, self.left, '1;' if row == y else '', leftline, '21;' if row == y else ''), end='')
+                    for row in range(0, len(datalines)):
+                        print('\033[%i;%iH%s\033[49m' % (self.top + row, innerleft, datalines[row]), end='')
+                    print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
                 elif d == '\033':
                     d = sys.stdin.read(1)
                     if d == '[':
                         d = sys.stdin.read(1)
-                        if d == 'C':
-                            if x < len(datalines[y]):
-                                x += 1
-                                print('\033[C', end='')
+                        if d == 'A':
+                            stored = chr(ord('P') - ord('@'))
+                        elif d == 'B':
+                            if y == len(datalines) - 1:
+                                alert('At last line')
                             else:
-                                alert('At end')
-                                alerted = True
+                                stored = chr(ord('N') - ord('@'))
+                        elif d == 'C':
+                            stored = chr(ord('F') - ord('@'))
                         elif d == 'D':
-                            if x > 0:
-                                x -= 1
-                                print('\033[D', end='')
-                            else:
-                                alert('At beginning')
-                                alerted = True
+                            stored = chr(ord('B') - ord('@'))
                         elif d == '2':
                             d = sys.stdin.read(1)
                             if d == '~':
@@ -468,7 +510,7 @@ class TextArea:
                             x = len(datalines[y])
                         print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
                 elif d == '\n':
-                    break
+                    stored = chr(ord('N') - ord('@'))
             else:
                 insert = d
                 if len(insert) == 0:
