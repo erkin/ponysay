@@ -318,9 +318,10 @@ class PonysayTool():
         data['comment'] = '\n'.join(comment)
         fields = [key for key in data]
         fields.sort()
-        standardfields = ['GROUP NAME', 'NAME', 'OTHER NAMES', 'APPEARANCE', 'KIND', 'GROUP',
-                          'BALLOON', 'LINK', 'LINK ON', 'COAT', 'MANE', 'EYE', 'AURA', 'DISPLAY',
-                          'MASTER', 'SOURCE', 'MEDIA', 'LICENSE', 'FREE', 'comment']
+        standardfields = ['GROUP NAME', 'NAME', 'OTHER NAMES', 'APPEARANCE', 'KIND',
+                          'GROUP', 'BALLOON', 'LINK', 'LINK ON', 'COAT', 'MANE', 'EYE',
+                          'AURA', 'DISPLAY', 'BALLOON TOP', 'BALLOON BOTTOM', 'MASTER',
+                          'SOURCE', 'MEDIA', 'LICENSE', 'FREE', 'comment']
         for standard in standardfields:
             if standard in fields:
                 del fields[fields.index(standard)]
