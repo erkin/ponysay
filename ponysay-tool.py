@@ -137,7 +137,10 @@ class PonysayTool():
                 if key == key.upper():
                     value = line.replace('\t', ' ')
                     value = keyvalue[key.find(': ') + 2:]
-                    data[key] = value.strip(' ')
+                    if key not in data:
+                        data[key] = value.strip(' ')
+                    else:
+                        data[key] += '\n' + value.strip(' ')
                 else:
                     comment.append(line)
         
@@ -219,15 +222,96 @@ class PonysayTool():
         
         fields = standardfields[:-1] + fields + [standardfields[-1]]
         
+        def saver(ponyfile, ponyheight, ponywidth, data, image):
+            class Saver:
+                def __init__(self, ponyfile, ponyheight, ponywidth, data, image):
+                    (self.ponyfile, self.ponyheight, self.ponywidth, self.data, self.image) = (ponyfile, ponyheight, ponywidth, data, image)
+                def ____(self):
+                    comment = self.data['comment']
+                    comment = ('\n' + comment + '\n').replace('\n$$$\n', '\n\\$$$\n')[:-1]
+                    
+                    meta = []
+                    for key in self.data:
+                        if (key == 'comment') or (len(self.data[key].strip()) == 0):
+                            continue
+                        values = self.data[key].strip()
+                        for value in values.split('\n'):
+                            meta.append(key + ': ' + value)
+                    
+                    meta.append('WIDTH: ' + str(self.ponywidth))
+                    meta.append('HEIGHT: ' + str(self.ponyheight))
+                    meta.append(comment)
+                    meta = '\n'.join(meta)
+                    ponydata = '$$$\n' + meta + '\n$$$\n' + '\n'.join(self.image)
+                    
+                    with open(self.ponyfile, 'wb') as file:
+                        file.write(ponydata.encode('utf8'))
+                        file.flush()
+            return Saver(ponyfile, ponyheight, ponywidth, data, image)
         
-        for key in fields:
-            print('\033[34m%s:\033[39m' % key)
+        textarea = TextArea(fields, data, 1, 3, termsize[1] - ponywidth, termsize[0] - 2, termsize)
+        textarea.run(saver(ponyfile, ponyheight, ponywidth, data, image))
+
+
+
+'''
+GNU Emacs alike text area
+'''
+class TextArea:
+    '''
+    Constructor
+    
+    @param  fields:list<str>       Field names
+    @param  datamap:dist<str,str>  Data map
+    @param  left:int               Left position of the component
+    @param  top:int                Top position of the component
+    @param  width:int              Width of the component
+    @param  height:int             Height of the component
+    @param  termsize:(int,int)     The height and width of the terminal
+    '''
+    def __init__(self, fields, datamap, left, top, width, height, termsize):
+        (self.fields, self.datamap, self.left, self.top, self.width, self.height, self.termsize) \
+        = (fields, datamap, left, top, width - 1, height, termsize)
+    
+    
+    '''
+    Execute text reading
+    
+    @param  saver  Save method
+    '''
+    def run(self, saver):
+        dispfields = [item + ':  ' for item in self.fields]
+        innerleft = UCS.dispLen(max(dispfields, key = UCS.dispLen)) + self.left
         
-        input()
+        y = self.top
+        for key in self.fields:
+            first = True
+            for unused in self.datamap[key].split('\n'):
+                print('\033[%i;%iH\033[34m%s:\033[39m' % (y, self.left, '>' if (key == 'comment') and not first else key), end='')
+                first = False
+                y += 1
         
-        comment = data['comment']
-        del data['comment']
-        comment = ('\n' + comment + '\n').replace('\n$$$\n', '\n\\$$$\n')[:-1]
+        (termh, termw) = self.termsize
+        
+        def status(text):
+            print('\033[%i;%iH\033[7m%s\033[0m' % (termh - 1, 1, ' (' + text + ') ' + '-' * (termw - len(' (' + text + ') '))), end='')
+        
+        status('unmodified')
+        
+        print('\033[%i;%iH' % (self.top, innerleft), end='')
+        (y, x) = (0, 0)
+        
+        while True:
+            sys.stdout.flush()
+            d = sys.stdin.read(1)
+            if d == '\n':
+                break
+            if ord(d) < ord(' '):
+                print('\033[%i;%iH%s\033[%i;%iH' % (termh, 1, '(%s)' % ord(d), self.top + y, innerleft + x), end='')
+            else:
+                print(d, end='')
+                x += 1
+            
 
 
 
