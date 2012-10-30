@@ -1,3 +1,6 @@
+$$$
+FREE: yes
+$$$
 $balloon$
 [0m$\$
  $\$

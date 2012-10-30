@@ -2425,11 +2425,13 @@ class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimise
 
 
 
-
 '''
 Start the program from ponysay.__init__ if this is the executed file
 '''
 if __name__ == '__main__':
+    isthink =  (len(__file__) >= len('think'))    and (__file__.endswith('think'))
+    isthink = ((len(__file__) >= len('think.py')) and (__file__.endswith('think.py'))) or isthink
+    
     usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
     usage_common   = '[-c] [-W\033[4mCOLUMN\033[24m] [-b\033[4mSTYLE\033[24m]'
     usage_listhelp = '(-l | -L | -B | +l | +L | -A | + A | -v | -h)'

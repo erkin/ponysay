@@ -96,7 +96,7 @@ MLP:FiM cono no pertenecientes, la primera lista seran los pertenecientes y la
 subsiguente los no pertenecientes.
 .TP
 .B \-o, \-\-pony\-only, \-\-ponyonly
-Solo muestra al poni, No asi con los demás elementos.
+Solo muestra al poni, No así con los demás elementos.
 .TP
 .B \+c, \-\-colour [\fIansi-colour\fP]
 Colorea el globo, Incluyendo mensajes y enlaces. Para más información acerca del coloreo vea las páginas
