@@ -14,6 +14,8 @@ Version 3.0
 
 	-f, +f and -q may be unargumented if that are at the end of the command line.
 
+	ponysay-tool is introduced, it can be used to edit, remove and copy pony meta data.
+
 
 Version 2.9.1
 

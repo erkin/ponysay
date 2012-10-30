@@ -2130,6 +2130,8 @@ Environment variable @env{PONYSAY_WRAP_EXCEED} has been added.
 Added support for @file{~/.ponysay.rc}.
 @item
 @option{-f}, @option{+f} and @option{-q} may be unargumented if that are at the end of the command line.
+@item
+@command{ponysay-tool} is introduced, it can be used to edit, remove and copy pony meta data.
 @end itemize
 
 
