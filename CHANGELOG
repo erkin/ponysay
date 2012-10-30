@@ -16,6 +16,8 @@ Version 3.0
 
 	ponysay-tool is introduced, it can be used to edit, remove and copy pony meta data.
 
+	ponysay-tool --kms generates all kmsponies for the current TTY palette.
+
 
 Version 2.9.1
 

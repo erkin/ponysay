@@ -2132,6 +2132,8 @@ Added support for @file{~/.ponysay.rc}.
 @option{-f}, @option{+f} and @option{-q} may be unargumented if that are at the end of the command line.
 @item
 @command{ponysay-tool} is introduced, it can be used to edit, remove and copy pony meta data.
+@item
+@command{ponysay-tool --kms} generates all kmsponies for the current TTY palette.
 @end itemize
 
 
