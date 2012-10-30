@@ -13,7 +13,11 @@ ttyponies()
 	if [ ! "$pony" = '.info' ]; then
 	    echo "building ttypony: $pony"
 	    if [ "`readlink "ponies/$pony"`" = '' ]; then
+		./ponysay-tool.py --edit-stash "ponies/$pony" > ".pony.metadata~"
+		./ponysay-tool.py --edit-rm "ponies/$pony"
 	        ponysay2ttyponysay < "ponies/$pony" | tty2colourfultty -c 1 > "ttyponies/$pony"
+		./ponysay-tool.py --edit-apply "ponies/$pony" < ".pony.metadata~"
+		./ponysay-tool.py --edit-apply "ttyponies/$pony" < ".pony.metadata~"
 	        git add "ttyponies/$pony"
 	    else
 		ln -sf `readlink "ponies/$pony"` "ttyponies/$pony"
@@ -26,7 +30,11 @@ ttyponies()
 	if [ ! "$pony" = '.info' ]; then
 	    echo "building extrattypony: $pony"
 	    if [ "`readlink "extraponies/$pony"`" = '' ]; then
+		./ponysay-tool.py --edit-stash "extraponies/$pony" > ".pony.metadata~"
+		./ponysay-tool.py --edit-rm "extraponies/$pony"
 	        ponysay2ttyponysay < "extraponies/$pony" | tty2colourfultty -c 1 > "extrattyponies/$pony"
+		./ponysay-tool.py --edit-apply "extraponies/$pony" < ".pony.metadata~"
+		./ponysay-tool.py --edit-apply "extrattyponies/$pony" < ".pony.metadata~"
 	        git add "extrattyponies/$pony"
 	    else
                 ln -sf `readlink "extraponies/$pony"` "extrattyponies/$pony"
@@ -34,6 +42,7 @@ ttyponies()
 	    fi
 	fi
     done
+    rm ".pony.metadata~"
 }
 
 
