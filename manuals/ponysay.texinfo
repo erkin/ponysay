@@ -577,6 +577,10 @@ You can examine the source code of @command{ponysay} to figure out some nice hac
 you may want to do, everything in the source code can be used directly as long as it
 is defined before @file{~/.ponysayrc} is interpreted.
 
+@file{~/.ponysayrc} is a fallback for @file{~/.config/ponysay/ponysayrc}, which in
+turn is a fallback for @file{${XDG_CONFIG_HOME}/ponysay/ponysayrc}. If neither of
+those exist, @file{/etc/ponysayrc} is used if that exists.
+
 
 
 @node Environment variables
@@ -2493,7 +2497,7 @@ Pony files located in @file{/usr/share/ponysay}.
 @itemx usrponies
 @cindex homeponies
 @cindex usrponies
-Pony files located in @file{~/.local/share/ponysay}.
+Pony files located in @file{${XDG_DATA_HOME}/ponysay} or @file{~/.local/share/ponysay} (fallback).
 
 @item browser ponies
 @cindex browser ponies
