@@ -1198,8 +1198,8 @@ Go to the beginning of the line.
 Go to the end of the line.
 
 @item backspace
-@item C-h
-@item C-?
+@itemx C-h
+@itemx C-?
 Remove the previous character on the same line.
 
 @item delete
