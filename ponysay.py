@@ -94,17 +94,59 @@ class Ponysay():
         '''
         The user's home directory
         '''
-        self.HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
+        self.HOME = os.environ['HOME'] if 'HOME' in os.environ else ''
+        if len(self.HOME) == 0:
+            os.environ['HOME'] = self.HOME = os.path.expanduser('~')
         
-        ## Change system enviroments with ~/.ponysayrc
-        if os.path.exists(self.HOME + '/.ponysayrc'):
-            with open(self.HOME + '/.ponysayrc', 'rb') as ponysayrc:
-                code = ponysayrc.read().decode('utf8', 'replace') + '\n'
-                env = os.environ
-                code = compile(code, self.HOME + '/.ponysayrc', 'exec')
-                exec(code)
         
-        self.HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~') # in case ~/.ponysayrc changes it
+        '''
+        Parse a file name encoded with environment variables
+        
+        @param   file  The encoded file name
+        @return        The target file name, None if the environment variables are not declared
+        '''
+        def parsefile(file):
+            if '$' in file:
+                buf = ''
+                esc = False
+                var = None
+                for c in file:
+                    if esc:
+                        buf += c
+                        esc = False
+                    elif var is not None:
+                        if c == '/':
+                            var = os.environ[var] if var in os.environ else ''
+                            if len(var) == 0:
+                                return None
+                            buf += var + c
+                            var = None
+                        else:
+                            var += c
+                    elif c == '$':
+                        var = ''
+                    elif c == '\\':
+                        esc = True
+                    else:
+                        buf += c
+                return buf
+            return file
+        
+        
+        ## Change system enviroment variables with ponysayrc
+        for file in ('$XDG_CONFIG_HOME/ponysay/ponysayrc', '$HOME/.config/ponysay/ponysayrc', '$HOME/.ponysayrc', '/etc/ponysayrc'):
+            file = parsefile(file)
+            if os.path.exists(file):
+                with open(file, 'rb') as ponysayrc:
+                    code = ponysayrc.read().decode('utf8', 'replace') + '\n'
+                    env = os.environ
+                    code = compile(code, file, 'exec')
+                    exec(code)
+                break
+        
+        self.HOME = os.environ['HOME'] if 'HOME' in os.environ else '' # in case ~/.ponysayrc changes it
+        if len(self.HOME) == 0:
+            os.environ['HOME'] = self.HOME = os.path.expanduser('~')
         
         
         '''
@@ -154,19 +196,27 @@ class Ponysay():
         self.mode = ''
         
         
+        def share(file):
+            return [parsefile(item) + file for item in [
+                    '$XDG_DATA_HOME/ponysay/',
+                    '$HOME/.local/share/ponysay/',
+                    '/usr/share/ponysay/',
+                   ]]
+        
+        
         '''
         The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
         '''
         appendset = set()
         self.xponydirs = []
-        _ponydirs = [self.HOME + '/.local/share/ponysay/ponies/', '/usr/share/ponysay/ponies/']
+        _ponydirs = share('ponies/')
         for ponydir in _ponydirs:
             if os.path.isdir(ponydir) and (ponydir not in appendset):
                 self.xponydirs.append(ponydir)
                 appendset.add(ponydir)
         appendset = set()
         self.vtponydirs = []
-        _ponydirs = [self.HOME + '/.local/share/ponysay/ttyponies/', '/usr/share/ponysay/ttyponies/']
+        _ponydirs = share('ttyponies/')
         for ponydir in _ponydirs:
             if os.path.isdir(ponydir) and (ponydir not in appendset):
                 self.vtponydirs.append(ponydir)
@@ -178,14 +228,14 @@ class Ponysay():
         '''
         appendset = set()
         self.extraxponydirs = []
-        _extraponydirs = [self.HOME + '/.local/share/ponysay/extraponies/', '/usr/share/ponysay/extraponies/']
+        _extraponydirs = share('extraponies/')
         for extraponydir in _extraponydirs:
             if os.path.isdir(extraponydir) and (extraponydir not in appendset):
                 self.extraxponydirs.append(extraponydir)
                 appendset.add(extraponydir)
         appendset = set()
         self.extravtponydirs = []
-        _extraponydirs = [self.HOME + '/.local/share/ponysay/extrattyponies/', '/usr/share/ponysay/extrattyponies/']
+        _extraponydirs = share('extrattyponies/')
         for extraponydir in _extraponydirs:
             if os.path.isdir(extraponydir) and (extraponydir not in appendset):
                 self.extravtponydirs.append(extraponydir)
@@ -197,7 +247,7 @@ class Ponysay():
         '''
         appendset = set()
         self.quotedirs = []
-        _quotedirs = [self.HOME + '/.local/share/ponysay/quotes/', '/usr/share/ponysay/quotes/']
+        _quotedirs = share('quotes/')
         for quotedir in _quotedirs:
             if os.path.isdir(quotedir) and (quotedir not in appendset):
                 self.quotedirs.append(quotedir)
@@ -209,7 +259,7 @@ class Ponysay():
         '''
         appendset = set()
         self.balloondirs = []
-        _balloondirs = [self.HOME + '/.local/share/ponysay/balloons/', '/usr/share/ponysay/balloons/']
+        _balloondirs = share('balloons/')
         for balloondir in _balloondirs:
             if os.path.isdir(balloondir) and (balloondir not in appendset):
                 self.balloondirs.append(balloondir)
@@ -221,7 +271,7 @@ class Ponysay():
         '''
         appendset = set()
         self.ucsmaps = []
-        _ucsmaps = [self.HOME + '/.local/share/ponysay/ucsmap', '/usr/share/ponysay/ucsmap']
+        _ucsmaps = share('ucsmap/')
         for ucsmap in _ucsmaps:
             if os.path.isdir(ucsmap) and (ucsmap not in appendset):
                 self.ucsmaps.append(ucsmap)

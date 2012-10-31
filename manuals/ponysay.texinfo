@@ -2627,7 +2627,8 @@ Environment variable @env{PONYSAY_WRAP_LIMIT} has been added.
 @item
 Environment variable @env{PONYSAY_WRAP_EXCEED} has been added.
 @item
-Added support for @file{~/.ponysay.rc}.
+Added support for @file{~/.ponysayrc} with the alternatives: @file{${XDG_CONFIG_HOME}/ponysay/ponysayrc}
+and @file{~/.config/ponysay/ponysayrc} as well as the global fallback @file{/etc/ponysayrc}
 @item
 @option{-f}, @option{+f} and @option{-q} may be unargumented if that are at the end of the command line.
 @item
@@ -2637,6 +2638,8 @@ Added support for @file{~/.ponysay.rc}.
 @item
 Pony metadata tags @var{BALLOON TOP} and @var{BALLOON BOTTOM} can be used to specify how much extra
 height the balloon causes at the top and at the bottom of the pony.
+@item
+@file{${XDG_DATA_HOME}/ponysay/*} is allowed in favour of @file{${HOME}/.local/share/ponysay/*}
 @end itemize
 
 

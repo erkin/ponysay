@@ -10,7 +10,8 @@ Version 3.0
 
 	Environment variable 'PONYSAY_WRAP_EXCEED' has been added.
 
-	Added support for ~/.ponysayrc.
+	Added support for ~/.ponysayrc with the alternatives: ${XDG_CONFIG_HOME}/ponysay/ponysayrc
+	and ~/.config/ponysay/ponysayrc as well as the global fallback /etc/ponysayrc.
 
 	-f, +f and -q may be unargumented if that are at the end of the command line.
 
@@ -20,6 +21,8 @@ Version 3.0
 
 	Pony metadata tags BALLOON TOP and BALLOON BOTTOM can be used to specify how
 	much extra height the balloon causes at the top and at the bottom of the pony.
+
+	${XDG_DATA_HOME}/ponysay/* is allowed in favour of ${HOME}/.local/share/ponysay/*
 
 
 Version 2.9.1
