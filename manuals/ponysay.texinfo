@@ -1058,6 +1058,7 @@ its purpose is to provide tools to ponysay relevant actions that is not printing
 @menu
 * Fill KMS cache::      Pre-generate kmsponies to your cache.
 * Metadata pasting::    Copy, remove, stash and apply stashed pony metadata.
+* Editing metadata::    Editing the metadata in a pony file.
 @end menu
 
 
@@ -1122,6 +1123,85 @@ used provided in stdin.
 To copy the metadata from one pony to another (and remove the old metadata) you will have to
 pipe the stashing and the applying command:
 @command{ponysay-tool --edit-stash SOURCE-PONY-FILE | ponysay-tool --edit-apply TARGET-PONY-FILE}
+
+
+@node Editing metadata
+@section Editing metadata
+@cindex editing metadata
+@cindex metadata, editing
+
+@opindex @option{--edit}
+@command{ponysay-tool} allows you to edit the metadata in a pony file by running
+@command{ponysay-tool --edit PONY-FILE}, where @code{PONY-FILE} is the pony file to edit,
+not the pony name. No additional options are available.
+
+@command{ponysay-tool --edit PONY-FILE} is interative and opens an editor inspired by GNU Emacs.
+The tool will give you the standard tags to fill and will automatically fill in @var{HEIGHT}
+and @var{WIDTH} for you without allowing you to editing those two tags. Additionally the editor
+will print the pony at the right side of the terminal with the name of the file you are editing.
+
+The commands the editor use is a small subset of the standard commands in GNU Emacs.
+Currently the commands are only coded for xterm (just about all terminals except Linux VT.)
+@kbd{C-x} means @kbd{x} with @kbd{control} held down.
+@kbd{M-x} means @kbd{x} with @kbd{alt} (@kbd{meta}) held down.
+
+@table @kbd
+@item C-space
+@itemx C-@
+Set mark; only if mark is set and is at the same position
+as the point (cursor) the mark is deactivated.
+A mark creates a text select, it cannot span between lines.
+
+@item C-j
+@itemx enter
+Go to next line, create a new line if at last line.
+
+@item C-n
+@itemx down
+Go to next line, do not create a new line if at last line.
+
+@item C-p
+@itemx up
+Go to previous line.
+
+@item C-f
+@itemx right
+Go to next column.
+
+@item C-b
+@itemx left
+Go to previous column.
+
+@item home
+Go to the beginning of the line.
+
+@item end
+Go to the end of the line.
+
+@item backspace
+@item C-h
+@item C-?
+Remove the previous character on the same line.
+
+@item delete
+Remove the current character on the same line.
+
+@item C-o
+Insert a next line below the current line and go to it.
+This is useful if you want to add another entry for a tag.
+
+@item insert
+Enter or exit override mode.
+
+@item C-x C-x
+Swap the mark and the point.
+
+@item C-x C-s
+Save your changes.
+
+@item C-x C-c
+Exit the editor, do not forget to save if you have made changes.
+@end table
 
 
 
