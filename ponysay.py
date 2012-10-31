@@ -211,14 +211,14 @@ class Ponysay():
         self.xponydirs = []
         _ponydirs = share('ponies/')
         for ponydir in _ponydirs:
-            if os.path.isdir(ponydir) and (ponydir not in appendset):
+            if (ponydir is not None) and os.path.isdir(ponydir) and (ponydir not in appendset):
                 self.xponydirs.append(ponydir)
                 appendset.add(ponydir)
         appendset = set()
         self.vtponydirs = []
         _ponydirs = share('ttyponies/')
         for ponydir in _ponydirs:
-            if os.path.isdir(ponydir) and (ponydir not in appendset):
+            if (ponydir is not None) and os.path.isdir(ponydir) and (ponydir not in appendset):
                 self.vtponydirs.append(ponydir)
                 appendset.add(ponydir)
         
@@ -230,14 +230,14 @@ class Ponysay():
         self.extraxponydirs = []
         _extraponydirs = share('extraponies/')
         for extraponydir in _extraponydirs:
-            if os.path.isdir(extraponydir) and (extraponydir not in appendset):
+            if (extraponydir is not None) and os.path.isdir(extraponydir) and (extraponydir not in appendset):
                 self.extraxponydirs.append(extraponydir)
                 appendset.add(extraponydir)
         appendset = set()
         self.extravtponydirs = []
         _extraponydirs = share('extrattyponies/')
         for extraponydir in _extraponydirs:
-            if os.path.isdir(extraponydir) and (extraponydir not in appendset):
+            if (extraponydir is not None) and os.path.isdir(extraponydir) and (extraponydir not in appendset):
                 self.extravtponydirs.append(extraponydir)
                 appendset.add(extraponydir)
         
@@ -249,7 +249,7 @@ class Ponysay():
         self.quotedirs = []
         _quotedirs = share('quotes/')
         for quotedir in _quotedirs:
-            if os.path.isdir(quotedir) and (quotedir not in appendset):
+            if (quotedir is not None) and os.path.isdir(quotedir) and (quotedir not in appendset):
                 self.quotedirs.append(quotedir)
                 appendset.add(quotedir)
         
@@ -261,7 +261,7 @@ class Ponysay():
         self.balloondirs = []
         _balloondirs = share('balloons/')
         for balloondir in _balloondirs:
-            if os.path.isdir(balloondir) and (balloondir not in appendset):
+            if (balloondir is not None) and os.path.isdir(balloondir) and (balloondir not in appendset):
                 self.balloondirs.append(balloondir)
                 appendset.add(balloondir)
         
@@ -273,7 +273,7 @@ class Ponysay():
         self.ucsmaps = []
         _ucsmaps = share('ucsmap/')
         for ucsmap in _ucsmaps:
-            if os.path.isdir(ucsmap) and (ucsmap not in appendset):
+            if (ucsmap is not None) and os.path.isdir(ucsmap) and (ucsmap not in appendset):
                 self.ucsmaps.append(ucsmap)
                 appendset.add(ucsmap)
     
