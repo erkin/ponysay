@@ -1,4 +1,11 @@
+Version 2.9.1
+
+	Bug fix: correction in the -W option broke the -o option.
+
+
 Version 2.9
+
+	New ponies: pinkieumbrelahatfear, twilighttime
 
 	New extraponies: molestia (Tumblr)
 
@@ -13,6 +20,8 @@ Version 2.9
 	than unlimited. Currently this cannot be modified (without editing the source code.)
 
 	If file descriptor 3 is definied when ponysay is executed, extra information is printed to it.
+
+	Arguments starting with n or i is allowed for -W.
 
 
 Version 2.8

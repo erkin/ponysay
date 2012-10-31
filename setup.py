@@ -8,7 +8,7 @@ from subprocess import Popen, PIPE
 
 
 
-PONYSAY_VERSION = '2.8'
+PONYSAY_VERSION = '2.9.1'
 
 
 

@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.9
+@set VERSION 2.9.1
 
 @defindex op
 @synindex op vr
@@ -105,7 +105,7 @@ quoting the given message is printed on standard output.
 
 @command{ponysay} is generally used to decorate your terminal with a random pony, when
 you start the terminal. But if you know anypony how does like ponies [fat chance] you
-can always make screen-shots of @command{ponysay -q} executions and communication that
+can always make screen-shots of @command{ponysay --q} executions and communication that
 way over e-mail.
 
 
@@ -248,7 +248,16 @@ balloon style is specified a fallback style will be used.
 @opindex @option{-W}
 @opindex @option{--wrap}
 Specify the screen column where the message should be wrapped, this is by default 40,
-as with @command{cowsay}.
+as with @command{cowsay}. The balloon's extra width is taken into consideration.
+
+If the argument is not a number, but starts instead with @code{n} (for ‘none’ or
+‘no’), no wrapping is done, and if it starts with @code{i} (for ‘inherit’) the width
+of the terminal is used.
+
+@code{n} and @code{i} is case insensitive, so you may use @code{N} and @code{I}
+instead. Additionally, typo correction is for QWERTY and Dvorak is built in to
+@command{ponysay}; the nearest key, either to the left or to the right, depending
+on which hand is used to press the key, is also allowed.
 
 @item -c
 @itemx --compress
@@ -442,7 +451,7 @@ of the balloon style file, and if definied in the pony file, file meta data and 
 
 In most shells, a file descriptor 3 can defined using @command{3> FILE}, and linked to
 stderr using @command{3>&2}. For example, you can print the information to @file{~/info}
-by running @command{ponysay I\'m just the cutest pony! | 3> ~/info}.
+by running @command{ponysay I\'m just the cutest pony! 3> ~/info}.
 
 The message is not stored this way, for that you can use @command{tee}. However, if you
 use @option{-q} the quote file is printed to file descriptor 3.
@@ -929,7 +938,7 @@ or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 @command{ponysay} comes with this @command{info} manual and a manpage in section 6,
 @command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
 in Spanish: @command{man -L es 6 ponysay}. To install the Spanish manual add the
-option @option{--with-man-es} when running @command{./configure}.
+option @option{--with-man-es} when running @command{./setup.py}.
 
 
 
@@ -1326,11 +1335,11 @@ inode comparison.
 @end table
 
 Recognised compressions are @option{gz} which uses @option{gzip -9}, and @option{xz}
-which uses @option{xz -9e}. @option{xz} is still exotic to bost programs, use using
+which uses @option{xz -9e}. @option{xz} is still exotic to most programs, using
 it is not recommended. Distributors are strongly disencouraged to compression for the
 PDF manual and should use @option{--without-pdf-compression}.
 
-You can run @command{./configure [OPTIONS] view} to make sure everything is correct
+You can run @command{./setup.py [OPTIONS] view} to make sure everything is correct
 before building and installing.
 
 
@@ -1340,9 +1349,12 @@ before building and installing.
 
 @menu
 * Arch Linux::                  Packages for Arch Linux.
+* Arch Linux ARM::              Packages for Arch Linux ARM.
 * Chakra::                      Packages for Chakra.
-* Gentoo Linux::                Packages for Gentoo Linux.
 * Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
+* Gentoo Linux::                Packages for Gentoo Linux.
+* Parabola GNU/Linux::          Packages for Parabola GNU/Linux.
+* Source Mage GNU/Linux::       Packages for Source Mage GNU/Linux.
 @end menu
 
 
@@ -1351,24 +1363,26 @@ before building and installing.
 @cindex arch linux
 
 The official Arch Linux package repositories contains @command{ponysay} as
-@w{@code{community/ponysay}}. The Arch Linux User Repository (AUR) contains a
-bleeding edge git version of @command{ponysay} as @code{ponysay-git}.
+@w{@code{community/ponysay}} (developer maintained). The Arch Linux User Repository
+(AUR) contains a bleeding edge git version of @command{ponysay} as
+@w{@code{ponysay-git}} (user maintained).
+
+
+@node Arch Linux ARM
+@subsection Arch Linux ARM
+@cindex arch linux arm
+
+@w{@code{community/ponysay}} from Arch Linux (@ref{Arch Linux}) is also available
+for Arch Linux ARM.
 
 
 @node Chakra
 @subsection Chakra
 @cindex chakra
 
-Chakra users can install from (CCR) a stable version named a @code{ponysay},
-additionally a git verion of ponysay is available as @code{ponysay-git}.
-
-
-@node Gentoo Linux
-@subsection Gentoo Linux
-@cindex gentoo linux
-
-Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
-contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
+Chakra users can install from (CCR) a stable version named a @code{ponysay}
+(developer maintained Arch Linux mirror), additionally a git verion of ponysay is
+available as @code{ponysay-git} (developer maintained Arch Linux mirror).
 
 
 @node Debian GNU/Linux
@@ -1376,9 +1390,34 @@ contains @command{ponysay} as @w{@code{games-misc/ponysay}}.
 @cindex debian gnu/linux
 @cindex ubuntu
 
-A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay},
-and PPA:s can be found at @url{https://launchpad.net/~vincent-c/+archive/ppa} and
-@url{https://launchpad.net/~blazemore/+archive/ponysay}.
+A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay}
+(user maintained), and PPA:s can be found at
+@url{https://launchpad.net/~vincent-c/+archive/ppa} (user maintained) and
+@url{https://launchpad.net/~blazemore/+archive/ponysay} (user maintained).
+
+
+@node Gentoo Linux
+@subsection Gentoo Linux
+@cindex gentoo linux
+
+Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
+contains @command{ponysay} as @w{@code{games-misc/ponysay}} (developer maintained).
+
+
+@node Parabola GNU/Linux
+@subsection Parabola GNU/Linux
+@cindex parabola gnu/linux
+
+@w{@code{community/ponysay}} from Arch Linux (@ref{Arch Linux}) is also available
+for Parabola GNU/Linux.
+
+
+@node Source Mage GNU/Linux
+@subsection Source Mage GNU/Linux
+@cindex source mage gnu/linux
+
+The spell @w{@code{util/ponysay}} (user maintained) is available in Grimoire for
+Source Mage @w{GNU/Linux}.
 
 
 @node Uninstalling
@@ -1709,7 +1748,7 @@ Using util-say:
 @example
 @code{img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE}
 
-@code{PONY}_FILE should end with @file{.pony} and be localed in @file{ponies/},
+@code{PONY_FILE} should end with @file{.pony} and be localed in @file{ponies/},
 or @file{extraponies/} if the pony is not a MLP:FiM pony.
 
 Omit @option{-2} if the source image does not use double pixel size.
@@ -2007,8 +2046,16 @@ sequences.
 @cindex versions
 @cindex previous releases
 
+@heading Version 2.9.1
+@itemize @bullet
+@item
+Bug fix: correction in the -W option broke the -o option.
+@end itemize
+
+
 @heading Version 2.9
 @itemize @bullet
+New ponies: @file{pinkieumbrelahatfear}, @file{twilighttime}
 @item
 New extraponies: @file{molestia} (Tumblr)
 @item
@@ -2024,6 +2071,8 @@ than unlimited. Currently this cannot be modified (without editing the source co
 @item
 If file descriptor 3 is definied when @command{ponysay} is executed, extra information is
 printed to it.
+@item
+Arguments starting with @code{n} or @code{i} is allowed for @option{-W}.
 @end itemize
 
 

@@ -53,8 +53,8 @@ Now every time you open a terminal a pony should give your fortune
 
 ### Pony quotes
 
-Running `ponysay -q` will give you a random pony saying one it its quote from MLP:FiM. Add one or more argument after `-q` to sepecify a
-set of ponies from which one will be selected randomly.
+Running `ponysay --q` will give you a random pony saying one it its quote from MLP:FiM, or you can specify the pony: `ponysay -q pinkie`.
+Just as with `-f`, `-q` can be used multiple time to to sepecify a set of ponies from which one will be selected randomly.
 
 When running `ponysay -l` or `ponysay -L` the ponies which have quotes will be printed bold or bright (depending on terminal).
 

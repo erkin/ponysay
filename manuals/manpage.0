@@ -80,7 +80,9 @@ is added as an argument to \fI-q\fP. If one or more ponies are added as an argum
 to \fI-q\fP the pony will be selected randomly from that set of ponies.
 .TP
 .B \-W, \-\-wrap \fIcolumn\fP
-The screen column where the message should be wrapped.
+The screen column where the message should be wrapped, the balloon's extra width is taken
+into consideration. If the argument is not a number, but starts instead with \fIn\fP,
+no wrapping is done, and if it starts with \fIi\fP the width of the terminal is used.
 .TP
 .B \-A, \-\-all
 List all pony files, MLP-FiM and non-MLP-FiM, in this case the first list are MLP:FiM
