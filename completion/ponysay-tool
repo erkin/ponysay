@@ -1,0 +1,18 @@
+(ponysay-tool
+
+	(multple unargumented
+		((option -h --help) (complete --help) (desc 'Show help summary'))
+		((option -v --version) (complete --version) (desc 'Show version summary'))
+	)
+	
+	(unargumented (option --kms) (complete --kms) (desc 'Pregenerate kmsponies for current tty palette'))
+	
+	(argumented (option --edit) (complete --edit) (arg PONYFILE) (files -f *.pony) (desc 'Edit pony metadata'))
+	
+	(argumented (option --edit-rm) (complete --edit-rm) (bind --edit) (desc 'Remove all pony metadata'))
+	
+	(argumented (option --edit-stash) (complete --edit-stash) (bind --edit) (desc 'Print all pony metadata'))
+	
+	(argumented (option --edit-apply) (complete --edit-apply) (bind --edit) (desc 'Replace all metadata with stash metadata'))
+	
+)
