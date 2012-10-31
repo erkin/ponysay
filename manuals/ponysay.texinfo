@@ -266,6 +266,7 @@ on which hand is used to press the key, is also allowed.
 
 @item -c
 @itemx --compress
+@itemx --compact
 @opindex @option{-c}
 @opindex @option{--compress}
 @opindex @option{--compact}
