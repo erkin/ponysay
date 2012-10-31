@@ -1015,7 +1015,7 @@ case use the value @code{(public)}.
 Is the image fully free? (For example Linux-libre is fully free, but not regular Linux.)
 The value @emph{must} either be @code{yes} or @code{no}, or the tag must be omitted.
 
-@b{This is the most important tag} is it helps us build a fully free version that can
+@b{This is the most important tag} as it helps us build a fully free version that can
 be officially distributed on GNU endorsed GNU/Linux distributions (GNU/Linux-libre).
 @end table
 
