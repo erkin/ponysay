@@ -478,8 +478,12 @@ class TextArea:
                     alert('Mark set')
                 alerted = True
             elif ord(d) == ord('K') - ord('@'):
-                mark = len(datalines[y])
-                stored = chr(ord('W') - ord('@'))
+                if x == len(datalines[y]):
+                    alert('At end')
+                    alerted = True
+                else:
+                    mark = len(datalines[y])
+                    stored = chr(ord('W') - ord('@'))
             elif ord(d) == ord('W') - ord('@'):
                 if (mark is not None) and (mark >= 0) and (mark != x):
                     selected = datalines[y][mark : x] if mark < x else datalines[y][x : mark]
@@ -487,14 +491,21 @@ class TextArea:
                     if len(killring) > KILL_MAX:
                         killring = killring[1:]
                     stored = chr(127)
+                else:
+                    alert('No text is selected')
+                    alerted = True
             elif ord(d) == ord('Y') - ord('@'):
-                mark = None
-                killptr = len(killring) - 1
-                yanked = killring[killptr]
-                print('\033[%i;%iH%s' % (self.top + y, innerleft + x, yanked + datalines[y][x:]), end='')
-                datalines[y] = datalines[y][:x] + yanked + datalines[y][x:]
-                x += len(yanked)
-                print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
+                if len(killring) == 0:
+                    alert('Killring is empty')
+                    alerted = True
+                else:
+                    mark = None
+                    killptr = len(killring) - 1
+                    yanked = killring[killptr]
+                    print('\033[%i;%iH%s' % (self.top + y, innerleft + x, yanked + datalines[y][x:]), end='')
+                    datalines[y] = datalines[y][:x] + yanked + datalines[y][x:]
+                    x += len(yanked)
+                    print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
             elif ord(d) == ord('X') - ord('@'):
                 alert('C-x')
                 alerted = True
@@ -644,6 +655,9 @@ class TextArea:
                             mark = None
                             if len(killring) > KILL_MAX:
                                 killring = killring[1:]
+                        else:
+                            alert('No text is selected')
+                            alerted = True
                     elif (d == 'y') or (d == 'Y'):
                         if killptr is not None:
                             yanked = killring[killptr]
@@ -657,6 +671,10 @@ class TextArea:
                                 x += additional
                                 datalines[y] = dataline
                                 print('\033[%i;%iH%s%s\033[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * max(0, -additional), self.top + y, innerleft + x), end='')
+                            else:
+                                stored = chr(ord('Y') - ord('@'))
+                        else:
+                            stored = chr(ord('Y') - ord('@'))
                     elif d == 'O':
                         d = sys.stdin.read(1)
                         if d == 'H':
