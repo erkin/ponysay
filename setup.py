@@ -434,8 +434,8 @@ class Setup():
                 compress('ponysay.pdf', 'ponysay.pdf.' + ext, ext)
         
         for command in commands:
-            source = 'completion/template'
-            sourceed = 'completion/template.%s' % (command)
+            source = 'completion/ponysay'
+            sourceed = 'completion/ponysay.%s' % (command)
             try:
                 fileout = open(sourceed, 'wb+')
                 filein = open(source, 'rb')
@@ -461,7 +461,7 @@ class Setup():
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 for command in commands:
-                    sourceed = 'completion/template.%s' % (command)
+                    sourceed = 'completion/ponysay.%s' % (command)
                     generated = 'completion/%s-completion.%s' % (shell, command)
                     generatorcmd = './completion/auto-auto-complete.py %s --output %s --source %s' % (shell, generated, sourceed)
                     Popen(generatorcmd.split(' ')).communicate()
