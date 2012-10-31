@@ -402,6 +402,10 @@ class TextArea:
         (y, x) = (0, 0)
         mark = None
         
+        KILL_MAX = 50
+        killring = []
+        killptr = None
+        
         def status(text):
             print('\033[%i;%iH\033[7m%s\033[27m\033[%i;%iH' % (termh - 1, 1, ' (' + text + ') ' + '-' * (termw - len(' (' + text + ') ')), self.top + y, innerleft + x), end='')
         
@@ -473,6 +477,24 @@ class TextArea:
                     mark = x
                     alert('Mark set')
                 alerted = True
+            elif ord(d) == ord('K') - ord('@'):
+                mark = len(datalines[y])
+                stored = chr(ord('W') - ord('@'))
+            elif ord(d) == ord('W') - ord('@'):
+                if (mark is not None) and (mark >= 0) and (mark != x):
+                    selected = datalines[y][mark : x] if mark < x else datalines[y][x : mark]
+                    killring.append(selected)
+                    if len(killring) > KILL_MAX:
+                        killring = killring[1:]
+                    stored = chr(127)
+            elif ord(d) == ord('Y') - ord('@'):
+                mark = None
+                killptr = len(killring) - 1
+                yanked = killring[killptr]
+                print('\033[%i;%iH%s' % (self.top + y, innerleft + x, yanked + datalines[y][x:]), end='')
+                datalines[y] = datalines[y][:x] + yanked + datalines[y][x:]
+                x += len(yanked)
+                print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
             elif ord(d) == ord('X') - ord('@'):
                 alert('C-x')
                 alerted = True
@@ -615,6 +637,26 @@ class TextArea:
                                 if (ord('a') <= ord(d)) and (ord(d) <= ord('z')): break
                                 if (ord('A') <= ord(d)) and (ord(d) <= ord('Z')): break
                                 if d == '~': break
+                    elif (d == 'w') or (d == 'W'):
+                        if (mark is not None) and (mark >= 0) and (mark != x):
+                            selected = datalines[y][mark : x] if mark < x else datalines[y][x : mark]
+                            killring.append(selected)
+                            mark = None
+                            if len(killring) > KILL_MAX:
+                                killring = killring[1:]
+                    elif (d == 'y') or (d == 'Y'):
+                        if killptr is not None:
+                            yanked = killring[killptr]
+                            dataline = datalines[y]
+                            if (len(yanked) <= x) and (dataline[x - len(yanked) : x] == yanked):
+                                killptr -= 1
+                                if killptr < 0:
+                                    killptr += len(killring)
+                                dataline = dataline[:x - len(yanked)] + killring[killptr] + dataline[x:]
+                                additional = len(killring[killptr]) - len(yanked)
+                                x += additional
+                                datalines[y] = dataline
+                                print('\033[%i;%iH%s%s\033[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * max(0, -additional), self.top + y, innerleft + x), end='')
                     elif d == 'O':
                         d = sys.stdin.read(1)
                         if d == 'H':

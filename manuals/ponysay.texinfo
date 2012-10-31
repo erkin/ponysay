@@ -1147,10 +1147,29 @@ Currently the commands are only coded for xterm (just about all terminals except
 
 @table @kbd
 @item C-space
-@itemx C-@
+@itemx C-@@
 Set mark; only if mark is set and is at the same position
 as the point (cursor) the mark is deactivated.
 A mark creates a text select, it cannot span between lines.
+
+@item C-k
+Cut out the rest of the line and add it to the kill ring.
+
+@item C-w
+Cut out selected text and add it to the kill ring.
+
+@item M-w
+Add the selected text to the kill ring and unset the mark.
+
+@item C-y
+Paste (yank) text from the kill ring.
+
+@item M-y
+Cycle in the kill ring.
+
+@item C-o
+Insert a next line below the current line and go to it.
+This is useful if you want to add another entry for a tag.
 
 @item C-j
 @itemx enter
@@ -1185,10 +1204,6 @@ Remove the previous character on the same line.
 
 @item delete
 Remove the current character on the same line.
-
-@item C-o
-Insert a next line below the current line and go to it.
-This is useful if you want to add another entry for a tag.
 
 @item insert
 Enter or exit override mode.
