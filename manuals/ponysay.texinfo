@@ -70,6 +70,7 @@ Texts. A copy of the license is included in the section entitled
 * Environment variables::               Getting more from @command{ponysay} with environment variables.
 * Optional features::                   Get the most out of @command{ponysay} with optional features.
 * Pony metadata::                       Metadata tags in the pony files.
+* The tool chest::                      Extra Ponysay commands for other stuff than printing ponies.
 * Limitations::                         Known limitations that may not be that easy to overcome.
 * Problems and requests::               Report issues and making requests.
 * Dependencies::                        Ponysay's dependencies.
@@ -751,6 +752,8 @@ your @file{~/.bashrc} should, for example, contain:
 KMS ponies uses @file{/var/cache/ponysay/} or, if missing, @file{~/.cache/ponysay/}
 for cache space.
 
+You may also want to read @ref{Fill KMS cache}.
+
 
 
 @node Pony metadata
@@ -1038,6 +1041,87 @@ is used in the manuscript, therefore a pony file with Chrysalis should have the
 NAME: (not mentioned)
 OTHER NAMES: Chrysalis (official, in manuscript)
 @end example
+
+
+
+@node The tool chest
+@chapter The tool chest
+@cindex the tool chest
+@cindex tool chest
+@cindex extra commands
+@pindex @command{ponysay-tool}
+
+The tool chest is a collection of subcommands under the command @command{ponysay-tool},
+its purpose is to provide tools to ponysay relevant actions that is not printing ponies
+(like the commands @command{ponysay} and @command{ponythink}).
+
+@menu
+* Fill KMS cache::      Pre-generate kmsponies to your cache.
+* Metadata pasting::    Copy, remove, stash and apply stashed pony metadata.
+@end menu
+
+
+@node Fill KMS cache
+@section Fill KMS cache
+@cindex fill kms cache
+@cindex kms cache, fill
+@cindex kmsponies
+@cindex kms
+@cindex linux vt
+@cindex tty
+
+Before reading this section you may want to read the earlier section @ref{KMS ponies}.
+
+@opindex @option{--kms}
+Invoking the command @command{ponysay-tool --kms} (no additional options are available)
+will pre-generate all kmsponies for your current TTY palette. This is useful if your
+computer is not fast enough, for you, at converting a pony to a kmspony. As the kmsponies
+may change between versions (noted in the change log if it happens) you may want to
+run this commmend after installing a new version of @command{ponysay}. Ponies that are
+already in the cache with the current KMS version will not be re-generated.
+
+
+@node Metadata pasting
+@section Metadata pasting
+@cindex metadata pasting
+@cindex pony metadata pasting
+@cindex pasting metadata
+@cindex pasting pony metadata
+@cindex metadata yanking
+@cindex pony metadata yanking
+@cindex yanking metadata
+@cindex yanking pony metadata
+@cindex editing metadata
+
+@command{ponysay-tool} allows you to copy, remove, stash and apply stashed pony metadata
+(but not merging, that must be done by hand.) The following commands does not support
+additional options.
+
+@cindex erase metadata
+@cindex remove metadata
+@opindex @option{--edit-rm}
+@command{ponysay-tool --edit-rm PONY-FILE} will remove all metadata from the file
+@code{PONY-FILE}. To just remove some data you must use @command{ponysay-tool --edit PONY-FILE}
+or do it by hand. Note that you always use pony file, not pony names.
+
+@cindex copy metadata
+@cindex store metadata
+@cindex stash metadata
+@opindex @option{--edit-stash}
+@command{ponysay-tool --edit-stash PONY-FILE} will print all metadata from a file to stdout.
+Cherry-picking cannot be done.
+
+@cindex paste metadata
+@cindex apply metadata
+@cindex yank metadata
+@opindex @option{--edit-apply}
+@command{ponysay-tool --edit-apply PONY-FILE} replace all metadata in a file with the metadata
+used provided in stdin.
+
+@cindex copy metadata
+To copy the metadata from one pony to another (and remove the old metadata) you will have to
+pipe the stashing and the applying command:
+@command{ponysay-tool --edit-stash SOURCE-PONY-FILE | ponysay-tool --edit-apply TARGET-PONY-FILE}
 
 
 

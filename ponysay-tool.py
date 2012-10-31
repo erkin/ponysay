@@ -490,6 +490,9 @@ class TextArea:
                     last = ''
                     for row in range(0, len(datalines)):
                         current = leftlines[row]
+                        if len(datalines[row].strip()) == 0:
+                            if current is not 'comment':
+                                continue
                         if current == last:
                             self.datamap[current] += '\n' + datalines[row]
                         else:
