@@ -69,6 +69,7 @@ Texts. A copy of the license is included in the section entitled
 * Advanced usage::                      Advanced usage of @command{ponysay}.
 * Environment variables::               Getting more from @command{ponysay} with environment variables.
 * Optional features::                   Get the most out of @command{ponysay} with optional features.
+* Pony metadata::                       Metadata tags in the pony files.
 * Limitations::                         Known limitations that may not be that easy to overcome.
 * Problems and requests::               Report issues and making requests.
 * Dependencies::                        Ponysay's dependencies.
@@ -748,6 +749,294 @@ your @file{~/.bashrc} should, for example, contain:
 
 KMS ponies uses @file{/var/cache/ponysay/} or, if missing, @file{~/.cache/ponysay/}
 for cache space.
+
+
+
+@node Pony metadata
+@chapter Pony metadata
+@cindex pony metadata
+@cindex metadata
+@cindex tags, metadata
+@cindex comments, metadata
+@cindex pony tags, metadata
+@cindex pony comments, metadata
+
+Pony files can contain metadata tags and a multiline comment.
+The following are the standard tags (comma separated lists may
+have whitespace surrounding the comma [@code{,}]):
+
+@table @var
+@item GROUP NAME
+@vindex @var{GROUP NAME}
+If a pony file contains multiple ponies, it @emph{should} have a @var{GROUP NAME}
+tag. The tag is a comma seperated list of the recognised names of the ponies as a
+groups, if the list is empty the tag value must be @code{(none)}. An officiallity
+tag should be added to each name.
+
+@item NAME
+@vindex @var{NAME}
+Every pony file should have this tag, one entry for each pony on the file.
+The value of the tag @emph{must} be the pony's most common name as used on
+the TV show (or other source). If the pony's name have not been mentioned
+the value must be @code{(not mentioned)}.
+
+@item OTHER NAMES
+@vindex @var{OTHER NAMES}
+If a pony in the pony file has other names then the one in @var{NAME} it @emph{should}
+have this take for this pony. Any pony in the file (in case of multiple ponies) that
+do not need this tag should use the value @code{(none)}.
+
+The tag is a comma seperated list of alternative (to @var{NAME} names for the pony,
+each name should have an officiallity tag.
+
+@item APPEARANCE
+@vindex @var{APPEARANCE}
+This tag specifies in which episode the pony first appeared. It reasonable to specify
+it even for ponies that appears in every episode.
+
+For uniformity the format @code{S%sE%e %t[ %P]} is recommended; @code{[ ]} denotes
+and optional part, optional in the sence that it does not apply the every episode,
+but it @emph{should} be used if applyable. @code{%s} is the series (season) number
+in two digits, @code{%e} is the episode number in two digits. @code{%t} is the
+episode title and should use the standardised title format for the used format
+however without surrounding quotes if the used language has that, in the unlike
+event that @code{[} or @code{]} is present in the title it should be backslashed
+(@code{\[}, @code{\]}). @code{%P} is the part in the format @code{[Part %p]}, where
+@code{[ ]} @i{does not} denote and optional part but rather is verbatim, and
+@code{%p} is the part number in one digit (well, if the part number is not 10 or higher).
+
+The standard way to format titles in American English is the same as in British English,
+however it is not fully standardised. Capitalisation of the first word, and all other words,
+except for articles, prepositions, conjunctions, and forms of `to be' is recommended.
+
+Be aware that MLP:FiM episodes use American spelling which include a rather uncommon
+why to write for examples abbrevations (like for example Mr. instread of Mr), this may
+however not be the case for non-MLP:FiM episodes. And if there are not series (season)
+the series number defaults to 1, however other numbers and tags (which the part number
+is) may be added if required.
+
+@item KIND
+@vindex @var{KIND}
+This tag decribes what kind of pony a pony is, it is a comma seperated lower case list,
+and it cannot be empty, by it can be (but shouldn't) skipped for every pony in the image.
+
+Every fitting value should be used, however a alicorn (also known as alacord or winged
+unicorn) should have the values @code{pegasus}, @code{unicorn}, @code{pony}, but not
+@code{alicorn}. Earth ponies should have the value @code{pony} but not @code{earth} or
+@code{earth pony}.
+
+The standard values are (you may use other ones if fitting): @code{unicorn}, @code{pegasus},
+@code{pony}, @code{changeling}, @code{crystal}, @code{seapony}, @code{animal}
+(applies to Spike) and @code{item} (applies to Tom and Pinkamina's imaginare friends).
+
+@item GROUP
+@vindex @var{GROUP}
+
+This tag decribes which groups a pony classifies under, it is a comma seperated lower case
+list, and it cannot be empty, by it can be (but shouldn't) skipped for every pony in the
+image.
+
+The standard values are (you may use other ones if fitting): 
+@itemize @bullet
+@item @code{mare}
+Adult female pony
+@item @code{stallion}
+Adult male pony
+@item @code{filly}
+Female pony child
+@item @code{colt}
+Male pony child
+@item @code{dragon}
+Dragon (Spike and the other dragons)
+@item @code{mane}
+The mane characters (also known as main characters [unponified] or protagonists)
+@item @code{wildlife}
+Wildlife, for example timberwolfs
+@item @code{pet}
+A ponies' pet, Spike does not count because Twilight does not play with him during
+pony–pet play dates.
+@item @code{villain}
+Villains, normally minons to antagonists. Applies to changelings.
+@item @code{antagonist} (applies to: nightmare moon, gilda, discord, chrysalis)
+Antagonists are also known as archvillians or archenemies.
+Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one.
+@item @code{deuteragonist} (applies to: the cutiemark cruisers)
+Deuteragonists are secondary characters, these are (as of series 2) only the Cutiemark
+Cruisers. The requirement is that thay are somewhat regular characters with dedicated
+episodes, but are not protagonists.
+@item @code{tritagonist} (applies to: celestia, luna, cadance, shining armor, spike)
+Important characters (excluding Derpy Hooves) that are neither protagonists,
+deuteragonists nor antagonists.
+@item @code{background}
+Background characters are not characters that are neither protagonists, deuteragonist,
+tritagonist, antagonist nor pets. They do not need to be strictly background characters,
+for example Big Mac and Cheerilee classifies under this group, as they are not too
+important to be considered tritagonists (as of series 2).
+@item @code{voiced} (only used together with background)
+Only @code{background} characters can be @code{voiced}. The additional requirement is
+that they have said something (ponies comics can also be voiced).
+@item @code{imaginary}
+Imaginary ponies (or other animal).
+@end itemize
+
+@item BALLOON
+@vindex @var{BALLOON}
+For each balloon in the file (a pony file can have more than one balloon, but
+that is not common) their should one tag entry. There are four values that
+can be used: top (the common setup, the balloon is at the top of the image),
+bottom (the balloon is at the bottom of the image), right (the balloon is neither
+at the top or at the bottom of the image, but is placed to the right of the pony)
+and inside (the balloon is somewhere as inside the image.)
+
+@item LINK ON
+@vindex @var{LINK ON}
+Files with only one pony @emph{should not} use this tag. Specifies to which pony
+the link is connected, it is a number, starting from 1.
+
+If a file contains Fluttershy and Pinkie (in that order, i.e. Pinkie is to the
+right of or below Fluttershy) and the link is connected to Pinkie, than the value
+should be 2.
+
+In the rare case that the file contains multiple links (and multi ponies), the
+metadata should contains multiple entries of this tag, one entry for each link
+sorted in the order of the linkes placement in the image, in the same way
+ponies are ordered. 
+
+@item LINK
+@vindex @var{LINK}
+In the rare case that the file contains multiple links the metadata should contains
+multiple entries of this tag, one entry for each link sorted in the order of the
+linkes placement in the image, in the same way ponies are ordered. 
+
+The value for this tag must be either @code{regular} or @code{mirrored}. @code{regular}
+applies to linkes with NNE–SSW (@code{\}) direction. @code{mirrored} applies to linkes
+with NNW–SSE (@code{/}) direction, in version 2.9.1 only @file{rainbowdrag} uses this.
+
+@item COAT
+@vindex @var{COAT}
+The name of the colour (as best estimated by you), in lowercase, that the pony's coat
+have. If the creature is (for example) a dragon, the colour of the scales is used.
+Common colour names are preferable. Only one colour should be named, but the name may
+describe a colour combination.
+
+@item MANE
+@vindex @var{MANE}
+The name of the colour (as best estimated by you), in lowercase, that the pony's mane
+have. Common colour names are preferable. Only one colour should be named, but the name
+may describe a colour combination.
+
+@item EYE
+@vindex @var{EYE}
+The name of the colour (as best estimated by you), in lowercase, that the pony's eyes
+have. Common colour names are preferable. Only one colour should be named, but the name
+may describe a colour combination.
+
+@item AURA
+@vindex @var{AURA}
+The name of the colour (as best estimated by you), in lowercase, that the pony's magic
+aura have. Common colour names are preferable. Only one colour should be named, but the
+name may describe a colour combination.
+
+The magic aura is the colourisation around items that are affected by magic.
+
+If the pony file have multiple ponies, some with magicial abilities and some without,
+the ponies without magicial abilies should use the value @code{(no magic)}. If the pony
+has magicial abilies but without an aura, use the value @code{(invisible)}.
+
+Only humans [here we must call ourself humnas rather than ponies, otherwise the sentance
+does not make sense) can se the magic aura, describe the colour that we humans see, not
+ponies and other creatures in the TV Show [proof, see S01E11 Winter Wrap Up and S02E25-26
+A Canterlot Wedding].
+
+@item DISPLAY
+@vindex @var{DISPLAY}
+This tag describes how a pony is places in the image. The standard values are: @code{full}
+(full body), @code{head} (just the head), @code{down} (upside down), @code{left} (pony is
+looking to our left), @code{right} (pony is looking to our right), @code{front} (pony is
+looking at us). @code{front} can be combined with @code{left} and @code{right}, but
+@code{left} and @code{right} nor @code{full} and @code{head} cannot be combined.
+
+@item WIDTH
+@vindex @var{WIDTH}
+The width of the pony image measured in text columns.
+
+@item HEIGHT
+@vindex @var{HEIGHT}
+The height of the pony image measured in text lines, this include the balloon
+(occupies one line) even if it the first line with nothing else on that line.
+
+@item BALLOON TOP
+@vindex @var{BALLOON TOP}
+The number of lines at the beginning of the pony image that should be skipped
+if the balloon is not printed.
+
+@item BALLOON BOTTOM
+@vindex @var{BALLOON BOTTOM}
+The number of lines at the end of the pony image that should be skipped if the
+balloon is not printed.
+
+@item MASTER
+@vindex @var{MASTER}
+This tag refers to the pony file that is not named with extra attributes. For example,
+all files where Shining Armour is the (sole) speaking pony the this tag should be
+@code{shiningarmor},  except for in @file{shiningarmor.pony} where this tag may be omitted.
+
+@item SOURCE
+@vindex @var{SOURCE}
+This tag specifies from where the pony image (not the file itself) originates.
+If the source is unknown the value should be @code{(unknown)}, if a GitHub user
+draw it the the value should be that user inside square brackets (in case of
+multiple artists, the tag is comma seperated list). Otherwise the source
+should be specified in any reasonable manner.
+
+In order the claim authorship (the GitHub user value) it image must have been
+written from scratch (using templates is okay) or must be a major edit of another
+image. Just converting (including fixing the colours) an image (for example from
+the Internet or a screenshot) with or without removing the background is not enough.
+
+@item MEDIA
+@vindex @var{MEDIA}
+This tag @emph{must not} be used for MLP:FiM ponies, but only for extraponies.
+It specifies the media from where the pony (not the image) originates.
+
+@item LICENSE
+@vindex @var{LICENSE}
+Which licence applies to the image? Full name and version should be used.
+In case of multiple license there should be one entry for each license.
+Omit this tag is the license is not known.
+
+The are two special cases here where this is no license. In which case it
+either uses regular copyright, in which case use the value @code{(regular)},
+or everyone is the copyright holder (for example Public Domain), in which
+case use the value @code{(public)}.
+
+@item FREE
+@vindex @var{FREE}
+Is the image fully free? (For example Linux-libre is fully free, but not regular Linux.)
+The value @emph{must} either be @code{yes} or @code{no}, or the tag must be omitted.
+
+@b{This is the most important tag} is it helps us build a fully free version that can
+be officially distributed on GNU endorsed GNU/Linux distributions (GNU/Linux-libre).
+@end table
+
+Duplicate tags should be ordered in the order of the pony they describe from top-left
+to bottom-right in the image. It is important that if there are for example three ponies
+the image then all used tags that depends on the number of ponies in the image is used
+three times.
+
+@cindex officiallity tag
+`Officiallity tag' refers the an annotation added to a tag value's list element.
+If the value is unofficial the string @code{(unofficial)} is appended (preferable with
+leading whitespace) to the element. If it is official the appended string is of the
+format @code{(unofficial, %c)} (the brackets are verbatim), where @code{%c} is a
+comment. For example Chrysalis' name has not been mentioned in the show, however it
+is used in the manuscript, therefore a pony file with Chrysalis should have the
+(partial) metadata:
+
+@example
+NAME: (not mentioned)
+OTHER NAMES: Chrysalis (official, in manuscript)
+@end example
 
 
 
@@ -1509,7 +1798,7 @@ To perform an uninstallation of old files run @command{make uninstall-old}.
 
 @menu
 * Pony anatomy::                 Anatomy of pony files.
-* Pony metadata::                Metadata in pony files.
+* Pony metadata extension::      Metadata in pony files.
 * Pony quote infrastructure::    Pony quote infrastructure.
 * Balloon style files::          Balloon style files.
 * Printing in TTY with KMS::     Printing in TTY with KMS support.
@@ -1554,8 +1843,8 @@ the balloon) itself was printed by @command{cowsay} and is not defined in the co
 files.
 
 
-@node Pony metadata
-@section Pony metadata
+@node Pony metadata extension
+@section Pony metadata extension
 @cindex pony metadata
 @cindex metadata
 @cindex tags, metadata
@@ -1576,9 +1865,9 @@ end in the same way direct follow by the pony image starting from the next line.
 A metadata tag consists of a tag name in upper case and a tag value, with a colon
 (@code{:}), optionally with regular spaces or tab spaces. Multiple tag names can
 be used multiple times or can be completely skipped. There are only a few tags,
-namely @var{BALLOON TOP}, @var{BALLOON BOTTOM}, @var{FREE}, that absolutely should
-not be used muliple tag; a general rule is that a tag desribing a pony should be
-duplicated exact as many times as there are ponies in the image.
+namely @var{BALLOON TOP}, @var{BALLOON BOTTOM}, @var{MASTER}, @var{FREE}, that
+absolutely should not be used muliple tag; a general rule is that a tag desribing
+a pony should be duplicated exact as many times as there are ponies in the image.
 
 Any line that does not conform to the format of a tag line is a part of the comment
 field. Leading line breaks in the comment field is ignored.
