@@ -1063,6 +1063,7 @@ its purpose is to provide tools to ponysay relevant actions that is not printing
 * Fill KMS cache::      Pre-generate kmsponies to your cache.
 * Metadata pasting::    Copy, remove, stash and apply stashed pony metadata.
 * Editing metadata::    Editing the metadata in a pony file.
+* Dimension files::     Generate pony dimension files.
 @end menu
 
 
@@ -1221,6 +1222,22 @@ Save your changes.
 @item C-x C-c
 Exit the editor, do not forget to save if you have made changes.
 @end table
+
+
+@node Dimension files
+@section Dimension files
+@cindex dimension files
+@cindex pony dimension files
+@opindex @option{--dimensions}
+
+Pony dimension files are used by @command{ponysay} to determine the size of all
+ponies and use that information to determine which ponies fit the terminal
+and may be randomly selected.
+
+Running @command{ponysay-tool --dimensions PONY-DIR} will generate three files
+@file{widths}, @file{heights} and @file{onlyheights} to the directory @file{PONY-DIR},
+the contain optimised information about the widths, heigths and heights with printed
+without the balloon, respectively, for each pony the the directory.
 
 
 
@@ -2287,6 +2304,9 @@ parsed, and contains a UCS name and a ASCII:ised name. The UCS name comes first,
 followed by the ASCII:ised name that the UCS name should replace or link towards.
 The two names are separated by and simple left to right arrow character [U+2192],
 optionally with surrounding white space.
+
+It is important that the UCS names are stored in a file and not in file names,
+because it can cause problems on some platforms.
 
 
 
