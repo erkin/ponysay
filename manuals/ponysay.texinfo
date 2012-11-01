@@ -2017,7 +2017,15 @@ same direction as the variable name's slash.
 Variables whose name begin with @code{balloon} are parsed as balloon inserts, it
 can be either @code{balloon}, @code{balloonX}, @code{balloon,Y} or @code{balloonX,Y},
 whether @code{X} is the minimum width of the balloon and @code{Y} is the minimum
-height of the balloon.
+height of the balloon. New in Ponysay 3.0 is that the @code{X} can also be an range
+of columns, it contains of two numbers, the preferable start column, from the
+column that variables is placedon, the other number is the minimum width of the
+balloon. The two values are separated either by a @code{l}, a @code{r} or a @code{c}.
+If @code{l} is used the the balloon is printed as normal, except that it if wrapping
+is enabled and the balloon whould exceed the wrapping column, the balloon continues
+to fill on its left, at most as much as the position value. If @code{r} is used, the
+balloon fills the its left first and then to its right. If @code{c} is used the
+balloon will try the fill on its left and right side equally.
 
 Prior to version 2.1 the pony files were cow files used by @command{cowsay}, they
 are partial Perl-scripts that assign a value to a scalar variable named
