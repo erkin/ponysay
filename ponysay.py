@@ -1819,16 +1819,30 @@ class Backend():
                             n += len(data)
                             self.pony = self.pony[:i] + data + self.pony[i:]
                     elif self.balloon is not None:
-                        (w, h) = (0, 0)
+                        (w, h, x, justify) = ('0', 0, 0, None)
                         props = dollar[7:]
                         if len(props) > 0:
                             if ',' in props:
                                 if props[0] is not ',':
-                                    w = int(props[:props.index(',')])
+                                    w = props[:props.index(',')]
                                 h = int(props[props.index(',') + 1:])
                             else:
-                                w = int(props)
-                        balloon = self.__getballoon(w, h, indent)
+                                w = props
+                        if 'l' in w:
+                            (x, w) = (int(w[:w.find('l')]), int(w[w.find('l') + 1:]))
+                            justify = 'l'
+                            w -= x;
+                        elif 'c' in w:
+                            (x, w) = (int(w[:w.find('c')]), int(w[w.find('c') + 1:]))
+                            justify = 'c'
+                            w -= x;
+                        elif 'r' in w:
+                            (x, w) = (int(w[:w.find('r')]), int(w[w.find('r') + 1:]))
+                            justify = 'r'
+                            w -= x;
+                        else:
+                            w = int(w)
+                        balloon = self.__getballoon(w, h, x, justify, indent)
                         balloon = balloon.split('\n')
                         balloon = [AUTO_PUSH + self.ballooncolour + item + AUTO_POP for item in balloon]
                         for b in balloon[0]:
@@ -1967,12 +1981,15 @@ class Backend():
     '''
     Generates a balloon with the message
     
-    @param   width:int   The minimum width of the balloon
-    @param   height:int  The minimum height of the balloon
-    @param   left:int    The column where the balloon starts
-    @return  :str        The balloon the the message as a string
+    @param   width:int      The minimum width of the balloon
+    @param   height:int     The minimum height of the balloon
+    @param   innerleft:int  The left column of the required span, excluding that of `left`
+    @param   justify:str    Balloon placement justification, 'c' → centered,
+                            'l' → left (expand to right), 'r' → right (expand to left)
+    @param   left:int       The column where the balloon starts
+    @return  :str           The balloon the the message as a string
     '''
-    def __getballoon(self, width, height, left):
+    def __getballoon(self, width, height, innerleft, justify, left):
         wrap = None
         if self.wrapcolumn is not None:
             wrap = self.wrapcolumn - left
@@ -1984,8 +2001,27 @@ class Backend():
             msg = self.__wrapMessage(msg, wrap)
         
         msg = msg.replace('\n', '\033[0m%s\n' % (self.ballooncolour)) + '\033[0m' + self.ballooncolour
+        msg = msg.split('\n')
         
-        return self.balloon.get(width, height, msg.split('\n'), Backend.len);
+        extraleft = 0
+        if justify is not None:
+            msgwidth = self.len(max(msg, key = self.len)) + self.balloon.minwidth
+            extraleft = innerleft
+            if msgwidth > width:
+                if (justify == 'l') and (wrap is not None):
+                    if innerleft + msgwidth > wrap:
+                        extraleft -= msgwidth - wrap
+                elif justify == 'r':
+                    extraleft -= msgwidth - width
+                elif justify == 'c':
+                    extraleft -= (msgwidth - width) >> 1
+                    if extraleft + msgwidth > wrap:
+                        extraleft -= msgwidth - wrap
+        
+        rc = self.balloon.get(width, height, msg, Backend.len);
+        if extraleft > 0:
+            rc = ' ' * extraleft + rc.replace('\n', '\n' + ' ' * extraleft)
+        return rc
     
     
     '''
