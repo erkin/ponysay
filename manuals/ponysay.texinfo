@@ -2644,6 +2644,8 @@ Pony metadata tags @var{BALLOON TOP} and @var{BALLOON BOTTOM} can be used to spe
 height the balloon causes at the top and at the bottom of the pony.
 @item
 @file{${XDG_DATA_HOME}/ponysay/*} is allowed in favour of @file{${HOME}/.local/share/ponysay/*}
+@item
+Balloons can be have and explicit minimum column span with placement justification.
 @end itemize
 
 

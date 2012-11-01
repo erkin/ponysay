@@ -24,6 +24,8 @@ Version 3.0
 
 	${XDG_DATA_HOME}/ponysay/* is allowed in favour of ${HOME}/.local/share/ponysay/*
 
+	Balloons can be have and explicit minimum column span with placement justification.
+
 
 Version 2.9.1
 
