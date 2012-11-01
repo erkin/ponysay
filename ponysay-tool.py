@@ -75,6 +75,9 @@ class PonysayTool():
         elif opts['--kms'] is not None:
             self.generateKMS()
         
+        elif (opts['--dimensions'] is not None) and (len(opts['--dimensions']) == 1):
+            self.generateDimensions(opts['--dimensions'][0])
+        
         elif (opts['--edit'] is not None) and (len(opts['--edit']) == 1):
             pony = opts['--edit'][0]
             if not os.path.isfile(pony):
@@ -142,6 +145,7 @@ class PonysayTool():
                 file.write((data + pony).encode('utf8'))
         
         else:
+            args.help()
             exit(253)
     
     
@@ -203,6 +207,86 @@ class PonysayTool():
     
     
     '''
+    Generate pony dimension file for a directory
+    
+    @param  ponydir  The directory
+    '''
+    def generateDimensions(self, ponydir):
+        dimensions = []
+        for ponyfile in os.listdir(ponydir):
+            if ponyfile.endswith('.pony') and (ponyfile != '.pony'):
+                class PhonyArgParser:
+                    def __init__(self, balloon):
+                        self.argcount = 5
+                        self.message = ''
+                        self.pony = (ponydir + '/' + ponyfile).replace('//', '/')
+                        self.balloon = balloon
+                        self.opts = self
+                    def __getitem__(self, key):
+                        if key == '-f':
+                            return [self.pony]
+                        if key == ('-W' if self.balloon else '-b'):
+                            return [('none' if self.balloon else None)]
+                        return None
+                stdout = sys.stdout
+                class StringInputStream:
+                    def __init__(self):
+                        self.buf = ''
+                        class Buffer:
+                            def __init__(self, parent):
+                                self.parent = parent
+                            def write(self, data):
+                                self.parent.buf += data.decode('utf8', 'replace')
+                            def flush(self):
+                                pass
+                        self.buffer = Buffer(self)
+                    def flush(self):
+                        pass
+                    def isatty(self):
+                        return True
+                sys.stdout = StringInputStream()
+                ponysay = Ponysay()
+                ponysay.run(PhonyArgParser(True))
+                printpony = sys.stdout.buf[:-1].split('\n')
+                ponyheight = len(printpony) - 2 # using fallback balloon
+                ponywidth = Backend.len(max(printpony, key = Backend.len))
+                ponysay = Ponysay()
+                ponysay.run(PhonyArgParser(False))
+                printpony = sys.stdout.buf[:-1].split('\n')
+                ponyonlyheight = len(printpony)
+                sys.stdout = stdout
+                dimensions.append((ponywidth, ponyheight, ponyonlyheight, ponyfile))
+        (widths, heights, onlyheights) = ([], [], [])
+        for item in dimensions:
+            widths     .append(item[0], item[3])
+            heights    .append(item[1], item[3])
+            onlyheights.append(item[2], item[3])
+        for items in (widths, heights, onlyheights):
+            sort(items, key = lambda item : item[0])
+        for pair in ((widths, 'widths'), (heights, 'heights'), (onlyheights, 'onlyheights')):
+            (items, dimfile) = pair
+            dimfile = (ponydir + '/' + dimfile).replace('//'. '/')
+            ponies = '/'.join([item[1] for item in items])
+            dims = []
+            last = -1
+            index = 0
+            for item in items:
+                cur = item[0]
+                if cur != last:
+                    if last >= 0:
+                        dims.append((last, index))
+                    last = cur
+                index += 1
+            if last >= 0:
+                dims.append((last, index))
+            dims = [dim[0] + '/' + dim[1] + '/' for dim in dims]
+            data = '/' + ''.join(dims) + '/' + ponies + '/'
+            with open(dimfile, 'wb') as file:
+                file.write(data.encode('utf8'))
+                file.flush()
+    
+    
+    '''
     Edit a pony file's metadata
     
     @param  ponyfile:str  A pony file to edit
@@ -227,11 +311,13 @@ class PonysayTool():
         
         class PhonyArgParser:
             def __init__(self):
-                self.argcount = 3
+                self.argcount = 5
                 self.message = ponyfile
                 self.opts = self
             def __getitem__(self, key):
-                return [ponyfile] if key == '-f' else None
+                if key == '-f':  return [ponyfile]
+                if key == '-W':  return ['n']
+                return None
         
         
         data = {}
@@ -282,7 +368,7 @@ class PonysayTool():
         preprint = '\033[H\033[2J'
         if printpony[0].startswith(preprint):
             printpony[0] = printpony[0][len(preprint):]
-        ponyheight = len(printpony)
+        ponyheight = len(printpony) - len(ponyfile.split('\n')) + 1 - 2 # using fallback balloon
         ponywidth = Backend.len(max(printpony, key = Backend.len))
         
         ## Call `stty` to determine the size of the terminal, this way is better then using python's ncurses
@@ -736,6 +822,7 @@ if __name__ == '__main__':
                        '%s %s' % (usage_program, '(--edit | --edit-rm) \033[33mPONY-FILE\033[39m'),
                        '%s %s' % (usage_program, '--edit-stash \033[33mPONY-FILE\033[39m > \033[33mSTASH-FILE\033[39m'),
                        '%s %s' % (usage_program, '--edit-apply \033[33mPONY-FILE\033[39m < \033[33mSTASH-FILE\033[39m'),
+                       '%s %s' % (usage_program, '--dimensions \033[33mPONY-DIR\033[39m'),
                       ])
     
     usage = usage.replace('\033[', '\0')
@@ -754,6 +841,7 @@ if __name__ == '__main__':
     opts.add_argumentless(['-h', '--help'],                         help = 'Print this help message.')
     opts.add_argumentless(['-v', '--version'],                      help = 'Print the version of the program.')
     opts.add_argumentless(['--kms'],                                help = 'Generate all kmsponies for the current TTY palette')
+    opts.add_argumented(  ['--dimensions'],     arg = 'PONY-DIR',   help = 'Generate pony dimension file for a directory')
     opts.add_argumented(  ['--edit'],           arg = 'PONY-FILE',  help = 'Edit a pony file\'s metadata')
     opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',  help = 'Remove metadata from a pony file')
     opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',  help = 'Apply metadata from stdin to a pony file')
