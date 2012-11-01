@@ -2240,10 +2240,14 @@ use Python 3, which as been accomplished in version 2.1.
 @opindex @option{--onelist}
 @opindex @option{++onelist}
 @opindex @option{--quoters}
+@pindex @command{auto-auto-complete}
 
 To make it easier to write auto-completion for shells, @command{ponysay} supports
 the two options @option{--onelist}, @option{++onelist} and @option{--quoters},
-which has no short versions.
+which has no short versions. To make it even easier we use @command{auto-auto-complete}
+(@ref{https://www.github.com/maandree/auto-auto-complete}) to generate auto-completion
+scripts, currently it supports @command{bash}, @command{fish} and @command{zsh},
+the built system uses that program to generate completion for each shell.
 
 Executing @command{ponysay --onelist} will list every available standard (MLP:FiM)
 pony, independent of where it is located, the output is a sorted and consists only
