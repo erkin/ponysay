@@ -2015,6 +2015,8 @@ class Backend():
                     extraleft -= msgwidth - width
                 elif justify == 'c':
                     extraleft -= (msgwidth - width) >> 1
+                    if extraleft < 0:
+                        extraleft = 0
                     if extraleft + msgwidth > wrap:
                         extraleft -= msgwidth - wrap
         
