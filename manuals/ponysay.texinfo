@@ -348,6 +348,51 @@ The first list are the MLP:FiM and the second one are non-MLP:FiM.
 Print just the pony, nothing else like the speech balloon. Naturally the
 @command{ponysay} will not wait for a message from stdin.
 
+@item -i
+@itemx --info
+@opindex @option{-i}
+@opindex @option{--info}
+By adding this flag you will get a metadata for a pony printed, rather than the pony
+itself. The output will beformated with bold tag names. The output will be wrapped
+according to the @option{-W} option.
+
+@item +i
+@itemx ++info
+@opindex @option{+i}
+@opindex @option{++info}
+This works just like the @option{-i} option, except the pony will use the output
+has her message rather that just print that information.
+
+@item -r RESTRICTION
+@itemx --restrict RESTRICTION
+@opindex @option{-r}
+@opindex @option{--restrict}
+This option is used to restrict which ponies can be randomly select based one their
+metadata. The restrict is given is disjunctive normal form, and can hence express any
+logical combination, however only for tags with one entry. For tags with multiple
+values all values are tested and of one of them passes a test passes.
+
+The argument for @option{--restrict} is a @code{+} separated list of values that all
+must be satisfied for a pony to be qualified for random selection. The option
+@option{--restrict} can be used multiply times, only one of them need to be satisfied
+for a pony to qualified for random selection.
+
+A value in the argument is a combination of the tag name and tag value on the form
+@code{NAME=VALUE}. Additionally if the tag names ends with a question mark (@code{?})
+the tag is satsified if the tag is missing; if the value starts with a bang (@code{!})
+the test is inverted. Using just a bang means that the test passes for and only for
+all ponies with the tag definied; using the question mark and a empty value means
+that the test passes for all ponies; finally, using the question mark and just a bang
+for the value means that the test passes for and only for all ponies without the tag
+definied.
+
+For most shells, if not all, trick to not need to use disjunctive normal form is to
+use @code{@{ @}}. For example if you use
+@option{--restrict=@{eye=@{blue,green,cyan@}+coat=@{black,grey@},coat=white@}}
+(note that there is no whitespaces) means that only ponies with white coat will be
+randomly selected as will as ponies with black or grey coat provided that they
+have either blue, green or cyan eyes.
+
 @item -X
 @itemx --256-colours
 @itemx --256colours
