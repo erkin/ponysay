@@ -234,6 +234,10 @@ class Setup():
                               alternatives = ['--linking'], arg='TYPE')
         
         
+        opts.add_argumented  (help = 'Do only install fully free parts of the pacakge\nDefault = sloppy, use strict, full or yes if you want to do this',
+                              alternatives = ['--freedom'], arg='FREEDOM')
+        
+        
         
         opts.parse()
         
@@ -241,6 +245,12 @@ class Setup():
         self.linking = SYMBOLIC
         if opts.opts['--linking'] is not None:
             self.linking = opts.opts['--linking'][0]
+        
+        
+        self.free = False
+        if opts.opts['--freedom'] is not None:
+            if opts.opts['--freedom'][0].lower() in ('strict', 'full', 'yes'):
+                self.free = True
         
         
         if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is None):
@@ -336,6 +346,8 @@ class Setup():
         for miscfile in miscfiles:                 print(GREEN  % ('Installing ' + miscfile[0] + ' to ', conf[miscfile[0]]))
         print('Using system configuration directory: ' + conf['sysconf-dir'])
         print('Prefered linking style: ' + self.linking)
+        if self.free:                              print(GREEN  % ('', 'Installing only fully free parts of the package'))
+        else:                                      print(RED    % ('Installing \033[1mnot\033[21m only fully free parts of the package'))
         
         print()
     
@@ -592,12 +604,12 @@ class Setup():
                 self.cp(False, src, dests)
         for dir in sharedirs:
             if conf[dir[0]] is not None:
-                self.cp(True, dir[0], [conf[dir[0]]])
+                self.cp(True, dir[0], [conf[dir[0]]], self.validateFreedom if self.free else None)
         for file in sharefiles:
             if conf[file[0]] is not None:
-                self.cp(False, 'share/' + file[1], [conf[file[0]]])
+                self.cp(False, 'share/' + file[1], [conf[file[0]]], self.validateFreedom if self.free else None)
         for file in miscfiles:
-            self.cp(False, file[0], [conf[file[0]]])
+            self.cp(False, file[0], [conf[file[0]]], self.validateFreedom if self.free else None)
         print()
     
     
@@ -753,9 +765,31 @@ class Setup():
     
     
     '''
+    Check whethera file is fully free
+    '''
+    def validateFreedom(self, filename):
+        if filename.endswith('.pony') and not (filename == '.pony'):
+            with open(filename, 'rb') as file:
+                data = file.read.decode('utf8', 'replace')
+                if data.startswith('$$$\n') and ('\n$$$\n' in data):
+                    data = data[4 : data.find('\n$$$\n')].split('\n')
+                    for line in data:
+                        if ':' not in line:
+                            continue
+                        line = [item.strip() for item in line.split(':')]
+                        if (len(line) == 2) and (line[0] == 'FREE'):
+                            return line[1].lower() == 'yes'
+                    return False
+        return True
+    
+    
+    '''
     Copys a files or directory to multiple destinations
     '''
-    def cp(self, recursive, source, destinations):
+    def cp(self, recursive, source, destinations, validatehook = None):
+        if validatehook is not None:
+            if not validatehook(source):
+                print('Ignoring installation of file %s (did not pass validation process made by setup settings)' % source)
         if os.path.islink(source) and (self.linking != COPY) and os.path.isdir(os.path.realpath(source)):
             target = os.readlink(source)
             for dest in destinations:

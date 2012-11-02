@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 2.9.1
+@set VERSION 3.0
 
 @defindex op
 @synindex op vr
@@ -48,7 +48,7 @@ Texts. A copy of the license is included in the section entitled
 @c ** start of front page image **
 @c If print make a pdf or hard copy with the front cover
 @c you may or may not want to remove this.
-@image{infoimage,423.5px}
+@c @image{infoimage,423.5px}
 @c ** end of front page image **
 @author by Mattias Andrée (maandree)
 
@@ -1903,6 +1903,15 @@ Recognised arguments are @code{copy}, @code{hard} and @code{symbolic}.
 @command{ponysay -L} will give the same output as @command{ponysay -l} if @code{copy}
 or @code{hard} is used. This is because it does link reading and not content or
 inode comparison.
+
+@item --freedom=sloppy
+@opindex @option{--freedom}
+@cindex full freedom
+@cindex freedom, full
+Set your freedom. If you the any of the values @code{strict}, @code{full} or @code{yes},
+the setup will make sure that only completly free parts of the package is installed.
+This should be used (@code{--freedom=strict}) on distributions for GNU endorsed (endorsable)
+GNU/Linux-libre distributions.
 @end table
 
 Recognised compressions are @option{gz} which uses @option{gzip -9}, and @option{xz}
@@ -2686,7 +2695,9 @@ Balloons can be have and explicit minimum column span with placement justificati
 Only ponies that fit the terminal will be randomly selected (for directory with pony
 dimension files generated), however if no pony fits, any of the can be randomly selected.
 @item
-Setup option @option{--sysconf-dir} with default value @file{/etc} added
+Setup option @option{--sysconf-dir} with default value @file{/etc} added,
+@item
+Setup option @option{--freedom} with default value @code{sloppy} added,
 @end itemize
 
 

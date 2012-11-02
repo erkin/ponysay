@@ -31,6 +31,8 @@ Version 3.0
 
 	Setup option --sysconf-dir with default value /etc added.
 
+	Setup option --freedom with default value sloppy added.
+
 
 Version 2.9.1
 
