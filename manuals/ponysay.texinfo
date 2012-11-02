@@ -2678,6 +2678,9 @@ height the balloon causes at the top and at the bottom of the pony.
 @file{${XDG_DATA_HOME}/ponysay/*} is allowed in favour of @file{${HOME}/.local/share/ponysay/*}
 @item
 Balloons can be have and explicit minimum column span with placement justification.
+@item
+Only ponies that fit the terminal will be randomly selected (for directory with pony
+dimension files generated), however if no pony fits, any of the can be randomly selected.
 @end itemize
 
 

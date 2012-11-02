@@ -339,6 +339,9 @@ class Ponysay():
             if args.opts['-o'] is not None:
                 self.mode += '$/= $$\\= $'
                 args.message = ''
+                self.ponyonly = True
+            else:
+                self.ponyonly = False
             
             ## The stuff
             if args.opts['-q'] is not None:
@@ -498,7 +501,7 @@ class Ponysay():
         ## List all pony files, without the .pony ending
         for ponydir in self.ponydirs:
             for ponyfile in os.listdir(ponydir):
-                if endswith(ponyfile, ".pony"):
+                if endswith(ponyfile, '.pony'):
                     pony = ponyfile[:-5]
                     if pony not in ponies:
                         ponies[pony] = ponydir + ponyfile
@@ -509,9 +512,78 @@ class Ponysay():
                 if os.path.exists(name):
                     ponies[name] = name
         
+        '''
+        Get ponies that fit the terminal
+        
+        @param  fitting      The set to fill
+        @param  requirement  The maximum allowed value
+        @param  file         The file with all data
+        '''
+        def getfitting(fitting, requirement, file):
+            data = file.read() # not too much data, can load everything at once
+            ptr = 0
+            while data[ptr] != 47: # 47 == ord('/')
+                ptr += 1
+            ptr += 1
+            size = 0
+            while data[ptr] != 47: # 47 == ord('/')
+                size = (size * 10) - (data[ptr] & 15)
+                ptr += 1
+            ptr += 1
+            jump = ptr - size
+            stop = 0
+            backjump = 0
+            while ptr < jump:
+                size = 0
+                while data[ptr] != 47: # 47 == ord('/')
+                    size = (size * 10) - (data[ptr] & 15)
+                    ptr += 1
+                ptr += 1
+                if -size > requirement:
+                    if backjump > 0:
+                        ptr = backjump
+                        while data[ptr] != 47: # 47 == ord('/')
+                            stop = (stop * 10) - (data[ptr] & 15)
+                            ptr += 1
+                        stop = -stop
+                    break
+                backjump = ptr
+                while data[ptr] != 47: # 47 == ord('/')
+                    ptr += 1
+                ptr += 1
+            if ptr == jump:
+                stop = len(data)
+            else:
+                ptr = jump
+                stop += ptr
+            passed = data[jump : stop].decode('utf8', 'replace').split('/')
+            for pony in passed:
+                fitting.add(pony)
+            
+        
         ## If there is not select ponies, choose all of them
         if (names is None) or (len(names) == 0):
-            names = list(ponies.keys())
+            oldponies = ponies
+            ponies = {}
+            (termh, termw) = self.__gettermsize()
+            for ponydir in self.ponydirs:
+                (fitw, fith) = (None, None)
+                if os.path.exists(ponydir + 'widths'):
+                    fitw = set()
+                    with open(ponydir + 'widths', 'rb') as file:
+                        getfitting(fitw, termw, file)
+                if os.path.exists(ponydir + ('onlyheights' if self.ponyonly else 'heights')):
+                    fith = set()
+                    with open(ponydir + ('onlyheights' if self.ponyonly else 'heights'), 'rb') as file:
+                        getfitting(fith, termh, file)
+                for ponyfile in os.listdir(ponydir):
+                    if endswith(ponyfile, '.pony'):
+                        pony = ponyfile[:-5]
+                        if pony not in ponies:
+                            if (fitw is None) or (pony in fitw):
+                                if (fith is None) or (pony in fith):
+                                    ponies[pony] = ponydir + ponyfile
+            names = list((oldponies if len(ponies) == 0 else ponies).keys())
         
         ## Select a random pony of the choosen onles
         pony = names[random.randrange(0, len(names))]
