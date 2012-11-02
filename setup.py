@@ -458,6 +458,12 @@ class Setup():
                 if fileout is not None:  fileout.close()
                 if filein  is not None:  filein .close()
         
+        for sharedir in [sharedir[0] for sharedir in sharedirs]:
+            for sharefile in os.listdir(conf[sharedir]):
+                if sharefile.endswith('.pony') and (sharefile != '.pony'):
+                    Popen(['./ponysay-tool.py', '--dimensions', conf[sharedir]], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
+                    break
+        
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 for command in commands:
@@ -684,6 +690,9 @@ class Setup():
             for command in commands:
                 files.append('completion/%s-completion.%s' % (shell, command))
                 files.append('completion/%s-completion.%s.install' % (shell, command))
+        for sharedir in [sharedir[0] for sharedir in sharedirs]:
+            for dimfile in ('widths', 'heights', 'onlyheights'):
+                files.append(sharedir + '/' + dimfile)
         
         self.removeLists(files, dirs)
         print()
