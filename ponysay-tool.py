@@ -255,7 +255,7 @@ class PonysayTool():
                 printpony = sys.stdout.buf[:-1].split('\n')
                 ponyonlyheight = len(printpony)
                 sys.stdout = stdout
-                dimensions.append((ponywidth, ponyheight, ponyonlyheight, ponyfile))
+                dimensions.append((ponywidth, ponyheight, ponyonlyheight, ponyfile[:-5]))
         (widths, heights, onlyheights) = ([], [], [])
         for item in dimensions:
             widths     .append(item[0], item[3])
@@ -266,7 +266,7 @@ class PonysayTool():
         for pair in ((widths, 'widths'), (heights, 'heights'), (onlyheights, 'onlyheights')):
             (items, dimfile) = pair
             dimfile = (ponydir + '/' + dimfile).replace('//'. '/')
-            ponies = '/'.join([item[1] for item in items])
+            ponies = [item[1] for item in items]
             dims = []
             last = -1
             index = 0
@@ -279,8 +279,8 @@ class PonysayTool():
                 index += 1
             if last >= 0:
                 dims.append((last, index))
-            dims = [dim[0] + '/' + dim[1] + '/' for dim in dims]
-            data = '/' + ''.join(dims) + '/' + ponies + '/'
+            dims = ''.join([('%i/%i/' % (dim[0], len('/'.join(ponies[:dim[1]])))) for dim in dims])
+            data = '/' + str(len(dims)) + '/' + dims + '/'.join(ponies) + '/'
             with open(dimfile, 'wb') as file:
                 file.write(data.encode('utf8'))
                 file.flush()
