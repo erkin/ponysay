@@ -1104,10 +1104,14 @@ class Ponysay():
         if args.opts['--colour-bubble'] is not None:
             ballooncolour = '\033[' + ';'.join(args.opts['--colour-bubble']) + 'm'
         
+        ## Determine --info/++info settings
+        minusinfo = args.opts['-i'] is not None
+        plusinfo  = args.opts['+i'] is not None
         
         ## Run cowsay replacement
         backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap, width = widthtruncation, balloon = balloon,
-                          hyphen = hyphen, linkcolour = linkcolour, ballooncolour = ballooncolour, mode = self.mode)
+                          hyphen = hyphen, linkcolour = linkcolour, ballooncolour = ballooncolour, mode = self.mode,
+                          infolevel = 2 if plusinfo else (1 if minusinfo else 0))
         backend.parse()
         output = backend.output
         if output.endswith('\n'):
@@ -1707,8 +1711,9 @@ class Backend():
     @param  linkcolour:str     How to colour the link character, empty string if none
     @param  ballooncolour:str  How to colour the balloon, empty string if none
     @param  mode:str           Mode string for the pony
+    @parma  infolevel:int      2 if ++info is used, 1 if --info is used and 0 otherwise
     '''
-    def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour, mode):
+    def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour, mode, infolevel):
         self.message = message
         self.ponyfile = ponyfile
         self.wrapcolumn = None if wrapcolumn is None else wrapcolumn - (0 if balloon is None else balloon.minwidth)
@@ -1719,6 +1724,7 @@ class Backend():
         self.mode = mode
         self.balloontop = 0
         self.balloonbottom = 0
+        self.infolevel = infolevel
         
         if self.balloon is not None:
             self.link = {'\\' : linkcolour + self.balloon.link,
