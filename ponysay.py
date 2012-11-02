@@ -1740,32 +1740,69 @@ class Backend():
     Process all data
     '''
     def parse(self):
-        self.__expandMessage()
-        self.__unpadMessage()
         self.__loadFile()
         
         if self.pony.startswith('$$$\n'):
             self.pony = self.pony[4:]
             infoend = self.pony.index('\n$$$\n')
-            info = self.pony[:infoend].split('\n')
-            for line in info:
-                sep = line.find(':')
-                if sep > 0:
-                    key = line[:sep].strip()
-                    if key == 'BALLOON TOP':
-                        value = line[sep + 1:].strip()
-                        if len(value) > 0:
-                            self.balloontop = int(value)
-                    if key == 'BALLOON BOTTOM':
-                        value = line[sep + 1:].strip()
-                        if len(value) > 0:
-                            self.balloonbottom = int(value)
-            printinfo(info)
-            self.pony = self.pony[infoend + 5:]
+            info = self.pony[:infoend]
+            if self.infolevel == 2:
+                self.message = Backend.formatInfo(info)
+            elif self.infolevel == 1:
+                self.pony = Backend.formatInfo(info).replace('$'), ('$$')
+            else:
+                info = info.split('\n')
+                for line in info:
+                    sep = line.find(':')
+                    if sep > 0:
+                        key = line[:sep].strip()
+                        if key == 'BALLOON TOP':
+                            value = line[sep + 1:].strip()
+                            if len(value) > 0:
+                                self.balloontop = int(value)
+                        if key == 'BALLOON BOTTOM':
+                            value = line[sep + 1:].strip()
+                            if len(value) > 0:
+                                self.balloonbottom = int(value)
+                printinfo(info)
+                self.pony = self.pony[infoend + 5:]
+        elif self.infolevel == 2:
+            self.message = '\033[1;31mI am the mysterious mare...\033[21;3m'
+        elif self.infolevel == 1:
+            self.pony = 'There is not metadata for this pony file'
         self.pony = self.mode + self.pony
         
+        self.__expandMessage()
+        self.__unpadMessage()
         self.__processPony()
         self.__truncate()
+    
+    
+    '''
+    Format metadata to be nicely printed, this include bold keys
+    
+    @param   info:str  The metadata
+    @return  :str      The metadata nicely formated
+    '''
+    @staticmethod
+    def formatInfo(info):
+        info = info.split('\n')
+        tags = ''
+        comment = ''
+        for line in info:
+            sep = line.find(':')
+            if sep > 0:
+                key = line[:sep].strip()
+                value = line[sep + 1:].strip()
+                if key == key.upper():
+                    line = '\033[1m%s\033[21m: %s\n' % (key, value)
+                    tags += line
+                    continue
+            comment += '\n' + line
+        comment = comment.lstrip('\n')
+        if len(comment) > 0:
+            comment = '\n' + comment
+        return tags + comment
     
     
     '''
