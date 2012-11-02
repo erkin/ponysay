@@ -1881,6 +1881,10 @@ edge distributors should specify it if it differs from prefered.
 @opindex @option{--share-dir}
 Set the system's directory for resource files.
 
+@item --sysconf-dir=/etc
+@opindex @option{--sysconf-dir}
+Set the system's local specific configuration directory.
+
 @item --cache-dir=/var/cache
 @opindex @option{--cache-dir}
 Set the system's directory for cache directories.

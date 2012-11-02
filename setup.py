@@ -214,10 +214,13 @@ class Setup():
                               alternatives = ['--lib-dir'], arg='LIBDIR')
         
         opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/libexec/ponysay\nNot used.',
-                              alternatives = ['--libexec-dir'], arg='LIBDIR')
+                              alternatives = ['--libexec-dir'], arg='LIBEXECDIR')
         
         opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',
                               alternatives = ['--share-dir'], arg='SHAREDIR')
+        
+        opts.add_argumented  (help = 'Set the system\'s local specific configuration directory\nDefault = /etc',
+                              alternatives = ['--sysconf-dir'], arg='SYSCONFDIR')
         
         opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',
                               alternatives = ['--cache-dir'], arg='CACHEDIR')
@@ -331,6 +334,7 @@ class Setup():
         if conf['custom-env-python'] is not None:  print(GREEN  % ('Using custom env reference in python script shebang: ', conf['custom-env-python']))
         else:                                      print(YELLOW % ('Looking for best env reference in python script shebang'))
         for miscfile in miscfiles:                 print(GREEN  % ('Installing ' + miscfile[0] + ' to ', conf[miscfile[0]]))
+        print('Using system configuration directory: ' + conf['sysconf-dir'])
         print('Prefered linking style: ' + self.linking)
         
         print()
@@ -386,6 +390,7 @@ class Setup():
                     data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
                 for sharefile in sharefiles:
                     data = data.replace('/usr/share/ponysay/' + sharefile[1], conf[sharefile[0]])
+                data = data.replace('/etc/', conf['sysconf-dir'] + ('' if conf['sysconf-dir'].endswith('/') else '/'))
                 data = data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
                 
                 fileout.write(data.encode('utf-8'))
@@ -872,6 +877,7 @@ class Setup():
         conf['custom-env-python'] = 'python3'
         for miscfile in miscfiles:
             conf[miscfile[0]] = miscfile[1]
+        conf['sysconf-dir'] = '/etc'
         
         
         if opts['--private'] is not None:
@@ -914,6 +920,8 @@ class Setup():
                     if conf[key].startswith('/var/cache'):
                         conf[key] = dir + conf[key][10:]
         
+        if opts['--sysconf-dir'] is not None:
+            conf['sysconf-dir'] = ['--sysconf-dir']
         
         for key in conf:
             defaults[key] = conf[key]
