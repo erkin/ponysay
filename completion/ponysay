@@ -16,6 +16,9 @@
 		((options -X --256-colours --256colours --x-colours)               (desc 'Use xterm colours'))
 		((options -V --tty-colours --ttycolours --vt-colours)              (desc 'Use linux vt colours'))
 		((options -K --kms-colours --kmscolours)                           (desc 'Utilise kms support'))
+		
+		((options -i --info)                      (complete --info)        (desc 'Print pony metadata'))
+		((options +i ++info)                      (complete ++info)        (desc 'Print pony metadata as a message'))
 	)
 	
 	(multiple argumented
@@ -30,6 +33,8 @@
 		((options --colour-msg --colour-message)                   (arg ANSI-COLOUR)               (files -0)         (desc 'Specify colour of the message'))
 		((options --colour-pony)                                   (arg ANSI-COLOUR)               (files -0)         (desc 'Specify colour of the pony (if uncoloured)'))
 		((options --colour-wrap --colour-hyphen)                   (arg ANSI-COLOUR)               (files -0)         (desc 'Specify addition colour of wrapping hyphen'))
+		
+		((options -r --restrict)         (complete --restrict)     (arg RESTRICTION)  (suggest -r) (files -0)         (desc 'Restrict randomly selected ponies'))
 	)
 	
 	(variadic (options --f --files --ponies) (bind -f) (desc 'Specify the ponies that may be printed'))
@@ -55,6 +60,8 @@
 			    	  	(cut -d ' ' -f 2)
 				  ) - 10
 			    )
+	)
+	(suggestion -r      (verbatim kind=KIND group=GROUP coat=COAT eye=EYE mane=MANE aura=AURA)
 	)
 )
 
