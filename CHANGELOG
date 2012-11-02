@@ -29,6 +29,8 @@ Version 3.0
 	Only ponies that fit the terminal will be randomly selected (for directory with pony
 	dimension files generated), however if no pony fits, any of the can be randomly selected.
 
+	Setup option --sysconf-dir with default value /etc added.
+
 
 Version 2.9.1
 
