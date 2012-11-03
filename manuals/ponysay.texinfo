@@ -639,8 +639,8 @@ especially for shell scripts.
 The command @command{__pony=$(ponysay -o 3>&1 1>/dev/null | grep ^pony\ file: |
 sed -e s/^pony\ file:\ //g) && (ponysay -of "$__pony" | ponythink -Wi -f "$__pony")}
 will give you a pony thinking of herself. The command works on GNU Bash, but my
-not work one less POSIX compatible shells. It works by first getting a random
-pony and use the extra information printed the file descriptor 3 (see @ref{Extra information}),
+not work on less POSIX compatible shells. It works by first getting a random pony and
+use the extra information printed the file descriptor 3 (see @ref{Extra information}),
 and fetchs the file name with help of @command{grep} and @command{sed}. The file
 name is stored in a shell variable. It the pipes one an execute of ponysay into
 another executing, using the stored file anme in both executions.
