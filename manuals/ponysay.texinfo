@@ -484,12 +484,13 @@ a symbolic link, @option{-q} cannot determine which quotes to use.
 @cindex advanced usage
 
 @menu
-* Extra information::   Displaying extra information.
-* Fortune cookies::     Displaying with fortune cookies.
-* Ponification::        Ponify your fortune cookies.
-* Running on TTY::      Running on TTY (Linux VT).
-* Running on screen::   Running on @command{screen}.
-* ~/.ponysayrc::        Using the @file{~/.ponysayrc} file.
+* Extra information::       Displaying extra information.
+* Fortune cookies::         Displaying with fortune cookies.
+* Ponification::            Ponify your fortune cookies.
+* Running on TTY::          Running on TTY (Linux VT).
+* Running on screen::       Running on @command{screen}.
+* ~/.ponysayrc::            Using the @file{~/.ponysayrc} file.
+* Narcissistic ponies::     Getting ponies to think of themself.
 @end menu
 
 
@@ -625,6 +626,32 @@ is defined before @file{~/.ponysayrc} is interpreted.
 @file{~/.ponysayrc} is a fallback for @file{~/.config/ponysay/ponysayrc}, which in
 turn is a fallback for @file{$@{XDG_CONFIG_HOME@}/ponysay/ponysayrc}. If neither of
 those exist, @file{/etc/ponysayrc} is used if that exists.
+
+
+@node Narcissistic ponies
+@section Narcissistic ponies
+@cindex narcissistic ponies
+
+The following will not work if you have line breaks in you file names, but if you do
+have that, you may want to rethink that as it will usually cause problems for programs,
+especially for shell scripts.
+
+The command @command{__pony=$(ponysay -o 3>&1 1>/dev/null | grep ^pony\ file: |
+sed -e s/^pony\ file:\ //g) && (ponysay -of "$__pony" | ponythink -Wi -f "$__pony")}
+will give you a pony thinking of herself. The command works on GNU Bash, but my
+not work one less POSIX compatible shells. It works by first getting a random
+pony and use the extra information printed the file descriptor 3 (see @ref{Extra information}),
+and fetchs the file name with help of @command{grep} and @command{sed}. The file
+name is stored in a shell variable. It the pipes one an execute of ponysay into
+another executing, using the stored file anme in both executions.
+
+Ponysay can use just about anything as a message because it quarantines the message's
+ANSI escape sequences, including colour. And is Unicode aware (including combining
+characters) and ANSI escape sequence aware.
+
+Naturally this means that you can also make ponies think of eachother,
+for example: @command{ponysay -f rarity -b round 'My little Spiky-wiky' |
+ponythink -f spikefloat -b unicode -W n}
 
 
 
@@ -2345,7 +2372,7 @@ use Python 3, which as been accomplished in version 2.1.
 To make it easier to write auto-completion for shells, @command{ponysay} supports
 the two options @option{--onelist}, @option{++onelist} and @option{--quoters},
 which has no short versions. To make it even easier we use @command{auto-auto-complete}
-(@ref{https://www.github.com/maandree/auto-auto-complete}) to generate auto-completion
+(@url{https://www.github.com/maandree/auto-auto-complete}) to generate auto-completion
 scripts, currently it supports @command{bash}, @command{fish} and @command{zsh},
 the built system uses that program to generate completion for each shell.
 
