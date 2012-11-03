@@ -234,7 +234,7 @@ class Setup():
                               alternatives = ['--linking'], arg='TYPE')
         
         
-        opts.add_argumented  (help = 'Do only install fully free parts of the pacakge\nDefault = sloppy, use strict, full or yes if you want to do this',
+        opts.add_argumented  (help = 'Install all ponies or only the completely free ponies\nThis option is manditory, use strict, full or yes for only free ponies,\nand partial, sloppy or no for all ponies',
                               alternatives = ['--freedom'], arg='FREEDOM')
         
         
@@ -247,10 +247,21 @@ class Setup():
             self.linking = opts.opts['--linking'][0]
         
         
-        self.free = False
+        self.free = None
         if opts.opts['--freedom'] is not None:
             if opts.opts['--freedom'][0].lower() in ('strict', 'full', 'yes'):
                 self.free = True
+            elif opts.opts['--freedom'][0].lower() in ('partial', 'sloppy', 'no'):
+                self.free = False
+        if self.free is None:
+            print('')
+            print('You need to select your freedom, add --freedom=strict or --freedom=partial.')
+            print('')
+            print('--freedom=strict   will install only ponies that are completely free.')
+            print('--freedom=partial  will install all ponies, even if they are not free.')
+            print('')
+            print('')
+            exit(255)
         
         
         if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is None):

@@ -623,7 +623,7 @@ you may want to do, everything in the source code can be used directly as long a
 is defined before @file{~/.ponysayrc} is interpreted.
 
 @file{~/.ponysayrc} is a fallback for @file{~/.config/ponysay/ponysayrc}, which in
-turn is a fallback for @file{${XDG_CONFIG_HOME}/ponysay/ponysayrc}. If neither of
+turn is a fallback for @file{$@{XDG_CONFIG_HOME@}/ponysay/ponysayrc}. If neither of
 those exist, @file{/etc/ponysayrc} is used if that exists.
 
 
@@ -1539,9 +1539,13 @@ If you have @command{git} you can @command{clone} the project URL
 @url{https://github.com/erkin/ponysay.git}.
 
 In the terminal, @command{cd} into the ponysay directory and execute
-@command{./setup.py install} or @command{python3 setup.py install}. This will install
+@command{./setup.py --freedom=parital install} or
+@command{python3 setup.py --freedom=parital install}. This will install
 @command{ponysay} into @file{/usr}, normally meaning you need to run as root, e.g. by
-running @command{sudo ./setup.py install}.
+running @command{sudo ./setup.py --freedom=parital install}.
+
+The @command{--freedom} option and manditory, if you only want completely free
+ponies, use @command{--freedom=strict} instread of @command{--freedom=partial}.
 
 Now you will be to use ponysay, run: @command{ponysay "I am just the cutest pony!"},
 or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
@@ -1949,7 +1953,7 @@ Recognised arguments are @code{copy}, @code{hard} and @code{symbolic}.
 or @code{hard} is used. This is because it does link reading and not content or
 inode comparison.
 
-@item --freedom=sloppy
+@item --freedom=MANDITORY!
 @opindex @option{--freedom}
 @cindex full freedom
 @cindex freedom, full
@@ -1957,6 +1961,9 @@ Set your freedom. If you the any of the values @code{strict}, @code{full} or @co
 the setup will make sure that only completly free parts of the package is installed.
 This should be used (@code{--freedom=strict}) on distributions for GNU endorsed (endorsable)
 GNU/Linux-libre distributions.
+
+If you do not want this, will need to explicity say so (you do also need to say if you
+do want it) by using either of the values @code{sloppy}, @code{partial} or @code{no}.
 @end table
 
 Recognised compressions are @option{gz} which uses @option{gzip -9}, and @option{xz}
@@ -2522,7 +2529,11 @@ build()
     cd ponysay  ; git checkout "$pkgver"
     
     ./setup.py --everything --without-pdf-compression  \
-               --bin-dir=/usr/bin --dest-dir="$pkgdir" build
+               --bin-dir=/usr/bin --dest-dir="$pkgdir" \
+               --freedom=parital build
+    
+    # CHANGE --freedom=parital to --freedom=strict
+    # FOR ONLY COMPLETELY FREE PONIES
 @}
 
 package()
@@ -2587,7 +2598,7 @@ Pony files located in @file{/usr/share/ponysay}.
 @itemx usrponies
 @cindex homeponies
 @cindex usrponies
-Pony files located in @file{${XDG_DATA_HOME}/ponysay} or @file{~/.local/share/ponysay} (fallback).
+Pony files located in @file{$@{XDG_DATA_HOME@}/ponysay} or @file{~/.local/share/ponysay} (fallback).
 
 @item browser ponies
 @cindex browser ponies
@@ -2721,7 +2732,7 @@ Environment variable @env{PONYSAY_WRAP_LIMIT} has been added.
 @item
 Environment variable @env{PONYSAY_WRAP_EXCEED} has been added.
 @item
-Added support for @file{~/.ponysayrc} with the alternatives: @file{${XDG_CONFIG_HOME}/ponysay/ponysayrc}
+Added support for @file{~/.ponysayrc} with the alternatives: @file{$@{XDG_CONFIG_HOME@}/ponysay/ponysayrc}
 and @file{~/.config/ponysay/ponysayrc} as well as the global fallback @file{/etc/ponysayrc}
 @item
 @option{-f}, @option{+f} and @option{-q} may be unargumented if that are at the end of the command line.
@@ -2733,7 +2744,7 @@ and @file{~/.config/ponysay/ponysayrc} as well as the global fallback @file{/etc
 Pony metadata tags @var{BALLOON TOP} and @var{BALLOON BOTTOM} can be used to specify how much extra
 height the balloon causes at the top and at the bottom of the pony.
 @item
-@file{${XDG_DATA_HOME}/ponysay/*} is allowed in favour of @file{${HOME}/.local/share/ponysay/*}
+@file{$@{XDG_DATA_HOME@}/ponysay/*} is allowed in favour of @file{$@{HOME@}/.local/share/ponysay/*}
 @item
 Balloons can be have and explicit minimum column span with placement justification.
 @item
@@ -2742,7 +2753,7 @@ dimension files generated), however if no pony fits, any of the can be randomly 
 @item
 Setup option @option{--sysconf-dir} with default value @file{/etc} added,
 @item
-Setup option @option{--freedom} with default value @code{sloppy} added,
+New manditory setup option @option{--freedom}.
 @end itemize
 
 
