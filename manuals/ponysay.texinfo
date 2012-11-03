@@ -2755,6 +2755,8 @@ dimension files generated), however if no pony fits, any of the can be randomly 
 Setup option @option{--sysconf-dir} with default value @file{/etc} added,
 @item
 New manditory setup option @option{--freedom}.
+@item
+Pony metadata options added: @option{--info}, @option{++info} and @option{--restrict}.
 @end itemize
 
 

@@ -33,6 +33,8 @@ Version 3.0
 
 	New manditory setup option --freedom.
 
+	Pony metadata options added: --info, ++info and --restrict.
+
 
 Version 2.9.1
 
