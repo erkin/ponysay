@@ -9,9 +9,10 @@ Installation on GNU/Linux (or other Unix implementations)
 ---------------------------------------------------------
 
 [Download](/erkin/ponysay/downloads) or clone the project.
-In the terminal, `cd` into the ponysay directory and `./setup.py install` or `python3 setup.py install`.
-You may need to be super user to run `./setup.py install` without `--private`, on most systems this
-can be achieved by running `sudo ./setup.py install`.
+In the terminal, `cd` into the ponysay directory and `./setup.py --freedom=partial install` or `python3 setup.py --freedom=partial install`.
+You may need to be super user to run `./setup.py --freedom=partial install` without `--private`, on most systems this
+can be achieved by running `sudo ./setup.py --freedom=partial install`.
+If you only want completely free ponies install use `--freedom=strict` instead of `--freedom=partial`.
 For more information we have provided you with an extensive [manual in PDF](https://github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true).
 
 In order to use ponysay, run:
