@@ -493,7 +493,8 @@ class Setup():
         for sharedir in [sharedir[0] for sharedir in sharedirs]:
             for sharefile in os.listdir(conf[sharedir]):
                 if sharefile.endswith('.pony') and (sharefile != '.pony'):
-                    Popen(['./ponysay-tool.py', '--dimensions', conf[sharedir]], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
+                    for toolcommand in ('--dimensions', '--metadata'):
+                        Popen(['./ponysay-tool.py', toolcommand, conf[sharedir]], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
                     break
         
         for shell in [item[0] for item in shells]:
