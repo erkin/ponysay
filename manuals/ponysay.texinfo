@@ -1957,13 +1957,14 @@ inode comparison.
 @opindex @option{--freedom}
 @cindex full freedom
 @cindex freedom, full
-Set your freedom. If you the any of the values @code{strict}, @code{full} or @code{yes},
-the setup will make sure that only completly free parts of the package is installed.
-This should be used (@code{--freedom=strict}) on distributions for GNU endorsed (endorsable)
-GNU/Linux-libre distributions.
+Set your freedom. If you the any of the values @code{strict}, @code{full}, @code{true}
+or @code{yes}, the setup will make sure that only completly free parts of the package
+is installed. This should be used (@code{--freedom=strict}) on distributions for GNU
+endorsed (endorsable) GNU/Linux-libre distributions.
 
 If you do not want this, will need to explicity say so (you do also need to say if you
-do want it) by using either of the values @code{sloppy}, @code{partial} or @code{no}.
+do want it) by using either of the values @code{sloppy}, @code{partial}, @code{false}
+or @code{no}.
 @end table
 
 Recognised compressions are @option{gz} which uses @option{gzip -9}, and @option{xz}

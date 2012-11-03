@@ -326,8 +326,11 @@ class PonysayTool():
             if ': ' in line:
                 key = line.replace('\t', ' ')
                 key = key[:key.find(': ')]
-                key = key.strip(' ')
-                if key == key.upper():
+                test = key
+                for c in 'ABCDEFGHIJKLMN OPQRSTUVWXYZ':
+                    test = test.replace(c, '')
+                if len(test) == 0:
+                    key = key.strip(' ')
                     value = line.replace('\t', ' ')
                     value = value[value.find(': ') + 2:]
                     if key not in data:

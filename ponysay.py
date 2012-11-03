@@ -342,6 +342,7 @@ class Ponysay():
                 self.ponyonly = True
             else:
                 self.ponyonly = False
+            self.restriction = args.opts['-r']
             
             ## The stuff
             if args.opts['-q'] is not None:
@@ -564,6 +565,58 @@ class Ponysay():
         ## If there is not select ponies, choose all of them
         if (names is None) or (len(names) == 0):
             oldponies = ponies
+            if self.restriction is not None:
+                table = [(get_test(cell[:cell.index('=')],
+                                   cell[cell.index('=') + 1:]
+                                  )
+                         for cell in clause.lower().split('+'))
+                         for clause in self.restriction
+                        ]
+                def get_test(cell):
+                    strict = cell[0][-1] != '?'
+                    key = cell[0][:-2 if strict else -1]
+                    invert = cell[1][0] == '!'
+                    value = cell[1][1 if invert else 0:]
+                    class SITest:
+                        def __init__(self, cellkey, cellvalue):
+                            (self.cellkey, self.callvalue) = (key, value)
+                        def __call__(self, has):
+                            return False if key not in has else (has[key] != value)
+                    class STest:
+                        def __init__(self, cellkey, cellvalue):
+                            (self.cellkey, self.callvalue) = (key, value)
+                        def __call__(self, has):
+                            return False if key not in has else (has[key] ?= value)
+                    class ITest:
+                        def __init__(self, cellkey, cellvalue):
+                            (self.cellkey, self.callvalue) = (key, value)
+                        def __call__(self, has):
+                            return True if key not in has else (has[key] != value)
+                    class NTest:
+                        def __init__(self, cellkey, cellvalue):
+                            (self.cellkey, self.callvalue) = (key, value)
+                        def __call__(self, has):
+                            return True if key not in has else (has[key] == value)
+                    if strict and invert:  return SITest(key, value)
+                    if strict:             return STest(key, value)
+                    if invert:             return ITest(key, value)
+                    return NTest(key, value)
+                def logic(cells): # note inverted return value
+                    for alternative in table:
+                        ok = True
+                        for cell in alternative:
+                            if not cell(cells):
+                                ok = False
+                                break
+                        if ok:
+                            return False
+                    return True
+                ponies = {}
+                for ponydir in self.ponydirs:
+                    for pony in self.restrictedPonies(ponydir, logic):
+                        if (pony in oldponies) and (ponies[pony] == ponydir + pony + '.pony'):
+                            del ponies[pony]
+                oldponies = ponies
             ponies = {}
             (termh, termw) = self.__gettermsize()
             for ponydir in self.ponydirs:
@@ -576,13 +629,19 @@ class Ponysay():
                     fith = set()
                     with open(ponydir + ('onlyheights' if self.ponyonly else 'heights'), 'rb') as file:
                         getfitting(fith, termh, file)
-                for ponyfile in os.listdir(ponydir):
-                    if endswith(ponyfile, '.pony'):
-                        pony = ponyfile[:-5]
-                        if pony not in ponies:
-                            if (fitw is None) or (pony in fitw):
-                                if (fith is None) or (pony in fith):
-                                    ponies[pony] = ponydir + ponyfile
+                for ponyfile in oldponies.values():
+                    if ponyfile.startswith(ponydir):
+                        pony = ponyfile[len(ponydir) : -5]
+                        if (fitw is None) or (pony in fitw):
+                            if (fith is None) or (pony in fith):
+                                ponies[pony] = ponyfile
+                #for ponyfile in os.listdir(ponydir):
+                #    if endswith(ponyfile, '.pony'):
+                #        pony = ponyfile[:-5]
+                #        if pony not in ponies:
+                #            if (fitw is None) or (pony in fitw):
+                #                if (fith is None) or (pony in fith):
+                #                    ponies[pony] = ponydir + ponyfile
             names = list((oldponies if len(ponies) == 0 else ponies).keys())
         
         ## Select a random pony of the choosen onles
@@ -599,6 +658,11 @@ class Ponysay():
             exit(1)
         else:
             return ponies[pony]
+    
+    
+    #### FIXME  not yet implemented
+    def restrictedPonies(self, ponyday, logic):
+        return False
     
     
     '''
@@ -1792,10 +1856,13 @@ class Backend():
         for line in info:
             sep = line.find(':')
             if sep > 0:
-                key = line[:sep].strip()
-                value = line[sep + 1:].strip()
-                if key == key.upper():
-                    line = '\033[1m%s\033[21m: %s\n' % (key, value)
+                key = line[:sep]
+                test = key
+                for c in 'ABCDEFGHIJKLMN OPQRSTUVWXYZ':
+                    test = test.replace(c, '')
+                if len(test) == 0:
+                    value = line[sep + 1:].strip()
+                    line = '\033[1m%s\033[21m: %s\n' % (key.strip(), value)
                     tags += line
                     continue
             comment += '\n' + line
