@@ -1551,6 +1551,7 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @menu
 * From upstream::               Installing manually from upstream (GitHub repository).
 * Package repositories::        Packages distributed in OS package repositories.
+* Exotic operating systems::    Installing on other OS:es than GNU.
 * Uninstalling::                Uninstalling when installed manually.
 @end menu
 
@@ -2086,6 +2087,27 @@ contains @command{ponysay} as @w{@code{games-misc/ponysay}} (developer maintaine
 
 The spell @w{@code{util/ponysay}} (user maintained) is available in Grimoire for
 Source Mage @w{GNU/Linux}.
+
+
+@node Exotic operating systems
+@section Exotic operating systems
+@cindex exotic os:es
+
+An "exotic operating system" as a operating system that is not GNU (GNU/Linux ("Linux")
+and GNU/Hurd are GNU distors.)
+
+@cindex max os x
+Ponysay is told to be running on Mac OS X, which is Unix-like OS meaning that probably
+all future version of ponysay will be able to run without any problems.
+
+@cindex windows
+@cindex cygwin.
+Ponysay is also reported to be able to run on Windows 8 through Cygwin, provided that
+@code{python3} is installed. It will probabily also run one any other version of Windows
+through Cygwin. Additionally among the preinstalled fonts in Windows 8; Consolas 10pt,
+and larger, can be used for almost perfect ponies (they may be just a little distorted
+on the height), however Consolas is only able print the ASCII based balloons.
+
 
 
 @node Uninstalling
