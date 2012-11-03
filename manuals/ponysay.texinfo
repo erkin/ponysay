@@ -1271,7 +1271,7 @@ Exit the editor, do not forget to save if you have made changes.
 
 
 @node Metadata collections
-@csection Metadata collections
+@section Metadata collections
 @cindex metadata collection files
 @cindex pony metadata collections
 @opindex @option{--metadata}
