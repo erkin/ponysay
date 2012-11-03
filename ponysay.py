@@ -601,7 +601,7 @@ class Ponysay():
                     if strict:             return STest(key, value)
                     if invert:             return ITest(key, value)
                     return NTest(key, value)
-                def logic(cells): # note inverted return value
+                def logic(cells):
                     for alternative in table:
                         ok = True
                         for cell in alternative:
@@ -609,13 +609,15 @@ class Ponysay():
                                 ok = False
                                 break
                         if ok:
-                            return False
-                    return True
+                            return True
+                    return False
                 ponies = {}
                 for ponydir in self.ponydirs:
                     for pony in self.restrictedPonies(ponydir, logic):
-                        if (pony in oldponies) and (ponies[pony] == ponydir + pony + '.pony'):
-                            del ponies[pony]
+                        if (pony not in passed) and (pony in oldponies):
+                            ponyfile = ponydir + pony + '.pony'
+                            if oldponies[pony] == ponyfile:
+                                ponies[pony] = ponyfile
                 oldponies = ponies
             ponies = {}
             (termh, termw) = self.__gettermsize()
@@ -660,9 +662,25 @@ class Ponysay():
             return ponies[pony]
     
     
-    #### FIXME  not yet implemented
-    def restrictedPonies(self, ponyday, logic):
-        return False
+    '''
+    Get ponies that pass restriction
+    
+    @param   ponydir:str                Pony directory
+    @param   logic:dict<str, str>→bool  Restriction test functor
+    @return  :list<str>                 Passed ponies
+    '''
+    def restrictedPonies(self, ponydir, logic):
+        import cPickle
+        passed = []
+        if os.path.exists(ponydir + 'metadata'):
+            data = None
+            with open(ponydir + 'metadata', 'rb') as file:
+                data = cPickle.load(file)
+            for ponydata in data:
+                (pony, meta) = ponydata
+                if logic(meta):
+                    passed.append(pony)
+        return passed
     
     
     '''
