@@ -78,6 +78,9 @@ class PonysayTool():
         elif (opts['--dimensions'] is not None) and (len(opts['--dimensions']) == 1):
             self.generateDimensions(opts['--dimensions'][0])
         
+        elif (opts['--metadata'] is not None) and (len(opts['--metadata']) == 1):
+            self.generateMetadata(opts['--metadata'][0])
+        
         elif (opts['--edit'] is not None) and (len(opts['--edit']) == 1):
             pony = opts['--edit'][0]
             if not os.path.isfile(pony):
@@ -284,6 +287,78 @@ class PonysayTool():
             with open(dimfile, 'wb') as file:
                 file.write(data.encode('utf8'))
                 file.flush()
+    
+    
+    '''
+    Generate pony metadata collection file for a directory
+    
+    @param  ponydir  The directory
+    '''
+    def generateMetadata(self, ponydir):
+        if not ponydir.endswith('/'):
+            ponydir += '/'
+        def makeset(value):
+            rc = set()
+            bracket = 0
+            esc = False
+            buf = ''
+            for c in value:
+                if esc:
+                    if bracket == 0:
+                        if c not in (',', '\\', '('. ')'):
+                            buf += '\\'
+                        buf += c
+                    esc = False
+                elif c == '(':
+                    bracket += 1
+                elif c == ')':
+                    if bracket == 0:
+                        raise Exception('Bracket mismatch')
+                    bracket -= 1
+                elif c == '\\':
+                    esc = True
+                elif bracket == 0:
+                    if c == ',':
+                        buf = buf.strip()
+                        if len(buf) > 0:
+                            rc.add(buf)
+                        buf = ''
+                    else:
+                        buf += c
+            if bracket > 0:
+                raise Exception('Bracket mismatch')
+            buf = buf.strip()
+            if len(buf) > 0:
+                rc.add(buf)
+            return rc
+        everything = []
+        for ponyfile in os.listdir(ponydir):
+            if ponyfile.endswith('.pony') and (ponyfile != '.pony'):
+                with open(ponydir + ponyfile, 'rb') as file:
+                    data = file.read().decode('utf8', 'replace')
+                    data = [line.replace('\n', '') for line in data.split('\n')]
+                if data[0] != '$$$':
+                    meta = []
+                else:
+                    sep = 1
+                    while data[sep] != '$$$':
+                        sep += 1
+                    meta = data[1 : sep]
+                data = []
+                for line in meta:
+                    if ':' in line:
+                        key = line[:line.find(':')].strip()
+                        value = line[line.find(':') + 1:]
+                        test = key
+                        for c in 'ABCDEFGHIJKLMN OPQRSTUVWXYZ':
+                            test = test.replace(c, '')
+                        if (len(test) == 0) and (len(key) > 0):
+                            data.append((key, makeset(value)))
+                everything.append(ponyfile[:-5], data)
+        import cPickle
+        with open(ponydir + 'metadata', 'wb') as file:
+            cPickle.dump(everything, file, -1)
+            file.flush()
     
     
     '''
@@ -825,7 +900,7 @@ if __name__ == '__main__':
                        '%s %s' % (usage_program, '(--edit | --edit-rm) \033[33mPONY-FILE\033[39m'),
                        '%s %s' % (usage_program, '--edit-stash \033[33mPONY-FILE\033[39m > \033[33mSTASH-FILE\033[39m'),
                        '%s %s' % (usage_program, '--edit-apply \033[33mPONY-FILE\033[39m < \033[33mSTASH-FILE\033[39m'),
-                       '%s %s' % (usage_program, '--dimensions \033[33mPONY-DIR\033[39m'),
+                       '%s %s' % (usage_program, '(--dimensions | --metadata) \033[33mPONY-DIR\033[39m'),
                       ])
     
     usage = usage.replace('\033[', '\0')
@@ -845,6 +920,7 @@ if __name__ == '__main__':
     opts.add_argumentless(['-v', '--version'],                      help = 'Print the version of the program.')
     opts.add_argumentless(['--kms'],                                help = 'Generate all kmsponies for the current TTY palette')
     opts.add_argumented(  ['--dimensions'],     arg = 'PONY-DIR',   help = 'Generate pony dimension file for a directory')
+    opts.add_argumented(  ['--metadata'],       arg = 'PONY-DIR',   help = 'Generate pony metadata collection file for a directory')
     opts.add_argumented(  ['--edit'],           arg = 'PONY-FILE',  help = 'Edit a pony file\'s metadata')
     opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',  help = 'Remove metadata from a pony file')
     opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',  help = 'Apply metadata from stdin to a pony file')

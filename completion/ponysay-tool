@@ -15,4 +15,8 @@
 	
 	(argumented (option --edit-apply) (complete --edit-apply) (bind --edit) (desc 'Replace all metadata with stash metadata'))
 	
+	(argumented (option --dimensions) (complete --dimensions) (arg PONYDIR) (files -d *) (desc 'Generate pony dimension file for a directory'))
+	
+	(argumented (option --metadata) (complete --metadata) (arg PONYDIR) (files -d *) (desc 'Generate pony metadata collection file for a directory'))
+	
 )

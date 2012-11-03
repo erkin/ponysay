@@ -389,12 +389,15 @@ class Setup():
         
         env = conf['custom-env-python']
         if env is None:
-            (out, err) = Popen(['env', 'python', '--version'], stdout=PIPE, stderr=PIPE).communicate()
-            out = out.decode('utf8', 'replace') + err.decode('utf8', 'replace')
-            out = out.replace('\n', '')
-            env = out.split(' ')[1].split('.')[0]
-            if int(env) < 3:  env = 'python3'
-            else:             env = 'python'
+            try:
+                (out, err) = Popen(['env', 'python', '--version'], stdout=PIPE, stderr=PIPE).communicate()
+                out = out.decode('utf8', 'replace') + err.decode('utf8', 'replace')
+                out = out.replace('\n', '')
+                env = out.split(' ')[1].split('.')[0]
+                if int(env) < 3:  env = 'python3'
+                else:             env = 'python'
+            except:
+                env = 'python3'
         mane = False
         for command in commands:
             if conf[command] is not None:

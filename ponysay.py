@@ -581,22 +581,22 @@ class Ponysay():
                         def __init__(self, cellkey, cellvalue):
                             (self.cellkey, self.callvalue) = (key, value)
                         def __call__(self, has):
-                            return False if key not in has else (has[key] != value)
+                            return False if key not in has else (value not in has[key])
                     class STest:
                         def __init__(self, cellkey, cellvalue):
                             (self.cellkey, self.callvalue) = (key, value)
                         def __call__(self, has):
-                            return False if key not in has else (has[key] ?= value)
+                            return False if key not in has else (value in has[key])
                     class ITest:
                         def __init__(self, cellkey, cellvalue):
                             (self.cellkey, self.callvalue) = (key, value)
                         def __call__(self, has):
-                            return True if key not in has else (has[key] != value)
+                            return True if key not in has else (value not in has[key])
                     class NTest:
                         def __init__(self, cellkey, cellvalue):
                             (self.cellkey, self.callvalue) = (key, value)
                         def __call__(self, has):
-                            return True if key not in has else (has[key] == value)
+                            return True if key not in has else (value in has[key])
                     if strict and invert:  return SITest(key, value)
                     if strict:             return STest(key, value)
                     if invert:             return ITest(key, value)

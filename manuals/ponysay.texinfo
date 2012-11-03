@@ -1105,10 +1105,11 @@ its purpose is to provide tools to ponysay relevant actions that is not printing
 (like the commands @command{ponysay} and @command{ponythink}).
 
 @menu
-* Fill KMS cache::      Pre-generate kmsponies to your cache.
-* Metadata pasting::    Copy, remove, stash and apply stashed pony metadata.
-* Editing metadata::    Editing the metadata in a pony file.
-* Dimension files::     Generate pony dimension files.
+* Fill KMS cache::          Pre-generate kmsponies to your cache.
+* Metadata pasting::        Copy, remove, stash and apply stashed pony metadata.
+* Editing metadata::        Editing the metadata in a pony file.
+* Metadata collections::    Generate pony metadata collection files.
+* Dimension files::         Generate pony dimension files.
 @end menu
 
 
@@ -1267,6 +1268,22 @@ Save your changes.
 @item C-x C-c
 Exit the editor, do not forget to save if you have made changes.
 @end table
+
+
+@node Metadata collections
+@csection Metadata collections
+@cindex metadata collection files
+@cindex pony metadata collections
+@opindex @option{--metadata}
+@opindex @option{--restrict}
+@opindex @option{-r}
+
+Pony metadata collection files are used by @command{ponysay} to by just reading
+one file per directory determine all pony files metadata and determine which
+ponies will pass the @option{--restrict} option when ponies are randomly selected.
+
+A metadata colletion file's content a list, of pony files with and their corresponding
+metadata as a map from tag name to tag value set, serialised with Python's cPickle module.
 
 
 @node Dimension files
