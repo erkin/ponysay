@@ -2532,7 +2532,7 @@ core of an stable @command{git} distribution.
 @cartouche
 @example
 pkgname=ponysay
-pkgver=2.5
+pkgver=3.0
 pkgrel=1
 arch=(any)
 pkgdesc="Cowsay reimplementation for ponies"
