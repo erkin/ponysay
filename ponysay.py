@@ -1860,7 +1860,7 @@ class Backend():
                 test = key
                 for c in 'ABCDEFGHIJKLMN OPQRSTUVWXYZ':
                     test = test.replace(c, '')
-                if len(test) == 0:
+                if (len(test) == 0) and (len(key.replace(' ', '')) > 0):
                     value = line[sep + 1:].strip()
                     line = '\033[1m%s\033[21m: %s\n' % (key.strip(), value)
                     tags += line
