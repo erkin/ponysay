@@ -637,7 +637,7 @@ have that, you may want to rethink that as it will usually cause problems for pr
 especially for shell scripts.
 
 The command @command{__pony=$(ponysay -o 3>&1 1>/dev/null | grep ^pony\ file: |
-sed -e s/^pony\ file:\ //g) && (ponysay -of "$__pony" | ponythink -Wi -f "$__pony")}
+sed -e s/^pony\ file:\ //g) && (ponysay -of "$__pony" | ponythink -Wn -f "$__pony")}
 will give you a pony thinking of herself. The command works on GNU Bash, but my
 not work on less POSIX compatible shells. It works by first getting a random pony and
 use the extra information printed the file descriptor 3 (see @ref{Extra information}),
