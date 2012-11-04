@@ -2178,7 +2178,7 @@ balloon will try the fill on its left and right side equally.
 
 Prior to version 2.1 the pony files were cow files used by @command{cowsay}, they
 are partial Perl-scripts that assign a value to a scalar variable named
-@var{$the_cow}. Cow files use a predefined scalar variable named @code{$thoughts},
+@code{$the_cow}. Cow files use a predefined scalar variable named @code{$thoughts},
 these are used to create a link between the message and the pony. The message (and
 the balloon) itself was printed by @command{cowsay} and is not defined in the cow
 files.
