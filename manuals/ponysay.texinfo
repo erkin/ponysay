@@ -2096,7 +2096,7 @@ Source Mage @w{GNU/Linux}.
 An "exotic operating system" as a operating system that is not GNU (GNU/Linux ("Linux")
 and GNU/Hurd are GNU distors.)
 
-@cindex max os x
+@cindex mac os x
 Ponysay is told to be running on Mac OS X, which is Unix-like OS meaning that probably
 all future version of ponysay will be able to run without any problems.
 
