@@ -747,7 +747,7 @@ class Ponysay():
     @return  (rows, columns):(int, int)  The number or lines and the number of columns in the terminal's display area
     '''
     def __gettermsize(self):
-        ## Call `stty` to determine the size of the terminal, this way is better then using python's ncurses
+        ## Call `stty` to determine the size of the terminal, this way is better than using python's ncurses
         for channel in (sys.stderr, sys.stdout, sys.stdin):
             termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
             if len(termsize) > 0:
@@ -2217,8 +2217,9 @@ class Backend():
                     extraleft -= (msgwidth - width) >> 1
                     if extraleft < 0:
                         extraleft = 0
-                    if extraleft + msgwidth > wrap:
-                        extraleft -= msgwidth - wrap
+                    if wrap is not None:
+                        if extraleft + msgwidth > wrap:
+                            extraleft -= msgwidth - wrap
         
         rc = self.balloon.get(width, height, msg, Backend.len);
         if extraleft > 0:

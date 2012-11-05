@@ -81,6 +81,23 @@ class PonysayTool():
         elif (opts['--metadata'] is not None) and (len(opts['--metadata']) == 1):
             self.generateMetadata(opts['--metadata'][0])
         
+        elif (opts['-b'] is not None) and (len(opts['-b']) == 1):
+            try:
+                if opts['--no-term-init'] is None:
+                    print('\033[?1049h', end='') # initialise terminal
+                cmd = 'stty %s < %s > /dev/null 2> /dev/null'
+                cmd %= ('-echo -icanon -echo -isig -ixoff -ixon', os.path.realpath('/dev/stdout'))
+                Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
+                print('\033[?25l', end='') # hide cursor
+                self.browse(opts['-b'][0], opts['-r'])
+            finally:
+                print('\033[?25h', end='') # show cursor
+                cmd = 'stty %s < %s > /dev/null 2> /dev/null'
+                cmd %= ('echo icanon echo isig ixoff ixon', os.path.realpath('/dev/stdout'))
+                Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
+                if opts['--no-term-init'] is None:
+                    print('\033[?1049l', end='') # terminate terminal
+        
         elif (opts['--edit'] is not None) and (len(opts['--edit']) == 1):
             pony = opts['--edit'][0]
             if not os.path.isfile(pony):
@@ -88,18 +105,20 @@ class PonysayTool():
                 exit(252)
             linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
             try:
-                print('\033[?1049h', end='') # initialise terminal
+                if opts['--no-term-init'] is None:
+                    print('\033[?1049h', end='') # initialise terminal
                 if linuxvt: print('\033[?8c', end='') # use full block for cursor (_ is used by default in linux vt)
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
-                cmd %= ('-echo -icanon -isig -ixoff -ixon', os.path.realpath('/dev/stdout'))
+                cmd %= ('-echo -icanon -echo -isig -ixoff -ixon', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
                 self.editmeta(pony)
             finally:
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
-                cmd %= ('echo icanon isig ixoff ixon', os.path.realpath('/dev/stdout'))
+                cmd %= ('echo icanon echo isig ixoff ixon', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
                 if linuxvt: print('\033[?0c', end='') # restore cursor
-                print('\033[?1049l', end='') # terminate terminal
+                if opts['--no-term-init'] is None:
+                    print('\033[?1049l', end='') # terminate terminal
         
         elif (opts['--edit-rm'] is not None) and (len(opts['--edit-rm']) == 1):
             ponyfile = opts['--edit-rm'][0]
@@ -150,6 +169,95 @@ class PonysayTool():
         else:
             args.help()
             exit(253)
+    
+    
+    '''
+    Browse ponies
+    
+    @param  ponydir:str            The pony directory to browse
+    @param  restriction:list<str>  Restrictions on listed ponies, may be None
+    '''
+    def browse(self, ponydir, restriction):
+        ## Call `stty` to determine the size of the terminal, this way is better than using python's ncurses
+        termsize = None
+        for channel in (sys.stdout, sys.stdin, sys.stderr):
+            termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
+            if len(termsize) > 0:
+                termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
+                termsize = [int(item) for item in termsize]
+                break
+        
+        print('\033[H\033[2J', end='')
+        
+        (x, y) = (0, 0)
+        (oldx, oldy) = (None, None)
+        (quotes, info) = (False, False)
+        (ponyindex, oldpony) = (0, None)
+        
+        stored = None
+        while True:
+            if (ponyindex != oldpony):
+                oldpony = ponyindex
+                # TODO load new pony
+            
+            if (oldx != x) or (oldy != y):
+                (oldx, oldy) = (x, y)
+                # TODO redraw
+            
+            sys.stdout.buffer.flush()
+            if stored is None:
+                d = sys.stdin.read(1)
+            else:
+                d = stored
+                stored = None
+            
+            recenter = False
+            if (d == 'w') or (d == 'W') or (d == '<') or (d == 'ä') or (d == 'Ä'): # pad ↑
+                y -= 1
+            elif (d == 's') or (d == 'S') or (d == 'o') or (d == 'O'): # pad ↓
+                y += 1
+            elif (d == 'd') or (d == 'D') or (d == 'e') or (d == 'E'): # pad →
+                x += 1
+            elif (d == 'a') or (d == 'A'): # pad ←
+                x -= 1
+            elif (d == 'q') or (d == 'Q'): # toggle quotes
+                quotes = False if info else not quotes
+                recenter = True
+            elif (d == 'i') or (d == 'I'): # toggle metadata
+                info = False if quotes else not info
+                recenter = True
+            elif ord(d) == ord('L') - ord('@'): # recenter
+                recenter = True
+            elif ord(d) == ord('P') - ord('@'): # previous
+                ponyindex -= 1
+                recenter = True
+            elif ord(d) == ord('N') - ord('@'): # next
+                ponyindex += 1
+                recenter = True
+            elif ord(d) == ord('Q') - ord('@'):
+                break
+            elif ord(d) == ord('X') - ord('@'):
+                if ord(sys.stdin.read(1)) == ord('C') - ord('@'):
+                    break
+            elif d == '\033':
+                d = sys.stdin.read(1)
+                if d == '[':
+                    d = sys.stdin.read(1)
+                    if   d == 'A':  stored = chr(ord('P') - ord('@')) if (not quotes) and (not info) else 'W'
+                    elif d == 'B':  stored = chr(ord('N') - ord('@')) if (not quotes) and (not info) else 'S'
+                    elif d == 'C':  stored = chr(ord('N') - ord('@')) if (not quotes) and (not info) else 'D'
+                    elif d == 'D':  stored = chr(ord('P') - ord('@')) if (not quotes) and (not info) else 'A'
+                    elif d == '1':
+                        if sys.stdin.read(1) == ';':
+                            if sys.stdin.read(1) == '5':
+                                d = sys.stdin.read(1)
+                                if   d == 'A':  stored = 'W'
+                                elif d == 'B':  stored = 'S'
+                                elif d == 'C':  stored = 'D'
+                                elif d == 'D':  stored = 'A'
+            if recenter:
+                (oldx, oldy) = (None, None)
+                (x, y) = (0, 0)
     
     
     '''
@@ -268,7 +376,7 @@ class PonysayTool():
             sort(items, key = lambda item : item[0])
         for pair in ((widths, 'widths'), (heights, 'heights'), (onlyheights, 'onlyheights')):
             (items, dimfile) = pair
-            dimfile = (ponydir + '/' + dimfile).replace('//'. '/')
+            dimfile = (ponydir + '/' + dimfile).replace('//', '/')
             ponies = [item[1] for item in items]
             dims = []
             last = -1
@@ -305,7 +413,7 @@ class PonysayTool():
             for c in value:
                 if esc:
                     if bracket == 0:
-                        if c not in (',', '\\', '('. ')'):
+                        if c not in (',', '\\', '(', ')'):
                             buf += '\\'
                         buf += c
                     esc = False
@@ -449,7 +557,7 @@ class PonysayTool():
         ponyheight = len(printpony) - len(ponyfile.split('\n')) + 1 - 2 # using fallback balloon
         ponywidth = Backend.len(max(printpony, key = Backend.len))
         
-        ## Call `stty` to determine the size of the terminal, this way is better then using python's ncurses
+        ## Call `stty` to determine the size of the terminal, this way is better than using python's ncurses
         termsize = None
         for channel in (sys.stdout, sys.stdin, sys.stderr):
             termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
@@ -916,6 +1024,8 @@ if __name__ == '__main__':
                      description = 'Tool chest for ponysay',
                      usage       = usage,
                      longdescription = None)
+    
+    opts.add_argumentless(['--no-term-init']) # for debugging
     
     opts.add_argumentless(['-h', '--help'],                          help = 'Print this help message.')
     opts.add_argumentless(['-v', '--version'],                       help = 'Print the version of the program.')

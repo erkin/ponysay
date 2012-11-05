@@ -261,9 +261,9 @@ If the argument is not a number, but starts instead with @code{n} (for ‘none�
 of the terminal is used.
 
 @code{n} and @code{i} is case insensitive, so you may use @code{N} and @code{I}
-instead. Additionally, typo correction is for QWERTY and Dvorak is built in to
-@command{ponysay}; the nearest key, either to the left or to the right, depending
-on which hand is used to press the key, is also allowed.
+instead. Additionally, typo correction is for QWERTY (and QWERTZ) and Dvorak is
+built in to @command{ponysay}; the nearest key, either to the left or to the
+right, depending on which hand is used to press the key, is also allowed.
 
 @item -c
 @itemx --compress
@@ -1339,7 +1339,25 @@ without the balloon, respectively, for each pony the the directory.
 @opindex @option{-r}
 @opindex @option{--restrict}
 
-TODO...
+Running @command{ponysay-tool --browse PONY-DIR}, or @command{ponysay-tool -b PONY-DIR}
+will display all ponies in @file{PONY-DIR} for you. You can limit the listed ponies by
+using the option @option{--restrict}, or @option{-r}, that works the same was in with
+the commands @command{ponysay} and @command{ponythink}. See @ref{Invoking ponysay} for
+more infomation about the @option{--restrict} option.
+
+In this browser you will on the right side have all pony files, in your selected
+directory, listed except those that does not match your @option{--restrict} settings.
+In the rest of the free space, the pony select in the list is centered. You can move
+the pony, in case it is too big, by using the arrows keys with @kbd{control} held down,
+or using the @kbd{W}, @kbd{A}, @kbd{S}, @kbd{D} keys (for QWERTY and QWERTZ layout,)
+or with the @kbd{<} (or @kbd{Ä}), @kbd{A}, @kbd{O}, @kbd{E} keys (for Dvorak and Svorak
+layout.) To recenter the pony press @kbd{C-l} (@kb{dl} with @kbd{control} held down.)
+
+Browse between ponies using the arrow keys or with @kbd{C-n} and @kbd{C-p}, for next
+pony and previous pony, respectivily. Additionally, @kbd{Q} can be used list quotes
+for pony, and @kbd{I} for metadata; press the key again to return the pony browsing.
+
+The tool can be exited using the key combinations @kbd{C-q} or @kbd{C-x C-c}.
 
 
 
