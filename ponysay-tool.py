@@ -739,7 +739,8 @@ class PonysayTool():
         standardfields = ['GROUP NAME', 'NAME', 'OTHER NAMES', 'APPEARANCE', 'KIND',
                           'GROUP', 'BALLOON', 'LINK', 'LINK ON', 'COAT', 'MANE', 'EYE',
                           'AURA', 'DISPLAY', 'BALLOON TOP', 'BALLOON BOTTOM', 'MASTER',
-                          'SOURCE', 'MEDIA', 'LICENSE', 'FREE', 'comment']
+                          'EXTRA', 'BASED ON', 'SOURCE', 'MEDIA', 'LICENSE', 'FREE',
+                          'comment']
         for standard in standardfields:
             if standard in fields:
                 del fields[fields.index(standard)]

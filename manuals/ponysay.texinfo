@@ -1055,11 +1055,32 @@ if the balloon is not printed.
 The number of lines at the end of the pony image that should be skipped if the
 balloon is not printed.
 
+@item POSE
+@vindex @var{POSE}
+@cindex master file
+@cindex slave file
+@cindex extras
+One word (preferably) to distinguish the pony files from other pony files with the
+same @var{MASTER}. Master files should try to specify this tag but are not required
+to, however, non-master files (slave files) are required to specify this tag.
+@b{This tag is important for the extras feature to function.}
+
+@item BASED ON
+@vindex @var{BASED ON}
+Either the name of a pony that the pony is based. If the original pony is not
+from MLP:FiM, the name a value that pony's MEDIA tag can used inside brackets,
+for example @code{(Tumblr)}, after the original pony's name. If the pony is not
+based on any pony the value @code{(original)} can be used. If the ponies is
+based on multiple ponies, make a comma separated list.
+
 @item MASTER
 @vindex @var{MASTER}
+@cindex ponyquotes
+@cindex quotes
 This tag refers to the pony file that is not named with extra attributes. For example,
-all files where Shining Armour is the (sole) speaking pony the this tag should be
+all files where Shining Armor is the (sole) speaking pony the this tag should be
 @code{shiningarmor},  except for in @file{shiningarmor.pony} where this tag may be omitted.
+@b{This tag is important for ponyquotes feature to function.}
 
 @item SOURCE
 @vindex @var{SOURCE}
