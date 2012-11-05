@@ -2855,6 +2855,8 @@ Setup option @option{--sysconf-dir} with default value @file{/etc} added,
 New manditory setup option @option{--freedom}.
 @item
 Pony metadata options added: @option{--info}, @option{++info} and @option{--restrict}.
+@item
+@file{fillycelestia} and @file{filliestia} has been moved to @file{extraponies}.
 @end itemize
 
 
