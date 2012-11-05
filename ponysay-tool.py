@@ -172,6 +172,49 @@ class PonysayTool():
     
     
     '''
+    Execute ponysay!
+    
+    @param  args     Arguments
+    @param  message  Message
+    '''
+    def execPonysay(self, args, message = ''):
+        class PhonyArgParser:
+            def __init__(self, args, message):
+                self.argcount = len(args) + (0 if message is None else 1)
+                for key in args:
+                    self.argcount += len(args[key]) if (args[key] is not None) and isinstance(args[key], list) else 1
+                self.message = message
+                self.opts = self
+            def __getitem__(self, key):
+                if key in args:
+                    return args[key] if (args[key] is not None) and isinstance(args[key], list) else [args[key]]
+                return None
+        
+        stdout = sys.stdout
+        class StringInputStream:
+            def __init__(self):
+                self.buf = ''
+                class Buffer:
+                    def __init__(self, parent):
+                        self.parent = parent
+                        def write(self, data):
+                            self.parent.buf += data.decode('utf8', 'replace')
+                        def flush(self):
+                            pass
+                self.buffer = Buffer(self)
+            def flush(self):
+                pass
+            def isatty(self):
+                return True
+        sys.stdout = StringInputStream()
+        ponysay = Ponysay()
+        ponysay.run(PhonyArgParser(args, message))
+        out = sys.stdout.buf[:-1]
+        sys.stdout = stdout
+        return out
+    
+    
+    '''
     Browse ponies
     
     @param  ponydir:str            The pony directory to browse
@@ -186,23 +229,100 @@ class PonysayTool():
                 termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
                 termsize = [int(item) for item in termsize]
                 break
+        (termh, termw) = termsize
         
-        print('\033[H\033[2J', end='')
+        ponies = [] # TODO fill
+        
+        panelw = Backend.len(max(ponies, key = Backend.len))
+        panely = 0
         
         (x, y) = (0, 0)
         (oldx, oldy) = (None, None)
         (quotes, info) = (False, False)
         (ponyindex, oldpony) = (0, None)
+        (pony, ponywidth, ponyheight) = (None, None, None)
         
         stored = None
         while True:
+            printpanel = -2 if ponyindex != oldpony else oldpony
             if (ponyindex != oldpony):
+                ponyindex %= len(ponies)
+                if ponyindex < 0:
+                    ponyindex += len(ponies)
                 oldpony = ponyindex
-                # TODO load new pony
+                
+                ponyfile = (ponydir + '/' + ponies[ponyindex]).replace('//', '/')
+                pony = self.execPonysay({'-f' : ponyfile, '-W' : 'none', '-o' : None}).split('\n')
+                
+                preprint = '\033[H\033[2J'
+                if pony[0].startswith(preprint):
+                    pony[0] = pony[0][len(preprint):]
+                ponyheight = len(pony)
+                ponywidth = Backend.len(max(pony, key = Backend.len))
+                
+                AUTO_PUSH = '\033[01010~'
+                AUTO_POP  = '\033[10101~'
+                modprintpony = '\n'.join(printpony).replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
+                colourstack = ColourStack(AUTO_PUSH, AUTO_POP)
+                buf = ''
+                for c in modprintpony:
+                    buf += c + colourstack.feed(c)
+                pony = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
             
             if (oldx != x) or (oldy != y):
                 (oldx, oldy) = (x, y)
-                # TODO redraw
+                print('\033[H\033[2J', end='')
+                
+                def getprint(pony, ponywidth, ponyheight, termw, termh, px, py):
+                    ponyprint = pony
+                    if py < 0:
+                        ponyprint = [] if -py > len(ponyprint) else ponyprint[-py:]
+                    elif py > 0:
+                        ponyprint = py * ['\n'] + ponyprint
+                    ponyprint = ponyprint[:len(ponyprint) if len(ponyprint) < termh else termh]
+                    def findcolumn(line, column):
+                        if Backend.len(line) >= column:
+                            return len(line)
+                        pos = len(line)
+                        while Backend.len(line[:pos]) != column:
+                            pos -= 1
+                        return pos
+                    if px < 0:
+                        ponyprint = [('' if -px > Backend.len(line) else line[findcolumn(line, -px):]) for line in ponyprint]
+                    elif px > 0:
+                        ponyprint = [px * ' ' + line for line in ponyprint]
+                    ponyprint = [(line if Backend.len(line) <= termw else line[:findcolumn(line, termw)]) for line in ponyprint]
+                    ponyprint = ['\033[21;39;49;0m%s\033[21;39;49;0m' % line for line in ponyprint]
+                    return '\n'.join(ponyprint)
+                
+                if quotes:
+                    ponyquotes = None # TODO
+                    quotesheight = len(ponyquotes)
+                    quoteswidth = Backend.len(max(ponyquotes, key = Backend.len))
+                    print(getprint(ponyquotes, quoteswidth, quotesheight, termw, termh, x, y), end='')
+                elif info:
+                    ponyfile = (ponydir + '/' + ponies[ponyindex]).replace('//', '/')
+                    ponyinfo = self.execPonysay({'-f' : ponyfile, '-W' : 'none', '-i' : None}).split('\n')
+                    infoheight = len(ponyinfo)
+                    infowidth = Backend.len(max(ponyinfo, key = Backend.len))
+                    print(getprint(ponyinfo, infowidth, infoheight, termw, termh, x, y), end='')
+                else:
+                    print(getprint(pony, ponywidth, ponyheight, panelx, termh, (panelx - ponywidth) // 2, (termh - ponyheight) // 2), end='')
+                    printpanel = -1
+            
+            if printpanel == -1:
+                panelx = termw - panelw
+                cury = 0
+                for line in ponies[panely:]:
+                    cury += 1
+                    print('\033[%i;%iH\033[%im%s\033[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, (line + ' ' * panelw)[:panelw]), end='')
+            elif printpanel >= 0:
+                panelx = termw - panelw
+                for index in (printpanel, ponyindex):
+                    cury = index - panely
+                    if (0 <= cury) and (cury < termh):
+                        line = ponies[cury + panely]
+                        print('\033[%i;%iH\033[%im%s\033[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, (line + ' ' * panelw)[:panelw]), end='')
             
             sys.stdout.buffer.flush()
             if stored is None:
