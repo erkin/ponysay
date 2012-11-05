@@ -1,3 +1,14 @@
+$$$
+KIND: earth
+GROUP NAME: mane6-63
+FREE: yes
+NAME: applejack
+GROUP: stallion
+WIDTH: 41
+HEIGHT: 26
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

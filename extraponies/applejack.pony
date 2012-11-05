@@ -1,3 +1,14 @@
+$$$
+GROUP: mare
+NAME: applejack
+GROUP NAME: consept
+FREE: no
+KIND: earth
+WIDTH: 37
+HEIGHT: 25
+
+
+$$$
 $balloon23$[0m
                     $\$
                      $\$

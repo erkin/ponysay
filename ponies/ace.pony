@@ -1,3 +1,16 @@
+$$$
+NAME: ace
+FREE: no
+GROUP NAME: background
+MEDIA: tv series
+APPEARANCE: s1e12m7s25
+GROUP: stallion
+KIND: earth
+WIDTH: 48
+HEIGHT: 27
+
+
+$$$
 $balloon$
 [0m $\$
   $\$

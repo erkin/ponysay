@@ -1,5 +1,18 @@
 $$$
+GROUP: mare
+NAME: faust
+KIND: alicorn
+OTHER NAMES: lauren faust
+COAT: white
+EYE: blue
+MEDIA: deviantart.com (varius fanarts)
 FREE: yes
+GROUP NAME: original character
+MANE: red
+WIDTH: 51
+HEIGHT: 31
+
+
 $$$
 $balloon3$[0m
 $\$

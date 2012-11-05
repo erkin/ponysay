@@ -1,5 +1,16 @@
 $$$
+COAT: pink
+MANE: blue
+GROUP NAME: consept
+EYE: purple
+KIND: pegasus
+NAME: fyrefly
 FREE: yes
+GROUP: mare
+WIDTH: 36
+HEIGHT: 37
+
+
 $$$
 $balloon18$[0m
                $\$
