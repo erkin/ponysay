@@ -197,10 +197,10 @@ class PonysayTool():
                 class Buffer:
                     def __init__(self, parent):
                         self.parent = parent
-                        def write(self, data):
-                            self.parent.buf += data.decode('utf8', 'replace')
-                        def flush(self):
-                            pass
+                    def write(self, data):
+                        self.parent.buf += data.decode('utf8', 'replace')
+                    def flush(self):
+                        pass
                 self.buffer = Buffer(self)
             def flush(self):
                 pass
@@ -246,6 +246,7 @@ class PonysayTool():
                     ponies.add(pony)
             oldponies = ponies
         ponies = list(ponies)
+        ponies.sort()
         
         if len(ponies) == 0:
             print('\033[1;31m%s\033[21m;39m' % 'No ponies... press Enter to exit.')
@@ -253,6 +254,7 @@ class PonysayTool():
         
         panelw = Backend.len(max(ponies, key = Backend.len))
         panely = 0
+        panelx = termw - panelw
         
         (x, y) = (0, 0)
         (oldx, oldy) = (None, None)
@@ -269,7 +271,7 @@ class PonysayTool():
                     ponyindex += len(ponies)
                 oldpony = ponyindex
                 
-                ponyfile = (ponydir + '/' + ponies[ponyindex]).replace('//', '/')
+                ponyfile = (ponydir + '/' + ponies[ponyindex] + '.pony').replace('//', '/')
                 pony = self.execPonysay({'-f' : ponyfile, '-W' : 'none', '-o' : None}).split('\n')
                 
                 preprint = '\033[H\033[2J'
@@ -280,10 +282,10 @@ class PonysayTool():
                 
                 AUTO_PUSH = '\033[01010~'
                 AUTO_POP  = '\033[10101~'
-                modprintpony = '\n'.join(printpony).replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
+                pony = '\n'.join(pony).replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
                 colourstack = ColourStack(AUTO_PUSH, AUTO_POP)
                 buf = ''
-                for c in modprintpony:
+                for c in pony:
                     buf += c + colourstack.feed(c)
                 pony = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
             
@@ -319,7 +321,7 @@ class PonysayTool():
                     quoteswidth = Backend.len(max(ponyquotes, key = Backend.len))
                     print(getprint(ponyquotes, quoteswidth, quotesheight, termw, termh, x, y), end='')
                 elif info:
-                    ponyfile = (ponydir + '/' + ponies[ponyindex]).replace('//', '/')
+                    ponyfile = (ponydir + '/' + ponies[ponyindex] + '.pony').replace('//', '/')
                     ponyinfo = self.execPonysay({'-f' : ponyfile, '-W' : 'none', '-i' : None}).split('\n')
                     infoheight = len(ponyinfo)
                     infowidth = Backend.len(max(ponyinfo, key = Backend.len))
@@ -329,13 +331,11 @@ class PonysayTool():
                     printpanel = -1
             
             if printpanel == -1:
-                panelx = termw - panelw
                 cury = 0
                 for line in ponies[panely:]:
                     cury += 1
                     print('\033[%i;%iH\033[%im%s\033[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, (line + ' ' * panelw)[:panelw]), end='')
             elif printpanel >= 0:
-                panelx = termw - panelw
                 for index in (printpanel, ponyindex):
                     cury = index - panely
                     if (0 <= cury) and (cury < termh):
