@@ -8,7 +8,7 @@
 		((options -l --list)                      (complete --list)        (desc 'List all MLP:FiM ponies'))
 		((options -L --altlist --symlist)         (complete --symlist)     (desc 'List all MLP:FiM ponies, with symlink mapping'))
 		((options +l ++list)                      (complete ++list)        (desc 'List all non-MLP:FiM ponies'))
-		((options +K ++altlist ++symlist)         (complete ++symlist)     (desc 'List all non-MLP:FiM ponies, with symlink mapping'))
+		((options +L ++altlist ++symlist)         (complete ++symlist)     (desc 'List all non-MLP:FiM ponies, with symlink mapping'))
 		((options -A --all)                       (complete --all)         (desc 'List all ponies'))
 		((options +A ++all --altall --symall)     (complete --symall)      (desc 'List all ponies, with symlink mapping'))
 		((options -b --bubblelist --balloonlist)  (complete --balloonlist) (desc 'List all balloon styles'))
