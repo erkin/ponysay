@@ -15,7 +15,7 @@ Version 3.0
 
 	-f, +f and -q may be unargumented if that are at the end of the command line.
 
-	ponysay-tool is introduced, it can be used to edit, remove and copy pony meta data.
+	ponysay-tool is introduced, it can be used to edit, remove and copy pony meta data, and more.
 
 	ponysay-tool --kms generates all kmsponies for the current TTY palette.
 

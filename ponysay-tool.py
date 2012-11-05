@@ -901,6 +901,7 @@ if __name__ == '__main__':
                        '%s %s' % (usage_program, '--edit-stash \033[33mPONY-FILE\033[39m > \033[33mSTASH-FILE\033[39m'),
                        '%s %s' % (usage_program, '--edit-apply \033[33mPONY-FILE\033[39m < \033[33mSTASH-FILE\033[39m'),
                        '%s %s' % (usage_program, '(--dimensions | --metadata) \033[33mPONY-DIR\033[39m'),
+                       '%s %s' % (usage_program, '--browse \033[33mPONY-DIR\033[39m [-r \033[33mRESTRICTION\033[39m]*'),
                       ])
     
     usage = usage.replace('\033[', '\0')
@@ -916,15 +917,17 @@ if __name__ == '__main__':
                      usage       = usage,
                      longdescription = None)
     
-    opts.add_argumentless(['-h', '--help'],                         help = 'Print this help message.')
-    opts.add_argumentless(['-v', '--version'],                      help = 'Print the version of the program.')
-    opts.add_argumentless(['--kms'],                                help = 'Generate all kmsponies for the current TTY palette')
-    opts.add_argumented(  ['--dimensions'],     arg = 'PONY-DIR',   help = 'Generate pony dimension file for a directory')
-    opts.add_argumented(  ['--metadata'],       arg = 'PONY-DIR',   help = 'Generate pony metadata collection file for a directory')
-    opts.add_argumented(  ['--edit'],           arg = 'PONY-FILE',  help = 'Edit a pony file\'s metadata')
-    opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',  help = 'Remove metadata from a pony file')
-    opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',  help = 'Apply metadata from stdin to a pony file')
-    opts.add_argumented(  ['--edit-stash'],     arg = 'PONY-FILE',  help = 'Print applyable metadata from a pony file')
+    opts.add_argumentless(['-h', '--help'],                          help = 'Print this help message.')
+    opts.add_argumentless(['-v', '--version'],                       help = 'Print the version of the program.')
+    opts.add_argumentless(['--kms'],                                 help = 'Generate all kmsponies for the current TTY palette')
+    opts.add_argumented(  ['--dimensions'],     arg = 'PONY-DIR',    help = 'Generate pony dimension file for a directory')
+    opts.add_argumented(  ['--metadata'],       arg = 'PONY-DIR',    help = 'Generate pony metadata collection file for a directory')
+    opts.add_argumented(  ['-b', '--browse'],   arg = 'PONY-DIR',    help = 'Browse ponies in a directory')
+    opts.add_argumented(  ['-r', '--restrict'], arg = 'RESTRICTION', help = 'Metadata based restriction for --browse')
+    opts.add_argumented(  ['--edit'],           arg = 'PONY-FILE',   help = 'Edit a pony file\'s metadata')
+    opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',   help = 'Remove metadata from a pony file')
+    opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',   help = 'Apply metadata from stdin to a pony file')
+    opts.add_argumented(  ['--edit-stash'],     arg = 'PONY-FILE',   help = 'Print applyable metadata from a pony file')
     
     '''
     Whether at least one unrecognised option was used

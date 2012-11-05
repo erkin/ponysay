@@ -1137,6 +1137,7 @@ its purpose is to provide tools to ponysay relevant actions that is not printing
 * Editing metadata::        Editing the metadata in a pony file.
 * Metadata collections::    Generate pony metadata collection files.
 * Dimension files::         Generate pony dimension files.
+* Pony browsing::           Browse ponies or find a pony based on metadata.
 @end menu
 
 
@@ -1327,6 +1328,18 @@ Running @command{ponysay-tool --dimensions PONY-DIR} will generate three files
 @file{widths}, @file{heights} and @file{onlyheights} to the directory @file{PONY-DIR},
 the contain optimised information about the widths, heigths and heights with printed
 without the balloon, respectively, for each pony the the directory.
+
+
+@node Pony browsing
+@section Pony browsing
+@cindex pony browsing
+@cindex browse ponies
+@opindex @option{-b}
+@opindex @option{--browse}
+@opindex @option{-r}
+@opindex @option{--restrict}
+
+TODO...
 
 
 
@@ -2805,7 +2818,7 @@ and @file{~/.config/ponysay/ponysayrc} as well as the global fallback @file{/etc
 @item
 @option{-f}, @option{+f} and @option{-q} may be unargumented if that are at the end of the command line.
 @item
-@command{ponysay-tool} is introduced, it can be used to edit, remove and copy pony meta data.
+@command{ponysay-tool} is introduced, it can be used to edit, remove and copy pony meta data, and more.
 @item
 @command{ponysay-tool --kms} generates all kmsponies for the current TTY palette.
 @item
