@@ -342,6 +342,8 @@ class Ponysay():
                 self.ponyonly = True
             else:
                 self.ponyonly = False
+            if (args.opts['-i'] is not None) or (args.opts['+i'] is not None):
+                args.message = ''
             self.restriction = args.opts['-r']
             
             ## The stuff
@@ -1849,7 +1851,7 @@ class Backend():
             if self.infolevel == 2:
                 self.message = Backend.formatInfo(info)
             elif self.infolevel == 1:
-                self.pony = Backend.formatInfo(info).replace('$'), ('$$')
+                self.pony = Backend.formatInfo(info).replace('$', '$$')
             else:
                 info = info.split('\n')
                 for line in info:

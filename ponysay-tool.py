@@ -327,7 +327,7 @@ class PonysayTool():
                     infowidth = Backend.len(max(ponyinfo, key = Backend.len))
                     print(getprint(ponyinfo, infowidth, infoheight, termw, termh, x, y), end='')
                 else:
-                    print(getprint(pony, ponywidth, ponyheight, panelx, termh, (panelx - ponywidth) // 2, (termh - ponyheight) // 2), end='')
+                    print(getprint(pony, ponywidth, ponyheight, panelx, termh, x + (panelx - ponywidth) // 2, y + (termh - ponyheight) // 2), end='')
                     printpanel = -1
             
             if printpanel == -1:
