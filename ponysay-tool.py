@@ -231,7 +231,25 @@ class PonysayTool():
                 break
         (termh, termw) = termsize
         
-        ponies = [] # TODO fill
+        ponies = set()
+        for ponyfile in os.listdir(ponydir):
+            if endswith(ponyfile, '.pony'):
+                ponyfile = ponyfile[:-5]
+                if ponyfile not in ponies:
+                    ponies.add(ponyfile)
+        if restriction is not None:
+            oldponies = ponies
+            logic = Ponysay.makeRestrictionLogic(restriction)
+            ponies = set()
+            for pony in Ponysay.restrictedPonies(ponydir, logic):
+                if (pony not in ponies) and (pony in oldponies):
+                    ponies.add(pony)
+            oldponies = ponies
+        ponies = list(ponies)
+        
+        if len(ponies) == 0:
+            print('\033[1;31m%s\033[21m;39m' % 'No ponies... press Enter to exit.')
+            input()
         
         panelw = Backend.len(max(ponies, key = Backend.len))
         panely = 0

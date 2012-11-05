@@ -566,54 +566,10 @@ class Ponysay():
         if (names is None) or (len(names) == 0):
             oldponies = ponies
             if self.restriction is not None:
-                table = [(get_test(cell[:cell.index('=')],
-                                   cell[cell.index('=') + 1:]
-                                  )
-                         for cell in clause.lower().split('+'))
-                         for clause in self.restriction
-                        ]
-                def get_test(cell):
-                    strict = cell[0][-1] != '?'
-                    key = cell[0][:-2 if strict else -1]
-                    invert = cell[1][0] == '!'
-                    value = cell[1][1 if invert else 0:]
-                    class SITest:
-                        def __init__(self, cellkey, cellvalue):
-                            (self.cellkey, self.callvalue) = (key, value)
-                        def __call__(self, has):
-                            return False if key not in has else (value not in has[key])
-                    class STest:
-                        def __init__(self, cellkey, cellvalue):
-                            (self.cellkey, self.callvalue) = (key, value)
-                        def __call__(self, has):
-                            return False if key not in has else (value in has[key])
-                    class ITest:
-                        def __init__(self, cellkey, cellvalue):
-                            (self.cellkey, self.callvalue) = (key, value)
-                        def __call__(self, has):
-                            return True if key not in has else (value not in has[key])
-                    class NTest:
-                        def __init__(self, cellkey, cellvalue):
-                            (self.cellkey, self.callvalue) = (key, value)
-                        def __call__(self, has):
-                            return True if key not in has else (value in has[key])
-                    if strict and invert:  return SITest(key, value)
-                    if strict:             return STest(key, value)
-                    if invert:             return ITest(key, value)
-                    return NTest(key, value)
-                def logic(cells):
-                    for alternative in table:
-                        ok = True
-                        for cell in alternative:
-                            if not cell(cells):
-                                ok = False
-                                break
-                        if ok:
-                            return True
-                    return False
+                logic = Ponysay.makeRestrictionLogic(self.restriction)
                 ponies = {}
                 for ponydir in self.ponydirs:
-                    for pony in self.restrictedPonies(ponydir, logic):
+                    for pony in Ponysay.restrictedPonies(ponydir, logic):
                         if (pony not in passed) and (pony in oldponies):
                             ponyfile = ponydir + pony + '.pony'
                             if oldponies[pony] == ponyfile:
@@ -646,7 +602,7 @@ class Ponysay():
                 #                    ponies[pony] = ponydir + ponyfile
             names = list((oldponies if len(ponies) == 0 else ponies).keys())
         
-        ## Select a random pony of the choosen onles
+        ## Select a random pony of the choosen ones
         pony = names[random.randrange(0, len(names))]
         if pony not in ponies:
             if not alt:
@@ -663,13 +619,75 @@ class Ponysay():
     
     
     '''
+    Make restriction test logic function
+    
+    @param   restriction:list<string>  Metadata based restrictions
+    @return  :dict<str, str>→bool      Test function
+    '''
+    @staticmethod
+    def makeRestrictionLogic(restriction):
+        table = [(get_test(cell[:cell.index('=')],
+                           cell[cell.index('=') + 1:]
+                          )
+                  for cell in clause.lower().split('+'))
+                  for clause in restriction
+                ]
+        
+        def get_test(cell):
+            strict = cell[0][-1] != '?'
+            key = cell[0][:-2 if strict else -1]
+            invert = cell[1][0] == '!'
+            value = cell[1][1 if invert else 0:]
+            
+            class SITest:
+                def __init__(self, cellkey, cellvalue):
+                    (self.cellkey, self.callvalue) = (key, value)
+                def __call__(self, has):
+                    return False if key not in has else (value not in has[key])
+            class STest:
+                def __init__(self, cellkey, cellvalue):
+                    (self.cellkey, self.callvalue) = (key, value)
+                def __call__(self, has):
+                    return False if key not in has else (value in has[key])
+            class ITest:
+                def __init__(self, cellkey, cellvalue):
+                    (self.cellkey, self.callvalue) = (key, value)
+                def __call__(self, has):
+                    return True if key not in has else (value not in has[key])
+            class NTest:
+                def __init__(self, cellkey, cellvalue):
+                    (self.cellkey, self.callvalue) = (key, value)
+                def __call__(self, has):
+                    return True if key not in has else (value in has[key])
+            
+            if strict and invert:  return SITest(key, value)
+            if strict:             return STest(key, value)
+            if invert:             return ITest(key, value)
+            return NTest(key, value)
+        
+        def logic(cells):
+            for alternative in table:
+                ok = True
+                for cell in alternative:
+                    if not cell(cells):
+                        ok = False
+                        break
+                if ok:
+                    return True
+            return False
+        
+        return logic
+    
+    
+    '''
     Get ponies that pass restriction
     
     @param   ponydir:str                Pony directory
     @param   logic:dict<str, str>→bool  Restriction test functor
     @return  :list<str>                 Passed ponies
     '''
-    def restrictedPonies(self, ponydir, logic):
+    @staticmethod
+    def restrictedPonies(ponydir, logic):
         import cPickle
         passed = []
         if os.path.exists(ponydir + 'metadata'):
