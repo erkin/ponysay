@@ -298,7 +298,7 @@ class PonysayTool():
                     if py < 0:
                         ponyprint = [] if -py > len(ponyprint) else ponyprint[-py:]
                     elif py > 0:
-                        ponyprint = py * ['\n'] + ponyprint
+                        ponyprint = py * [''] + ponyprint
                     ponyprint = ponyprint[:len(ponyprint) if len(ponyprint) < termh else termh]
                     def findcolumn(line, column):
                         if Backend.len(line) >= column:
@@ -334,13 +334,21 @@ class PonysayTool():
                 cury = 0
                 for line in ponies[panely:]:
                     cury += 1
-                    print('\033[%i;%iH\033[%im%s\033[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, (line + ' ' * panelw)[:panelw]), end='')
+                    if os.path.islink((ponydir + '/' + line + '.pony').replace('//', '/')):
+                        line = '\033[34m%s\033[39m' % ((line + ' ' * panelw)[:panelw])
+                    else:
+                        line = (line + ' ' * panelw)[:panelw]
+                    print('\033[%i;%iH\033[%im%s\033[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, line), end='')
             elif printpanel >= 0:
                 for index in (printpanel, ponyindex):
                     cury = index - panely
                     if (0 <= cury) and (cury < termh):
                         line = ponies[cury + panely]
-                        print('\033[%i;%iH\033[%im%s\033[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, (line + ' ' * panelw)[:panelw]), end='')
+                        if os.path.islink((ponydir + '/' + line + '.pony').replace('//', '/')):
+                            line = '\033[34m%s\033[39m' % ((line + ' ' * panelw)[:panelw])
+                        else:
+                            line = (line + ' ' * panelw)[:panelw]
+                        print('\033[%i;%iH\033[%im%s\033[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, line), end='')
             
             sys.stdout.buffer.flush()
             if stored is None:
@@ -731,7 +739,8 @@ class PonysayTool():
         standardfields = ['GROUP NAME', 'NAME', 'OTHER NAMES', 'APPEARANCE', 'KIND',
                           'GROUP', 'BALLOON', 'LINK', 'LINK ON', 'COAT', 'MANE', 'EYE',
                           'AURA', 'DISPLAY', 'BALLOON TOP', 'BALLOON BOTTOM', 'MASTER',
-                          'SOURCE', 'MEDIA', 'LICENSE', 'FREE', 'comment']
+                          'EXTRA', 'BASED ON', 'SOURCE', 'MEDIA', 'LICENSE', 'FREE',
+                          'comment']
         for standard in standardfields:
             if standard in fields:
                 del fields[fields.index(standard)]

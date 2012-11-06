@@ -1055,11 +1055,32 @@ if the balloon is not printed.
 The number of lines at the end of the pony image that should be skipped if the
 balloon is not printed.
 
+@item POSE
+@vindex @var{POSE}
+@cindex master file
+@cindex slave file
+@cindex extras
+One word (preferably) to distinguish the pony files from other pony files with the
+same @var{MASTER}. Master files should try to specify this tag but are not required
+to, however, non-master files (slave files) are required to specify this tag.
+@b{This tag is important for the extras feature to function.}
+
+@item BASED ON
+@vindex @var{BASED ON}
+Either the name of a pony that the pony is based. If the original pony is not
+from MLP:FiM, the name a value that pony's MEDIA tag can used inside brackets,
+for example @code{(Tumblr)}, after the original pony's name. If the pony is not
+based on any pony the value @code{(original)} can be used. If the ponies is
+based on multiple ponies, make a comma separated list.
+
 @item MASTER
 @vindex @var{MASTER}
+@cindex ponyquotes
+@cindex quotes
 This tag refers to the pony file that is not named with extra attributes. For example,
-all files where Shining Armour is the (sole) speaking pony the this tag should be
+all files where Shining Armor is the (sole) speaking pony the this tag should be
 @code{shiningarmor},  except for in @file{shiningarmor.pony} where this tag may be omitted.
+@b{This tag is important for the ponyquotes feature to function.}
 
 @item SOURCE
 @vindex @var{SOURCE}
@@ -1351,7 +1372,7 @@ In the rest of the free space, the pony select in the list is centered. You can 
 the pony, in case it is too big, by using the arrows keys with @kbd{control} held down,
 or using the @kbd{W}, @kbd{A}, @kbd{S}, @kbd{D} keys (for QWERTY and QWERTZ layout,)
 or with the @kbd{<} (or @kbd{Ä}), @kbd{A}, @kbd{O}, @kbd{E} keys (for Dvorak and Svorak
-layout.) To recenter the pony press @kbd{C-l} (@kb{dl} with @kbd{control} held down.)
+layout.) To recenter the pony press @kbd{C-l} (@kbd{dl} with @kbd{control} held down.)
 
 Browse between ponies using the arrow keys or with @kbd{C-n} and @kbd{C-p}, for next
 pony and previous pony, respectivily. Additionally, @kbd{Q} can be used list quotes
@@ -2855,6 +2876,8 @@ Setup option @option{--sysconf-dir} with default value @file{/etc} added,
 New manditory setup option @option{--freedom}.
 @item
 Pony metadata options added: @option{--info}, @option{++info} and @option{--restrict}.
+@item
+@file{fillycelestia} and @file{filliestia} has been moved to @file{extraponies}.
 @end itemize
 
 
