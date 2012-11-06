@@ -1,3 +1,18 @@
+$$$
+GROUP: mare
+MEDIA: tv series
+KIND: unicorn
+NAME: twilight sparkle
+SOURCE: desktop ponies
+APPEARANCE: s1e1m1s31
+FREE: no
+GROUP NAME: mane6
+OTHER NAMES: twilight
+WIDTH: 53
+HEIGHT: 24
+
+
+$$$
 $balloon10$[0m
      $\$
       $\$

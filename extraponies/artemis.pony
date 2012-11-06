@@ -1,3 +1,15 @@
+$$$
+GROUP NAME: 63
+FREE: free
+OTHER NAMES: prince artemis
+KIND: alicorn
+NAME: artemis
+GROUP: stallion
+WIDTH: 48
+HEIGHT: 28
+
+
+$$$
 $balloon46$[0m
                                            $\$
                                             $\$

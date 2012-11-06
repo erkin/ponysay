@@ -1,5 +1,17 @@
 $$$
+COAT: pink
+GROUP: mare
+MANE: blue
+EYE: purple (ponysay), blue (source)
+NAME: fyrefly
+KIND: pegasus
+SOURCE: thefyrefly.tumbrl.com
+GROUP NAME: consept
 FREE: yes
+WIDTH: 36
+HEIGHT: 37
+
+
 $$$
 $balloon18$[0m
                $\$
