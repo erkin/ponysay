@@ -1,14 +1,15 @@
 $$$
-GROUP: mare
+EYE: blue
 NAME: faust
 KIND: alicorn
 OTHER NAMES: lauren faust
-COAT: white
-EYE: blue
 MEDIA: deviantart.com (varius fanarts)
+COAT: white
+BASED ON: (original)
+MANE: red
+GROUP: mare
 FREE: yes
 GROUP NAME: original character
-MANE: red
 WIDTH: 51
 HEIGHT: 31
 
