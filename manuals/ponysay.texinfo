@@ -1080,7 +1080,7 @@ based on multiple ponies, make a comma separated list.
 This tag refers to the pony file that is not named with extra attributes. For example,
 all files where Shining Armor is the (sole) speaking pony the this tag should be
 @code{shiningarmor},  except for in @file{shiningarmor.pony} where this tag may be omitted.
-@b{This tag is important for ponyquotes feature to function.}
+@b{This tag is important for the ponyquotes feature to function.}
 
 @item SOURCE
 @vindex @var{SOURCE}
