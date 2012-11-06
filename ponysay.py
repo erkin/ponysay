@@ -1847,10 +1847,12 @@ class Backend():
         if self.pony.startswith('$$$\n'):
             self.pony = self.pony[4:]
             if self.pony.startswith('$$$\n'):
-                infoend = 0
+                infoend = 4
+                info = ''
             else:
                 infoend = self.pony.index('\n$$$\n')
-            info = self.pony[:infoend]
+                info = self.pony[:infoend]
+                infoend += 5
             if self.infolevel == 2:
                 self.message = Backend.formatInfo(info)
             elif self.infolevel == 1:
@@ -1870,7 +1872,7 @@ class Backend():
                             if len(value) > 0:
                                 self.balloonbottom = int(value)
                 printinfo(info)
-                self.pony = self.pony[infoend + 5:]
+                self.pony = self.pony[infoend:]
         elif self.infolevel == 2:
             self.message = '\033[1;31mI am the mysterious mare...\033[21;3m'
         elif self.infolevel == 1:
