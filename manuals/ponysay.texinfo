@@ -1372,7 +1372,7 @@ In the rest of the free space, the pony select in the list is centered. You can 
 the pony, in case it is too big, by using the arrows keys with @kbd{control} held down,
 or using the @kbd{W}, @kbd{A}, @kbd{S}, @kbd{D} keys (for QWERTY and QWERTZ layout,)
 or with the @kbd{<} (or @kbd{Ä}), @kbd{A}, @kbd{O}, @kbd{E} keys (for Dvorak and Svorak
-layout.) To recenter the pony press @kbd{C-l} (@kb{dl} with @kbd{control} held down.)
+layout.) To recenter the pony press @kbd{C-l} (@kbd{dl} with @kbd{control} held down.)
 
 Browse between ponies using the arrow keys or with @kbd{C-n} and @kbd{C-p}, for next
 pony and previous pony, respectivily. Additionally, @kbd{Q} can be used list quotes
