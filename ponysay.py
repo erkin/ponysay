@@ -136,7 +136,7 @@ class Ponysay():
         ## Change system enviroment variables with ponysayrc
         for file in ('$XDG_CONFIG_HOME/ponysay/ponysayrc', '$HOME/.config/ponysay/ponysayrc', '$HOME/.ponysayrc', '/etc/ponysayrc'):
             file = parsefile(file)
-            if os.path.exists(file):
+            if (file is not None) and os.path.exists(file):
                 with open(file, 'rb') as ponysayrc:
                     code = ponysayrc.read().decode('utf8', 'replace') + '\n'
                     env = os.environ
@@ -1846,7 +1846,10 @@ class Backend():
         
         if self.pony.startswith('$$$\n'):
             self.pony = self.pony[4:]
-            infoend = self.pony.index('\n$$$\n')
+            if self.pony.startswith('$$$\n'):
+                infoend = 0
+            else:
+                infoend = self.pony.index('\n$$$\n')
             info = self.pony[:infoend]
             if self.infolevel == 2:
                 self.message = Backend.formatInfo(info)
