@@ -607,7 +607,7 @@ class PonysayTool():
                         for c in 'ABCDEFGHIJKLMN OPQRSTUVWXYZ':
                             test = test.replace(c, '')
                         if (len(test) == 0) and (len(key) > 0):
-                            data.append((key, makeset(value)))
+                            data.append((key, makeset(value.replace(' ', ''))))
                 everything.append(ponyfile[:-5], data)
         import cPickle
         with open(ponydir + 'metadata', 'wb') as file:
