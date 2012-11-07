@@ -758,7 +758,9 @@ class PonysayTool():
                     comment = ('\n' + comment + '\n').replace('\n$$$\n', '\n\\$$$\n')[:-1]
                     
                     meta = []
-                    for key in self.data:
+                    keys = [key for key in data]
+                    keys.sort()
+                    for key in keys:
                         if (key == 'comment') or (len(self.data[key].strip()) == 0):
                             continue
                         values = self.data[key].strip()
@@ -767,6 +769,7 @@ class PonysayTool():
                     
                     meta.append('WIDTH: ' + str(self.ponywidth))
                     meta.append('HEIGHT: ' + str(self.ponyheight))
+                    # TODO auto fill in BALLOON {TOP,BOTTOM}
                     meta.append(comment)
                     meta = '\n'.join(meta)
                     ponydata = '$$$\n' + meta + '\n$$$\n' + '\n'.join(self.image)
@@ -784,7 +787,7 @@ class PonysayTool():
 '''
 GNU Emacs alike text area
 '''
-class TextArea:
+class TextArea: # TODO support small screens
     '''
     Constructor
     
