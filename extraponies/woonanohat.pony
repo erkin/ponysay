@@ -1,12 +1,13 @@
 $$$
-MANE: gray
-EYE: gray
-NAME: woona
-KIND: alicorn
+APPEARANCE: moonstuck reply 1
 COAT: gray
-SOURCE: woonastuck.tumbr.com
+EYE: gray
 FREE: no
 GROUP: filly
+KIND: alicorn
+MANE: gray
+NAME: woona
+SOURCE: woonastuck.tumbr.com
 WIDTH: 43
 HEIGHT: 23
 

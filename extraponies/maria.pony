@@ -1,16 +1,17 @@
 $$$
-NAME: maria
-GROUP: mare
-MEDIA: woonastuck.tumblr.com
-FREE: yes
-KIND: seapony
-EYE: gray
+APPEARANCE: moonstuck reply 103
 COAT: gray
+EYE: gray
+FREE: yes
+GROUP: mare
+KIND: seapony
 MANE: gray
+MEDIA: woonastuck.tumblr.com
+NAME: maria
 WIDTH: 28
 HEIGHT: 25
 
-moon have low saturation
+
 $$$
 $balloon17$[0m
               $\$
