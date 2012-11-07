@@ -1,4 +1,16 @@
 $$$
+NAME: maria
+GROUP: mare
+MEDIA: woonastuck.tumblr.com
+FREE: yes
+KIND: seapony
+EYE: gray
+COAT: gray
+MANE: gray
+WIDTH: 28
+HEIGHT: 25
+
+moon have low saturation
 $$$
 $balloon17$[0m
               $\$

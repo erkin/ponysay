@@ -1,4 +1,16 @@
 $$$
+KIND: unicorn
+MANE: blue, purple
+GROUP: mare
+GROUP NAME: consept
+FREE: no
+NAME: sparkler
+COAT: cyan
+EYE: blue
+WIDTH: 50
+HEIGHT: 25
+
+
 $$$
 $balloon7$[0m
     $\$

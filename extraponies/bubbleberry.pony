@@ -1,4 +1,15 @@
 $$$
+MANE: pink
+EYE: pink
+GROUP: stallion
+FREE: yes
+KIND: earth
+NAME: bubble berry
+AURA: blue
+WIDTH: 46
+HEIGHT: 25
+
+
 $$$
 $balloon12$[0m
          $\$

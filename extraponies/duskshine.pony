@@ -1,4 +1,16 @@
 $$$
+EYE: purple
+NAME: dusk shine
+KIND: unicorn
+GROUP: stallion
+MANE: dark blue, dark purple, purple
+FREE: yes
+GROUP NAME: mane6-63
+COAT: purple
+WIDTH: 38
+HEIGHT: 25
+
+
 $$$
 $balloon30$[0m
                            $\$

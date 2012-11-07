@@ -1,4 +1,16 @@
 $$$
+FREE: yes
+COAT: gray
+GROUP: stallion
+MANE: white
+KIND: eath
+NAME: drhooves1
+EYE: brown
+OTHER NAMES: dr whooof, dr whooves
+WIDTH: 37
+HEIGHT: 23
+
+
 $$$
 $balloon9$[0m
       $\$

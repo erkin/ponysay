@@ -1,4 +1,16 @@
 $$$
+COAT: white
+GROUP NAME: mane6-63
+KIND: unicorn
+NAME: elusive
+FREE: yes
+MANE: purple
+GROUP: stallion
+EYE: blue
+WIDTH: 42
+HEIGHT: 24
+
+
 $$$
 $balloon29$[0m
                           $\$

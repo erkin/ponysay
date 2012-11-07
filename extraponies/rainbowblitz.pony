@@ -1,4 +1,16 @@
 $$$
+KIND: pegasus
+COAT: blue
+NAME: rainbow blitz
+EYE: purple
+FREE: yes
+GROUP NAME: mane6-63
+MANE: red, orange, yellow, green, blue
+GROUP: stallion
+WIDTH: 43
+HEIGHT: 26
+
+
 $$$
 $balloon10$[0m
        $\$

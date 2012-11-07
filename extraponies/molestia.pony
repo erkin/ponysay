@@ -1,4 +1,18 @@
 $$$
+COAT: white
+GROUP: mare
+EYE: pink
+MEDIA: askprincessmolestia.tumblr.com
+BASED ON: celestia
+FREE: no
+NAME: princess molestia
+OTHER NAMES: molestia
+MANE: pink
+KIND: alicorn
+WIDTH: 95
+HEIGHT: 40
+
+
 $$$
 $balloon66$[0m
                                                                $\$

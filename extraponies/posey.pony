@@ -1,4 +1,16 @@
 $$$
+EYE: blue
+FREE: no
+GROUP NAME: consept
+MANE: pink
+COAT: yellow
+GROUP: mare
+NAME: posey
+KIND: earth
+WIDTH: 49
+HEIGHT: 23
+
+
 $$$
 $balloon34$[0m
                                $\$

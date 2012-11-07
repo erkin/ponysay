@@ -1,4 +1,14 @@
 $$$
+NAME: Slanderpony
+SOURCE: [jristz]
+OTHER NAMES: Slander
+FREE: yes
+AURA: black
+COAT: white
+WIDTH: 34
+HEIGHT: 30
+
+
 $$$
 $balloon20$[0m
                  $\$

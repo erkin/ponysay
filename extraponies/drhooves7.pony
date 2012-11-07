@@ -1,4 +1,16 @@
 $$$
+MANE: black
+GROUP: stallion
+KIND: earth
+EYE: blue
+NAME: drhooves7
+OTHER NAMES: dr whooves, dr whoof
+FREE: yes
+COAT: white
+WIDTH: 33
+HEIGHT: 25
+
+
 $$$
 $balloon10$[0m
        $\$
