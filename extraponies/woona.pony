@@ -1,4 +1,16 @@
 $$$
+NAME: woona
+MANE: gray
+EYE: gray
+COAT: gray
+GROUP: filly
+KIND: alicorn
+FREE: no
+SOURCE: woonastuck.tumbr.com
+WIDTH: 43
+HEIGHT: 27
+
+
 $$$
 $balloon20$[0m
                  $\$

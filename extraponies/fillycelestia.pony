@@ -1,4 +1,16 @@
 $$$
+NAME: princess celestia
+GROUP: filly
+OTHER NAMES: celestia
+COAT: white
+KIND: alicorn
+FREE: no
+BASED ON: celestia, molestia
+MANE: pink
+WIDTH: 36
+HEIGHT: 26
+
+
 $$$
 $balloon6$[0m
    $\$

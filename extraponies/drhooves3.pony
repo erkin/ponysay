@@ -1,4 +1,16 @@
 $$$
+EYE: brown
+GROUP: stallion
+NAME: drhooves3
+COAT: blue
+OTHER NAMES: dr whooves, dr whoof
+KIND: unicorn
+MANE: white
+FREE: no
+WIDTH: 44
+HEIGHT: 26
+
+
 $$$
 $balloon5$[0m
   $\$

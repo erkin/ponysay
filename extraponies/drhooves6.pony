@@ -1,4 +1,16 @@
 $$$
+NAME: drhooves6
+GROUP: stallion
+FREE: yes
+KIND: earth
+OTHER NAMES: dr whooves, dr whoof
+EYE: gray
+MANE: brown
+COAT: brown
+WIDTH: 45
+HEIGHT: 25
+
+
 $$$
 $balloon6$[0m
    $\$

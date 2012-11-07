@@ -1,4 +1,15 @@
 $$$
+NAME: twilight
+GROUP: mare
+GROUP NAME: consept
+FREE: no
+MANE: purple, white
+COAT: pink
+KIND: unicorn
+WIDTH: 50
+HEIGHT: 24
+
+
 $$$
 $balloon13$[0m
           $\$

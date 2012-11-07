@@ -1,4 +1,16 @@
 $$$
+NAME: nyx
+KIND: alicorn
+FREE: yes
+GROUP: filly
+MANE: blue
+MEDIA: [fanfic: Past Sins]
+COAT: black
+EYE: cyan
+WIDTH: 35
+HEIGHT: 20
+
+
 $$$
 $balloon13$[0m
           $\$

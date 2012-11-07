@@ -1,4 +1,16 @@
 $$$
+MANE: blue
+EYE: purple
+GROUP NAME: shadowbolts
+KIND: pegasus
+NAME: blueball blitz
+MEDIA: [fanfic]
+GROUP: mare
+COAT: blue
+WIDTH: 51
+HEIGHT: 27
+
+
 $$$
 $balloon11$[0m
         $\$

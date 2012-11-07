@@ -1,4 +1,20 @@
 $$$
+COAT: pink
+BASED ON: pinkie
+APPEARANCE: s1c1m7s30
+EYE: blue
+KIND: earth
+OTHER NAMES: pinkie, pinkanima diane pie
+GROUP NAME: mane6
+MEDIA: [fanfic: Cucpacke]
+NAME: pinkie pie
+GROUP: mare
+FREE: no
+MANE: pink
+WIDTH: 49
+HEIGHT: 26
+
+
 $$$
 $balloon35$]P7aaaaaa[47m]PFffffff[1;37m]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m
                                 $\$

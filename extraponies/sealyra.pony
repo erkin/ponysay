@@ -1,4 +1,17 @@
 $$$
+NAME: lyra heartstrings
+OTHER NAMES: lyra, heartstrings, sealyra
+EYE: yellow
+MEDIA: [Comics]
+GROUP: mare
+COAT: geen
+FREE: yes
+KIND: seapony
+MANE: cyan
+WIDTH: 30
+HEIGHT: 29
+
+
 $$$
 $balloon9$[0m
       $\$

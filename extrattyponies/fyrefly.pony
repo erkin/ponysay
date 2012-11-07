@@ -1,12 +1,13 @@
 $$$
 COAT: pink
-MANE: blue
 GROUP NAME: consept
-EYE: purple
+FREE: yes
 KIND: pegasus
 NAME: fyrefly
-FREE: yes
+SOURCE: thefyrefly.tumbrl.com
+EYE: purple (ponysay), blue (source)
 GROUP: mare
+MANE: blue
 WIDTH: 36
 HEIGHT: 37
 

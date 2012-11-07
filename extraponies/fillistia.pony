@@ -1,4 +1,17 @@
 $$$
+OTHER NAMES: celestia
+KIND: alicorn
+COAT: white
+NAME: princess celestia
+MANE: blue, green, pink, cyan
+EYE: purple
+FREE: no
+GROUP: filly
+BASED ON: celestia
+WIDTH: 47
+HEIGHT: 27
+
+
 $$$
 $balloon25$[0m
                      $\$

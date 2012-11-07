@@ -1,4 +1,17 @@
 $$$
+MANE: black
+OTHER NAMES: dr hooves, doctor hooves
+GROUP: stallion
+COAT: gray (discorded), brown (normal)
+FREE: no
+KIND: earth
+NAME: time turner
+BASED ON: timeturner
+EYE: blue
+WIDTH: 40
+HEIGHT: 24
+
+
 $$$
 $balloon23$[0m
                     $\$

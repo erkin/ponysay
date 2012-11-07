@@ -1,4 +1,16 @@
 $$$
+COAT: yellow
+LICENSE: yes
+GROUP: stallion
+EYE: blue
+KIND: pegasus
+GROUP NAME: mane6-63
+MANE: pink
+NAME: butterscotch
+WIDTH: 39
+HEIGHT: 25
+
+
 $$$
 $balloon28$[0m
                          $\$

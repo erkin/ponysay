@@ -1,9 +1,12 @@
 $$$
-GROUP: mare
-NAME: applejack
 GROUP NAME: consept
-FREE: no
+GROUP: mare
+MANE: light brown
 KIND: earth
+NAME: applejack
+FREE: no
+COAT: light yellow
+EYE: green
 WIDTH: 37
 HEIGHT: 25
 
