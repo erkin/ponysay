@@ -631,7 +631,7 @@ class Ponysay():
         table = [(get_test(cell[:cell.index('=')],
                            cell[cell.index('=') + 1:]
                           )
-                  for cell in clause.lower().split('+'))
+                  for cell in clause.lower().replace('_', '').replace(' ', '').split('+'))
                   for clause in restriction
                 ]
         
