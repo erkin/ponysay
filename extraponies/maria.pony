@@ -8,6 +8,7 @@ KIND: seapony
 MANE: gray
 MEDIA: woonastuck.tumblr.com
 NAME: maria
+OTHER NAMES: lunar maria, lunar mare
 WIDTH: 28
 HEIGHT: 25
 

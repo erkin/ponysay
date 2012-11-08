@@ -1,5 +1,15 @@
 $$$
+COAT: brown
 FREE: yes
+GROUP: owl
+KIND: animal
+MANE: brown
+MEDIA: TV series
+NAME: owl
+WIDTH: 21
+HEIGHT: 23
+
+
 $$$
 $balloon$
 [0m$\$

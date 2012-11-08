@@ -1,11 +1,14 @@
 $$$
-NAME: ace
-FREE: no
-GROUP NAME: background
-MEDIA: tv series
 APPEARANCE: s1e12m7s25
+COAT: creme
+EYE: cyan
+FREE: no
 GROUP: stallion
+GROUP NAME: background
 KIND: earth
+MANE: black
+MEDIA: TV series
+NAME: ace
 WIDTH: 48
 HEIGHT: 27
 

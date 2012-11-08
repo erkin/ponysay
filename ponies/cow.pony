@@ -1,5 +1,16 @@
 $$$
+COAT: white, gray
+EYE: black
 FREE: yes
+GROUP: cow
+KIND: animal
+MANE: brown
+MEDIA: TV series
+NAME: cow
+WIDTH: 27
+HEIGHT: 24
+
+
 $$$
 $balloon3$[0m
 $\$

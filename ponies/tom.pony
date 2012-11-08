@@ -1,4 +1,13 @@
 $$$
+FREE: yes
+GROUP: rock
+KIND: object
+NAME: tom the rock
+OTHER NAMES: tom
+WIDTH: 52
+HEIGHT: 30
+
+Is only a rock
 $$$
 $balloon12$[0m
          $\$
