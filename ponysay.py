@@ -2173,6 +2173,22 @@ class Backend():
                     i += 1
                     di += 1
                     rc += c
+            while c == '0':
+                c = input[i]
+                i += 1
+                rc += c
+            if c == '4':
+                c = input[i]
+                i += 1
+                rc += c
+                if c == ';':
+                    c = input[i]
+                    i += 1
+                    rc += c
+                    while c != '\\':
+                        c = input[i]
+                        i += 1
+                        rc += c
         elif c == '[':
             while i < n:
                 c = input[i]
@@ -2290,32 +2306,13 @@ class Backend():
                     if i < n:
                         d = line[i]
                     i += 1
-                    if d == '\033':  # TODO this should use Backend.getcolour()
+                    if d == '\033':
                         ## Invisible stuff
-                        b[bi] = d
-                        bi += 1
-                        b[bi] = line[i]
-                        d = line[i]
-                        bi += 1
-                        i += 1
-                        if d == '[':
-                            while True:
-                                b[bi] = line[i]
-                                d = line[i]
-                                bi += 1
-                                i += 1
-                                if (('a' <= d) and (d <= 'z')) or (('A' <= d) and (d <= 'Z')) or (d == '~'):
-                                    break
-                        elif d == ']':
-                            b[bi] = line[i]
-                            d = line[i]
-                            bi += 1
-                            i += 1
-                            if d == 'P':
-                                for j in range(0, 7):
-                                    b[bi] = line[i]
-                                    bi += 1
-                                    i += 1
+                        i -= 1
+                        colourseq = Backend.getcolour(line, i)
+                        b[bi : bi + len(colourseq)] = colourseq
+                        i += len(colourseq)
+                        bi += len(colourseq)
                     elif (d is not None) and (d != ' '):
                         ## Fetch word
                         if indent == -1:
