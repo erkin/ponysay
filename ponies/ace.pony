@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: s1e12m7s25
+APPEARANCE: s1c12m7s25
 COAT: creme
 EYE: cyan
 FREE: no

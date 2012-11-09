@@ -1,6 +1,7 @@
 $$$
-APPEARANCE: s1e1m1s31
+APPEARANCE: s1c1m1s31
 COAT: purple
+EYE: purple
 FREE: no
 GROUP: mare
 GROUP NAME: mane6

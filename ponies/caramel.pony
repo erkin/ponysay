@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c11m4s56
+COAT: yellow
+EYE: cyan
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: caramel
+SOURCE: desktop ponies
+WIDTH: 39
+HEIGHT: 26
+
+
 $$$
 $balloon6$[0m
    $\$
