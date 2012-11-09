@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m7s30
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: mare
+GROUP NAME: mane6
+KIND: earth
+MANE: yellow
+MEDIA: TV series
+NAME: applejack
+OTHER NAMES: aj
+SOURCE: desktop ponies
+WIDTH: 52
+HEIGHT: 27
+
+
 $$$
 $balloon15$[0m
            [49m$\$       [48;5;137m [49;38;5;179m▄

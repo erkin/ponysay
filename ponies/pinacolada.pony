@@ -1,4 +1,17 @@
 $$$
+APPEARANCE: s1c1m19s35
+COAT: white (ponysay), light pink (source)
+EYE: cyan
+FREE: no
+GROUP: filly
+KIND: earth
+MANE: pink
+MEDIA: TV series
+NAME: piña colada
+WIDTH: 35
+HEIGHT: 22
+
+
 $$$
 $balloon$
 [0m    $\$

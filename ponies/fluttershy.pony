@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m13s51
+COAT: yellow
+EYE: cyan
+FREE: no
+GROUP: mare
+GROUP NAME: mane6
+KIND: unicorn
+MANE: pink
+MEDIA: TV series
+NAME: fluttershy
+OTHER NAMES: shy
+SOURCE: desktop ponies
+WIDTH: 54
+HEIGHT: 26
+
+
 $$$
 $balloon10$[0m
      $\$

@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m9s39
+COAT: blue
+EYE: purple
+FREE: no
+GROUP: mare
+GROUP NAME: mane6
+KIND: pegasus
+MANE: red, orange, yellow, green, blue, purple
+MEDIA: TV series
+NAME: rainbow dash
+OTHER NAMES: rainbow, dash, dashie
+SOURCE: desktop ponies
+WIDTH: 51
+HEIGHT: 26
+
+
 $$$
 $balloon10$[0m
      $\$

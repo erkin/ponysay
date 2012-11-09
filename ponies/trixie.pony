@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1e6m2s28
+COAT: blue
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: white
+MEDIA: TV series
+NAME: the grat and powerful trixie
+OTHER NAMES: trixie, trixie lulamoon
+SOURCE: desktop ponies
+WIDTH: 51
+HEIGHT: 33
+
+
 $$$
 $balloon20$[0m
                   $\$
