@@ -645,6 +645,9 @@ and fetchs the file name with help of @command{grep} and @command{sed}. The file
 name is stored in a shell variable. It the pipes one an execute of ponysay into
 another executing, using the stored file anme in both executions.
 
+Is know that this comand ith the form that we show to you not work on 
+@shell{fish} as pressented here.
+
 Ponysay can use just about anything as a message because it quarantines the message's
 ANSI escape sequences, including colour. And is Unicode aware (including combining
 characters) and ANSI escape sequence aware.
