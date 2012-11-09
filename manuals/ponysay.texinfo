@@ -72,7 +72,7 @@ Texts. A copy of the license is included in the section entitled
 * Pony metadata::                       Metadata tags in the pony files.
 * The tool chest::                      Extra Ponysay commands for other stuff than printing ponies.
 * Limitations::                         Known limitations that may not be that easy to overcome.
-* Problems and requests::               Report issues and making requests.
+* Problems and requests::               External bugs, report issues and making requests.
 * Dependencies::                        Ponysay's dependencies.
 * Installing::                          How to install @command{ponysay}.
 * Inner workings::                      Useful information for those whom want to help hack @command{ponysay}.
@@ -1466,16 +1466,67 @@ the top to the left.
 
 @node Problems and requests
 @chapter Problems and requests
+@cindex problems
 
 @menu
-* Problems::           Reporting bugs.
-* Requests::           Requesting ponies.
+* External bugs::         Known external bugs.
+* Reporting bugs::        Reporting bugs and issues in ponysay.
+* Requesting ponies::     Requesting inclusion of your favourite ponies.
 @end menu
 
 
-@node Problems
+@node External bugs
+@section External bugs
+@cindex external bugs
+@cindex bugs, external
+
+@cindex vte-based terminals
+@cindex terminals
+@pindex @command{mate-terminal}
+@pindex @command{gnome-terminal}
+@pindex @command{terminator}
+There is only one known bug that may occour that is external to ponysay,
+meaning that it is a bug that can occour with ponysay, but is not actually
+a bug in ponysay. This bug is common for programs that prints a lot of
+colours, even with @command{cat}; it is only known to happen for VTE-based
+terminals, such as @command{mate-terminal}, @command{gnome-terminal} and
+@command{terminator}.
+
+The bug, is that lines (often no more than one line) can skipped when all
+lines move up one step, the next line is skipped instead, and so one; or
+that an escape sequence is interpreted as pure text (this is common in GNU
+Emacs, however GNU Emacs does not support programs such as @command{ponysay}.)
+
+This bug can often be suppressed by piping the output to @command{cat}
+multiple times when using a VTE-based terminal (or always if you prefer).
+The use of VTE-based terminal can often be determined by checking for the
+environment variable @var{COLORTERM}, to which VTE-based terminal usually
+export their name (some reported another terminals name.)
+
+If you want to do this in GNU Bash you can add this (with possible modifications
+depending on what you also have done with @command{ponysay}) code sample
+to your @file{~/.bashrc} file.
+
+@cartouche
+@example
+[[ ! "$COLORTERM" = "" ]] &&
+    function ponysay
+    {
+        exec ponysay "$@@" | cat | cat | cat | cat
+    }
+@end example
+@end cartouche
+
+It important for this bug workaround that @command{cat} is unbuffered, which
+is default in GNU's version of @command{cat}, but not in Unix's version.
+If this does not work, test adding the option @option{-u} to @command{cat}.
+
+
+
+@node Reporting bugs
 @section Reporting bugs
-@cindex bugs
+@cindex bugs, reporting
+@cindex report bugs
 
 If you find a bug in @command{ponysay}, install the last version
 from @url{https://github.com/erkin/ponysay}, and if it is still
@@ -1484,9 +1535,10 @@ Please be as descriptive as possible, as it will help us verify it
 solve it faster.
 
 
-@node Requests
+@node Requesting ponies
 @section Requesting ponies
 @cindex pony requests
+@cindex request ponies
 
 If you want I specific pony added, ask us at
 @url{https://github.com/erkin/ponysay/issues} and we will add it.
