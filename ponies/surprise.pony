@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c3m3s36
+BASED ON: spitfire
+COAT: white
+FREE: no
+GROUP: mare
+GROUP NAME: wonderbolt
+KIND: pegasus
+MANE: yellow
+MEDIA: TV series
+NAME: surprise
+OTHER NAMES: fleetfoot (initial in gameloft game)
+WIDTH: 37
+HEIGHT: 26
+
+
 $$$
 $balloon6$[0m
    $\$

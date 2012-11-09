@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c16m13s50
+COAT: yellow
+EYE: brown
+FREE: no
+GROUP: mare
+GROUP NAME: wonderbolts
+KIND: pegasus
+MANE: orange
+MEDIA: TV series
+NAME: spitfire
+SOURCE: desktop ponies
+WIDTH: 53
+HEIGHT: 23
+
+
 $$$
 $balloon30$[0m
                           $\$

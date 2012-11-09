@@ -1,12 +1,13 @@
 $$$
-MANE: blue
+COAT: blue
 EYE: purple
+FREE: yes
+GROUP: mare
 GROUP NAME: shadowbolts
 KIND: pegasus
-NAME: blueball blitz
+MANE: blue
 MEDIA: [fanfic]
-GROUP: mare
-COAT: blue
+NAME: blueball blitz
 WIDTH: 51
 HEIGHT: 27
 

@@ -1,4 +1,17 @@
 $$$
+APPEARANCE: s1c2m12s15
+COAT: light blue
+FREE: no
+GROUP: mare
+GROUP NAME: shadowbolts
+KIND: pegasus
+MANE: blue
+MEDIA: TV series
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 25
+
+
 $$$
 $balloon36$[0m
                                  $\$
