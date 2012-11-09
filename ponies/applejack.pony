@@ -4,7 +4,7 @@ COAT: brown
 EYE: blue
 FREE: no
 GROUP: mare
-GROUP NAME: mane6
+GROUP NAME: mane
 KIND: earth
 MANE: yellow
 MEDIA: TV series

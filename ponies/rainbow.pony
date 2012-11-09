@@ -4,7 +4,7 @@ COAT: blue
 EYE: purple
 FREE: no
 GROUP: mare
-GROUP NAME: mane6
+GROUP NAME: mane
 KIND: pegasus
 MANE: red, orange, yellow, green, blue, purple
 MEDIA: TV series

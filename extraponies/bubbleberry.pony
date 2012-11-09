@@ -1,11 +1,12 @@
 $$$
-MANE: pink
-EYE: pink
-GROUP: stallion
-FREE: yes
-KIND: earth
-NAME: bubble berry
 AURA: blue
+EYE: pink
+FREE: yes
+GROUP: stallion
+GROUP NAME: mane-63
+KIND: earth
+MANE: pink
+NAME: bubble berry
 WIDTH: 46
 HEIGHT: 25
 

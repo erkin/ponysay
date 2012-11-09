@@ -1,4 +1,21 @@
 $$$
+APPEARANCE: s2c26
+AURA: green
+COAT: black, green
+EYE: green
+FREE: no
+GROUP: mare
+GROUP NAME: antagonist
+KIND: changeling
+MANE: blue
+MEDIA: TV series
+NAME: (not mentioned)
+OTHER NAMES: crysalis (official, in manuscript)
+SOURCE: desktop ponies group in deviantart
+WIDTH: 52
+HEIGHT: 36
+
+
 $$$
 $balloon27$[0m
                       $\$

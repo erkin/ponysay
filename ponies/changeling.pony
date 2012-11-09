@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2e26
+COAT: black blue
+EYE: blue
+FREE: no
+GROUP: villain
+GROUP NAME: villain
+KIND: changeling
+MANE: black
+MEDIA: TV series
+NAME: changeling
+SOURCE: desktop ponies
+WIDTH: 37
+HEIGHT: 26
+
+
 $$$
 $balloon20$[0m
                 $\$

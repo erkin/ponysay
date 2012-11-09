@@ -4,7 +4,7 @@ COAT: yellow
 EYE: cyan
 FREE: no
 GROUP: mare
-GROUP NAME: mane6
+GROUP NAME: mane
 KIND: unicorn
 MANE: pink
 MEDIA: TV series

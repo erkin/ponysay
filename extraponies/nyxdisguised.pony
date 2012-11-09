@@ -1,12 +1,13 @@
 $$$
-NAME: nyx
-KIND: alicorn
-FREE: yes
-GROUP: filly
-MANE: blue
-MEDIA: [fanfic: Past Sins]
 COAT: black
 EYE: cyan
+FREE: yes
+GROUP: filly
+KIND: alicorn
+MANE: blue
+MEDIA: [fanfic: Past Sins]
+NAME: nyx
+SOURCE: [jristz]
 WIDTH: 35
 HEIGHT: 20
 

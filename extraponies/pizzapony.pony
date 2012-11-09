@@ -7,7 +7,8 @@ KIND: earth
 MANE: yellow, black red
 MEDIA: [Comics]
 NAME: pizza pony
-WIDTH: 46
+SOURCE: [jristz]
+WIDTH: 39
 HEIGHT: 25
 
 

@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c5m1s15
+COAT: white
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: black
+MEDIA: TV series
+NAME: magnum
+OTHER NAMES: raity's dad
+SOURCE: desktop ponies
+WIDTH: 41
+HEIGHT: 27
+
+
 $$$
 $balloon23$[0m
                     $\$

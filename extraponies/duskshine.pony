@@ -1,12 +1,12 @@
 $$$
-EYE: purple
-NAME: dusk shine
-KIND: unicorn
-GROUP: stallion
-MANE: dark blue, dark purple, purple
-FREE: yes
-GROUP NAME: mane6-63
 COAT: purple
+EYE: purple
+FREE: yes
+GROUP: stallion
+GROUP NAME: mane-63
+KIND: unicorn
+MANE: dark blue, dark purple, purple
+NAME: dusk shine
 WIDTH: 38
 HEIGHT: 25
 

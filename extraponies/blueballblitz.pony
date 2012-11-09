@@ -8,6 +8,7 @@ KIND: pegasus
 MANE: blue
 MEDIA: [fanfic]
 NAME: blueball blitz
+SOURCE: [jristz]
 WIDTH: 51
 HEIGHT: 27
 

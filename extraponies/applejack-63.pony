@@ -1,12 +1,12 @@
 $$$
-GROUP: stallion
-EYE: green
 COAT: light brown
-NAME: applejack
-GROUP NAME: mane6-63
+EYE: green
 FREE: yes
+GROUP: stallion
+GROUP NAME: mane-63
 KIND: earth
 MANE: light yellow
+NAME: applejack
 WIDTH: 41
 HEIGHT: 26
 

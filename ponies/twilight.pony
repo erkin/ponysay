@@ -4,7 +4,7 @@ COAT: purple
 EYE: purple
 FREE: no
 GROUP: mare
-GROUP NAME: mane6
+GROUP NAME: mane
 KIND: unicorn
 MANE: purple, blue
 MEDIA: TV series

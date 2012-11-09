@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: s1e6m2s28
+APPEARANCE: s1c6m2s28
 COAT: blue
 EYE: purple
 FREE: no

@@ -1,11 +1,11 @@
 $$$
-NAME: twilight
+COAT: pink
+FREE: no
 GROUP: mare
 GROUP NAME: consept
-FREE: no
-MANE: purple, white
-COAT: pink
 KIND: unicorn
+MANE: purple, white
+NAME: twilight
 WIDTH: 50
 HEIGHT: 24
 

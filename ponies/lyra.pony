@@ -1,4 +1,8 @@
 $$$
+WIDTH: 51
+HEIGHT: 28
+
+
 $$$
 $balloon15$[0m
            $\$

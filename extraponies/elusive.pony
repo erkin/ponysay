@@ -1,12 +1,12 @@
 $$$
 COAT: white
-GROUP NAME: mane6-63
-KIND: unicorn
-NAME: elusive
-FREE: yes
-MANE: purple
-GROUP: stallion
 EYE: blue
+FREE: yes
+GROUP: stallion
+GROUP NAME: mane-63
+KIND: unicorn
+MANE: purple
+NAME: elusive
 WIDTH: 42
 HEIGHT: 24
 

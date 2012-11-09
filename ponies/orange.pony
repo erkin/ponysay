@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c23m3s33
+COAT: creme
+EYE: blue, cyan
+GROUP: stallion
+KIND: earth
+LICENSE: no
+MANE: green
+MEDIA: TV series
+NAME: uncle orange
+SOURCE: desktop ponies
+WIDTH: 37
+HEIGHT: 25
+
+
 $$$
 $balloon5$[0m
   $\$
