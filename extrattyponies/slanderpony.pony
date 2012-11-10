@@ -1,10 +1,13 @@
 $$$
-NAME: Slanderpony
-SOURCE: [jristz]
-OTHER NAMES: Slander
-FREE: yes
 AURA: black
+BASED ON: (original)
 COAT: white
+EYE: no eye
+FREE: yes
+MANE: no mane
+NAME: Slanderpony
+OTHER NAMES: Slander
+SOURCE: [jristz]
 WIDTH: 34
 HEIGHT: 30
 

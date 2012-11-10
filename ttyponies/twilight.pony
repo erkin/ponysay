@@ -1,13 +1,16 @@
 $$$
-GROUP: mare
-MEDIA: tv series
-KIND: unicorn
-NAME: twilight sparkle
-SOURCE: desktop ponies
-APPEARANCE: s1e1m1s31
+APPEARANCE: s1c1m1s31
+COAT: purple
+EYE: purple
 FREE: no
-GROUP NAME: mane6
+GROUP: mare
+GROUP NAME: mane
+KIND: unicorn
+MANE: purple, blue
+MEDIA: TV series
+NAME: twilight sparkle
 OTHER NAMES: twilight
+SOURCE: desktop ponies
 WIDTH: 53
 HEIGHT: 24
 

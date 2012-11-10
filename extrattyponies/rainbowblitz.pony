@@ -1,12 +1,12 @@
 $$$
-KIND: pegasus
 COAT: blue
-NAME: rainbow blitz
 EYE: purple
 FREE: yes
-GROUP NAME: mane6-63
-MANE: red, orange, yellow, green, blue
 GROUP: stallion
+GROUP NAME: mane-63
+KIND: pegasus
+MANE: red, orange, yellow, green, blue
+NAME: rainbow blitz
 WIDTH: 43
 HEIGHT: 26
 

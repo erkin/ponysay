@@ -1,13 +1,13 @@
 $$$
-NAME: lyra heartstrings
-OTHER NAMES: lyra, heartstrings, sealyra
-EYE: yellow
-MEDIA: [Comics]
-GROUP: mare
 COAT: geen
+EYE: yellow
 FREE: yes
+GROUP: mare
 KIND: seapony
 MANE: cyan
+MEDIA: [Comics]
+NAME: lyra heartstrings
+OTHER NAMES: lyra, heartstrings, sealyra, harpass
 WIDTH: 30
 HEIGHT: 29
 
