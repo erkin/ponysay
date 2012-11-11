@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s2c25m9s22
+COAT: pink
+EYE: pink
+FREE: no
+GROUP: mare
+GROUP NAME: royal
+KIND: alicorn
+MANE: yellow, dark pink, dark gray
+MEDIA: TV series
+NAME: cadence
+OTHER NAMES: cadenza, cadance
+SOURCE: [jristz]
+WIDTH: 55
+HEIGHT: 32
+
+
 $$$
 $balloon$
 [0m                                       $\$
