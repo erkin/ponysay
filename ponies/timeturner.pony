@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1e1m19s56
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: black
+MASTER: drhooves
+MEDIA: TV series
+NAME: time turner
+OTHER NAMES: dr hooves, doctor hooves
+WIDTH: 38
+HEIGHT: 24
+
+
 $$$
 $balloon7$[0m
     $\$

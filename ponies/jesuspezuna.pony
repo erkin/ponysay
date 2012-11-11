@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2
+COAT: brown
+EYE: cyan
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: black
+MEDIA: TV series
+NAME: jesús pezuña
+SOURCE: [jristz]
+WIDTH: 41
+HEIGHT: 29
+
+
 $$$
 $balloon5$[0m
   $\$

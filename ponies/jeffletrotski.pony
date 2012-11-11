@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: brown, light yellow
+MEDIA: TV series
+NAME: jeff "the dude" letrotski
+OTHER NAMES: jeff letrotski
+SOURCE: desktop ponies deviantart group [botchan]
+WIDTH: 43
+HEIGHT: 24
+
+
 $$$
 $balloon26$[0m
                        $\$
