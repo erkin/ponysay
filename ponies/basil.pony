@@ -1,4 +1,18 @@
 $$$
+COAT: red, yellow
+EYE: green, yellow
+FREE: yes
+GROUP: dragon
+GROUP NAME: wildlife
+KIND: animal
+MANE: pink (big scales in the head)
+MEDIA: TV series
+NAME: basil
+SOURCE: pony fantasy 6
+WIDTH: 85
+HEIGHT: 51
+
+
 $$$
 $balloon57$[0m
                                                       $\$

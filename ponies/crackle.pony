@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2
+COAT: green, blue (gem), pink (gem), purple (gem), cyan (gem)
+EYE: red
+FREE: yes
+GROUP: dragon
+GROUP NAME: wildlife
+KIND: animal
+MEDIA: TV series
+NAME: crackle
+SOURCE: desktop ponies deviantart group
+WIDTH: 131
+HEIGHT: 60
+
+
 $$$
 $balloon61$[0m
                                                           $\$
