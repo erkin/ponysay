@@ -668,6 +668,8 @@ class PonysayTool():
                         data[key] += '\n' + value.strip(' ')
                 else:
                     comment.append(line)
+            else:
+                comment.append(line)
         
         cut = 0
         while (len(comment) > cut) and (len(comment[cut]) == 0):
