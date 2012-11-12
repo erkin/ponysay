@@ -2708,7 +2708,8 @@ build()
                --freedom=parital build
     
     # CHANGE --freedom=parital to --freedom=strict
-    # FOR ONLY COMPLETELY FREE PONIES, usefull in GNU/Linux-libre distros
+    # FOR ONLY COMPLETELY FREE PONIES,
+    # useful for GNU/Linux-libre distributions
 @}
 
 package()
