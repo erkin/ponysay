@@ -2694,10 +2694,10 @@ pkgrel=1
 arch=(any)
 pkgdesc="Cowsay reimplementation for ponies"
 url="https://github.com/erkin/ponysay"
-license=(WTFPL "GNU FDL v1.3")
+license=('WTFPL' 'GNU FDL v1.3')
 depends=(python>=3 coreutils)
 optdepends=("util-say>=2: Improved TTY support with KMS and PNG files")
-makedepends=(git texinfo info gzip python>=3)
+makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3')
 
 build()
 @{   cd "$srcdir"; git clone git://github.com/erkin/ponysay.git ponysay
@@ -2708,7 +2708,7 @@ build()
                --freedom=parital build
     
     # CHANGE --freedom=parital to --freedom=strict
-    # FOR ONLY COMPLETELY FREE PONIES
+    # FOR ONLY COMPLETELY FREE PONIES, usefull in GNU/Linux-libre distros
 @}
 
 package()
@@ -2896,6 +2896,10 @@ sequences.
 
 @heading Version 3.0
 @itemize @bullet
+@item
+New ponies: @file{sombra}
+@item
+New extraponies: @file{pizzapony}
 @item
 Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}.
 @item
