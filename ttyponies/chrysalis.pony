@@ -9,7 +9,7 @@ GROUP NAME: antagonist
 KIND: changeling
 MANE: blue
 MEDIA: TV series
-NAME: (not mentioned)
+NAME: queen crysalis
 OTHER NAMES: crysalis (official, in manuscript)
 SOURCE: desktop ponies group in deviantart
 WIDTH: 52

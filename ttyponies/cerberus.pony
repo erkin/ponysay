@@ -1,4 +1,17 @@
 $$$
+COAT: black
+EYE: red
+FREE: yes
+GROUP: wildlife
+GROUP NAME: wildlife
+KIND: animals
+MEDIA: TV series
+NAME: cerberus
+OTHER NAMES: kerberos, cerberos
+WIDTH: 107
+HEIGHT: 33
+
+Cerberus already exist in miths, you cannot copyright a mith, neither they characters
 $$$
 $balloon46$]P7aaaaaa[47m]PFffffff[1;37m]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m
                                            $\$

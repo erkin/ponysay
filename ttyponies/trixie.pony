@@ -8,7 +8,7 @@ KIND: unicorn
 MANE: white
 MEDIA: TV series
 NAME: the grat and powerful trixie
-OTHER NAMES: trixie, trixie lulamoon
+OTHER NAMES: trixie, trixie lulamoon, lulamoon
 SOURCE: desktop ponies
 WIDTH: 51
 HEIGHT: 33

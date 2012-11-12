@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m5s9
+COAT: realy light pink
+EYE: pink
+FREE: no
+GROUP: mare
+GROUP NAME: royal
+KIND: alicorn
+MANE: pink, cyan, green, blue
+MEDIA: TV series
+NAME: princess celestia
+OTHER NAMES: celestia
+SOURCE: desktop ponies
+WIDTH: 95
+HEIGHT: 42
+
+
 $$$
 $balloon35$]P7aaaaaa[47m]PFffffff[1;37m]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m
                             $\$
