@@ -3,7 +3,7 @@ APPEARANCE: s3c1m3s40
 COAT: gray
 EYE: green. brown, purple aura
 FREE: no
-GROUP: unicorn
+GROUP: stallion
 GROUP NAME: antagonist
 KIND: unicorn
 MANE: black
@@ -11,7 +11,7 @@ MEDIA: TV series
 NAME: king sombra
 OTHER NAMES: king somber (initial leaked name)
 SOURCE: [jristz]
-WIDTH: 45
+WIDTH: 80
 HEIGHT: 32
 
 
