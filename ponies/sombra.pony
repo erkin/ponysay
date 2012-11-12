@@ -3,7 +3,7 @@ APPEARANCE: s3c1m3s40
 COAT: gray
 EYE: green. brown, purple aura
 FREE: no
-GROUP: unicorn
+GROUP: stallion
 GROUP NAME: antagonist
 KIND: unicorn
 MANE: black
