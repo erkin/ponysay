@@ -1519,8 +1519,11 @@ class ArgParser():
         dontget = 0
         self.rc = True
         
+        self.unrecognisedCount = 0
         def unrecognised(arg):
-            sys.stderr.write('%s: warning: unrecognised option %s\n' % (self.__program, arg))
+            self.unrecognisedCount += 1
+            if self.unrecognisedCount <= 5:
+                sys.stderr.write('%s: warning: unrecognised option %s\n' % (self.__program, arg))
             self.rc = False
         
         while len(deque) != 0:
@@ -1586,7 +1589,7 @@ class ArgParser():
                                 dashed = True
                                 break
                         else:
-                            unrecognised(arg)
+                            unrecognised(narg)
             else:
                 self.files.append(arg)
         
@@ -1615,6 +1618,9 @@ class ArgParser():
                     break
         
         self.message = ' '.join(self.files) if len(self.files) > 0 else None
+        
+        if self.unrecognisedCount > 5:
+            sys.stderr.write('%s: warning: %i more unrecognised %s\n' % (self.unrecognisedCount - 5, 'options' if self.unrecognisedCount == 6 else 'options'))
         
         return self.rc
     
