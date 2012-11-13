@@ -1,4 +1,17 @@
 $$$
+APPEARANCE: s2
+COAT: white, black
+EYE: yellow
+FREE: no
+GROUP: gryffon
+KIND: animal
+MEDIA: TV series
+NAME: gustave le grand
+SOURCE: desktop ponies
+WIDTH: 61
+HEIGHT: 31
+
+
 $$$
 $balloon38$[0m
                                    $\$

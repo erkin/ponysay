@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1
+COAT: brown, white
+EYE: yellow
+FREE: no
+GROUP: griffon
+GROUP NAME: antagonist
+KIND: animal
+MEDIA: TV series
+NAME: gilda
+OTHER NAMES: gruntilda (initial name, but not pass copyright)
+SOURCE: desktop ponies
+WIDTH: 71
+HEIGHT: 32
+
+
 $$$
 $balloon15$[0m
       $\$

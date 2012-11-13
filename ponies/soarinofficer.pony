@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c3m3s36
+COAT: blue
+EYE: green
+FREE: no
+GROUP: stallion
+GROUP NAME: wonderbolt
+KIND: pegasus
+MANE: dark blue
+MEDIA: TV series
+NAME: soarin
+SOURCE: [jristz]
+WIDTH: 43
+HEIGHT: 25
+
+
 $$$
 $balloon29$[0m
                           $\$
