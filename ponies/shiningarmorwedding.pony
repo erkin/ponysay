@@ -1,4 +1,21 @@
 $$$
+APPEARANCE: s2c25m3s51
+BASED ON: shiningarmor
+COAT: white
+EYE: cyan
+FREE: no
+GROUP: stallion
+GROUP NAME: royal
+KIND: unicorn
+MANE: blue, cyan
+MEDIA: TV series
+NAME: shining armor
+OTHER NAMES: shining armour
+SOURCE: [jristz]
+WIDTH: 40
+HEIGHT: 25
+
+
 $$$
 $balloon3$[0m
 $\$
