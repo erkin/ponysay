@@ -23,13 +23,15 @@ Additionally the [tex]info manual is primarily check
 in the PDF version, as it is believed to be the most
 common way to view the manual. If you discover that
 the info version or the HTML version looks differently,
-Please send a patch or mention so in a commit comment.
+Please send a patch, add an issue or mention so in a
+commit comment.
 
 Although translations of the primary manual (the PDF)
 may not be piratically due to its constant updating,
-translations of the man page manual are useful if you
+translations of the man pages are useful if you
 speak a language from where good understanding of
-English is not common at all ages.
+English is not common at all ages, ortograffic
+correction are apresiated too.
 
 
 -- Make new magic spells and improve existing ones --
