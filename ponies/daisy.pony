@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c1m16s40
+COAT: pink
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: green
+MEDIA: TV series
+NAME: daisy
+SOURCE: desktop ponies
+WIDTH: 45
+HEIGHT: 26
+
+
 $$$
 $balloon9$[0m
       $\$

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c6m3s55
+COAT: pink
+EYE: cyan
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: brown
+MEDIA: TV series
+NAME: airheart
+SOURCE: [jristz]
+WIDTH: 26
+HEIGHT: 26
+
+
 $$$
 $balloon7$[0m
     $\$

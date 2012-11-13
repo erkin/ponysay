@@ -9,6 +9,7 @@ KIND: earth
 MANE: black
 MEDIA: TV series
 NAME: ace
+SOURCE: [jristz]
 WIDTH: 48
 HEIGHT: 27
 

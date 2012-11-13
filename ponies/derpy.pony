@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m16s34
+COAT: gray
+EYE: yellow
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: yellow
+MEDIA: TV series
+NAME: derpy hooves
+OTHER NAMES: derpy, ditzy doo, ditzy
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 27
+
+
 $$$
 $balloon$[0m
        $\$

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c1m6s47
+COAT: purple
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: purple
+MEDIA: TV series
+NAME: berry punch
+SOURCE: desktop ponies
+WIDTH: 45
+HEIGHT: 26
+
+she make a cameo no 'The crystal empire' [season 3 chapter 2] in the crow during the event watching Rainbow dash and Fluttershy
 $$$
 $balloon5$[0m
   $\$
