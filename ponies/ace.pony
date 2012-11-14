@@ -4,7 +4,6 @@ COAT: creme
 EYE: cyan
 FREE: no
 GROUP: stallion
-GROUP NAME: background
 KIND: earth
 MANE: black
 MEDIA: TV series
