@@ -2898,7 +2898,7 @@ sequences.
 @heading Version 3.0
 @itemize @bullet
 @item
-New ponies: @file{flitter}, @file{mrbreezy}, @file{shiningarmorcrystal}, @file{sombra}
+New ponies: @file{cloudchaser}, @file{flitter}, @file{mrbreezy}, @file{shiningarmorcrystal}, @file{sombra}
 @item
 New extraponies: @file{pizzapony}
 @item
