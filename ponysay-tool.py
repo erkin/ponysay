@@ -763,6 +763,8 @@ class PonysayTool():
                     keys = [key for key in data]
                     keys.sort()
                     for key in keys:
+                        if self.data[key] is None:
+                            continue
                         if (key == 'comment') or (len(self.data[key].strip()) == 0):
                             continue
                         values = self.data[key].strip()
@@ -949,6 +951,8 @@ class TextArea: # TODO support small screens
                         current = leftlines[row]
                         if len(datalines[row].strip()) == 0:
                             if current is not 'comment':
+                                if current != last:
+                                    self.datamap[current] = None
                                 continue
                         if current == last:
                             self.datamap[current] += '\n' + datalines[row]
