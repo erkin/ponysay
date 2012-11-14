@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m19s35
+COAT: pink
+EYE: cyan
+FREE: no
+GROUP: filly
+KIND: earth
+MANE: pink
+MEDIA: TV series
+NAME: apple core
+OTHER NAMES: piña colada (merged on mlp wikia)
+SOURCE: [jristz]
+WIDTH: 33
+HEIGHT: 21
+
+
 $$$
 $balloon19$[0m
                 $\$

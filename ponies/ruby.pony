@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c2m20s28
+COAT: pink
+EYE: green
+FREE: no
+GROUP: filly
+KIND: earth
+MANE: pink
+MEDIA: TV series
+NAME: berry pinch
+OTHER NAMES: ruby, ruby pinch
+SOURCE: desktop ponies
+WIDTH: 36
+HEIGHT: 21
+
+
 $$$
 $balloon20$[0m
                  $\$

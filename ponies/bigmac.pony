@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m6s51
+COAT: red
+EYE: green
+FREE: no
+GROUP: stallion
+GROUP NAME: apple family
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: big macintosh
+OTHER NAMES: big mac, big mcintosh, mac
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 27
+
+
 $$$
 $balloon11$[0m
         $\$

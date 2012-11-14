@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m8s23
+COAT: yellow
+EYE: green
+FREE: no
+GROUP: filly
+GROUP NAME: apple family
+KIND: earth
+MANE: green
+MEDIA: TV series
+NAME: apple fritter
+SOURCE: desktop ponies
+WIDTH: 40
+HEIGHT: 25
+
+
 $$$
 $balloon5$[0m
   $\$

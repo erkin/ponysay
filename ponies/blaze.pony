@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c3m3s36
+COAT: yellow
+FREE: no
+GROUP: mare
+GROUP NAME: wonderbolts
+KIND: pegasus
+MANE: orange
+MEDIA: TV series
+NAME: blaze
+SOURCE: [jristz]
+WIDTH: 53
+HEIGHT: 20
+
+
 $$$
 $balloon10$[0m
        $\$

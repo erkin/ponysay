@@ -1,15 +1,16 @@
 $$$
-GROUP: stallion
-NAME: time turner
-MEDIA: TV series
-OTHER NAMES: dr hooves, doctor hooves
-MASTER: drhooves
-FREE: no
-EYE: blue
+APPEARANCE: s1e1m19s56
 COAT: brown
+EYE: blue
+FREE: no
+GROUP: stallion
 KIND: earth
 MANE: black
-APPEARANCE: s1e1m19s56
+MASTER: drhooves
+MEDIA: TV series
+NAME: time turner
+OTHER NAMES: dr hooves, doctor hooves
+SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 30
 

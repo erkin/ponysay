@@ -6,8 +6,10 @@ FREE: no
 GROUP: filly
 KIND: alicorn
 MANE: gray
+MEDIA: woonastuck.tumblr.com
 NAME: woona
-SOURCE: woonastuck.tumbr.com
+OTHER NAMES: princess woona, chosen woon
+SOURCE: desktop ponies OC
 WIDTH: 43
 HEIGHT: 27
 

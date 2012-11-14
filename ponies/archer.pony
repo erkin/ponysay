@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c12m00s12
+COAT: blue
+EYE: gray
+FREE: no
+GROUP: filly
+KIND: earth
+MANE: blue
+MEDIA: TV series
+NAME: archer
+SOURCE: desktop ponies
+WIDTH: 46
+HEIGHT: 21
+
+
 $$$
 $balloon25$[0m
                       $\$

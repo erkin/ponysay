@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c23m12s58
+COAT: blue
+EYE: yellow
+FREE: no
+GROUP: stallion
+KIND: unicorn
+MANE: white
+MEDIA: TV series
+NAME: bastion yorsets
+OTHER NAMES: george washingtony
+SOURCE: [jristz]
+WIDTH: 39
+HEIGHT: 26
+
+
 $$$
 $balloon35$[0m
                                 $\$

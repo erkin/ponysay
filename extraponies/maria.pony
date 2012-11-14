@@ -9,6 +9,7 @@ MANE: gray
 MEDIA: woonastuck.tumblr.com
 NAME: maria
 OTHER NAMES: lunar maria, lunar mare
+SOURCE: [jristz]
 WIDTH: 28
 HEIGHT: 25
 
