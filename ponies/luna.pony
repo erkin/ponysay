@@ -9,7 +9,7 @@ KIND: alicorn
 MANE: blue, transparent blue
 MEDIA: TV series
 NAME: princess luna
-OTHER NAMES: lunija (russian), nightmare moon ('corrupted')
+OTHER NAMES: lunija (russian), nightmare moon (corrupted)
 SOURCE: desktop ponies
 WIDTH: 70
 HEIGHT: 38

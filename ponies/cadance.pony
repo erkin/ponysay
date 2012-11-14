@@ -1,5 +1,6 @@
 $$$
 APPEARANCE: s2c25m9s22
+AURA: pink
 COAT: pink
 EYE: pink
 FREE: no

@@ -5,7 +5,7 @@ COAT: white
 EYE: cyan
 FREE: no
 GROUP: stallion
-GROUP NAME: royal
+GROUP NAME: royal, crystal
 KIND: unicorn
 MANE: blue, cyan
 MEDIA: TV series
