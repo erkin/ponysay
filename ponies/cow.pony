@@ -3,6 +3,7 @@ COAT: white, gray
 EYE: black
 FREE: yes
 GROUP: cow
+GROUP NAME: wildlife
 KIND: animal
 MANE: brown
 MEDIA: TV series

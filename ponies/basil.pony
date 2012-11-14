@@ -12,6 +12,7 @@ SOURCE: pony fantasy 6
 WIDTH: 85
 HEIGHT: 51
 
+Based on 'pony fantasy 6' basil dragon, the autor give permision over public domain for the image, the name is a generic name found in REALLY many places and finally dragon already  exist in many mith, you cannot copiright a myth
 
 $$$
 $balloon57$[0m

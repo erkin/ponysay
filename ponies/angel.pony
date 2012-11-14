@@ -1,4 +1,12 @@
 $$$
+APPEARANCE: s1
+GROUP NAME: pet
+KIND: animal
+NAME: angel
+WIDTH: 25
+HEIGHT: 19
+
+
 $$$
 $balloon6$[0m
    $\$         [48;5;145m[38;5;145m▄[48;5;255m▀[49m▄[39m     [38;5;145m▄[48;5;255m▀[49m▄[39m [0m

@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m8s23
+COAT: yellow
+EYE: brown
+FREE: no
+GROUP: filly
+GROUP NAME: apple family
+KIND: earth
+MANE: pink, red
+MEDIA: TV series
+NAME: apple bumpkin
+SOURCE: desktop ponies
+WIDTH: 47
+HEIGHT: 25
+
+
 $$$
 $balloon11$[0m
         $\$

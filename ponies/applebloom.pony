@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m8s39
+COAT: yellow
+EYE: brown
+FREE: no
+GROUP: filly
+GROUP NAME: deuteragonist, cutie mark crusader, apple family
+KIND: earth
+MANE: red
+MEDIA: TV series
+NAME: applebloom
+OTHER NAMES: bloom
+SOURCE: desktop ponies
+WIDTH: 41
+HEIGHT: 21
+
+
 $$$
 $balloon6$[0m
    $\$          [38;5;125m▄[48;5;162m▀▀[49m▄[39m                       [0m

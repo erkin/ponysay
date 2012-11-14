@@ -2,7 +2,7 @@ $$$
 COAT: black
 EYE: red
 FREE: yes
-GROUP: wildlife
+GROUP: dog
 GROUP NAME: wildlife
 KIND: animals
 MEDIA: TV series
