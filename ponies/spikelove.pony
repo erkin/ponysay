@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c2
+BASED ON: spike
+COAT: purple
+EYE: green
+FREE: no
+GROUP: dragon
+KIND: animal
+MANE: green (scales)
+MEDIA: TV series
+NAME: spike
+SOURCE: desktop ponies
+WIDTH: 28
+HEIGHT: 20
+
+
 $$$
 $balloon9$[0m
       $\$
