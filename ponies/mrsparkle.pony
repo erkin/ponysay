@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c23m12s47
+COAT: blue
+EYE: light yellow
+FREE: no
+GROUP: stallion
+KIND: unicorn
+MANE: blue
+MEDIA: TV series
+NAME: night light
+OTHER NAMES: mr sparkle
+SOURCE: desktop ponies, [jristz] (ponysay 2.8)
+WIDTH: 40
+HEIGHT: 25
+
+
 $$$
 $balloon33$[0m
                               $\$

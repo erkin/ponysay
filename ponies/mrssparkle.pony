@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c23m12s47
+COAT: white
+EYE: cyan
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: white, purple
+MEDIA: TV series
+NAME: twilight velvet
+OTHER NAMES: mrs sparkle
+SOURCE: desktop ponies
+WIDTH: 50
+HEIGHT: 24
+
+
 $$$
 $balloon5$[0m
   $\$
