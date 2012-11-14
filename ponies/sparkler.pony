@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m2s43
+COAT: pink
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: purple
+MEDIA: TV series
+NAME: amethyst star
+OTHER NAMES: sparkler
+SOURCE: desktop ponies
+WIDTH: 42
+HEIGHT: 25
+
+
 $$$
 $balloon25$[0m
                       $\$

@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c20m00s33
+COAT: pink
+EYE: dark blue
+FREE: no
+GROUP: mare
+GROUP NAME: spa
+KIND: earth
+MANE: clue
+MEDIA: TV series
+NAME: aloe
+SOURCE: desktop ponies
+WIDTH: 39
+HEIGHT: 25
+
+
 $$$
 $balloon7$[0m
     $\$

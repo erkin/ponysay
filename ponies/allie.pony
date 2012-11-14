@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c6m00s50
+COAT: yellow
+EYE: bue
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: blue, light blue
+MEDIA: TV series
+NAME: allie
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 29
+
+
 $$$
 $balloon28$[0m
                          $\$
