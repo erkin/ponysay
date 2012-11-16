@@ -1,4 +1,21 @@
 $$$
+APPEARANCE: s1c1m6s59
+BASED ON: pinkie
+COAT: pink
+EYE: blue
+FREE: no
+GROUP: mare
+GROUP NAME: mane
+KIND: earth
+MANE: pink
+MEDIA: TV series
+NAME: pinkie pie
+OTHER NAMES: pinkie, pinkamina diane pie
+SOURCE: desktop ponies
+WIDTH: 91
+HEIGHT: 58
+
+
 $$$
 $balloon9$[0m
       $\$
