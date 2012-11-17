@@ -1391,6 +1391,7 @@ The tool can be exited using the key combinations @kbd{C-q} or @kbd{C-x C-c}.
 
 @menu
 * Terminals::           Limitations on terminals.
+* GNU Hurd::            Limitations of the Hurd.
 * Cowsay::              Limitations on cowsay.
 @end menu
 
@@ -1440,6 +1441,20 @@ neither UTF-8 support nor 256 colour support, and is therefore not yet supported
 @pindex 9term
 Due to extreme limitations in @command{9term} @command{ponysay} will never be able to
 run on it.
+
+
+@node GNU Hurd
+@section GNU Hurd
+@cindex hurd
+@cindex gnu hurd
+@cindex tty
+
+@command{ponysay} should work just fine on GNU/Hurd, except for in the native virtual
+terminal (TTY). Hurd's terminal is limited to 16 colours and does not provide the capaility
+of modifing 
+
+If we are lucky it may be possible draw pictures, in full resultions, as you can
+in linux; which is currently not inplementedin @command{ponysay}.
 
 
 @node Cowsay
