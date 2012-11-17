@@ -1,4 +1,21 @@
 $$$
+APPEARANCE: s1c1m1s31
+BASED ON: twilight
+COAT: purple
+EYE: purple
+FREE: no
+GROUP: mare
+GROUP NAME: mane
+KIND: unicorn
+MANE: purple, blue
+MEDIA: TV series
+NAME: twilight sparkle
+OTHER NAMES: twilight
+SOURCE: desktop ponies
+WIDTH: 50
+HEIGHT: 28
+
+
 $$$
 $balloon5$[0m
   $\$
