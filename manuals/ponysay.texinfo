@@ -1453,8 +1453,9 @@ run on it.
 terminal (TTY). Hurd's terminal is limited to 16 colours and does not provide the capaility
 of modifing 
 
-If we are lucky it may be possible draw pictures, in full resultions, as you can
-in linux; which is currently not inplementedin @command{ponysay}.
+If we are lucky it may be possible draw pictures, in full resultions, as you can in linux;
+which is currently not inplementedin @command{ponysay}. Another, not yet implemented
+possiblity, is to use low resoltion with ACSII character for colour interpolation.
 
 
 @node Cowsay
