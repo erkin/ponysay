@@ -1,13 +1,13 @@
 $$$
 APPEARANCE: s1c1m5s9
-AURA: white, dark (see 'The crystal empire part 1')
-COAT: realy light pink
+AURA: yellow, dark (see 'The crystal empire part 1')
+COAT: white
 EYE: pink
 FREE: no
 GROUP: mare
 GROUP NAME: royal
 KIND: alicorn
-MANE: pink, cyan, green, blue
+MANE: pastel
 MEDIA: TV series
 NAME: princess celestia
 OTHER NAMES: celestia
