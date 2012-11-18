@@ -1,13 +1,13 @@
 $$$
-OTHER NAMES: celestia
-KIND: alicorn
+BASED ON: celestia
 COAT: white
-NAME: princess celestia
-MANE: blue, green, pink, cyan
 EYE: purple
 FREE: no
 GROUP: filly
-BASED ON: celestia
+KIND: alicorn
+MANE: pastel
+NAME: princess celestia
+OTHER NAMES: celestia
 WIDTH: 47
 HEIGHT: 27
 
