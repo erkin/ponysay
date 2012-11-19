@@ -2914,8 +2914,8 @@ sequences.
 @heading Version 3.0
 @itemize @bullet
 @item
-New ponies: @file{beautybrass}, @file{cloudchaser}, @file{flitter}, @file{mrbreezy}, @file{rumble},
-@file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal}, @file{twinkleshine}
+New ponies: @file{beautybrass}, @file{cloudchaser}, @file{flitter}, @file{mrbreezy}, @file{orangebird},
+@file{rumble}, @file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal}, @file{twinkleshine}
 @item
 New extraponies: @file{pizzapony}
 @item
