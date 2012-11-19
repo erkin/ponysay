@@ -5,7 +5,7 @@ FREE: yes
 GROUP: stallion
 GROUP NAME: mane-63
 KIND: pegasus
-MANE: red, orange, yellow, green, blue
+MANE: rainbow
 NAME: rainbow blitz
 WIDTH: 43
 HEIGHT: 26
