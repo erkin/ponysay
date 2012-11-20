@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c26m5s25
+COAT: pink
+EYE: orange
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: yellow
+MEDIA: TV series
+NAME: lily valley
+OTHER NAMES: lily
+SOURCE: desktop ponies
+WIDTH: 45
+HEIGHT: 25
+
+
 $$$
 $balloon30$[0m
                            $\$

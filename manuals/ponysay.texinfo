@@ -2956,6 +2956,8 @@ New manditory setup option @option{--freedom}.
 Pony metadata options added: @option{--info}, @option{++info} and @option{--restrict}.
 @item
 @file{fillycelestia} and @file{filliestia} has been moved to @file{extraponies}.
+@item
+@file{shadowbolts} has been renamed to @file{nightingale}
 @end itemize
 
 
