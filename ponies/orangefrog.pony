@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: s3e3
+APPEARANCE: s3e3m3s35
 COAT: orange
 FREE: yes
 GROUP: frog, orange
