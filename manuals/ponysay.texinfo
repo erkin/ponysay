@@ -2914,10 +2914,11 @@ sequences.
 @heading Version 3.0
 @itemize @bullet
 @item
-New ponies: @file{beautybrass}, @file{cloudchaser}, @file{flitter}, @file{mrbreezy}, @file{rumble},
-@file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal}, @file{twinkleshine}
+New ponies: @file{beautybrass}, @file{cloudchaser}, @file{flitter}, @file{mrbreezy}, @file{orangebird},
+@file{orangefrog}, @file{pinkiecrazyface}, @file{rumble}, @file{shiningarmorcrystal}, @file{sombra},
+@file{spikecrystal}, @file{twinkleshine}
 @item
-New extraponies: @file{pizzapony}
+New extraponies: @file{pipsqueak}, @file{pizzapony}
 @item
 Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}.
 @item

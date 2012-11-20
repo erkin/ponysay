@@ -6,7 +6,7 @@ FREE: no
 GROUP: mare
 GROUP NAME: mane
 KIND: pegasus
-MANE: red, orange, yellow, green, blue, purple
+MANE: rainbows
 MEDIA: TV series
 NAME: rainbow dash
 OTHER NAMES: rainbow, dash, dashie

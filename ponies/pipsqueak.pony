@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2e4m00s55
+COAT: brown
+EYE: white
+FREE: no
+GROUP: colt
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: pipsqueak
+OTHER NAMES: pip
+SOURCE: desktop ponies
+WIDTH: 33
+HEIGHT: 21
+
+
 $$$
 $balloon9$[0m
       $\$
