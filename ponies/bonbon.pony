@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m6s47
+COAT: creme
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: blue
+MEDIA: TV series
+NAME: bon bon
+OTHER NAMES: sweatie drops
+SOURCE: desktop ponies
+WIDTH: 42
+HEIGHT: 27
+
+
 $$$
 $balloon15$[0m
            $\$
