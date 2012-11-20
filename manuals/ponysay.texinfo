@@ -17,7 +17,7 @@
 
 @copying
 This manual is for ponysay
-(version @value{VERSION}),
+(version @value{VERSION}).
 
 Copyright @copyright{} 2012 Mattias Andrée
 
