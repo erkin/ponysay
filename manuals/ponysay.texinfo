@@ -2918,7 +2918,7 @@ New ponies: @file{beautybrass}, @file{cloudchaser}, @file{flitter}, @file{mrbree
 @file{orangefrog}, @file{rumble}, @file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal},
 @file{twinkleshine}
 @item
-New extraponies: @file{pizzapony}
+New extraponies: @file{pipsqueak}, @file{pizzapony}
 @item
 Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}.
 @item
