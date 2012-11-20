@@ -2915,8 +2915,8 @@ sequences.
 @itemize @bullet
 @item
 New ponies: @file{beautybrass}, @file{cloudchaser}, @file{flitter}, @file{mrbreezy}, @file{orangebird},
-@file{orangefrog}, @file{rumble}, @file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal},
-@file{twinkleshine}
+@file{orangefrog}, @file{pinkiecrazyface}, @file{rumble}, @file{shiningarmorcrystal}, @file{sombra},
+@file{spikecrystal}, @file{twinkleshine}
 @item
 New extraponies: @file{pipsqueak}, @file{pizzapony}
 @item
