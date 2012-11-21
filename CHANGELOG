@@ -42,8 +42,12 @@ Version 3.0
 	Pony metadata options added: --info, ++info and --restrict.
 
 	fillycelestia and filliestia has been moved to extraponies.
-
+	
 	Ponies renamed: shadowbolts to nightingale
+			lily to lilyvalley (Official name)
+			
+	Pony symlink added: lily → lilyvalley
+			    swatiedrops → bonbon
 
 Version 2.9.1
 
