@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m8s41
+BASED ON: granny
+COAT: green
+EYE: orange
+FREE: no
+GROUP: mare
+GROUP NAME: apple family
+KIND: earth
+MANE: white
+MEDIA: TV series
+NAME: granny smith
+SOURCE: desktop ponies
+WIDTH: 46
+HEIGHT: 24
+
+
 $$$
 $balloon33$[0m
                               $\$

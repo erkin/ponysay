@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c12m2s37
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: black
+MEDIA: TV series
+NAME: filthy rich
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 27
+
+
 $$$
 $balloon$
 [0m     $\$
