@@ -1,5 +1,6 @@
 $$$
 APPEARANCE: s1c1m20s21
+BASED ON: sweeties
 COAT: white
 EYE: green
 FREE: no
@@ -11,8 +12,8 @@ MEDIA: TV series
 NAME: sweetie bell
 OTHER NAMES: sweetie, sweatie
 SOURCE: desktop ponies
-WIDTH: 37
-HEIGHT: 23
+WIDTH: 57
+HEIGHT: 22
 
 
 $$$
