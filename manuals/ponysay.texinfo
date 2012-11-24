@@ -2956,14 +2956,18 @@ New manditory setup option @option{--freedom}.
 Pony metadata options added: @option{--info}, @option{++info} and @option{--restrict}.
 @item
 @file{fillycelestia} and @file{filliestia} has been moved to @file{extraponies}.
+@item
+Ponies renamed
 @file{shadowbolts} has been renamed to @file{nightingale} (shadowbolts split)
 @file{lily} has been renamed to @fike{lilyvalley} (official name)
 @file{sweatiesing} has been renamed to @file{sweetising} (name consistency)
+@file{carecake} has renamed into @file{carrotcake} (official full name)
 @item
 Pony symlink added:
 @itemize @bullet
 @item @file{lily} @arrow{} @file{lilyvalley}
 @item @file{swaetiedrops} @arrow{} @file{bonbon}
+@item @file{carecake} @arrow{} @file{carrotake}
 @end itemize
 
 
