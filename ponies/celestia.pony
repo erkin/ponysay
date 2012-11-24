@@ -1,6 +1,6 @@
 $$$
 APPEARANCE: s1c1m5s9
-AURA: yellow, dark (see 'The crystal empire part 1')
+AURA: yellow, black (see 'The crystal empire part 1')
 COAT: white
 EYE: pink
 FREE: no
@@ -12,7 +12,7 @@ MEDIA: TV series
 NAME: princess celestia
 OTHER NAMES: celestia
 SOURCE: desktop ponies
-WIDTH: 80
+WIDTH: 61
 HEIGHT: 42
 
 

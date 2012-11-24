@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c6m1s46
+COAT: orange
+EYE: black
+FREE: no
+GROUP: colt
+KIND: unicorn
+MANE: green
+MEDIA: TV series
+NAME: snails
+SOURCE: desktop ponies
+WIDTH: 34
+HEIGHT: 26
+
+
 $$$
 $balloon5$[0m
   $\$

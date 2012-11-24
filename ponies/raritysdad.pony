@@ -4,6 +4,7 @@ COAT: white
 EYE: blue
 FREE: no
 GROUP: stallion
+GROUP NAME: rarity family
 KIND: earth
 MANE: black
 MEDIA: TV series

@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c12m00s4
+COAT: gray
+EYE: purple
+FREE: no
+GROUP: filly
+GROUP NAME: villain
+KIND: earth
+MANE: white
+MEDIA: TV series
+NAME: silver spoon
+SOURCE: desktop ponies
+WIDTH: 33
+HEIGHT: 21
+
+
 $$$
 $balloon17$[0m
               $\$

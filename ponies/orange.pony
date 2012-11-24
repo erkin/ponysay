@@ -1,13 +1,15 @@
 $$$
 APPEARANCE: s1c23m3s33
 COAT: creme
-EYE: blue, cyan
+EYE: cyan
+FREE: no
 GROUP: stallion
+GROUP NAME: apple family
 KIND: earth
-LICENSE: no
 MANE: green
 MEDIA: TV series
 NAME: uncle orange
+OTHER NAMES: mosely orange
 SOURCE: desktop ponies
 WIDTH: 37
 HEIGHT: 25

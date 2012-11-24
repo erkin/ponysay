@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c23m16s9
+COAT: brown
+EYE: brown
+FREE: no
+GROUP: stallion
+GROUP NAME: pie family
+KIND: earth
+MANE: gray
+MEDIA: TV series
+NAME: clyde
+SOURCE: desktop ponies
+WIDTH: 47
+HEIGHT: 25
+
+
 $$$
 $balloon10$[0m
        $\$      [38;5;236m▄[48;5;239m▀▀[49m▄[39m                             [0m

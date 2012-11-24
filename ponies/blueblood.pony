@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c3m7s49
+COAT: white
+EYE: blue
+FREE: no
+GROUP: stallion
+GROUP NAME: royal
+KIND: unicorn
+MANE: yellow
+MEDIA: TV series
+NAME: prince blueblood
+OTHER NAMES: blueblood
+SOURCE: [jristz]
+WIDTH: 42
+HEIGHT: 29
+
+
 $$$
 $balloon$
 [0m      $\$

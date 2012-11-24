@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c23m16s55
+COAT: white
+EYE: cyan
+FREE: no
+GROUP: mare
+GROUP NAME: pie family
+KIND: earth
+MANE: gray
+MEDIA: TV series
+NAME: sue
+SOURCE: desktop ponies
+WIDTH: 42
+HEIGHT: 26
+
+
 $$$
 $balloon6$[0m
    $\$

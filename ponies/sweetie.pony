@@ -4,7 +4,7 @@ COAT: white
 EYE: green
 FREE: no
 GROUP: filly
-GROUP NAME: deuteragonist, cutie mark crusader
+GROUP NAME: deuteragonist, cutie mark crusader, rarity family
 KIND: unicorn
 MANE: pink
 MEDIA: TV series
