@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c16m5s24
+COAT: brown
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: gray
+MEDIA: TV series
+NAME: daring do
+SOURCE: desktop ponies
+WIDTH: 50
+HEIGHT: 27
+
+
 $$$
 $balloon30$[0m
                            $\$

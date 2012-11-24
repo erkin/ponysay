@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c20m4s35
+COAT: blue
+EYE: black
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: white
+MEDIA: TV series
+NAME: photo finish
+SOURCE: dektop ponies
+WIDTH: 41
+HEIGHT: 25
+
+
 $$$
 $balloon24$[0m
                      $\$

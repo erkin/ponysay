@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c26m20s9
+BASED ON: joe
+COAT: yellow
+EYE: green
+FREE: no
+GROUP: stallion
+KIND: unicorn
+MANE: brown
+MEDIA: TV series
+NAME: joe
+OTHER NAMES: donut joe
+SOURCE: dektop ponies deviantar group
+WIDTH: 39
+HEIGHT: 26
+
+
 $$$
 $balloon10$[0m
        $\$

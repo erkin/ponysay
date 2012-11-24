@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c1
+COAT: multiple
+EYE: red
+FREE: no
+GROUP: stallion
+GROUP NAME: antagonist
+KIND: draconequu
+MANE: gray
+MEDIA: TV series
+NAME: discord
+SOURCE: desktop onies devel
+WIDTH: 61
+HEIGHT: 53
+
+
 $$$
 $balloon11$[0m
       $\$

@@ -7,7 +7,7 @@ FREE: no
 GROUP: mare
 GROUP NAME: royal
 KIND: alicorn
-MANE: yellow, dark pink, dark gray
+MANE: pastel
 MEDIA: TV series
 NAME: cadence
 OTHER NAMES: cadenza, cadance

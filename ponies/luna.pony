@@ -1,17 +1,17 @@
 $$$
 APPEARANCE: s2c2m4s43
-COAT: dark blue
+COAT: blue
 EYE: blue
 FREE: no
 GROUP: mare
 GROUP NAME: royal
 KIND: alicorn
-MANE: blue, transparent blue
+MANE: blue
 MEDIA: TV series
 NAME: princess luna
 OTHER NAMES: lunija (russian), nightmare moon (corrupted)
 SOURCE: desktop ponies
-WIDTH: 70
+WIDTH: 61
 HEIGHT: 38
 
 

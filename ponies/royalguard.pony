@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m6s7
+COAT: white
+EYE: cyan
+FREE: no
+GROUP: stallion
+GROUP NAME: guard
+KIND: pegasus
+MANE: blue
+MEDIA: TV series
+NAME: pegasus royal guard
+OTHER NAMES: royal guard, pegasus guard
+SOURCE: desktop ponies
+WIDTH: 44
+HEIGHT: 27
+
+
 $$$
 $balloon26$[0m
                        $\$
