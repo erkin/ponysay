@@ -2916,7 +2916,7 @@ sequences.
 @item
 New ponies: @file{beautybrass}, @file{billneiigh}, @file{cloudchaser}, @file{descent}, @file{flitter},
 @file{mrbreezy}, @file{orangebird}, @file{orangefrog}, @file{pinkiecrazyface}, @file{rumble},
-@file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal}, @file{twinkleshine}
+@file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal}, @file{twilightcrystal}, @file{twinkleshine}
 @item
 New extraponies: @file{pipsqueak}, @file{pizzapony}
 @item
