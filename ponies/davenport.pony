@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c24m10s37
+COAT: brown
+EYE: green
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: davenport
+SOURCE: desktop ponies
+WIDTH: 39
+HEIGHT: 25
+
+
 $$$
 $balloon23$[0m
                     $\$

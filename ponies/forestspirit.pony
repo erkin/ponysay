@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1e3m2s27
+COAT: brown
+EYE: black
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: green
+MEDIA: TV series
+NAME: forest spirit
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 26
+
+
 $$$
 $balloon$
 [0m                                  $\$

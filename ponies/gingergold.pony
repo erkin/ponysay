@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c2m20s22
+COAT: brown
+EYE: black
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: beown
+MEDIA: TV series
+NAME: ginger gold
+SOURCE: [jristz]
+WIDTH: 28
+HEIGHT: 28
+
+
 $$$
 $balloon$
 [0m       $\$
