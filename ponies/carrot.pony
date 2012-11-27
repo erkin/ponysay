@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m6s47
+COAT: yellow
+EYE: green
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: orange
+MEDIA: TV series
+NAME: golden harvest
+OTHER NAMES: carrot top
+SOURCE: desktop ponies
+WIDTH: 44
+HEIGHT: 25
+
+
 $$$
 $balloon15$[0m
              $\$

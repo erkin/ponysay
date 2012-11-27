@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c17m3s37
+COAT: white
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: hay fever
+SOURCE: [jristz]
+WIDTH: 43
+HEIGHT: 23
+
+
 $$$
 $balloon$
 [0m        $\$
