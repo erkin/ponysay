@@ -5,15 +5,15 @@ COAT: white
 EYE: cyan
 FREE: no
 GROUP: stallion
-GROUP NAME: royal
+GROUP NAME: royal, twilight family
 KIND: unicorn
 MANE: blue, cyan
 MEDIA: TV series
 NAME: shining armor
 OTHER NAMES: shining armour
 SOURCE: [jristz]
-WIDTH: 40
-HEIGHT: 25
+WIDTH: 44
+HEIGHT: 27
 
 
 $$$

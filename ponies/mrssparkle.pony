@@ -4,6 +4,7 @@ COAT: white
 EYE: cyan
 FREE: no
 GROUP: mare
+GROUP NAME: twilight family
 KIND: unicorn
 MANE: white, purple
 MEDIA: TV series

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c13m6s3
+COAT: blue
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: blue berry
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 25
+
+
 $$$
 $balloon4$[0m
  $\$

@@ -4,6 +4,7 @@ COAT: blue
 EYE: light yellow
 FREE: no
 GROUP: stallion
+GROUP NAME: twilight family
 KIND: unicorn
 MANE: blue
 MEDIA: TV series

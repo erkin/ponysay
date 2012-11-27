@@ -1,3 +1,19 @@
+$$$
+APPEARANCE: s1c18m8s43
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: orange
+MEDIA: TV series
+NAME: mr breezy
+SOURCE: [jristz]
+WIDTH: 38
+HEIGHT: 28
+
+
+$$$
 $balloon25$[0m
                       $\$
                        $\$

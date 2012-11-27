@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c6m19s23
+COAT: white
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: orange
+MEDIA: TV series
+NAME: blue harvest
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 25
+
+
 $$$
 $balloon4$[0m
  $\$

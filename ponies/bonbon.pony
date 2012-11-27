@@ -8,7 +8,7 @@ KIND: earth
 MANE: blue
 MEDIA: TV series
 NAME: bon bon
-OTHER NAMES: sweatie drops
+OTHER NAMES: sweetie drops
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 27

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1e14m14s6
+COAT: purple
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: blue
+MEDIA: TV series
+NAME: candylicious
+SOURCE: [jristz]
+WIDTH: 49
+HEIGHT: 25
+
+
 $$$
 $balloon3$[0m
 $\$
