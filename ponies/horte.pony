@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c3m10s58
+COAT: creme
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: blue
+MEDIA: TV series
+NAME: horte cuise
+SOURCE: desktop ponies
+WIDTH: 40
+HEIGHT: 24
+
+
 $$$
 $balloon6$[0m
    $\$
