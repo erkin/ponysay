@@ -8,7 +8,7 @@ KIND: earth
 MANE: yellow
 MEDIA: desktop ponies deviantar group
 NAME: cherry berry
-OTHER NAMES: cherry jubilee (common mistake)
+OTHER NAMES: cherry jubilee (common mistake), cherry
 SOURCE: [jristz]
 WIDTH: 45
 HEIGHT: 26

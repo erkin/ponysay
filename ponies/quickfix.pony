@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m19s16
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: yellow
+MEDIA: TV series
+NAME: quickfix
+OTHER NAMES: epona, clockwork
+SOURCE: [jristz]
+WIDTH: 46
+HEIGHT: 25
+
+
 $$$
 $balloon3$[0m
 $\$

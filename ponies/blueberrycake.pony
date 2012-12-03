@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c23m10s4
+COAT: blue
+EYE: green
+FREE: no
+GROUP: filly
+KIND: earth
+MANE: purple
+MEDIA: TV series
+NAME: blueberry cake
+SOURCE: [jristz]
+WIDTH: 47
+HEIGHT: 24
+
+
 $$$
 $balloon31$[0m
                             $\$

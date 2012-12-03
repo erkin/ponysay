@@ -9,7 +9,7 @@ KIND: earth
 MANE: black
 MEDIA: TV series
 NAME: cherry fizzy
-OTHER NAMES: cherry cola
+OTHER NAMES: cherry cola, cherry coke
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 25

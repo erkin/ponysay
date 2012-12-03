@@ -8,6 +8,7 @@ KIND: earth
 MANE: brown
 MEDIA: TV series
 NAME: caramel
+OTHER NAMES: chance-a-lot
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 26

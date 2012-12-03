@@ -1,7 +1,7 @@
 $$$
 APPEARANCE: s2c20m00s33
 COAT: pink
-EYE: dark blue
+EYE: sblue
 FREE: no
 GROUP: mare
 GROUP NAME: spa

@@ -1,4 +1,22 @@
 $$$
+APPEARANCE: s1c1m5s9
+AURA: yellow, black (see 'The crystal empire part 1')
+BASED ON: celestia
+COAT: white
+EYE: pink
+FREE: no
+GROUP: mare
+GROUP NAME: royal
+KIND: alicorn
+MANE: pastel
+MEDIA: TV series
+NAME: princess celestia
+OTHER NAMES: celestia
+SOURCE: desktop ponies
+WIDTH: 80
+HEIGHT: 32
+
+
 $$$
 $balloon30$[0m
                            $\$

@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c23m16s7
+COAT: gray
+EYE: broen
+FREE: no
+GROUP: filly
+GROUP NAME: pie family
+KIND: earth
+MANE: gray
+MEDIA: TV series
+NAME: blinkie pie
+OTHER NAMES: blinkie
+SOURCE: desktop ponies
+WIDTH: 31
+HEIGHT: 20
+
+
 $$$
 $balloon5$[0m
   $\$

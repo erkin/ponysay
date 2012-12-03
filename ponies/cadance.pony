@@ -1,6 +1,7 @@
 $$$
 APPEARANCE: s2c25m9s22
 AURA: pink
+BASED ON: cadance
 COAT: pink
 EYE: pink
 FREE: no
@@ -9,8 +10,8 @@ GROUP NAME: royal
 KIND: alicorn
 MANE: pastel
 MEDIA: TV series
-NAME: cadence
-OTHER NAMES: cadenza, cadance
+NAME: cadance
+OTHER NAMES: cadenza, cadence
 SOURCE: [jristz]
 WIDTH: 55
 HEIGHT: 32

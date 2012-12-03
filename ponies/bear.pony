@@ -1,6 +1,6 @@
 $$$
 APPEARANCE: s2c3
-COAT: brown
+COAT: gray (ponysay), brown (source)
 EYE: yellow
 FREE: yes
 GROUP: bear
@@ -9,7 +9,7 @@ KIND: animal
 MEDIA: TV series
 NAME: bear
 SOURCE: [jristz]
-WIDTH: 87
+WIDTH: 80
 HEIGHT: 58
 
 

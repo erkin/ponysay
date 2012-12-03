@@ -1,5 +1,6 @@
 $$$
 APPEARANCE: s1c1m1s31
+AURA: purple, black (see The crystal empire part 2)
 COAT: purple
 EYE: purple
 FREE: no
