@@ -1,7 +1,6 @@
 $$$
 APPEARANCE: s2c25m9s22
 AURA: pink
-BASED ON: cadance
 COAT: pink
 EYE: pink
 FREE: no
