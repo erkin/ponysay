@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c12m00s4
+COAT: creeme
+EYE: purple
+FREE: no
+GROUP: filly
+KIND: earth
+MANE: orange (ponysay, red (source)
+MEDIA: TV series
+NAME: twist
+SOURCE: desktop ponies
+WIDTH: 33
+HEIGHT: 21
+
+
 $$$
 $balloon20$[0m
                  $\$

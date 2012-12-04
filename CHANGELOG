@@ -1,7 +1,9 @@
 Version 3.0
 
-	New ponies: beautybrass, cloudchaser, flitter, mrbreezy, orangebird, orangefrog,
-		    pinkiecrazyface, rumble, shiningarmorcrystal, sombra, spikecrystal, twinkleshine
+	New ponies: babseed, bear, beautybrass, bigmacsleep, billneigh, cadancecrystal,
+		    cloudchaser, descent, flitter, mrbreezy, orangebird, orangefrog, pinkiecrazyface, 
+		    raccoon, rumble, shiningarmorcrystal, sombra, spikecrystal, squirrel, trixieamulet,
+		    twilightcrystal, twinkleshine
 
 	New extraponies: pipsqueak (without pirate suit), pizzapony
 
@@ -41,7 +43,15 @@ Version 3.0
 	Pony metadata options added: --info, ++info and --restrict.
 
 	fillycelestia and filliestia has been moved to extraponies.
+	
+	Ponies renamed: shadowbolts to nightingale (shadowbolts split)
+			lily to lilyvalley (Official name)
+			sweatiesing to seetiesing (name consistency)
+			carecake become carrotcake (official name)
 
+	Pony symlink added: lily → lilyvalley
+			    swatiedrops → bonbon
+			    carecake → carrotcake
 
 Version 2.9.1
 

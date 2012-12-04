@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c3m7s26
+COAT: gray
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: gray
+MEDIA: TV series
+NAME: caesar
+SOURCE: desktop ponies
+WIDTH: 48
+HEIGHT: 26
+
+
 $$$
 $balloon6$[0m
    $\$         [38;5;234m▄[48;5;238m▀▀[49m▄▄[39m                              [0m

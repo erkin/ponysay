@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m6s47
+BASED ON: bonbon
+COAT: creme
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: blue
+MEDIA: TV series
+NAME: bon bon
+OTHER NAMES: sweetie drops
+SOURCE: desktop ponies
+WIDTH: 52
+HEIGHT: 26
+
+
 $$$
 $balloon6$
    [0m$\$

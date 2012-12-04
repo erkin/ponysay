@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c12m00s4
+COAT: pink
+EYE: blue
+FREE: no
+GROUP: filly
+GROUP NAME: villain
+KIND: earth
+MANE: gray
+MEDIA: TV series
+NAME: diamond tiara
+SOURCE: desktop ponies
+WIDTH: 36
+HEIGHT: 21
+
+
 $$$
 $balloon7$[0m
     $\$   [38;5;67m▀[39m  [38;5;152m▄[39m                        [0m

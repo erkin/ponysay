@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m6s47
+COAT: pink
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: yellow
+MEDIA: desktop ponies deviantar group
+NAME: cherry berry
+OTHER NAMES: cherry jubilee (common mistake), cherry
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 26
+
+
 $$$
 $balloon26$[0m
                       $\$

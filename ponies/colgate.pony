@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m2s20
+COAT: cyan
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: blue
+MEDIA: TV series
+NAME: minuette
+OTHER NAMES: colgate, TARDIE, romana, aquafresh, minty fresh
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 26
+
+
 $$$
 $balloon5$[0m
   $\$

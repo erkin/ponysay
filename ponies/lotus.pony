@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c9m20s52
+COAT: blue
+EYE: blue
+FREE: no
+GROUP: mare
+GROUP NAME: spa
+KIND: earth
+MANE: pink
+MEDIA: TV series
+NAME: lotus blosoom
+OTHER NAMES: lotus
+SOURCE: desktop ponies
+WIDTH: 39
+HEIGHT: 25
+
+
 $$$
 $balloon6$[0m
    $\$

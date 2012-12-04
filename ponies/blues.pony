@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c11m1s46
+COAT: blue
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: blue
+MEDIA: TV series
+NAME: noteworthy
+OTHER NAMES: blues
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 25
+
+
 $$$
 $balloon23$[0m
                     $\$

@@ -1,14 +1,15 @@
 $$$
 APPEARANCE: s1c23m12s47
 COAT: blue
-EYE: light yellow
+EYE: yellow
 FREE: no
 GROUP: stallion
+GROUP NAME: twilight family
 KIND: unicorn
 MANE: blue
 MEDIA: TV series
 NAME: night light
-OTHER NAMES: mr sparkle
+OTHER NAMES: mr sparkle, crescent sparkle
 SOURCE: desktop ponies, [jristz] (ponysay 2.8)
 WIDTH: 40
 HEIGHT: 25

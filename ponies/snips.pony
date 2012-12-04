@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c6m1s46
+COAT: green
+EYE: black
+FREE: no
+GROUP: colt
+KIND: unicorn
+MANE: orange
+MEDIA: TV series
+NAME: snips
+SOURCE: desktop ponies
+WIDTH: 35
+HEIGHT: 20
+
+
 $$$
 $balloon18$[0m
                $\$

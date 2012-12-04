@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c26m10s15
+COAT: brown
+EYE: green
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: yellow
+MEDIA: TV series
+NAME: frederick horseshoepin
+SOURCE: desktop ponies devel
+WIDTH: 59
+HEIGHT: 36
+
+
 $$$
 $balloon21$[0m
                   $\$

@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c21m06s37
+COAT: yellow
+EYE: green
+FREE: no
+GROUP: unicorn
+GROUP NAME: apple family
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: braeburn
+OTHER NAMES: baerburn (frequently miswriting)
+SOURCE: desktop ponies
+WIDTH: 47
+HEIGHT: 25
+
+
 $$$
 $balloon6$[0m
    $\$        [38;5;237m▄[48;5;95m▀▀[49m▄[39m                               [0m

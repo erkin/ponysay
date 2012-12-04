@@ -8,6 +8,7 @@ KIND: earth
 MANE: green
 MEDIA: TV series
 NAME: daisy
+OTHER NAMES: flower wishes
 SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 26

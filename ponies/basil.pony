@@ -1,18 +1,18 @@
 $$$
-COAT: red, yellow
-EYE: green, yellow
+COAT: red
+EYE: green
 FREE: yes
 GROUP: dragon
 GROUP NAME: wildlife
 KIND: animal
-MANE: pink (big scales in the head)
+MANE: pink (scales)
 MEDIA: TV series
 NAME: basil
-SOURCE: pony fantasy 6
+SOURCE: Pony Fantasy 6
 WIDTH: 85
 HEIGHT: 51
 
-Based on 'pony fantasy 6' basil dragon, the autor give permision over public domain for the image, the name is a generic name found in REALLY many places and finally dragon already  exist in many mith, you cannot copiright a myth
+Based on 'pony fantasy 6' basil dragon, the autor give permision over public domain for the image, the name is a generic name found in REALLY many places and is a placeholder.
 
 $$$
 $balloon57$[0m

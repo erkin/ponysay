@@ -1,8 +1,13 @@
 $$$
 APPEARANCE: s1
+COAT: white
+EYE: black
+FREE: no
 GROUP NAME: pet
 KIND: animal
+MEDIA: TV series
 NAME: angel
+SOURCE: desktop ponies
 WIDTH: 25
 HEIGHT: 19
 

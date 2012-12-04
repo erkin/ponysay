@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m19s03
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: white
+MEDIA: TV series
+NAME: mayor mare
+OTHER NAMES: mayor, mare
+SOURCE: desktop ponies
+WIDTH: 50
+HEIGHT: 27
+
+
 $$$
 $balloon24$[0m
                      $\$

@@ -12,7 +12,7 @@ SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 26
 
-she make a cameo on 'The crystal empire part 2' in the crow watching Rainbow dash and Fluttershy alongside others crystal ponies
+
 $$$
 $balloon5$[0m
   $\$

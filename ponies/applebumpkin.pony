@@ -6,7 +6,7 @@ FREE: no
 GROUP: filly
 GROUP NAME: apple family
 KIND: earth
-MANE: pink, red
+MANE: pink
 MEDIA: TV series
 NAME: apple bumpkin
 SOURCE: desktop ponies

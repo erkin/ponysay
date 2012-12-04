@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c15m5s00
+COAT: yellow
+EYE: green
+FREE: no
+GROUP: stallion
+GROUP NAME: villain
+KIND: unicorn
+MANE: red
+MEDIA: TV series
+NAME: flam
+SOURCE: desktop ponies deviantar group
+WIDTH: 44
+HEIGHT: 29
+
+
 $$$
 $balloon$
 [0m                     $\$

@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s2c2m4s43
+COAT: blue
+EYE: cyan
+FREE: no
+GROUP: mare
+GROUP NAME: royal, antagonist
+KIND: alicorn
+MANE: black
+MEDIA: TV series
+NAME: nightmare moon
+OTHER NAMES: lunija (russian), luma (harmionized)
+SOURCE: desktop ponies
+WIDTH: 61
+HEIGHT: 40
+
+
 $$$
 $balloon27$[0m
                         $\$

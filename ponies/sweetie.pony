@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m20s21
+COAT: white
+EYE: green
+FREE: no
+GROUP: filly
+GROUP NAME: deuteragonist, cutie mark crusader, rarity family
+KIND: unicorn
+MANE: pink
+MEDIA: TV series
+NAME: sweetie bell
+OTHER NAMES: sweetie, sweatie
+SOURCE: desktop ponies
+WIDTH: 37
+HEIGHT: 23
+
+
 $$$
 $balloon20$[0m
 [39;49m [39;49m             $\$

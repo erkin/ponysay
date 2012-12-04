@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c4m13s17
+COAT: blue
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: red
+MEDIA: TV series
+NAME: cup cake
+OTHER NAMES: mrs cup cake, mrs cupcake, cupcake
+SOURCE: desktop ponies
+WIDTH: 43
+HEIGHT: 28
+
+
 $$$
 $balloon25$[0m
                       $\$

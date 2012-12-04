@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c10m10s26
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: orange
+MEDIA: TV series
+NAME: horse, MD
+SOURCE: my little pony 2d rpg
+WIDTH: 32
+HEIGHT: 22
+
+
 $$$
 $balloon4$[0m
  $\$

@@ -5,14 +5,15 @@ COAT: blue
 EYE: purple
 FREE: no
 GROUP: mare
+GROUP NAME: villain
 KIND: unicorn
 MANE: white
 MEDIA: TV series
 NAME: the grat and powerful trixie
 OTHER NAMES: trixie, trixie lulamoon, lulamoon
 SOURCE: desktop ponies
-WIDTH: 115
-HEIGHT: 48
+WIDTH: 48
+HEIGHT: 28
 
 
 $$$

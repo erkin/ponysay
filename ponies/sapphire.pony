@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c19m00s29
+COAT: yellow
+EYE: brown
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: blue
+MEDIA: TV series
+NAME: sapphire shores
+SOURCE: desktop ponies
+WIDTH: 44
+HEIGHT: 31
+
+
 $$$
 $balloon17$[0m
               $\$

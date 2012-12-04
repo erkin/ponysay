@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c9m3s50
+COAT: white
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: unicorn
+MANE: blue
+MEDIA: TV series
+NAME: fancypants
+SOURCE: desktop ponies
+WIDTH: 46
+HEIGHT: 31
+
+
 $$$
 $balloon28$[0m
                          $\$

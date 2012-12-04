@@ -4,6 +4,7 @@ COAT: blue
 EYE: purple
 FREE: no
 GROUP: mare
+GROUP NAME: villain
 KIND: unicorn
 MANE: white
 MEDIA: TV series

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c17m4s4
+COAT: gray
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: yellow
+MEDIA: TV series
+NAME: hugh jelly
+SOURCE: imagegrou in deviantar
+WIDTH: 38
+HEIGHT: 37
+
+
 $$$
 $balloon7$[0m
     $\$

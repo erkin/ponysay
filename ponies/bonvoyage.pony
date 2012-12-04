@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c22m8s50
+COAT: yellow
+EYE: pink
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: pink
+MEDIA: TV series
+NAME: bon voyage
+SOURCE: [jristz]
+WIDTH: 49
+HEIGHT: 20
+
+
 $$$
 $balloon$
 [0m$\$

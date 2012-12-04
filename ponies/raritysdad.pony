@@ -4,11 +4,12 @@ COAT: white
 EYE: blue
 FREE: no
 GROUP: stallion
+GROUP NAME: rarity family
 KIND: earth
 MANE: black
 MEDIA: TV series
 NAME: magnum
-OTHER NAMES: raity's dad
+OTHER NAMES: raity's dad, carlton
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 27

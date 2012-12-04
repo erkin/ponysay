@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m18s45
+COAT: brown
+EYE: pink
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: pink
+MEDIA: TV series
+NAME: candymane
+OTHER NAMES: sugarcoat
+SOURCE: desktop ponies
+WIDTH: 47
+HEIGHT: 27
+
+
 $$$
 $balloon8$[0m
      $\$

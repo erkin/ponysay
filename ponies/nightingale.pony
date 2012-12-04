@@ -7,6 +7,7 @@ GROUP NAME: shadowbolts
 KIND: pegasus
 MANE: blue
 MEDIA: TV series
+NAME: nightingale
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 25

@@ -8,10 +8,10 @@ KIND: animals
 MEDIA: TV series
 NAME: cerberus
 OTHER NAMES: kerberos, cerberos
-WIDTH: 107
+WIDTH: 80
 HEIGHT: 33
 
-Cerberus already exist in miths, you cannot copyright a mith, neither they characters
+
 $$$
 $balloon46$[0m
                                            $\$

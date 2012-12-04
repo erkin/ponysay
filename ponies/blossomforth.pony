@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c22m3s39
+COAT: white
+EYE: green (ponysay), blue (source)
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: pink
+MEDIA: TV series
+NAME: blossomforth
+SOURCE: desktop ponies devel
+WIDTH: 51
+HEIGHT: 24
+
+
 $$$
 $balloon8$[0m
      $\$

@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c15m119
+COAT: brown
+EYE: blue
+GROUP: stallion
+GROUP NAME: no
+KIND: pegasus
+MANE: creme
+MEDIA: TV series
+NAME: crafty crate
+OTHER NAMES: boxxy brown, pete
+SOURCE: desktop ponies
+WIDTH: 48
+HEIGHT: 28
+
+
 $$$
 $balloon26$[0m
                        $\$

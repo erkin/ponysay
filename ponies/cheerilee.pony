@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c6m17s43
+COAT: purple
+EYE: green
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: pink
+MEDIA: TV series
+NAME: cheerilee
+OTHER NAMES: cheerelee, cheerilee pie
+SOURCE: desktop ponies
+WIDTH: 45
+HEIGHT: 25
+
+
 $$$
 $balloon7$[0m
     $\$

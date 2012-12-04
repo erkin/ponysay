@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c3m3s56
+BASED ON: cherrycola
+COAT: brown
+EYE: green
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: black
+MEDIA: TV series
+NAME: cherry fizzy
+OTHER NAMES: cherry cola, cherry coke
+SOURCE: desktop ponies
+WIDTH: 39
+HEIGHT: 25
+
+
 $$$
 $balloon6$[0m
    $\$

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c14m13s11
+COAT: gray
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: white
+MEDIA: TV series
+NAME: hoity toity
+SOURCE: desktop ponies
+WIDTH: 42
+HEIGHT: 27
+
+
 $$$
 $balloon5$[0m
   $\$
