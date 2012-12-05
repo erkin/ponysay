@@ -814,7 +814,7 @@ class Ponysay():
         
         ## Make the columnisation nicer by letting the last row be partially empty rather than the last column
         diff = rows * cols - len(ponies)
-        if diff > 2:
+        if (diff > 2) and (rows > 1):
             c = cols - 1
             diff -= 1
             while diff > 0:
