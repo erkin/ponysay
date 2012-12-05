@@ -26,14 +26,14 @@ man()
 	langarg="$en"
     fi
     
-    if [ -f "./manuals/manpage${lang}.6" ]; then
-	aspell --lang="${langarg}" check "./manuals/manpage${lang}.6"
-	git add "./manuals/manpage${lang}.6"
-    elif [ -f "../manuals/manpage${lang}.6" ]; then
-	aspell --lang="${langarg}" check "../manuals/manpage${lang}.6"
-	git add "../manuals/manpage${lang}.6"
+    if [ -f "./manuals/manpage${lang}.0" ]; then
+	aspell --lang="${langarg}" check "./manuals/manpage${lang}.0"
+	git add "./manuals/manpage${lang}.0"
+    elif [ -f "../manuals/manpage${lang}.0" ]; then
+	aspell --lang="${langarg}" check "../manuals/manpage${lang}.0"
+	git add "../manuals/manpage${lang}.0"
     else
-	echo "spell.sh: unable to find document: manpage${lang}.6" >&2
+	echo "spell.sh: unable to find document: manpage${lang}.0" >&2
 	exit -1
     fi
 }
