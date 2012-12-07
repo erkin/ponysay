@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c2
+COAT: brown
+EYE: black
+FREE: yes
+GROUP: manticore
+GROUP NAME: wildlife
+KIND: animals
+MANE: red
+MEDIA: TV series
+NAME: manticore
+SOURCE: unisay
+WIDTH: 75
+HEIGHT: 33
+
+
 $$$
 $balloon33$[0m
                               $\$

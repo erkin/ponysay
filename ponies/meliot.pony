@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c11m13s26
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: meliot
+SOURCE: [jristz]
+WIDTH: 38
+HEIGHT: 24
+
+
 $$$
 $balloon7$[0m
     $\$

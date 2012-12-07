@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c23m16s7
+AURA: purple
+EYE: gray
+FREE: no
+GROUP: filly
+GROUP NAME: pie family
+KIND: earth
+MANE: gray
+MEDIA: TV series
+NAME: inkie pie
+OTHER NAMES: inkie, inky
+SOURCE: desktop ponies
+WIDTH: 32
+HEIGHT: 22
+
+
 $$$
 $balloon6$[0m
    $\$

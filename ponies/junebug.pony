@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c10m7s47
+COAT: brown
+EYE: green
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: orange
+MEDIA: TV series
+NAME: junebug
+SOURCE: desktop ponies
+WIDTH: 40
+HEIGHT: 27
+
+
 $$$
 $balloon$
 [0m  $\$

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c12m2s44
+COAT: white
+EYE: purple
+FREE: no
+GROUP: filly
+KIND: pegasus
+MANE: blue
+MEDIA: TV series
+NAME: cotton cloudy
+SOURCE: desktop ponies
+WIDTH: 37
+HEIGHT: 20
+
+
 $$$
 $balloon5$[0m
   $\$

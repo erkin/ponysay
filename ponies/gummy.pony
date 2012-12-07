@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1
+COAT: green
+EYE: purple
+FREE: no
+GROUP: crocodile
+GROUP NAME: pet
+KIND: animals
+MEDIA: TV series
+NAME: gummy
+SOURCE: desktop ponies
+WIDTH: 27
+HEIGHT: 15
+
+
 $$$
 $balloon7$[0m
     $\$

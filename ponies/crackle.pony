@@ -1,6 +1,6 @@
 $$$
 APPEARANCE: s2
-COAT: green, blue (gem), pink (gem), purple (gem), cyan (gem)
+COAT: green
 EYE: red
 FREE: yes
 GROUP: dragon
@@ -9,7 +9,7 @@ KIND: animal
 MEDIA: TV series
 NAME: crackle
 SOURCE: desktop ponies deviantart group
-WIDTH: 131
+WIDTH: 80
 HEIGHT: 60
 
 

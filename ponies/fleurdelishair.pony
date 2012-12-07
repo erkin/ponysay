@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c9m3s50
+BASED ON: fleurdelis
+COAT: white
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: pink
+MEDIA: TV series
+NAME: fleur de lis
+SOURCE: desktop ponies
+WIDTH: 46
+HEIGHT: 30
+
+
 $$$
 $balloon28$[0m
                          $\$

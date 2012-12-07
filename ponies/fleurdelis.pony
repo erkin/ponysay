@@ -5,7 +5,7 @@ EYE: purple
 FREE: no
 GROUP: mare
 KIND: unicorn
-MANE: pink, light pink
+MANE: pink
 MEDIA: TV series
 NAME: fleur de lis
 SOURCE: desktop ponies

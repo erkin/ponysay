@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m18s46
+COAT: brown
+EYE: yellow
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: ywllow
+MEDIA: TV series
+NAME: mjölna
+OTHER NAMES: sandy
+SOURCE: desktop ponies
+WIDTH: 45
+HEIGHT: 26
+
+
 $$$
 $balloon5$[0m
   $\$

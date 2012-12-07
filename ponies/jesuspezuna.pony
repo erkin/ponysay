@@ -8,6 +8,7 @@ KIND: earth
 MANE: black
 MEDIA: TV series
 NAME: jesús pezuña
+OTHER NAMES: jesus pezuna
 SOURCE: [jristz]
 WIDTH: 41
 HEIGHT: 29

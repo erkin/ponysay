@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c17m3s33
+COAT: brown
+EYE: brown
+FREE: no
+GROUP: colt
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: high score
+SOURCE: [jristz]
+WIDTH: 40
+HEIGHT: 29
+
+
 $$$
 $balloon$
 [0m                   $\$

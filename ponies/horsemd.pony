@@ -7,7 +7,7 @@ GROUP: stallion
 KIND: earth
 MANE: orange
 MEDIA: TV series
-NAME: horse, MD
+NAME: horse MD
 SOURCE: my little pony 2d rpg
 WIDTH: 32
 HEIGHT: 22

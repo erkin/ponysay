@@ -11,8 +11,8 @@ MEDIA: TV series
 NAME: derpy hooves
 OTHER NAMES: derpy, ditzy doo, ditzy
 SOURCE: desktop ponies
-WIDTH: 45
-HEIGHT: 32
+WIDTH: 80
+HEIGHT: 59
 
 
 $$$

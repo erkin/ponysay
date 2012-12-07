@@ -1,4 +1,15 @@
 $$$
+APPEARANCE: s2c25
+FREE: yes
+GROUP: bag
+KIND: item
+MEDIA: TV series
+NAME: madam la flour
+SOURCE: desktop ponies
+WIDTH: 28
+HEIGHT: 26
+
+
 $$$
 $balloon5$[0m
   $\$

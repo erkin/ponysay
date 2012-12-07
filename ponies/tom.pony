@@ -2,8 +2,10 @@ $$$
 FREE: yes
 GROUP: rock
 KIND: item
+MEDIA: TV series
 NAME: tom the rock
 OTHER NAMES: tom
+SOURCE: desktop ponies devel
 WIDTH: 52
 HEIGHT: 30
 

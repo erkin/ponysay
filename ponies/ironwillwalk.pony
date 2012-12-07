@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2
+COAT: blue
+FREE: no
+GROUP: bull (or minotaur)
+GROUP NAME: villian
+KIND: animals
+MANE: black
+MEDIA: TV series
+NAME: iron will
+SOURCE: desktop ponies
+WIDTH: 59
+HEIGHT: 39
+
+
 $$$
 $balloon32$[0m
                              $\$

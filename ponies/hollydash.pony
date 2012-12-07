@@ -1,4 +1,17 @@
 $$$
+APPEARANCE: s1c10m17s33
+COAT: pink
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: tricolor
+MEDIA: TV series
+NAME: holly dash
+SOURCE: [jristz]
+WIDTH: 49
+HEIGHT: 24
+
+
 $$$
 $balloon$
 [0m                              $\$

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c1m16s34
+COAT: white
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: blue
+MEDIA: TV series
+NAME: lightning bolt
+SOURCE: desktop ponies
+WIDTH: 41
+HEIGHT: 25
+
+
 $$$
 $balloon5$[0m
   $\$

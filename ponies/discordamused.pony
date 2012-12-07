@@ -4,14 +4,14 @@ BASED ON: discord
 COAT: multiple
 EYE: red
 FREE: no
-GROUP: stallion
+GROUP: male
 GROUP NAME: antagonist
 KIND: draconequu
 MANE: gray
 MEDIA: TV series
 NAME: discord
-SOURCE: desktop onies devel
-WIDTH: 61
+SOURCE: desktop ponies devel
+WIDTH: 83
 HEIGHT: 33
 
 

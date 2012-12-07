@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c6m3s45
+COAT: brown
+EYE: green
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: yellow
+MEDIA: TV series
+NAME: meadow song
+OTHER NAMES: blue grass, guitar, yellow burst
+SOURCE: [jristz]
+WIDTH: 41
+HEIGHT: 28
+
+
 $$$
 $balloon8$[0m
      $\$

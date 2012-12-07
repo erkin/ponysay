@@ -6,12 +6,12 @@ FREE: no
 GROUP: mare
 GROUP NAME: royal
 KIND: alicorn
-MANE: blue
+MANE: blue, cyab (season 1)
 MEDIA: TV series
 NAME: princess luna
 OTHER NAMES: lunija (russian), nightmare moon (corrupted)
 SOURCE: desktop ponies
-WIDTH: 61
+WIDTH: 70
 HEIGHT: 38
 
 

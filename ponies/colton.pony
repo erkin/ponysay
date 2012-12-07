@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c7m1s40
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: blue
+MEDIA: TV series
+NAME: goldengrape
+OTHER NAMES: green grapes, colton vines, sir colton vines
+SOURCE: desktop ponies
+WIDTH: 41
+HEIGHT: 25
+
+
 $$$
 $balloon5$[0m
   $\$

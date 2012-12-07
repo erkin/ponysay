@@ -1,4 +1,16 @@
 $$$
+APPEARANCE: s1c2m1s27
+COAT: blue
+EYE: purple
+FREE: no
+MANE: purple
+MEDIA: TV series
+NAME: diamond mint
+SOURCE: desktop ponies
+WIDTH: 47
+HEIGHT: 25
+
+
 $$$
 $balloon8$[0m
      $\$

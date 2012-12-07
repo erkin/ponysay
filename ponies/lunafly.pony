@@ -7,7 +7,7 @@ FREE: no
 GROUP: mare
 GROUP NAME: royal
 KIND: alicorn
-MANE: blue, transparent blue (season 2)
+MANE: cyan, blue (season 2)
 MEDIA: TV series
 NAME: princess luna
 OTHER NAMES: lunija (russian), nightmare moon (corrupted)

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c1m3s17
+COAT: yellow
+EYE: pink
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: blue
+MEDIA: TV series
+NAME: lemon hearts
+SOURCE: desktop ponies devel
+WIDTH: 39
+HEIGHT: 22
+
+
 $$$
 $balloon29$[0m
                           $\$

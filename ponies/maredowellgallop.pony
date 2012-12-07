@@ -1,4 +1,16 @@
 $$$
+APPEARANCE: s2
+BASED ON: maredowell
+FREE: no
+GROUP: mare
+KIND: earth
+MEDIA: TV series
+NAME: mare do well
+SOURCE: desktop ponies
+WIDTH: 52
+HEIGHT: 24
+
+
 $$$
 $balloon10$[0m
        $\$

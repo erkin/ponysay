@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c26m3s51
+COAT: blue
+EYE: green
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: yellow
+MEDIA: TV series
+NAME: master
+SOURCE: desktop ponies
+WIDTH: 39
+HEIGHT: 25
+
+
 $$$
 $balloon5$[0m
   $\$

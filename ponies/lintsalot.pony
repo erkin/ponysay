@@ -1,4 +1,16 @@
 $$$
+APPEARANCE: s2c25
+FREE: yes
+GROUP: earth
+KIND: item
+MEDIA: TV series
+NAME: lintsalot
+OTHER NAMES: lintzalot
+SOURCE: desktop ponies
+WIDTH: 27
+HEIGHT: 21
+
+
 $$$
 $balloon5$[0m
   $\$

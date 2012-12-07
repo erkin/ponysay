@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c16m13s50
+COAT: white
+FREE: yes
+GROUP: stallion
+GROUP NAME: wonderbolts
+KIND: pegasus
+MANE: orange
+MEDIA: TV series
+NAME: fire streak
+SOURCE: [jristz]
+WIDTH: 43
+HEIGHT: 25
+
+
 $$$
 $balloon9$[0m
       $\$

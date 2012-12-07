@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1
+COAT: gray
+EYE: yellow
+FREE: no
+GROUP: dog
+GROUP NAME: antagonist, diamond dog
+KIND: animals
+MEDIA: TV series
+NAME: fido
+SOURCE: desktop ponies
+WIDTH: 47
+HEIGHT: 26
+
+
 $$$
 $balloon8$[0m
      $\$
