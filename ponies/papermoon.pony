@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: S1c16m6s28
+COAT: brown
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: pegasus
+MANE: brown
+MEDIA: TV series
+NAME: papermoon
+OTHER NAMES: peppsermoon
+SOURCE: desktop ponies
+WIDTH: 39
+HEIGHT: 24
+
+
 $$$
 $balloon7$[0m
     $\$

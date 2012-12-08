@@ -1,11 +1,14 @@
 $$$
+APPEARANCE: s1
 COAT: brown
+EYE: black
 FREE: yes
 GROUP: owl
-KIND: animal
-MANE: brown
+GROUP NAME: wildlife
+KIND: animals
 MEDIA: TV series
 NAME: owl
+SOURCE: imageboard
 WIDTH: 21
 HEIGHT: 23
 

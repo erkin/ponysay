@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1
+COAT: multiple
+EYE: multiple
+FREE: yes
+GROUP: parasprite
+GROUP NAME: wildlife
+KIND: animals
+MEDIA: TV series
+NAME: parasprite
+SOURCE: desktop ponies
+WIDTH: 28
+HEIGHT: 15
+
+
 $$$
 $balloon5$[0m
   $\$

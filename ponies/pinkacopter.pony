@@ -12,7 +12,7 @@ MEDIA: TV series
 NAME: pinkie pie
 OTHER NAMES: pinkie, pinkamina diane pie
 SOURCE: desktop ponies
-WIDTH: 91
+WIDTH: 77
 HEIGHT: 58
 
 

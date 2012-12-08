@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c12m00s4
+COAT: brown
+EYE: purple
+FREE: no
+GROUP: filly
+KIND: earth
+MANE: creme
+MEDIA: TV series
+NAME: noi
+SOURCE: [jristz]
+WIDTH: 36
+HEIGHT: 21
+
+
 $$$
 $balloon9$[0m
       $\$

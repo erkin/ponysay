@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m20s15
+COAT: blue
+EYE: yellow
+FREE: no
+GROUP: stallion
+KIND: unicorn
+MANE: white
+MEDIA: TV series
+NAME: pokey pierce
+OTHER NAMES: perry pierce (same look)
+SOURCE: desktop ponies
+WIDTH: 44
+HEIGHT: 26
+
+
 $$$
 $balloon$
 [0m  $\$

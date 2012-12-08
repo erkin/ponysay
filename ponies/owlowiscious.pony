@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1
+COAT: brown
+EYE: black
+FREE: no
+GROUP: owl
+GROUP NAME: pet
+KIND: animals
+MEDIA: TV series
+NAME: owlowiscious
+SOURCE: imageboard
+WIDTH: 30
+HEIGHT: 22
+
+
 $$$
 $balloon5$[0m
   $\$

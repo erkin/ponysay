@@ -1,6 +1,6 @@
 $$$
 APPEARANCE: s1c1m19s35
-COAT: light pink
+COAT: pink
 EYE: cyan
 FREE: no
 GROUP: filly
@@ -8,7 +8,7 @@ KIND: earth
 MANE: pink
 MEDIA: TV series
 NAME: piña colada
-OTHER NAMES: apple core (merged from in mlp wikia)
+OTHER NAMES: apple core (merged from in mlp wikia),pina colada
 SOURCE: [jristz]
 WIDTH: 35
 HEIGHT: 22

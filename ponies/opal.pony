@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1
+COAT: white
+EYE: green
+FREE: no
+GROUP: cat
+GROUP NAME: pet
+KIND: animals
+MEDIA: TV series
+NAME: opalescence
+OTHER NAMES: opal
+SOURCE: desktop ponies
+WIDTH: 29
+HEIGHT: 18
+
+
 $$$
 $balloon15$[0m
             $\$

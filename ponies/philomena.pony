@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1
+COAT: pink
+EYE: blue
+FREE: no
+GROUP: phoenix
+GROUP NAME: pet
+KIND: animals
+MEDIA: TV series
+NAME: philomena
+OTHER NAMES: filomena
+SOURCE: desktop ponies
+WIDTH: 29
+HEIGHT: 20
+
+
 $$$
 $balloon7$[0m
     $\$

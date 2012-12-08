@@ -1,4 +1,17 @@
 $$$
+APPEARANCE: s1c20m8s11
+COAT: creme
+EYE: white
+FREE: no
+GROUP: mare
+KIND: earth
+MEDIA: TV series
+NAME: picture perfect
+SOURCE: [jristz]
+WIDTH: 41
+HEIGHT: 25
+
+
 $$$
 $balloon3$[0m
 $\$

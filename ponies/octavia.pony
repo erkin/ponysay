@@ -1,4 +1,16 @@
 $$$
+APPEARANCE: s1c26m10s15
+COAT: gray
+EYE: purple
+FREE: no
+MANE: black
+MEDIA: TV series
+NAME: octavia
+SOURCE: desktop ponies
+WIDTH: 45
+HEIGHT: 31
+
+
 $$$
 $balloon18$[0m
 [49m             $\$                [38;5;131m▄[48;5;131m [48;5;215m▄ [49m

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c1m18s45
+COAT: blue
+EYE: green
+FREE: no
+GROUP: stallion
+KIND: unicorn
+MANE: yellow
+MEDIA: TV series
+NAME: ponet
+SOURCE: [jristz]
+WIDTH: 44
+HEIGHT: 27
+
+
 $$$
 $balloon$
 [0m                                 $\$

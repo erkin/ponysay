@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c14m13s37
+COAT: white
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: blue
+MEDIA: TV series
+NAME: dj pon-3
+OTHER NAMES: vın̈yl scratch,vinyl scratch, vinyl
+SOURCE: desktop ponies
+WIDTH: 46
+HEIGHT: 28
+
+
 $$$
 $balloon25$[0m
                    $\$

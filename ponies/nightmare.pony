@@ -9,9 +9,9 @@ KIND: alicorn
 MANE: black
 MEDIA: TV series
 NAME: nightmare moon
-OTHER NAMES: lunija (russian), luma (harmionized)
+OTHER NAMES: lunija (russian), luna (harmionized)
 SOURCE: desktop ponies
-WIDTH: 61
+WIDTH: 77
 HEIGHT: 40
 
 

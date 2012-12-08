@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c17m3s44
+COAT: white
+EYE: purple
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: yellow
+MEDIA: TV series
+NAME: persnickety
+SOURCE: [jristz]
+WIDTH: 46
+HEIGHT: 32
+
+
 $$$
 $balloon$
 [0m $\$

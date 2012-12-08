@@ -2964,6 +2964,7 @@ Ponies renamed
 @file{lily} has been renamed to @fike{lilyvalley} (official name)
 @file{sweatiesing} has been renamed to @file{sweetising} (name consistency)
 @file{carecake} has renamed into @file{carrotcake} (official full name)
+@file{peppermoon} has renamed to @file{pepermoon} (miswriting)
 @item
 Pony symlink added:
 @itemize @bullet

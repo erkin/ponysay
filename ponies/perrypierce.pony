@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c9m3s43
+COAT: blue
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: unicorn
+MANE: white
+MEDIA: TV series
+NAME: perry pierce
+OTHER NAMES: pokey pierce (same look)
+SOURCE: desktop poniess
+WIDTH: 43
+HEIGHT: 27
+
+
 $$$
 $balloon$
 [0m                                $\$

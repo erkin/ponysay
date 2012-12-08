@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c3m2s27
+COAT: purple
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: purple
+MEDIA: TV series
+NAME: petunia
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 27
+
+
 $$$
 $balloon$
 [0m                          $\$

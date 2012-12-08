@@ -8,7 +8,7 @@ KIND: earth
 MANE: pink
 MEDIA: TV series
 NAME: apple core
-OTHER NAMES: piña colada (merged on mlp wikia)
+OTHER NAMES: piña colada, pina colada (merged on mlp wikia)
 SOURCE: [jristz]
 WIDTH: 33
 HEIGHT: 21

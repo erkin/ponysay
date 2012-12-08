@@ -1,4 +1,17 @@
 $$$
+APPEARANCE: s2c17m4s2
+COAT: brown
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: pigpen
+SOURCE: [jristz]
+WIDTH: 44
+HEIGHT: 27
+
+
 $$$
 $balloon33$[0m
                               $\$
