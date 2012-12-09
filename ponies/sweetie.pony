@@ -8,7 +8,7 @@ GROUP NAME: deuteragonist, cutie mark crusader, rarity family
 KIND: unicorn
 MANE: pink
 MEDIA: TV series
-NAME: sweetie bell
+NAME: sweetie belle
 OTHER NAMES: sweetie, sweatie
 SOURCE: desktop ponies
 WIDTH: 37
