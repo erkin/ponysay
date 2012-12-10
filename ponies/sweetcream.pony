@@ -4,7 +4,7 @@ COAT: cream
 FREE: no
 GROUP: mare
 KIND: unicorn
-MANE: pastel
+MANE: yellow
 MEDIA: official comic
 NAME: sweetcream scoops
 SOURCE: [jristz]
