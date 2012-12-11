@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c4
+COAT: gray
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: pegasus
+MANE: black
+MEDIA: TV series
+NAME: royal night guard
+SOURCE: desktop ponies
+WIDTH: 40
+HEIGHT: 26
+
+
 $$$
 $balloon25$[0m
                       $\$

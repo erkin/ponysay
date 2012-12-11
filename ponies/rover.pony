@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1
+COAT: gray
+EYE: green
+FREE: no
+GROUP: dog
+GROUP NAME: antagonist, diamond dog
+KIND: animals
+MEDIA: TV series
+NAME: rover
+SOURCE: desktop ponies
+WIDTH: 51
+HEIGHT: 26
+
+
 $$$
 $balloon7$[0m
     $\$

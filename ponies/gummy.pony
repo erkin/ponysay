@@ -3,7 +3,7 @@ APPEARANCE: s1
 COAT: green
 EYE: purple
 FREE: no
-GROUP: crocodile
+GROUP: alligator
 GROUP NAME: pet
 KIND: animals
 MEDIA: TV series

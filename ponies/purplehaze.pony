@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c3m2s27
+COAT: purple
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: purple
+MEDIA: TV series
+NAME: purple haze
+SOURCE: desktop ponies
+WIDTH: 43
+HEIGHT: 27
+
+
 $$$
 $balloon$
 [0m                          $\$

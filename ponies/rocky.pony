@@ -1,4 +1,16 @@
 $$$
+APPEARANCE: s1c25
+COAT: gray
+FREE: yes
+GROUP: rock
+KIND: item
+MEDIA: TV series
+NAME: rocky
+SOURCE: desktop ponies
+WIDTH: 23
+HEIGHT: 27
+
+
 $$$
 $balloon5$[0m
   $\$

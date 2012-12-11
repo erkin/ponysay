@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c1m16s58
+COAT: orange
+EYE: cyan
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: cyan
+MEDIA: TV series
+NAME: raindrops
+SOURCE: desktop ponies
+WIDTH: 48
+HEIGHT: 25
+
+
 $$$
 $balloon34$[0m
                                $\$

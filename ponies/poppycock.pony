@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c26m5s57
+COAT: red
+EYE: gray
+FREE: no
+GROUP: stallion
+KIND: unicorn
+MANE: blue
+MEDIA: TV series
+NAME: poppycock
+SOURCE: [jristz]
+WIDTH: 43
+HEIGHT: 26
+
+
 $$$
 $balloon35$[0m
                                 $\$

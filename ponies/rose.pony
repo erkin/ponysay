@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c4m18s35
+COAT: creme
+EYE: gray (ponysay), green (source)
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: red
+MEDIA: TV series
+NAME: rese
+OTHER NAMES: roseluck
+SOURCE: desktop ponies
+WIDTH: 50
+HEIGHT: 26
+
+
 $$$
 $balloon6$[0m
    $\$

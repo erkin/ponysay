@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c16m17s22
+BALLOON: filly
+COAT: white
+EYE: purple
+FREE: no
+GROUP: earth
+MANE: black
+MEDIA: TV series
+NAME: nursery rhyme
+SOURCE: [jristz]
+WIDTH: 33
+HEIGHT: 23
+
+
 $$$
 $balloon$
 [0m $\$

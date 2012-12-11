@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c4m14s59
+COAT: white
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: gray (ponysay), pink (source
+MEDIA: TV series
+NAME: nurse redheart
+SOURCE: desktop ponies
+WIDTH: 40
+HEIGHT: 27
+
+
 $$$
 $balloon6$[0m
    $\$

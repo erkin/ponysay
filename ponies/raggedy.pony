@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c9m16s51
+COAT: gray
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: black
+MEDIA: TV series
+NAME: raggedy doctor
+OTHER NAMES: raggedy
+SOURCE: desktop ponies deviantart group
+WIDTH: 39
+HEIGHT: 30
+
+
 $$$
 $balloon$
 [0m                      $\$

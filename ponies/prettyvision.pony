@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c20m4s45
+AURA: yellow
+EYE: green
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: pretty vision
+OTHER NAMES: elsie
+SOURCE: desktop ponies
+WIDTH: 42
+HEIGHT: 25
+
+
 $$$
 $balloon7$[0m
     $\$

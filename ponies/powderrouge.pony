@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c20m8s54
+AURA: blue
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: creme
+MEDIA: TV series
+NAME: powder rouge
+OTHER NAMES: sindy
+SOURCE: desktop ponies
+WIDTH: 39
+HEIGHT: 21
+
+
 $$$
 $balloon$
 [0m                   $\$

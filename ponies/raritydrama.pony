@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m12s2
+BASED ON: rarity
+COAT: white
+EYE: blue
+FREE: no
+GROUP: mare
+GROUP NAME: mane
+KIND: unicorn
+MANE: purple
+MEDIA: TV series
+NAME: rarity
+SOURCE: desktop ponies
+WIDTH: 44
+HEIGHT: 25
+
+
 $$$
 $balloon24$[0m
                     $\$

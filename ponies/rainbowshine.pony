@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c1m18s43
+COAT: blue
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: pink
+MEDIA: TV series
+NAME: rainbowshine
+SOURCE: desktop ponies
+WIDTH: 41
+HEIGHT: 25
+
+
 $$$
 $balloon24$[0m
                      $\$
