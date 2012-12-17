@@ -1,4 +1,15 @@
 $$$
+APPEARANCE: s2c25
+FREE: yes
+GROUP: buck
+KIND: item
+MEDIA: TV series
+NAME: turnip
+SOURCE: desktop ponies
+WIDTH: 24
+HEIGHT: 24
+
+
 $$$
 $balloon5$[0m
   $\$

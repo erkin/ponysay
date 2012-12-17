@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c1m16s40
+COAT: pink
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: blue
+MEDIA: TV series
+NAME: royal ribbon
+OTHER NAMES: violet
+SOURCE: desktop ponies
+WIDTH: 38
+HEIGHT: 26
+
+
 $$$
 $balloon23$[0m
                     $\$

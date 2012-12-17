@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c25m9s52
+COAT: brown
+EYE: brown
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: brown
+MEDIA: TV series
+NAME: wild fire
+SOURCE: deviantart desktop ponies group
+WIDTH: 38
+HEIGHT: 25
+
+
 $$$
 $balloon29$[0m
                           $\$

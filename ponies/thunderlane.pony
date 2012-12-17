@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c22m3s11
+COAT: black
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: pegasus
+MANE: cyan
+MEDIA: TV series
+NAME: thunderlane
+SOURCE: desktop ponies devel
+WIDTH: 36
+HEIGHT: 25
+
+
 $$$
 $balloon6$[0m
    $\$

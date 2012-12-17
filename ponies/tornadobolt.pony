@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c7m1s46
+COAT: gray
+EYE: yellow
+FREE: no
+GROUP: colt (wikia), stallion (others reliable sources)
+KIND: pegasus
+MANE: purple
+MEDIA: TV series
+NAME: tornado bolt
+SOURCE: [jristz]
+WIDTH: 50
+HEIGHT: 26
+
+
 $$$
 $balloon$
 [0m     $\$

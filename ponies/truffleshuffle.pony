@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c12m5s57
+COAT: gray
+EYE: blue
+FREE: no
+GROUP: colt
+KIND: earth
+MANE: black
+MEDIA: TV series
+NAME: truffle shuffle
+SOURCE: [jristz]
+WIDTH: 32
+HEIGHT: 21
+
+
 $$$
 $balloon$
 [0m                   $\$

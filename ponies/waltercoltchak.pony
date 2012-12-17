@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c6m00s54
+COAT: brown
+EYE: black
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: walter coltchak
+SOURCE: deviantart desktop ponies group
+WIDTH: 40
+HEIGHT: 26
+
+
 $$$
 $balloon31$[0m
                             $\$

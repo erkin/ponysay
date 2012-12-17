@@ -1,4 +1,17 @@
 $$$
+APPEARANCE: s2
+COAT: green
+FREE: no
+GROUP: tortoise
+GROUP NAME: pet
+KIND: animals
+MEDIA: TV series
+NAME: tank
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 21
+
+
 $$$
 $balloon6$[0m
    $\$                           [38;5;109m▄▄▄▄▄▄▄[48;5;195m▀▀[48;5;231m▀▀▀▀▀[49m▄▄[39m  [0m

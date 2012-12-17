@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c19m2s21
+COAT: blue
+EYE: cyan
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: brown
+MEDIA: TV series
+NAME: turf
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 26
+
+
 $$$
 $balloon20$[0m
                  $\$

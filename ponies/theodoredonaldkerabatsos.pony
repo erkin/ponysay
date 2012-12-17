@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c6m00s54
+COAT: creme
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: brown (source), black (ponysay)
+MEDIA: TV series
+NAME: theodore donald "donny" kerabatsos
+SOURCE: deviantart desktop ponies group
+WIDTH: 42
+HEIGHT: 24
+
+
 $$$
 $balloon21$[0m
                   $\$

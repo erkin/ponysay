@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1
+EYE: black
+FREE: no
+GROUP: dog
+GROUP NAME: pet
+KIND: animals
+MANE: brown
+MEDIA: TV series
+NAME: winona
+SOURCE: desktop ponies
+WIDTH: 35
+HEIGHT: 21
+
+
 $$$
 $balloon6$[0m
    $\$

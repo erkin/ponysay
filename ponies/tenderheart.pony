@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c4m15s5
+COAT: cyan
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: green
+MEDIA: TV series
+NAME: nurse tenderheart
+SOURCE: [jristz]
+WIDTH: 40
+HEIGHT: 26
+
+
 $$$
 $balloon6$[0m
    $\$
