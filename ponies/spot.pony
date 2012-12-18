@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1
+COAT: brown
+EYE: yellow
+FREE: no
+GROUP: dog
+GROUP NAME: antagonist, diamond dog
+KIND: animal
+MEDIA: TV series
+NAME: spot
+SOURCE: desktop ponies
+WIDTH: 47
+HEIGHT: 23
+
+
 $$$
 $balloon13$[0m
           $\$

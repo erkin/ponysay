@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c22m3s39
+COAT: gray
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: gray
+MEDIA: TV series
+NAME: silverspeed
+SOURCE: desktop ponies
+WIDTH: 45
+HEIGHT: 25
+
+
 $$$
 $balloon10$[0m
        $\$

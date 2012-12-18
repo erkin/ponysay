@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: s2c2
+APPEARANCE: s1c1
 BASED ON: spike
 COAT: purple
 EYE: green
@@ -10,8 +10,8 @@ MANE: green (scales)
 MEDIA: TV series
 NAME: spike
 SOURCE: desktop ponies
-WIDTH: 28
-HEIGHT: 20
+WIDTH: 27
+HEIGHT: 19
 
 
 $$$

@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: s1c1m20s23
+COAT: orange
+EYE: purple
+FREE: no
+GROUP: filly
+GROUP NAME: deuteragonist, scutie mark crusaders
+KIND: pegasus
+MANE: purple
+MEDIA: TV series
+NAME: scootaloo
+OTHER NAMES: scoot, chicken
+SOURCE: desktop ponies
+WIDTH: 46
+HEIGHT: 24
+
+
 $$$
 $balloon8$[0m
      $\$

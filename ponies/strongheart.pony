@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s2c21
+COAT: brown
+EYE: black
+FREE: no
+GROUP: buffalo
+GROUP NAME: wildlife
+KIND: animal
+MANE: yellow
+MEDIA: TV series
+NAME: strongheart
+SOURCE: desktop ponies
+WIDTH: 42
+HEIGHT: 27
+
+
 $$$
 $balloon16$[0m
              $\$    [38;5;234m▄▄[39m        [38;5;234m▄[48;5;235m▀[48;5;234m▀[39m[49m           [0m

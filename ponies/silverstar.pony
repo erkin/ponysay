@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c21m7s36
+COAT: brown
+EYE: cyan
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: gray (ponysay), brown (sorce)
+MEDIA: TV series
+NAME: sheriff silverstar
+OTHER NAMES: silverstar
+SOURCE: desktop ponies
+WIDTH: 40
+HEIGHT: 28
+
+
 $$$
 $balloon17$[0m
               $\$

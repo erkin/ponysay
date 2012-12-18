@@ -1,4 +1,19 @@
 $$$
+APPEARANCE: s1c22m3s22
+COAT: white
+EYE: red
+FREE: no
+GROUP: stallion
+KIND: pegasus
+MANE: yellow (ponysay), brown (soirce)
+MEDIA: TV series
+NAME: snowflake
+OTHER NAMES: horse power
+SOURCE: deviantart desktop ponies group
+WIDTH: 48
+HEIGHT: 25
+
+
 $$$
 $balloon33$[0m
                               $\$

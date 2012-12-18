@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: s2c2
+APPEARANCE: s1c1
 COAT: purple
 EYE: green
 FREE: no

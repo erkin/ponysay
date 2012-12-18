@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c20m4s35
+COAT: creme
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: orange
+MEDIA: TV series
+NAME: stella
+SOURCE: desktop ponies
+WIDTH: 41
+HEIGHT: 26
+
+
 $$$
 $balloon7$[0m
     $\$

@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c20m4s35
+COAT: cyan
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: pink
+MEDIA: TV series
+NAME: soigne folio
+SOURCE: desktop ponies
+WIDTH: 42
+HEIGHT: 27
+
+
 $$$
 $balloon24$[0m
                      $\$

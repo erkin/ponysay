@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c1m16s40
+COAT: pink
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: blue
+MEDIA: TV series
+NAME: sea swirl
+SOURCE: desktop ponies
+WIDTH: 50
+HEIGHT: 24
+
+
 $$$
 $balloon6$[0m
    $\$

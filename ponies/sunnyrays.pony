@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c8m00s5
+COAT: orange
+EYE: pink
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: pink
+MEDIA: TV series
+NAME: sunny rays
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 19
+
+
 $$$
 $balloon3$[0m
 $\$

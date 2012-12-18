@@ -8,7 +8,8 @@ KIND: earth
 MANE: orange
 MEDIA: TV series
 NAME: horse MD
-SOURCE: my little pony 2d rpg
+OTHER NAMES: MD horse
+SOURCE: my little pony on-line
 WIDTH: 32
 HEIGHT: 22
 

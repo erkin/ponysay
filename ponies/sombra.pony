@@ -1,7 +1,7 @@
 $$$
 APPEARANCE: s3c1m3s40
 COAT: gray
-EYE: green (in fashback) white (in las scene), brown (ponysay) red (source), purple aura
+EYE: green (in flashback) white (in last scene), brown (ponysay) red (source), purple aura
 FREE: no
 GROUP: stallion
 GROUP NAME: antagonist

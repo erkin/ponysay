@@ -1,4 +1,21 @@
 $$$
+APPEARANCE: s1c1
+BASED ON: stenmagnet
+COAT: purple
+EYE: black
+FREE: no
+GROUP: sea serpent
+GROUP NAME: wildlife
+KIND: animals
+MANE: orange
+MEDIA: TV series
+NAME: steven magnet
+OTHER NAMES: stephen magnet, sea serpent
+SOURCE: desktop ponies
+WIDTH: 70
+HEIGHT: 42
+
+
 $$$
 $balloon14$[0m
           $\$

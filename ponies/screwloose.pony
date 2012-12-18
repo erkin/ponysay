@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c16m18s18
+COAT: blue
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: blue
+MEDIA: TV series
+NAME: screw loose
+SOURCE: [jristz]
+WIDTH: 47
+HEIGHT: 26
+
+
 $$$
 $balloon$
 [0m                                  $\$

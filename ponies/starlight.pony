@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c13m6s3
+COAT: purple
+EYE: green
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: yellow
+MEDIA: TV series
+NAME: starlight
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 26
+
+
 $$$
 $balloon29$[0m
                           $\$

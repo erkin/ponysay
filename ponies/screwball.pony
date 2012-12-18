@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s2c2m11s23
+COAT: pink
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+MANE: purple
+MEDIA: TV series
+NAME: screwball
+SOURCE: desktop ponies
+WIDTH: 53
+HEIGHT: 23
+
+
 $$$
 $balloon6$[0m
    $\$

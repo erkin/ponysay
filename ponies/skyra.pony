@@ -1,4 +1,18 @@
 $$$
+APPEARANCE: s1c16m6s27
+COAT: cyan
+EYE: yellow
+FREE: no
+GROUP: mare
+KIND: pegasus
+MANE: white
+MEDIA: TV series
+NAME: skyra
+SOURCE: desktop ponies
+WIDTH: 43
+HEIGHT: 26
+
+
 $$$
 $balloon$
 [0m                                 $\$

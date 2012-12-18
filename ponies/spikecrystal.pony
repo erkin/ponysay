@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: s2c2
+APPEARANCE: s1c1
 BASED ON: spike
 COAT: purple
 EYE: green
