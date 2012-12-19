@@ -1461,7 +1461,6 @@ class ArgParser():
     @param  help:str                Short description, use `None` to hide the option
     '''
     def add_argumentless(self, alternatives, help = None):
-        ARGUMENTLESS
         self.__arguments.append((ARGUMENTLESS, alternatives, None, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
