@@ -1,5 +1,16 @@
 $$$
-WIDTH: 51
+APPEARANCE: s1c1m2s23
+COAT: cyan
+EYE: yellow
+FREE: no
+GROUP: mare
+KIND: unicorn
+MANE: white
+MEDIA: TV series
+NAME: lyra heartstrings
+OTHER NAMES: lyra, harpass, heartstrings
+SOURCE: desktop ponies
+WIDTH: 42
 HEIGHT: 28
 
 
