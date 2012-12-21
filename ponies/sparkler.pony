@@ -1,14 +1,17 @@
 $$$
-APPEARANCE: s1c1m2s43
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: purple
+BALLOON: top
 COAT: pink
+DISPLAY: full, right
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, background, voiced
 KIND: unicorn
+LINK: regular
 MANE: purple
-MEDIA: TV series
-NAME: amethyst star
-OTHER NAMES: sparkler
+NAME: (not mentioned)
+OTHER NAMES: amethyst star (official, in merchandise), sparkler (unofficial)
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 25

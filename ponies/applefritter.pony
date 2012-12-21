@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: s1c1m8s23
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
 COAT: yellow
 EYE: green
 FREE: no
-GROUP: filly
-GROUP NAME: apple family
+GROUP: filly, background
 KIND: earth
+LINK: regular
 MANE: green
-MEDIA: TV series
 NAME: apple fritter
+POSE: full, left
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 25

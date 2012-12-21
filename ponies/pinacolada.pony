@@ -7,8 +7,8 @@ GROUP: filly
 KIND: earth
 MANE: pink
 MEDIA: TV series
-NAME: piña colada
-OTHER NAMES: apple core (merged from in mlp wikia),pina colada
+NAME: (not mentioned)
+OTHER NAMES: piña colada, apple core (merged in wiki), pina colada (ASCII)
 SOURCE: [jristz]
 WIDTH: 35
 HEIGHT: 22

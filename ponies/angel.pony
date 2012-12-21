@@ -1,12 +1,15 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: black
 FREE: no
-GROUP NAME: pet
+GROUP: pet, rabbit
 KIND: animal
-MEDIA: TV series
+LINK: regular
 NAME: angel
+OTHER NAMES: angel bunny (official, used by Fluttershy sometimes)
 SOURCE: desktop ponies
 WIDTH: 25
 HEIGHT: 19

@@ -1,15 +1,15 @@
 $$$
-APPEARANCE: s1c1m7s30
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
 COAT: brown
 EYE: blue
 FREE: no
-GROUP: mare
-GROUP NAME: mane
+GROUP: mare, mane
 KIND: earth
+LINK: regular
 MANE: yellow
-MEDIA: TV series
 NAME: applejack
-OTHER NAMES: aj
+POSE: full, left
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 27

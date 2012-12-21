@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: s1c1m8s23
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
 COAT: yellow
-EYE: brown
+DISPLAY: full, left
+EYE: brown, closed
 FREE: no
-GROUP: filly
-GROUP NAME: apple family
+GROUP: mare, background
 KIND: earth
+LINK: regular
 MANE: pink
-MEDIA: TV series
 NAME: apple bumpkin
 SOURCE: desktop ponies
 WIDTH: 47

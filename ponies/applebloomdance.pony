@@ -1,16 +1,17 @@
 $$$
-APPEARANCE: s1c1m8s39
-BASED ON: applebloom
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
 COAT: yellow
+DISPLAY: full, left
 EYE: brown
 FREE: no
-GROUP: filly
-GROUP NAME: deuteragonist, cutie mark crusader, apple family
+GROUP: filly, deuteragonist
 KIND: earth
+LINK: regular
 MANE: red
-MEDIA: TV series
-NAME: applebloom
-OTHER NAMES: bloom
+MASTER: applebloom
+NAME: apple bloom
+POSE: dance
 SOURCE: desktop ponies
 WIDTH: 34
 HEIGHT: 24

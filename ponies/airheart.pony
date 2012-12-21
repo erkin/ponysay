@@ -1,15 +1,18 @@
 $$$
-APPEARANCE: s1c6m3s55
+APPEARANCE: S01E06 Boast Busters
+BALLOON: top
 COAT: pink
-EYE: cyan
+DISPLAY: full, front
+EYE: cyan, closed
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: pegasus
+LINK: regular
 MANE: brown
-MEDIA: TV series
-NAME: airheart
+NAME: (not mentioned)
+OTHER NAMES: airheart (unofficial)
 SOURCE: [jristz]
-WIDTH: 26
+WIDTH: 24
 HEIGHT: 26
 
 

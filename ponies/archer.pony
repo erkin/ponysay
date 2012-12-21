@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c12m00s12
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
 COAT: blue
-EYE: gray
+DISPLAY: full, right
+EYE: grey
 FREE: no
-GROUP: filly
+GROUP: filly, background
 KIND: earth
+LINK: regular
 MANE: blue
-MEDIA: TV series
-NAME: archer
+NAME: (not mentioned)
+OTHER NAMES: archer (unofficial)
 SOURCE: desktop ponies
 WIDTH: 46
 HEIGHT: 21

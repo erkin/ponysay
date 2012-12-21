@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s2c20m00s33
+APPEARANCE: S01E20 Green isn't Your Color
+BALLOON: top
 COAT: pink
-EYE: sblue
+DISPLAY: full, left
+EYE: purple
 FREE: no
-GROUP: mare
-GROUP NAME: spa
+GROUP: mare, background
 KIND: earth
-MANE: clue
-MEDIA: TV series
-NAME: aloe
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: aloe (unofficial)
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 25

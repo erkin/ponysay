@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c12m7s25
-COAT: creme
-EYE: cyan
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
+COAT: beige
+EYE: teal
 FREE: no
-GROUP: stallion
+GROUP: stallion, background, voice
 KIND: earth
+LINK: regular
 MANE: black
-MEDIA: TV series
-NAME: ace
+NAME: (not mentioned)
+OTHER NAMES: ace (unofficial)
 SOURCE: [jristz]
 WIDTH: 48
 HEIGHT: 27

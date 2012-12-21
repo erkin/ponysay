@@ -741,7 +741,7 @@ class PonysayTool():
         standardfields = ['GROUP NAME', 'NAME', 'OTHER NAMES', 'APPEARANCE', 'KIND',
                           'GROUP', 'BALLOON', 'LINK', 'LINK ON', 'COAT', 'MANE', 'EYE',
                           'AURA', 'DISPLAY', 'BALLOON TOP', 'BALLOON BOTTOM', 'MASTER',
-                          'EXTRA', 'BASED ON', 'SOURCE', 'MEDIA', 'LICENSE', 'FREE',
+                          'POSE', 'BASED ON', 'SOURCE', 'MEDIA', 'LICENSE', 'FREE',
                           'comment']
         for standard in standardfields:
             if standard in fields:

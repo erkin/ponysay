@@ -643,10 +643,8 @@ not work on less POSIX compatible shells. It works by first getting a random pon
 use the extra information printed the file descriptor 3 (see @ref{Extra information}),
 and fetchs the file name with help of @command{grep} and @command{sed}. The file
 name is stored in a shell variable. It the pipes one an execute of ponysay into
-another executing, using the stored file anme in both executions.
-
-Is know that this comand ith the form that we show to you not work on 
-@shell{fish} as pressented here.
+another executing, using the stored file anme in both executions. This does not
+work on FISH shell because os POSIX incompatibility.
 
 Ponysay can use just about anything as a message because it quarantines the message's
 ANSI escape sequences, including colour. And is Unicode aware (including combining
@@ -936,7 +934,7 @@ The mane characters (also known as main characters [unponified] or protagonists)
 @item @code{wildlife}
 Wildlife, for example timberwolfs
 @item @code{pet}
-A ponies' pet, Spike does not count because Twilight does not play with him during
+A pony's pet, Spike does not count because Twilight does not play with him during
 pony–pet play dates.
 @item @code{villain}
 Villains, normally minons to antagonists. Applies to changelings.
@@ -966,10 +964,10 @@ Imaginary ponies (or other animal).
 @vindex @var{BALLOON}
 For each balloon in the file (a pony file can have more than one balloon, but
 that is not common) their should one tag entry. There are four values that
-can be used: top (the common setup, the balloon is at the top of the image),
-bottom (the balloon is at the bottom of the image), right (the balloon is neither
-at the top or at the bottom of the image, but is placed to the right of the pony)
-and inside (the balloon is somewhere as inside the image.)
+can be used: @code{top} (the common setup, the balloon is at the top of the image),
+@code{bottom} (the balloon is at the bottom of the image), @code{right} (the balloon
+is neither at the top or at the bottom of the image, but is placed to the right of
+the pony) and @code{inside} (the balloon is somewhere as inside the image.)
 
 @item LINK ON
 @vindex @var{LINK ON}
@@ -1012,7 +1010,8 @@ may describe a colour combination.
 @vindex @var{EYE}
 The name of the colour (as best estimated by you), in lowercase, that the pony's eyes
 have. Common colour names are preferable. Only one colour should be named, but the name
-may describe a colour combination.
+may describe a colour combination. If the eyes are closed in the picture, use
+@code{close} in addition the the actual eye colour, separated by a comma.
 
 @item AURA
 @vindex @var{AURA}
@@ -1132,7 +1131,7 @@ three times.
 `Officiallity tag' refers the an annotation added to a tag value's list element.
 If the value is unofficial the string @code{(unofficial)} is appended (preferable with
 leading whitespace) to the element. If it is official the appended string is of the
-format @code{(unofficial, %c)} (the brackets are verbatim), where @code{%c} is a
+format @code{(official, %c)} (the brackets are verbatim), where @code{%c} is a
 comment. For example Chrysalis' name has not been mentioned in the show, however it
 is used in the manuscript, therefore a pony file with Chrysalis should have the
 (partial) metadata:
@@ -2959,18 +2958,22 @@ Pony metadata options added: @option{--info}, @option{++info} and @option{--rest
 @item
 @file{fillycelestia} and @file{filliestia} has been moved to @file{extraponies}.
 @item
-Ponies renamed
 @file{shadowbolts} has been renamed to @file{nightingale} (shadowbolts split)
-@file{lily} has been renamed to @fike{lilyvalley} (official name)
+@item
+@file{lily} has been renamed to @file{lilyvalley} (official name)
+@item
 @file{sweatiesing} has been renamed to @file{sweetising} (name consistency)
+@item
 @file{carecake} has renamed into @file{carrotcake} (official full name)
-@file{peppermoon} has renamed to @file{pepermoon} (miswriting)
+@item
+@file{peppermoon} has renamed to @file{pepermoon} (typo)
 @item
 Pony symlink added:
 @itemize @bullet
 @item @file{lily} @arrow{} @file{lilyvalley}
 @item @file{swaetiedrops} @arrow{} @file{bonbon}
 @item @file{carecake} @arrow{} @file{carrotake}
+@end itemize
 @end itemize
 
 
@@ -3576,7 +3579,6 @@ The freedom to distribute copies of your modified versions to others (freedom 3)
 By doing this you can give the whole community a chance to benefit from your
 changes. Access to the source code is a precondition for this.
 @end itemize
-
 @*
 
 @cartouche

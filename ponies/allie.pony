@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s2c6m00s50
+APPEARANCE: S02E06 The Cutie Pox
+BALLOON: top
 COAT: yellow
-EYE: bue
+DISPLAY: full, right
+EYE: blue
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: unicorn
-MANE: blue, light blue
-MEDIA: TV series
-NAME: allie
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: allie (unofficial), allie way (unofficial)
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 29
