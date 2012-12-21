@@ -1529,9 +1529,9 @@ to your @file{~/.bashrc} file.
 @example
 [[ ! "$COLORTERM" = "" ]] &&
     function ponysay
-    {
+    @{
         exec ponysay "$@@" | cat | cat | cat | cat
-    }
+    @}
 @end example
 @end cartouche
 

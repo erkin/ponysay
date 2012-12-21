@@ -198,7 +198,7 @@ class Ponysay():
         
         
         def share(file):
-            return [parsefile(item) + file for item in [
+            return [(parsefile(item) + file) for item in [
                     '$XDG_DATA_HOME/ponysay/',
                     '$HOME/.local/share/ponysay/',
                     '/usr/share/ponysay/',

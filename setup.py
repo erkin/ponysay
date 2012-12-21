@@ -490,13 +490,6 @@ class Setup():
                 if fileout is not None:  fileout.close()
                 if filein  is not None:  filein .close()
         
-        for sharedir in [sharedir[0] for sharedir in sharedirs]:
-            for sharefile in os.listdir(conf[sharedir]):
-                if sharefile.endswith('.pony') and (sharefile != '.pony'):
-                    for toolcommand in ('--dimensions', '--metadata'):
-                        Popen(['./ponysay-tool.py', toolcommand, conf[sharedir]], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
-                    break
-        
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 for command in commands:
@@ -542,6 +535,16 @@ class Setup():
             finally:
                 if ponymap is not None:
                     ponymap.close()
+        
+        for sharedir in [sharedir[0] for sharedir in sharedirs]:
+            if os.path.isdir(sharedir):
+                for sharefile in os.listdir(sharedir):
+                    if sharefile.endswith('.pony') and (sharefile != '.pony'):
+                        sharefile = sharedir + '/' + sharefile
+                        for toolcommand in ('--dimensions', '--metadata'):
+                            print('%s, %s, %s' % ('./ponysay-tool.py', toolcommand, sharefile))
+                            Popen(['./ponysay-tool.py', toolcommand, sharefile], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
+        
         print()
     
     
