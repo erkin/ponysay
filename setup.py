@@ -536,11 +536,14 @@ class Setup():
                 if ponymap is not None:
                     ponymap.close()
         
-        for sharedir in [sharedir[0] for sharedir in sharedirs]:
+        for sharedir in [sharedir[0] for sharedir in sharedirs]: # TODO make this an opt-out option
             if os.path.isdir(sharedir):
                 for sharefile in os.listdir(sharedir):
                     if sharefile.endswith('.pony') and (sharefile != '.pony'):
                         sharefile = sharedir + '/' + sharefile
+                        if self.free and not Setup.validateFreedom(sharefile):
+                            print('Skipping metadata correction for %s, did not pass validation process made by setup settings' % sharefile)
+                            continue
                         for toolcommand in ('--dimensions', '--metadata'):
                             print('%s, %s, %s' % ('./ponysay-tool.py', toolcommand, sharefile))
                             Popen(['./ponysay-tool.py', toolcommand, sharefile], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
@@ -623,12 +626,12 @@ class Setup():
                 self.cp(False, src, dests)
         for dir in sharedirs:
             if conf[dir[0]] is not None:
-                self.cp(True, dir[0], [conf[dir[0]]], self.validateFreedom if self.free else None)
+                self.cp(True, dir[0], [conf[dir[0]]], Setup.validateFreedom if self.free else None)
         for file in sharefiles:
             if conf[file[0]] is not None:
-                self.cp(False, 'share/' + file[1], [conf[file[0]]], self.validateFreedom if self.free else None)
+                self.cp(False, 'share/' + file[1], [conf[file[0]]], Setup.validateFreedom if self.free else None)
         for file in miscfiles:
-            self.cp(False, file[0], [conf[file[0]]], self.validateFreedom if self.free else None)
+            self.cp(False, file[0], [conf[file[0]]], Setup.validateFreedom if self.free else None)
         print()
     
     
@@ -784,21 +787,23 @@ class Setup():
     
     
     '''
-    Check whethera file is fully free
+    Check whether a file is fully free
     '''
-    def validateFreedom(self, filename):
-        if filename.endswith('.pony') and not (filename == '.pony'):
-            with open(filename, 'rb') as file:
-                data = file.read.decode('utf8', 'replace')
-                if data.startswith('$$$\n') and ('\n$$$\n' in data):
-                    data = data[4 : data.find('\n$$$\n')].split('\n')
-                    for line in data:
-                        if ':' not in line:
-                            continue
-                        line = [item.strip() for item in line.split(':')]
-                        if (len(line) == 2) and (line[0] == 'FREE'):
-                            return line[1].lower() == 'yes'
-                    return False
+    @staticmethod
+    def validateFreedom(filename):
+        if not os.path.isdir(filename):
+            if filename.endswith('.pony') and (filename != '.pony') and not filename.endswith('/.pony'):
+                with open(filename, 'rb') as file:
+                    data = file.read().decode('utf8', 'replace')
+                    if data.startswith('$$$\n') and ('\n$$$\n' in data) and not data.startswith('$$$\n$$$\n'):
+                        data = data[4 : data.find('\n$$$\n')].split('\n')
+                        for line in data:
+                            if ':' not in line:
+                                continue
+                            line = [item.strip() for item in line.split(':')]
+                            if (len(line) == 2) and (line[0] == 'FREE'):
+                                return line[1].lower() == 'yes'
+                return False
         return True
     
     
@@ -852,9 +857,9 @@ class Setup():
                     if os.path.exists(src) and os.path.islink(src):
                         links.append((os.path.isdir(src), src, [dest + '/' + file]))
                     else:
-                        self.cp(os.path.isdir(src), src, [dest + '/' + file])
+                        self.cp(os.path.isdir(src), src, [dest + '/' + file], validatehook)
                 for link in links:
-                    self.cp(link[0], link[1], link[2])
+                    self.cp(link[0], link[1], link[2], validatehook)
             if self.linking != COPY:
                 for dest in destinations[1:]:
                     print('Creating symbolic link %s with target directory %s' % (dest, target))
