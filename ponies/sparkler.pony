@@ -11,7 +11,7 @@ KIND: unicorn
 LINK: regular
 MANE: purple
 NAME: (not mentioned)
-OTHER NAMES: amethyst star (official, in merchandise), sparkler (unofficial)
+OTHER NAMES: Amethyst Star (official, in merchandise), Sparkler (unofficial)
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 25
