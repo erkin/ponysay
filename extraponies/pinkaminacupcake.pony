@@ -1,16 +1,19 @@
 $$$
-APPEARANCE: s1c1m7s30
+APPEARANCE: S01E01 Frienship is magic part 1
+BALLOON: top
 BASED ON: pinkie
 COAT: pink
+DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: mare
-GROUP NAME: mane
+GROUP: mare, mane
 KIND: earth
+LINK: regular
 MANE: pink
 MEDIA: [fanfic: Cucpacke]
-NAME: pinkie pie
-OTHER NAMES: pinkie, pinkanima diane pie
+NAME: Pinkie Pie
+OTHER NAMES: Pinkie (also mentioned on the serie), Pinkanima Diane Pie (also confirmes as they full name)
+SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 26
 

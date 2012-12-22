@@ -1,12 +1,17 @@
 $$$
+AURA: purple
+BALLOON: top
 COAT: purple
+DISPLAY: full, right
 EYE: purple
 FREE: yes
 GROUP: stallion
 GROUP NAME: mane-63
 KIND: unicorn
-MANE: dark blue, dark purple, purple
-NAME: dusk shine
+MANE: purple
+MEDIA: fanart
+NAME: Dusk Shine (on the first fanart)
+SOURCE: desktop ponies OC
 WIDTH: 38
 HEIGHT: 25
 

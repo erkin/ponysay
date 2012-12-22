@@ -1,12 +1,16 @@
 $$$
+BALLOON: top
 COAT: white
+DISPLAY: full, right
 EYE: blue
 FREE: yes
 GROUP: stallion
 GROUP NAME: mane-63
 KIND: unicorn
 MANE: purple
-NAME: elusive
+MEDIA: fanart
+NAME: Elusive (on the first fanart)
+SOURCE: desktop ponies OC
 WIDTH: 42
 HEIGHT: 24
 

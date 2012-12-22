@@ -1,14 +1,17 @@
 $$$
-COAT: white
-GROUP: mare
-EYE: pink
-MEDIA: askprincessmolestia.tumblr.com
+BALLOON: top
 BASED ON: celestia
+COAT: white
+DISPLAY: full, right
+EYE: pink
 FREE: no
-NAME: princess molestia
-OTHER NAMES: molestia
-MANE: pink
+GROUP: mare
 KIND: alicorn
+MANE: pink
+MEDIA: askprincessmolestia.tumblr.com NSFW
+NAME: Princess Molestia (Named given by the author)
+OTHER NAMES: Molestia (short name)
+SOURCE: [jristz]
 WIDTH: 95
 HEIGHT: 40
 

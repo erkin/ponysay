@@ -1,12 +1,15 @@
 $$$
+BALLOON: top
+BASED ON: nyx
 COAT: black
+DISPLAY: full, left
 EYE: cyan
 FREE: yes
 GROUP: filly
 KIND: alicorn
 MANE: blue
 MEDIA: [fanfic: Past Sins]
-NAME: nyx
+NAME: Nyx (given by the author)
 SOURCE: [jristz]
 WIDTH: 35
 HEIGHT: 20

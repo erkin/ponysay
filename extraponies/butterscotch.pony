@@ -1,14 +1,16 @@
 $$$
 BALLOON: top
 COAT: yellow
+DISPLAY: full, right
 EYE: blue
+FREE: yes
 GROUP: stallion
 GROUP NAME: mane6-63
 KIND: pegasus
-LICENSE: yes
 MANE: pink
+MEDIA: fanart
 NAME: Butterscotch (on the first fanart)
-SOURCE: fanart
+SOURCE: desktop ponies OC
 WIDTH: 39
 HEIGHT: 25
 

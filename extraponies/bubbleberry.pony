@@ -7,8 +7,9 @@ GROUP: stallion
 GROUP NAME: mane-63
 KIND: earth
 MANE: pink
+MEDIA: fanart
 NAME: Bubble Berry (on the first fanart)
-SOURCE: fanart
+SOURCE: desktop ponies OC
 WIDTH: 46
 HEIGHT: 25
 

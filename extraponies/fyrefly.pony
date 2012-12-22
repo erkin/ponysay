@@ -1,13 +1,15 @@
 $$$
+BALLOON: top
 COAT: pink
-GROUP NAME: consept
-FREE: yes
-KIND: pegasus
-NAME: fyrefly
-SOURCE: thefyrefly.tumbrl.com
+DISPLAY: left
 EYE: purple (ponysay), blue (source)
+FREE: yes
 GROUP: mare
+GROUP NAME: consept
+KIND: pegasus
 MANE: blue
+NAME: Fyrefly /given by Lauren Faust)
+SOURCE: thefyrefly.tumbrl.com
 WIDTH: 36
 HEIGHT: 37
 

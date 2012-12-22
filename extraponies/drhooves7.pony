@@ -1,12 +1,15 @@
 $$$
-MANE: black
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: blue
+FREE: yes
 GROUP: stallion
 KIND: earth
-EYE: blue
-NAME: drhooves7
-OTHER NAMES: dr whooves, dr whoof
-FREE: yes
-COAT: white
+MANE: black
+NAME: Dr Hooves #7 (mentioned on the fanart)
+OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)
+SOURCE: fanart
 WIDTH: 33
 HEIGHT: 25
 

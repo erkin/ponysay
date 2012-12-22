@@ -1,12 +1,15 @@
 $$$
+BALLOON: top
+COAT: cyan
+DISPLAY: full, left
 EYE: brown
-KIND: earth
-COAT: blue
 FREE: yes
 GROUP: stallion
+KIND: earth
 MANE: yellow
-OTHER NAMES: dr whooves, dr whoof
-NAME: drhooves5
+NAME: Dr Hooves #5 (mentioned on the fanart)
+OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)
+SOURCE: fanart
 WIDTH: 39
 HEIGHT: 25
 

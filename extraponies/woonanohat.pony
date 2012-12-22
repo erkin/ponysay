@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: moonstuck reply 1
+APPEARANCE: Moonstuck reply 1
+BALLOON: top
 BASED ON: woona
 COAT: gray
+DISPLAY: full, left
 EYE: gray
 FREE: no
 GROUP: filly
 KIND: alicorn
 MANE: gray
 MEDIA: woonastuck.tumblr.com
-NAME: woona
-OTHER NAMES: princess woona, chosen woon
+NAME: Woona (by the author)
+OTHER NAMES: Wrincess Woona (on a reply), chosen woon (given by the Rocs)
 SOURCE: desktop ponies OC
 WIDTH: 43
 HEIGHT: 23

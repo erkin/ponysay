@@ -9,7 +9,8 @@ GROUP NAME: mane-63
 KIND: earth
 MANE: yellow
 MEDIA: MLP Fanlabor Wikia
-NAME: Applejacka
+NAME: Applejack (name on the wfanlabor wikia)
+OTHER NAMES: Male Applejack (on the show credits)
 WIDTH: 41
 HEIGHT: 26
 

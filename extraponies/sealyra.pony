@@ -1,13 +1,17 @@
 $$$
+BALLOON: top
+BASED ON: lyra
 COAT: geen
+DISPLAY: full, left
 EYE: yellow
 FREE: yes
 GROUP: mare
 KIND: seapony
 MANE: cyan
 MEDIA: [Comics]
-NAME: lyra heartstrings
-OTHER NAMES: lyra, heartstrings, sealyra, harpass
+NAME: Lyra Heartstrings (official, in merchandise)
+OTHER NAMES: Lyra (unoficial), Heartstrings (previous official), Sealyra (this one), Harpass
+SOURCE: imageboards
 WIDTH: 30
 HEIGHT: 29
 

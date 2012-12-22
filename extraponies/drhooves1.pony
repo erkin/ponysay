@@ -1,6 +1,7 @@
 $$$
 BALLOON: top
 COAT: grey
+DISPLAY: full, left
 EYE: brown
 FREE: yes
 GROUP: stallion

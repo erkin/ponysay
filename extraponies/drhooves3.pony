@@ -1,12 +1,15 @@
 $$$
+BALLOON: top
+COAT: cyan
+DISPLAY: full, left
 EYE: brown
+FREE: yes
 GROUP: stallion
-NAME: drhooves3
-COAT: blue
-OTHER NAMES: dr whooves, dr whoof
-KIND: unicorn
+KIND: earth
 MANE: white
-FREE: no
+NAME: Dr Hooves #3 (mentioned on the fanart)
+OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)
+SOURCE: fanart
 WIDTH: 44
 HEIGHT: 26
 

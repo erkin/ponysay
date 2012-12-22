@@ -1,12 +1,15 @@
 $$$
-EYE: blue
-NAME: drhooves4
-OTHER NAMES: dr whooves, dr whoof
-KIND: earth
-COAT: gray
-GROUP: stallion
+BALLOON: top
+COAT: grey
+DISPLAY: full, left
+EYE: cyan
 FREE: yes
-MANE: black
+GROUP: stallion
+KIND: earth
+MANE: grey
+NAME: Dr Hooves #4 (mentioned on the fanart)
+OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)
+SOURCE: fanart
 WIDTH: 38
 HEIGHT: 25
 

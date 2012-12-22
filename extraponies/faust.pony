@@ -1,15 +1,16 @@
 $$$
-BASED ON: (original)
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: blue
 FREE: yes
-GROUP: mare
-GROUP NAME: original
+GROUP: mare, original
 KIND: alicorn
 MANE: red
-MEDIA: deviantart.com (varius fanarts)
-NAME: faust
-OTHER NAMES: lauren faust
+MEDIA: deviantart.com (varius artists)
+NAME: Faust (most frecuent name)
+OTHER NAMES: Lauren Faust (owner name)
+SOURCE: [jristz]
 WIDTH: 51
 HEIGHT: 31
 

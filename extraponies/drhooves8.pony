@@ -1,12 +1,15 @@
 $$$
-NAME: drhooves8
-OTHER NAMES: dr whooves, dr whooof
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: brown
+FREE: yes
+GROUP: stallion
 KIND: earth
 MANE: black
-GROUP: stallion
-FREE: yes
-COAT: light brown
-EYE: brown
+NAME: Dr Hooves #8 (mentioned on the fanart)
+OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)
+SOURCE: fanart
 WIDTH: 37
 HEIGHT: 24
 

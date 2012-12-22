@@ -1,13 +1,17 @@
 $$$
-MANE: black
-OTHER NAMES: dr hooves, doctor hooves
-GROUP: stallion
-COAT: gray (discorded), brown (normal)
-FREE: no
-KIND: earth
-NAME: time turner
-BASED ON: timeturner
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
+COAT: brown
+DISPLAY: full, right
 EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+MANE: black
+MASTER: drhooves
+NAME: Time Turner (official on the Traing cards)
+OTHER NAMES: Dr Hooves (official according to Welovefine), Doctor Hooves (long name)
+SOURCE: Tumblr NSFW
 WIDTH: 40
 HEIGHT: 24
 

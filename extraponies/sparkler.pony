@@ -1,12 +1,12 @@
 $$$
-KIND: unicorn
-MANE: blue, purple
-GROUP: mare
-GROUP NAME: consept
-FREE: no
-NAME: sparkler
 COAT: cyan
 EYE: blue
+FREE: no
+GROUP: mare
+GROUP NAME: consept
+KIND: unicorn
+MANE: blue, purple
+NAME: Sparkler
 WIDTH: 50
 HEIGHT: 25
 
