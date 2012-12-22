@@ -1,18 +1,19 @@
 $$$
+APPEARANCE: S01E05 Dragonshy
+BALLOON: top
 COAT: red
+DISPLAY: full, left
 EYE: green
 FREE: yes
 GROUP: dragon
 GROUP NAME: wildlife
 KIND: animal
 MANE: pink (scales)
-MEDIA: TV series
-NAME: basil
+NAME: Basil (unoficial, fan name), Red Dragon
 SOURCE: Pony Fantasy 6
-WIDTH: 85
+WIDTH: 70
 HEIGHT: 51
 
-Based on 'pony fantasy 6' basil dragon, the autor give permision over public domain for the image, the name is a generic name found in REALLY many places and is a placeholder.
 
 $$$
 $balloon57$[0m

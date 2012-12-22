@@ -1,11 +1,13 @@
 $$$
+BALLOON: top
+COAT: grey
+DISPLAY: full, right
 FREE: yes
 GROUP: rock
 KIND: item
-MEDIA: TV series
-NAME: tom the rock
-OTHER NAMES: tom
-SOURCE: desktop ponies devel
+NAME: Tom the rock /given by Rarity)
+OTHER NAMES: Tom (short name)
+SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 30
 

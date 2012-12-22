@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c25
+APPEARANCE: S01E25 Party for one
+BALLOON: top
 COAT: gray
+DISPLAY: full, left
 FREE: yes
 GROUP: rock
 KIND: item
 MEDIA: TV series
-NAME: rocky
+NAME: Rocky (mentioned by Pinkie Pie)
 SOURCE: desktop ponies
-WIDTH: 23
+WIDTH: 22
 HEIGHT: 27
 
 

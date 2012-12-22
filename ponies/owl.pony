@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
 COAT: brown
+DISPLAY: full, front
 EYE: black
 FREE: yes
 GROUP: owl
 GROUP NAME: wildlife
 KIND: animals
-MEDIA: TV series
-NAME: owl
+NAME: Owl
 SOURCE: imageboard
 WIDTH: 21
 HEIGHT: 23

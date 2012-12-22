@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s3c3
+APPEARANCE: S03E03 So many Pinkies
+BALLOON: top
 COAT: gray
+DISPLAY: full, left
 EYE: black
 FREE: yes
 GROUP: raccoon
 GROUP NAME: wildlife
 KIND: animal
-MEDIA: TV series
-NAME: raccoon
-SOURCE: [jristz]
+NAME: Raccoon
+POSE: runing
+SOURCE: (screenshoot)
 WIDTH: 89
 HEIGHT: 27
 

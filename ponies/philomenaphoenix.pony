@@ -11,7 +11,7 @@ MEDIA: TV series
 NAME: philomena
 OTHER NAMES: filomena
 SOURCE: desktop ponies
-WIDTH: 77
+WIDTH: 70
 HEIGHT: 30
 
 

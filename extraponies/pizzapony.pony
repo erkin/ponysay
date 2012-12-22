@@ -8,7 +8,7 @@ GROUP: mare
 KIND: earth
 MANE: yellow, red
 MEDIA: [Comics]
-NAME: Pizza pony (official, on Welovefine merchandise)
+NAME: Pizza pony (on Welovefine merchandise)
 SOURCE: [jristz]
 WIDTH: 39
 HEIGHT: 25

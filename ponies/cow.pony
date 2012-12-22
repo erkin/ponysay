@@ -1,13 +1,16 @@
 $$$
+APPEARANCE: S01
+BALLOON: top
 COAT: white, gray
+DISPLAY: full, front
 EYE: black
 FREE: yes
 GROUP: cow
 GROUP NAME: wildlife
 KIND: animal
 MANE: brown
-MEDIA: TV series
-NAME: cow
+NAME: Cow
+SOURCE: [jristz]
 WIDTH: 27
 HEIGHT: 24
 

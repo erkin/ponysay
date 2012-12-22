@@ -1,10 +1,11 @@
 $$$
-APPEARANCE: s2c25
+APPEARANCE: S02E25 Party for one
+BALLOON: top
+DISPLAY: full, front
 FREE: yes
 GROUP: bag
 KIND: item
-MEDIA: TV series
-NAME: madam la flour
+NAME: Madam La Flour
 SOURCE: desktop ponies
 WIDTH: 28
 HEIGHT: 26

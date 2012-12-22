@@ -8,7 +8,7 @@ GROUP: mare
 GROUP NAME: consept
 KIND: pegasus
 MANE: blue
-NAME: Fyrefly (official, previous generation)
+NAME: Fyrefly (previous generation)
 SOURCE: thefyrefly.tumbrl.com
 WIDTH: 36
 HEIGHT: 37

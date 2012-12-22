@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
 COAT: multiple
+DISPLAY: full, front
 EYE: multiple
 FREE: yes
 GROUP: parasprite
 GROUP NAME: wildlife
 KIND: animals
-MEDIA: TV series
-NAME: parasprite
+NAME: Parasprite
+POSE: sunshine
 SOURCE: desktop ponies
-WIDTH: 28
+WIDTH: 21
 HEIGHT: 15
 
 
