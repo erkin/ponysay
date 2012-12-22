@@ -1,13 +1,16 @@
 $$$
-SOURCE: asksurprise.tumblr.com
+BALLOON: top
 COAT: yellow
-KIND: pegasus
-NAME: surprise
+DISPLAY: full, right
+EYE: purple
 FREE: yes
 GROUP: mare
 GROUP NAME: consept
+KIND: pegasus
 MANE: white
-EYE: purple
+MEDIA: asksurprise.tumblr.com
+NAME: Surprise (official, previous generation
+SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 26
 

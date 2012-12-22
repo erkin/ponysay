@@ -7,6 +7,7 @@ GROUP: mare
 GROUP NAME: consept
 KIND: earth
 MANE: brown
+MEDIA: fanart
 NAME: Applejack (given by Lauren Faust)
 SOURCE: fyrefly (lauren faust) deviantart
 WIDTH: 37

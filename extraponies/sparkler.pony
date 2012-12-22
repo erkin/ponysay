@@ -1,12 +1,16 @@
 $$$
+BALLOON: top
 COAT: cyan
+DISPLAY: full. left
 EYE: blue
 FREE: no
 GROUP: mare
 GROUP NAME: consept
 KIND: unicorn
-MANE: blue, purple
-NAME: Sparkler
+MANE: purple
+MEDIA: fanart
+NAME: Sparkler (mentioned by Lauren Faust)
+SOURCE: [jristz]
 WIDTH: 50
 HEIGHT: 25
 

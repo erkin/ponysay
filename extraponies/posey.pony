@@ -1,12 +1,16 @@
 $$$
+BALLOON: top
+COAT: yellow
+DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP NAME: consept
-MANE: pink
-COAT: yellow
 GROUP: mare
-NAME: posey
+GROUP NAME: consept
 KIND: earth
+MANE: pink
+MEDIA: fyrefly (Lauren Faust) deviantart
+NAME: Posey (mentioned by Lauren Faust)
+SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 23
 

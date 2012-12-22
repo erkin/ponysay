@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s2e4m00s55
-BASED ON: pipsqueaks
+APPEARANCE: S02E04 Luna Eclipsed
+BALLOON: top
+BASED ON: pipsqueak
 COAT: brown
+DISPLAY: full, left
 EYE: white
 FREE: no
-GROUP: colt
+GROUP: colt, background
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: pipsqueak
-OTHER NAMES: pip
+NAME: Pipsqueak
+OTHER NAMES: Pip /unofucual, short name)
 SOURCE: desktop ponies
 WIDTH: 33
 HEIGHT: 20

@@ -1,12 +1,16 @@
 $$$
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: purple
 FREE: yes
 GROUP: stallion
 GROUP NAME: mane-63
 KIND: pegasus
 MANE: rainbow
-NAME: rainbow blitz
+MEDIA: fanart
+NAME: Rainbow Blitz (on first fanart)
+SOURCE: deasktop ponies OC
 WIDTH: 43
 HEIGHT: 26
 

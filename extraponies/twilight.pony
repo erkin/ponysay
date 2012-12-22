@@ -1,11 +1,16 @@
 $$$
+BALLOON: top
 COAT: pink
+DISPLAY: full, right
+EYE: closed
 FREE: no
 GROUP: mare
 GROUP NAME: consept
 KIND: unicorn
-MANE: purple, white
-NAME: twilight
+MANE: purple
+MEDIA: fyrefly (Lauren Faust) deviantart
+NAME: Twilight (mentioned by Lauren Faust)
+SOURCE: [jristz]
 WIDTH: 50
 HEIGHT: 24
 
