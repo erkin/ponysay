@@ -9,7 +9,7 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: ace (unofficial)
+OTHER NAMES: Ace (unofficial)
 SOURCE: [jristz]
 WIDTH: 48
 HEIGHT: 27

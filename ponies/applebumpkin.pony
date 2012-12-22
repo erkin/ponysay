@@ -9,7 +9,7 @@ GROUP: mare, background
 KIND: earth
 LINK: regular
 MANE: pink
-NAME: apple bumpkin
+NAME: Apple Bumpkin
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 25

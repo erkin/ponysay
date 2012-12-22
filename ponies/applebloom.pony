@@ -9,7 +9,7 @@ GROUP: filly, deuteragonist
 KIND: earth
 LINK: regular
 MANE: red
-NAME: apple bloom
+NAME: Apple Bloom
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 21

@@ -8,7 +8,7 @@ GROUP: mare, mane
 KIND: earth
 LINK: regular
 MANE: yellow
-NAME: applejack
+NAME: Applejack
 POSE: full, left
 SOURCE: desktop ponies
 WIDTH: 52

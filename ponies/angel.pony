@@ -8,8 +8,8 @@ FREE: no
 GROUP: pet, rabbit
 KIND: animal
 LINK: regular
-NAME: angel
-OTHER NAMES: angel bunny (official, used by Fluttershy sometimes)
+NAME: Angel
+OTHER NAMES: Angel Bunny (official, used by Fluttershy sometimes)
 SOURCE: desktop ponies
 WIDTH: 25
 HEIGHT: 19

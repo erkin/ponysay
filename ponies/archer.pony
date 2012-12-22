@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: archer (unofficial)
+OTHER NAMES: Archer (unofficial)
 SOURCE: desktop ponies
 WIDTH: 46
 HEIGHT: 21

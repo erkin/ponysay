@@ -8,7 +8,7 @@ GROUP: filly, background
 KIND: earth
 LINK: regular
 MANE: green
-NAME: apple fritter
+NAME: Apple Fritter
 POSE: full, left
 SOURCE: desktop ponies
 WIDTH: 40

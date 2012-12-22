@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: aloe (unofficial)
+OTHER NAMES: Aloe (unofficial)
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 25

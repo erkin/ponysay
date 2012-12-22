@@ -10,7 +10,7 @@ KIND: pegasus
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: airheart (unofficial)
+OTHER NAMES: Airheart (unofficial)
 SOURCE: [jristz]
 WIDTH: 24
 HEIGHT: 26

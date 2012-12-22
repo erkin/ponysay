@@ -10,7 +10,7 @@ KIND: unicorn
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: allie (unofficial), allie way (unofficial)
+OTHER NAMES: Allie (unofficial), Allie Way (unofficial)
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 29

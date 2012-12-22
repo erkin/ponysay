@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: pink
 NAME: (not mentioned)
-OTHER NAMES: apple core (unofficial), piña colada (unofficial, merged in wiki), pina colada (ASCII)
+OTHER NAMES: Apple Core (unofficial), Piña Colada (unofficial, merged in wiki), Pina Colada (ASCII)
 SOURCE: [jristz]
 WIDTH: 33
 HEIGHT: 21

@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: red
 MASTER: applebloom
-NAME: apple bloom
+NAME: Apple Bloom
 POSE: dance
 SOURCE: desktop ponies
 WIDTH: 34

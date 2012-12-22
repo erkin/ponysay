@@ -9,7 +9,7 @@ GROUP: mare, mane
 KIND: earth
 LINK: regular
 MANE: yellow
-NAME: applejack
+NAME: Applejack
 POSE: scarecrow
 SOURCE: desktop ponies
 WIDTH: 47
