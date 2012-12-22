@@ -1,12 +1,14 @@
 $$$
-COAT: light brown
+COAT: brown
+DISPLAY: full, left
 EYE: green
 FREE: yes
 GROUP: stallion
 GROUP NAME: mane-63
 KIND: earth
-MANE: light yellow
-NAME: applejack
+MANE: yellow
+MEDIA: MLP Fanlabor Wikia
+NAME: Applejacka
 WIDTH: 41
 HEIGHT: 26
 

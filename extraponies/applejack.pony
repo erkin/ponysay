@@ -1,12 +1,12 @@
 $$$
-COAT: light yellow
+COAT: yellow
 EYE: green
 FREE: no
 GROUP: mare
 GROUP NAME: consept
 KIND: earth
-MANE: light brown
-NAME: applejack
+MANE: brown
+NAME: Applejack (mentioned by Lauren Faust)
 SOURCE: fyrefly (lauren faust) deviantart
 WIDTH: 37
 HEIGHT: 25
