@@ -1,12 +1,15 @@
 $$$
 AURA: black
+BALLOON: top
 BASED ON: (original)
 COAT: white
 EYE: no eye
 FREE: yes
+GROUP: stallion
+KIND: earth
 MANE: no mane
-NAME: Slanderpony
-OTHER NAMES: Slander
+NAME: Slander pony (name gived by the author)
+OTHER NAMES: Slander (short version)
 SOURCE: [jristz]
 WIDTH: 34
 HEIGHT: 30

@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: moonstuck reply 103
+APPEARANCE: Moonstuck reply 103
+BALLOON: top
 COAT: gray
+DISPLAY: full, left
 EYE: gray
 FREE: yes
 GROUP: mare
 KIND: seapony
 MANE: gray
 MEDIA: woonastuck.tumblr.com
-NAME: maria
-OTHER NAMES: lunar maria, lunar mare
+NAME: Maria (addopted by the author on a fanart)
+OTHER NAMES: Lunar Maria (name given on a question), lunar mare (named given on the first appearance)
 SOURCE: [jristz]
 WIDTH: 28
 HEIGHT: 25

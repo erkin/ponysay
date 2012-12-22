@@ -1,4 +1,5 @@
 $$$
+BALLOON: top
 COAT: yellow
 EYE: blue
 GROUP: stallion

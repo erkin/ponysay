@@ -1,12 +1,14 @@
 $$$
-COAT: brown (ponysay), yellow (source)
-EYE: red
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: closed, red
 FREE: yes
 GROUP: mare
 KIND: earth
-MANE: yellow, black red
+MANE: yellow, red
 MEDIA: [Comics]
-NAME: pizza pony
+NAME: Pizza pony (official, on Welovefine merchandise)
 SOURCE: [jristz]
 WIDTH: 39
 HEIGHT: 25

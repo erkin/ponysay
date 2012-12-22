@@ -1,4 +1,5 @@
 $$$
+BALLOON: top
 COAT: brown
 DISPLAY: full, left
 EYE: green

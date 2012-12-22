@@ -1,4 +1,5 @@
 $$$
+BALLOON: top
 COAT: grey
 EYE: brown
 FREE: yes

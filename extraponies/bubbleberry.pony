@@ -1,5 +1,6 @@
 $$$
 AURA: blue
+BALLOON: top
 EYE: pink
 FREE: yes
 GROUP: stallion

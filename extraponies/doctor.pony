@@ -1,5 +1,6 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 COAT: brown
 DISPLAY: full, left
 EYE: blue
