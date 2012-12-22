@@ -814,6 +814,7 @@ class Setup():
         if validatehook is not None:
             if not validatehook(source):
                 print('Ignoring installation of file %s (did not pass validation process made by setup settings)' % source)
+                return
         if os.path.islink(source) and (self.linking != COPY) and os.path.isdir(os.path.realpath(source)):
             target = os.readlink(source)
             for dest in destinations:
