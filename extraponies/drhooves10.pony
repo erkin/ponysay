@@ -1,12 +1,13 @@
 $$$
-MANE: black
-NAME: drhooves10
+COAT: brown
 EYE: blue
 FREE: no
-KIND: earth
 GROUP: stallion
-OTHER NAMES: dr hooves, dr whooves, dr whoof
-COAT: brown
+KIND: earth
+MANE: black
+NAME: Dr Hooves #10 (mentioned on the fanfic)
+OTHER NAMES: Dr Hooves (original model), Dr Whooves, Dr Whoof (used on fanfics)
+SOURCE: fanart
 WIDTH: 39
 HEIGHT: 24
 

@@ -1,16 +1,15 @@
 $$$
-APPEARANCE: s1e1m19s56
-BASED ON: doctor
+APPEARANCE: S01E01 Friendship is Magic part 1
 COAT: brown
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: black
 MASTER: drhooves
-MEDIA: TV series
-NAME: time turner
-OTHER NAMES: dr hooves, doctor hooves
+NAME: Time Turner (official on the Traing cards)
+OTHER NAMES: Dr Hooves (official according to Welovefine), Doctor Hooves (long name)
 SOURCE: desktop ponies
 WIDTH: 43
 HEIGHT: 25

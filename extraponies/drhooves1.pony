@@ -1,12 +1,13 @@
 $$$
-FREE: yes
-COAT: gray
-GROUP: stallion
-MANE: white
-KIND: eath
-NAME: drhooves1
+COAT: grey
 EYE: brown
-OTHER NAMES: dr whooof, dr whooves
+FREE: yes
+GROUP: stallion
+KIND: earth
+MANE: grey
+NAME: Dr Hooves #1 (mentioned on the fanart)
+OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)
+SOURCE: fanart
 WIDTH: 37
 HEIGHT: 23
 

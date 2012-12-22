@@ -1,12 +1,13 @@
 $$$
 COAT: yellow
-LICENSE: yes
-GROUP: stallion
 EYE: blue
-KIND: pegasus
+GROUP: stallion
 GROUP NAME: mane6-63
+KIND: pegasus
+LICENSE: yes
 MANE: pink
-NAME: butterscotch
+NAME: Butterscotch (on the first fanart)
+SOURCE: fanart
 WIDTH: 39
 HEIGHT: 25
 

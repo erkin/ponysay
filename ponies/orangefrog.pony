@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S3E3 so many Pinkies
+APPEARANCE: S03E03 so many Pinkies
 COAT: orange
 DISPLAY: full, right
 FREE: yes
