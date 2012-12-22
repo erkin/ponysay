@@ -1535,7 +1535,7 @@ to your @file{~/.bashrc} file.
 @end example
 @end cartouche
 
-It important for this bug workaround that @command{cat} is unbuffered, which
+It is important for this bug workaround that @command{cat} is unbuffered, which
 is default in GNU's version of @command{cat}, but not in Unix's version.
 If this does not work, test adding the option @option{-u} to @command{cat}.
 
