@@ -4,8 +4,7 @@ COAT: yellow
 DISPLAY: full, right
 EYE: blue
 FREE: yes
-GROUP: stallion
-GROUP NAME: mane6-63
+GROUP: stallion, coltified
 KIND: pegasus
 MANE: pink
 MEDIA: fanart

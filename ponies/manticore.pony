@@ -1,6 +1,8 @@
 $$$
-APPEARANCE: s2c2
+APPEARANCE: S01E02 Friendship ia Magic part 2
+BALLOON: top
 COAT: brown
+DISPLAY: full, right
 EYE: black
 FREE: yes
 GROUP: manticore
@@ -8,7 +10,8 @@ GROUP NAME: wildlife
 KIND: animals
 MANE: red
 MEDIA: TV series
-NAME: manticore
+NAME: Manticore
+POSE: watching
 SOURCE: unisay
 WIDTH: 75
 HEIGHT: 33

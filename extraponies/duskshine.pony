@@ -5,13 +5,12 @@ COAT: purple
 DISPLAY: full, right
 EYE: purple
 FREE: yes
-GROUP: stallion
-GROUP NAME: mane-63
+GROUP: stallion, coltified
 KIND: unicorn
 MANE: purple
 MEDIA: fanart
 NAME: Dusk Shine (on the first fanart)
-SOURCE: desktop ponies OC
+SOURCE: imageboard
 WIDTH: 38
 HEIGHT: 25
 

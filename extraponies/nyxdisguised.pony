@@ -10,6 +10,7 @@ KIND: alicorn
 MANE: blue
 MEDIA: [fanfic: Past Sins]
 NAME: Nyx (given by the author)
+POSE: disguised
 SOURCE: [jristz]
 WIDTH: 35
 HEIGHT: 20

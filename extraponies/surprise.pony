@@ -9,7 +9,7 @@ GROUP NAME: consept
 KIND: pegasus
 MANE: white
 MEDIA: asksurprise.tumblr.com
-NAME: Surprise (official, previous generation
+NAME: Surprise (official, previous generation)
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 26

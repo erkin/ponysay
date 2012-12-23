@@ -9,6 +9,7 @@ GROUP NAME: consept
 KIND: pegasus
 MANE: blue
 NAME: Fyrefly (previous generation)
+POSE: flying
 SOURCE: thefyrefly.tumbrl.com
 WIDTH: 36
 HEIGHT: 37

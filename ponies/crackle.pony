@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s2
+APPEARANCE: S02 Dragon quest
+BALLOON: top
 COAT: green
+DISPLAY: full, right
 EYE: red
 FREE: yes
 GROUP: dragon
-GROUP NAME: wildlife
 KIND: animal
-MEDIA: TV series
-NAME: crackle
+NAME: Crackle
+POSE: derped
 SOURCE: desktop ponies deviantart group
-WIDTH: 80
+WIDTH: 77
 HEIGHT: 60
 
 

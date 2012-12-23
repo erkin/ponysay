@@ -1,13 +1,13 @@
 $$$
-APPEARANCE: s1c16m13s50
+APPEARANCE: S01E16 13:50
+BALLOON: top
 COAT: white
+DISPLAY: full, right
 FREE: yes
-GROUP: stallion
-GROUP NAME: wonderbolts
+GROUP: stallion, wonderbolts
 KIND: pegasus
 MANE: orange
-MEDIA: TV series
-NAME: fire streak
+NAME: Fire streak
 SOURCE: [jristz]
 WIDTH: 43
 HEIGHT: 25

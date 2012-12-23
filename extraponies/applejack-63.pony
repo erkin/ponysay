@@ -3,9 +3,8 @@ BALLOON: top
 COAT: brown
 DISPLAY: full, left
 EYE: green
-FREE: yes
-GROUP: stallion
-GROUP NAME: mane-63
+GROUP: stallion, coltifiedi
+GROUP NAME: mane
 KIND: earth
 MANE: yellow
 MEDIA: MLP Fanlabor Wikia

@@ -11,7 +11,7 @@ KIND: animal
 MANE: pink (scales)
 NAME: Basil (unoficial, fan name), Red Dragon
 SOURCE: Pony Fantasy 6
-WIDTH: 70
+WIDTH: 77
 HEIGHT: 51
 
 

@@ -4,13 +4,13 @@ COAT: blue
 DISPLAY: full, left
 EYE: purple
 FREE: yes
-GROUP: stallion
-GROUP NAME: mane-63
+GROUP: stallion, coltified
 KIND: pegasus
 MANE: rainbow
 MEDIA: fanart
 NAME: Rainbow Blitz (on first fanart)
-SOURCE: deasktop ponies OC
+POSE: flying
+SOURCE: imageboard
 WIDTH: 43
 HEIGHT: 26
 

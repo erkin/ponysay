@@ -3,13 +3,12 @@ AURA: blue
 BALLOON: top
 EYE: pink
 FREE: yes
-GROUP: stallion
-GROUP NAME: mane-63
+GROUP: stallion, coltified
 KIND: earth
 MANE: pink
 MEDIA: fanart
 NAME: Bubble Berry (on the first fanart)
-SOURCE: desktop ponies OC
+SOURCE: imageboard
 WIDTH: 46
 HEIGHT: 25
 

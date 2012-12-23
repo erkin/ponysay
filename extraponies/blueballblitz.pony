@@ -4,12 +4,12 @@ COAT: blue
 DISPLAY: full, left
 EYE: purple
 FREE: yes
-GROUP: mare
-GROUP NAME: shadowbolts
+GROUP: mare, shadowbolt
 KIND: pegasus
 MANE: teal
 MEDIA: [fanfic]
 NAME: Blueball Blitz (on the Fanfics)
+POSE: flying
 SOURCE: [jristz]
 WIDTH: 51
 HEIGHT: 27

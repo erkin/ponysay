@@ -1,13 +1,12 @@
 $$$
-GROUP NAME: 63
+COAT: blue
+EYE: cyan
 FREE: free
-OTHER NAMES: artemis
+GROUP: stallion
 KIND: alicorn
 MANE: blue
 NAME: prince artemis
-COAT: blue
-GROUP: stallion
-EYE: cyan
+OTHER NAMES: artemis
 WIDTH: 48
 HEIGHT: 28
 

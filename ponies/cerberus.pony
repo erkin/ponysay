@@ -1,14 +1,16 @@
 $$$
+BALLOON: top
 COAT: black
+DISPLAY: full, right
 EYE: red
 FREE: yes
 GROUP: dog
 GROUP NAME: wildlife
 KIND: animals
-MEDIA: TV series
-NAME: cerberus
-OTHER NAMES: kerberos, cerberos
-WIDTH: 80
+NAME: Cerberus
+OTHER NAMES: Kerberos, Cerberos (Correct writing)
+SOURCE: (screenshoot)
+WIDTH: 77
 HEIGHT: 33
 
 

@@ -11,7 +11,8 @@ MANE: cyan
 MEDIA: [Comics]
 NAME: Lyra Heartstrings (official, in merchandise)
 OTHER NAMES: Lyra (unoficial), Heartstrings (previous official), Sealyra (this one), Harpass
-SOURCE: imageboards
+POSE: playing
+SOURCE: imageboard
 WIDTH: 30
 HEIGHT: 29
 

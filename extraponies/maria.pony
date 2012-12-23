@@ -11,6 +11,7 @@ MANE: gray
 MEDIA: woonastuck.tumblr.com
 NAME: Maria (addopted by the author on a fanart)
 OTHER NAMES: Lunar Maria (name given on a question), lunar mare (named given on the first appearance)
+POSE: watching
 SOURCE: [jristz]
 WIDTH: 28
 HEIGHT: 25

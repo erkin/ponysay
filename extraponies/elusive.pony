@@ -4,13 +4,13 @@ COAT: white
 DISPLAY: full, right
 EYE: blue
 FREE: yes
-GROUP: stallion
-GROUP NAME: mane-63
+GROUP: stallion, coltified
 KIND: unicorn
 MANE: purple
 MEDIA: fanart
 NAME: Elusive (on the first fanart)
-SOURCE: desktop ponies OC
+POSE: troting
+SOURCE: imageboard
 WIDTH: 42
 HEIGHT: 24
 
