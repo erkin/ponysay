@@ -3,10 +3,10 @@ BALLOON: top
 COAT: grey
 DISPLAY: full, right
 FREE: yes
-GROUP: rock
+GROUP: imaginary
 KIND: item
-NAME: Tom the rock /given by Rarity)
-OTHER NAMES: Tom (short name)
+NAME: Tom
+OTHER NAMES: Tom the Rock
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 30

@@ -1,18 +1,15 @@
 $$$
-APPEARANCE: S01E02 Friendship ia Magic part 2
+APPEARANCE: S01E02 Friendship is Magic [Part 2]
 BALLOON: top
 COAT: brown
 DISPLAY: full, right
 EYE: black
 FREE: yes
 GROUP: manticore
-GROUP NAME: wildlife
-KIND: animals
+KIND: animal
 MANE: red
-MEDIA: TV series
 NAME: Manticore
 POSE: watching
-SOURCE: unisay
 WIDTH: 75
 HEIGHT: 33
 

@@ -1,12 +1,11 @@
 $$$
-APPEARANCE: s2c25
+APPEARANCE: S02E25 Party of One
 FREE: yes
-GROUP: buck
+GROUP: imaginary
 KIND: item
-MEDIA: TV series
 NAME: turnip
 SOURCE: desktop ponies
-WIDTH: 24
+WIDTH: 23
 HEIGHT: 24
 
 

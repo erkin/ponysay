@@ -1,16 +1,15 @@
 $$$
-APPEARANCE: S02E03 Leson Zero
+APPEARANCE: S02E03 Lesson Zero
 BALLOON: top
 COAT: gray (ponysay), brown (source)
 DISPLAY: full, left
 EYE: yellow
 FREE: yes
 GROUP: bear
-GROUP NAME: wildlife
 KIND: animal
-NAME: Bear
+NAME: (not mentioned)
 SOURCE: [jristz]
-WIDTH: 70
+WIDTH: 87
 HEIGHT: 58
 
 

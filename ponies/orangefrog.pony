@@ -1,13 +1,10 @@
 $$$
-APPEARANCE: S03E03 so many Pinkies
+APPEARANCE: S03E03 Too Many Pinkie Pies
 COAT: orange
 DISPLAY: full, right
 FREE: yes
 GROUP: frog, orange
-GROUP NAME: wildlife
 KIND: animal, item, hybrid
-NAME: Orangefrogy (mentioned by Pinkie Pie)
-OTHER NAMES: Orangefrog (unoficial)
 SOURCE: [jristz]
 WIDTH: 58
 HEIGHT: 33

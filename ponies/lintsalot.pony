@@ -1,12 +1,11 @@
 $$$
-APPEARANCE: S01E25 Party for one
+APPEARANCE: S01E25 Party of One
 BALLOON: top
 DISPLAY: full, left
 FREE: yes
-GROUP: earth
+GROUP: imaginary
 KIND: item
 NAME: Lintsalot
-OTHER NAMES: Lintzalot (spello)
 SOURCE: desktop ponies
 WIDTH: 21
 HEIGHT: 21

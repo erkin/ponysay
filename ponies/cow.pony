@@ -1,15 +1,14 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E04 Applebuck Season
 BALLOON: top
-COAT: white, gray
+COAT: white
 DISPLAY: full, front
 EYE: black
 FREE: yes
 GROUP: cow
-GROUP NAME: wildlife
 KIND: animal
 MANE: brown
-NAME: Cow
+NAME: (not mentioned)
 SOURCE: [jristz]
 WIDTH: 27
 HEIGHT: 24

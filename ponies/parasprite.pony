@@ -1,17 +1,15 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E10 Swarm of the Century
 BALLOON: top
-COAT: multiple
+COAT: multiple, green
+EYE: multiple, green
 DISPLAY: full, front
-EYE: multiple
 FREE: yes
 GROUP: parasprite
-GROUP NAME: wildlife
-KIND: animals
-NAME: Parasprite
+KIND: animal
 POSE: sunshine
 SOURCE: desktop ponies
-WIDTH: 21
+WIDTH: 20
 HEIGHT: 15
 
 

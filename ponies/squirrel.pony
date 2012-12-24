@@ -1,14 +1,12 @@
 $$$
-APPEARANCE: S01E01 Frienship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: brown
 DISPLAY: full, right
 EYE: black
 FREE: yes
 GROUP: squirrel
-GROUP NAME: wildlife
 KIND: animal
-NAME: Squirrel
 POSE: watching
 SOURCE: [jristz]
 WIDTH: 34

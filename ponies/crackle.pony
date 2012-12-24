@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S02 Dragon quest
+APPEARANCE: S02E21 Dragon Quest
 BALLOON: top
 COAT: green
 DISPLAY: full, right
@@ -9,8 +9,8 @@ GROUP: dragon
 KIND: animal
 NAME: Crackle
 POSE: derped
-SOURCE: desktop ponies deviantart group
-WIDTH: 77
+SOURCE: desktop ponies
+WIDTH: 131
 HEIGHT: 60
 
 

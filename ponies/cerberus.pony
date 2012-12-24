@@ -4,13 +4,12 @@ COAT: black
 DISPLAY: full, right
 EYE: red
 FREE: yes
-GROUP: dog
+GROUP: dog, cerberus
 GROUP NAME: wildlife
-KIND: animals
+KIND: animal
 NAME: Cerberus
-OTHER NAMES: Kerberos, Cerberos (Correct writing)
 SOURCE: (screenshoot)
-WIDTH: 77
+WIDTH: 107
 HEIGHT: 33
 
 

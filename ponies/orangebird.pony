@@ -1,14 +1,11 @@
 $$$
-APPEARANCE: S03E03 So many Pinkies
+APPEARANCE: S03E03 Too Many Pinkie Pies
 COAT: orange
 DISPLAY: full, left
 FREE: yes
 GROUP: bird, fruit
-GROUP NAME: wildlife
 KIND: animal, item, hybrid
 MANE: blue
-NAME: Orangebirdy (mentioned by Pinkie Pie)
-OTHER NAMES: Orangebird (unoficial)
 SOURCE: [jristz]
 WIDTH: 44
 HEIGHT: 28
