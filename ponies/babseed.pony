@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s3e4m2s27
+APPEARANCE: S03E04 One Bad Apple
+BALLOON: top
 COAT: brown
+DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: filly
-GROUP NAME: apple family, cutie mark cusader, villain
 KIND: earth
 MANE: pink
-MEDIA: TV series
-NAME: bab seed
-OTHER NAMES: bad seed (applebloom nickname)
+NAME: Bab Seed
+OTHER NAMES: Bad Seed (applebloom nickname)
+POSE: angry
 SOURCE: [jristz]
 WIDTH: 31
 HEIGHT: 22

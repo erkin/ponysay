@@ -2,6 +2,7 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare, mane
@@ -9,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: yellow
 NAME: Applejack
-POSE: full, left
+POSE: stamp
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 27

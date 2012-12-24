@@ -10,6 +10,7 @@ KIND: earth
 LINK: regular
 MANE: pink
 NAME: Apple Bumpkin
+OTHER NAMES: Apple Dazzler (acording to January 2012 toy)
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 25
