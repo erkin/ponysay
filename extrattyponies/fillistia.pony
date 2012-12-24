@@ -1,42 +1,41 @@
 $$$
-OTHER NAMES: celestia
-KIND: alicorn
+BASED ON: celestia
 COAT: white
-NAME: princess celestia
-MANE: blue, green, pink, cyan
 EYE: purple
 FREE: no
 GROUP: filly
-BASED ON: celestia
+KIND: alicorn
+MANE: pastel
+NAME: princess celestia
+OTHER NAMES: celestia
 WIDTH: 47
 HEIGHT: 27
 
 
 $$$
-$balloon25$]P7aaaaaa[47m]PFffffff[1;37m]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m
+$balloon25$]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m
                      $\$
                       $\$
                        $\$
                         $\$]P0000000[49m
-                         $\$          ]PBd7af00[1;33m▄  ▄▄  ]PFeeeeee[1;37m▄]P79e9e9e[47m ]P0000000[49m
-                          ]P7aaaaaa[47m]PFffffff[1;37m]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m$\$]PFeeeeee[1;37m    ]PF9e9e9e[1;37m▄]P79e9e9e[47m]PFeeeeee[1;37m▄]P0000000[49m]PF9e9e9e[1;37m▄]PE5fafaf[1;36m▄]PBd7af00[1;33m▄]P3d7af00[43m]PBffd75f[1;33m▄]P2ffd75f[42m ]P3d7af00[43m▄▄]P2ffd75f[42m]PBd7af00[1;33m▄]P45f5f87[44m]PF9e9e9e[1;37m▄]P79e9e9e[47m]PFeeeeee[1;37m▄]P7eeeeee[47m ]PF9e9e9e[1;37m▄]P0000000[49m
-                              ]P79e9e9e[47m ]P7eeeeee[47m ]PBd7af00[1;33m▄▄]P3d7af00[43m]PBffd75f[1;33m▄]P2ffd75f[42m]PBd7af00[1;33m▄]PE5fafaf[1;36m▄]P787afd7[47m   ]P65fafaf[46m]PF87afd7[1;37m▄▄ ]P79e9e9e[47m]PE5fafaf[1;36m▄]P7d7afff[47m ]P65fafaf[46m]PFd7afff[1;37m▄]P0000000[49m]PE5fafaf[1;36m▄
-                             ]P65fafaf[46m]PBd7af00[1;33m▄]P3d7af00[43m]PBffd75f[1;33m▄▄]P2ffd75f[42m]PBd7af00[1;33m▄]P3d7af00[43m]PFeeeeee[1;37m▄]P7eeeeee[47m   ]P65fafaf[46m▄]P787afd7[47m]PE5fafaf[1;36m▄▄▄    ]P7d7afff[47m ]P65fafaf[46m ]P0000000[49m
-                             ]P65fafaf[46m ]P2ffd75f[42m▄]P787afd7[47m ]P7eeeeee[47m   ]P8000000[1;30m▄▄ ]P84e4e4e[1;30m▄]P8000000[1;30m▄▄]P65fafaf[46m]PFeeeeee[1;37m▄]P787afd7[47m]PE5fafaf[1;36m▄▄ ]P7d7afff[47m ]P65fafaf[46m ]P0000000[49m
-                      ]PF9e9e9e[1;37m▄]P79e9e9e[47m]PFeeeeee[1;37m▄▄]P0000000[49m]PF9e9e9e[1;37m▄  ]P65fafaf[46m ]P25fd787[42m ]P65fafaf[46m ]P787afd7[47m ]P7eeeeee[47m     ]P04e4e4e[40m ]PFeeeeee[1;37m▄]P7eeeeee[47m ]P0000000[40m ]P7eeeeee[47m  ]P65fafaf[46m]PF9e9e9e[1;37m▄]P787afd7[47m]PE5fafaf[1;36m▄]P65fafaf[46m ]P0000000[49m
-         ▄▄]P65fafaf[46m]PE5fd787[1;36m▄]PF87afd7[1;37m▄▄▄▄]P0000000[49m]PE5fafaf[1;36m▄▄]PFeeeeee[1;37m▄]PF9e9e9e[1;37m▄▄▄]P79e9e9e[47m ]P7eeeeee[47m▄  ]P79e9e9e[47m]PFeeeeee[1;37m▄]P0000000[49m]PF9e9e9e[1;37m▄]P65fafaf[46m ]P25fd787[42m ]P65fafaf[46m]PE5fd787[1;36m▄]P787afd7[47m]PE5fafaf[1;36m▄ ]P7eeeeee[47m    ]P5af5faf[45m ]P7eeeeee[47m]P8000000[1;30m▄▄]P0000000[40m ]P7eeeeee[47m  ]P79e9e9e[47m ]P65fafaf[46m ]P0000000[49m
-        ]P65fafaf[46m ]P25fd787[42m]PF87afd7[1;37m▄]P787afd7[47m ]PFd7afff[1;37m▄]P7d7afff[47m ]PF87afd7[1;37m▄▄ ]P787afd7[47m]PFd7afff[1;37m▄▄]P79e9e9e[47m ]P7eeeeee[47m     ]P79e9e9e[47m]PFeeeeee[1;37m▄]P7eeeeee[47m  ]P79e9e9e[47m▄]P65fafaf[46m▄ ]P25fd787[42m ]P65fafaf[46m]PF9e9e9e[1;37m▄]P787afd7[47m]PE5fafaf[1;36m▄▄]P65fafaf[46m]PFeeeeee[1;37m▄]P7eeeeee[47m  ]P5af5faf[45m▄]P0000000[40m]PDaf5faf[1;35m▄ ]PFeeeeee[1;37m▄]P7eeeeee[47m  ]P79e9e9e[47m▄]P65fafaf[46m]PF9e9e9e[1;37m▄]P0000000[49m
-       ]P65fafaf[46m ]P25fd787[42m ]P787afd7[47m ]P7d7afff[47m ]PF87afd7[1;37m▄]P787afd7[47m   ]PE5fafaf[1;36m▄▄▄▄]P79e9e9e[47m▄]P7eeeeee[47m]PF9e9e9e[1;37m▄▄▄▄  ]P79e9e9e[47m]PFeeeeee[1;37m▄]P7eeeeee[47m]PF9e9e9e[1;37m▄ ]P65fafaf[46m ]P25fd787[42m]PE5fafaf[1;36m▄]P79e9e9e[47m ]P7eeeeee[47m  ]P79e9e9e[47m]PFeeeeee[1;37m▄▄]P7eeeeee[47m]PF9e9e9e[1;37m▄▄   ▄▄▄]P0000000[49m▀
-      ]PE5fafaf[1;36m▄]P65fafaf[46m]PE5fd787[1;36m▄]P787afd7[47m ]P7d7afff[47m  ]P787afd7[47m  ]PE5fafaf[1;36m▄]P0000000[49m▀     ]P79e9e9e[47m ]P7eeeeee[47m    ]P79e9e9e[47m]PFeeeeee[1;37m▄▄]P7eeeeee[47m]PF9e9e9e[1;37m▄]P79e9e9e[47m ]P7eeeeee[47m ]P65fafaf[46m]PFeeeeee[1;37m▄]P3d7af00[43m▄]P7eeeeee[47m]PBd7af00[1;33m▄   ]P79e9e9e[47m ]P787afd7[47m ]P79e9e9e[47m]PE5fd787[1;36m▄]PE5fafaf[1;36m▄]P0000000[49m]PF9e9e9e[1;37m▀
-      ]P65fafaf[46m ]P25fd787[42m ]P787afd7[47m ]P7d7afff[47m ]P787afd7[47m  ]P65fafaf[46m ]P0000000[49m      ]P79e9e9e[47m ]PFeeeeee[1;37m▄]PBd7af00[1;33m▄]P7eeeeee[47m]PF9e9e9e[1;37m▄▄▄▄▄▄▄    ]P3d7af00[43m]PFeeeeee[1;37m▄]P7eeeeee[47m]PBd7af00[1;33m▄▄]P79e9e9e[47m▄]P787afd7[47m  ]P25fd787[42m ]P65fafaf[46m ]P0000000[49m
-      ]P65fafaf[46m ]P25fd787[42m ]P787afd7[47m ]P7d7afff[47m ]P787afd7[47m  ]P65fafaf[46m ]P0000000[49m      ]P79e9e9e[47m ]P7eeeeee[47m  ]P3d7af00[43m]PFeeeeee[1;37m▄▄]P7eeeeee[47m           ]P3d7af00[43m▄ ]P787afd7[47m  ]P25fd787[42m ]P65fafaf[46m ]P0000000[49m
-      ]P65fafaf[46m ]P25fd787[42m ]P787afd7[47m ]P7d7afff[47m ]P787afd7[47m]PFd7afff[1;37m▄ ]P65fafaf[46m ]P0000000[49m      ]PF9e9e9e[1;37m▀]P7eeeeee[47m▄             ▄]P79e9e9e[47m]PFd7afff[1;37m▄]P7d7afff[47m ]P787afd7[47m  ]P25fd787[42m ]P65fafaf[46m ]P0000000[49m
-       ]P65fafaf[46m ]P25fd787[42m ]P787afd7[47m ]P7d7afff[47m ]P787afd7[47m  ]P65fafaf[46m ]P0000000[49m      ]P79e9e9e[47m ]P7eeeeee[47m   ]P79e9e9e[47m ]P7eeeeee[47m]PF9e9e9e[1;37m▄▄▄▄▄▄]P79e9e9e[47m ]P7eeeeee[47m  ]P79e9e9e[47m ]P7d7afff[47m▄ ]P787afd7[47m   ]P25fd787[42m ]P65fafaf[46m ]P0000000[49m
-       ]P65fafaf[46m ]P25fd787[42m ]P787afd7[47m ]P7d7afff[47m ]P787afd7[47m  ]P65fafaf[46m ]P0000000[49m      ]PFd7d7d7[1;37m▀]P79e9e9e[47m ]P7eeeeee[47m   ]P79e9e9e[47m ]P0000000[49m    ]P65fafaf[46m ]P25fd787[42m ]P79e9e9e[47m ]P7eeeeee[47m   ]P79e9e9e[47m ]P787afd7[47m   ]P25fd787[42m ]P65fafaf[46m ]P0000000[49m
-       ]P65fafaf[46m ]P787afd7[47m ]PFd7afff[1;37m▄]P7d7afff[47m ]P787afd7[47m ]P65fafaf[46m ]P0000000[49m   ]PBd7af00[1;33m▄]P79e9e9e[47m▄]PFeeeeee[1;37m▄▄▄▄]P7eeeeee[47m]PF9e9e9e[1;37m▄  ]P79e9e9e[47m ]P0000000[49m    ]P65fafaf[46m ]P25fd787[42m▄]P787afd7[47m▄]P79e9e9e[47m]PFeeeeee[1;37m▄▄]P7eeeeee[47m  ]P79e9e9e[47m ]P787afd7[47m ]PE5fd787[1;36m▄]P25fd787[42m]PE5fafaf[1;36m▄]P0000000[49m▀
-      ]P65fafaf[46m ]P25fd787[42m ]P787afd7[47m ]P7d7afff[47m ]P787afd7[47m  ]P65fafaf[46m ]P0000000[49m  ]P3d7af00[43m ]P2ffd75f[42m ]P3d7af00[43m ]P7eeeeee[47m   ]PF9e9e9e[1;37m▄▄▄▄]P0000000[49m▀  ]PBd7af00[1;33m▄]P3d7af00[43m]PBffd75f[1;33m▄ ]P79e9e9e[47m]PFeeeeee[1;37m▄]P7eeeeee[47m   ]PF9e9e9e[1;37m▄]P79e9e9e[47m]PFd7afff[1;37m▄]P787afd7[47m  ]P25fd787[42m ]P65fafaf[46m ]P0000000[49m
-      ]P65fafaf[46m ]P25fd787[42m ]P787afd7[47m ]P7d7afff[47m ]P787afd7[47m  ]P65fafaf[46m ]P0000000[49m  ]P3d7af00[43m ]P2ffd75f[42m ]P3d7af00[43m ]P7eeeeee[47m ]P79e9e9e[47m]PBd7af00[1;33m▄]P0000000[49m]PF9e9e9e[1;37m▀▀     ]PE5fafaf[1;36m▄]P3d7af00[43m▄]P2ffd75f[42m]PBd7af00[1;33m▄ ]P3d7af00[43m ]P7eeeeee[47m ▄]P79e9e9e[47m]PF87afd7[1;37m▄]P7d7afff[47m▄]P787afd7[47m ]PE5fd787[1;36m▄▄]P25fd787[42m]PE5fafaf[1;36m▄]P0000000[49m▀
-   ▄▄▄]P65fafaf[46m]PF87afd7[1;37m▄]P787afd7[47m ]P7d7afff[47m ▄]P787afd7[47m ]P65fafaf[46m ]P0000000[49m    ]PBd7af00[1;33m▀]P2ffd75f[42m▄]P0000000[49m▀  ]PE5fafaf[1;36m▀▄▄▄▄]P65fafaf[46m]PE5fd787[1;36m▄]P25fd787[42m]PF87afd7[1;37m▄]P787afd7[47m ]P3d7af00[43m▄]P2ffd75f[42m]PBd7af00[1;33m▄▄]P3d7af00[43m]PE5fd787[1;36m▄]P787afd7[47m▄]P25fd787[42m]PE5fafaf[1;36m▄▄▄]P0000000[49m▀▀
-    ▀]P787afd7[47m▄]P7d7afff[47m▄▄▄]P787afd7[47m▄▄]P0000000[49m▀           ▀]P25fd787[42m▄]P787afd7[47m▄▄▄]P7d7afff[47m▄▄▄]P0000000[49m▀▀▀
+                         $\$          ▄  ▄▄  ▄ ]P0000000[49m
+                          ]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m$\$    ▄▄]P0000000[49m▄▄▄▄ ▄▄▄▄▄ ▄]P0000000[49m
+                                ▄▄▄▄▄   ▄▄ ▄ ▄]P0000000[49m▄
+                             ▄▄▄▄▄   ▄▄▄▄      ]P0000000[49m
+                              ▄    ▄▄ ▄▄▄▄▄▄   ]P0000000[49m
+                      ▄▄▄]P0000000[49m▄            ▄    ▄▄ ]P0000000[49m
+         ▄▄▄▄▄▄▄]P0000000[49m▄▄▄▄▄▄ ▄  ▄]P0000000[49m▄  ▄▄      ▄▄     ]P0000000[49m
+         ▄ ▄ ▄▄ ▄▄      ▄  ▄▄  ▄▄▄▄  ▄▄ ▄  ▄▄]P0000000[49m
+           ▄   ▄▄▄▄▄▄▄▄▄  ▄▄  ▄   ▄▄▄▄   ▄▄▄]P0000000[49m▀
+      ▄▄     ▄]P0000000[49m▀          ▄▄▄  ▄▄▄     ▄▄]P0000000[49m▀
+             ]P0000000[49m       ▄▄▄▄▄▄▄▄▄    ▄▄▄▄    ]P0000000[49m
+             ]P0000000[49m         ▄▄           ▄     ]P0000000[49m
+          ▄  ]P0000000[49m      ▀▄             ▄▄     ]P0000000[49m
+              ]P0000000[49m           ▄▄▄▄▄▄    ▄      ]P0000000[49m
+              ]P0000000[49m      ▀     ]P0000000[49m                ]P0000000[49m
+         ▄   ]P0000000[49m   ▄▄▄▄▄▄▄   ]P0000000[49m     ▄▄▄▄    ▄▄]P0000000[49m▀
+             ]P0000000[49m        ▄▄▄▄]P0000000[49m▀  ▄▄ ▄   ▄▄    ]P0000000[49m
+             ]P0000000[49m      ▄]P0000000[49m▀▀     ▄▄▄   ▄▄▄ ▄▄▄]P0000000[49m▀
+   ▄▄▄▄  ▄  ]P0000000[49m    ▀▄]P0000000[49m▀  ▀▄▄▄▄▄▄ ▄▄▄▄▄▄▄▄]P0000000[49m▀▀
+    ▀▄▄▄▄▄▄]P0000000[49m▀           ▀▄▄▄▄▄▄▄]P0000000[49m▀▀▀
  
-]P7aaaaaa[47m]PFffffff[1;37m]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m
