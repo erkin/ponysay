@@ -6,9 +6,9 @@ FREE: no
 GROUP: mare
 KIND: earth
 MANE: blue
-MEDIA: TV series
+MEDIA: TV seriesy
 NAME: bon bon
-OTHER NAMES: sweetie drops
+OTHER NAMES: sweetie drops (official)
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 27
