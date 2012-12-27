@@ -302,16 +302,14 @@ class Ponysay():
         self.ponydirs      = self.vtponydirs      if self.linuxvt and not self.usekms else self.xponydirs
         self.extraponydirs = self.extravtponydirs if self.linuxvt and not self.usekms else self.extraxponydirs
         
-        ## Variadic variants of -f, +f and -q
-        if    args.opts['--f'] is not None:
-            if args.opts['-f'] is not None:  args.opts['-f'] += args.opts['--f']
-            else:                            args.opts['-f']  = args.opts['--f']
-        if    args.opts['++f'] is not None:
-            if args.opts['+f'] is not None:  args.opts['+f'] += args.opts['++f']
-            else:                            args.opts['+f']  = args.opts['++F']
-        if    args.opts['--q'] is not None:
-            if args.opts['-q'] is not None:  args.opts['-q'] += args.opts['--q']
-            else:                            args.opts['-q']  = args.opts['--q']
+        ## Variadic variants of -f, -q &c
+        for sign in ('-', '+'):
+            for letter in ('f', 'F', 'q', 'Q'):
+                ssl = sign + sign + letter
+                sl = sign + letter
+                if (ssl in args.opts) and (args.opts[ssl] is not None):
+                    if args.opts[sl] is not None:  args.opts[sl] += args.opts[ssl]
+                    else:                          args.opts[sl]  = args.opts[ssl]
         
         ## Run modes
         if   args.opts['-h']        is not None:  args.help()
