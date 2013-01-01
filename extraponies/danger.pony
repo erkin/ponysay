@@ -6,14 +6,15 @@ DISPLAY: full, left
 EYE: gray
 FREE: yes
 GROUP: mare
+GROUP NAME: Danger McSteele
 KIND: seapony
+LICENSE: Creative Common
 MANE: gray
-MEDIA: woonastuck.tumblr.com
-NAME: Maria (addopted by the author on a fanart)
-OTHER NAMES: Lunar Maria (name given on a question), lunar mare (named given on the first appearance)
+MEDIA: (egophiliiac) woonastuck.tumblr.com
+NAME: (given by the autor)
 POSE: watching
 SOURCE: [jristz]
-WIDTH: 28
+WIDTH: 29
 HEIGHT: 25
 
 

@@ -7,11 +7,13 @@ EYE: green
 FREE: yes
 GROUP: dragon
 KIND: animal
+LICENSE: Public Domain
 MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Basil (unofficial)
+POSE: waiting
 SOURCE: Pony Fantasy 6
-WIDTH: 77
+WIDTH: 80
 HEIGHT: 51
 
 Based on 'pony fantasy 6' basil dragon, the autor give permision over

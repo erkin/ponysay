@@ -2968,6 +2968,8 @@ Pony metadata options added: @option{--info}, @option{++info} and @option{--rest
 @item
 @file{peppermoon} has renamed to @file{pepermoon} (typo)
 @item
+@file{maria} has been renamed to @file{danger} (name given by the author)
+@item
 Pony symlink added:
 @itemize @bullet
 @item @file{lily} @arrow{} @file{lilyvalley}
