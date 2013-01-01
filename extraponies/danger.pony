@@ -4,7 +4,7 @@ BALLOON: top
 COAT: gray
 DISPLAY: full, left
 EYE: gray
-FREE: yes
+FREE: sharable
 GROUP: mare
 KIND: seapony
 LICENSE: cc-nc-by-sa

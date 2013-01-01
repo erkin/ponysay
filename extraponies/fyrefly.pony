@@ -7,7 +7,7 @@ FREE: yes
 GROUP: mare
 GROUP NAME: consept
 KIND: pegasus
-LICENSE: Public domain
+LICENSE: CC0
 MANE: blue
 MEDIA: thefyrefly,tumblr.com
 NAME: Fyrefly (previous generation)
