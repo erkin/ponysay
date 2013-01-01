@@ -7,7 +7,7 @@ EYE: cyan
 FREE: yes
 GROUP: filly
 KIND: alicorn
-LICENSE: Creative Common
+LICENSE: cc-by-sa
 MANE: blue
 MEDIA: [fanfic: Past Sins]
 NAME: Nyx (given by the author)

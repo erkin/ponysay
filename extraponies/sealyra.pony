@@ -7,7 +7,7 @@ EYE: yellow
 FREE: yes
 GROUP: mare
 KIND: seapony
-LICENSE: Creative common
+LICENSE: cc-by-sa
 MANE: cyan
 MEDIA: [Comics]
 NAME: Lyra Heartstrings (official, in merchandise)

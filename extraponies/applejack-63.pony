@@ -7,7 +7,7 @@ FREE: yes
 GROUP: stallion, coltifiedi
 GROUP NAME: mane
 KIND: earth
-LICENSE: Public domain
+LICENSE: CC0
 MANE: yellow
 MEDIA: MLP Fanlabor Wikia
 NAME: Applejack (name on the wfanlabor wikia)

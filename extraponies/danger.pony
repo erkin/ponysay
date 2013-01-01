@@ -7,7 +7,7 @@ EYE: gray
 FREE: yes
 GROUP: mare
 KIND: seapony
-LICENSE: Creative Common
+LICENSE: cc-nc-by-sa
 MANE: gray
 MEDIA: (egophiliac) woonastuck.tumblr.com
 NAME: Danger McSteele (given by the autor)
