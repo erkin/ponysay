@@ -3,7 +3,7 @@
 
 '''
 ponysay - Ponysay, cowsay reimplementation for ponies
-Copyright (C) 2012  Erkin Batu Altunbaş et al.
+Copyright (C) 2012, 2013  Erkin Batu Altunbaş et al.
 
 This program is free software. It comes without any warranty, to
 the extent permitted by applicable law. You can redistribute it
