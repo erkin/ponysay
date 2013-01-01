@@ -11,6 +11,7 @@ MANE: gray
 MEDIA: woonastuck.tumblr.com
 NAME: Woona (by the author)
 OTHER NAMES: Wrincess Woona (on a reply), chosen woon (given by the Rocs)
+POSE: stand
 SOURCE: desktop ponies OC
 WIDTH: 43
 HEIGHT: 27

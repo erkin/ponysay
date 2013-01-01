@@ -7,9 +7,11 @@ FREE: yes
 GROUP: mare
 GROUP NAME: consept
 KIND: pegasus
+LICENSE: Public domain, Cretive common (the image on the tumblr)
 MANE: white
 MEDIA: asksurprise.tumblr.com
 NAME: Surprise (official, previous generation)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 26

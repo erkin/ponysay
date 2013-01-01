@@ -6,9 +6,11 @@ EYE: blue
 FREE: yes
 GROUP: stallion
 KIND: earth
+LICENSE: Public domain
 MANE: black
 NAME: Dr Hooves #7 (mentioned on the fanart)
 OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)
+POSE: stand
 SOURCE: fanart
 WIDTH: 33
 HEIGHT: 25

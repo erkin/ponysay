@@ -1,12 +1,18 @@
 $$$
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: cyan
 FREE: free
 GROUP: stallion
 KIND: alicorn
+LICENSE: Public domain
 MANE: blue
-NAME: prince artemis
-OTHER NAMES: artemis
+MEDIA: fanfi
+NAME: Prince Artemis
+OTHER NAMES: Artemis (shorted on varoius fanfincs)
+POSE: flying
+SOURCE: [jristz]
 WIDTH: 48
 HEIGHT: 28
 

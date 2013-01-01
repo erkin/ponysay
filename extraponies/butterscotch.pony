@@ -6,9 +6,11 @@ EYE: blue
 FREE: yes
 GROUP: stallion, coltified
 KIND: pegasus
+LICENSE: Public domain
 MANE: pink
 MEDIA: fanart
 NAME: Butterscotch (on the first fanart)
+POSE: flying
 SOURCE: desktop ponies OC
 WIDTH: 39
 HEIGHT: 25

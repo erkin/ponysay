@@ -6,6 +6,7 @@ EYE: blue
 FREE: yes
 GROUP: stallion, coltified
 KIND: unicorn
+LICENSE: Public domain
 MANE: purple
 MEDIA: fanart
 NAME: Elusive (on the first fanart)

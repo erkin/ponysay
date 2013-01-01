@@ -5,9 +5,11 @@ EYE: pink
 FREE: yes
 GROUP: stallion, coltified
 KIND: earth
+LICENSE: Public domain
 MANE: pink
 MEDIA: fanart
 NAME: Bubble Berry (on the first fanart)
+POSE: stand
 SOURCE: imageboard
 WIDTH: 46
 HEIGHT: 25

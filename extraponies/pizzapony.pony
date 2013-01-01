@@ -6,9 +6,11 @@ EYE: closed, red
 FREE: yes
 GROUP: mare
 KIND: earth
+LICENSE: Creative common
 MANE: yellow, red
 MEDIA: [Comics]
 NAME: Pizza pony (on Welovefine merchandise)
+POSE: smiling
 SOURCE: [jristz]
 WIDTH: 39
 HEIGHT: 25

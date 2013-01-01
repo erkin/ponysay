@@ -3,13 +3,16 @@ BALLOON: top
 COAT: brown
 DISPLAY: full, left
 EYE: green
+FREE: yes
 GROUP: stallion, coltifiedi
 GROUP NAME: mane
 KIND: earth
+LICENSE: Public domain
 MANE: yellow
 MEDIA: MLP Fanlabor Wikia
 NAME: Applejack (name on the wfanlabor wikia)
 OTHER NAMES: Male Applejack (on the show credits)
+POSE: stand
 WIDTH: 41
 HEIGHT: 26
 

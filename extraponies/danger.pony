@@ -6,12 +6,11 @@ DISPLAY: full, left
 EYE: gray
 FREE: yes
 GROUP: mare
-GROUP NAME: Danger McSteele
 KIND: seapony
 LICENSE: Creative Common
 MANE: gray
-MEDIA: (egophiliiac) woonastuck.tumblr.com
-NAME: (given by the autor)
+MEDIA: (egophiliac) woonastuck.tumblr.com
+NAME: Danger McSteele (given by the autor)
 POSE: watching
 SOURCE: [jristz]
 WIDTH: 29
