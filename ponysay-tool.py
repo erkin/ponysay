@@ -189,6 +189,8 @@ class PonysayTool():
                 if key in args:
                     return args[key] if (args[key] is not None) and isinstance(args[key], list) else [args[key]]
                 return None
+            def __contains__(self, key):
+                return key in args;
         
         stdout = sys.stdout
         class StringInputStream:
@@ -419,6 +421,8 @@ class PonysayTool():
                 self.value = value
             def __getitem__(self, key):
                 return [self.value] if key == self.key else None
+            def __contains__(self, key):
+                return key == self.key;
         
         class StringInputStream:
             def __init__(self):
@@ -485,6 +489,8 @@ class PonysayTool():
                         if key == ('-W' if self.balloon else '-b'):
                             return [('none' if self.balloon else None)]
                         return None
+                    def __contains__(self, key):
+                        return key in ('-f', '-W', '-b');
                 stdout = sys.stdout
                 class StringInputStream:
                     def __init__(self):
@@ -647,6 +653,8 @@ class PonysayTool():
                 if key == '-f':  return [ponyfile]
                 if key == '-W':  return ['n']
                 return None
+            def __contains__(self, key):
+                return key in ('-f', '-W');
         
         
         data = {}

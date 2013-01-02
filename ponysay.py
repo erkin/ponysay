@@ -303,23 +303,13 @@ class Ponysay():
         self.extraponydirs = self.extravtponydirs if self.linuxvt and not self.usekms else self.extraxponydirs
         
         ## Variadic variants of -f, -q &c
-        if    args.opts['--f'] is not None:
-            if args.opts['-f'] is not None:  args.opts['-f'] += args.opts['--f']
-            else:                            args.opts['-f']  = args.opts['--f']
-        if    args.opts['++f'] is not None:
-            if args.opts['+f'] is not None:  args.opts['+f'] += args.opts['++f']
-            else:                            args.opts['+f']  = args.opts['++f']
-        if    args.opts['--q'] is not None:
-            if args.opts['-q'] is not None:  args.opts['-q'] += args.opts['--q']
-            else:                            args.opts['-q']  = args.opts['--q']
-        # FIXME the following is how it should be done, but it freezes the program
-        #for sign in ('-', '+'):
-        #    for letter in ('f', 'F', 'q', 'Q'):
-        #        ssl = sign + sign + letter
-        #        sl = sign + letter
-        #        if (ssl in args.opts) and (args.opts[ssl] is not None):
-        #            if args.opts[sl] is not None:  args.opts[sl] += args.opts[ssl]
-        #            else:                          args.opts[sl]  = args.opts[ssl]
+        for sign in ('-', '+'):
+            for letter in ('f', 'F', 'q', 'Q'):
+                ssl = sign + sign + letter
+                sl = sign + letter
+                if (ssl in args.opts) and (args.opts[ssl] is not None):
+                    if args.opts[sl] is not None:  args.opts[sl] += args.opts[ssl]
+                    else:                          args.opts[sl]  = args.opts[ssl]
         
         ## Run modes
         if   args.opts['-h']        is not None:  args.help()
