@@ -6,7 +6,7 @@ EYE: blue
 FREE: yes
 GROUP: stallion, coltified
 KIND: pegasus
-LICENSE: Public domain
+LICENSE: CC0
 MANE: pink
 MEDIA: fanart
 NAME: Butterscotch (on the first fanart)

@@ -6,7 +6,7 @@ EYE: blue
 FREE: yes
 GROUP: mare, original
 KIND: alicorn
-LICENSE: Creative common
+LICENSE: cc-by-sa
 MANE: red
 MEDIA: deviantart.com (varius artists)
 NAME: Faust (most frecuent name)

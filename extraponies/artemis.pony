@@ -6,7 +6,7 @@ EYE: cyan
 FREE: free
 GROUP: stallion
 KIND: alicorn
-LICENSE: Public domain
+LICENSE: CC0
 MANE: blue
 MEDIA: fanfi
 NAME: Prince Artemis
