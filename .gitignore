@@ -42,3 +42,8 @@
 /ponysay.pgs
 /ponysay.vrs
 
+## Python cache files
+## For a misterious force, Those has ben created here
+
+__pycache__/
+*.pyc
