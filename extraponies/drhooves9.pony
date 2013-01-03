@@ -6,7 +6,7 @@ EYE: cyan
 FREE: yes
 GROUP: stallion
 KIND: earth
-LICENSE: Public domain
+LICENSE: CC0
 MANE: black
 NAME: Dr Hooves #9 (mentioned on the fanart)
 OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)

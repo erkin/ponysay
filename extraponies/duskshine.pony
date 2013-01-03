@@ -7,7 +7,7 @@ EYE: purple
 FREE: yes
 GROUP: stallion, coltified
 KIND: unicorn
-LICENSE: Public domain
+LICENSE: CC0
 MANE: purple
 MEDIA: fanart
 NAME: Dusk Shine (on the first fanart)

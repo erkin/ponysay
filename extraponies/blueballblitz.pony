@@ -6,7 +6,7 @@ EYE: purple
 FREE: yes
 GROUP: mare, shadowbolt
 KIND: pegasus
-LICENSE: Creative common
+LICENSE: cc-by-sa
 MANE: teal
 MEDIA: [fanfic]
 NAME: Blueball Blitz (on the Fanfics)

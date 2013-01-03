@@ -6,7 +6,7 @@ EYE: brown
 FREE: yes
 GROUP: stallion
 KIND: earth
-LICENSE: Public domain
+LICENSE: CC0
 MANE: white
 NAME: Dr Hooves #3 (mentioned on the fanart)
 OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)

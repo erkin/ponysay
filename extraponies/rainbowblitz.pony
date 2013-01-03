@@ -6,7 +6,7 @@ EYE: purple
 FREE: yes
 GROUP: stallion, coltified
 KIND: pegasus
-LICENSE: Public domain
+LICENSE: CC0
 MANE: rainbow
 MEDIA: fanart
 NAME: Rainbow Blitz (on first fanart)

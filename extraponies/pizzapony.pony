@@ -6,7 +6,7 @@ EYE: closed, red
 FREE: yes
 GROUP: mare
 KIND: earth
-LICENSE: Creative common
+LICENSE: cc-by
 MANE: yellow, red
 MEDIA: [Comics]
 NAME: Pizza pony (on Welovefine merchandise)
