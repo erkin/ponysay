@@ -7,9 +7,11 @@ EYE: yellow
 FREE: yes
 GROUP: bear
 KIND: animal
+LICENSE: CC0
 NAME: (not mentioned)
-SOURCE: [jristz]
-WIDTH: 87
+POSE: eating
+SOURCE: (screenshoot)
+WIDTH: 80
 HEIGHT: 58
 
 

@@ -5,6 +5,7 @@ DISPLAY: full, left
 FREE: yes
 GROUP: bird, fruit
 KIND: animal, item, hybrid
+LICENSE: CC0
 MANE: blue
 SOURCE: [jristz]
 WIDTH: 44

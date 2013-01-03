@@ -7,9 +7,10 @@ FREE: yes
 GROUP: dog, cerberus
 GROUP NAME: wildlife
 KIND: animal
+LICENSE: CC0
 NAME: Cerberus
 SOURCE: (screenshoot)
-WIDTH: 107
+WIDTH: 80
 HEIGHT: 33
 
 

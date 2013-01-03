@@ -2,9 +2,10 @@ $$$
 APPEARANCE: S02E25 Party of One
 BALLOON: top
 DISPLAY: full, front
-FREE: yes
+FREE: sharable
 GROUP: imaginary
 KIND: item
+LICENSE: cc-nc-by-sa
 NAME: Madam la Flour
 SOURCE: desktop ponies
 WIDTH: 28

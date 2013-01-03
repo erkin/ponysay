@@ -7,7 +7,7 @@ EYE: black
 FREE: yes
 GROUP: squirrel
 KIND: animal
-LICENSE: Public Domain
+LICENSE: CC0
 POSE: watching
 SOURCE: [jristz]
 WIDTH: 34

@@ -2,14 +2,15 @@ $$$
 APPEARANCE: S01E10 Swarm of the Century
 BALLOON: top
 COAT: multiple, green
-EYE: multiple, green
 DISPLAY: full, front
+EYE: multiple, green
 FREE: yes
 GROUP: parasprite
 KIND: animal
-POSE: sunshine
+LICENSE: cc-by-sa
+POSE: smiling
 SOURCE: desktop ponies
-WIDTH: 20
+WIDTH: 28
 HEIGHT: 15
 
 

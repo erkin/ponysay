@@ -5,9 +5,10 @@ DISPLAY: full, right
 FREE: yes
 GROUP: imaginary
 KIND: item
+LICENSE: CC0
 NAME: Tom
 OTHER NAMES: Tom the Rock
-SOURCE: desktop ponies
+SOURCE: imageboard
 WIDTH: 52
 HEIGHT: 30
 

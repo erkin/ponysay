@@ -7,7 +7,7 @@ EYE: black
 FREE: yes
 GROUP: cow
 KIND: animal
-LICENSE: Public Domain
+LICENSE: CC0
 MANE: brown
 NAME: (not mentioned)
 POSE: waiting

@@ -7,7 +7,7 @@ EYE: green
 FREE: yes
 GROUP: dragon
 KIND: animal
-LICENSE: Public Domain
+LICENSE: cc-by
 MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Basil (unofficial)
@@ -16,9 +16,7 @@ SOURCE: Pony Fantasy 6
 WIDTH: 80
 HEIGHT: 51
 
-Based on 'pony fantasy 6' basil dragon, the autor give permision over
-public domain for the image, the name is a generic name found in really
-many places and is a placeholder.
+
 $$$
 $balloon57$[0m
                                                       $\$
