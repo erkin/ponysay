@@ -8,7 +8,7 @@ FREE: no
 GROUP: mare
 KIND: earth
 MANE: blue
-NAME: Bon Bon
+NAME: Bon Bon (unofficial, but FAR more used)
 OTHER NAMES: Sweetie Drops (official)
 POSE: sleep
 SOURCE: desktop ponies

@@ -1,15 +1,15 @@
 $$$
-APPEARANCE: s1c21m06s37
+APPEARANCE: S01E21 06:37
+BALLOON: top
 COAT: yellow
+DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: unicorn
-GROUP NAME: apple family
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: braeburn
-OTHER NAMES: baerburn (frequently miswriting)
+NAME: Braeburn
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 25

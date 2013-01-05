@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s1c1m6s47
-BASED ON: bonbon
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 COAT: creme
+DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: blue
-MEDIA: TV series
-NAME: bon bon
-OTHER NAMES: sweetie drops (official)
+NAME: Bon Bon (unofficial, but FAR more used)
+OTHER NAMES: Sweetie Drops (official)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 26
