@@ -5,7 +5,7 @@ COAT: red
 DISPLAY: full, left
 EYE: green
 FREE: yes
-GROUP: dragon
+GROUP: dragon, villain
 KIND: animal
 LICENSE: cc-by
 MANE: pink
@@ -13,7 +13,7 @@ NAME: (not mentioned)
 OTHER NAMES: Basil (unofficial)
 POSE: waiting
 SOURCE: Pony Fantasy 6
-WIDTH: 80
+WIDTH: 85
 HEIGHT: 51
 
 

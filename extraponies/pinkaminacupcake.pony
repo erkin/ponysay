@@ -12,7 +12,8 @@ LINK: regular
 MANE: pink
 MEDIA: [fanfic: Cucpacke]
 NAME: Pinkie Pie
-OTHER NAMES: Pinkie (also mentioned on the serie), Pinkanima Diane Pie (also confirmes as they full name)
+OTHER NAMES: Pinkie (also mentioned on the serie), Pinkanima Diane Pie (also confirmed as they full name)
+POSE: waiting
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 26

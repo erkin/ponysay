@@ -7,10 +7,11 @@ EYE: gray
 FREE: no
 GROUP: filly
 KIND: alicorn
+LICENSE: cc-nc-by-sa
 MANE: gray
-MEDIA: woonastuck.tumblr.com
+MEDIA: (egophiliac) woonastuck.tumblr.com
 NAME: Woona (by the author)
-OTHER NAMES: Wrincess Woona (on a reply), chosen woon (given by the Rocs)
+OTHER NAMES: Princess Woona (on a reply), Chosen woon (given by the Rocs)
 POSE: stand
 SOURCE: desktop ponies OC
 WIDTH: 43

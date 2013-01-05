@@ -5,11 +5,11 @@ DISPLAY: full. left
 EYE: blue
 FREE: no
 GROUP: mare
-GROUP NAME: consept
-KIND: unicorn
+KIND: unicorn, consept
 MANE: purple
 MEDIA: fanart
 NAME: Sparkler (mentioned by Lauren Faust)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 50
 HEIGHT: 25

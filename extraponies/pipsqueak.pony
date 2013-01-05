@@ -8,10 +8,12 @@ EYE: white
 FREE: no
 GROUP: colt, background
 KIND: earth
+LICENSE: cc-nc-by-sa
 MANE: brown
 NAME: Pipsqueak
-OTHER NAMES: Pip /unofucual, short name)
-SOURCE: desktop ponies
+OTHER NAMES: Pip (unofucual, short name)
+POSE: stand
+SOURCE: desktop ponies (with pirate suit)
 WIDTH: 33
 HEIGHT: 20
 

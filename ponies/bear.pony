@@ -11,7 +11,7 @@ LICENSE: CC0
 NAME: (not mentioned)
 POSE: eating
 SOURCE: (screenshoot)
-WIDTH: 80
+WIDTH: 87
 HEIGHT: 58
 
 

@@ -12,6 +12,7 @@ LINK: regular
 MANE: purple
 NAME: (not mentioned)
 OTHER NAMES: Amethyst Star (official, in merchandise), Sparkler (unofficial)
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 25

@@ -11,6 +11,7 @@ MANE: black
 MASTER: drhooves
 NAME: Time Turner (official on the Traing cards)
 OTHER NAMES: Dr Hooves (official according to Welovefine), Doctor Hooves (long name)
+POSE: stand
 SOURCE: Tumblr NSFW
 WIDTH: 40
 HEIGHT: 24

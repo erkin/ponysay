@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c23m12s58
+APPEARANCE: S01E23 12:58
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: yellow
 FREE: no
 GROUP: stallion
 KIND: unicorn
 MANE: white
-MEDIA: TV series
-NAME: bastion yorsets
-OTHER NAMES: george washingtony
+NAME: (not mentioned)
+OTHER NAMES: Bastion Yorsets (unofficial),  George Washingtony (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 39
 HEIGHT: 26

@@ -7,10 +7,12 @@ EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
+LICENSE: cc-nc-by-sa
 MANE: black
 MASTER: doctor
 NAME: Time Turner (official on the Traing cards)
 OTHER NAMES: Dr Hooves (official according to Welovefine), Doctor Hooves (long name)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 43
 HEIGHT: 25

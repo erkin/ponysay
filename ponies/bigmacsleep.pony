@@ -1,17 +1,18 @@
 $$$
-APPEARANCE: s1c1m6s51
-BASED ON: bigmac
+APPEARANCE: S01E01 Friendship is Magic (part 1)
+BALLOON: top
 COAT: red
+DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: stallion
-GROUP NAME: apple family
+GROUP: stallion, background, voiced
 KIND: earth
+LINK: regular
 MANE: brown
-MEDIA: TV series
-NAME: big macintosh
-OTHER NAMES: big mac, big mcintosh, mac
-SOURCE: desktop ponies devel
+NAME: Big McIntosh
+OTHER NAMES: Big Mac (sometimes), Big Macintosh (sometimes), Mac (rarely but mentioned)
+POSE: sleepc
+SOURCE: desktop ponies
 WIDTH: 51
 HEIGHT: 19
 
