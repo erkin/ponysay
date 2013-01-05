@@ -2914,7 +2914,7 @@ sequences.
 @itemize @bullet
 @item
 New ponies: @file{babseed}, @file{bear}, @file{beautybrass}, @file{bigmacsleep}, @file{billneiigh},
-@file{cadancecrystal}, @file{cloudchaser}, @file{descent}, @file{flitter}, @file{lighningdust},
+@file{cadancecrystal}, @file{cloudchaser}, @file{descent}, @file{haakim}, @file{flitter}, @file{lighningdust},
 @file{mrbreezy}, @file{orangebird}, @file{orangefrog}, @file{pinkiecrazyface}, @file{raccoon}, @file{rumble},
 @file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal}, @file{squirrel}, @file{sweetcream} (comic)
 @file{twilightcrystal}, @file{trixieamulet}, @file{twinkleshine}
