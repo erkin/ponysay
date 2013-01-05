@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s2c22m3s39
+APPEARANCE: S02E22 03:39
+BALLOON: top
 COAT: white
+DISPLAY: full, right
 EYE: green (ponysay), blue (source)
 FREE: no
 GROUP: mare
 KIND: pegasus
 MANE: pink
-MEDIA: TV series
-NAME: blossomforth
+NAME: Blossomforth (official on toy line)
+POSE: troting
 SOURCE: desktop ponies devel
 WIDTH: 51
 HEIGHT: 24

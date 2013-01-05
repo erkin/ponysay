@@ -2975,6 +2975,7 @@ Pony symlink added:
 @item @file{lily} @arrow{} @file{lilyvalley}
 @item @file{swaetiedrops} @arrow{} @file{bonbon}
 @item @file{carecake} @arrow{} @file{carrotake}
+@item @file{berrydreams} @arrow @fille{blueberry}
 @end itemize
 @end itemize
 
