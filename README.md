@@ -110,6 +110,10 @@ __Q:__ You are missing _(my-favourite-pony)_!
 
 __A:__ [Ask](/erkin/ponysay/issues) and we'll add!
 
+__Q:__ The outpus look weird on my _(xfce4-terminal/mate-terminal/xterm)_
+
+__A:__ We use block for pint the ponies, if the block are desalignated or you not use a __real__ monospaced font try another diferent and mopnospace font.
+
 __Q:__ Which programs do you use to generate the pony files?
 
 __A:__ The pony files are actually mostly a bunch of selected [browser ponies](//web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](/maandree/util-say),
