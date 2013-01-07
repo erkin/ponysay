@@ -1,11 +1,11 @@
 $$$
-APPEARANCE: S01E15
+APPEARANCE: S01E15 Feeling Pinkie Keen
 BALLOON: top
 COAT: brown
 DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 KIND: pegasus
 MANE: creme
 NAME: (not mentioned)

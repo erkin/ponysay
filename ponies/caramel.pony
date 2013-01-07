@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c11m4s56
+APPEARANCE: S01E11 04:56
+BALLOON: top
 COAT: yellow
+DISPLAY: full, left
 EYE: cyan
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: caramel
-OTHER NAMES: chance-a-lot
+NAME: Caramel
+OTHER NAMES: Cance-A-Lot (unofficial, but the toy ressemble her)
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 26

@@ -1,18 +1,19 @@
 $$$
-APPEARANCE: s2c26
+APPEARANCE: S02E26 The Royal Wedding part 2
 AURA: green
-BASED ON: crysalis
+BALLOON: top
+BASED ON: chrysalis
 COAT: black
+DISPLAY: full, left
 EYE: green
 FREE: no
-GROUP: mare
-GROUP NAME: antagonist
+GROUP: mare, antagonist
 KIND: changeling
 MANE: blue
-MEDIA: TV series
-NAME: queen changeling
-OTHER NAMES: crysalis (official, in manuscript)
-SOURCE: desktop ponies group in deviantart
+NAME: Queen Changeling
+OTHER NAMES: Chrysalis (in manuscript and in the official comic)
+POSE: stand
+SOURCE: unknown
 WIDTH: 65
 HEIGHT: 34
 

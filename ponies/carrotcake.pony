@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c4m13s17
+APPEARANCE: S01E04 13:17
+BALLOON: top
 COAT: brown
+DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: stallion
+GROUP: stallion, backgound, voiced
 KIND: earth
 MANE: orange
-MEDIA: TV series
-NAME: carrot cake
-OTHER NAMES: carecake, mr cake, mr carecake, mr carrot cake
+NAME: Mr Carrot Cake
+OTHER NAMES: Carecake, Mr Cake, Mr Carecake, Carrot Cake
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 30

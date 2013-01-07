@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c1m18s45
+APPEARANCE: S01E01 Frienship is Magic part 1
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: pink
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: pink
-MEDIA: TV series
-NAME: candymane
-OTHER NAMES: sugarcoat
+NAME: (not mentioned)
+OTHER NAMES: Candy Mane (unofficial), Sugarcoat (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 27

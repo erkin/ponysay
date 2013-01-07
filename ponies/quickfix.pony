@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c1m19s16
+APPEARANCE: S01E01 Frienship is magic part 1
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: unicorn
 MANE: yellow
-MEDIA: TV series
-NAME: quickfix
-OTHER NAMES: epona, clockwork
+NAME: (not mentioned)
+OTHER NAMES: Quickfix (unofficial), Epona (unofficial), Clockwork (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 46
 HEIGHT: 25

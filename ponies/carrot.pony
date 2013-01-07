@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c1m6s47
+APPEARANCE: S01E01 Frienship is Magic part 1
+BALLOON: top
 COAT: yellow
+DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: orange
-MEDIA: TV series
-NAME: golden harvest
-OTHER NAMES: carrot top
+NAME: Golden Harvest
+OTHER NAMES: Carrot Top (traiding card state this is they nick name)
+POSE: siting
 SOURCE: desktop ponies
 WIDTH: 44
 HEIGHT: 25

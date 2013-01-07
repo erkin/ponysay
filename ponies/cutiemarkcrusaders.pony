@@ -1,4 +1,10 @@
 $$$
+FREE: no
+SOURCE: desktop ponies deviantart group
+WIDTH: 108
+HEIGHT: 24
+
+
 $$$
 $balloon97$[0m
                                                                                               $\$

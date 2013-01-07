@@ -11,7 +11,7 @@ LICENSE: cc-nc-by-sa
 NAME: Crackle
 POSE: derped
 SOURCE: deviantar brony art group
-WIDTH: 80
+WIDTH: 108
 HEIGHT: 60
 
 

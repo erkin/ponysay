@@ -1,17 +1,19 @@
 $$$
-APPEARANCE: s2c25m9s22
+APPEARANCE: S02E25 The Royal Wedding part 1
 AURA: pink
+BALLOON: top
 BASED ON: cadance
 COAT: pink
+DISPLAY: full, left
 EYE: pink
 FREE: no
-GROUP: mare
-GROUP NAME: royal, crystal
+GROUP: mare, royal, crystal
 KIND: alicorn
 MANE: pastel
-MEDIA: TV series
-NAME: cadance
-OTHER NAMES: cadenza, cadence
+MASTER: cadance
+NAME: Princess Cadance
+OTHER NAMES: Mi amore Cadenza (on invitation), Cadence (on credits)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 46
 HEIGHT: 31

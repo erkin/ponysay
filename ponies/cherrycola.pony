@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: s1c3m3s56
+APPEARANCE: S01E03 the Ticket Master
+BALLOON: top
 BASED ON: cherrycola
 COAT: brown
+DISPLAY: full, left
 EYE: green
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 KIND: earth
 MANE: black
-MEDIA: TV series
-NAME: cherry fizzy
-OTHER NAMES: cherry cola, cherry coke
+NAME: Cherry Fizzy
+OTHER NAMES: Cherry Cola (unofficial), Cherry Coke (unofficial)
+POSE: top
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 25

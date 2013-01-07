@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: s1c6m17s43
+APPEARANCE: S01E06
+BALLOON: top
 BASED ON: cheerilee
 COAT: purple
+DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: mare
+GROUP: mare, backgound, voiced
 KIND: earth
 MANE: pink
-MEDIA: TV series
-NAME: cheerilee
-OTHER NAMES: cheerelee, cheerilee pie
+NAME: Cheerilee
+OTHER NAMES: Cheerelee (McDonald toy), Cheerilee Pie (on Gameloft game beta)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 44
 HEIGHT: 24
