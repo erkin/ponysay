@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c20m4s45
-AURA: yellow
+APPEARANCE: S01E20 Green Isn't Your Color
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: mare
 KIND: earth
-MANE: brown
-MEDIA: TV series
-NAME: pretty vision
-OTHER NAMES: elsie
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Pretty vision (unofficial), Elsie (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 25

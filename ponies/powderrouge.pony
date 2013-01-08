@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c20m8s54
-AURA: blue
-EYE: blue
+APPEARANCE: S01E20 Green Isn't Your Color
+BALLOON: top
+COAT: creme
+DISPLAY: full, right
+EYE: closed, purple
 FREE: no
 GROUP: mare
 KIND: earth
-MANE: creme
-MEDIA: TV series
-NAME: powder rouge
-OTHER NAMES: sindy
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Powder Rouge (unofficial), Sindy (unofficial)
+POSE: sitting
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 21
