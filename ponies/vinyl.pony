@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: s1c14m13s37
+APPEARANCE: S01E14 13:37
+BALLOON: top
 COAT: white
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: unicorn
 MANE: blue
-MEDIA: TV series
-NAME: dj pon-3
-OTHER NAMES: vın̈yl scratch,vinyl scratch, vinyl
+NAME: DJ Pon-3, Vın̈yl Scratch
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 46
 HEIGHT: 28

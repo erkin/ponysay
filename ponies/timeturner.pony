@@ -9,8 +9,9 @@ GROUP: stallion
 KIND: earth
 MANE: black
 MASTER: doctor
-NAME: Time Turner (official on the Traing cards)
-OTHER NAMES: Dr Hooves (official according to Welovefine), Doctor Hooves (long name)
+NAME: Time Turner
+OTHER NAMES: Dr Hooves (official according to Welovefine), Dr Whooves (unofficial)
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 38
 HEIGHT: 24

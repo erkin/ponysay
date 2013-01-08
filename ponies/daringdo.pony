@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s2c16m5s24
+APPEARANCE: So2E16 05:24
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, voiced
 KIND: pegasus
 MANE: gray
-MEDIA: TV series
-NAME: daring do
+NAME: Daring Do
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 50
 HEIGHT: 27

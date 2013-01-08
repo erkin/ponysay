@@ -1,17 +1,19 @@
 $$$
-APPEARANCE: s2c1
+APPEARANCE: S02E01 The Return of Harmony part 1
+BALLOON: top
 BASED ON: discord
 COAT: multiple
+DISPLAY: head, right
 EYE: red
 FREE: no
-GROUP: male
-GROUP NAME: antagonist
+GROUP: male, antagonist
 KIND: draconequu
 MANE: gray
-MEDIA: TV series
-NAME: discord
-SOURCE: desktop ponies devel
-WIDTH: 83
+MASTER: discord
+NAME: Discord
+POSE: amused
+SOURCE: (screenshoot)
+WIDTH: 80
 HEIGHT: 33
 
 

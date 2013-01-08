@@ -1,4 +1,21 @@
 $$$
+APPEARANCE: S01E11 05:05
+BALLOON: top
+COAT: purple
+DISPLAY: full, left
+EYE: yellow
+FREE: no
+GROUP: unicorn
+KIND: filly
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Dinky Doo (unofficial), Dinky Hooves (unofficial)
+POSE: troting
+SOURCE: desktop ponies
+WIDTH: 38
+HEIGHT: 21
+
+
 $$$
 $balloon9$[0m
       $\$

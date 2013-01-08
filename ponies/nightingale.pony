@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c2m12s15
-COAT: light blue
+APPEARANCE: S01E02 Friendship is Magic part 2
+BALLOON: top
+COAT: gray
+DISPLAY: full, left
 FREE: no
-GROUP: mare
-GROUP NAME: shadowbolts
+GROUP: mare, shadowbolt
 KIND: pegasus
 MANE: blue
-MEDIA: TV series
-NAME: nightingale
+NAME: (not mentioned)
+OTHER NAMES: Nightingale (unofficial)
+POSE: siting
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 25

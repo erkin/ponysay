@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: s1c12m00s4
+APPEARANCE: S01E12 00:04
+BALLOON: top
 COAT: pink
-EYE: blue
+DISPLAY: full, left
+EYE: teal
 FREE: no
-GROUP: filly
-GROUP NAME: villain
+GROUP: filly, villain
 KIND: earth
-MANE: gray
-MEDIA: TV series
-NAME: diamond tiara
+MANE: purple
+NAME: Diamond tiara
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 36
 HEIGHT: 21

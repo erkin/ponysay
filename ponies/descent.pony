@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: s1c2m12s15
-COAT: shadow
+APPEARANCE: S01E02 Friendship is Magic part 2
+BALLOON: top
+COAT: gray
+DISPLAY: full, right
 FREE: no
-GROUP: stallion
-GROUP NAME: shadowbolts
+GROUP: stallion, shadowbolt
 KIND: pegasus
 MANE: blue
-MEDIA: TV series
-NAME: descent
+NAME: Descent
+POSE: flying
 SOURCE: [jristz]
 WIDTH: 46
 HEIGHT: 23

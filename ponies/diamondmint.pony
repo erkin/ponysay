@@ -1,11 +1,16 @@
 $$$
-APPEARANCE: s1c2m1s27
+APPEARANCE: S01E02 Friendship is Magic part 2
+BALLOON: top
 COAT: blue
+DISPLAY: full, right
 EYE: purple
 FREE: no
+GROUP: mare
+KIND: unicorn
 MANE: purple
-MEDIA: TV series
-NAME: diamond mint
+NAME: (not mentioned)
+OTHER NAMES: Diamond Mint (unofficial)
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 25

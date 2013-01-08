@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c24m10s37
+APPEARANCE: S01E24 10:37
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: davenport
+NAME: (not mentioned)
+OTHER NAMES: Davenport (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 25

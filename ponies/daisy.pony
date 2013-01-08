@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c1m16s40
+APPEARANCE: S01E01 Friendship is magic part 1
+BALLOON: top
 COAT: pink
+DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: mare
+GROUP: mare, voiced
 KIND: earth
 MANE: green
-MEDIA: TV series
-NAME: daisy
-OTHER NAMES: flower wishes
+NAME: Daisy
+OTHER NAMES: Flower Wishes (unofficial, a toy match here)
+POSE: stroting
 SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 26
