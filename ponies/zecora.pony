@@ -1,4 +1,20 @@
 $$$
+APPEARANCE: S01
+BALLOON: top
+COAT: gray
+DISPLAY: full, right
+EYE: green
+FREE: no
+GROUP: mare
+KIND: zebra
+MANE: white, black
+NAME: Zecora
+POSE: troting
+SOURCE: desktop ponies
+WIDTH: 44
+HEIGHT: 30
+
+
 $$$
 $balloon22$[0m
                  $\$
