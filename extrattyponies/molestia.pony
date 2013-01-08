@@ -11,8 +11,9 @@ MANE: pink
 MEDIA: askprincessmolestia.tumblr.com NSFW
 NAME: Princess Molestia (Named given by the author)
 OTHER NAMES: Molestia (short name)
+POSE: waiting
 SOURCE: [jristz]
-WIDTH: 95
+WIDTH: 80
 HEIGHT: 40
 
 

@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c23m16s9
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: brown
 FREE: no
 GROUP: stallion
-GROUP NAME: pie family
 KIND: earth
 MANE: gray
-MEDIA: TV series
-NAME: clyde
+NAME: (not mentioned)
+OTHER NAMES: Clyde (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 25

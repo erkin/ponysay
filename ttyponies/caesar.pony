@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c3m7s26
+APPEARANCE: S01E03 07:26
+BALLOON: top
 COAT: gray
+DISPLAY: full, right
 EYE: brown
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 KIND: earth
 MANE: gray
-MEDIA: TV series
-NAME: caesar
+NAME: (not mentioned)
+OTHER NAMES: Caesar
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 48
 HEIGHT: 26

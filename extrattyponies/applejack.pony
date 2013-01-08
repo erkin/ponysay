@@ -1,15 +1,16 @@
 $$$
 BALLOON: top
 COAT: yellow
+DISPLAY: full, right, turn
 EYE: green
 FREE: no
-GROUP: mare
-GROUP NAME: consept
+GROUP: mare, consept
 KIND: earth
 MANE: brown
 MEDIA: fanart
 NAME: Applejack (given by Lauren Faust)
-SOURCE: fyrefly (lauren faust) deviantart
+POSE: watching
+SOURCE: Lauren Faust's deviantart
 WIDTH: 37
 HEIGHT: 25
 

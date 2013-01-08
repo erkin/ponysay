@@ -3,7 +3,7 @@ APPEARANCE: S01E16 Sonic Rainboom
 BALLOON: top
 COAT: white
 DISPLAY: full, right
-FREE: yes
+FREE: no
 GROUP: stallion, wonderbolt
 KIND: pegasus
 MANE: orange

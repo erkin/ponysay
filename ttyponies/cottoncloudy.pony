@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c12m2s44
+APPEARANCE: S01E12 02:44
+BALLOON: top
 COAT: white
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: filly
 KIND: pegasus
 MANE: blue
-MEDIA: TV series
-NAME: cotton cloudy
+NAME: (not mentioned)
+OTHER NAMES: Cotton Cloudy (unofficial)
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 37
 HEIGHT: 20

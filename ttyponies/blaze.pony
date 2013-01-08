@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c3m3s36
+APPEARANCE: S01E03 Ticket Master
+BALLOON: top
 COAT: yellow
+DISPLAY: full, right
 FREE: no
-GROUP: mare
-GROUP NAME: wonderbolts
+GROUP: mare, wonderbolt
 KIND: pegasus
 MANE: orange
-MEDIA: TV series
-NAME: blaze
+NAME: (not mentioned)
+OTHER NAMES: Blaze (unofficial)
+POSE: flying
 SOURCE: [jristz]
 WIDTH: 53
 HEIGHT: 20

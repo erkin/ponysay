@@ -6,9 +6,11 @@ EYE: cyan
 FREE: yes
 GROUP: filly
 KIND: alicorn
+LICENSE: cc-by-sa
 MANE: blue
 MEDIA: [fanfic: Past Sins]
 NAME: Nyx (given by the author)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 35
 HEIGHT: 20

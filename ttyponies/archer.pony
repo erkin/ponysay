@@ -11,6 +11,7 @@ LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Archer (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 46
 HEIGHT: 21

@@ -1,15 +1,15 @@
 $$$
-APPEARANCE: s1c23m16s7
+APPEARANCE: S01E23 16:07
+BALLOON: top
 COAT: gray
-EYE: broen
+DISPLAY: full, right
+EYE: brown
 FREE: no
 GROUP: filly
-GROUP NAME: pie family
 KIND: earth
 MANE: gray
-MEDIA: TV series
-NAME: blinkie pie
-OTHER NAMES: blinkie
+OTHER NAMES: Blinkie Pie (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 31
 HEIGHT: 20

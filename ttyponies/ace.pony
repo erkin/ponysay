@@ -10,6 +10,7 @@ LINK: regular
 MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Ace (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 48
 HEIGHT: 27

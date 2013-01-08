@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s2c22m8s50
+APPEARANCE: S02E22 Hurrican Fluttershy
+BALLOON: top
 COAT: yellow
+DISPLAY: full, left
 EYE: pink
 FREE: no
 GROUP: mare
 KIND: pegasus
 MANE: pink
-MEDIA: TV series
-NAME: bon voyage
+NAME: (not mentioned)
+OTHER NAMES: Bon voyage (unofficial)
+POSE: flying
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 20

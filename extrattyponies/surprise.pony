@@ -7,9 +7,11 @@ FREE: yes
 GROUP: mare
 GROUP NAME: consept
 KIND: pegasus
+LICENSE: CC0
 MANE: white
 MEDIA: asksurprise.tumblr.com
 NAME: Surprise (official, previous generation)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 26

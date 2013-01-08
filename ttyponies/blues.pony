@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c11m1s46
+APPEARANCE: S01E11 01:46
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: brown
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: blue
-MEDIA: TV series
-NAME: noteworthy
-OTHER NAMES: blues
+NAME: Noteworthy (mentioned on toy line)
+OTHER NAMES: Blues (unofficial)
+POSE: playing
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 25

@@ -2,12 +2,13 @@ $$$
 APPEARANCE: S01E25 Party of One
 BALLOON: top
 DISPLAY: full, left
-FREE: yes
+FREE: sharable
 GROUP: imaginary
 KIND: item
+LICENSE: cc-nc-by-sa
 NAME: Lintsalot
 SOURCE: desktop ponies
-WIDTH: 21
+WIDTH: 27
 HEIGHT: 21
 
 

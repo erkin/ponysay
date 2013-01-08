@@ -7,8 +7,10 @@ EYE: black
 FREE: yes
 GROUP: cow
 KIND: animal
+LICENSE: CC0
 MANE: brown
 NAME: (not mentioned)
+POSE: waiting
 SOURCE: [jristz]
 WIDTH: 27
 HEIGHT: 24

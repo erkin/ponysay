@@ -1,6 +1,7 @@
 $$$
 BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: stallion
@@ -8,6 +9,7 @@ KIND: earth
 MANE: black
 NAME: Dr Hooves #10 (mentioned on the fanfic)
 OTHER NAMES: Dr Hooves (original model), Dr Whooves, Dr Whoof (used on fanfics)
+POSE: stand
 SOURCE: fanart
 WIDTH: 39
 HEIGHT: 24

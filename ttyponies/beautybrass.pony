@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c26m10s15
+APPEARANCE: S01E26 10:15
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: beautybrass
+NAME: (not mentioned)
+OTHER NAMES: Beauty Brass (unofficial)
+POSE: playing music
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 32

@@ -7,9 +7,11 @@ EYE: black
 FREE: yes
 GROUP: manticore
 KIND: animal
+LICENSE: CC0
 MANE: red
 NAME: Manticore
 POSE: watching
+SOURCE: (screenshoot)
 WIDTH: 75
 HEIGHT: 33
 

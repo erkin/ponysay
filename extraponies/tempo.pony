@@ -12,6 +12,7 @@ MEDIA: [fanfic: Wrong spell, On a Cross and Arrow]
 NAME: Prince Tempo (given by the author)
 OTHER NAMES: Prince D'Amore Temporus (Equivalent to: Mi Amore Cadenza)
 POSE: stand
+SOURCE: [jristz] (Based on imagens in MLPGenderBlend deviantart group)
 WIDTH: 47
 HEIGHT: 25
 

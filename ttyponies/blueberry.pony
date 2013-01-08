@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c13m6s3
+APPEARANCE: S01E13 06:03
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: blue berry
+NAME: Berry Dreams (mentioned on toy line)
+OTHER NAMES: Blue berry (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 45
 HEIGHT: 25

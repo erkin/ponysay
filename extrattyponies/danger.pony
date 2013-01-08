@@ -4,16 +4,16 @@ BALLOON: top
 COAT: gray
 DISPLAY: full, left
 EYE: gray
-FREE: yes
+FREE: sharable
 GROUP: mare
 KIND: seapony
+LICENSE: cc-nc-by-sa
 MANE: gray
-MEDIA: woonastuck.tumblr.com
-NAME: Maria (addopted by the author on a fanart)
-OTHER NAMES: Lunar Maria (name given on a question), lunar mare (named given on the first appearance)
+MEDIA: (egophiliac) woonastuck.tumblr.com
+NAME: Danger McSteele (given by the autor)
 POSE: watching
 SOURCE: [jristz]
-WIDTH: 28
+WIDTH: 29
 HEIGHT: 25
 
 

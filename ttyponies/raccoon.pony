@@ -7,9 +7,10 @@ EYE: black
 FREE: yes
 GROUP: raccoon
 KIND: animal
+LICENSE: CC0
 POSE: runing
 SOURCE: (screenshoot)
-WIDTH: 88
+WIDTH: 80
 HEIGHT: 27
 
 

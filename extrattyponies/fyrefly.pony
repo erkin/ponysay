@@ -7,10 +7,12 @@ FREE: yes
 GROUP: mare
 GROUP NAME: consept
 KIND: pegasus
+LICENSE: CC0
 MANE: blue
+MEDIA: thefyrefly,tumblr.com
 NAME: Fyrefly (previous generation)
 POSE: flying
-SOURCE: thefyrefly.tumbrl.com
+SOURCE: imageboard
 WIDTH: 36
 HEIGHT: 37
 

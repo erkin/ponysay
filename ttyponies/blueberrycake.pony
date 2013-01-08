@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c23m10s4
+APPEARANCE: S01E23
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: filly
 KIND: earth
 MANE: purple
-MEDIA: TV series
-NAME: blueberry cake
+NAME: (not mentioned)
+OTHER NAMES: BlueBerry Cake (unofficial)
+POSE: disguised
 SOURCE: [jristz]
 WIDTH: 47
 HEIGHT: 24

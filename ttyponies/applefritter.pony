@@ -2,6 +2,7 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: yellow
+DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: filly, background
@@ -9,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: green
 NAME: Apple Fritter
-POSE: full, left
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 25

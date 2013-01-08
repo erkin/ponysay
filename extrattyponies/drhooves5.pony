@@ -6,9 +6,11 @@ EYE: brown
 FREE: yes
 GROUP: stallion
 KIND: earth
+LICENSE: CC0
 MANE: yellow
 NAME: Dr Hooves #5 (mentioned on the fanart)
 OTHER NAMES: Dr Whoof, Dr Whooves (Used on fanfics)
+POSE: stand, smiling
 SOURCE: fanart
 WIDTH: 39
 HEIGHT: 25

@@ -1,15 +1,17 @@
 $$$
+APPEARANCE: S02
 BALLOON: top
 COAT: black
 DISPLAY: full, right
 EYE: red
 FREE: yes
-GROUP: dog, cerberus
-GROUP NAME: wildlife
+GROUP: dog, wildlife, cerberus
 KIND: animal
+LICENSE: CC0
 NAME: Cerberus
+POSE: playing
 SOURCE: (screenshoot)
-WIDTH: 107
+WIDTH: 80
 HEIGHT: 33
 
 

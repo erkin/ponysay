@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c4m13s17
+APPEARANCE: S01E04 13:17
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, backgrund, voiced
 KIND: earth
 MANE: red
-MEDIA: TV series
-NAME: cup cake
-OTHER NAMES: mrs cup cake, mrs cupcake, cupcake
+NAME: Mrs Cup Cake
+OTHER NAMES: Cup Cake, Mrs Cupcake, Cupcake
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 43
 HEIGHT: 28

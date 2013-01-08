@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c7m1s40
-COAT: brown
+APPEARANCE: S01E07 01:40
+BALLOON: top
+COAT: creme
+DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: blue
-MEDIA: TV series
-NAME: goldengrape
-OTHER NAMES: green grapes, colton vines, sir colton vines
+NAME: Goldengrape
+OTHER NAMES: Colton Vines (unofficial), Sir Colton Vines III (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 25

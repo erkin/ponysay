@@ -5,11 +5,11 @@ DISPLAY: full, right
 EYE: closed
 FREE: no
 GROUP: mare
-GROUP NAME: consept
-KIND: unicorn
+KIND: unicorn, consept
 MANE: purple
-MEDIA: fyrefly (Lauren Faust) deviantart
+MEDIA: Lauren Faust's deviantart
 NAME: Twilight (mentioned by Lauren Faust)
+POSE: casting
 SOURCE: [jristz]
 WIDTH: 50
 HEIGHT: 24

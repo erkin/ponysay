@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s2c22m00s15
-COAT: blue
+APPEARANCE: S02E22 Hurricane Fluttershy
+BALLOON: top
+COAT: lilac
+DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, voiced
 KIND: pegasus
-MANE: vyan
-MEDIA: TV series
-NAME: cloudchaser
+MANE: cyan
+NAME: Cloudchaser
+POSE: inverted
 SOURCE: desktop ponies
 WIDTH: 50
 HEIGHT: 20

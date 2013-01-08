@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s2c6m19s23
+APPEARANCE: S02E06 19:23
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: orange
-MEDIA: TV series
-NAME: blue harvest
+NAME: (not mentioned)
+OTHER NAMES: Blue Harvest (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 45
 HEIGHT: 25

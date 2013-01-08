@@ -4,13 +4,14 @@ BALLOON: top
 COAT: green
 DISPLAY: full, right
 EYE: red
-FREE: yes
+FREE: sharable
 GROUP: dragon
 KIND: animal
+LICENSE: cc-nc-by-sa
 NAME: Crackle
 POSE: derped
-SOURCE: desktop ponies
-WIDTH: 131
+SOURCE: deviantar brony art group
+WIDTH: 108
 HEIGHT: 60
 
 

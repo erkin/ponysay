@@ -6,10 +6,12 @@ EYE: blue
 FREE: yes
 GROUP: mare, original
 KIND: alicorn
+LICENSE: cc-by-sa
 MANE: red
 MEDIA: deviantart.com (varius artists)
 NAME: Faust (most frecuent name)
 OTHER NAMES: Lauren Faust (owner name)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 51
 HEIGHT: 31

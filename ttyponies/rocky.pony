@@ -3,12 +3,13 @@ APPEARANCE: S01E25 Party of one
 BALLOON: top
 COAT: grey
 DISPLAY: full, left
-FREE: yes
+FREE: sharable
 GROUP: imaginary
 KIND: item
+LICENSE: cc-nc-by-sa
 NAME: Rocky
 SOURCE: desktop ponies
-WIDTH: 22
+WIDTH: 23
 HEIGHT: 27
 
 

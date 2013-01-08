@@ -11,6 +11,7 @@ LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Aloe (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 25

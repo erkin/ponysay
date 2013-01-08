@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1e14m14s6
+APPEARANCE: S01E14 14:06
+BALLOON: top
 COAT: purple
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: blue
-MEDIA: TV series
-NAME: candylicious
+NAME: (not mentioned)
+OTHER NAMES: Candylicious
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 25

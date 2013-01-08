@@ -1,20 +1,21 @@
 $$$
-APPEARANCE: s1c3m7s49
+APPEARANCE: S01E03 Ticket Master
+BALLOON: top
 COAT: white
+DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: stallion
-GROUP NAME: royal
+GROUP: stallion, royal
 KIND: unicorn
 MANE: yellow
-MEDIA: TV series
-NAME: prince blueblood
-OTHER NAMES: blueblood
+NAME: Prince Blueblood
+OTHER NAMES: Blueblood
+POSE: watching
 SOURCE: [jristz]
 WIDTH: 42
 HEIGHT: 29
 
-
+The author of this picture not like blueblood... this is why not look soo good
 $$$
 $balloon$
 ]P0000000]P1AA0000]P200AA00]P3AA5500]P40000AA]P5AA00AA]P600AAAA]P7AAAAAA]P8555555]P9FF5555]PA55FF55]PBFFFF55]PC5555FF]PDFF55FF]PE55FFFF]PFFFFFFF[0m      $\$

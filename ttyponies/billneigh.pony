@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s3c1m6s32
+APPEARANCE: S03E01 The Crystal Empire (part 1)
+BALLOON: top
 COAT: gray
+DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 KIND: earth
 MANE: white
-MEDIA: TV series
-NAME: bill neigh
-OTHER NAMES: professor
+NAME: (not mentioned
+OTHER NAMES: Bill Neogh (unofficial), Professor (on credits)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 39
 HEIGHT: 26

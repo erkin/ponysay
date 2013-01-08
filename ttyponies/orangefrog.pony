@@ -5,7 +5,8 @@ DISPLAY: full, right
 FREE: yes
 GROUP: frog, orange
 KIND: animal, item, hybrid
-SOURCE: [jristz]
+LICENSE: CC0
+SOURCE: (screenshoot)
 WIDTH: 58
 HEIGHT: 33
 

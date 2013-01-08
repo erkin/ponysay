@@ -1,12 +1,19 @@
 $$$
-NAME: princess celestia
-GROUP: filly
-OTHER NAMES: celestia
+AURA: yellow
+BALLOON: top
+BASED ON: celestia
 COAT: white
-KIND: alicorn
+DISPLAY: full, right
+EYE: purple, closed
 FREE: no
-BASED ON: celestia, molestia
+GROUP: filly
+KIND: alicorn, royal
+LICENSE: cc-nc-by-sa
 MANE: pink
+NAME: Princess Celestia
+OTHER NAMES: Celestia
+POSE: flying
+SOURCE: dekstop ponies
 WIDTH: 36
 HEIGHT: 26
 

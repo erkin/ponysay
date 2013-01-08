@@ -3,11 +3,14 @@ AURA: black
 BALLOON: top
 BASED ON: (original)
 COAT: gray
+DISPLAY: full, right
 FREE: yes
 GROUP: stallion
 KIND: earth
+LICENSE: cc-by
 NAME: Slander pony (name gived by the author)
 OTHER NAMES: Slander (short version)
+POSE: troting
 SOURCE: [jristz]
 WIDTH: 34
 HEIGHT: 30

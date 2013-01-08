@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c2m20s28
+APPEARANCE: S01E02 Friendship is magic (part 2)
+BALLOON: top
 COAT: pink
+DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: filly
 KIND: earth
 MANE: pink
-MEDIA: TV series
-NAME: berry pinch
-OTHER NAMES: ruby, ruby pinch
+NAME: (not mentioned)
+OTHER NAMES: Berry Pinch (unofficial), Ruby (unofficial), Ruby Pinch (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 36
 HEIGHT: 21

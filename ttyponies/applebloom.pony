@@ -10,6 +10,7 @@ KIND: earth
 LINK: regular
 MANE: red
 NAME: Apple Bloom
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 21

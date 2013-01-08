@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c1m2s20
+APPEARANCE: S01E01 Friendship is magic part 1
+BALLOON: top
 COAT: cyan
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: unicorn
 MANE: blue
-MEDIA: TV series
-NAME: minuette
-OTHER NAMES: colgate, TARDIE, romana, aquafresh, minty fresh
+NAME: Minuette
+OTHER NAMES: Colgate (unofficial), TARDIE (unofficial), Romana (unofficial), Aquafresh (unofficial), Minty Fresh (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 26
