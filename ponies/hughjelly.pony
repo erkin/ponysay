@@ -1,14 +1,17 @@
 $$$
-APPEARANCE: s2c17m4s4
+APPEARANCE: S02E17 Hearts and Hooves Day
+BALLOON: top
 COAT: gray
+DISPLAY: head, left
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: yellow
-MEDIA: TV series
-NAME: hugh jelly
-SOURCE: imagegrou in deviantar
+NAME: (not mentioned)
+OTHER NAMES: Hugh Jelly (unofficial)
+POSE: jelly
+SOURCE: (imagegrou) deviantar
 WIDTH: 38
 HEIGHT: 37
 

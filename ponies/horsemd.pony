@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: s2c10m10s26
+APPEARANCE: S02E10 Secret of My Excess
+BALLOON: top
 COAT: brown
+DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 KIND: earth
 MANE: orange
-MEDIA: TV series
-NAME: horse MD
-OTHER NAMES: MD horse
-SOURCE: my little pony on-line
+NAME: (not mentioned)
+OTHER NAMES: Horse MD (unofficial), MD Horse (unofficial)
+POSE: stand
+SOURCE: My Little Pony On-Line
 WIDTH: 32
 HEIGHT: 22
 

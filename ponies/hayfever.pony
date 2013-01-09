@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c17m3s37
+APPEARANCE: S02E17 Hearts and Hooves Day
+BALLOON: top
 COAT: white
+DISPLAY: half, left
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: hay fever
+NAME: (not mentioned)
+OTHER NAMES: Hay Fever (unofficial
+POSE: rest
 SOURCE: [jristz]
 WIDTH: 43
 HEIGHT: 23

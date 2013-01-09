@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c3m10s58
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
 COAT: creme
-EYE: brown
+DISPLAY: full, left
+EYE: closed, brown
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: blue
-MEDIA: TV series
-NAME: horte cuise
+NAME: (not mentioned)
+OTHER NAMES: Horte Cuisine (unofficial)
+POSE: sstand
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 24

@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s2c17m3s33
+APPEARANCE: S02E17 Hearts and Hooves Day
+BALLOON: top
 COAT: brown
+DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: colt
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: high score
+NAME: (not mentioned)
+OTHER NAMES: High Score (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 40
 HEIGHT: 29

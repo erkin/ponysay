@@ -9,7 +9,7 @@ GROUP: mare, background, voiced
 KIND: earth
 MANE: white
 NAME: Granny Smith
-POSE: sleep
+POSE: sleeping
 SOURCE: desktop ponies
 WIDTH: 37
 HEIGHT: 23

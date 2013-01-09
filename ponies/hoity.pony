@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c14m13s11
+APPEARANCE: S01E14 13:11
+BALLOON: top
 COAT: gray
+DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 KIND: earth
 MANE: white
-MEDIA: TV series
-NAME: hoity toity
+NAME: Hoity Toity
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 27

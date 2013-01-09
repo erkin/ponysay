@@ -1,12 +1,15 @@
 $$$
-APPEARANCE: s1c10m17s33
+APPEARANCE: S01E10 Swarm of the Century
+BALLOON: top
 COAT: pink
+DISPLAY: full, left
+EYE: closed
 FREE: no
 GROUP: mare
 KIND: unicorn
 MANE: tricolor
-MEDIA: TV series
-NAME: holly dash
+NAME: Holly Dash
+POSE: galloping
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 24
