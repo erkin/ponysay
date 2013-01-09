@@ -1,16 +1,19 @@
 $$$
-APPEARANCE: s1c26m20s9
+APPEARANCE: S01E26 The Best Night Ever
+BALLOON: top
 BASED ON: joe
 COAT: yellow
-EYE: green
+DISPLAY: full, left, turn
+EYE: closed, green
 FREE: no
 GROUP: stallion
 KIND: unicorn
 MANE: brown
-MEDIA: TV series
-NAME: joe
-OTHER NAMES: donut joe
-SOURCE: dektop ponies deviantart group
+MASTER: joe
+NAME: Joe
+OTHER NAMES: Donut Joe (partially official)
+POSE: possing
+SOURCE: [jristz] based on dektop ponies
 WIDTH: 39
 HEIGHT: 26
 

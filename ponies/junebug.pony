@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s2c10m7s47
+APPEARANCE: S02E10 07:47
+BALLOON: top
 COAT: brown
-EYE: green
+DISPLAY: full, right
+EYE: closed, green
 FREE: no
-GROUP: mare
+GROUP: mare, voiced
 KIND: earth
 MANE: orange
-MEDIA: TV series
-NAME: junebug
+NAME: Junebug
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 27

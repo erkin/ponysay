@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: s2
+APPEARANCE: S02
+BALLOON: top
 COAT: blue
+DISPLAY: full, right
 FREE: no
-GROUP: bull (or minotaur)
-GROUP NAME: villian
+GROUP: male, bull (or minotaur), voiced, villain
 KIND: animals
 MANE: black
-MEDIA: TV series
-NAME: iron will
+NAME: Iron Will
+POSE: walking
 SOURCE: desktop ponies
 WIDTH: 59
 HEIGHT: 39

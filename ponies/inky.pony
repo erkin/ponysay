@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s1c23m16s7
-AURA: purple
-EYE: gray
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: gray
+DISPLAY: full, left
+EYE: closed, purple
 FREE: no
 GROUP: filly
-GROUP NAME: pie family
 KIND: earth
 MANE: gray
-MEDIA: TV series
-NAME: inkie pie
-OTHER NAMES: inkie, inky
+NAME: (not mentioned)
+OTHER NAMES: Inkie Pie (unofficial), Inky (unofficial)
+POSE: dancing
 SOURCE: desktop ponies
 WIDTH: 32
 HEIGHT: 22

@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s2
+APPEARANCE: S02E06 The Cutie Pox
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
-MANE: brown, light yellow
-MEDIA: TV series
-NAME: jeff "the dude" letrotski
-OTHER NAMES: jeff letrotski
-SOURCE: desktop ponies deviantart group [botchan]
+MANE: brown
+NAME: Jeff "The Dude" Letrotski
+POSE: stand
+SOURCE: (botchan) desktop ponies deviantart group
 WIDTH: 43
 HEIGHT: 24
 
