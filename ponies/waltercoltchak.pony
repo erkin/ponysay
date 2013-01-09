@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s2c6m00s54
+APPEARANCE: S02E06 00:54
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: black
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: walter coltchak
-SOURCE: deviantart desktop ponies group
+NAME: Walter Coltchak (stated official by the crew)
+POSE: stand
+SOURCE: (bot-chan) deviantart desktop ponies group
 WIDTH: 40
 HEIGHT: 26
 

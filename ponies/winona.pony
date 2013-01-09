@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
+DISPLAY: full, right
 EYE: black
 FREE: no
-GROUP: dog
-GROUP NAME: pet
+GROUP: dog, pet
 KIND: animals
 MANE: brown
-MEDIA: TV series
-NAME: winona
+NAME: Winona
+POSE: happy
 SOURCE: desktop ponies
 WIDTH: 35
 HEIGHT: 21
