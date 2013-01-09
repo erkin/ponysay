@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s2c15m5s00
+APPEARANCE: S02E15 The Super Speedy Cider Squeezy 6000
+BALLOON: top
 COAT: yellow
+DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: stallion
-GROUP NAME: villain
+GROUP: stallion, villain
 KIND: unicorn
 MANE: red
-MEDIA: TV series
-NAME: flam
-SOURCE: desktop ponies deviantar group
+NAME: Flam
+POSE: troting
+SOURCE: desktop ponies
 WIDTH: 44
 HEIGHT: 29
 

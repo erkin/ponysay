@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
 COAT: gray
+DISPLAY: full, right
 EYE: yellow
 FREE: no
-GROUP: dog
-GROUP NAME: antagonist, diamond dog
+GROUP: dog, antagonist, diamond dog
 KIND: animals
-MEDIA: TV series
-NAME: fido
+NAME: Fido (on scripts)
+POSE: angry
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 26

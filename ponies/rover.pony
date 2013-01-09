@@ -1,13 +1,14 @@
 $$$
 APPEARANCE: s1
+BALLOON: top
 COAT: gray
+DISPLAY: full, left
 EYE: green
 FREE: no
-GROUP: dog
-GROUP NAME: antagonist, diamond dog
+GROUP: dog, antagonist, diamond dog
 KIND: animals
-MEDIA: TV series
-NAME: rover
+NAME: Rover (on manuscripts)
+POSE: walking
 SOURCE: desktop ponies
 WIDTH: 51
 HEIGHT: 26

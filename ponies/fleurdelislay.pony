@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s2c9m3s50
-BASED ON: fleurdelis
+APPEARANCE: S02E09 Sweet and Elite
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: unicorn
 MANE: pink
-MEDIA: TV series
-NAME: fleur de lis
+NAME: (not mentioned)
+OTHER NAMES: Fleur de Lis (unofficial)
+POSE: waiting
 SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 21

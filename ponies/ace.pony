@@ -2,6 +2,7 @@ $$$
 APPEARANCE: S01E12 Call of the Cutie
 BALLOON: top
 COAT: beige
+DISPLAY: full, left
 EYE: teal
 FREE: no
 GROUP: stallion, background, voice

@@ -1,4 +1,10 @@
 $$$
+FREE: no
+SOURCE: desktop ponies deviatart group
+WIDTH: 115
+HEIGHT: 34
+
+
 $$$
 $balloon78$[0m
                                                                            $\$

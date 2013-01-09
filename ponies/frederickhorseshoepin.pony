@@ -1,14 +1,17 @@
 $$$
-APPEARANCE: s1c26m10s15
+APPEARANCE: S01E26 The Best Night Ever
+BALLOON: top
 COAT: brown
+DISPLAY: full, left, sit
 EYE: green
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: yellow
-MEDIA: TV series
-NAME: frederick horseshoepin
-SOURCE: desktop ponies devel
+NAME: (not mentioned)
+OTHER NAMES: Frederick Horseshoepin (unofficial)
+POSE: playing
+SOURCE: desktop ponies
 WIDTH: 59
 HEIGHT: 36
 

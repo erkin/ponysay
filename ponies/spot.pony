@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: yellow
 FREE: no
-GROUP: dog
-GROUP NAME: antagonist, diamond dog
-KIND: animal
-MEDIA: TV series
-NAME: spot
+GROUP: dog, antagonist, diamond dog
+KIND: animals
+NAME: Spot (on manuscripts)
+POSE: walking
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 23

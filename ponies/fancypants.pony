@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s2c9m3s50
+APPEARANCE: S02E09 03:50
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: unicorn
 MANE: blue
-MEDIA: TV series
-NAME: fancypants
+NAME: Fancypants
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 46
 HEIGHT: 31

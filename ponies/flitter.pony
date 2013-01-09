@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s2c22m00s15
-COAT: light purple blue-ish
+APPEARANCE: S02E22 Hurrican Fluttershy
+BALLOON: top
+COAT: purple
+DISPLAY: Full, left
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, voiced
 KIND: pegasus
 MANE: cyan
-MEDIA: TV series
-NAME: flitter
+NAME: Flitter
+POSE: exercicing
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 22
