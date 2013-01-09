@@ -1,4 +1,24 @@
 $$$
+APPEARANCE: S02E25 The Royal Wedding part 1
+AURA: pink
+BALLOON: top
+BASED ON: cadance
+COAT: pink
+DISPLAY: full, left
+EYE: pink
+FREE: no
+GROUP: filly, royal
+KIND: alicorn
+MANE: pastel
+MASTER: cadance
+NAME: Princess Cadance
+OTHER NAMES: Mi amore Cadenza (on invitation), Cadence (on credits)
+POSE: stroting
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 27
+
+
 $$$
 $balloon32$[0m
                              $\$

@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s2c12m2s37
+APPEARANCE: S02E12 02:37
+BALLOON: top
 COAT: brown
+DISPLAY: ful, left
 EYE: blue
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 KIND: earth
 MANE: black
-MEDIA: TV series
-NAME: filthy rich
+NAME: Filthy Rich
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 45
 HEIGHT: 27

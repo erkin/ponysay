@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s1c1m13s51
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 COAT: yellow
+DISPLAY: full, left
 EYE: cyan
 FREE: no
-GROUP: mare
-GROUP NAME: mane
+GROUP: mare, mane
 KIND: unicorn
 MANE: pink
-MEDIA: TV series
-NAME: fluttershy
-OTHER NAMES: shy
+NAME: Fluttershy
+OTHER NAMES: Shy (sometimes)
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 54
 HEIGHT: 26

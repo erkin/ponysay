@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E26 The Best Night Ever
 BALLOON: top
 COAT: brown
-DISPLAY: full, left, sit
+DISPLAY: full, left, back
 EYE: green
 FREE: no
 GROUP: stallion
