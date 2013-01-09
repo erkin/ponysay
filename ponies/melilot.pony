@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c11m13s26
+APPEARANCE: S01E11 13:26
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: meliot
+NAME: (not mentioned)
+OTHER NAMES: Melilot (unofficial), Meliot (unofficial)
+POSE: troting
 SOURCE: [jristz]
 WIDTH: 38
 HEIGHT: 24

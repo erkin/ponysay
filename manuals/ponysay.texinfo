@@ -2970,6 +2970,8 @@ Pony metadata options added: @option{--info}, @option{++info} and @option{--rest
 @item
 @file{maria} has been renamed to @file{danger} (name given by the author)
 @item
+@file{maliot} renamed to @file{melilot} (typo)
+@item
 Pony symlink added:
 @itemize @bullet
 @item @file{lily} @arrow{} @file{lilyvalley}

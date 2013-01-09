@@ -1,11 +1,14 @@
 $$$
-APPEARANCE: s2
+APPEARANCE: S02
+BALLOON: top
 BASED ON: maredowell
+DISPLAY: full, left
 FREE: no
-GROUP: mare
+GROUP: mare, voiced
 KIND: earth
-MEDIA: TV series
-NAME: mare do well
+MASTER: maredowell
+NAME: Mare Do Well
+POSE: galloping
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 24

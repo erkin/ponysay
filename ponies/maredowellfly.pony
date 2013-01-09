@@ -1,11 +1,14 @@
 $$$
-APPEARANCE: s2
+APPEARANCE: S02
+BALLOON: top
 BASED ON: maredowell
+DISPLAY: full, left
 FREE: no
-GROUP: mare
+GROUP: mare, voiced
 KIND: pegasus
-MEDIA: TV series
-NAME: mare do well
+MASTER: maredowell
+NAME: Mare Do Well
+POSE: flying
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 25

@@ -6,7 +6,7 @@ DISPLAY: full, right
 EYE: black
 FREE: yes
 GROUP: manticore
-KIND: animal
+KIND: animals
 LICENSE: CC0
 MANE: red
 NAME: Manticore

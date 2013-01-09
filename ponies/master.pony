@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c26m3s51
+APPEARANCE: S01E26 The Best night Ever
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: yellow
-MEDIA: TV series
-NAME: master
+NAME: (not mentioned)
+OTHER NAMES: Master (unofficia)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 25

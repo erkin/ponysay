@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c6m3s45
+APPEARANCE: S01E02 Friendship is Magic part 25
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: green
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 KIND: earth
 MANE: yellow
-MEDIA: TV series
-NAME: meadow song
-OTHER NAMES: blue grass, guitar, yellow burst
+NAME: Meadow Song
+OTHER NAMES: Blue Grass (unofficial), Guitar (unofficial), Yellow Burst (unofficial)
+POSE: troting
 SOURCE: [jristz]
 WIDTH: 41
 HEIGHT: 28

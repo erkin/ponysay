@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s2c5m1s15
+APPEARANCE: S02E05 01:15
+BALLOON: top
 COAT: white
+DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: stallion
-GROUP NAME: rarity family
 KIND: earth
 MANE: black
-MEDIA: TV series
-NAME: magnum
-OTHER NAMES: raity's dad, carlton
+NAME: Magnum
+OTHER NAMES: Raity's dad, Carlton (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 27
