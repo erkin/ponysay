@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c12m00s4
+APPEARANCE: S01E12 00:04
+BALLOON: top
 COAT: brown
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: filly
 KIND: earth
 MANE: creme
-MEDIA: TV series
-NAME: noi
+NAME: (not mentioned)
+OTHER NAMES: Noi (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 36
 HEIGHT: 21

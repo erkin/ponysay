@@ -1,17 +1,19 @@
 $$$
-APPEARANCE: s2c2m4s43
-COAT: blue
+APPEARANCE: S01E02 Friendship is Magic part 1
+AURA: blue
+BALLOON: top
+COAT: black
+DISPLAY: full, right
 EYE: cyan
 FREE: no
-GROUP: mare
-GROUP NAME: royal, antagonist
+GROUP: mare, antagonist
 KIND: alicorn
-MANE: black
-MEDIA: TV series
-NAME: nightmare moon
-OTHER NAMES: lunija (russian), luna (harmionized)
+MANE: blue
+NAME: Nightmare Moon
+OTHER NAMES: Lunija (russian), Princess Luna (harmonized)
+POSE: stand
 SOURCE: desktop ponies
-WIDTH: 77
+WIDTH: 80
 HEIGHT: 40
 
 
