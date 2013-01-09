@@ -1,15 +1,15 @@
 $$$
-APPEARANCE: s1c1m8s41
-BASED ON: granny
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 COAT: green
+DISPLAY: full, left
 EYE: orange
 FREE: no
-GROUP: mare
-GROUP NAME: apple family
+GROUP: mare, background, voiced
 KIND: earth
 MANE: white
-MEDIA: TV series
-NAME: granny smith
+NAME: Granny Smith
+POSE: sitting
 SOURCE: desktop ponies
 WIDTH: 46
 HEIGHT: 24

@@ -1,12 +1,14 @@
 $$$
-APPEARANCE: s2
+APPEARANCE: S02
+BALLOON: top
 COAT: white, black
+DISPLAY: full, left
 EYE: yellow
 FREE: no
-GROUP: gryffon
-KIND: animal
-MEDIA: TV series
-NAME: gustave le grand
+GROUP: male
+KIND: animals, gryffon
+NAME: Gustave Le Grand
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 61
 HEIGHT: 31

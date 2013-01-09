@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
 COAT: green
+DISPLAY: full, right
 EYE: purple
 FREE: no
-GROUP: alligator
-GROUP NAME: pet
+GROUP: alligator, pet
 KIND: animals
-MEDIA: TV series
-NAME: gummy
+NAME: Gummy
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 27
 HEIGHT: 15

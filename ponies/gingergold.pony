@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c2m20s22
+APPEARANCE: S01E02 Friendship is Magic part 2
+BALLOON: top
 COAT: brown
-EYE: black
+DISPLAY: full, front
+EYE: closed
 FREE: no
 GROUP: mare
 KIND: earth
-MANE: beown
-MEDIA: TV series
-NAME: ginger gold
+MANE: brown
+NAME: (not mentioned)
+OTHER NAMES: Ginger Gold (unofficial)
+POSE: smiling
 SOURCE: [jristz]
 WIDTH: 28
 HEIGHT: 28

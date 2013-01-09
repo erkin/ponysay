@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
 COAT: brown, white
+DISPLAY: full, left
 EYE: yellow
 FREE: no
-GROUP: griffon
-GROUP NAME: antagonist
-KIND: animal
-MEDIA: TV series
-NAME: gilda
-OTHER NAMES: gruntilda (initial name, but not pass copyright)
+GROUP: female, antagonist
+KIND: animal, gryffon
+NAME: Gilda
+OTHER NAMES: Gruntilda (initial name but not pass copyright)
+POSE: flying
 SOURCE: desktop ponies
 WIDTH: 71
 HEIGHT: 32
