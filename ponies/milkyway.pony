@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s2c22m2s40
+APPEARANCE: S02E22 02:40
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: yellow
 FREE: no
 GROUP: stallion
 KIND: pegasus
 MANE: black
-MEDIA: TV series
-NAME: milky way
+NAME: (not mentioned)
+OTHER NAMES: Milky Way (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 44
 HEIGHT: 25

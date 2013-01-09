@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s1c23m12s47
+APPEARANCE: S01E23 12:47
+BALLOON: top
 COAT: blue
+DISPLAY: full, right
 EYE: yellow
 FREE: no
-GROUP: stallion
-GROUP NAME: twilight family
+GROUP: stallion, voiced
 KIND: unicorn
 MANE: blue
-MEDIA: TV series
-NAME: night light
-OTHER NAMES: mr sparkle, crescent sparkle
+NAME: (not mentioned)
+OTHER NAMES: Night Light (unofficial), Mr Sparkle, Crescent Sparkle (unofficial)
+POSE: stand
 SOURCE: desktop ponies, [jristz] (ponysay 2.8)
 WIDTH: 40
 HEIGHT: 25

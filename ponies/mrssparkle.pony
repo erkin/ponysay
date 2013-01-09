@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s1c23m12s47
+APPEARANCE: S01E23 12:47
+BALLOON: top
 COAT: white
+DISPLAY: full, right
 EYE: cyan
 FREE: no
-GROUP: mare
-GROUP NAME: twilight family
+GROUP: mare, voiced
 KIND: unicorn
 MANE: white, purple
-MEDIA: TV series
-NAME: twilight velvet
-OTHER NAMES: mrs sparkle
+NAME: Twilight Velvet
+OTHER NAMES: Mrs Sparkle
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 50
 HEIGHT: 24

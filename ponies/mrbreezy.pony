@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c18m8s43
+APPEARANCE: S01E18 08:43
+BALLOON: top
 COAT: brown
+DISPLAY: full, right, turn
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: orange
-MEDIA: TV series
-NAME: mr breezy
+MASTER: troting, sad
+NAME: Mr Breezy
 SOURCE: [jristz]
 WIDTH: 38
 HEIGHT: 28
