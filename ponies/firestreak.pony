@@ -7,7 +7,9 @@ FREE: no
 GROUP: stallion, wonderbolt
 KIND: pegasus
 MANE: orange
-NAME: Fire Streak
+NAME: (not mentioned)
+OTHER NAMES: fire Streak (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 43
 HEIGHT: 25
