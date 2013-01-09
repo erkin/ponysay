@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: s2c2m4s43
+APPEARANCE: S01E02 Friendship is Magic part 1
+AURA: blue
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare
-GROUP NAME: royal
+GROUP: mare, royal
 KIND: alicorn
-MANE: blue, cyab (season 1)
-MEDIA: TV series
-NAME: princess luna
-OTHER NAMES: lunija (russian), nightmare moon (corrupted)
+MANE: cyan, blue (season 2)
+NAME: Princess Luna
+OTHER NAMES: Lunija (russian), Nightmare Moon (corrupted), Woona (unofficial)
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 70
 HEIGHT: 38

@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: s1c26m5s25
+APPEARANCE: S01E04
+BALLOON: top
 COAT: pink
+DISPLAY: full, left
 EYE: orange
 FREE: no
-GROUP: mare
+GROUP: mare, voiced
 KIND: earth
 MANE: yellow
-MEDIA: TV series
-NAME: lily valley
-OTHER NAMES: lily
+NAME: Lily Valley
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 25

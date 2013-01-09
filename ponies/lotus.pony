@@ -1,15 +1,15 @@
 $$$
-APPEARANCE: s1c9m20s52
+APPEARANCE: S01E09 20:52
+BALLOON: top
 COAT: blue
+DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: mare
-GROUP NAME: spa
+GROUP: mare, voiced
 KIND: earth
 MANE: pink
-MEDIA: TV series
-NAME: lotus blosoom
-OTHER NAMES: lotus
+NAME: Lotus Blosoom
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 25

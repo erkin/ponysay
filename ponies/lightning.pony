@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c1m16s34
+APPEARANCE: S01E01 Friendship is Magic
+BALLOON: top
 COAT: white
+DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: pegasus
 MANE: blue
-MEDIA: TV series
-NAME: lightning bolt
+NAME: Lightning Bolt
+POSE: flying
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 25

@@ -6,7 +6,7 @@ FREE: sharable
 GROUP: imaginary
 KIND: item
 LICENSE: cc-nc-by-sa
-NAME: Madam la Flour
+NAME: Madam La Flour
 SOURCE: desktop ponies
 WIDTH: 28
 HEIGHT: 26

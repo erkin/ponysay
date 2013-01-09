@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s1c6m2s28
+APPEARANCE: S01E06 02:28
+BALLOON: top
 COAT: blue
+DISPLAY: full, right
 EYE: purple
 FREE: no
-GROUP: mare
-GROUP NAME: villain
+GROUP: mare, villain, voiced
 KIND: unicorn
 MANE: white
-MEDIA: TV series
-NAME: the grat and powerful trixie
-OTHER NAMES: trixie, trixie lulamoon, lulamoon
+NAME: The Great and Powerful Trixie
+OTHER NAMES: Trixie, Trixie Lulamoon (toy line), Lulamoon (toy line)
+POSE: presentating
 SOURCE: desktop ponies
 WIDTH: 51
 HEIGHT: 33

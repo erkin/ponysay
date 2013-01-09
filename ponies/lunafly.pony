@@ -1,17 +1,20 @@
 $$$
-APPEARANCE: s2c2m4s43
+APPEARANCE: S01E02 Friendship is Magic part 1
+AURA: blue
+BALLOON: top
 BASED ON: luna
-COAT: dark blue
+COAT: blue
+DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare
-GROUP NAME: royal
+GROUP: mare, royal
 KIND: alicorn
 MANE: cyan, blue (season 2)
-MEDIA: TV series
-NAME: princess luna
-OTHER NAMES: lunija (russian), nightmare moon (corrupted)
-SOURCE: desktop ponies
+MASTER: woona
+NAME: Princess Luna
+OTHER NAMES: Lunija (russian), Nightmare Moon (corrupted), Woona (unofficial)
+POSE: flying
+SOURCE: (unknown)
 WIDTH: 80
 HEIGHT: 40
 

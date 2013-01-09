@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s3c7m2s52
+APPEARANCE: S03E07 Wonderbolts Academy
+BALLOON: top
 COAT: cyan
+DISPLAY: full, left
 EYE: orange
 FREE: no
-GROUP: mare
+GROUP: mare, villain, voiced
 KIND: pegasus
 MANE: orange
-MEDIA: TV series
-NAME: lightning dust
+NAME: Lightning Dust
+POSE: waiting
 SOURCE: [jristz]
 WIDTH: 48
 HEIGHT: 26

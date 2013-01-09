@@ -1,4 +1,10 @@
 $$$
+FREE: no
+SOURCE: imageboard
+WIDTH: 69
+HEIGHT: 29
+
+
 $$$
 $balloon27$[0m
                         $\$
