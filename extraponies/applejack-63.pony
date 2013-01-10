@@ -9,10 +9,11 @@ GROUP NAME: mane
 KIND: earth
 LICENSE: CC0
 MANE: yellow
-MEDIA: MLP Fanlabor Wikia
+MEDIA: [fanfic: Wrong spell, On a Cross and Arrow]
 NAME: Applejack (name on the wfanlabor wikia)
 OTHER NAMES: Male Applejack (on the show credits)
 POSE: stand
+SOURCE: MLP Fanlavor Wikia
 WIDTH: 41
 HEIGHT: 26
 

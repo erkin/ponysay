@@ -8,7 +8,7 @@ GROUP: stallion, coltified
 KIND: pegasus
 LICENSE: CC0
 MANE: pink
-MEDIA: fanart
+MEDIA: [fanfic: Wrong spell, On a Cross and Arrow]
 NAME: Butterscotch (on the first fanart)
 POSE: flying
 SOURCE: desktop ponies OC

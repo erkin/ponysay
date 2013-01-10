@@ -7,7 +7,7 @@ GROUP: stallion, coltified
 KIND: earth
 LICENSE: CC0
 MANE: pink
-MEDIA: fanart
+MEDIA: [fanfic: Wrong spell, On a Cross and Arrow]
 NAME: Bubble Berry (on the first fanart)
 POSE: stand
 SOURCE: imageboard

@@ -8,7 +8,7 @@ GROUP: stallion
 KIND: alicorn
 LICENSE: CC0
 MANE: blue
-MEDIA: fanfi
+MEDIA: [fanfic: Wrong spell, On a Cross and Arrow]
 NAME: Prince Artemis
 OTHER NAMES: Artemis (shorted on varoius fanfincs)
 POSE: flying

@@ -8,7 +8,7 @@ GROUP: stallion, coltified
 KIND: pegasus
 LICENSE: CC0
 MANE: rainbow
-MEDIA: fanart
+MEDIA: [fanfic: Wrong spell, On a Cross and Arrow]
 NAME: Rainbow Blitz (on first fanart)
 POSE: flying
 SOURCE: imageboard

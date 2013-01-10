@@ -8,7 +8,7 @@ GROUP: stallion, coltified
 KIND: unicorn
 LICENSE: CC0
 MANE: purple
-MEDIA: fanart
+MEDIA: [fanfic: Wrong spell, On a Cross and Arrow]
 NAME: Elusive (on the first fanart)
 POSE: troting
 SOURCE: imageboard
