@@ -8,8 +8,7 @@ FREE: yes
 GROUP: owl, pet
 KIND: animals
 LICENSE: CC0
-NAME: Owlowiscious
-OTHER NAMES: Owl
+POSE: watching
 SOURCE: imageboard
 WIDTH: 21
 HEIGHT: 23

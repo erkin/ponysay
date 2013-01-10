@@ -1,5 +1,6 @@
 $$$
 APPEARANCE: S03E03 Too Many Pinkie Pies
+BALLOON: top
 COAT: orange
 DISPLAY: full, left
 FREE: yes
@@ -7,6 +8,7 @@ GROUP: bird, fruit
 KIND: animal, item, hybrid
 LICENSE: CC0
 MANE: blue
+POSE: flying
 SOURCE: [jristz]
 WIDTH: 44
 HEIGHT: 28

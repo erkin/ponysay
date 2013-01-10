@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: s1c23m3s33
+APPEARANCE: S01E23 03:33
+BALLOON: top
 COAT: creme
+DISPLAY: full, right
 EYE: cyan
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 GROUP NAME: apple family
 KIND: earth
 MANE: green
-MEDIA: TV series
-NAME: uncle orange
-OTHER NAMES: mosely orange
+NAME: Uncle Orange
+OTHER NAMES: Mosely Orange (unofficial, on toy line)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 37
 HEIGHT: 25

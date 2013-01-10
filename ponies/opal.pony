@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: green
 FREE: no
-GROUP: cat
+GROUP: cat, pet
 GROUP NAME: pet
 KIND: animals
-MEDIA: TV series
-NAME: opalescence
-OTHER NAMES: opal
+NAME: Opalescence
+POSE: walking
 SOURCE: desktop ponies
 WIDTH: 29
 HEIGHT: 18

@@ -1,11 +1,13 @@
 $$$
 APPEARANCE: S03E03 Too Many Pinkie Pies
+BALLOON: top
 COAT: orange
 DISPLAY: full, right
 FREE: yes
 GROUP: frog, orange
 KIND: animal, item, hybrid
 LICENSE: CC0
+POSE: singing
 SOURCE: (screenshoot)
 WIDTH: 58
 HEIGHT: 33

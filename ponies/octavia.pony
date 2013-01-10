@@ -1,11 +1,15 @@
 $$$
-APPEARANCE: s1c26m10s15
+APPEARANCE: S01E26 The Best Night Ever
+BALLOON: top
 COAT: gray
+DISPLAY: full, left
 EYE: purple
 FREE: no
+GROUP: mare
+KIND: earth
 MANE: black
-MEDIA: TV series
-NAME: octavia
+NAME: Octavia
+POSE: playing
 SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 31
