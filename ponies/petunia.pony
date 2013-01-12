@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c3m2s27
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
 COAT: purple
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: purple
-MEDIA: TV series
-NAME: petunia
+NAME: (not mentioned)
+OTHER NAMES: Petunia (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 45
 HEIGHT: 27

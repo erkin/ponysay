@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s2c17m3s44
+APPEARANCE: S02E17 Hearts and Hooves Day
+BALLOON: top
 COAT: white
-EYE: purple
+DISPLAY: full, left
+EYE: closed, purple
 FREE: no
-GROUP: stallion
+GROUP: stallion, voiced
 KIND: earth
 MANE: yellow
-MEDIA: TV series
-NAME: persnickety
+NAME: (not mentioned)
+OTHER NAMES: Persnickety (unofficial)
+POSE: elegant
 SOURCE: [jristz]
 WIDTH: 46
 HEIGHT: 32

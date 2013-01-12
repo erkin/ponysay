@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c1m20s15
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: yellow
 FREE: no
 GROUP: stallion
 KIND: unicorn
 MANE: white
-MEDIA: TV series
-NAME: pokey pierce
-OTHER NAMES: perry pierce (same look)
+NAME: (not mentioned)
+OTHER NAMES: Pokey Pierce (unofficial), Perry Pierce (unofficial, same look)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 44
 HEIGHT: 26

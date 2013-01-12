@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s2c9m3s43
+APPEARANCE: S02E09 03:43
+BALLOON: top
 COAT: blue
+DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: stallion
 KIND: unicorn
 MANE: white
-MEDIA: TV series
-NAME: perry pierce
-OTHER NAMES: pokey pierce (same look)
+NAME: (not mentioned)
+OTHER NAMES: Perry Pierce (unofficial), Pokey Pierce (unofficial, same look)
+POSE: stand
 SOURCE: desktop poniess
 WIDTH: 43
 HEIGHT: 27

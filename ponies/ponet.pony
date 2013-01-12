@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c1m18s45
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 COAT: blue
+DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: stallion
 KIND: unicorn
 MANE: yellow
-MEDIA: TV series
-NAME: ponet
+NAME: (not mentioned)
+OTHER NAMES: Ponet (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 44
 HEIGHT: 27

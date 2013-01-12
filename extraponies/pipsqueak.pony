@@ -6,12 +6,12 @@ COAT: brown
 DISPLAY: full, left
 EYE: white
 FREE: no
-GROUP: colt, background
+GROUP: colt, background, voiced
 KIND: earth
 LICENSE: cc-nc-by-sa
 MANE: brown
 NAME: Pipsqueak
-OTHER NAMES: Pip (unofucual, short name)
+OTHER NAMES: Pip (unofficial, short name)
 POSE: stand
 SOURCE: desktop ponies (with pirate suit)
 WIDTH: 33

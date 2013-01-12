@@ -1,4 +1,21 @@
 $$$
+APPEARANCE: S02E05
+BALLOON: top
+COAT: pink
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: mare, voiced
+KIND: unicorn
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Pearl (unofficial)
+POSE: stand
+SOURCE: desktop ponies
+WIDTH: 43
+HEIGHT: 28
+
+
 $$$
 $balloon24$[0m
                      $\$

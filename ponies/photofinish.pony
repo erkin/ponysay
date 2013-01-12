@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c20m4s35
+APPEARANCE: S01E20 04:35
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: black
 FREE: no
-GROUP: mare
+GROUP: mare, voiced
 KIND: earth
 MANE: white
-MEDIA: TV series
-NAME: photo finish
+NAME: Photo Finish
+POSE: stand
 SOURCE: dektop ponies
 WIDTH: 41
 HEIGHT: 25

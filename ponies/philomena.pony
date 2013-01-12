@@ -1,14 +1,14 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
 COAT: pink
+DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: phoenix
-GROUP NAME: pet
+GROUP: phoenix, pet
 KIND: animals
-MEDIA: TV series
-NAME: philomena
-OTHER NAMES: filomena
+NAME: Philomena
+POSE: ill?
 SOURCE: desktop ponies
 WIDTH: 29
 HEIGHT: 20

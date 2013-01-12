@@ -1,17 +1,18 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01
+BALLOON: top
 BASED ON: philomena
 COAT: red
+DISPLAY: full, front
 EYE: yellow
 FREE: no
-GROUP: phoenix
-GROUP NAME: pet
+GROUP: phoenix, pet
 KIND: animals
-MEDIA: TV series
-NAME: philomena
-OTHER NAMES: filomena
+MASTER: philomena
+NAME: Philomena
+POSE: rebirth
 SOURCE: desktop ponies
-WIDTH: 70
+WIDTH: 80
 HEIGHT: 30
 
 

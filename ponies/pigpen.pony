@@ -1,12 +1,15 @@
 $$$
-APPEARANCE: s2c17m4s2
+APPEARANCE: S02E17 Hearts and Hooves Day
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: brown
-MEDIA: TV series
-NAME: pigpen
+NAME: (not mentioned)
+OTHER NAMES: Pigpen
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 44
 HEIGHT: 27

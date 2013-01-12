@@ -1,12 +1,15 @@
 $$$
-APPEARANCE: s1c20m8s11
+APPEARANCE: S01E20 08:11
+BALLOON: top
 COAT: creme
+DISPLAY: full, right
 EYE: white
 FREE: no
 GROUP: mare
 KIND: earth
-MEDIA: TV series
-NAME: picture perfect
+NAME: (not mentioned)
+OTHER NAMES: Picture Perfect (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 41
 HEIGHT: 25
