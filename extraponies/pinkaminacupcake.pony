@@ -1,20 +1,20 @@
 $$$
-APPEARANCE: S01E01 Frienship is magic part 1
+APPEARANCE: S01E01 Friendship is Magic part 1
 BALLOON: top
 BASED ON: pinkie
 COAT: pink
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare, mane
 KIND: earth
-LINK: regular
 MANE: pink
-MEDIA: [fanfic: Cucpacke]
+MASTER: pinkie
+MEDIA: [fanfic: Cupcakes (NSFW)]
 NAME: Pinkie Pie
-OTHER NAMES: Pinkie (also mentioned on the serie), Pinkanima Diane Pie (also confirmed as they full name)
-POSE: waiting
-SOURCE: [jristz]
+OTHER NAMES: Pinkie, Pinkamina Diane Pie
+POSE: sad, crazy, cupcaked
+SOURCE: desktop ponies OC
 WIDTH: 49
 HEIGHT: 26
 
