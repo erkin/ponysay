@@ -1,17 +1,17 @@
 $$$
-APPEARANCE: s1c1m9s39
-BASED ON: rainbow
+APPEARANCE: S01E01 Friendship is magic part 1
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
-GROUP NAME: mane
+GROUP: mare, mane
 KIND: pegasus
-MANE: rainbow
-MEDIA: TV series
-NAME: rainbow dash
-OTHER NAMES: rainbow, dash, dashie
-SOURCE: desktop ponies
+MANE: rainbows
+NAME: Rainbow Dash
+OTHER NAMES: Rainbow, Dash, Dashie
+POSE: disguised as Commander Hurricane
+SOURCE: [jristz]
 WIDTH: 54
 HEIGHT: 34
 

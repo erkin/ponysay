@@ -1,16 +1,18 @@
 $$$
-APPEARANCE: s1c1m9s39
+APPEARANCE: S01E01 Friendship is magic part 1
+BALLOON: top
 BASED ON: rainbow
 COAT: blue
+DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
-GROUP NAME: mane
+GROUP: filly, mane
 KIND: pegasus
-MANE: red, orange, yellow, green, blue, purple
-MEDIA: TV series
-NAME: rainbow dash
-OTHER NAMES: rainbow, dash, dashie
+MANE: rainbows
+MASTER: rainbow
+NAME: Rainbow Dash
+OTHER NAMES: Rainbow, Dash, Dashie
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 22

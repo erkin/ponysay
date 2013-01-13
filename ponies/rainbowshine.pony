@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c1m18s43
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 COAT: blue
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: pegasus
 MANE: pink
-MEDIA: TV series
-NAME: rainbowshine
+NAME: Rainbowshine
+POSE: troting
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 25

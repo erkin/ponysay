@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s2c9m16s51
+APPEARANCE: S02E09 16:51
+BALLOON: top
 COAT: gray
+DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: black
-MEDIA: TV series
-NAME: raggedy doctor
-OTHER NAMES: raggedy
+NAME: (not mentioned)
+OTHER NAMES: Raggedy (unofficial), Raggedy Doctor (unofficial)
+POSE: troting
 SOURCE: desktop ponies deviantart group
 WIDTH: 39
 HEIGHT: 30

@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c1m16s58
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 COAT: orange
+DISPLAY: full, right
 EYE: cyan
 FREE: no
 GROUP: mare
 KIND: pegasus
 MANE: cyan
-MEDIA: TV series
-NAME: raindrops
+NAME: (not mentioned)
+OTHER NAMES: Raindrops (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 48
 HEIGHT: 25
