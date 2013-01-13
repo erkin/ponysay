@@ -1,18 +1,20 @@
 $$$
-APPEARANCE: s1c1m6s59
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 BASED ON: pinkie
 COAT: pink
+DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare
-GROUP NAME: mane
+GROUP: mare, mane
 KIND: earth
 MANE: pink
-MEDIA: TV series
-NAME: pinkie pie
-OTHER NAMES: pinkie, pinkamina diane pie
+MASTER: pinkie
+NAME: Pinkie Pie
+OTHER NAMES: Pinkie, Pinkamina Diane Pie
+POSE: pilot
 SOURCE: desktop ponies
-WIDTH: 77
+WIDTH: 80
 HEIGHT: 58
 
 

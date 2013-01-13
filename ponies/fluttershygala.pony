@@ -12,7 +12,7 @@ MANE: pink
 MASTER: fluttershy
 NAME: Fluttershy
 OTHER NAMES: Shy (sometimes)
-POSE: stand
+POSE: gala, stand
 SOURCE: desktop ponies
 WIDTH: 55
 HEIGHT: 25
