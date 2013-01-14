@@ -1,14 +1,17 @@
 $$$
-APPEARANCE: s1c16m6s27
+APPEARANCE: S01E16 06:27
+BALLOON: top
 COAT: cyan
+DISPLAY: full, left
 EYE: yellow
 FREE: no
 GROUP: mare
 KIND: pegasus
 MANE: white
-MEDIA: TV series
-NAME: skyra
-SOURCE: desktop ponies
+NAME: (not mentioned)
+OTHER NAMES: Skyra (unofficial)
+POSE: stand
+SOURCE: [jristz]
 WIDTH: 43
 HEIGHT: 26
 

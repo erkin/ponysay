@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: s3c1m3s40
+APPEARANCE: S03E01 The Crystal Empire part 1
+AURA: black
+BALLOON: top
 COAT: gray
+DISPLAY: full, right, turn
 EYE: green (in flashback) white (in last scene), brown (ponysay) red (source), purple aura
 FREE: no
-GROUP: stallion
-GROUP NAME: antagonist
+GROUP: stallion, antagonist
 KIND: unicorn
 MANE: black
-MEDIA: TV series
-NAME: king sombra
-OTHER NAMES: king somber (initial leaked name)
+NAME: King Sombra
+OTHER NAMES: King Somber (initial leaked name)
+POSE: stand, watching
 SOURCE: [jristz]
 WIDTH: 45
 HEIGHT: 32

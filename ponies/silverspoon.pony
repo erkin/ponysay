@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: s1c12m00s4
+APPEARANCE: S01E12 00:04
+BALLOON: top
 COAT: gray
+DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: filly
-GROUP NAME: villain
+GROUP: filly, villain
 KIND: earth
 MANE: white
-MEDIA: TV series
-NAME: silver spoon
+NAME: Silver Spoon
+POSE: stand, smiling
 SOURCE: desktop ponies
 WIDTH: 33
 HEIGHT: 21

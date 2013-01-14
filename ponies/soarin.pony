@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: s1c3m3s36
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
 COAT: blue
+DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: stallion
-GROUP NAME: wonderbolt
+GROUP: stallion, wonderbolt
 KIND: pegasus
 MANE: dark blue
-MEDIA: TV series
-NAME: soarin
+NAME: Soarin
+POSE: eating
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 25

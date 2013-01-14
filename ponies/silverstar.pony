@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c21m7s36
+APPEARANCE: S01E21 07:36
+BALLOON: top
 COAT: brown
+DISPLAY: full, left
 EYE: cyan
 FREE: no
 GROUP: stallion
 KIND: earth
 MANE: gray (ponysay), brown (sorce)
-MEDIA: TV series
-NAME: sheriff silverstar
-OTHER NAMES: silverstar
+NAME: Sheriff Silverstar
+OTHER NAMES: Silverstar (shorter)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 28

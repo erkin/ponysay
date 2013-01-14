@@ -9,6 +9,7 @@ GROUP: mare
 KIND: pegasus
 MANE: pink
 NAME: Rainbowshine
+OTHER NAMES: Rainbow Day (unofficial)
 POSE: troting
 SOURCE: desktop ponies
 WIDTH: 41

@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c19m00s29
+APPEARANCE: S01E19 00:29
+BALLOON: top
 COAT: yellow
+DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: blue
-MEDIA: TV series
-NAME: sapphire shores
+NAME: Sapphire Shores
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 44
 HEIGHT: 31

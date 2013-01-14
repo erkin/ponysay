@@ -9,7 +9,7 @@ GROUP: mare
 KIND: earth
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Pretty vision (unofficial), Elsie (unofficial)
+OTHER NAMES: Pretty vision (unofficial), Elsie (unofficial), Suity Voyage (unofficial)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 42

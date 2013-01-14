@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s2c2m11s23
+APPEARANCE: S02E02 Return of Harmony part 2
+BALLOON: top
 COAT: pink
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: purple
-MEDIA: TV series
-NAME: screwball
+NAME: (not mentioned)
+OTHER NAMES: Screwball (unofficial)
+POSE: crazy, floating
 SOURCE: desktop ponies
 WIDTH: 53
 HEIGHT: 23

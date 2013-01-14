@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c20m4s35
+APPEARANCE: S01E20 04:35
+BALLOON: top
 COAT: cyan
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: pink
-MEDIA: TV series
-NAME: soigne folio
+NAME: (not mentioned)
+OTHER NAMES: Soigne Folio (unofficial)
+POSE: trotting
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 27

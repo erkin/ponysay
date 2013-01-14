@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c6m1s46
+APPEARANCE: S01E06 01:46
+BALLOON: top
 COAT: orange
+DISPLAY: full, right
 EYE: black
 FREE: no
-GROUP: colt
+GROUP: colt, background, voiced
 KIND: unicorn
 MANE: green
-MEDIA: TV series
-NAME: snails
+NAME: Snails
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 34
 HEIGHT: 26

@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s2c16m18s18
+APPEARANCE: S02E16 Read It and Weep
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: blue
-MEDIA: TV series
-NAME: screw loose
+NAME: (not mentioned)
+OTHER NAMES: Screw Loose (unofficial)
+POSE: crazy, stand
 SOURCE: [jristz]
 WIDTH: 47
 HEIGHT: 26

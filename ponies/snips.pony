@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: s1c6m1s46
+APPEARANCE: S01E06 01:46
+BALLOON: top
 COAT: green
+DISPLAY: full, left
 EYE: black
 FREE: no
-GROUP: colt
+GROUP: colt, backgound, voiced
 KIND: unicorn
 MANE: orange
-MEDIA: TV series
-NAME: snips
+NAME: Snips
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 35
 HEIGHT: 20
