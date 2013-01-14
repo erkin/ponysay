@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s2c16m17s22
+APPEARANCE: S02E16 17:22
 BALLOON: filly
 COAT: white
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: earth
+LINK: top
 MANE: black
-MEDIA: TV series
-NAME: nursery rhyme
+NAME: (not mentioned)
+OTHER NAMES: Nursery Rhyme (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 33
 HEIGHT: 23

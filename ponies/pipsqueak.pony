@@ -10,7 +10,7 @@ KIND: earth
 MANE: brown
 NAME: Pipsqueak
 OTHER NAMES: Pip (unofficial, short name)
-POSE: disguised
+POSE: disguised as Pirate
 SOURCE: desktop ponies
 WIDTH: 33
 HEIGHT: 21

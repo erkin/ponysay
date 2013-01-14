@@ -1,4 +1,22 @@
 $$$
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
+BASED ON: rarity
+COAT: white
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: filly, mane
+KIND: unicorn
+MANE: purple
+MASTER: rarity
+NAME: Rarity
+POSE: stand
+SOURCE: desktop ponies
+WIDTH: 38
+HEIGHT: 21
+
+
 $$$
 $balloon7$[0m
     $\$

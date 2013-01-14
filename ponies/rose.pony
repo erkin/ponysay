@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c4m18s35
+APPEARANCE: S01E04 18:35
+BALLOON: top
 COAT: creme
+DISPLAY: full, left
 EYE: gray (ponysay), green (source)
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: red
-MEDIA: TV series
-NAME: rese
-OTHER NAMES: roseluck
+NAME: Rose
+OTHER NAMES: Roseluck (on toy line)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 50
 HEIGHT: 26

@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: s1c1m6s7
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
+BALLOON TOP: full, right
 COAT: white
 EYE: cyan
 FREE: no
-GROUP: stallion
-GROUP NAME: guard
+GROUP: stallion, voiced, guard
 KIND: pegasus
 MANE: blue
-MEDIA: TV series
-NAME: pegasus royal guard
-OTHER NAMES: royal guard, pegasus guard
+NAME: Pegasus Royal Guard
+OTHER NAMES: Royal Guard, Pegasus Guard
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 44
 HEIGHT: 27

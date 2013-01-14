@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c4m14s59
+APPEARANCE: S01E04 14:59
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: gray (ponysay), pink (source
-MEDIA: TV series
-NAME: nurse redheart
+NAME: (not mentioned)
+OTHER NAMES: Nurse Redheart (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 27
