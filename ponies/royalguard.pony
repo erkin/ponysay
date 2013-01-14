@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic part 1
 BALLOON: top
-BALLOON TOP: full, right
 COAT: white
+DISPLAY: full, left
 EYE: cyan
 FREE: no
 GROUP: stallion, voiced, guard
