@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c16m13s50
+APPEARANCE: S01E16 13:50
+BALLOON: top
 COAT: yellow
+DISPLAY: full, right
 EYE: brown
 FREE: no
-GROUP: mare
+GROUP: mare, backgound, voiced
 GROUP NAME: wonderbolts
 KIND: pegasus
 MANE: orange
-MEDIA: TV series
-NAME: spitfire
+NAME: Spitfire
+POSE: flying
 SOURCE: desktop ponies
 WIDTH: 53
 HEIGHT: 23

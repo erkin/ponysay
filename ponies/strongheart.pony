@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: s2c21
+APPEARANCE: S01E21 Over a Barrel
+BALLOON: top
 COAT: brown
+DISPLAY: full, right
 EYE: black
 FREE: no
-GROUP: buffalo
-GROUP NAME: wildlife
+GROUP: female, buffalo, wildlife, voiced
 KIND: animal
 MANE: yellow
-MEDIA: TV series
-NAME: strongheart
+NAME: Strongheart
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 27

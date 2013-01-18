@@ -1,15 +1,15 @@
 $$$
-APPEARANCE: s1c1m20s21
+APPEARANCE: S01E01 Friendship is Magic part 1
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: green
 FREE: no
-GROUP: filly
-GROUP NAME: deuteragonist, cutie mark crusader, rarity family
+GROUP: filly, deuteragonist
 KIND: unicorn
 MANE: pink
-MEDIA: TV series
-NAME: sweetie belle
-OTHER NAMES: sweetie, sweatie
+NAME: Sweetie Belle
+POSE: sitting, watching
 SOURCE: desktop ponies
 WIDTH: 37
 HEIGHT: 23

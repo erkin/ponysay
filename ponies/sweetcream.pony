@@ -1,12 +1,15 @@
 $$$
 APPEARANCE: Comic issue 1
+BALLOON: top
 COAT: cream
+DISPLAY: full, left
 FREE: no
 GROUP: mare
 KIND: unicorn
 MANE: yellow
 MEDIA: official comic
-NAME: sweetcream scoops
+NAME: Sweetcream Scoops (Given by the author)
+POSE: changeling
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 24

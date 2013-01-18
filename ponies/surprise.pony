@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: s1c3m3s36
-BASED ON: spitfire
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
 COAT: white
+DISPLAY: full, right
+EYE: closed
 FREE: no
-GROUP: mare
-GROUP NAME: wonderbolt
+GROUP: mare, wonderbolt
 KIND: pegasus
 MANE: yellow
-MEDIA: TV series
-NAME: surprise
-OTHER NAMES: fleetfoot (initial in gameloft game)
+NAME: (not mentioned)
+OTHER NAMES: Surprise (unofficial), fleetfoot (Gameloft game beta)
+POSE: stand
+SOURCE: [jristz]
 WIDTH: 37
 HEIGHT: 26
 

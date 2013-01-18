@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c13m6s3
+APPEARANCE: S01E13 Fall Weather Friends
+BALLOON: top
 COAT: purple
-EYE: green
+DISPLAY: full, right
+EYE: closed, green
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: yellow
-MEDIA: TV series
-NAME: starlight
+NAME: (not mentioned)
+OTHER NAMES: Starlight (unofficial)
+POSE: stand, smiling
 SOURCE: [jristz]
 WIDTH: 45
 HEIGHT: 26

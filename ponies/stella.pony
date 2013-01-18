@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c20m4s35
+APPEARANCE: S01E20 Green Isn't Your Color
+BALLOON: top
 COAT: creme
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
 MANE: orange
-MEDIA: TV series
-NAME: stella
+NAME: (not mentioned)
+OTHER NAMES: Stella (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 26

@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c23m16s55
+APPEARANCE: S01E23 16:55
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: cyan
 FREE: no
 GROUP: mare
-GROUP NAME: pie family
 KIND: earth
 MANE: gray
-MEDIA: TV series
-NAME: sue
+NAME: (not mentioned)
+OTHER NAMES: Sue (unofficial
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 26

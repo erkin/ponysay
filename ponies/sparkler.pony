@@ -10,8 +10,8 @@ GROUP: mare, background, voiced
 KIND: unicorn
 LINK: regular
 MANE: purple
-NAME: (not mentioned)
-OTHER NAMES: Amethyst Star (official, in merchandise), Sparkler (unofficial)
+NAME: Amethyst Star (in merchandise)
+OTHER NAMES: Sparkler (unofficial)
 POSE: troting
 SOURCE: desktop ponies
 WIDTH: 42

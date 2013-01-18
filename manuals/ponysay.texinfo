@@ -2975,7 +2975,7 @@ Pony metadata options added: @option{--info}, @option{++info} and @option{--rest
 Pony symlink added:
 @itemize @bullet
 @item @file{lily} @arrow{} @file{lilyvalley}
-@item @file{swaetiedrops} @arrow{} @file{bonbon}
+@item @file{sweetiedrops} @arrow{} @file{bonbon}
 @item @file{carecake} @arrow{} @file{carrotake}
 @item @file{berrydreams} @arrow @fille{blueberry}
 @end itemize
