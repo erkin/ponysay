@@ -6,9 +6,10 @@ FREE: sharable
 GROUP: imaginary
 KIND: item
 LICENSE: cc-nc-by-sa
+LINK: regular
 NAME: Lintsalot
 SOURCE: desktop ponies
-WIDTH: 27
+WIDTH: 25
 HEIGHT: 21
 
 
