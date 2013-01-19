@@ -2,10 +2,10 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: white
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: cyan
 FREE: no
-GROUP: stallion, voiced, guard
+GROUP: stallion, guard, background, voiced
 KIND: pegasus
 LINK: regular
 MANE: blue
