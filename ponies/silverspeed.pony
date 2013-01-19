@@ -1,15 +1,16 @@
 $$$
 APPEARANCE: S02E22 Hurricane Fluttershy
 BALLOON: top
-COAT: gray
+COAT: grey
 DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: pegasus
-MANE: gray
+LINK: regular
+MANE: grey
 NAME: Silverspeed
-POSE: trotting
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 25
