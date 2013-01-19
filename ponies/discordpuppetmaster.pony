@@ -1,19 +1,20 @@
 $$$
-APPEARANCE: S02E01 The Return of Harmony part 1
+APPEARANCE: S02E01 The Return of Harmony [Part 1]
+AURA: (invisible)
 BALLOON: top
-BASED ON: discord
 COAT: multiple
 DISPLAY: full, right
 EYE: red
 FREE: no
-GROUP: male, antagonist
-KIND: draconequu
+GROUP: antagonist
+KIND: draconequus
+LINK: regular
 MANE: gray
 MASTER: discord
 NAME: Discord
-POSE: puppetmaster
+POSE: puppet master
 SOURCE: desktop ponies
-WIDTH: 80
+WIDTH: 90
 HEIGHT: 37
 
 
