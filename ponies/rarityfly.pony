@@ -1,18 +1,21 @@
 $$$
-APPEARANCE: s1c1m12s2
-BASED ON: rarity
+APPEARANCE: S01E01 Friendship is Magic
+BALLOON: top
 COAT: white
+DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare
+GROUP: mare, mane
 GROUP NAME: mane
 KIND: unicorn
+LINK: regular
 MANE: purple
-MEDIA: TV series
-NAME: rarity
+MASTER: rarity
+NAME: Rarity
+POSE: fly
 SOURCE: desktop ponies
-WIDTH: 44
-HEIGHT: 25
+WIDTH: 58
+HEIGHT: 31
 
 
 $$$
