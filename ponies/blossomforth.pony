@@ -2,15 +2,14 @@ $$$
 APPEARANCE: S02E22 Hurricane Fluttershy
 BALLOON: top
 COAT: white
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: green (ponysay), blue (source)
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: pegasus
 LINK: regular
-MANE: pink
-NAME: (not mentioned)
-OTHER NAMES: Blossomforth (official, toy line)
+MANE: pink, green
+NAME: Blossomforth
 POSE: trot
 SOURCE: desktop ponies devel
 WIDTH: 51
