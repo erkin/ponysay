@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E14 13:11
+APPEARANCE: S01E14 Suited for Success
 BALLOON: top
-COAT: gray
+COAT: grey
 DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: stallion, voiced
+GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: white
 NAME: Hoity Toity
 POSE: stand
