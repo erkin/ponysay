@@ -1,9 +1,8 @@
 $$$
 APPEARANCE: S02E01 The Return of Harmony [Part 1]
 BALLOON: top
-BASED ON: discord
 COAT: multiple
-DISPLAY: head, right
+DISPLAY: head, front, left
 EYE: red
 FREE: no
 GROUP: male, antagonist
