@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: cyan
 DISPLAY: full, left
@@ -7,6 +7,7 @@ EYE: blue
 FREE: no
 GROUP: mare
 KIND: unicorn
+LINK: regular
 MANE: blue
 NAME: Minuette
 OTHER NAMES: Colgate (unofficial), TARDIE (unofficial), Romana (unofficial), Aquafresh (unofficial), Minty Fresh (unofficial)

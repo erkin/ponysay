@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S02E09 03:43
+APPEARANCE: S02E09 Sweet and Elite
 BALLOON: top
 COAT: blue
 DISPLAY: full, right
@@ -7,11 +7,12 @@ EYE: brown
 FREE: no
 GROUP: stallion
 KIND: unicorn
+LINK: regular
 MANE: white
 NAME: (not mentioned)
 OTHER NAMES: Perry Pierce (unofficial), Pokey Pierce (unofficial, same look)
 POSE: stand
-SOURCE: desktop poniess
+SOURCE: desktop ponies
 WIDTH: 43
 HEIGHT: 27
 

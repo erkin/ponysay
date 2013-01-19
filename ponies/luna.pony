@@ -8,10 +8,11 @@ EYE: blue
 FREE: no
 GROUP: mare, royal
 KIND: alicorn
+LINK: regular
 MANE: cyan, blue (season 2)
-NAME: Princess Luna
-OTHER NAMES: Lunija (russian), Nightmare Moon (corrupted), Woona (unofficial)
-POSE: troting
+NAME: Luna
+OTHER NAMES: Princess Luna (official, full name), Lunija (official, russian), Nightmare Moon (official, corrupted), Woona (unofficial)
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 70
 HEIGHT: 38

@@ -1,19 +1,19 @@
 $$$
 APPEARANCE: S01E26 The Best Night Ever
 BALLOON: top
-BASED ON: joe
 COAT: yellow
 DISPLAY: full, left, turn
 EYE: closed, green
 FREE: no
 GROUP: stallion
 KIND: unicorn
+LINK: regular
 MANE: brown
 MASTER: joe
 NAME: Joe
 OTHER NAMES: Donut Joe (partially official)
-POSE: possing
-SOURCE: [jristz] based on dektop ponies
+POSE: poss
+SOURCE: [jristz], based on dektop ponies
 WIDTH: 39
 HEIGHT: 26
 

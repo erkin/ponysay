@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S02E22 02:40
+APPEARANCE: S02E22 Hurricane Fluttershy
 BALLOON: top
 COAT: white
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: yellow
 FREE: no
 GROUP: stallion
 KIND: pegasus
+LINK: regular
 MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Milky Way (unofficial)

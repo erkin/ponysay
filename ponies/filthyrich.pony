@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S02E12 02:37
+APPEARANCE: S02E12 Family Appreciation Day
 BALLOON: top
 COAT: brown
-DISPLAY: ful, left
+DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: stallion, voiced
+GROUP: stallion, background, voiced
 KIND: earth
+LINK: regular
 MANE: black
 NAME: Filthy Rich
 POSE: stand

@@ -7,10 +7,12 @@ EYE: purple
 FREE: no
 GROUP: mare
 KIND: unicorn
+LINK: regular
 MANE: pink
+MASTER: fleurdelis
 NAME: (not mentioned)
 OTHER NAMES: Fleur de Lis (unofficial)
-POSE: waiting
+POSE: lay
 SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 21

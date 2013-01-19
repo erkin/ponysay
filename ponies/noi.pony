@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: S01E12 00:04
+APPEARANCE: S01E12 Call of the Cutie
 BALLOON: top
 COAT: brown
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: filly
 KIND: earth
-MANE: creme
+LINK: regular
+MANE: orange
 NAME: (not mentioned)
 OTHER NAMES: Noi (unofficial)
 POSE: stand

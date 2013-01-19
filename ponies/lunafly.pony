@@ -13,7 +13,7 @@ MANE: cyan, blue (season 2)
 MASTER: woona
 NAME: Luna
 OTHER NAMES: Princess Luna (official, full name), Lunija (official, russian), Nightmare Moon (official, corrupted), Woona (unofficial)
-POSE: flying
+POSE: fly
 SOURCE: (unknown)
 WIDTH: 85
 HEIGHT: 40

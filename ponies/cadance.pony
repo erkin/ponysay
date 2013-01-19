@@ -8,9 +8,10 @@ EYE: pink
 FREE: no
 GROUP: mare, royal
 KIND: alicorn
+LINK: regular
 MANE: pastel
-NAME: Princess Cadance
-OTHER NAMES: Mi amore Cadenza (on invitation), Cadence (on credits)
+NAME: Cadance
+OTHER NAMES: Princess Cadance (official, titled), Mi Amore Cadenza (official, full named without title), Princess Mi Amore Cadenza (official, full named)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 55

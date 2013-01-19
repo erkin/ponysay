@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: green
 DISPLAY: full, left
@@ -7,9 +7,10 @@ EYE: closed, orange
 FREE: no
 GROUP: mare, background, voiced
 KIND: earth
+LINK: regular
 MANE: white
 NAME: Granny Smith
-POSE: sleeping
+POSE: sleep
 SOURCE: desktop ponies
 WIDTH: 37
 HEIGHT: 23

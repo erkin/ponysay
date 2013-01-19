@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S02E01 The Return of Harmony part 1
+APPEARANCE: S02E01 The Return of Harmony [Part 1]
 BALLOON: top
 BASED ON: discord
 COAT: multiple
@@ -7,13 +7,14 @@ DISPLAY: head, right
 EYE: red
 FREE: no
 GROUP: male, antagonist
-KIND: draconequu
-MANE: gray
+KIND: draconequus
+LINK: regular
+MANE: grey
 MASTER: discord
 NAME: Discord
 POSE: amused
 SOURCE: (screenshoot)
-WIDTH: 80
+WIDTH: 83
 HEIGHT: 33
 
 
