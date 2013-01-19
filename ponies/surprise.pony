@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E03 The Ticket Master
 BALLOON: top
 COAT: white
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: closed
 FREE: no
 GROUP: mare, wonderbolt
