@@ -939,7 +939,7 @@ pony–pet play dates.
 @item @code{royal}
 Royal pony, either by birth or conquer (i.e. the old school style).
 @item @code{villain}
-Villains, normally minions to antagonists. Applies to changelings.
+Villains, normally minions to antagonists or recurring ponies. Applies to changelings.
 @item @code{antagonist} (applies to: nightmare moon, gilda, discord, chrysalis)
 Antagonists are also known as archvillians or archenemies.
 Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one.
