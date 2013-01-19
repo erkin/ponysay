@@ -1,16 +1,17 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: blue
 DISPLAY: full, right
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: pegasus
+LINK: regular
 MANE: pink
-NAME: Rainbowshine
-OTHER NAMES: Rainbow Day (unofficial)
-POSE: troting
+NAME: (not mentioned)
+OTHER NAMES: Rainbowshine (official, toy line), Rainbow Day (unofficial)
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 25
