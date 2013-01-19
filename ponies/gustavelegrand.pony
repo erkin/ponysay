@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: S02
+APPEARANCE: S02E24 - MMMystery on the Friendship
 BALLOON: top
-COAT: white, black
-DISPLAY: full, left
+COAT: black
+DISPLAY: full, right
 EYE: yellow
 FREE: no
-GROUP: male
-KIND: animals, gryffon
-NAME: Gustave Le Grand
+GROUP: griffin
+KIND: animal
+LINK: regular
+MANE: white
+NAME: Gustave le Grand
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 61
