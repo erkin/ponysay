@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S02E03 Lesson Zero
 BALLOON: top
 COAT: brown
-DISPLAY: full, right
+DISPLAY: full, front, right
 EYE: yellow
 FREE: yes
 GROUP: bear, wildlife
