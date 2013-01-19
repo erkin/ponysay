@@ -11,7 +11,7 @@ LINK: regular
 MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Apple Core (unofficial), Piña Colada (unofficial, merged in wiki), Pina Colada (ASCII)
-POSE: troting
+POSE: trot
 SOURCE: [jristz]
 WIDTH: 33
 HEIGHT: 21
