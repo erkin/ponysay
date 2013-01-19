@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: brown
 DISPLAY: full, left
@@ -7,11 +7,11 @@ EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: black
-MASTER: doctor
-NAME: Time Turner
-OTHER NAMES: Dr Hooves (official according to Welovefine), Dr Whooves (unofficial)
-POSE: troting
+NAME: (not mentioned)
+OTHER NAMES: Time Turner (unofficial), Dr Hooves (official according to Welovefine), Dr Whooves (unofficial)
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 38
 HEIGHT: 24
