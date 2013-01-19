@@ -5,12 +5,13 @@ COAT: yellow
 DISPLAY: full, right
 EYE: brown
 FREE: no
-GROUP: mare, backgound, voiced
+GROUP: mare, wonderbolt
 GROUP NAME: wonderbolts
 KIND: pegasus
+LINK: regular
 MANE: orange
 NAME: Spitfire
-POSE: flying
+POSE: fly
 SOURCE: desktop ponies
 WIDTH: 53
 HEIGHT: 23
