@@ -22,8 +22,8 @@ MANE: green
 MASTER: spike
 NAME: Twilight
 NAME: Spike
-OTHERNAMES: Twilight Sparkle (official, full name)
-OTHERNAMES: (none)
+OTHER NAMES: Twilight Sparkle (official, full name)
+OTHER NAMES: (none)
 POSE: ride
 WIDTH: 44
 HEIGHT: 28
