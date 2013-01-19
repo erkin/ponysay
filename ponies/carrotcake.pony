@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E04 13:17
+APPEARANCE: S01E04 Applebuck Season
 BALLOON: top
 COAT: brown
 DISPLAY: full, right
@@ -7,6 +7,7 @@ EYE: blue
 FREE: no
 GROUP: stallion, backgound, voiced
 KIND: earth
+LINK: regular
 MANE: orange
 NAME: Mr Carrot Cake
 OTHER NAMES: Carecake, Mr Cake, Mr Carecake, Carrot Cake
