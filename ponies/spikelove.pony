@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: purple
 DISPLAY: full, right
@@ -7,11 +7,13 @@ EYE: green
 FREE: no
 GROUP: male, dragon
 KIND: animal
-MANE: green (scales)
+LINK: regular
+MANE: green
+MASTER: spike
 NAME: Spike
 POSE: love
 SOURCE: desktop ponies
-WIDTH: 27
+WIDTH: 25
 HEIGHT: 19
 
 
