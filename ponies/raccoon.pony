@@ -5,12 +5,13 @@ COAT: grey
 DISPLAY: full, left
 EYE: black
 FREE: yes
-GROUP: raccoon
+GROUP: raccoon, wildlife
 KIND: animal
 LICENSE: CC0
-POSE: runing
+LINK: regular
+POSE: run
 SOURCE: (screenshoot)
-WIDTH: 80
+WIDTH: 89
 HEIGHT: 27
 
 The person who associated a work with this deed has dedicated the work to
