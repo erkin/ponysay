@@ -1,16 +1,18 @@
 $$$
-APPEARANCE: s1c6m2s28
-BASED ON: trixie
+APPEARANCE: S01E06 Boast Busters
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
-GROUP NAME: villain
+GROUP: mare, villian, reconciled
 KIND: unicorn
+LINK: right
 MANE: white
-MEDIA: TV series
-NAME: the grat and powerful trixie
-OTHER NAMES: trixie, trixie lulamoon, lulamoon
+MASTER: trixie
+NAME: Trixie
+OTHER NAMES: The Great and Powerful Trixie (official, titled), Trixie Lulamoon (official, toy line), Lulamoon (official, toy line)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 48
 HEIGHT: 28
