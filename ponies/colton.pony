@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: S01E07 01:40
+APPEARANCE: S01E07 Dragonshy
 BALLOON: top
-COAT: creme
+COAT: beige
 DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: stallion
+GROUP: stallion, background
 KIND: earth
+LINK: regular
 MANE: blue
-NAME: Goldengrape
-OTHER NAMES: Colton Vines (unofficial), Sir Colton Vines III (unofficial)
+NAME: (not mentioned)
+OTHER NAMES: Goldengrape (official, toy line), Colton Vines (unofficial), Sir Colton Vines III (unofficial)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 41
