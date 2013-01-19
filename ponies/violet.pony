@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: pink
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: mare, background
