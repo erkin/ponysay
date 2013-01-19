@@ -8,9 +8,9 @@ FREE: no
 GROUP: stallion
 KIND: earth
 LINK: regular
-MANE: grey (ponysay), brown (source)
+MANE: brown
 NAME: Sheriff Silverstar
-OTHER NAMES: Silverstar (shorter)
+OTHER NAMES: Silverstar (official, without title)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 40
