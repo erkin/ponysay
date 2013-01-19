@@ -12,6 +12,7 @@ LINK: regular
 MANE: yellow
 MASTER: applejack
 NAME: Applejack
+OTHER NAMES: AJ (official, short)
 POSE: scarecrow
 SOURCE: desktop ponies
 WIDTH: 47

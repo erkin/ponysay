@@ -11,7 +11,8 @@ KIND: earth
 LINK: regular
 MANE: yellow
 NAME: Applejack
-POSE: stamp
+OTHER NAMES: AJ (official, short)
+POSE: stapm
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 27
