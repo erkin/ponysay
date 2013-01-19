@@ -6,8 +6,7 @@ COAT: white
 DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: mare
-GROUP NAME: mane
+GROUP: mare, mane
 KIND: unicorn
 LINK: regular
 MANE: purple
