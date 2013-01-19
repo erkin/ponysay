@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E20 04:35
+APPEARANCE: S01E20 Green isn't Your Color
 BALLOON: top
 COAT: blue
 DISPLAY: full, left
 EYE: black
 FREE: no
-GROUP: mare, voiced
+GROUP: mare
 KIND: earth
+LINK: regular
 MANE: white
 NAME: Photo Finish
 POSE: stand
