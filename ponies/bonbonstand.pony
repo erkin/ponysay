@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-COAT: creme
-DISPLAY: full, right
+COAT: beige
+DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare
+GROUP: mare, background, voiced
 KIND: earth
+LINK: regular
 MANE: blue
 NAME: Bon Bon (unofficial, but FAR more used)
 OTHER NAMES: Sweetie Drops (official)
