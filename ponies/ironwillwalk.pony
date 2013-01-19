@@ -3,17 +3,22 @@ APPEARANCE: S02
 BALLOON: top
 COAT: blue
 DISPLAY: full, right
+EYE: yellow
 FREE: no
-GROUP: male, bull (or minotaur), voiced, villain
-KIND: animals
+GROUP: bull (minotaur), minotaur, villian
+KIND: animal
+LINK: regular
 MANE: black
 NAME: Iron Will
-POSE: walking
+POSE: walk
 SOURCE: desktop ponies
 WIDTH: 59
 HEIGHT: 39
 
-
+Iron Will is not an antagonist, but whether is he is an villian can be argued.
+Personal, I [maandree], would not call him I villian, since he tries to help
+push overs, which accidentally turned Fluttershy into a villian, and just wanted
+his payment at the end of the episode.
 $$$
 $balloon32$[0m
                              $\$
