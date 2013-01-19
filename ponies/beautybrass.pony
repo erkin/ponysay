@@ -1,16 +1,17 @@
 $$$
-APPEARANCE: S01E26 10:15
+APPEARANCE: S01E26 The Best Night Ever
 BALLOON: top
 COAT: blue
 DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
+LINK: regular
 MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Beauty Brass (unofficial)
-POSE: playing music
+POSE: play
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 32
