@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S02E20 It's About Time
 BALLOON: top
 COAT: black
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: red
 FREE: yes
 GROUP: dog, wildlife, cerberus
@@ -10,7 +10,7 @@ KIND: animal
 LICENSE: CC0
 LINK: regular
 NAME: Cerberus
-POSE: playing
+POSE: play
 SOURCE: (screenshoot)
 WIDTH: 107
 HEIGHT: 33
