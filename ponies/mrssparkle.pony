@@ -5,10 +5,10 @@ COAT: white
 DISPLAY: full, right
 EYE: cyan
 FREE: no
-GROUP: mare, voiced
+GROUP: mare, background, voiced
 KIND: unicorn
 LINK: regular
-MANE: white, purple
+MANE: purple (and white)
 NAME: Twilight Velvet
 OTHER NAMES: Mrs Sparkle
 POSE: stand
