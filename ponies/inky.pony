@@ -5,12 +5,13 @@ COAT: grey
 DISPLAY: full, front, left
 EYE: closed, purple
 FREE: no
-GROUP: filly
+GROUP: filly, background
 KIND: earth
+LINK: regular
 MANE: grey
 NAME: (not mentioned)
 OTHER NAMES: Inkie Pie (unofficial), Inky (unofficial)
-POSE: dancing
+POSE: dance
 SOURCE: desktop ponies
 WIDTH: 32
 HEIGHT: 22
