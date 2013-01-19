@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E11 Winter Wrap Up
 BALLOON: top
 COAT: blue
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: stallion
