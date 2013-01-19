@@ -6,7 +6,8 @@ DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: colt
-KIND: earth
+KIND: earth, background
+LINK: regular
 MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: High Score (unofficial)
