@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E05 Griffon the Brush Off (sic!)
 BALLOON: top
-COAT: brown, white
+COAT: brown
 DISPLAY: full, left
 EYE: yellow
 FREE: no
 GROUP: female, antagonist
-KIND: animal, gryffon
+KIND: animal, griffin
+LINK: regular
+MANE: white
 NAME: Gilda
 OTHER NAMES: Gruntilda (initial name but not pass copyright)
-POSE: flying
+POSE: fly
 SOURCE: desktop ponies
 WIDTH: 71
 HEIGHT: 32
