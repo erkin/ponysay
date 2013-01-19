@@ -5,12 +5,12 @@ COAT: yellow
 DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: stallion, villain
+GROUP: stallion, antagonist
 KIND: unicorn
 LINK: regular
 MANE: red
 NAME: Flim
-POSE: troting
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 28
