@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E06 01:46
+APPEARANCE: S01E06 Boast Busters
 BALLOON: top
 COAT: orange
 DISPLAY: full, right
@@ -7,6 +7,7 @@ EYE: black
 FREE: no
 GROUP: colt, background, voiced
 KIND: unicorn
+LINK: regular
 MANE: green
 NAME: Snails
 POSE: stand
