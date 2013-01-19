@@ -5,11 +5,12 @@ COAT: purple
 DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare, voiced
+GROUP: mare, background, voiced
 KIND: pegasus
+LINK: regular
 MANE: cyan
 NAME: Cloudchaser
-POSE: inverted
+POSE: bridge
 SOURCE: desktop ponies
 WIDTH: 50
 HEIGHT: 20
