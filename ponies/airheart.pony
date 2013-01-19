@@ -11,9 +11,9 @@ LINK: regular
 MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Airheart (unofficial)
-POSE: smiling
+POSE: smile
 SOURCE: [jristz]
-WIDTH: 26
+WIDTH: 24
 HEIGHT: 26
 
 
