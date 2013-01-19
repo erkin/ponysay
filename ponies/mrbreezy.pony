@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: S01E18 08:43
+APPEARANCE: S01E18 The Show Stoppers
 BALLOON: top
 COAT: brown
-DISPLAY: full, right, turn
+DISPLAY: full, right, turned
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: orange
-MASTER: troting, sad
+MASTER: trot
 NAME: Mr Breezy
 SOURCE: [jristz]
 WIDTH: 38
