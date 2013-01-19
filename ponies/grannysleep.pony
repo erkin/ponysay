@@ -5,11 +5,12 @@ COAT: green
 DISPLAY: full, left
 EYE: closed, orange
 FREE: no
-GROUP: mare, background, voiced
+GROUP: mare
 KIND: earth
 LINK: regular
 MANE: white
 NAME: Granny Smith
+MASTER: granny
 POSE: sleep
 SOURCE: desktop ponies
 WIDTH: 37
