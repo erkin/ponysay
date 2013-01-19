@@ -3,12 +3,14 @@ APPEARANCE: S02E22 Hurricane Fluttershy
 BALLOON: top
 COAT: white
 DISPLAY: full, left
-EYE: gray
+EYE: grey
 FREE: no
-GROUP: colt, voiced
+GROUP: colt, background, voiced
 KIND: pegasus
+LINK: regular
 MANE: black
-NAME: Rumble
+NAME: (not mentioned)
+OTHER NAMES: Rumble (official)
 POSE: sit
 SOURCE: desktop ponies
 WIDTH: 41
