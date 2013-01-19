@@ -13,6 +13,7 @@ NAME: Big McIntosh
 OTHER NAMES: Big Mac (sometimes), Big Macintosh (sometimes), Mac (rarely but mentioned)
 POSE: sleep
 SOURCE: desktop ponies
+MASTER: bigmac
 WIDTH: 51
 HEIGHT: 19
 

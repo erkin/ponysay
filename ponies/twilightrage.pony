@@ -1,19 +1,21 @@
 $$$
-APPEARANCE: s1c1m1s31
-BASED ON: twilight
-COAT: purple
-EYE: purple
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: purple (normallt), beige (now)
+DISPLAY: full, left
+EYE: purple (normally), red (now)
 FREE: no
-GROUP: mare
-GROUP NAME: mane
+GROUP: mare, mane
 KIND: unicorn
-MANE: purple, blue
-MEDIA: TV series
-NAME: twilight sparkle
-OTHER NAMES: twilight
+LINK: regular
+MANE: purple (normally), fire (now)
+MASTER: twilight
+NAME: Twilight
+OTHER NAMES: Twilight Sparkle (official, full name)
+POSE: rage
 SOURCE: desktop ponies
-WIDTH: 50
-HEIGHT: 28
+WIDTH: 55
+HEIGHT: 36
 
 
 $$$
