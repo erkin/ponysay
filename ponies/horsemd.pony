@@ -5,8 +5,9 @@ COAT: brown
 DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: stallion, voiced
+GROUP: stallion, background, voiced
 KIND: earth
+LINK: regular
 MANE: orange
 NAME: (not mentioned)
 OTHER NAMES: Horse MD (unofficial), MD Horse (unofficial)
