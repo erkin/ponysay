@@ -3,10 +3,10 @@ APPEARANCE: S02E26 The Royal Wedding [Part 2]
 AURA: green
 BALLOON: top
 COAT: black
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: mare, antagonist
+GROUP: antagonist
 KIND: changeling
 LINK: regular
 MANE: teal
@@ -18,7 +18,7 @@ SOURCE: unknown
 WIDTH: 65
 HEIGHT: 34
 
-
+WING: teal
 $$$
 $balloon35$[0m
                                 $\$
