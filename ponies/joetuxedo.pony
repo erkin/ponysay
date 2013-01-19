@@ -12,7 +12,7 @@ MANE: brown
 MASTER: joe
 NAME: Joe
 OTHER NAMES: Donut Joe (partially official)
-POSE: poss
+POSE: tuxedo
 SOURCE: [jristz], based on dektop ponies
 WIDTH: 39
 HEIGHT: 26
