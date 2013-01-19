@@ -1,11 +1,11 @@
 $$$
-APPEARANCE: S01E02 Friendship is magic [part 2]
+APPEARANCE: S01E02 Friendship is Magic [part 2]
 BALLOON: top
 COAT: pink
 DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: filly
+GROUP: filly, background
 KIND: earth
 LINK: regular
 MANE: pink
