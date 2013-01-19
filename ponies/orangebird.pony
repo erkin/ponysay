@@ -7,8 +7,9 @@ FREE: yes
 GROUP: bird, fruit
 KIND: animal, item, hybrid
 LICENSE: CC0
+LINK: regular
 MANE: blue
-POSE: flying
+POSE: fly
 SOURCE: [jristz]
 WIDTH: 44
 HEIGHT: 28
