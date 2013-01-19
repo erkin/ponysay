@@ -1,7 +1,7 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BASED ON: pinkie
+BASED ON: Generation 3 Pinkie Pie
 COAT: pink
 DISPLAY: full, left
 EYE: blue
@@ -13,7 +13,7 @@ MANE: pink
 MASTER: pinkie
 NAME: Pinkie Pie
 OTHER NAMES: Pinkie (offical, short name), Pinkamina Diane Pie (official, full name)
-POSE: pinkamina, sad, crazy
+POSE: pinkamina
 SOURCE: desktop ponies
 WIDTH: 44
 HEIGHT: 25
