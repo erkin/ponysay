@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S02E16 17:22
-BALLOON: filly
+APPEARANCE: S02E16 Read it and Weep
+BALLOON: top
 COAT: white
 DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: earth
-LINK: top
+GROUP: filly, background
+KIND: earth
+LINK: regular
 MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Nursery Rhyme (unofficial)
