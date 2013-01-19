@@ -6,8 +6,7 @@ DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: cat, pet
-GROUP NAME: pet
-KIND: animals
+KIND: animal
 LINK: regular
 NAME: Opalescence
 OTHER NAMES: Opal (offical, short name)
