@@ -1,7 +1,7 @@
 $$$
 APPEARANCE: S01E06 Boast Busters
 BALLOON: top
-BASED ON: cheerilee
+MASTER: cheerilee
 COAT: purple
 DISPLAY: full, right
 EYE: green

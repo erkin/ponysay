@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E06
+APPEARANCE: S01E06 Boast Busters
 BALLOON: top
 COAT: purple
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: green
 FREE: no
-GROUP: mare, backgound, voiced
+GROUP: mare, background, voiced
 KIND: earth
+LINK: regular
 MANE: pink
 NAME: Cheerilee
 OTHER NAMES: Cheerelee (McDonald toy), Cheerilee Pie (on Gameloft game beta)
