@@ -1,15 +1,18 @@
 $$$
-APPEARANCE: s2c6m00s54
-COAT: creme
+APPEARANCE: S02E06 The Cutie Pox
+BALLOON: top
+COAT: beige
+DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: brown (source), black (ponysay)
-MEDIA: TV series
-NAME: theodore donald "donny" kerabatsos
+OTHER NAMES: Theodore Donald "Donny" Kerabatsos (unofficial)
+POSE: stand
 SOURCE: deviantart desktop ponies group
-WIDTH: 42
+WIDTH: 41
 HEIGHT: 24
 
 
