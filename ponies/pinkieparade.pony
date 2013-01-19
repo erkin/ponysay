@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BASED ON: pinkie
+BASED ON: Generation 3 Pinkie Pie
 COAT: pink
 DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: mare, mane
 KIND: earth
+LINK: regular
 MANE: pink
 MASTER: pinkie
 NAME: Pinkie Pie
