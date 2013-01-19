@@ -1,13 +1,13 @@
 $$$
-APPEARANCE: S01E23 03:33
+APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
-COAT: creme
+COAT: orange
 DISPLAY: full, right
 EYE: cyan
 FREE: no
-GROUP: stallion, voiced
-GROUP NAME: apple family
+GROUP: stallion, background, voiced
 KIND: earth
+LINK: regular
 MANE: green
 NAME: Uncle Orange
 OTHER NAMES: Mosely Orange (unofficial, on toy line)
