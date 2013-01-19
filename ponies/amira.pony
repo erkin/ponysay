@@ -7,10 +7,11 @@ EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Amira (unofficial)
-POSE: waiting
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 41
 HEIGHT: 30
