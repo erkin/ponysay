@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E06 01:46
+APPEARANCE: S01E06 Boast Busters
 BALLOON: top
 COAT: green
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: black
 FREE: no
 GROUP: colt, backgound, voiced
 KIND: unicorn
+LINK: regular
 MANE: orange
 NAME: Snips
 POSE: stand
