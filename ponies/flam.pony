@@ -7,9 +7,10 @@ EYE: green
 FREE: no
 GROUP: stallion, villain
 KIND: unicorn
+LINK: regular
 MANE: red
 NAME: Flam
-POSE: troting
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 44
 HEIGHT: 29
