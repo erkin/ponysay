@@ -1,16 +1,17 @@
 $$$
-APPEARANCE: S01E11 05:05
+APPEARANCE: S01E11 Winter Wrap Up
 BALLOON: top
 COAT: purple
 DISPLAY: full, left
 EYE: yellow
 FREE: no
-GROUP: unicorn
+GROUP: unicorn, background
 KIND: filly
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Dinky Doo (unofficial), Dinky Hooves (unofficial)
-POSE: troting
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 38
 HEIGHT: 21
