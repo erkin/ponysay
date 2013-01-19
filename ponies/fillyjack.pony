@@ -1,7 +1,7 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BASED ON: applejack
+BASED ON: Generation 3 Applejack
 COAT: brown
 DISPLAY: full, left
 EYE: blue
@@ -12,7 +12,7 @@ LINK: regular
 MANE: yellow
 MASTER: applejack
 NAME: Applejack
-POSE: stamp
+POSE: filly
 SOURCE: desktop ponies
 WIDTH: 34
 HEIGHT: 21
