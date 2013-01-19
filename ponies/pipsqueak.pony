@@ -7,10 +7,11 @@ EYE: white
 FREE: no
 GROUP: colt, background, voiced
 KIND: earth
+LINK: regular
 MANE: brown
 NAME: Pipsqueak
 OTHER NAMES: Pip (unofficial, short name)
-POSE: disguised as Pirate
+POSE: pirate
 SOURCE: desktop ponies
 WIDTH: 33
 HEIGHT: 21
