@@ -1,13 +1,16 @@
 $$$
+APPEARANCE: S02E01 The Return of Harmony [Part 1]
 BALLOON: top
 COAT: grey
-DISPLAY: full, right
+DISPLAY: full, left (I guess)
 FREE: yes
 GROUP: imaginary
 KIND: item
 LICENSE: CC0
+LINK: regular
 NAME: Tom
 OTHER NAMES: Tom the Rock
+POSE: lay
 SOURCE: imageboard
 WIDTH: 52
 HEIGHT: 30
