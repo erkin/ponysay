@@ -9,7 +9,6 @@ GROUP: filly
 KIND: pegasus
 LINK: regular
 MANE: purple
-MEDIA: TV series
 NAME: (not mentioned)
 OTHER NAMES: Tornado Bolt (unofficial)
 POSE: stand
