@@ -1,17 +1,17 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic (part 1)
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: red
 DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: stallion, background, voiced
+GROUP: stallion
 KIND: earth
 LINK: regular
 MANE: brown
 NAME: Big McIntosh
 OTHER NAMES: Big Mac (sometimes), Big Macintosh (sometimes), Mac (rarely but mentioned)
-POSE: sleepc
+POSE: sleep
 SOURCE: desktop ponies
 WIDTH: 51
 HEIGHT: 19
