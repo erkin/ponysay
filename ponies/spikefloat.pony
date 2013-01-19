@@ -5,7 +5,7 @@ COAT: purple
 DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: male, dragon
+GROUP: dragon
 KIND: animal
 LINK: regular
 MANE: green
