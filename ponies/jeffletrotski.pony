@@ -5,7 +5,7 @@ COAT: brown
 DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: stallion
+GROUP: stallion, background
 KIND: earth
 LINK: regular
 MANE: brown
