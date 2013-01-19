@@ -1,12 +1,13 @@
 $$$
 APPEARANCE: S01E20 Green Isn't Your Color
 BALLOON: top
-COAT: creme
+COAT: green
 DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: orange
 NAME: (not mentioned)
 OTHER NAMES: Stella (unofficial)
