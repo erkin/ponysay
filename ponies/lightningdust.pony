@@ -5,12 +5,12 @@ COAT: cyan
 DISPLAY: full, left
 EYE: orange
 FREE: no
-GROUP: mare, villain, voiced
+GROUP: mare, villain
 KIND: pegasus
 LINK: regular
 MANE: orange
 NAME: Lightning Dust
-POSE: waiting
+POSE: wait
 SOURCE: [jristz]
 WIDTH: 48
 HEIGHT: 26
