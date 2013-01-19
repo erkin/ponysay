@@ -1,7 +1,45 @@
 $$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: green
+AURA: (no magic)
+AURA: (no magic)
+BALLOON: top
+COAT: white
+COAT: orange
+COAT: yellow
+DISPLAY: full, left
+DISPLAY: full, left
+DISPLAY: full, left
+EYE: green
+EYE: purple
+EYE: brown
 FREE: no
+GROUP: filly, deuteragonist
+GROUP: filly, deuteragonist, chicken (😊 )
+GROUP: filly, deuteragonist
+GROUP NAME: Cutie Mark Crusaders
+KIND: unicorn
+KIND: pegasus
+KIND: earth
+LINK: regular
+LINK ON: 3
+MANE: pink
+MANE: purple
+MANE: red
+MASTER: applebloom
+NAME: Sweetie Belle
+NAME: Scootaloo
+NAME: Apple Bloom
+OTHER NAMES: (none)
+OTHER NAMES: (none)
+OTHER NAMES: (none)
+POSE: skip
+POSE: skip
+POSE: skip
 SOURCE: desktop ponies deviantart group
-WIDTH: 108
+WIDTH: 110
 HEIGHT: 24
 
 
