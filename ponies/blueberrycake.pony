@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E23
+APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
 COAT: blue
 DISPLAY: full, left
 EYE: green
 FREE: no
-GROUP: filly
+GROUP: filly, background
 KIND: earth
+LINK: regular
 MANE: purple
 NAME: (not mentioned)
 OTHER NAMES: BlueBerry Cake (unofficial)
