@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: white
 DISPLAY: full, right
@@ -7,9 +7,11 @@ EYE: closed, green
 FREE: no
 GROUP: filly, deuteragonist
 KIND: unicorn
+LINK: regular
 MANE: pink
+MASTER: sweetie
 NAME: Sweetie Belle
-POSE: singing, clouded
+POSE: sing
 SOURCE: desktop ponies
 WIDTH: 57
 HEIGHT: 22
