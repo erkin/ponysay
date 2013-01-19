@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: So2E16 05:24
+APPEARANCE: S02E16 Read it and Weep
 BALLOON: top
 COAT: brown
 DISPLAY: full, left
@@ -7,7 +7,8 @@ EYE: purple
 FREE: no
 GROUP: mare, voiced
 KIND: pegasus
-MANE: gray
+LINK: regular
+MANE: grey
 NAME: Daring Do
 POSE: stand
 SOURCE: desktop ponies
