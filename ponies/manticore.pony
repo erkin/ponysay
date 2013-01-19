@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E02 Friendship is Magic [Part 2]
 BALLOON: top
 COAT: brown
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: black
 FREE: yes
 GROUP: manticore
@@ -10,6 +10,7 @@ KIND: animals
 LICENSE: CC0
 LINK: regular
 MANE: red
+NAME: (not mentioned)
 POSE: watching
 SOURCE: (screenshoot)
 WIDTH: 75
