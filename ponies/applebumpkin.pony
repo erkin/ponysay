@@ -10,8 +10,8 @@ KIND: earth
 LINK: regular
 MANE: pink
 NAME: Apple Bumpkin
-OTHER NAMES: Apple Dazzler (acording to January 2012 toy)
-POSE: troting
+OTHER NAMES: Apple Dazzler (official, according to January 2012 toy)
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 25
