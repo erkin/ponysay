@@ -1,13 +1,16 @@
 $$$
-APPEARANCE: s1c12m00s4
-COAT: creeme
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
+COAT: beige
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: filly
 KIND: earth
-MANE: orange (ponysay, red (source)
-MEDIA: TV series
-NAME: twist
+LINK: regular
+MANE: orange (ponysay), red (source)
+NAME: Twist
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 33
 HEIGHT: 21
