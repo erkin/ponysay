@@ -8,9 +8,10 @@ FREE: yes
 GROUP: parasprite
 KIND: animal
 LICENSE: cc-by-sa
-POSE: smiling
+LINK: right
+POSE: smile
 SOURCE: desktop ponies
-WIDTH: 28
+WIDTH: 26
 HEIGHT: 15
 
 
