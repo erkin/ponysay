@@ -9,6 +9,7 @@ GROUP: owl, pet
 KIND: animals
 LICENSE: CC0
 LINK: regular
+MASTER: owlowiscious
 NAME: Owlowiscious
 POSE: watch
 SOURCE: imageboard
