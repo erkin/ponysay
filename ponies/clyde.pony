@@ -8,7 +8,7 @@ FREE: no
 GROUP: stallion
 KIND: earth
 LINK: regular
-MANE: gray
+MANE: grey
 NAME: (not mentioned)
 OTHER NAMES: Clyde (unofficial)
 POSE: stand
