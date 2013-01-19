@@ -5,8 +5,9 @@ COAT: brown
 DISPLAY: full, right
 EYE: black
 FREE: no
-GROUP: female, buffalo, wildlife, voiced
+GROUP: buffalo, wildlife
 KIND: animal
+LINK: regular
 MANE: yellow
 NAME: Strongheart
 POSE: stand
