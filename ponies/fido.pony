@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E19 A Dog and Pony Show
 BALLOON: top
-COAT: gray
-DISPLAY: full, right
+COAT: grey
+DISPLAY: full, left
 EYE: yellow
 FREE: no
 GROUP: dog, antagonist, diamond dog
