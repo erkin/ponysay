@@ -9,12 +9,12 @@ GROUP: villain
 KIND: changeling
 LINK: regular
 MANE: black
-NAME: (not mentioned)
 POSE: stand
 SOURCE: desktop ponies
+WING: teal
 WIDTH: 37
 HEIGHT: 26
-WING: teal
+
 
 $$$
 $balloon20$[0m
