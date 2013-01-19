@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: blue
 DISPLAY: full, left
@@ -7,10 +7,10 @@ EYE: closed, purple
 FREE: no
 GROUP: mare, mane, shadowbolt
 KIND: pegasus
-MANE: rainbows
+LINK: regular
+MANE: rainbow
 NAME: Rainbow Dash
-OTHER NAMES: Rainbow, Dash, Dashie
-POSE: disguised as Shadowbolt
+POSE: shadowbolt
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 25
