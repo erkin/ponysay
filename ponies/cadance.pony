@@ -1,12 +1,12 @@
 $$$
-APPEARANCE: S02E25 The Royal Wedding part 1
+APPEARANCE: S02E25 The Royal Wedding [Part 1]
 AURA: pink
 BALLOON: top
 COAT: pink
 DISPLAY: full, left
 EYE: pink
 FREE: no
-GROUP: mare, royal
+GROUP: mare, royal, tritagonist
 KIND: alicorn
 LINK: regular
 MANE: pastel
