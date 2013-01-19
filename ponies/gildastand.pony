@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E05 Griffon the Brush Off (sic!)
 BALLOON: top
-BASED ON: gilda
-COAT: brown, white
+COAT: brown
 DISPLAY: full, left
 EYE: yellow
 FREE: no
 GROUP: griffon, antagonist
-KIND: animal, gryffon
+KIND: animal, griffin
+LINK: regular
+MANE: white
 MASTER: gilda
 NAME: Gilda
 OTHER NAMES: Gruntilda (initial name but not pass copyright)
