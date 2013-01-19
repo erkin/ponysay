@@ -1,5 +1,6 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: blue
 BALLOON: top
 COAT: white
 DISPLAY: full, left
@@ -7,6 +8,7 @@ EYE: blue
 FREE: no
 GROUP: mare, mane
 KIND: unicorn
+LINK: regular
 MANE: purple
 NAME: Rarity
 POSE: stand
