@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E04 13:17
+APPEARANCE: S01E04 Applebuck Season
 BALLOON: top
 COAT: blue
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: mare, backgrund, voiced
 KIND: earth
+LINK: regular
 MANE: red
 NAME: Mrs Cup Cake
 OTHER NAMES: Cup Cake, Mrs Cupcake, Cupcake
