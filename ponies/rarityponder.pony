@@ -10,7 +10,7 @@ KIND: unicorn
 LINK: regular
 MANE: purple
 MASTER: rarity
-NAME: rarity
+NAME: Rarity
 POSE: ponder
 SOURCE: desktop ponies
 WIDTH: 42
