@@ -3,7 +3,7 @@ APPEARANCE: S02E26 The Royal Wedding [Part 2]
 BALLOON: top
 COAT: red
 DISPLAY: full, right
-EYE: gray
+EYE: grey
 FREE: no
 GROUP: stallion
 KIND: unicorn
