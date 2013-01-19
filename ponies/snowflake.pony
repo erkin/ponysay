@@ -2,14 +2,15 @@ $$$
 APPEARANCE: S01E22 Hurricane Fluttershy
 BALLOON: top
 COAT: white
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: red
 FREE: no
-GROUP: stallion, voiced
+GROUP: stallion, background, voiced
 KIND: pegasus
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Snowflake (unofficial), Horse Power (unoficial)
+OTHER NAMES: Snowflake (unofficial), Horse Power (unofficial)
 POSE: loud
 SOURCE: desktop ponies
 WIDTH: 48
