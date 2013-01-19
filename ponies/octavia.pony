@@ -1,15 +1,16 @@
 $$$
 APPEARANCE: S01E26 The Best Night Ever
 BALLOON: top
-COAT: gray
-DISPLAY: full, left
+COAT: grey
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
 LINK: regular
 MANE: black
-NAME: Octavia
+NAME: (not mentioned)
+OTHER NAMES: Octavia (official, on trading card)
 POSE: play
 SOURCE: desktop ponies
 WIDTH: 45
