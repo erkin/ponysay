@@ -13,7 +13,7 @@ MANE: yellow
 MASTER: applejack
 NAME: Applejack
 OTHER NAMES: AJ (official, short)
-POSE: travel
+POSE: filly travel
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 21
