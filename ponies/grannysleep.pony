@@ -9,8 +9,9 @@ GROUP: mare
 KIND: earth
 LINK: regular
 MANE: white
-NAME: Granny Smith
 MASTER: granny
+NAME: Granny Smith
+OTHER NAMES: Granny (official, short)
 POSE: sleep
 SOURCE: desktop ponies
 WIDTH: 37
