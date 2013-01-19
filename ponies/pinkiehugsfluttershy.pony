@@ -1,4 +1,34 @@
 $$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+BASED ON: (none)
+BASED ON: Generation 3 Pinkie Pie
+COAT: yellow
+COAT: pink
+DISPLAY: full, right
+DISPLAY: full, left
+EYE: cyan
+EYE: blue
+GROUP: mare, mane
+GROUP: mare, mane
+KIND: pegasus
+KIND: earth
+LINK: regular
+LINK ON: 2
+MANE: pink
+MANE: pink
+MASTER: pinkie
+NAME: Fluttershy
+NAME: Pinkie Pie
+OTHER NAMES: Shy (sometimes)
+OTHER NAMES: Pinkie (official, short name), Pinkamina Diane Pie (official, full name)
+POSE: hugs fluttershy
+SOURCE: desktop ponies
+WIDTH: 65
+HEIGHT: 28
+
+
 $$$
 $balloon35$[0m
                              $\$
