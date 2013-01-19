@@ -9,7 +9,7 @@ GROUP: dog, antagonist, diamond dog
 KIND: animals
 LINK: regular
 NAME: (not mentioned)
-OTHER NAMES: Spot (official, in manuscripts)
+OTHER NAMES: Spot (official, in manuscript)
 POSE: grap
 SOURCE: desktop ponies
 WIDTH: 47
