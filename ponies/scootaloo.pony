@@ -1,15 +1,15 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: orange
 DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: filly, deuteragonist
+GROUP: filly, deuteragonist, chicken (😊 )
 KIND: pegasus
+LINK: regular
 MANE: purple
 NAME: Scootaloo
-OTHER NAMES: Scoot, Chicken (ask to Sweetie Belle why)
 POSE: scooting
 SOURCE: desktop ponies
 WIDTH: 46
