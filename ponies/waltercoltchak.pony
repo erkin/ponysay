@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: S02E06 00:54
+APPEARANCE: S02E06 The Cutie Pox
 BALLOON: top
 COAT: brown
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: black
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: brown
-NAME: Walter Coltchak (stated official by the crew)
+NAME: (not mentioned)
+OTHER NAMES: Walter Coltchak (stated official by the crew)
 POSE: stand
 SOURCE: (bot-chan) deviantart desktop ponies group
 WIDTH: 40
