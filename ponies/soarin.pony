@@ -7,9 +7,10 @@ EYE: green
 FREE: no
 GROUP: stallion, wonderbolt
 KIND: pegasus
+LINK: regular
 MANE: dark blue
 NAME: Soarin
-POSE: eating
+POSE: eat
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 25
