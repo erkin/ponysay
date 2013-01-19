@@ -5,12 +5,13 @@ COAT: brown
 DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: stallion, voiced
+GROUP: stallion, background, voiced
 KIND: pegasus
-MANE: creme
+LINK: regular
+MANE: beige
 NAME: (not mentioned)
 OTHER NAMES: Crafty Crate (unofficial), Boxxy Brown (unofficial), Pete (unofficial)
-POSE: flying
+POSE: fly
 SOURCE: desktop ponies
 WIDTH: 48
 HEIGHT: 28
