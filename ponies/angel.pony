@@ -10,7 +10,7 @@ KIND: animal
 LINK: regular
 NAME: Angel
 OTHER NAMES: Angel Bunny (official, used by Fluttershy sometimes)
-POSE: consterned
+POSE: concerned
 SOURCE: desktop ponies
 WIDTH: 25
 HEIGHT: 19
