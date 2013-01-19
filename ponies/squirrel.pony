@@ -8,7 +8,8 @@ FREE: yes
 GROUP: squirrel
 KIND: animal
 LICENSE: CC0
-POSE: watching
+LINK: regular
+POSE: watch
 SOURCE: [jristz]
 WIDTH: 34
 HEIGHT: 23
