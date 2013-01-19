@@ -3,7 +3,7 @@ APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: yellow
 DISPLAY: full, left
-EYE: cyan
+EYE: teal
 FREE: no
 GROUP: mare, mane
 KIND: pegasus
