@@ -2,14 +2,15 @@ $$$
 APPEARANCE: S01E03 Ticket Master
 BALLOON: top
 COAT: white
-DISPLAY: full, right
+DISPLAY: full, left, turned
 EYE: blue
 FREE: no
 GROUP: stallion, royal
 KIND: unicorn
+LINK: regular
 MANE: yellow
 NAME: Prince Blueblood
-OTHER NAMES: Blueblood
+OTHER NAMES: Blueblood (official, without title)
 POSE: watching
 SOURCE: [jristz]
 WIDTH: 42
