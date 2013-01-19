@@ -1,6 +1,6 @@
 $$$
-APPEARANCE: S01E01 Frienship is Magic part 1
-AURA: yellow, black (watch 'The crystal empire part 1')
+APPEARANCE: S01E01 Frienship is Magic [Part 1]
+AURA: yellow
 BALLOON: top
 COAT: white
 DISPLAY: full, left
@@ -10,11 +10,11 @@ GROUP: mare, royal
 KIND: alicorn
 LINK: regular
 MANE: pastel
-NAME: Princess Celestia
-OTHER NAMES: Celestia, Celest (see 'Golden Harvest' quotes)
+NAME: Celestia
+OTHER NAMES: Princess Celestia (official, full name)
 POSE: stand
 SOURCE: desktop ponies
-WIDTH: 80
+WIDTH: 95
 HEIGHT: 42
 
 
