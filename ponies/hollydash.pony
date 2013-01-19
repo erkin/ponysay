@@ -5,11 +5,13 @@ COAT: pink
 DISPLAY: full, left
 EYE: closed
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: unicorn
-MANE: tricolor
-NAME: Holly Dash
-POSE: galloping
+LINK: regular
+MANE: multiple
+NAME: (not mentioned)
+OTHER NAMES: Holly Dash (official)
+POSE: gallop
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 24
