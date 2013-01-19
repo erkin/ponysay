@@ -10,7 +10,7 @@ KIND: pegasus
 LINK: regular
 MANE: pink
 NAME: (not mentioned)
-OTHER NAMES: Bon voyage (unofficial)
+OTHER NAMES: Bon Voyage (unofficial)
 POSE: fly
 SOURCE: [jristz]
 WIDTH: 49
