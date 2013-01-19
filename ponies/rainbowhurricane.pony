@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is magic [Part 1]
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: blue
 DISPLAY: full, left
@@ -11,6 +11,7 @@ LINK: regular
 MANE: rainbow
 MASTER: rainbow
 NAME: Rainbow Dash
+OTHER NAMES: Rainbow (official, short name), Dashie (official, short), Dash (official, sometimes)
 POSE: Commander Hurricane
 SOURCE: [jristz]
 WIDTH: 54
