@@ -1,16 +1,18 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: cyan
 DISPLAY: full, left
-EYE: closed, yellow
+EYE: yellow
 FREE: no
-GROUP: mare, voiced
+GROUP: mare, background, voiced
 KIND: unicorn
+LINK: regular
 MANE: white
-NAME: Lyra Heartstrings
-OTHER NAMES: Lyra (gameloft game), Harpass (wikia mention as an old name), Heartstrings (old name)
-POSE: sitting
+MASTER: lyra
+NAME: Lyra (gameloft game)
+OTHER NAMES: Lyra Heartstrings, Harpass (wikia mention as an old name), Heartstrings (old name)
+POSE: sit
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 28
