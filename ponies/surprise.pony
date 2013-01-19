@@ -7,9 +7,10 @@ EYE: closed
 FREE: no
 GROUP: mare, wonderbolt
 KIND: pegasus
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Surprise (unofficial), fleetfoot (Gameloft game beta)
+OTHER NAMES: Surprise (unofficial), Fleetfoot (Gameloft game beta)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 37
