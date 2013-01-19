@@ -7,7 +7,7 @@ BALLOON: top
 COAT: purple
 COAT: purple
 DISPLAY: full, left
-DISPLAY: full, right
+DISPLAY: full, tritagonist, right
 EYE: purple
 EYE: green
 FREE: no
