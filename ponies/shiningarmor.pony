@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S02E25 The Royal Wedding [Part 1]
 BALLOON: top
 COAT: white
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: cyan
 FREE: no
 GROUP: stallion
