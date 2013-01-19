@@ -1,12 +1,15 @@
 $$$
-APPEARANCE: s2
+APPEARANCE: S02E07 May the Best Pet Win!
+BALLOON: top
 COAT: green
+DISPLAY: full, left
+EYE: black
 FREE: no
-GROUP: tortoise
-GROUP NAME: pet
+GROUP: pet, tortoise, turtle (not really)
 KIND: animals
-MEDIA: TV series
-NAME: tank
+LINK: regular
+NAME: Tank
+POSE: fly
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 21
