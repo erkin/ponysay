@@ -7,6 +7,7 @@ EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: purple
 NAME: (not mentioned)
 OTHER NAMES: Petunia (unofficial)
