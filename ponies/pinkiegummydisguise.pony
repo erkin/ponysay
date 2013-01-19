@@ -1,4 +1,29 @@
 $$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+APPEARANCE: S01E15 Feeling Pinkie Keen
+BALLOON: top
+BASED ON: Generation 3 Pinkie Pie
+BASED ON: (none)
+COAT: pink
+COAT: green
+DISPLAY: full, left
+DISPLAY: full, left
+EYE: blue
+EYE: purple
+GROUP: mare, mane
+GROUP: alligator, pet
+KIND: earth
+KIND: animal
+LINK: regular
+LINK ON: 1
+MANE: pink
+MANE: (none)
+MASTER: pinkie
+NAME: Pinkie Pie
+NAME: Gummy
+OTHER NAMES: Pinkie (official, short name), Pinkamina Diane Pie (official, full name)
+OTHER NAMES: (none)
+POSE: hay disguise
 WIDTH: 55
 HEIGHT: 33
 
