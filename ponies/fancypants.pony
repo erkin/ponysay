@@ -1,8 +1,8 @@
 $$$
-APPEARANCE: S02E09 Sweed and Eliet
+APPEARANCE: S02E09 Sweed and Elite
 BALLOON: top
 COAT: white
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: stallion
