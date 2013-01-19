@@ -2,10 +2,10 @@ $$$
 APPEARANCE: S02E16 Read it and Weep
 BALLOON: top
 COAT: brown
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: purple
 FREE: no
-GROUP: mare, voiced
+GROUP: mare
 KIND: pegasus
 LINK: regular
 MANE: grey
