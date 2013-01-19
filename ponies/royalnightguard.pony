@@ -1,15 +1,14 @@
 $$$
 APPEARANCE: S02E04 Luna Eclipsed
 BALLOON: top
-COAT: gray
+COAT: grey
 DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: stallion, guard
 KIND: pegasus
+LINK: regular
 MANE: black
-NAME: Pegasus Royal Guard
-OTHER NAMES: Royal Night Guard (unofficial), Royal Guard, Pegasus Guard
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 40
