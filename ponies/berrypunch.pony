@@ -1,13 +1,17 @@
 $$$
-APPEARANCE: s1c1m6s47
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
 COAT: purple
+DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
+LINK: regular
 MANE: purple
-MEDIA: TV series
-NAME: berry punch
+NAME: (not mentioned)
+OTHER NAMES: Berry Punch (unofficial)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 26
