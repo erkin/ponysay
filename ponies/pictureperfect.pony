@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E20 08:11
+APPEARANCE: S01E20 Green isn't Your Color
 BALLOON: top
-COAT: creme
+COAT: beige
 DISPLAY: full, right
-EYE: white
 FREE: no
-GROUP: mare
+GROUP: mare, backgroun
 KIND: earth
+LINK: regular
+MANE: white
 NAME: (not mentioned)
 OTHER NAMES: Picture Perfect (unofficial)
 POSE: stand
