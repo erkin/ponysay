@@ -5,11 +5,12 @@ COAT: brown
 DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: stallion
+GROUP: stallion, background
 KIND: earth
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Haakim (unoficial)
+OTHER NAMES: Haakim (unofficial)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 39
