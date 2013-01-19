@@ -1,17 +1,17 @@
 $$$
 APPEARANCE: S01E03 The Ticket Master
 BALLOON: top
-BASED ON: soarin
 COAT: blue
 DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: stallion, wonderbolt
 KIND: pegasus
-MANE: dark blue
+LINK: regular
+MANE: blue
 MASTER: soarin
 NAME: Soarin
-POSE: stand
+POSE: officer
 SOURCE: [jristz]
 WIDTH: 43
 HEIGHT: 25
