@@ -1,16 +1,17 @@
 $$$
-APPEARANCE: S01E20 04:35
+APPEARANCE: S01E20 Green isn't Your Color
 BALLOON: top
 COAT: cyan
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Soigne Folio (unofficial)
-POSE: trotting
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 42
 HEIGHT: 27
