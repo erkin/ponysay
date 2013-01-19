@@ -1,16 +1,17 @@
 $$$
-APPEARANCE: s1c1m1s31
-AURA: purple, black (see The crystal empire part 2)
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: purple (whitish lilac in season 1)
+BALLOON: top
 COAT: purple
 EYE: purple
 FREE: no
-GROUP: mare
-GROUP NAME: mane
+GROUP: mare, mane
 KIND: unicorn
-MANE: purple, blue
-MEDIA: TV series
-NAME: twilight sparkle
-OTHER NAMES: twilight
+LINK: regular
+MANE: purple
+NAME: Twilight
+OTHER NAMES: Twilight Sparkle (official, full name)
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 53
 HEIGHT: 24
