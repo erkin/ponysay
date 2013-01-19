@@ -8,8 +8,8 @@ FREE: no
 GROUP: stallion
 KIND: earth
 MANE: black
-NAME: Magnum
-OTHER NAMES: Raity's dad, Carlton (unofficial)
+NAME: (not mentioned)
+OTHER NAMES: Magnum (official, in gameloft), Carlton (unofficial)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 41
