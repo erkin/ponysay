@@ -1,10 +1,9 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BASED ON: fluttershy
 COAT: yellow
 DISPLAY: full, left
-EYE: cyan
+EYE: teal
 FREE: no
 GROUP: mare, mane
 KIND: pegasus
@@ -12,7 +11,7 @@ LINK: regular
 MANE: pink
 MASTER: fluttershy
 NAME: Fluttershy
-OTHER NAMES: Shy (sometimes)
+OTHER NAMES: She (sometimes)
 POSE: gala
 SOURCE: desktop ponies
 WIDTH: 55
