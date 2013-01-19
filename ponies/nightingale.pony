@@ -10,7 +10,7 @@ LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Nightingale (unofficial)
-POSE: sitting
+POSE: sit
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 25
