@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E12 02:44
+APPEARANCE: S01E12 Call of the Cutie
 BALLOON: top
 COAT: white
 DISPLAY: full, right
@@ -7,10 +7,11 @@ EYE: purple
 FREE: no
 GROUP: filly
 KIND: pegasus
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Cotton Cloudy (unofficial)
-POSE: troting
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 37
 HEIGHT: 20
