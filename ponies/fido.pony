@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E19 A Dog and Pony Show
 BALLOON: top
 COAT: gray
 DISPLAY: full, right
@@ -7,7 +7,9 @@ EYE: yellow
 FREE: no
 GROUP: dog, antagonist, diamond dog
 KIND: animals
-NAME: Fido (on scripts)
+LINK: regular
+NAME: (not mentioned)
+OTHER NAMES: Fido (official, in manuscript)
 POSE: angry
 SOURCE: desktop ponies
 WIDTH: 47
