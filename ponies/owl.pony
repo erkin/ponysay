@@ -10,7 +10,7 @@ KIND: animals
 LICENSE: CC0
 LINK: regular
 NAME: Owlowiscious
-POSE: watching
+POSE: watch
 SOURCE: imageboard
 WIDTH: 21
 HEIGHT: 23

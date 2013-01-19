@@ -2,16 +2,18 @@ $$$
 APPEARANCE: S01E24 Owl's Well That Ends Well
 BALLOON: top
 COAT: brown
-DISPLAY: full, left
+DISPLAY: full, front, left
 EYE: black
 FREE: yes
 GROUP: owl, pet
 KIND: animals
 LICENSE: CC0
+LINK: regular
+MASTER: owl
 NAME: Owlowiscious
-POSE: watching
+POSE: turned
 SOURCE: imageboard
-WIDTH: 30
+WIDTH: 28
 HEIGHT: 22
 
 The person who associated a work with this deed has dedicated the work to
