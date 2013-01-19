@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E16 06:28
+APPEARANCE: S01E16 Sonic Rainboom
 BALLOON: top
 COAT: brown
 DISPLAY: full, left
@@ -7,10 +7,11 @@ EYE: blue
 FREE: no
 GROUP: stallion
 KIND: pegasus
+LINK: regular
 MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Papermoon (unofficial), Peppermoon (unofficial)
-POSE: troting
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 24
