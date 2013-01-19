@@ -5,11 +5,11 @@ COAT: blue
 DISPLAY: full, left
 EYE: cyan
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
 LINK: regular
 MANE: brown
-MEDIA: TV series
+NAME: (not mentioned)
 OTHER NAMES: Turf (unofficial)
 POSE: stand
 SOURCE: [jristz]
