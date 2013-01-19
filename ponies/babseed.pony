@@ -5,11 +5,12 @@ COAT: brown
 DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: filly, villain
+GROUP: filly, villain, reconciled
 KIND: earth
+LINK: regular
 MANE: pink
 NAME: Bab Seed
-OTHER NAMES: Bad Seed (applebloom's nickname)
+OTHER NAMES: Bad Seed (official, nickname by Applebloom)
 POSE: angry
 SOURCE: [jristz]
 WIDTH: 31
