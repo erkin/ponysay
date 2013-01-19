@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E22 A Bird in the Hoof
 BALLOON: top
 COAT: pink
 DISPLAY: full, right
@@ -8,7 +8,7 @@ FREE: no
 GROUP: phoenix, pet
 KIND: animals
 NAME: Philomena
-POSE: ill?
+POSE: featherless
 SOURCE: desktop ponies
 WIDTH: 29
 HEIGHT: 20
