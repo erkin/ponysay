@@ -1,16 +1,17 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: pink
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
 LICENSE: cc-nc-by-sa
+LINK: regular
 MANE: yellow
 NAME: Cherry Berry
-OTHER NAMES: Cherry Jubilee (common mistake, but is other pony)
+OTHER NAMES: Cherry Jubilee (common mistake, this is another pony)
 POSE: stand
 SOURCE: desktop ponies deviantart group
 WIDTH: 45
