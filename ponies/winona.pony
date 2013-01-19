@@ -1,11 +1,12 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E04 Applebuck Season
 BALLOON: top
 DISPLAY: full, right
 EYE: black
 FREE: no
 GROUP: dog, pet
 KIND: animals
+LINK: regular
 MANE: brown
 NAME: Winona
 POSE: happy
