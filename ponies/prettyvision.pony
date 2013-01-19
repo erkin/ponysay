@@ -5,7 +5,7 @@ COAT: brown
 DISPLAY: full, left
 EYE: green
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
 LINK: regular
 MANE: yellow
