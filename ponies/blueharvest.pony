@@ -1,16 +1,17 @@
 $$$
-APPEARANCE: S02E06 19:23
+APPEARANCE: S02E06 The Cutie Pox
 BALLOON: top
 COAT: white
 DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
+LINK: regular
 MANE: orange
 NAME: (not mentioned)
 OTHER NAMES: Blue Harvest (unofficial)
-POSE: stand
+POSE: hazmat
 SOURCE: [jristz]
 WIDTH: 45
 HEIGHT: 25
