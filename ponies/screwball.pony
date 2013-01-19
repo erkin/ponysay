@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S02E02 Return of Harmony part 2
+APPEARANCE: S02E02 Return of Harmony [Part 2]
 BALLOON: top
 COAT: pink
 DISPLAY: full, left
@@ -7,10 +7,11 @@ EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: purple
 NAME: (not mentioned)
 OTHER NAMES: Screwball (unofficial)
-POSE: crazy, floating
+POSE: float
 SOURCE: desktop ponies
 WIDTH: 53
 HEIGHT: 23
