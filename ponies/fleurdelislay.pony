@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S02E09 Sweet and Elite
 BALLOON: top
 COAT: white
-DISPLAY: full, left
+DISPLAY: full, left, turned
 EYE: purple
 FREE: no
 GROUP: mare
