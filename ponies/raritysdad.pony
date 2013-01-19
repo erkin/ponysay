@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S02E05 01:15
+APPEARANCE: S02E05 Sisterhooves Social
 BALLOON: top
 COAT: white
 DISPLAY: full, right

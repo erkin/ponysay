@@ -7,8 +7,10 @@ EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: brown
-NAME: Jeff "The Dude" Letrotski
+NAME: (not mentioned)
+OTHER NAMES: Jeff "The Dude" Letrotski (unofficial)
 POSE: stand
 SOURCE: (botchan) desktop ponies deviantart group
 WIDTH: 43

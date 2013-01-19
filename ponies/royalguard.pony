@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: white
 DISPLAY: full, left
@@ -7,9 +7,8 @@ EYE: cyan
 FREE: no
 GROUP: stallion, voiced, guard
 KIND: pegasus
+LINK: regular
 MANE: blue
-NAME: Pegasus Royal Guard
-OTHER NAMES: Royal Guard, Pegasus Guard
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 44

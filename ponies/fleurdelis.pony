@@ -7,6 +7,7 @@ EYE: purple
 FREE: no
 GROUP: mare
 KIND: unicorn
+LINK: regular
 MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Fleur de Lis (unofficial)

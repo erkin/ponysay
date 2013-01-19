@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E14 Suited for Success
 BALLOON: top
 COAT: white
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: cat, pet
 GROUP NAME: pet
 KIND: animals
+LINK: regular
 NAME: Opalescence
-POSE: walking
+OTHER NAMES: Opal (offical, short name)
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 29
 HEIGHT: 18

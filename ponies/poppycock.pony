@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S02E26 The Royal Wedding part 2
+APPEARANCE: S02E26 The Royal Wedding [Part 2]
 BALLOON: top
 COAT: red
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: gray
 FREE: no
 GROUP: stallion
 KIND: unicorn
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Poppycock (unofficial)

@@ -2,14 +2,15 @@ $$$
 APPEARANCE: S01E03 The Ticket Master
 BALLOON: top
 COAT: purple
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: purple
 NAME: (not  mentioned)
-OTHER NAMES: Purple Haze (nofficial)
+OTHER NAMES: Purple Haze (unofficial)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 43

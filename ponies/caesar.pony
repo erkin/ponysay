@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: S01E03 07:26
+APPEARANCE: S01E03 The Ticket Master
 BALLOON: top
-COAT: gray
-DISPLAY: full, right
+COAT: grey
+DISPLAY: full, left
 EYE: brown
 FREE: no
-GROUP: stallion, voiced
+GROUP: stallion, background, voiced
 KIND: earth
-MANE: gray
+LINK: regular
+MANE: grey
 NAME: (not mentioned)
-OTHER NAMES: Caesar
+OTHER NAMES: Caesar (unofficial)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 48

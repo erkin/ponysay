@@ -1,18 +1,18 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E22 A Bird in the Hood
 BALLOON: top
-BASED ON: philomena
 COAT: red
 DISPLAY: full, front
 EYE: yellow
 FREE: no
 GROUP: phoenix, pet
 KIND: animals
+LINK: regular
 MASTER: philomena
 NAME: Philomena
 POSE: rebirth
 SOURCE: desktop ponies
-WIDTH: 80
+WIDTH: 99
 HEIGHT: 30
 
 

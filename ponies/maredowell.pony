@@ -1,14 +1,17 @@
 $$$
-APPEARANCE: S02
+APPEARANCE: S02E08 The Mysterious Mare Do Well
+AURA: purple
 BALLOON: top
-BASED ON: maredowell
+COAT: black
 DISPLAY: full, left
+EYE: blue
 FREE: no
-GROUP: mare, voiced
-KIND: earth
-MASTER: maredowell
+GROUP: mare
+KIND: earth, unicorn
+LINK: regular
 NAME: Mare Do Well
-POSE: galloping
+OTHER NAMES: The Mysterious Mare Do Well (official, titled name)
+POSE: gallop
 SOURCE: desktop ponies
 WIDTH: 52
 HEIGHT: 24

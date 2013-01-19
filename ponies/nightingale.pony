@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: S01E02 Friendship is Magic part 2
+APPEARANCE: S01E02 Friendship is Magic [Part 2]
 BALLOON: top
-COAT: gray
+COAT: grey
 DISPLAY: full, left
 FREE: no
 GROUP: mare, shadowbolt
 KIND: pegasus
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Nightingale (unofficial)
-POSE: siting
+POSE: sitting
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 25

@@ -7,10 +7,11 @@ EYE: closed, brown
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Horte Cuisine (unofficial)
-POSE: sstand
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 24

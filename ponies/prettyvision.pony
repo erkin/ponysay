@@ -7,6 +7,7 @@ EYE: green
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Pretty vision (unofficial), Elsie (unofficial), Suity Voyage (unofficial)

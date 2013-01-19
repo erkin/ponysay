@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1c1m19s03
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
 COAT: brown
+DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: white
-MEDIA: TV series
-NAME: mayor mare
-OTHER NAMES: mayor, mare
+NAME: Mayor Mare
+POSE: stand
 SOURCE: desktop ponies
 WIDTH: 50
 HEIGHT: 27

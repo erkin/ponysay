@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E12 00:04
+APPEARANCE: S01E12 Call of the Cutie
 BALLOON: top
 COAT: pink
 DISPLAY: full, left
@@ -7,8 +7,9 @@ EYE: teal
 FREE: no
 GROUP: filly, villain
 KIND: earth
+LINK: regular
 MANE: purple
-NAME: Diamond tiara
+NAME: Diamond Tiara
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 36

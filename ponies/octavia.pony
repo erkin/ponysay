@@ -7,9 +7,10 @@ EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: black
 NAME: Octavia
-POSE: playing
+POSE: play
 SOURCE: desktop ponies
 WIDTH: 45
 HEIGHT: 31

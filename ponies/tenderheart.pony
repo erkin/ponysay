@@ -1,13 +1,17 @@
 $$$
-APPEARANCE: s1c4m15s5
+APPEARANCE: S01E04 Applebuck Season
+BALLOON: top
 COAT: cyan
+DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
+LINK: regular
 MANE: green
-MEDIA: TV series
-NAME: nurse tenderheart
+NAME: (not mentioned)
+OTHER NAMES: Nurse Tenderheart (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 40
 HEIGHT: 26

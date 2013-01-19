@@ -1,16 +1,16 @@
 $$$
-APPEARANCE: S02E25 The Royal Wedding part 1
+APPEARANCE: S02E25 The Royal Wedding [Part 1]
 BALLOON: top
 COAT: white
 DISPLAY: full, left
 EYE: cyan
 FREE: no
-GROUP: stallion, royal
+GROUP: stallion
 KIND: unicorn
-MANE: blue, cyan
+LINK: regular
+MANE: blue
 NAME: Shining Armor
-OTHER NAMES: Shining Armour
-POSE: trotting
+POSE: trot
 SOURCE: [jristz]
 WIDTH: 44
 HEIGHT: 25

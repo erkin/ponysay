@@ -7,9 +7,10 @@ EYE: black
 FREE: no
 GROUP: male, sea serpent, wildlife
 KIND: animals
+LINK: regular
 MANE: orange
-NAME: Sea Serpent (in merchandise)
-OTHER NAMES: Steven Magnet (unofficial), River Serpent (stated by the crew)
+NAME: (not mentioned)
+OTHER NAMES: Sea Serpent (official, in merchandise), Steven Magnet (unofficial), River Serpent (stated by the crew)
 POSE: true
 SOURCE: desktop ponies
 WIDTH: 77

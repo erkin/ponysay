@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E24 10:37
+APPEARANCE: S01E24 Owl's Well That Ends Well
 BALLOON: top
 COAT: brown
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Davenport (unofficial)

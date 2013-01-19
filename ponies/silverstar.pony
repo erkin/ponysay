@@ -1,13 +1,14 @@
 $$$
-APPEARANCE: S01E21 07:36
+APPEARANCE: S01E21 Over a Barrel
 BALLOON: top
 COAT: brown
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: cyan
 FREE: no
 GROUP: stallion
 KIND: earth
-MANE: gray (ponysay), brown (sorce)
+LINK: regular
+MANE: grey (ponysay), brown (source)
 NAME: Sheriff Silverstar
 OTHER NAMES: Silverstar (shorter)
 POSE: stand

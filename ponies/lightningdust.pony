@@ -7,6 +7,7 @@ EYE: orange
 FREE: no
 GROUP: mare, villain, voiced
 KIND: pegasus
+LINK: regular
 MANE: orange
 NAME: Lightning Dust
 POSE: waiting

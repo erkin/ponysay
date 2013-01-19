@@ -1,13 +1,18 @@
 $$$
-APPEARANCE: s1c7m1s46
-COAT: gray
+APPEARANCE: S01E07 Dragonshy
+BALLOON: top
+COAT: grey
+DISPLAY: full, left
 EYE: yellow
 FREE: no
-GROUP: colt (wikia), stallion (others reliable sources)
+GROUP: filly
 KIND: pegasus
+LINK: regular
 MANE: purple
 MEDIA: TV series
-NAME: tornado bolt
+NAME: (not mentioned)
+OTHER NAMES: Tornado Bolt (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 50
 HEIGHT: 26

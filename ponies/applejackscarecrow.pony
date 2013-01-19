@@ -2,13 +2,14 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: brown
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: mare, mane
 KIND: earth
 LINK: regular
 MANE: yellow
+MASTER: applejack
 NAME: Applejack
 POSE: scarecrow
 SOURCE: desktop ponies

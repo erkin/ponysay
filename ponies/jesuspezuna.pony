@@ -2,14 +2,16 @@ $$$
 APPEARANCE: S02E06 The Cutie Pox
 BALLOON: top
 COAT: brown
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: cyan
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: black
-NAME: Jesús Pezuña
-POSE: troting
+NAME: (not mentioned)
+OTHER NAMES: Jesús Pezuña (unofficial)
+POSE: trot
 SOURCE: [jristz]
 WIDTH: 41
 HEIGHT: 29

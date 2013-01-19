@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E23 12:58
+APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
 COAT: blue
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: yellow
 FREE: no
 GROUP: stallion
 KIND: unicorn
+LINK: regular
 MANE: white
 NAME: (not mentioned)
 OTHER NAMES: Bastion Yorsets (unofficial),  George Washingtony (unofficial)

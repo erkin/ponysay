@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S02E09 03:50
+APPEARANCE: S02E09 Sweed and Eliet
 BALLOON: top
 COAT: white
 DISPLAY: full, left
@@ -7,6 +7,7 @@ EYE: blue
 FREE: no
 GROUP: stallion
 KIND: unicorn
+LINK: regular
 MANE: blue
 NAME: Fancypants
 POSE: stand

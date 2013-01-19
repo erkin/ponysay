@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E19 00:29
+APPEARANCE: S01E19 A Dog and Pony Show
 BALLOON: top
 COAT: yellow
 DISPLAY: full, right
@@ -7,6 +7,7 @@ EYE: brown
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: blue
 NAME: Sapphire Shores
 POSE: stand

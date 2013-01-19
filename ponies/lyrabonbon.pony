@@ -1,5 +1,28 @@
 $$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: beige
+COAT: cyan
+DISPLAY: full, turned, right
+DISPLAY: full, front, right
+EYE: teal
+EYE: yellow
 FREE: no
+GROUP: mare, background, voiced
+GROUP: mare, background, voiced
+KIND: earth
+KIND: unicorn
+LINK: regular
+LINK ON: 1
+MANE: pink, black
+MANE: white
+MASTER: bonbon
+NAME: Bon Bon (unofficial, but FAR more used)
+NAME: Lyra (gameloft game)
+OTHER NAMES: Sweetie Drops (official)
+OTHER NAMES: Lyra Heartstrings, Harpass (wikia mention as an old name), Heartstrings (old name)
+POSE: lyra
 SOURCE: imageboard
 WIDTH: 69
 HEIGHT: 29

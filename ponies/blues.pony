@@ -1,16 +1,17 @@
 $$$
-APPEARANCE: S01E11 01:46
+APPEARANCE: S01E11 Winter Wrap Up
 BALLOON: top
 COAT: blue
 DISPLAY: full, left
 EYE: brown
 FREE: no
 GROUP: stallion
-KIND: earth
+KIND: earth, background
+LINK: regular
 MANE: blue
-NAME: Noteworthy (mentioned on toy line)
-OTHER NAMES: Blues (unofficial)
-POSE: playing
+NAME: (not mentioned)
+OTHER NAMES: Noteworthy (unofficial, toy line), Blues (unofficial)
+POSE: play
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 25

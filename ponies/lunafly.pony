@@ -11,11 +11,11 @@ GROUP: mare, royal
 KIND: alicorn
 MANE: cyan, blue (season 2)
 MASTER: woona
-NAME: Princess Luna
-OTHER NAMES: Lunija (russian), Nightmare Moon (corrupted), Woona (unofficial)
+NAME: Luna
+OTHER NAMES: Princess Luna (official, full name), Lunija (official, russian), Nightmare Moon (official, corrupted), Woona (unofficial)
 POSE: flying
 SOURCE: (unknown)
-WIDTH: 80
+WIDTH: 85
 HEIGHT: 40
 
 

@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E02 Friendship is magic (part 2)
+APPEARANCE: S01E02 Friendship is magic [part 2]
 BALLOON: top
 COAT: pink
 DISPLAY: full, right
@@ -7,6 +7,7 @@ EYE: green
 FREE: no
 GROUP: filly
 KIND: earth
+LINK: regular
 MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Berry Pinch (unofficial), Ruby (unofficial), Ruby Pinch (unofficial)

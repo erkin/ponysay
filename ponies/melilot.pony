@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E11 13:26
+APPEARANCE: S01E11 Winter Wrap Up
 BALLOON: top
 COAT: brown
 DISPLAY: full, left
@@ -7,10 +7,11 @@ EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Melilot (unofficial), Meliot (unofficial)
-POSE: troting
+POSE: trot
 SOURCE: [jristz]
 WIDTH: 38
 HEIGHT: 24

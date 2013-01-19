@@ -1,17 +1,19 @@
 $$$
-APPEARANCE: S02E01 The Return of Harmony part 1
+APPEARANCE: S02E01 The Return of Harmony [Part 1]
+AURA: (invisible)
 BALLOON: top
 COAT: multiple
 DISPLAY: full, right
 EYE: red
 FREE: no
 GROUP: male, antagonist
-KIND: draconequu
-MANE: gray
+KIND: draconequus
+LINK: regular
+MANE: grey
 NAME: Discord
 POSE: disgusted
 SOURCE: desktop ponies
-WIDTH: 80
+WIDTH: 92
 HEIGHT: 53
 
 

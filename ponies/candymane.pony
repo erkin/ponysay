@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Frienship is Magic part 1
+APPEARANCE: S01E01 Frienship is Magic [Part 1]
 BALLOON: top
 COAT: brown
 DISPLAY: full, left
@@ -7,6 +7,7 @@ EYE: pink
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Candy Mane (unofficial), Sugarcoat (unofficial)

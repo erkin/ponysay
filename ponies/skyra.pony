@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E16 06:27
+APPEARANCE: S01E16 Sonic Rainboom
 BALLOON: top
 COAT: cyan
 DISPLAY: full, left

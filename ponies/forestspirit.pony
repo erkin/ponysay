@@ -7,6 +7,7 @@ EYE: black
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: green
 NAME: (not mentioned)
 OTHER NAMES: Forest Spirit (unofficial)

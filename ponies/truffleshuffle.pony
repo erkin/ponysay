@@ -1,13 +1,17 @@
 $$$
-APPEARANCE: s2c12m5s57
-COAT: gray
+APPEARANCE: S02E12 Family Appreciation Day
+BALLOON: top
+COAT: grey
+DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: colt
 KIND: earth
+LINK: regular
 MANE: black
-MEDIA: TV series
-NAME: truffle shuffle
+NAME: (not mentioned)
+OTHER NAMES: Truffle Shuffle (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 32
 HEIGHT: 21

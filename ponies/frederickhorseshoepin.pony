@@ -7,10 +7,11 @@ EYE: green
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Frederick Horseshoepin (unofficial)
-POSE: playing
+POSE: play
 SOURCE: desktop ponies
 WIDTH: 59
 HEIGHT: 36

@@ -1,13 +1,13 @@
 $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
-COAT: gray
-DISPLAY: full, left
+COAT: grey
+DISPLAY: full, front, left
 EYE: closed, purple
 FREE: no
 GROUP: filly
 KIND: earth
-MANE: gray
+MANE: grey
 NAME: (not mentioned)
 OTHER NAMES: Inkie Pie (unofficial), Inky (unofficial)
 POSE: dancing

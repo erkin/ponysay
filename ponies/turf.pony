@@ -1,13 +1,17 @@
 $$$
-APPEARANCE: s2c19m2s21
+APPEARANCE: S02E19 Putting Your Hood Down
+BALLOON: top
 COAT: blue
+DISPLAY: full, left
 EYE: cyan
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: brown
 MEDIA: TV series
-NAME: turf
+OTHER NAMES: Turf (unofficial)
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 45
 HEIGHT: 26

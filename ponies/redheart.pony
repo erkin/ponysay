@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E04 14:59
+APPEARANCE: S01E04 Applebuck Season
 BALLOON: top
 COAT: white
 DISPLAY: full, left
@@ -7,7 +7,8 @@ EYE: blue
 FREE: no
 GROUP: mare
 KIND: earth
-MANE: gray (ponysay), pink (source
+LINK: regular
+MANE: white (ponysay), pink (source)
 NAME: (not mentioned)
 OTHER NAMES: Nurse Redheart (unofficial)
 POSE: stand

@@ -936,8 +936,10 @@ Wildlife, for example timberwolfs
 @item @code{pet}
 A pony's pet, Spike does not count because Twilight does not play with him during
 pony–pet play dates.
+@item @code{royal}
+Royal pony, either by birth or conquer (i.e. the old school style).
 @item @code{villain}
-Villains, normally minons to antagonists. Applies to changelings.
+Villains, normally minions to antagonists. Applies to changelings.
 @item @code{antagonist} (applies to: nightmare moon, gilda, discord, chrysalis)
 Antagonists are also known as archvillians or archenemies.
 Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one.
@@ -1063,7 +1065,8 @@ balloon is not printed.
 @cindex slave file
 @cindex extras
 One word (preferably) to distinguish the pony files from other pony files with the
-same @var{MASTER}. Master files should try to specify this tag but are not required
+same @var{MASTER}. It is preferable that this is written in bare infinitive.
+Master files should try to specify this tag but are not required
 to, however, non-master files (slave files) are required to specify this tag.
 @b{This tag is important for the extras feature to function.}
 
@@ -2920,6 +2923,10 @@ New ponies: @file{amira},  @file{babseed}, @file{bear}, @file{beautybrass}, @fil
 @file{twilightcrystal}, @file{trixieamulet}, @file{twinkleshine}
 @item
 New extraponies: @file{gleamingshield}, @file{pipsqueak}, @file{pizzapony}, @file{tempo}
+@item
+@file{lotusbloosom} has been renamed to @file{lotusblossom} (typo)
+@item
+@file{maredowellgallop} has been renamed to  @file{maredowellgallop} (need one version named as master)
 @item
 Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}.
 @item

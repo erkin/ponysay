@@ -1,14 +1,15 @@
 $$$
-APPEARANCE: S01E09 20:52
+APPEARANCE: S01E09 Bridle Gossip
 BALLOON: top
 COAT: blue
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare, voiced
+GROUP: mare, bakground, voiced
 KIND: earth
+LINK: regular
 MANE: pink
-NAME: Lotus Blosoom
+NAME: Lotus Blossom
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 39

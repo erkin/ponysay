@@ -7,10 +7,11 @@ EYE: pink
 FREE: no
 GROUP: mare
 KIND: pegasus
+LINK: regular
 MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Bon voyage (unofficial)
-POSE: flying
+POSE: fly
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 20

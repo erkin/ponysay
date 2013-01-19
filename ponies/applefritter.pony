@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: green
 NAME: Apple Fritter
-POSE: troting
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 25

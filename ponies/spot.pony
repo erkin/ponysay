@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E19 A Dog and Pony Show
 BALLOON: top
 COAT: brown
 DISPLAY: full, left
@@ -7,8 +7,10 @@ EYE: yellow
 FREE: no
 GROUP: dog, antagonist, diamond dog
 KIND: animals
-NAME: Spot (on manuscripts)
-POSE: walking
+LINK: regular
+NAME: (not mentioned)
+OTHER NAMES: Spot (official, in manuscripts)
+POSE: grap
 SOURCE: desktop ponies
 WIDTH: 47
 HEIGHT: 23

@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E15 Feeling Pinkie Keen
 BALLOON: top
 COAT: green
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: alligator, pet
 KIND: animals
+LINK: regular
 NAME: Gummy
 POSE: stand
 SOURCE: desktop ponies

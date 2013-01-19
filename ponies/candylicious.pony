@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: S01E14 14:06
+APPEARANCE: S01E14 Suited for Success
 BALLOON: top
 COAT: purple
 DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: Candylicious
+OTHER NAMES: Candylicious (unofficial)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 49

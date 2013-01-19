@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: s1
+APPEARANCE: S01E19 A Dog and Pony Show
 BALLOON: top
-COAT: gray
+COAT: grey
 DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: dog, antagonist, diamond dog
 KIND: animals
-NAME: Rover (on manuscripts)
-POSE: walking
+LINK: regular
+NAME: (not mentioned)
+OTHER NAMES: Rover (official, in manuscripts)
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 51
 HEIGHT: 26

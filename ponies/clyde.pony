@@ -7,6 +7,7 @@ EYE: brown
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: gray
 NAME: (not mentioned)
 OTHER NAMES: Clyde (unofficial)

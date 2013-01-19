@@ -2,13 +2,14 @@ $$$
 APPEARANCE: S01E16 Sonic Rainboom
 BALLOON: top
 COAT: white
-DISPLAY: full, right
+DISPLAY: full, left
 FREE: no
 GROUP: stallion, wonderbolt
 KIND: pegasus
+LINK: regular
 MANE: orange
 NAME: (not mentioned)
-OTHER NAMES: fire Streak (unofficial)
+OTHER NAMES: Fire Streak (unofficial)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 43

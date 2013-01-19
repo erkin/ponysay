@@ -1,19 +1,20 @@
 $$$
-APPEARANCE: S02E26 The Royal Wedding part 2
+APPEARANCE: S02E26 The Royal Wedding [Part 2]
 BALLOON: top
-COAT: black blue
+COAT: black
 DISPLAY: full, right
 EYE: blue
 FREE: no
 GROUP: villain
 KIND: changeling
+LINK: regular
 MANE: black
 NAME: (not mentioned)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 37
 HEIGHT: 26
-
+WING: teal
 
 $$$
 $balloon20$[0m

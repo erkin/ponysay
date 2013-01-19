@@ -7,6 +7,7 @@ EYE: green
 FREE: no
 GROUP: stallion, villain
 KIND: unicorn
+LINK: regular
 MANE: red
 NAME: Flim
 POSE: troting

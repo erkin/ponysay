@@ -1,13 +1,15 @@
 $$$
-APPEARANCE: S01E23 16:07
+APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
-COAT: gray
+COAT: grey
 DISPLAY: full, right
 EYE: brown
 FREE: no
-GROUP: filly
+GROUP: filly, background
 KIND: earth
-MANE: gray
+LINK: regular
+MANE: grey
+NAME: (not mentioned)
 OTHER NAMES: Blinkie Pie (unofficial)
 POSE: stand
 SOURCE: desktop ponies

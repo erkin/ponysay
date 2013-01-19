@@ -1,16 +1,18 @@
 $$$
-APPEARANCE: S01E06 02:28
+APPEARANCE: S01E06 Boast Busters
+AURA: pink
 BALLOON: top
 COAT: blue
 DISPLAY: full, right
 EYE: purple
 FREE: no
-GROUP: mare, villain, voiced
+GROUP: mare, villain, reconciled
 KIND: unicorn
+LINK: regular
 MANE: white
-NAME: The Great and Powerful Trixie
-OTHER NAMES: Trixie, Trixie Lulamoon (toy line), Lulamoon (toy line)
-POSE: presentating
+NAME: Trixie
+OTHER NAMES: The Great and Powerful Trixie (official, titled), Trixie Lulamoon (official, toy line), Lulamoon (official, toy line)
+POSE: boast
 SOURCE: desktop ponies
 WIDTH: 51
 HEIGHT: 33

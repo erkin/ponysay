@@ -5,8 +5,9 @@ COAT: white
 DISPLAY: full, left
 EYE: closed, purple
 FREE: no
-GROUP: stallion, voiced
+GROUP: stallion, background, voiced
 KIND: earth
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Persnickety (unofficial)

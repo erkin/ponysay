@@ -1,7 +1,8 @@
 $$$
 FREE: no
+GROUP NAME: Flower Trio
 SOURCE: desktop ponies deviatart group
-WIDTH: 115
+WIDTH: 122
 HEIGHT: 34
 
 

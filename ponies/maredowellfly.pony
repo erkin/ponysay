@@ -1,14 +1,17 @@
 $$$
-APPEARANCE: S02
+APPEARANCE: S02E08 The Mysterious Mare Do Well
 BALLOON: top
-BASED ON: maredowell
+COAT: black
 DISPLAY: full, left
+EYE: blue
 FREE: no
-GROUP: mare, voiced
+GROUP: mare
 KIND: pegasus
+LINK: regular
 MASTER: maredowell
 NAME: Mare Do Well
-POSE: flying
+OTHER NAMES: The Mysterious Mare Do Well (official, titled name)
+POSE: fly
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 25

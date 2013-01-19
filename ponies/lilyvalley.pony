@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E04
+APPEARANCE: S01E04 Applebuck Season
 BALLOON: top
 COAT: pink
 DISPLAY: full, left
@@ -7,8 +7,10 @@ EYE: orange
 FREE: no
 GROUP: mare, voiced
 KIND: earth
+LINK: regular
 MANE: yellow
-NAME: Lily Valley
+NAME: (not mentioned)
+OTHER NAMES: Lily Valley (official, on collector card)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 45

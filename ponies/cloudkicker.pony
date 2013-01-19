@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-COAT: teal
+COAT: blue
 DISPLAY: full, right
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: pegasus
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Cloud Kicker
+OTHER NAMES: Cloud Kicker (unofficial)
 POSE: derped
 SOURCE: desktop ponies
 WIDTH: 47

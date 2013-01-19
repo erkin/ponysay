@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: orange
 DISPLAY: full, right
@@ -7,6 +7,7 @@ EYE: cyan
 FREE: no
 GROUP: mare
 KIND: pegasus
+LINK: regular
 MANE: cyan
 NAME: (not mentioned)
 OTHER NAMES: Raindrops (unofficial)

@@ -1,8 +1,7 @@
 $$$
-APPEARANCE: S01E01 Frienship is Magic part 1
-AURA: yellow, black (watch 'The crystal empire part 1')
+APPEARANCE: S01E01 Frienship is Magic [Part 1] (animated in a book, real life first appearance is S01E02 Frienship is Magic [Part 2])
+AURA: yellow
 BALLOON: top
-BASED ON: celestia
 COAT: white
 DISPLAY: full, left
 EYE: pink
@@ -11,9 +10,10 @@ GROUP: mare, royal
 KIND: alicorn
 LINK: regular
 MANE: pastel
-NAME: Princess Celestia
-OTHER NAMES: Celestia, Celest (see 'Golden Harvest' quotes)
-POSE: stand
+MASTER: celestia
+NAME: Celestia
+OTHER NAMES: Princess Celestia (official, full name)
+POSE: small
 SOURCE: unknown
 WIDTH: 80
 HEIGHT: 32

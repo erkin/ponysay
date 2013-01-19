@@ -7,9 +7,10 @@ EYE: green
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Master (unofficia)
+OTHER NAMES: Master (unofficial)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 39
