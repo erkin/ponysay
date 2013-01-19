@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S02E17 Hearts and Hooves Day
 BALLOON: top
 COAT: white
-DISPLAY: half, left
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: stallion, background
