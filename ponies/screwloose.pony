@@ -7,10 +7,11 @@ EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Screw Loose (unofficial)
-POSE: crazy, stand
+POSE: stand
 SOURCE: [jristz]
 WIDTH: 47
 HEIGHT: 26
