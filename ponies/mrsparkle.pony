@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S01E23 12:47
+APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
 COAT: blue
 DISPLAY: full, right
 EYE: yellow
 FREE: no
-GROUP: stallion, voiced
+GROUP: stallion, background, voiced
 KIND: unicorn
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Night Light (unofficial), Mr Sparkle, Crescent Sparkle (unofficial)
