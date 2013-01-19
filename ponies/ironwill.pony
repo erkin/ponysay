@@ -1,11 +1,11 @@
 $$$
-APPEARANCE: S02
+APPEARANCE: S02E19 Putting Your Hoof Down
 BALLOON: top
 COAT: blue
 DISPLAY: full, right
 EYE: yellow
 FREE: no
-GROUP: bull (minotaur), minotaur, villian
+GROUP: bull (minotaur), minotaur, villian, reconciled
 KIND: animal
 LINK: regular
 MANE: black
