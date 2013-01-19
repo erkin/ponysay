@@ -1,15 +1,16 @@
 $$$
-APPEARANCE: S01E04 18:35
+APPEARANCE: S01E04 Applebuck Season
 BALLOON: top
-COAT: creme
+COAT: beige
 DISPLAY: full, left
 EYE: gray (ponysay), green (source)
 FREE: no
 GROUP: mare
 KIND: earth
+LINK: regular
 MANE: red
 NAME: Rose
-OTHER NAMES: Roseluck (on toy line)
+OTHER NAMES: Roseluck (official, toy line)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 50
