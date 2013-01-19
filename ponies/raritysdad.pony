@@ -7,6 +7,7 @@ EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Magnum (official, in gameloft), Carlton (unofficial)
