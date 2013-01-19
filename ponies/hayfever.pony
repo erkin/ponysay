@@ -5,12 +5,13 @@ COAT: white
 DISPLAY: half, left
 EYE: blue
 FREE: no
-GROUP: stallion
+GROUP: stallion, background
 KIND: earth
+LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: Hay Fever (unofficial
-POSE: rest
+OTHER NAMES: Hay Fever (unofficial)
+POSE: heal
 SOURCE: [jristz]
 WIDTH: 43
 HEIGHT: 23
