@@ -1,12 +1,13 @@
 $$$
 APPEARANCE: S02E17 Hearts and Hooves Day
 BALLOON: top
-COAT: gray
+COAT: grey
 DISPLAY: head, left
 EYE: blue
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Hugh Jelly (unofficial)
