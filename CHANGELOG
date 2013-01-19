@@ -8,7 +8,8 @@ Version 3.0
 	New extraponies: gleamingshield, pipsqueak (without pirate suit), pizzapony, tempo
 
 	Ponies renamed: lotusbloosom → lotusblossom (typo)
-	                maredowellgallop → maredowellgallop (need one version named as master)
+	                maredowellgallop → maredowellgallop (need a version named as master)
+	                ironwillwalk →  ironwillwalk (need a version named as master)
 
 	Renamed option -F to +f and option --F to ++f.
 

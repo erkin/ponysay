@@ -2926,7 +2926,9 @@ New extraponies: @file{gleamingshield}, @file{pipsqueak}, @file{pizzapony}, @fil
 @item
 @file{lotusbloosom} has been renamed to @file{lotusblossom} (typo)
 @item
-@file{maredowellgallop} has been renamed to  @file{maredowellgallop} (need one version named as master)
+@file{maredowellgallop} has been renamed to  @file{maredowellgallop} (need a version named as master)
+@item
+@file{ironwillwalk} has been renamed to  @file{ironwillwalk} (need a version named as master)
 @item
 Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}.
 @item
