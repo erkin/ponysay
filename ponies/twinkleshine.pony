@@ -1,13 +1,18 @@
 $$$
-APPEARANCE: s1c1m2s17
-COAT: light pink
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+BASED ON: Moondancer
+COAT: pink
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare
 KIND: unicorn
+LINK: regular
 MANE: pink
-MEDIA: TV series
-NAME: twinkleshine
+NAME: (not mentioned)
+OTHER NAMES: Twinkleshine (official, toy line)
+POSE: lay
 SOURCE: desktop ponies
 WIDTH: 41
 HEIGHT: 20
