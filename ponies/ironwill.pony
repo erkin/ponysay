@@ -15,8 +15,8 @@ SOURCE: desktop ponies
 WIDTH: 59
 HEIGHT: 39
 
-Iron Will is not an antagonist, but whether is he is an villian can be argued.
-Personal, I [maandree], would not call him I villian, since he tries to help
+Iron Will is not an antagonist, but whether is he is a villian can be argued.
+Personal, I [maandree], would not call him I a villian, since he tries to help
 push overs, which accidentally turned Fluttershy into a villian, and just wanted
 his payment at the end of the episode.
 $$$
