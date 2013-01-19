@@ -5,13 +5,14 @@ COAT: grey
 DISPLAY: full, left
 EYE: yellow
 FREE: no
-GROUP: mare, voiced
+GROUP: mare, background, voiced
 KIND: pegasus
+LINK: regular
 MANE: yellow
 MASTER: derpy
 NAME: Derpy
 OTHER NAMES: Derpy Hooves (partially offical), Ditzy Doo (on manuscripts)
-POSE: stand wing
+POSE: wings
 SOURCE: desktop ponies
 WIDTH: 48
 HEIGHT: 25
