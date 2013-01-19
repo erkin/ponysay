@@ -5,12 +5,13 @@ COAT: creme
 DISPLAY: full, right
 EYE: closed, purple
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Powder Rouge (unofficial), Sindy (unofficial)
-POSE: sitting
+POSE: sit
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 21
