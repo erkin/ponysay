@@ -1,14 +1,16 @@
 $$$
-APPEARANCE: S01E14 13:37
+APPEARANCE: S01E14 Suited for Success
 BALLOON: top
 COAT: white
 DISPLAY: full, right
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: unicorn
+LINK: regular
 MANE: blue
-NAME: DJ Pon-3, Vın̈yl Scratch
+NAME: (not mentioned)
+OTHER NAMES: DJ Pon-3 (official, in commerical), Vın̈yl Scratch (official, in expo)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 46
