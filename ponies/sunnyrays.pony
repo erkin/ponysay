@@ -7,9 +7,11 @@ EYE: pink
 FREE: no
 GROUP: mare
 KIND: pegasus
+LINK: regular
 MANE: pink
-NAME: Sunny Rays (in merchandise)
-POSE: flying
+NAME: (not mentioned)
+OTHER NAMES: Sunny Rays (official, in merchandise)
+POSE: fly
 SOURCE: desktop ponies
 WIDTH: 49
 HEIGHT: 19
