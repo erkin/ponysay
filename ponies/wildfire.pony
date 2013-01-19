@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: S02E25 The Royal Wedding part 1
+APPEARANCE: S02E25 The Royal Wedding [Part 1]
 BALLOON: top
-COAT: brown
+COAT: yellow
 DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: mare
 KIND: pegasus
+LINK: regular
 MANE: brown
-NAME: Wild Fire (stated official by the crew)
-POSE: possing
+NAME: (not mentioned)
+OTHER NAMES: Wild Fire (stated official by the crew)
+POSE: pose
 SOURCE: desktop ponies
 WIDTH: 38
 HEIGHT: 25
