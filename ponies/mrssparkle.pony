@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E23 12:47
+APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
 COAT: white
 DISPLAY: full, right
@@ -7,6 +7,7 @@ EYE: cyan
 FREE: no
 GROUP: mare, voiced
 KIND: unicorn
+LINK: regular
 MANE: white, purple
 NAME: Twilight Velvet
 OTHER NAMES: Mrs Sparkle
