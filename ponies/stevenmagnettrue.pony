@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E02 Friendship is Magic [Part 2]
 BALLOON: top
 COAT: purple
 DISPLAY: head, left
