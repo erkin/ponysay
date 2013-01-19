@@ -1,17 +1,17 @@
 $$$
-APPEARANCE: S01
+APPEARANCE: S01E09 - Bridle Gossip
 BALLOON: top
-BASED ON: zecora
 COAT: gray
 DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: mare
 KIND: zebra
+LINK: regular
 MANE: white, black
 MASTER: zecora
 NAME: Zecora
-POSE: troting
+POSE: balance
 SOURCE: desktop ponies
 WIDTH: 40
 HEIGHT: 45
