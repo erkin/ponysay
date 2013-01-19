@@ -8,7 +8,7 @@ FREE: no
 GROUP: mare
 KIND: zebra
 LINK: regular
-MANE: white, black
+MANE: zebra
 MASTER: zecora
 NAME: Zecora
 POSE: balance
