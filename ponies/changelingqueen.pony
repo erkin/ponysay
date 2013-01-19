@@ -1,18 +1,19 @@
 $$$
-APPEARANCE: S02E26 The Royal Wedding part 2
+APPEARANCE: S02E26 The Royal Wedding [Part 2]
 AURA: green
 BALLOON: top
-BASED ON: chrysalis
 COAT: black
 DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: mare, antagonist
 KIND: changeling
-MANE: blue
-NAME: Queen Changeling
-OTHER NAMES: Chrysalis (in manuscript and in the official comic)
-POSE: stand
+LINK: regular
+MANE: teal
+MASTER: chrysalis
+NAME: (not mentioned)
+OTHER NAMES: Chrysalis (official, in manuscript and comic)
+POSE: alternative
 SOURCE: unknown
 WIDTH: 65
 HEIGHT: 34
