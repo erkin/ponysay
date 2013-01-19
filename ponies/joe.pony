@@ -1,15 +1,17 @@
 $$$
 APPEARANCE: S01E26 The Best Night Ever
+BALLOON: top
 COAT: yellow
-DISPLAY: full, right, turn
+DISPLAY: full, right, turned
 EYE: green
 FREE: no
-GROUP: stallion, voiced
+GROUP: stallion, background, voiced
 KIND: unicorn
+LINK: regular
 MANE: brown
 NAME: Joe
 OTHER NAMES: Donut Joe (partially official)
-POSE: watching
+POSE: stand
 SOURCE: dektop ponies
 WIDTH: 39
 HEIGHT: 28
