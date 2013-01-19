@@ -5,7 +5,7 @@ COAT: yellow
 DISPLAY: full, left
 EYE: pink
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: pegasus
 LINK: regular
 MANE: pink
