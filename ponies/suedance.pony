@@ -1,15 +1,17 @@
 $$$
-APPEARANCE: S01E23 16:55
+APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
 COAT: white
 DISPLAY: full, left
 EYE: cyan
 FREE: no
-GROUP: mare
+GROUP: mare, mane
 KIND: earth
+LINK: regular
 MANE: gray
+MASTER: sue
 NAME: (not mentioned)
-OTHER NAMES: Sue (unofficial
+OTHER NAMES: Sue (unofficial)
 POSE: dance
 SOURCE: desktop ponies
 WIDTH: 43
