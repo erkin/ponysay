@@ -6,10 +6,10 @@ DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: alligator, pet
-KIND: animals
+KIND: animal
 LINK: regular
 NAME: Gummy
-POSE: stand
+POSE: dance
 SOURCE: desktop ponies
 WIDTH: 27
 HEIGHT: 15
