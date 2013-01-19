@@ -2,10 +2,10 @@ $$$
 APPEARANCE: S03E05 Magic Duel
 BALLOON: top
 COAT: pink
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
 LINK: regular
 MANE: blue
