@@ -8,8 +8,8 @@ FREE: yes
 GROUP: manticore
 KIND: animals
 LICENSE: CC0
+LINK: regular
 MANE: red
-NAME: Manticore
 POSE: watching
 SOURCE: (screenshoot)
 WIDTH: 75
