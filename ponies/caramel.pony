@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E11 04:56
+APPEARANCE: S01E11 Winter Wrap Up
 BALLOON: top
 COAT: yellow
 DISPLAY: full, left
@@ -7,10 +7,11 @@ EYE: cyan
 FREE: no
 GROUP: stallion
 KIND: earth
+LINK: regular
 MANE: brown
 NAME: Caramel
-OTHER NAMES: Cance-A-Lot (unofficial, but the toy ressemble her)
-POSE: troting
+OTHER NAMES: Cance-A-Lot (unofficial, but the toy ressemble him)
+POSE: trot
 SOURCE: desktop ponies
 WIDTH: 39
 HEIGHT: 26
