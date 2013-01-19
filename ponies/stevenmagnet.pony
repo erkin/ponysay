@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: purple
 DISPLAY: head, left
@@ -7,10 +7,11 @@ EYE: black
 FREE: no
 GROUP: male, sea serpent, wildlife
 KIND: animals
+LINK: regular
 MANE: orange
-NAME: Sea Serpent (in merchandise)
-OTHER NAMES: Steven Magnet (unofficial), River Serpent (stated by the crew)
-POSE: waiting
+NAME: (not mentioned)
+OTHER NAMES: Sea Serpent (official, in merchandise), Steven Magnet (unofficial), River Serpent (stated by the crew)
+POSE: idle
 SOURCE: desktop ponies
 WIDTH: 78
 HEIGHT: 42
