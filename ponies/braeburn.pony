@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E21 06:37
+APPEARANCE: S01E21 Over a Barrel
 BALLOON: top
 COAT: yellow
 DISPLAY: full, left
@@ -7,6 +7,7 @@ EYE: green
 FREE: no
 GROUP: unicorn
 KIND: earth
+LINK: regular
 MANE: brown
 NAME: Braeburn
 POSE: stand
