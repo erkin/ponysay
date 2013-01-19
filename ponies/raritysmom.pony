@@ -1,12 +1,13 @@
 $$$
-APPEARANCE: S02E05
+APPEARANCE: S02E05 Sisterhooves Social
 BALLOON: top
 COAT: pink
 DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: mare, voiced
+GROUP: mare
 KIND: unicorn
+LINK: regular
 MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Pearl (unofficial)
