@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E02 Friendship is Magic part 1
+APPEARANCE: S01E02 Friendship is Magic [Part 1]
 AURA: blue
 BALLOON: top
 COAT: black
@@ -8,12 +8,13 @@ EYE: cyan
 FREE: no
 GROUP: mare, antagonist
 KIND: alicorn
+LINK: regular
 MANE: blue
 NAME: Nightmare Moon
-OTHER NAMES: Lunija (russian), Princess Luna (harmonized)
+OTHER NAMES: Princess Luna (official, harmonised full name), Luna (official, harmonised), Lunija (official, harmonised russian), Woona (unofficial, harmonised)
 POSE: stand
 SOURCE: desktop ponies
-WIDTH: 80
+WIDTH: 96
 HEIGHT: 40
 
 
