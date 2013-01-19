@@ -6,7 +6,7 @@ COAT: white
 DISPLAY: full, left
 EYE: pink
 FREE: no
-GROUP: mare, royal
+GROUP: mare, tritagonist, royal
 KIND: alicorn
 LINK: regular
 MANE: pastel
