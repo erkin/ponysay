@@ -3,7 +3,6 @@ APPEARANCE: S02E17 Hearts and Hooves Day
 BALLOON: top
 COAT: brown
 DISPLAY: full, right
-EYE: covered
 FREE: no
 GROUP: stallion, background
 KIND: earth
