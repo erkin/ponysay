@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic part 1
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 AURA: blue
 BALLOON: top
 COAT: pink
@@ -8,10 +8,11 @@ EYE: purple
 FREE: no
 GROUP: mare
 KIND: unicorn
+LINK: regular
 MANE: blue
 NAME: Sea Swirl
 OTHER NAMES: SeaFoam (unofficial), Dolphin Dream (unofficial)
-POSE: casting
+POSE: cast
 SOURCE: desktop ponies
 WIDTH: 50
 HEIGHT: 24
