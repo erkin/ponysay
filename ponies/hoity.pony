@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E14 Suited for Success
 BALLOON: top
 COAT: grey
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: stallion
