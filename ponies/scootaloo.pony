@@ -10,7 +10,7 @@ KIND: pegasus
 LINK: regular
 MANE: purple
 NAME: Scootaloo
-POSE: scooting
+POSE: scoot
 SOURCE: desktop ponies
 WIDTH: 46
 HEIGHT: 24
