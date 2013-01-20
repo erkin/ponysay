@@ -3,13 +3,13 @@ APPEARANCE: S02E01 The Return of Harmony [Part 1]
 AURA: (invisible)
 BALLOON: top
 COAT: multiple
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: red
 FREE: no
 GROUP: antagonist
 KIND: draconequus
 LINK: regular
-MANE: gray
+MANE: grey
 MASTER: discord
 NAME: Discord
 POSE: puppet master
