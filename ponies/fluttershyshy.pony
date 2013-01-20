@@ -1,7 +1,6 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BASED ON: fluttershy
 COAT: yellow
 DISPLAY: full, left
 EYE: teal
@@ -10,7 +9,7 @@ GROUP: mare, mane
 KIND: unicorn
 LINK: regular
 MANE: pink
-MASTER: flutershy
+MASTER: fluttershy
 NAME: Fluttershy
 OTHER NAMES: Shy (sometimes)
 POSE: shy
