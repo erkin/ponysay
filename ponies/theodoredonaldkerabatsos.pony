@@ -9,6 +9,7 @@ GROUP: stallion
 KIND: earth
 LINK: regular
 MANE: brown (source), black (ponysay)
+NAME: (not mentioned)
 OTHER NAMES: Theodore Donald "Donny" Kerabatsos (unofficial)
 POSE: stand
 SOURCE: deviantart desktop ponies group
