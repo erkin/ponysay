@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S03E03 Too Many Pinkie Pies
 BALLOON: top
 COAT: grey
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: black
 FREE: yes
 GROUP: raccoon, wildlife
