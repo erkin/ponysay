@@ -1,12 +1,11 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: white
 DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: mare, mane
-GROUP NAME: mane
 KIND: unicorn
 LINK: regular
 MANE: purple
