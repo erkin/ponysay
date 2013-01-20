@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S03E01 The Crystal Empire [Part 1]
 AURA: black
 BALLOON: top
-COAT: gray
+COAT: grey
 DISPLAY: full, left
 EYE: green (in flashback), white (in last scene), brown (ponysay) red (source), purple aura
 FREE: no
