@@ -10,6 +10,7 @@ KIND: earth
 LINK: regular
 MANE: white
 NAME: Granny Smith
+OTHER NAMES: Granny (official, short)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 35
