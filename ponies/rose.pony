@@ -5,7 +5,7 @@ COAT: beige
 DISPLAY: full, left
 EYE: gray (ponysay), green (source)
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
 LINK: regular
 MANE: red
