@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
 COAT: orange
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: cyan
 FREE: no
 GROUP: stallion, background, voiced
