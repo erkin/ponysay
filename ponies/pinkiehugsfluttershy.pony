@@ -8,7 +8,7 @@ COAT: yellow
 COAT: pink
 DISPLAY: full, right
 DISPLAY: full, left
-EYE: cyan
+EYE: teal
 EYE: blue
 GROUP: mare, mane
 GROUP: mare, mane
