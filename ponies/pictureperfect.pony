@@ -2,9 +2,9 @@ $$$
 APPEARANCE: S01E20 Green isn't Your Color
 BALLOON: top
 COAT: beige
-DISPLAY: full, right
+DISPLAY: full, left
 FREE: no
-GROUP: mare, backgroun
+GROUP: mare, background
 KIND: earth
 LINK: regular
 MANE: white
