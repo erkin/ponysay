@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E03 The Ticket Master
 BALLOON: top
 COAT: blue
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: stallion, wonderbolt
