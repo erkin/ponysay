@@ -6,7 +6,7 @@ COAT: blue
 DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare, royal
+GROUP: mare, royal, tritagonist
 KIND: alicorn
 LINK: regular
 MANE: cyan, blue (season 2)
