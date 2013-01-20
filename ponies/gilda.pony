@@ -5,8 +5,8 @@ COAT: brown
 DISPLAY: full, left
 EYE: yellow
 FREE: no
-GROUP: female, antagonist
-KIND: animal, griffin
+GROUP: griffin, antagonist
+KIND: animal
 LINK: regular
 MANE: white
 NAME: Gilda
