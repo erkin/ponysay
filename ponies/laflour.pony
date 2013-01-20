@@ -12,7 +12,8 @@ SOURCE: desktop ponies
 WIDTH: 28
 HEIGHT: 26
 
-
+License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 $$$
 $balloon5$[0m
   $\$
