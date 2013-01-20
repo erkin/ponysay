@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S02E16 Read It and Weep
 BALLOON: top
 COAT: blue
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: purple
 FREE: no
 GROUP: mare
