@@ -2,13 +2,13 @@ $$$
 APPEARANCE: S01E03 The Ticket Master
 BALLOON: top
 COAT: blue
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: stallion, wonderbolt
 KIND: pegasus
 LINK: regular
-MANE: dark blue
+MANE: blue
 NAME: Soarin
 POSE: eat
 SOURCE: desktop ponies
