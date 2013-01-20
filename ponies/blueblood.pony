@@ -11,7 +11,7 @@ LINK: regular
 MANE: yellow
 NAME: Prince Blueblood
 OTHER NAMES: Blueblood (official, without title)
-POSE: watching
+POSE: watch
 SOURCE: [jristz]
 WIDTH: 42
 HEIGHT: 29
