@@ -1,7 +1,7 @@
 $$$
 APPEARANCE: S01E04 Applebuck Season
 BALLOON: top
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: black
 FREE: no
 GROUP: dog, pet
