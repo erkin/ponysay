@@ -5,8 +5,8 @@ COAT: purple
 DISPLAY: head, left
 EYE: black
 FREE: no
-GROUP: male, sea serpent, wildlife
-KIND: animals
+GROUP: sea serpent, wildlife
+KIND: animal
 LINK: regular
 MANE: orange
 NAME: (not mentioned)
