@@ -7,6 +7,7 @@ EYE: blue
 FREE: no
 GROUP: phoenix, pet
 KIND: animals
+LINK: regular
 NAME: Philomena
 POSE: featherless
 SOURCE: desktop ponies
