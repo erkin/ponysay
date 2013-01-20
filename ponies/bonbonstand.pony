@@ -8,7 +8,7 @@ FREE: no
 GROUP: mare, background, voiced
 KIND: earth
 LINK: regular
-MANE: blue
+MANE: pink
 NAME: Bon Bon (unofficial, but FAR more used)
 OTHER NAMES: Sweetie Drops (official)
 POSE: stand
