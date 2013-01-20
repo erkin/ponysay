@@ -6,7 +6,7 @@ COAT: brown
 DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: filly, mane
+GROUP: mare, mane
 KIND: earth
 LINK: regular
 MANE: yellow
