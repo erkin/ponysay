@@ -18,3 +18,11 @@ FREE:    yes/no/sharable
 
 license text/links
 $$$
+
+
+Do not forgot to add the source. If you make it yourself,
+from scratch, almost from scratch, the tag should be, if
+your username is XYZ:
+
+SOURCE: [XYZ]
+
