@@ -7,7 +7,7 @@ EYE: purple
 FREE: no
 GROUP: mare, villian, reconciled
 KIND: unicorn
-LINK: right
+LINK: regular
 MANE: white
 MASTER: trixie
 NAME: Trixie
