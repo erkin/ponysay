@@ -10,6 +10,7 @@ KIND: pegasus
 LINK: regular
 MANE: rainbow
 NAME: Rainbow Dash
+OTHER NAMES: Rainbow (official, short name), Dashie (official, short), Dash (official, sometimes)
 POSE: pose
 SOURCE: desktop ponies
 WIDTH: 51
