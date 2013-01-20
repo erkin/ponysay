@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E10 Swarm of the Century
 BALLOON: top
 COAT: pink
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: closed
 FREE: no
 GROUP: mare, background
