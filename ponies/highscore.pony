@@ -5,8 +5,8 @@ COAT: brown
 DISPLAY: full, right
 EYE: brown
 FREE: no
-GROUP: colt
-KIND: earth, background
+GROUP: colt, background
+KIND: earth
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
