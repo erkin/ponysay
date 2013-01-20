@@ -11,6 +11,7 @@ LINK: regular
 MANE: rainbow
 MASTER: rainbow
 NAME: Rainbow Dash
+OTHER NAMES: Rainbow (official, short name), Dashie (official, short), Dash (official, sometimes)
 POSE: gala
 SOURCE: desktop ponies
 WIDTH: 58
