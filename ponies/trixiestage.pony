@@ -11,7 +11,7 @@ KIND: unicorn
 LINK: regular
 MANE: white
 MASTER: trixie
-NAME: Trizie
+NAME: Trixie
 OTHER NAMES: The Great and Powerful Trixie (official, titled), Trixie Lulamoon (official, toy line), Lulamoon (official, toy line)
 POSE: stage
 SOURCE: desktop ponies
