@@ -17,7 +17,8 @@ SOURCE: desktop ponies deviantart group
 WIDTH: 45
 HEIGHT: 26
 
-
+License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 $$$
 $balloon26$[0m
                       $\$
