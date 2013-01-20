@@ -5,7 +5,7 @@ COAT: brown
 DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: unicorn
 LINK: regular
 MANE: yellow
