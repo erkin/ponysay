@@ -5,7 +5,7 @@ COAT: white
 DISPLAY: full, left
 EYE: cyan
 FREE: no
-GROUP: stallion, tritagonist
+GROUP: stallion, tritagonist, royal
 KIND: unicorn
 LINK: regular
 MANE: blue
