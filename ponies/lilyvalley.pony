@@ -5,7 +5,7 @@ COAT: pink
 DISPLAY: full, right
 EYE: orange
 FREE: no
-GROUP: mare, voiced
+GROUP: mare, background, voiced
 KIND: earth
 LINK: regular
 MANE: yellow
