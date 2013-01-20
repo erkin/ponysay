@@ -7,7 +7,7 @@ EYE: red
 FREE: sharable
 GROUP: dragon
 KIND: animal
-LICENSE: cc-nc-by-sa
+LICENSE: cc-by-nc-sa
 LINK: regular
 NAME: Crackle
 POSE: derped

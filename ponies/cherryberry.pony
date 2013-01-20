@@ -7,7 +7,7 @@ EYE: purple
 FREE: no
 GROUP: mare
 KIND: earth
-LICENSE: cc-nc-by-sa
+LICENSE: cc-by-nc-sa
 LINK: regular
 MANE: yellow
 NAME: Cherry Berry

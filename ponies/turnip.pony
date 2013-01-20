@@ -4,7 +4,7 @@ BALLOON: top
 FREE: sharable
 GROUP: imaginary
 KIND: item
-LICENSE: cc-nc-by-sa
+LICENSE: cc-by-nc-sa
 LINK: regular
 NAME: Turnip
 SOURCE: desktop ponies

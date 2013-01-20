@@ -6,7 +6,7 @@ DISPLAY: full, right
 FREE: sharable
 GROUP: imaginary
 KIND: item
-LICENSE: cc-nc-by-sa
+LICENSE: cc-by-nc-sa
 LINK: regular
 NAME: Rocky
 SOURCE: desktop ponies

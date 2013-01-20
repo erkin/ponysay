@@ -5,7 +5,7 @@ DISPLAY: full, front
 FREE: sharable
 GROUP: imaginary
 KIND: item
-LICENSE: cc-nc-by-sa
+LICENSE: cc-by-nc-sa
 LINK: regular
 NAME: Madam la Flour
 SOURCE: desktop ponies
