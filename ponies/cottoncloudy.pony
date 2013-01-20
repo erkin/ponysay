@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E12 Call of the Cutie
 BALLOON: top
 COAT: white
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: filly
