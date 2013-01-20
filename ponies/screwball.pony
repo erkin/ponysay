@@ -5,7 +5,7 @@ COAT: pink
 DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare
+GROUP: mare, background
 KIND: earth
 LINK: regular
 MANE: purple
