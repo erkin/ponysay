@@ -10,7 +10,7 @@ KIND: animal
 LINK: regular
 MANE: white
 NAME: Gilda
-OTHER NAMES: Gruntilda (initial name but not pass copyright)
+OTHER NAMES: Grizelda (initial name but not pass copyright)
 POSE: fly
 SOURCE: desktop ponies
 WIDTH: 71
