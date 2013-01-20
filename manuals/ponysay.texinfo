@@ -937,7 +937,8 @@ Wildlife, for example timberwolfs
 A pony's pet, Spike does not count because Twilight does not play with him during
 pony–pet play dates.
 @item @code{royal}
-Royal pony, either by birth or conquer (i.e. the old school style).
+Royal pony, either by birth, marriage, or conquer (i.e. the old school style).
+Shining Armour is royal by marriage, but is biological family does become royal by this.
 @item @code{villain}
 Villains, normally minions to antagonists or recurring ponies. Applies to changelings.
 @item @code{antagonist} (applies to: nightmare moon, gilda, discord, chrysalis)
