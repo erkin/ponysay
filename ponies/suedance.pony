@@ -2,13 +2,13 @@ $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
 COAT: white
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: cyan
 FREE: no
 GROUP: mare, mane
 KIND: earth
 LINK: regular
-MANE: gray
+MANE: grey
 MASTER: sue
 NAME: (not mentioned)
 OTHER NAMES: Sue (unofficial)
