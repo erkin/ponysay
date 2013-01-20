@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E01 Frienship is magic [Part 1]
+APPEARANCE: S01E01 Frienship is Magic [Part 1]
 BALLOON: top
 COAT: brown
 DISPLAY: full, left
