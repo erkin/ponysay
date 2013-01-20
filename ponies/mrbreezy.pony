@@ -5,12 +5,13 @@ COAT: brown
 DISPLAY: full, right, turned
 EYE: blue
 FREE: no
-GROUP: stallion
+GROUP: stallion, background
 KIND: earth
 LINK: regular
 MANE: orange
 MASTER: trot
-NAME: Mr Breezy
+NAME: (not mentioned)
+OTHER NAMES: Mr Breezy (official)
 SOURCE: [jristz]
 WIDTH: 38
 HEIGHT: 28
