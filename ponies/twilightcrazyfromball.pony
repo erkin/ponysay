@@ -1,7 +1,9 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: purple (whitish lilac in season 1)
 BALLOON: top
 COAT: purple
+DISPLAY: full. front, left
 EYE: purple
 FREE: no
 GROUP: mare, mane
