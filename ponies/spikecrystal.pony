@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: purple
-DISPLAY: full, left, turn
+DISPLAY: full, front, left
 EYE: green
 FREE: no
 GROUP: male, dragon, crystal
