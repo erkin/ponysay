@@ -13,7 +13,7 @@ MANE: pink
 MASTER: pinkie
 NAME: Pinkie Pie
 OTHER NAMES: Pinkie (official, short name), Pinkamina Diane Pie (official, full name)
-POSE: crazy
+POSE: crazy ('I bet you can't make your face crazier that this!')
 SOURCE: desktop ponies
 WIDTH: 92
 HEIGHT: 46
