@@ -1,9 +1,9 @@
 $$$
-APPEARANCE: S01E02 Friendship is Magic [Part 1]
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 AURA: blue
 BALLOON: top
 COAT: black
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: cyan
 FREE: no
 GROUP: mare, antagonist
