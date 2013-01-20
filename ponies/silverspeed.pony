@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S02E22 Hurricane Fluttershy
 BALLOON: top
 COAT: grey
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: purple
 FREE: no
 GROUP: mare
