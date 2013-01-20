@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E07 Dragonshy
 BALLOON: top
 COAT: beige
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: blue
 FREE: no
 GROUP: stallion, background
