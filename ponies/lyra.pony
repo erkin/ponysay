@@ -1,11 +1,11 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic [part 1]
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
 COAT: cyan
 DISPLAY: full, left
 EYE: closed, yellow
 FREE: no
-GROUP: mare, voiced
+GROUP: mare, background, voiced
 KIND: unicorn
 LINK: regular
 MANE: white
