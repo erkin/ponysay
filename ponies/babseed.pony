@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S03E04 One Bad Apple
 BALLOON: top
 COAT: brown
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: green
 FREE: no
 GROUP: filly, villain, reconciled
