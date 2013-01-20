@@ -8,6 +8,7 @@ FREE: yes
 GROUP: dragon, villain, reconciled
 KIND: animal
 LICENSE: cc-by
+LINK: regular
 MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Basil (unofficial)
@@ -16,7 +17,8 @@ SOURCE: Pony Fantasy 6
 WIDTH: 85
 HEIGHT: 51
 
-
+License summary:   http://creativecommons.org/licenses/by/2.0
+Full license text: http://creativecommons.org/licenses/by/2.0/legalcode
 $$$
 $balloon57$[0m
                                                       $\$
