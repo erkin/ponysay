@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S01E06 Boast Busters
 BALLOON: top
 COAT: orange
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: black
 FREE: no
 GROUP: colt, background, voiced
