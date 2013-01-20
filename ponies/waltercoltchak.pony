@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: Walter Coltchak (stated official by the crew)
+OTHER NAMES: Walter Coltchak (official, stated official by the crew)
 POSE: stand
 SOURCE: (bot-chan) deviantart desktop ponies group
 WIDTH: 40
