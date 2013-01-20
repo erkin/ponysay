@@ -29,7 +29,7 @@ MASTER: daisy
 NAME: Daisy
 NAME: Rose
 NAME: (not mentioned)
-OTHER NAMES: Flower Wishes (unofficial, a toy match here
+OTHER NAMES: Flower Wishes (unofficial, a toy match here)
 OTHER NAMES: Roseluck (official, toy line)
 OTHER NAMES: Lily Valley (official, on collector card)
 POSE: disaster
