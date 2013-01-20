@@ -10,6 +10,7 @@ KIND: animal
 LINK: regular
 MANE: white
 NAME: Gustave le Grand
+OTHER NAMES: Le Grand (official, short)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 61
