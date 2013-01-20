@@ -11,7 +11,7 @@ LINK: regular
 MANE: white
 MASTER: gilda
 NAME: Gilda
-OTHER NAMES: Gruntilda (initial name but not pass copyright)
+OTHER NAMES: Grizelda (initial name but not pass copyright)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 65
