@@ -2,7 +2,7 @@ $$$
 APPEARANCE: S02E10 Secret of My Excess
 BALLOON: top
 COAT: brown
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: closed, green
 FREE: no
 GROUP: mare, background, voiced
