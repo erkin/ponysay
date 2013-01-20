@@ -6,7 +6,7 @@ COAT: multiple
 DISPLAY: full, left
 EYE: red
 FREE: no
-GROUP: antagonist
+GROUP: antagonist, reconciled
 KIND: draconequus
 LINK: regular
 MANE: grey
