@@ -2,15 +2,15 @@ $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
 COAT: white
-DISPLAY: full, right
+DISPLAY: full, left
 EYE: cyan
 FREE: no
 GROUP: mare, background, voiced
 KIND: unicorn
 LINK: regular
 MANE: purple (and white)
-NAME: Twilight Velvet
-OTHER NAMES: Mrs Sparkle
+NAME: (not mentioned)
+OTHER NAMES: Mrs Sparkle, Twilight Velvet (official, toy line)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 50
