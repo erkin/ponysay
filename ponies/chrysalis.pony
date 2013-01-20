@@ -3,7 +3,7 @@ APPEARANCE: S02E26 The Royal Wedding [Part 2]
 AURA: green
 BALLOON: top
 COAT: black
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: green
 FREE: no
 GROUP: mare, antagonist
@@ -11,7 +11,7 @@ KIND: changeling
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: Chrysalis (in manuscript and in the official comic)
+OTHER NAMES: Chrysalis (official, in manuscript and in the official comic)
 POSE: stand
 SOURCE: unknown
 WIDTH: 52
