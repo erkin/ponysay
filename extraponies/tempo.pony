@@ -3,8 +3,10 @@ BALLOON: top
 COAT: pink
 DISPLAY: full, left
 EYE: purple
+FREE: yes
 GROUP: stallion, coltified
 KIND: alicorn
+LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: pastel
 MEDIA: [Fanfic: Wrong spell, On a Cross and Arrow]
@@ -12,8 +14,6 @@ NAME: Prince Tempo (given by the author)
 OTHER NAMES: Prince D'Amore Temporus (full name), Tempo (short name)
 POSE: stand
 SOURCE: [jristz] (Based on images in MLPGenderBlend deviantart group)
-FREE: yes
-LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 WIDTH: 47
 HEIGHT: 25
 

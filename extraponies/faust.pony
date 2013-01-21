@@ -1,4 +1,5 @@
 $$$
+AURA: white (majority of sources)
 BALLOON: top
 COAT: white
 DISPLAY: full, left
@@ -6,17 +7,19 @@ EYE: blue
 FREE: yes
 GROUP: mare, original
 KIND: alicorn
-LICENSE: cc-by-sa
+LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
+LINK: regular
 MANE: red
 MEDIA: deviantart.com (varius artists)
 NAME: Faust (most frecuent name)
-OTHER NAMES: Lauren Faust (owner name)
+OTHER NAMES: Lauren Faust ('owner name'), Fausticon (given in other minor sources)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 51
 HEIGHT: 31
 
-
+License summary:   https://creativecommons.org/licenses/by-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
 $$$
 $balloon3$[0m
 $\$
