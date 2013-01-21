@@ -1,6 +1,7 @@
 $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
+BASED ON: Generation 1 Twilight
 COAT: white
 DISPLAY: full, left
 EYE: cyan

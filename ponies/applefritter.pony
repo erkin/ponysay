@@ -10,6 +10,7 @@ KIND: earth
 LINK: regular
 MANE: green
 NAME: Apple Fritter
+OTHER NAMES: Apple Strudely (unofficial)
 POSE: trot
 SOURCE: desktop ponies
 WIDTH: 40
