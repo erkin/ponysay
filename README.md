@@ -112,7 +112,7 @@ __A:__ [Ask](/erkin/ponysay/issues) and we'll add!
 
 __Q:__ The outpus look weird on my _(xfce4-terminal/mate-terminal/xterm)_
 
-__A:__ We use block for pint the ponies, if the block are desalignated or you not use a __real__ monospaced font try another diferent and mopnospace font.
+__A:__ We use block for print the ponies, if the block are desalignated or you not use a __real__ monospaced font with aligned blocks try another different and mopnospace font like 'Liberation Mono'.
 
 __Q:__ Which programs do you use to generate the pony files?
 
