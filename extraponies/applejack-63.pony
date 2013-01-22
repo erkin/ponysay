@@ -4,20 +4,28 @@ COAT: brown
 DISPLAY: full, left
 EYE: green
 FREE: yes
-GROUP: stallion, coltifiedi
-GROUP NAME: mane
+GROUP: stallion, manes, coltifiedi
 KIND: earth
-LICENSE: CC0
+LICENSE: CC0 (CC0 1.0 Universal)
+LINK: regular
 MANE: yellow
 MEDIA: [fanfic: Wrong spell, On a Cross and Arrow]
-NAME: Applejack (name on the wfanlabor wikia)
+NAME: Applejack (name on the fanlabor wikia)
 OTHER NAMES: Male Applejack (on the show credits)
 POSE: stand
 SOURCE: MLP Fanlavor Wikia
 WIDTH: 41
 HEIGHT: 26
 
+The person who associated a work with this deed has dedicated the work to
+the public domain by waiving all of his or her rights to the work worldwide under
+copyright law, including all related and neighboring rights, to the extent allowed
+by law.
 
+You can copy, modify, distribute and perform the work, even for commercial
+purposes, all without asking permission. See Other Information below.
+
+http://creativecommons.org/publicdomain/zero/1.0/legalcode
 $$$
 $balloon6$[0m
    $\$
