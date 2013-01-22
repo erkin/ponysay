@@ -6,16 +6,18 @@ EYE: purple
 FREE: yes
 GROUP: mare, shadowbolt
 KIND: pegasus
-LICENSE: cc-by-sa
+LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
+LINK: regular
 MANE: teal
 MEDIA: [fanfic]
-NAME: Blueball Blitz (on the Fanfics)
+NAME: Blueball Blitz (on fanfics, on fanlabor wikia)
 POSE: flying
 SOURCE: [jristz]
 WIDTH: 51
 HEIGHT: 27
 
-
+License summary:   https://creativecommons.org/licenses/by-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
 $$$
 $balloon11$[0m
         $\$

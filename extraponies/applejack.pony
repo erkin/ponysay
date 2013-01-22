@@ -9,7 +9,7 @@ GROUP: mare, consept
 KIND: earth
 LINK: regular
 MANE: brown
-MEDIA: fanart
+MEDIA: [fanart]
 NAME: Applejack (given by Lauren Faust)
 POSE: watching
 SOURCE: Lauren Faust's deviantart
