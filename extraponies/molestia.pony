@@ -1,4 +1,5 @@
 $$$
+AURA: yellow
 BALLOON: top
 BASED ON: celestia
 COAT: white
@@ -7,13 +8,14 @@ EYE: pink
 FREE: no
 GROUP: mare
 KIND: alicorn
+LINK: regular
 MANE: pink
 MEDIA: askprincessmolestia.tumblr.com NSFW
 NAME: Princess Molestia (Named given by the author)
 OTHER NAMES: Molestia (short name)
-POSE: waiting
+POSE: smile
 SOURCE: [jristz]
-WIDTH: 80
+WIDTH: 95
 HEIGHT: 40
 
 
