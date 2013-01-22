@@ -6,16 +6,19 @@ EYE: closed, red
 FREE: yes
 GROUP: mare
 KIND: earth
-LICENSE: cc-by
+LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
+LINK: regular
 MANE: yellow, red
 MEDIA: [Comics]
 NAME: Pizza pony (on Welovefine merchandise)
-POSE: smiling
+OTHER NAMES: Pizza (on many previous fanart)
+POSE: smile
 SOURCE: [jristz]
 WIDTH: 39
 HEIGHT: 25
 
-
+License summary:   https://creativecommons.org/licenses/by-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
 $$$
 $balloon3$[0m
 $\$
