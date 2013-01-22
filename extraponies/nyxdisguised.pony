@@ -1,14 +1,15 @@
 $$$
 BALLOON: top
-BASED ON: nyx
 COAT: black
 DISPLAY: full, left
 EYE: cyan
 FREE: yes
 GROUP: filly
 KIND: alicorn
-LICENSE: cc-by-sa
+LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
+LINK: regular
 MANE: blue
+MASTER: nyx
 MEDIA: [fanfic: Past Sins]
 NAME: Nyx (given by the author)
 POSE: disguised
@@ -16,7 +17,8 @@ SOURCE: [jristz]
 WIDTH: 35
 HEIGHT: 20
 
-
+License summary:   https://creativecommons.org/licenses/by-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
 $$$
 $balloon13$[0m
           $\$

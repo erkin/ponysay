@@ -3,16 +3,16 @@ BALLOON: top
 COAT: white
 DISPLAY: full, left
 EYE: cyan
+FREE: yes
 GROUP: mare, marefied
 KIND: unicorn
+LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: blue
 MEDIA: [fanfic: Wrong spell, On a Cross and Arrow]
 NAME: Gleaming Shield (given by the author)
 POSE: stand
 SOURCE: [jristz] (Based on images in MLPGenderBlend deviantart group)
-FREE: yes
-LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 WIDTH: 41
 HEIGHT: 28
 
