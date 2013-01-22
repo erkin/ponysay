@@ -1,11 +1,13 @@
 $$$
 BALLOON: top
+BASED ON: Generation 1 Aple Jack
 COAT: yellow
 DISPLAY: full, right, turn
 EYE: green
 FREE: no
 GROUP: mare, consept
 KIND: earth
+LINK: regular
 MANE: brown
 MEDIA: fanart
 NAME: Applejack (given by Lauren Faust)
