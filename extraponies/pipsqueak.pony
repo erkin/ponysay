@@ -1,19 +1,18 @@
 $$$
 APPEARANCE: S02E04 Luna Eclipsed
 BALLOON: top
-BASED ON: pipsqueak
 COAT: brown
 DISPLAY: full, left
 EYE: white
 FREE: no
 GROUP: colt, background, voiced
 KIND: earth
-LICENSE: cc-nc-by-sa
+LINK: regular
 MANE: brown
 NAME: Pipsqueak
 OTHER NAMES: Pip (unofficial, short name)
 POSE: stand
-SOURCE: desktop ponies (with pirate suit)
+SOURCE: desktop ponies
 WIDTH: 33
 HEIGHT: 20
 
