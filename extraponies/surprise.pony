@@ -4,10 +4,10 @@ COAT: yellow
 DISPLAY: full, right
 EYE: purple
 FREE: yes
-GROUP: mare
-GROUP NAME: consept
+GROUP: mare, consept
 KIND: pegasus
-LICENSE: CC0
+LICENSE: CC0 (CC0 1.0 Universal)
+LINK: regular
 MANE: white
 MEDIA: asksurprise.tumblr.com
 NAME: Surprise (official, previous generation)
@@ -16,7 +16,15 @@ SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 26
 
+The person who associated a work with this deed has dedicated the work to
+the public domain by waiving all of his or her rights to the work worldwide under
+copyright law, including all related and neighboring rights, to the extent allowed
+by law.
 
+You can copy, modify, distribute and perform the work, even for commercial
+purposes, all without asking permission. See Other Information below.
+
+http://creativecommons.org/publicdomain/zero/1.0/legalcode
 $$$
 $balloon35$[0m
                                 $\$

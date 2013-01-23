@@ -6,7 +6,7 @@ EYE: purple (ponysay), blue (source)
 FREE: yes
 GROUP: mare, consept
 KIND: pegasus
-LICENSE: CC0
+LICENSE: CC0 (CC0 1.0 Universal)
 LINK: regular
 MANE: blue
 MEDIA: thefyrefly,tumblr.com
