@@ -1,6 +1,6 @@
 $$$
 BALLOON: top
-BASED ON: Generation 1 Aple Jack
+BASED ON: Generation 1 Apple Jack
 COAT: yellow
 DISPLAY: full, right, turn
 EYE: green

@@ -1,15 +1,17 @@
 $$$
 BALLOON: top
+BASED ON: Generation 1 Posey
 COAT: yellow
 DISPLAY: full, right
 EYE: blue
 FREE: no
-GROUP: mare
-GROUP NAME: consept
+GROUP: mare, consept
 KIND: earth
+LINK: regular
 MANE: pink
-MEDIA: fyrefly (Lauren Faust) deviantart
+MEDIA: Lauren Faust's deviantart
 NAME: Posey (mentioned by Lauren Faust)
+POSE: fear
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 23

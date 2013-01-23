@@ -4,10 +4,10 @@ COAT: pink
 DISPLAY: full, left
 EYE: purple (ponysay), blue (source)
 FREE: yes
-GROUP: mare
-GROUP NAME: consept
+GROUP: mare, consept
 KIND: pegasus
 LICENSE: CC0
+LINK: regular
 MANE: blue
 MEDIA: thefyrefly,tumblr.com
 NAME: Fyrefly (previous generation)
@@ -16,7 +16,15 @@ SOURCE: imageboard
 WIDTH: 36
 HEIGHT: 37
 
+The person who associated a work with this deed has dedicated the work to
+the public domain by waiving all of his or her rights to the work worldwide under
+copyright law, including all related and neighboring rights, to the extent allowed
+by law.
 
+You can copy, modify, distribute and perform the work, even for commercial
+purposes, all without asking permission. See Other Information below.
+
+http://creativecommons.org/publicdomain/zero/1.0/legalcode
 $$$
 $balloon18$[0m
                $\$

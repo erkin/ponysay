@@ -1,11 +1,13 @@
 $$$
 BALLOON: top
+BASED ON: Generation 1 Sparkler
 COAT: cyan
 DISPLAY: full. left
 EYE: blue
 FREE: no
-GROUP: mare
-KIND: unicorn, consept
+GROUP: mare, consept
+KIND: unicorn
+LINK: regular
 MANE: purple
 MEDIA: fanart
 NAME: Sparkler (mentioned by Lauren Faust)

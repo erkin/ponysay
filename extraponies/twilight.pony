@@ -1,15 +1,17 @@
 $$$
 BALLOON: top
+BASED ON: Generation 1 Twilight
 COAT: pink
 DISPLAY: full, right
 EYE: closed
 FREE: no
-GROUP: mare
-KIND: unicorn, consept
+GROUP: mare, consept
+KIND: unicorn
+LINK: regular
 MANE: purple
 MEDIA: Lauren Faust's deviantart
 NAME: Twilight (mentioned by Lauren Faust)
-POSE: casting
+POSE: cast
 SOURCE: [jristz]
 WIDTH: 50
 HEIGHT: 24
