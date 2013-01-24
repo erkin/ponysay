@@ -2,7 +2,7 @@
 
 # Compatible with  bash  dash  zsh
 # but not with     fish
-# problematic with tcsh
+# problematic with tcsh  csh
 
 
 br=0 # build required
