@@ -110,7 +110,7 @@ __Q:__ You are missing _(my-favourite-pony)_!
 
 __A:__ [Ask](/erkin/ponysay/issues) and we'll add!
 
-__Q:__ The outpus look weird on my _(xfce4-terminal/mate-terminal/xterm)_
+__Q:__ The outpus look weird on my _(xfce4-terminal/mate-terminal/xterm)_ whit _this_ font
 
 __A:__ We use block for print the ponies, if the block are desalignated or you not use a __real__ monospaced font with aligned blocks try another different and mopnospace font like 'Liberation Mono'.
 
