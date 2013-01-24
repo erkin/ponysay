@@ -11,7 +11,7 @@ KIND: alicorn
 LINK: regular
 MANE: blue
 NAME: Nightmare Moon
-OTHER NAMES: Princess Luna (official, harmonised full name), Luna (official, harmonised), Jument Séléniaque (official, corrupted french), Lunija (official, harmonised russian), Woona (unofficial, harmonised)
+OTHER NAMES: Princess Luna (official, harmonised full name), Luna (official, harmonised), Jument Séléniaque (official, french), Lunija (official, harmonised russian), Woona (unofficial, harmonised)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 96
