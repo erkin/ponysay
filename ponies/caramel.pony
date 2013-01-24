@@ -9,8 +9,8 @@ GROUP: stallion
 KIND: earth
 LINK: regular
 MANE: brown
-NAME: Caramel
-OTHER NAMES: Cance-A-Lot (unofficial, but the toy ressemble him)
+NAME: (not mentioned)
+OTHER NAMES: Caramel (official, in Gameloft game), Cance-A-Lot (unofficial, but the toy ressemble him)
 POSE: trot
 SOURCE: desktop ponies
 WIDTH: 39
