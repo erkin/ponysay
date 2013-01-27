@@ -10,9 +10,9 @@ GROUP: mare
 KIND: alicorn
 LINK: regular
 MANE: pink
-MEDIA: askprincessmolestia.tumblr.com NSFW
+MEDIA: (John Joseco) askprincessmolestia.tumblr.com NSFW
 NAME: Princess Molestia (Named given by the author)
-OTHER NAMES: Molestia (short name)
+OTHER NAMES: Molestia (short name), Molly (given by the author on comments)
 POSE: smile
 SOURCE: [jristz]
 WIDTH: 95

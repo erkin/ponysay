@@ -1,24 +1,26 @@
 $$$
 APPEARANCE: Moonstuck reply 1
+AURA: white
 BALLOON: top
 BASED ON: woona
 COAT: gray
 DISPLAY: full, left
 EYE: gray
-FREE: no
+FREE: sharable
 GROUP: filly
 KIND: alicorn
-LICENSE: cc-nc-by-sa
+LICENSE: cc-by-nc-sa (Creative Commons Attribution-NonCommerical-ShareAlike 3.0 Unported)
 MANE: gray
 MEDIA: (egophiliac) woonastuck.tumblr.com
 NAME: Woona (by the author)
 OTHER NAMES: Princess Woona (on a reply), Chosen woon (given by the Rocs)
-POSE: stand
+POSE: stand, no hat
 SOURCE: desktop ponies OC
 WIDTH: 43
 HEIGHT: 23
 
-
+License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0                            
+Full license text: https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode 
 $$$
 $balloon5$[0m
   $\$
