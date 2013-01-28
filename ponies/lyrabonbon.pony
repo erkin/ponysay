@@ -18,8 +18,8 @@ LINK ON: 1
 MANE: pink, black
 MANE: white
 MASTER: bonbon
-NAME: Bon Bon (unofficial, but FAR more used)
-NAME: Lyra (gameloft game)
+NAME: Bon Bon (Gameloft game)
+NAME: Lyra (Gameloft game)
 OTHER NAMES: Sweetie Drops (official)
 OTHER NAMES: Lyra Heartstrings, Harpass (wikia mention as an old name), Heartstrings (old name)
 POSE: lyra

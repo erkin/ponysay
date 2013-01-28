@@ -9,7 +9,7 @@ GROUP: mare
 KIND: earth
 LINK: regular
 MANE: blue
-NAME: Bon Bon (unofficial, but FAR more used)
+NAME: Bon Bon (Gameloft game)
 OTHER NAMES: Sweetie Drops (official)
 POSE: sleep
 SOURCE: desktop ponies

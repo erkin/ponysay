@@ -10,7 +10,7 @@ KIND: unicorn
 LINK: regular
 MANE: white
 MASTER: lyra
-NAME: Lyra (gameloft game)
+NAME: Lyra (Gameloft game)
 OTHER NAMES: Lyra Heartstrings, Harpass (wikia mention as an old name), Heartstrings (old name)
 POSE: sit
 SOURCE: desktop ponies
