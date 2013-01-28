@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: Jeff "The Dude" Letrotski (official, in gameloft)
+OTHER NAMES: Jeff "The Dude" Letrotski (official, in Gameloft games)
 POSE: stand
 SOURCE: (botchan) desktop ponies deviantart group
 WIDTH: 43
