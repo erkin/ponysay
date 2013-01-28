@@ -7,6 +7,7 @@ EYE: brown
 FREE: no
 GROUP: colt, backgound
 KIND: earth
+LINK: regular
 MANE: brown
 NAME: Featherweight
 POSE: trot
