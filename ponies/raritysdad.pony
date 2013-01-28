@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: Magnum (official, in gameloft), Carlton (unofficial)
+OTHER NAMES: Magnum (official, in Gameloft game), Carlton (unofficial)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 41
