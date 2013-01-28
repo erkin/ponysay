@@ -11,7 +11,7 @@ KIND: unicorn
 LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: gray
-MEDIA: Docummentary
+MEDIA: Documentary Film
 NAME: John de Lancie (owner name, given by the author)
 POSE: stand
 SOURCE: [jristz]

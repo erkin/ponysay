@@ -12,7 +12,7 @@ LINK: regular
 MANE: red
 MEDIA: deviantart.com (varius artists)
 NAME: Faust (most frecuent name)
-OTHER NAMES: Lauren Faust ('owner name'), Fausticon (given in other minor sources)
+OTHER NAMES: Lauren Faust (owner name), Fausticon (given in other minor sources)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 51
