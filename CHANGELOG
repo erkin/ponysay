@@ -2,14 +2,15 @@ Version 3.0
 
 	New ponies: amira, babseed, bear, beautybrass, bigmacsleep, billneigh, cadancecrystal, cloudchaser,
 		    descent, featherweight, fiddlesticks, flitter, haakim, lighningdust, mrbreezy, orangebird,
-		    orangefrog, pinkiecrazyface, raccoon, rarityelite, rumble, shiningarmorcrystal, sombra, spikecrystal,
-		    squirrel, sweetcream (comic), trixieamulet, twilightcrystal, twinkleshine
+		    orangefrog, pinkiecrazyface, raccoon, rarityelite, ravenunicorn, rumble, shiningarmorcrystal,
+		    sombra, spikecrystal, squirrel, sweetcream (comic), trixieamulet, twilightcrystal, twinkleshine
 
 	New extraponies: gleamingshield, johndelancie, pipsqueak (without pirate suit), pizzapony, tempo
 
 	Ponies renamed: lotusbloosom → lotusblossom (typo)
 	                maredowellgallop → maredowellgallop (need a version named as master)
 	                ironwillwalk →  ironwillwalk (need a version named as master)
+	                ravenunicorn → raven (need a version named as master)
 
 	Renamed option -F to +f and option --F to ++f.
 
