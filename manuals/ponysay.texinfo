@@ -2920,8 +2920,8 @@ sequences.
 New ponies: @file{amira},  @file{babseed}, @file{bear}, @file{beautybrass}, @file{bigmacsleep}, @file{billneiigh},
 @file{cadancecrystal}, @file{cloudchaser}, @file{descent}, @file{haakim}, @file{featherweight}, @file{fiddlesticks},
 @file{flitter}, @file{lighningdust}, @file{mrbreezy}, @file{orangebird}, @file{orangefrog}, @file{pinkiecrazyface},
-@file{raccoon}, @file{rarity}, @file{ravenunicorn}, @file{rumble}, @file{shiningarmorcrystal}, @file{sombra},
-@file{spikecrystal}, @file{squirrel}, @file{sweetcream} (comic) @file{twilightcrystal}, @file{trixieamulet},
+@file{raccoon}, @file{rarity}, @file{ravenunicorn}, @file{royalunicornguard}, @file{rumble}, @file{shiningarmorcrystal},
+@file{sombra}, @file{spikecrystal}, @file{squirrel}, @file{sweetcream} (comic) @file{twilightcrystal}, @file{trixieamulet},
 @file{twinkleshine}
 @item
 New extraponies: @file{gleamingshield}, @file{johndelancie}, @file{pipsqueak}, @file{pizzapony}, @file{tempo}
