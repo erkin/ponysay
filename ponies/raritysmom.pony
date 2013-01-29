@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Pearl (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 43
 HEIGHT: 28
 

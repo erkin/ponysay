@@ -14,7 +14,7 @@ MASTER: celestia
 NAME: Celestia
 OTHER NAMES: Princess Celestia (official, full name)
 POSE: filly, sleep
-SOURCE: unknown
+SOURCE: (Asparagus) Desktop Ponies
 WIDTH: 36
 HEIGHT: 26
 

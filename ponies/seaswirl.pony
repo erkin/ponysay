@@ -13,7 +13,7 @@ MANE: blue
 NAME: Sea Swirl
 OTHER NAMES: SeaFoam (unofficial), Dolphin Dream (unofficial)
 POSE: cast
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, Whimsy Morning) Desktop ponies
 WIDTH: 50
 HEIGHT: 24
 

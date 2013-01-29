@@ -12,7 +12,7 @@ MANE: rainbow
 NAME: Rainbow Dash
 OTHER NAMES: Rainbow (official, short name), Dashie (official, short), Dash (official, sometimes)
 POSE: shadowbolt
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, StarStep, SarkinaBox, fanofetcetera, Bot-chan, Felix-0, DrZoin, supersayanmikito) Desktop ponies
 WIDTH: 52
 HEIGHT: 25
 

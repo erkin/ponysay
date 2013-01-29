@@ -12,8 +12,8 @@ MANE: green
 MASTER: spike
 NAME: Spike
 POSE: mustache
-SOURCE: desktop ponies
-WIDTH: 29
+SOURCE: (Peter Kuruc/Fantos, StarStep, Anonycat) Desktop ponies
+WIDTH: 31
 HEIGHT: 20
 
 

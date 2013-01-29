@@ -11,7 +11,7 @@ LINK: regular
 NAME: (not mentioned)
 OTHER NAMES: Fido (official, in manuscript)
 POSE: angry
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 47
 HEIGHT: 26
 

@@ -12,7 +12,7 @@ MANE: orange
 NAME: (not mentioned)
 OTHER NAMES: Stella (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 41
 HEIGHT: 26
 

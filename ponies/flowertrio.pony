@@ -33,7 +33,7 @@ OTHER NAMES: Flower Wishes (unofficial, a toy match here)
 OTHER NAMES: Roseluck (official, toy line)
 OTHER NAMES: Lily Valley (official, on collector card)
 POSE: disaster
-SOURCE: desktop ponies deviatart group
+SOURCE: (Bot-chan) desktop ponies deviatart group
 WIDTH: 122
 HEIGHT: 34
 

@@ -13,7 +13,7 @@ MASTER: fluttershy
 NAME: Fluttershy
 OTHER NAMES: She (sometimes)
 POSE: gala
-SOURCE: desktop ponies
+SOURCE: (Derpy Delivery, Jay Wright, Humle, StartStep, DeathPony/deathpwny, AngelKat58, Asparagus, HalfnHalf) Desktop ponies
 WIDTH: 55
 HEIGHT: 25
 

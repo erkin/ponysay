@@ -11,7 +11,7 @@ LINK: regular
 MANE: red
 NAME: Apple Bloom
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (The Coop, Pony Noia) Desktop ponies
 WIDTH: 41
 HEIGHT: 21
 

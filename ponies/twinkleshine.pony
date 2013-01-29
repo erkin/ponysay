@@ -13,7 +13,7 @@ MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Twinkleshine (official, toy line)
 POSE: lay
-SOURCE: desktop ponies
+SOURCE: (fanonfetcetera) Desktop ponies
 WIDTH: 41
 HEIGHT: 20
 

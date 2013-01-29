@@ -12,7 +12,7 @@ MANE: pink
 NAME: Apple Bumpkin
 OTHER NAMES: Apple Dazzler (official, according to January 2012 toy)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 47
 HEIGHT: 25
 

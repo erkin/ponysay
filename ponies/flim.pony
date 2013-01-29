@@ -11,7 +11,7 @@ LINK: regular
 MANE: red
 NAME: Flim
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Bot-Chan) Desktop ponies
 WIDTH: 39
 HEIGHT: 28
 

@@ -13,7 +13,7 @@ MANE: purple (and white)
 NAME: (not mentioned)
 OTHER NAMES: Mrs Sparkle, Twilight Velvet (official, toy line)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (supersaiyanmikito) Desktop ponies
 WIDTH: 50
 HEIGHT: 24
 

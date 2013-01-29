@@ -12,7 +12,7 @@ MANE: white
 MEDIA: asksurprise.tumblr.com
 NAME: Surprise (official, previous generation)
 POSE: stand
-SOURCE: [jristz]
+SOURCE: [jristz] based on (Jay Wright, DeathPony/deathpwny) Desktop ponies OC)
 WIDTH: 49
 HEIGHT: 26
 

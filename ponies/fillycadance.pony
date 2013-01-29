@@ -14,7 +14,7 @@ MASTER: cadance
 NAME: Cadance
 OTHER NAMES: Princess Cadance (official, titled), Mi Amore Cadenza (official, full named without title), Princess Mi Amore Cadenza (official, full named)
 POSE: filly
-SOURCE: desktop ponies
+SOURCE: (Kloopp) Desktop ponies
 WIDTH: 49
 HEIGHT: 27
 

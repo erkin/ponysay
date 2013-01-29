@@ -12,7 +12,7 @@ MANE: brown
 NAME: Sheriff Silverstar
 OTHER NAMES: Silverstar (official, without title)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 40
 HEIGHT: 28
 

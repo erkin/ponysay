@@ -13,7 +13,7 @@ MANE: yellow
 NAME: Cherry Berry
 OTHER NAMES: Cherry Jubilee (common mistake, this is another pony)
 POSE: stand
-SOURCE: desktop ponies deviantart group
+SOURCE: (Tyranico) Desktop ponies Deviantart
 WIDTH: 45
 HEIGHT: 26
 

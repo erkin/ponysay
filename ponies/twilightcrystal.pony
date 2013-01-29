@@ -14,7 +14,7 @@ MASTER: twilight
 NAME: Twilight
 OTHER NAMES: Twilight Sparkle (official, full name)
 POSE: crystal
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, Humle, Bot-chan, StarStep, Anonycat, InfinityDash, supersayanmikito, aslic96) Desktop ponies
 WIDTH: 48
 HEIGHT: 25
 

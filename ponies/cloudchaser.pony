@@ -11,7 +11,7 @@ LINK: regular
 MANE: cyan
 NAME: Cloudchaser
 POSE: bridge
-SOURCE: desktop ponies
+SOURCE: (fanofetcetera) Desktop ponies
 WIDTH: 50
 HEIGHT: 20
 

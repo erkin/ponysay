@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Royal Ribbon (unofficial), Violet (unofficial)
 POSE: sit
-SOURCE: desktop ponies
+SOURCE: (vulcan539/james539) Desktop ponies
 WIDTH: 38
 HEIGHT: 26
 

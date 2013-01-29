@@ -11,7 +11,7 @@ LINK: regular
 MANE: pink
 NAME: Lotus Blossom
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Jay wright) Desktop ponies
 WIDTH: 39
 HEIGHT: 25
 

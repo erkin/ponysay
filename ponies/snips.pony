@@ -11,7 +11,7 @@ LINK: regular
 MANE: orange
 NAME: Snips
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 35
 HEIGHT: 20
 

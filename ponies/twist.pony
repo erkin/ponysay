@@ -11,7 +11,7 @@ LINK: regular
 MANE: orange (ponysay), red (source)
 NAME: Twist
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 33
 HEIGHT: 21
 

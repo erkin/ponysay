@@ -10,7 +10,7 @@ LINK: regular
 MANE: brown
 NAME: Winona
 POSE: happy
-SOURCE: desktop ponies
+SOURCE: (DeathPony/deathpwny) Desktop ponies
 WIDTH: 35
 HEIGHT: 21
 

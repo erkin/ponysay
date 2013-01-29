@@ -12,8 +12,8 @@ MANE: green
 MASTER: spike
 NAME: Spike
 POSE: love
-SOURCE: desktop ponies
-WIDTH: 25
+SOURCE: (Peter Kuruc/Fantos, StarStep, Anonycat) Desktop ponies
+WIDTH: 27
 HEIGHT: 19
 
 

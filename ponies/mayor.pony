@@ -11,7 +11,7 @@ LINK: regular
 MANE: white
 NAME: Mayor Mare
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 50
 HEIGHT: 27
 

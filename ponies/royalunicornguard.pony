@@ -10,7 +10,7 @@ KIND: unicorn
 LINK: regular
 MANE: blue
 POSE: stand
-SOURCE: (anarchemistis) desktop ponies
+SOURCE: (anarchemistis) Desktop ponies
 WIDTH: 37
 HEIGHT: 28
 

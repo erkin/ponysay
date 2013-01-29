@@ -13,7 +13,7 @@ MASTER: derpy
 NAME: Derpy
 OTHER NAMES: Derpy Hooves (partially offical), Ditzy Doo (official, in manuscript)
 POSE: cloud
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, vulcan539/james539, Blackfeathr, The Coop) Desktop ponies
 WIDTH: 96
 HEIGHT: 59
 

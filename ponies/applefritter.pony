@@ -12,7 +12,7 @@ MANE: green
 NAME: Apple Fritter
 OTHER NAMES: Apple Strudely (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Anonimous, vulcan539/james539) Desktop ponies
 WIDTH: 40
 HEIGHT: 25
 

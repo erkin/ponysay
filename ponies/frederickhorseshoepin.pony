@@ -12,7 +12,7 @@ MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Frederick Horseshoepin (unofficial)
 POSE: play
-SOURCE: desktop ponies
+SOURCE: (vulcan539/james539) Desktop ponies
 WIDTH: 59
 HEIGHT: 36
 

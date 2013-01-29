@@ -11,7 +11,7 @@ LINK: regular
 MANE: blue
 NAME: Sapphire Shores
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Pony noia) Desktop ponies
 WIDTH: 44
 HEIGHT: 31
 

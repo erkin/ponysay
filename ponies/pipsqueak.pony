@@ -12,7 +12,7 @@ MANE: brown
 NAME: Pipsqueak
 OTHER NAMES: Pip (unofficial, short name)
 POSE: pirate
-SOURCE: desktop ponies
+SOURCE: (StatStep) Desktop ponies
 WIDTH: 33
 HEIGHT: 21
 

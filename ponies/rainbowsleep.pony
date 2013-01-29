@@ -13,7 +13,7 @@ MASTER: rainbow
 NAME: Rainbow Dash
 OTHER NAMES: Rainbow (official, short name), Dashie (official, short), Dash (official, sometimes)
 POSE: sleep
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, StarStep, SarkinaBox, fanofetcetera, Bot-chan, Felix-0, DrZoin, supersayanmikito) Desktop ponies
 WIDTH: 53
 HEIGHT: 21
 

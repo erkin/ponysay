@@ -12,7 +12,7 @@ LINK: regular
 MANE: grey
 NAME: Discord
 POSE: disgusted
-SOURCE: desktop ponies
+SOURCE: (StartStep) Desktop ponies
 WIDTH: 92
 HEIGHT: 53
 

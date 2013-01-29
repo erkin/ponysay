@@ -14,11 +14,11 @@ MASTER: pinkie
 NAME: Pinkie Pie
 OTHER NAMES: Pinkie (official, short name), Pinkamina Diane Pie (official, full name)
 POSE: crazy ('I bet you can't make your face crazier that this!')
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, DeathPony/deadpwny, sidekick ponyguy, StarStep) Desktop ponies
 WIDTH: 92
 HEIGHT: 46
 
-
+Ok, This face not is from Destop ponies
 $$$
 $balloon53$[0m
                                                   $\$

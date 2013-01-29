@@ -13,7 +13,7 @@ MASTER: gilda
 NAME: Gilda
 OTHER NAMES: Grizelda (initial name but not pass copyright)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 65
 HEIGHT: 27
 

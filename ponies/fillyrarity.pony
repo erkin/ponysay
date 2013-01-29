@@ -13,7 +13,7 @@ MANE: purple
 MASTER: rarity
 NAME: Rarity
 POSE: filly
-SOURCE: desktop ponies
+SOURCE: (RJP!) Desktop ponies
 WIDTH: 38
 HEIGHT: 21
 

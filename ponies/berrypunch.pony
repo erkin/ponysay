@@ -12,7 +12,7 @@ MANE: purple
 NAME: (not mentioned)
 OTHER NAMES: Berry Punch (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (CANDYBAG, vulcan569/james569, Azure Fang) Desktop ponies
 WIDTH: 45
 HEIGHT: 26
 

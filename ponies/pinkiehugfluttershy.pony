@@ -24,7 +24,7 @@ NAME: Pinkie Pie
 OTHER NAMES: Shy (sometimes)
 OTHER NAMES: Pinkie (official, short name), Pinkamina Diane Pie (official, full name)
 POSE: hug fluttershy
-SOURCE: desktop ponies
+SOURCE: Desktop ponies
 WIDTH: 70
 HEIGHT: 32
 

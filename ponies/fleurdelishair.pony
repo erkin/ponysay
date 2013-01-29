@@ -13,7 +13,7 @@ MASTER: fleurdelis
 NAME: (not mentioned)
 OTHER NAMES: Fleur de Lis (unofficial)
 POSE: hair
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 46
 HEIGHT: 30
 

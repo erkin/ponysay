@@ -12,7 +12,7 @@ MANE: blue
 MEDIA: thefyrefly,tumblr.com
 NAME: Fyrefly (previous generation)
 POSE: flying
-SOURCE: imageboard
+SOURCE: (Bot-chan) imageboard, (months later) Desktop ponies OC
 WIDTH: 36
 HEIGHT: 37
 

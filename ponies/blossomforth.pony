@@ -11,7 +11,7 @@ LINK: regular
 MANE: pink, green
 NAME: Blossomforth
 POSE: trot
-SOURCE: desktop ponies devel
+SOURCE: (fanofetcetera) Desktop ponies
 WIDTH: 51
 HEIGHT: 24
 

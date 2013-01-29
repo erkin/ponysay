@@ -12,7 +12,7 @@ MANE: green
 NAME: Daisy
 OTHER NAMES: Flower Wishes (unofficial, a toy match here)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 45
 HEIGHT: 26
 

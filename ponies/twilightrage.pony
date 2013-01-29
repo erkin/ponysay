@@ -1,7 +1,7 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-COAT: purple (normallt), beige (now)
+COAT: purple (normally), beige (now)
 DISPLAY: full, left
 EYE: purple (normally), red (now)
 FREE: no
@@ -13,7 +13,7 @@ MASTER: twilight
 NAME: Twilight
 OTHER NAMES: Twilight Sparkle (official, full name)
 POSE: rage
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, Humle, Bot-chan, StarStep, Anonycat, InfinityDash, supersayanmikito, aslic96) Desktop ponies
 WIDTH: 55
 HEIGHT: 36
 

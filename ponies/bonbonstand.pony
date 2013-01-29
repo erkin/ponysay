@@ -12,7 +12,7 @@ MANE: pink
 NAME: Bon Bon (unofficial, but FAR more used)
 OTHER NAMES: Sweetie Drops (official)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Jay wright, Starly) Desktop ponies
 WIDTH: 52
 HEIGHT: 26
 

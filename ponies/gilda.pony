@@ -12,7 +12,7 @@ MANE: white
 NAME: Gilda
 OTHER NAMES: Grizelda (initial name but not pass copyright)
 POSE: fly
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 71
 HEIGHT: 32
 

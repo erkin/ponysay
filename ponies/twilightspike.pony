@@ -25,6 +25,7 @@ NAME: Spike
 OTHER NAMES: Twilight Sparkle (official, full name)
 OTHER NAMES: (none)
 POSE: ride
+SOURCE: Desktop ponies deviantart
 WIDTH: 44
 HEIGHT: 28
 

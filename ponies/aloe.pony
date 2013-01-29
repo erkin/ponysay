@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Aloe (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Jay Wright/Monkey Jay) Desktop ponies
 WIDTH: 39
 HEIGHT: 25
 

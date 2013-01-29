@@ -12,7 +12,7 @@ MANE: pink
 MASTER: sweetie
 NAME: Sweetie Belle
 POSE: sing
-SOURCE: desktop ponies
+SOURCE: (Miles000/Midnyte, The Coop, Cantorlot, StarTep) Desktop ponies
 WIDTH: 57
 HEIGHT: 22
 

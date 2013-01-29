@@ -11,10 +11,9 @@ KIND: unicorn
 LINK: regular
 MANE: purple
 MASTER: rarity
-MEDIA: TV series
 NAME: Rarity
 POSE: drama
-SOURCE: desktop ponies
+SOURCE: (Jay wright, StarStep, Bot-chan, The Coop, Miriam the Bat, Kloopp) Desktop ponies
 WIDTH: 91
 HEIGHT: 39
 

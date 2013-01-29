@@ -12,7 +12,7 @@ MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Rumble (official)
 POSE: sit
-SOURCE: desktop ponies
+SOURCE: (fanofetcetera) Desktop ponies
 WIDTH: 41
 HEIGHT: 22
 

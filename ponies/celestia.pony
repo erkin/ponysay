@@ -13,7 +13,7 @@ MANE: pastel
 NAME: Celestia
 OTHER NAMES: Princess Celestia (official, full name)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (oppl jok, StarStep) Desktop ponies
 WIDTH: 95
 HEIGHT: 42
 

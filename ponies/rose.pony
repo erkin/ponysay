@@ -12,7 +12,7 @@ MANE: red
 NAME: Rose
 OTHER NAMES: Roseluck (official, toy line)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonymous) Desktop ponies
 WIDTH: 50
 HEIGHT: 26
 

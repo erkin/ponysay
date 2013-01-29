@@ -14,7 +14,7 @@ MASTER: trixie
 NAME: Trixie
 OTHER NAMES: The Great and Powerful Trixie (official, titled), Trixie Lulamoon (official, toy line), Lulamoon (official, toy line)
 POSE: amulet
-SOURCE: desktop ponies
+SOURCE: (Jay Wright/Monkey Jay, Yamino, Zipman, Humle, Starly) Desktop ponies
 WIDTH: 44
 HEIGHT: 26
 

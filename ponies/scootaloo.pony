@@ -11,7 +11,7 @@ LINK: regular
 MANE: purple
 NAME: Scootaloo
 POSE: scoot
-SOURCE: desktop ponies
+SOURCE: (Miles000/Midnyte, RainbowCrash, The Coop) Desktop ponies
 WIDTH: 46
 HEIGHT: 24
 

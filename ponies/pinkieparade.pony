@@ -14,7 +14,7 @@ MASTER: pinkie
 NAME: Pinkie Pie
 OTHER NAMES: Pinkie, Pinkamina Diane Pie
 POSE: parade
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, DeathPony/deadpwny, sidekick ponyguy, StarStep) Desktop ponies
 WIDTH: 48
 HEIGHT: 27
 

@@ -12,7 +12,7 @@ MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Time Turner (unofficial), Dr Hooves (official according to Welovefine), Dr Whooves (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Asparagus, RJP!, Doctor Blade, Anonycat) Desktop ponies
 WIDTH: 38
 HEIGHT: 24
 

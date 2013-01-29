@@ -12,7 +12,7 @@ MANE: white
 NAME: Lyra (gameloft game)
 OTHER NAMES: Lyra Heartstrings, Harpass (wikia mention as an old name), Heartstrings (old name)
 POSE: sleep
-SOURCE: desktop ponies
+SOURCE: (Anonymous, Starly) Desktop ponies
 WIDTH: 51
 HEIGHT: 28
 

@@ -11,7 +11,7 @@ LINK: regular
 MANE: blue
 NAME: Fancypants
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 46
 HEIGHT: 31
 

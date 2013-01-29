@@ -12,7 +12,7 @@ MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Dinky Doo (unofficial), Dinky Hooves (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 38
 HEIGHT: 21
 

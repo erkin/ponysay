@@ -12,7 +12,7 @@ MANE: green
 NAME: Uncle Orange
 OTHER NAMES: Mosely Orange (unofficial, on toy line)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 37
 HEIGHT: 25
 

@@ -12,7 +12,7 @@ MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Caramel (official, in Gameloft game), Cance-A-Lot (unofficial, but the toy ressemble him)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Starly) Desktop ponies
 WIDTH: 39
 HEIGHT: 26
 

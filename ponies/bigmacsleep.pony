@@ -9,11 +9,11 @@ GROUP: stallion
 KIND: earth
 LINK: regular
 MANE: brown
+MASTER: bigmac
 NAME: Big McIntosh
 OTHER NAMES: Big Mac (sometimes), Big Macintosh (sometimes), Mac (rarely but mentioned)
 POSE: sleep
-SOURCE: desktop ponies
-MASTER: bigmac
+SOURCE: (Anonycat, StarStep) Desktop ponies
 WIDTH: 51
 HEIGHT: 19
 

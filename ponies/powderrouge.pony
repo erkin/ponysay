@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Powder Rouge (unofficial), Sindy (unofficial)
 POSE: sit
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 39
 HEIGHT: 21
 

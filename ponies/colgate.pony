@@ -12,7 +12,7 @@ MANE: blue
 NAME: Minuette
 OTHER NAMES: Colgate (unofficial), TARDIE (unofficial), Romana (unofficial), Aquafresh (unofficial), Minty Fresh (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (RJP!, vulcan539/james539, Anonymous) Desktop ponies
 WIDTH: 49
 HEIGHT: 26
 

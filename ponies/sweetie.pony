@@ -11,7 +11,7 @@ LINK: regular
 MANE: pink
 NAME: Sweetie Belle
 POSE: sit
-SOURCE: desktop ponies
+SOURCE: (Miles000/Midnyte, The Coop, Cantorlot, StarTep) Desktop ponies
 WIDTH: 37
 HEIGHT: 23
 

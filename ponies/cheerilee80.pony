@@ -1,7 +1,6 @@
 $$$
 APPEARANCE: S01E06 Boast Busters
 BALLOON: top
-MASTER: cheerilee
 COAT: purple
 DISPLAY: full, right
 EYE: green
@@ -10,10 +9,11 @@ GROUP: mare
 KIND: earth
 LINK: regular
 MANE: pink
+MASTER: cheerilee
 NAME: Cheerilee
 OTHER NAMES: Cheerelee (McDonald toy), Cheerilee Pie (on Gameloft game beta)
 POSE: '80s
-SOURCE: desktop ponies
+SOURCE: (Humle) Desktop ponies
 WIDTH: 44
 HEIGHT: 24
 

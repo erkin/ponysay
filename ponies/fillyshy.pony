@@ -13,7 +13,7 @@ MASTER: fluttershy
 NAME: Fluttershy
 OTHER NAMES: Shy (sometimes)
 POSE: filly
-SOURCE: desktop ponies
+SOURCE: (PsychoSutin) Desktop ponies
 WIDTH: 42
 HEIGHT: 21
 

@@ -11,7 +11,7 @@ LINK: regular
 MANE: grey
 NAME: Daring Do
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonymous) Desktop ponies
 WIDTH: 50
 HEIGHT: 27
 

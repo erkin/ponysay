@@ -12,7 +12,7 @@ MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Pretty vision (unofficial), Elsie (unofficial), Suity Voyage (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 42
 HEIGHT: 25
 

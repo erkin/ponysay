@@ -10,6 +10,7 @@ DISPLAY: full, left
 DISPLAY: full, left
 EYE: blue
 EYE: purple
+FREE: no
 GROUP: mare, mane
 GROUP: alligator, pet
 KIND: earth

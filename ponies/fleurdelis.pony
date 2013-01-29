@@ -12,7 +12,7 @@ MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Fleur de Lis (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 46
 HEIGHT: 29
 

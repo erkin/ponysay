@@ -11,7 +11,7 @@ LINK: regular
 MANE: purple
 NAME: Diamond Tiara
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 36
 HEIGHT: 21
 

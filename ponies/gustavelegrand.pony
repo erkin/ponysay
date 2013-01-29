@@ -12,7 +12,7 @@ MANE: white
 NAME: Gustave le Grand
 OTHER NAMES: Le Grand (official, short)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 61
 HEIGHT: 31
 

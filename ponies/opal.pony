@@ -11,7 +11,7 @@ LINK: regular
 NAME: Opalescence
 OTHER NAMES: Opal (offical, short name)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (StarStep) Desktop ponies
 WIDTH: 29
 HEIGHT: 18
 

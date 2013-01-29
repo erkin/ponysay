@@ -12,7 +12,7 @@ MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Lily Valley (official, on collector card), Lily (short)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 45
 HEIGHT: 25
 

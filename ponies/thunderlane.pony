@@ -11,7 +11,7 @@ LINK: regular
 MANE: cyan
 NAME: Thunderlane
 POSE: trot
-SOURCE: desktop ponies devel
+SOURCE: (fanofetcetera) Desktop ponies
 WIDTH: 36
 HEIGHT: 25
 

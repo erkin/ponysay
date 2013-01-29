@@ -12,7 +12,7 @@ MANE: grey
 NAME: (not mentioned)
 OTHER NAMES: Clyde (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 47
 HEIGHT: 25
 

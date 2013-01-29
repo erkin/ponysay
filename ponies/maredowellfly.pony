@@ -12,7 +12,7 @@ MASTER: maredowell
 NAME: Mare Do Well
 OTHER NAMES: The Mysterious Mare Do Well (official, titled name)
 POSE: fly
-SOURCE: desktop ponies
+SOURCE: (JavaNut, DrZoin) Desktop ponies
 WIDTH: 41
 HEIGHT: 25
 

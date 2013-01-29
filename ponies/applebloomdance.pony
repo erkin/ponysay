@@ -12,7 +12,7 @@ MANE: red
 MASTER: applebloom
 NAME: Apple Bloom
 POSE: dance
-SOURCE: desktop ponies
+SOURCE: (The Coop, Pony Noia) Desktop ponies
 WIDTH: 34
 HEIGHT: 24
 

@@ -12,7 +12,7 @@ MANE: grey
 NAME: (not mentioned)
 OTHER NAMES: Inkie Pie (unofficial), Inky (unofficial)
 POSE: dance
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 32
 HEIGHT: 22
 

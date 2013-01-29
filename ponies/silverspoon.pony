@@ -11,7 +11,7 @@ LINK: regular
 MANE: white
 NAME: Silver Spoon
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 33
 HEIGHT: 21
 

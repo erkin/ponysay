@@ -12,7 +12,7 @@ MANE: orange
 NAME: (not mentioned)
 OTHER NAMES: Golden Harvest (official, on collector card), Carrot Top (traiding card state this is they nick name)
 POSE: sit
-SOURCE: desktop ponies
+SOURCE: (Candybag, Pony noia) Desktop ponies
 WIDTH: 44
 HEIGHT: 25
 

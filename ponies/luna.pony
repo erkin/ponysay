@@ -13,7 +13,7 @@ MANE: cyan, blue (season 2)
 NAME: Luna
 OTHER NAMES: Princess Luna (official, full name), Lunija (official, russian), Nightmare Moon (official, corrupted), Woona (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 70
 HEIGHT: 38
 

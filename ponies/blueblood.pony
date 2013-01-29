@@ -16,7 +16,9 @@ SOURCE: [jristz]
 WIDTH: 42
 HEIGHT: 29
 
-The author of this picture not like blueblood... this is why not look soo good
+The author of this pony [jristz] not like blueblood... this is why not look soo good
+aditionaly I not going to make it look good, you only possibility is making another Blueblood
+and submit to upstream, I going to add it as soon as possible.
 $$$
 $balloon$
 [0m      $\$

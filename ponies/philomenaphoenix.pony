@@ -11,7 +11,7 @@ LINK: regular
 MASTER: philomena
 NAME: Philomena
 POSE: rebirth
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 99
 HEIGHT: 30
 

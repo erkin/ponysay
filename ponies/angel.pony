@@ -11,7 +11,7 @@ LINK: regular
 NAME: Angel
 OTHER NAMES: Angel Bunny (official, used by Fluttershy sometimes)
 POSE: concerned
-SOURCE: desktop ponies
+SOURCE: (DesdthPony/DeathPwny) Desktop ponies
 WIDTH: 25
 HEIGHT: 19
 

@@ -10,7 +10,7 @@ KIND: animals
 LINK: regular
 NAME: Tank
 POSE: fly
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 49
 HEIGHT: 21
 

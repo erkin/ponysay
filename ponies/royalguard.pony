@@ -10,7 +10,7 @@ KIND: pegasus
 LINK: regular
 MANE: blue
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (StarStep) Desktop ponies
 WIDTH: 44
 HEIGHT: 27
 

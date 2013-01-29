@@ -13,7 +13,7 @@ MANE: white
 NAME: Trixie
 OTHER NAMES: The Great and Powerful Trixie (official, titled), Trixie Lulamoon (official, toy line), Lulamoon (official, toy line)
 POSE: boast
-SOURCE: desktop ponies
+SOURCE: (Jay Wright/Monkey Jay, Yamino, Zipman, Humle, Starly) Desktop ponies
 WIDTH: 51
 HEIGHT: 33
 

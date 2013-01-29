@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Lightning Bolt (unofficial)
 POSE: fly
-SOURCE: desktop ponies
+SOURCE: (Starly) Desktop ponies
 WIDTH: 41
 HEIGHT: 25
 

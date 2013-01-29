@@ -11,7 +11,7 @@ LINK: regular
 MANE: zebra
 NAME: Zecora
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Sidekick ponyguy, RJP!) Desktop ponies
 WIDTH: 44
 HEIGHT: 30
 

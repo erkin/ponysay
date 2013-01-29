@@ -13,7 +13,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Chrysalis (official, in manuscript and in the official comic)
 POSE: stand
-SOURCE: unknown
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 52
 HEIGHT: 36
 

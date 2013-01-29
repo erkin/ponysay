@@ -12,7 +12,7 @@ MANE: beige
 NAME: (not mentioned)
 OTHER NAMES: Crafty Crate (unofficial), Boxxy Brown (unofficial), Pete (unofficial)
 POSE: fly
-SOURCE: desktop ponies
+SOURCE: (Bot-Chan) Desktop ponies
 WIDTH: 48
 HEIGHT: 28
 

@@ -12,7 +12,7 @@ MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Rainbowshine (official, toy line), Rainbow Day (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 41
 HEIGHT: 25
 

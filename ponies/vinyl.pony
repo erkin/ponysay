@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: DJ Pon-3 (official, in commerical), Vın̈yl Scratch (official, in expo)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, Darksilver) Desktop ponies
 WIDTH: 46
 HEIGHT: 28
 

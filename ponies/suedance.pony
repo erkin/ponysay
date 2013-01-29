@@ -13,7 +13,7 @@ MASTER: sue
 NAME: (not mentioned)
 OTHER NAMES: Sue (unofficial)
 POSE: dance
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 43
 HEIGHT: 30
 

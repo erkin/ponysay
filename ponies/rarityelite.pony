@@ -12,7 +12,7 @@ MANE: purple
 MASTER: rarity
 NAME: Rarity
 POSE: elite
-SOURCE: imageboard
+SOURCE: (interobangpie) imageboard
 WIDTH: 46
 HEIGHT: 26
 

@@ -12,7 +12,7 @@ LINK: regular
 MANE: purple
 NAME: Rarity
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Jay wright, StarStep, Bot-chan, The Coop, Miriam the Bat, Kloopp) Desktop ponies
 WIDTH: 53
 HEIGHT: 25
 

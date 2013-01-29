@@ -12,7 +12,7 @@ MANE: purple
 MASTER: rarity
 NAME: Rarity
 POSE: ponder
-SOURCE: desktop ponies
+SOURCE: (Jay wright, StarStep, Bot-chan, The Coop, Miriam the Bat, Kloopp) Desktop ponies
 WIDTH: 42
 HEIGHT: 26
 

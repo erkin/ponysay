@@ -11,7 +11,7 @@ LINK: regular
 MANE: brown
 NAME: Braeburn
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 47
 HEIGHT: 25
 

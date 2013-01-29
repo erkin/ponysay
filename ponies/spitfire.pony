@@ -12,7 +12,7 @@ LINK: regular
 MANE: orange
 NAME: Spitfire
 POSE: fly
-SOURCE: desktop ponies
+SOURCE: (Rainbowdutch, Bot-chan) Desktop ponies
 WIDTH: 53
 HEIGHT: 23
 

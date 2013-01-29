@@ -10,7 +10,7 @@ KIND: animal
 LINK: regular
 NAME: Gummy
 POSE: dance
-SOURCE: desktop ponies
+SOURCE: (CANDYBAG, Anonycat, DeathPony/deathpwny) Desktop ponies
 WIDTH: 27
 HEIGHT: 15
 

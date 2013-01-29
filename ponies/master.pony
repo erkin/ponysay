@@ -12,7 +12,7 @@ MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Master (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 39
 HEIGHT: 25
 

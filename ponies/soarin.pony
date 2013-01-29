@@ -11,7 +11,7 @@ LINK: regular
 MANE: blue
 NAME: Soarin
 POSE: eat
-SOURCE: desktop ponies
+SOURCE: (StarStep, Anonycat) Desktop ponies
 WIDTH: 52
 HEIGHT: 25
 

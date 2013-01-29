@@ -12,7 +12,7 @@ MANE: purple
 NAME: (not mentioned)
 OTHER NAMES: Diamond Mint (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (StarStep, Starly) Sesktop ponies
 WIDTH: 47
 HEIGHT: 25
 

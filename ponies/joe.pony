@@ -12,7 +12,7 @@ MANE: brown
 NAME: Joe
 OTHER NAMES: Donut Joe (partially official)
 POSE: stand
-SOURCE: dektop ponies
+SOURCE: (Bot-chan) Dektop ponies
 WIDTH: 39
 HEIGHT: 28
 

@@ -12,7 +12,7 @@ MANE: blue
 NAME: Bon Bon (Gameloft game)
 OTHER NAMES: Sweetie Drops (official)
 POSE: sleep
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, Starly) Desktop ponies
 WIDTH: 42
 HEIGHT: 27
 

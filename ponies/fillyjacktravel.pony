@@ -14,7 +14,7 @@ MASTER: applejack
 NAME: Applejack
 OTHER NAMES: AJ (official, short)
 POSE: filly travel
-SOURCE: desktop ponies
+SOURCE: (SupaSpeedSrut) Desktop ponies
 WIDTH: 39
 HEIGHT: 21
 

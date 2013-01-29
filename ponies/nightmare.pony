@@ -13,7 +13,7 @@ MANE: blue
 NAME: Nightmare Moon
 OTHER NAMES: Princess Luna (official, harmonised full name), Luna (official, harmonised), Jument Séléniaque (official, french), Lunija (official, harmonised russian), Woona (unofficial, harmonised)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Asparagus) Desktop ponies
 WIDTH: 96
 HEIGHT: 40
 

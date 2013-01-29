@@ -13,7 +13,7 @@ MANE: grey
 MASTER: discord
 NAME: Discord
 POSE: puppet master
-SOURCE: desktop ponies
+SOURCE: (StartStep) Desktop ponies
 WIDTH: 90
 HEIGHT: 37
 

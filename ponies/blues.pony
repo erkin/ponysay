@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Noteworthy (unofficial, toy line), Blues (unofficial)
 POSE: play
-SOURCE: desktop ponies
+SOURCE: (Anonycat, StarStep) Desktop ponies
 WIDTH: 49
 HEIGHT: 25
 

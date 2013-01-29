@@ -9,9 +9,10 @@ GROUP: buffalo, wildlife
 KIND: animal
 LINK: regular
 MANE: yellow
-NAME: Strongheart
+NAME: Little Strongheart
+OTHER NAMES: Strongheart (sometimes)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 42
 HEIGHT: 27
 

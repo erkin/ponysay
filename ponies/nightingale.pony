@@ -11,7 +11,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Nightingale (unofficial)
 POSE: sit
-SOURCE: desktop ponies
+SOURCE: (Pony Noia, Glamador) Desktop ponies
 WIDTH: 49
 HEIGHT: 25
 

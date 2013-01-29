@@ -13,7 +13,7 @@ MANE: yellow
 NAME: Applejack
 OTHER NAMES: AJ (official, short)
 POSE: stapm
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, RJP!, Pony Noi, Bot-chan, StarStep, Anonycat) Desktop ponies
 WIDTH: 52
 HEIGHT: 27
 

@@ -10,7 +10,7 @@ KIND: animals
 LINK: regular
 NAME: Philomena
 POSE: featherless
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 29
 HEIGHT: 20
 

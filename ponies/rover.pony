@@ -11,7 +11,7 @@ LINK: regular
 NAME: (not mentioned)
 OTHER NAMES: Rover (official, in manuscripts)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 51
 HEIGHT: 26
 

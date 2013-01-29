@@ -12,7 +12,7 @@ MANE: orange
 NAME: Mr Carrot Cake
 OTHER NAMES: Carecake, Mr Cake, Mr Carecake, Carrot Cake
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat, Bot-chan) Desktop ponies
 WIDTH: 42
 HEIGHT: 30
 

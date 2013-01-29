@@ -12,7 +12,7 @@ MANE: white
 NAME: Granny Smith
 OTHER NAMES: Granny (official, short)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 35
 HEIGHT: 23
 

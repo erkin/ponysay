@@ -11,7 +11,7 @@ LINK: regular
 MANE: white
 NAME: Photo Finish
 POSE: stand
-SOURCE: dektop ponies
+SOURCE: (Pony Noia) Dektop ponies
 WIDTH: 41
 HEIGHT: 25
 

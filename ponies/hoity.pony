@@ -11,7 +11,7 @@ LINK: regular
 MANE: white
 NAME: Hoity Toity
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 42
 HEIGHT: 27
 

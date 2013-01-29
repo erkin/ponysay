@@ -14,7 +14,7 @@ MASTER: applejack
 NAME: Applejack
 OTHER NAMES: AJ (official, short)
 POSE: scarecrow
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, RJP!, Pony Noi, Bot-chan, StarStep, Anonycat) Desktop ponies
 WIDTH: 47
 HEIGHT: 33
 

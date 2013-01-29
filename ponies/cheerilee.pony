@@ -12,7 +12,7 @@ MANE: pink
 NAME: Cheerilee
 OTHER NAMES: Cheerelee (McDonald toy), Cheerilee Pie (on Gameloft game beta)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Humle) Desktop ponies
 WIDTH: 45
 HEIGHT: 25
 

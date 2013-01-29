@@ -12,7 +12,7 @@ MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Cherry Fizzy (official, collector card and toy line), Cherry Cola (unofficial), Cherry Coke (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: Desktop ponies
 WIDTH: 39
 HEIGHT: 25
 

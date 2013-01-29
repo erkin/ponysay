@@ -12,7 +12,7 @@ MANE: brown
 NAME: Big McIntosh
 OTHER NAMES: Big Mac (sometimes), Big Macintosh (sometimes), Mac (rarely but mentioned)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) desktop ponies
 WIDTH: 49
 HEIGHT: 27
 

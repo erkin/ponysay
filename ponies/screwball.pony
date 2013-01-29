@@ -12,7 +12,7 @@ MANE: purple
 NAME: (not mentioned)
 OTHER NAMES: Screwball (unofficial)
 POSE: float
-SOURCE: desktop ponies
+SOURCE: (DeathPony/deathpwny) Desktop ponies
 WIDTH: 53
 HEIGHT: 23
 

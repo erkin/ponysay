@@ -11,8 +11,8 @@ LINK: regular
 MANE: green
 NAME: Spike
 POSE: float
-SOURCE: desktop ponies
-WIDTH: 26
+SOURCE: (Peter Kuruc/Fantos, StarStep, Anonycat) Desktop ponies
+WIDTH: 28
 HEIGHT: 20
 
 

@@ -12,7 +12,7 @@ MANE: grey
 NAME: (not mentioned)
 OTHER NAMES: Caesar (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 48
 HEIGHT: 26
 

@@ -12,7 +12,7 @@ MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Candy Mane (unofficial), Sugarcoat (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Pony Nooia) Desktop ponies
 WIDTH: 47
 HEIGHT: 27
 

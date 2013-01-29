@@ -15,10 +15,11 @@ NAME: (not mentioned)
 OTHER NAMES: Chrysalis (official, in manuscript and comic)
 POSE: alternative
 SOURCE: unknown
+WING: teal
 WIDTH: 65
 HEIGHT: 34
 
-WING: teal
+
 $$$
 $balloon35$[0m
                                 $\$

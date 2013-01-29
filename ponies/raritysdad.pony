@@ -12,7 +12,7 @@ MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Magnum (official, in Gameloft game), Carlton (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chsn) Desktop ponies
 WIDTH: 41
 HEIGHT: 27
 

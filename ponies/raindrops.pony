@@ -12,7 +12,7 @@ MANE: cyan
 NAME: (not mentioned)
 OTHER NAMES: Raindrops (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Starly, AngelKat58, StarStep) Desktop ponies
 WIDTH: 48
 HEIGHT: 25
 

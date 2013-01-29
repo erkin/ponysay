@@ -10,7 +10,7 @@ KIND: changeling
 LINK: regular
 MANE: black
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WING: teal
 WIDTH: 37
 HEIGHT: 26

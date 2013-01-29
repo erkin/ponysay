@@ -12,7 +12,7 @@ MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Wild Fire (stated official by the crew)
 POSE: pose
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 38
 HEIGHT: 25
 

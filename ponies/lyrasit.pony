@@ -13,7 +13,7 @@ MASTER: lyra
 NAME: Lyra (Gameloft game)
 OTHER NAMES: Lyra Heartstrings, Harpass (wikia mention as an old name), Heartstrings (old name)
 POSE: sit
-SOURCE: desktop ponies
+SOURCE: (Anonymous, Starly) Desktop ponies
 WIDTH: 52
 HEIGHT: 28
 

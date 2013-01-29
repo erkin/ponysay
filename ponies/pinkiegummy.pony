@@ -25,7 +25,7 @@ NAME: Gummy
 OTHER NAMES: Pinkie (official, short name), Pinkamina Diane Pie (official, full name)
 OTHER NAMES: (none)
 POSE: gummy
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, DeathPony/deadpwny, sidekick ponyguy, StarStep) Desktop ponies
 WIDTH: 51
 HEIGHT: 32
 

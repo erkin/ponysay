@@ -11,7 +11,7 @@ LINK: regular
 MANE: grey
 NAME: Silverspeed
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (fanofetcetera) Desktop ponies
 WIDTH: 45
 HEIGHT: 25
 

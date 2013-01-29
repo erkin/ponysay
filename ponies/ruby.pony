@@ -12,7 +12,7 @@ MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Berry Pinch (unofficial), Ruby (unofficial), Ruby Pinch (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Azure Fang) Desktop ponies
 WIDTH: 36
 HEIGHT: 21
 

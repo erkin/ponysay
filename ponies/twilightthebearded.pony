@@ -14,7 +14,7 @@ MANE: purple
 NAME: Twilight
 OTHER NAMES: Twilight Sparkle (official, full name)
 POSE: twilight
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, Humle, Bot-chan, StarStep, Anonycat, InfinityDash, supersayanmikito, aslic96) Desktop ponies
 WIDTH: 58
 HEIGHT: 33
 

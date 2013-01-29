@@ -12,7 +12,7 @@ MANE: yellow
 NAME: Derpy
 OTHER NAMES: Derpy Hooves (partially offical), Ditzy Doo (official, in manuscript)
 POSE: fly
-SOURCE: desktop ponies
+SOURCE: (Jay Wright, vulcan539/james539, Blackfeathr, The Coop) Desktop ponies
 WIDTH: 49
 HEIGHT: 27
 

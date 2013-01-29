@@ -12,7 +12,7 @@ MANE: zebra
 MASTER: zecora
 NAME: Zecora
 POSE: balance
-SOURCE: desktop ponies
+SOURCE: (Sidekick ponyguy, RJP!) Desktop ponies
 WIDTH: 40
 HEIGHT: 45
 

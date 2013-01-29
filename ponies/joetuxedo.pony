@@ -13,7 +13,7 @@ MASTER: joe
 NAME: Joe
 OTHER NAMES: Donut Joe (partially official)
 POSE: tuxedo
-SOURCE: [jristz], based on dektop ponies
+SOURCE: [jristz], based on (Bot-chan) Dektop ponies
 WIDTH: 39
 HEIGHT: 26
 

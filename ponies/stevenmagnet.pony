@@ -12,7 +12,7 @@ MANE: orange
 NAME: (not mentioned)
 OTHER NAMES: Sea Serpent (official, in merchandise), Steven Magnet (unofficial), River Serpent (stated by the crew)
 POSE: idle
-SOURCE: desktop ponies
+SOURCE: (StarStep) Desktop ponies
 WIDTH: 78
 HEIGHT: 42
 

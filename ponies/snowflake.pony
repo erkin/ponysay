@@ -12,7 +12,7 @@ MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Snowflake (unofficial), Horse Power (unofficial)
 POSE: loud
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 48
 HEIGHT: 25
 

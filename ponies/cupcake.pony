@@ -12,7 +12,7 @@ MANE: red
 NAME: Mrs Cup Cake
 OTHER NAMES: Cup Cake, Mrs Cupcake, Cupcake
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 43
 HEIGHT: 28
 

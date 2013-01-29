@@ -12,7 +12,7 @@ MANE: white (ponysay), pink (source)
 NAME: (not mentioned)
 OTHER NAMES: Nurse Redheart (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Logan, StarStep) Desktop ponies
 WIDTH: 40
 HEIGHT: 27
 

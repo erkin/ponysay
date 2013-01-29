@@ -12,7 +12,7 @@ MANE: grey
 NAME: (not mentioned)
 OTHER NAMES: Blinkie Pie (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 31
 HEIGHT: 20
 

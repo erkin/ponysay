@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Lemon Hearts (official, in merchandise)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (fanonfetcetera) Desktop ponies
 WIDTH: 39
 HEIGHT: 22
 

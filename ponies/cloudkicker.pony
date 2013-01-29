@@ -12,7 +12,7 @@ MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Cloud Kicker (unofficial)
 POSE: derped
-SOURCE: desktop ponies
+SOURCE: (Tyranico) Desktop ponies
 WIDTH: 47
 HEIGHT: 24
 

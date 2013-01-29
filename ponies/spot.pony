@@ -11,7 +11,7 @@ LINK: regular
 NAME: (not mentioned)
 OTHER NAMES: Spot (official, in manuscript)
 POSE: grap
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 47
 HEIGHT: 23
 

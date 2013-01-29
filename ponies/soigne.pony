@@ -12,7 +12,7 @@ MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Soigne Folio (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 42
 HEIGHT: 27
 

@@ -11,7 +11,7 @@ LINK: regular
 MANE: red
 NAME: Flam
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 44
 HEIGHT: 29
 

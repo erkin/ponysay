@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Goldengrape (official, toy line), Colton Vines (unofficial), Sir Colton Vines III (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 41
 HEIGHT: 25
 

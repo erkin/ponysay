@@ -14,7 +14,7 @@ MASTER: twilight
 NAME: Twilight
 OTHER NAMES: Twilight Sparkle (official, full name)
 POSE: filly
-SOURCE: desktop ponies
+SOURCE: (Pony Noia, RJP!) Desktop ponies
 WIDTH: 35
 HEIGHT: 21
 

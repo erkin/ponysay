@@ -11,7 +11,7 @@ LINK: regular
 MANE: black
 NAME: Iron Will
 POSE: walk
-SOURCE: desktop ponies
+SOURCE: (StarStep) Desktop ponies
 WIDTH: 59
 HEIGHT: 39
 

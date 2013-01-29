@@ -11,7 +11,7 @@ LINK: regular
 MANE: cyan
 NAME: Flitter
 POSE: exercise
-SOURCE: desktop ponies
+SOURCE: (fanofetcetera) Desktop ponies
 WIDTH: 52
 HEIGHT: 22
 

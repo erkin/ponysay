@@ -12,7 +12,7 @@ MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Octavia (official, on trading card)
 POSE: play
-SOURCE: desktop ponies
+SOURCE: (RJP!) Desktop ponies
 WIDTH: 45
 HEIGHT: 31
 

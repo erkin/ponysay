@@ -12,7 +12,7 @@ MANE: grey
 NAME: (not mentioned)
 OTHER NAMES: Sue (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 42
 HEIGHT: 26
 

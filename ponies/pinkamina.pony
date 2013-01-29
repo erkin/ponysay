@@ -14,7 +14,7 @@ MASTER: pinkie
 NAME: Pinkie Pie
 OTHER NAMES: Pinkie (offical, short name), Pinkamina Diane Pie (official, full name)
 POSE: pinkamina
-SOURCE: desktop ponies
+SOURCE: (supersayanmikito, Anonycat) Desktop ponies
 WIDTH: 44
 HEIGHT: 25
 

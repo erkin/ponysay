@@ -12,7 +12,7 @@ LINK: regular
 NAME: Mare Do Well
 OTHER NAMES: The Mysterious Mare Do Well (official, titled name)
 POSE: gallop
-SOURCE: desktop ponies
+SOURCE: (JavaNut, DrZoin) Desktop ponies
 WIDTH: 52
 HEIGHT: 24
 

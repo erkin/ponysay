@@ -13,7 +13,7 @@ MASTER: fluttershy
 NAME: Fluttershy
 OTHER NAMES: Shy (sometimes)
 POSE: stare
-SOURCE: desktop ponies
+SOURCE: (Derpy Delivery, Jay Wright, Humle, StartStep, DeathPony/deathpwny, AngelKat58, Asparagus, HalfnHalf) Desktop ponies
 WIDTH: 53
 HEIGHT: 23
 

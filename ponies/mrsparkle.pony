@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Night Light (unofficial), Mr Sparkle, Crescent Sparkle (unofficial)
 POSE: stand
-SOURCE: desktop ponies, [jristz] (ponysay 2.8)
+SOURCE: (Bot-chan) Desktop ponies, [jristz] (ponysay 2.8)
 WIDTH: 40
 HEIGHT: 25
 

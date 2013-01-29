@@ -12,7 +12,7 @@ MANE: yellow
 NAME: (not mentioned)
 OTHER NAMES: Mjölna (unofficial), Sandy (unoffical)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Anonymous) Desktop ponies
 WIDTH: 45
 HEIGHT: 26
 

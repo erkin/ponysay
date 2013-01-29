@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Archer (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (vulcan539/james539) Desktop ponies
 WIDTH: 46
 HEIGHT: 21
 
