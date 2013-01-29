@@ -12,8 +12,8 @@ MANE: brown (source), black (ponysay)
 NAME: (not mentioned)
 OTHER NAMES: Theodore Donald "Donny" Kerabatsos (unofficial)
 POSE: stand
-SOURCE: deviantart desktop ponies group
-WIDTH: 41
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 42
 HEIGHT: 24
 
 

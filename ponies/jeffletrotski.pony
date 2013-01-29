@@ -12,7 +12,7 @@ MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Jeff "The Dude" Letrotski (official, in Gameloft games)
 POSE: stand
-SOURCE: (botchan) Desktop ponies deviantart group
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 43
 HEIGHT: 24
 
