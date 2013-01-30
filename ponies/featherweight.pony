@@ -11,7 +11,7 @@ LINK: regular
 MANE: brown
 NAME: Featherweight
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 31
 HEIGHT: 25
 

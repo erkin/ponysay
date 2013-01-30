@@ -13,7 +13,7 @@ MASTER: raven
 NAME: (not mentioned)
 OTHER NAMES: Raven (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 37
 HEIGHT: 25
 

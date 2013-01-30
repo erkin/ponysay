@@ -12,7 +12,7 @@ MANE: blue
 NAME: (not mentioned)
 OTHER NAMES: Fiddlesticks (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: (vulcan539/james539) Desktop ponies
 WIDTH: 42
 HEIGHT: 26
 
