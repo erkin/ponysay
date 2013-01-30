@@ -14,6 +14,7 @@ NAME: (not mentioned)
 OTHER NAMES: Chrysalis (official, in manuscript and in the official comic)
 POSE: stand
 SOURCE: (Bot-chan) Desktop ponies
+WING: teal
 WIDTH: 52
 HEIGHT: 36
 
