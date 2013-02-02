@@ -11,7 +11,7 @@ LINK: regular
 MANE: pink
 MASTER: cheerilee
 NAME: Cheerilee
-OTHER NAMES: Cheerelee (McDonald toy), Cheerilee Pie (on Gameloft game beta), Chirayli (in russian)
+OTHER NAMES: Cheerelee (McDonald toy), Cheerilee Pie (on Gameloft game beta), Chirayli (official, russian)
 POSE: '80s
 SOURCE: (Humle) Desktop ponies
 WIDTH: 44

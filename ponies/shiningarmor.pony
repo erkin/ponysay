@@ -10,6 +10,7 @@ KIND: unicorn
 LINK: regular
 MANE: blue
 NAME: Shining Armor
+OTHER NAMES: Caballero (official, spanish)
 POSE: trot
 SOURCE: [jristz]
 WIDTH: 44

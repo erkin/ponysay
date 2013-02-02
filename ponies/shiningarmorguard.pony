@@ -11,6 +11,7 @@ LINK: regular
 MANE: blue
 MASTER: shiningarmor
 NAME: Shining Armor
+OTHER NAMES: Caballero (official, spanish)
 POSE: guard
 SOURCE: [jristz]
 WIDTH: 44

@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: pink
 NAME: Cheerilee
-OTHER NAMES: Cheerelee (McDonald toy), Cheerilee Pie (on Gameloft game beta), Chirayli (russian)
+OTHER NAMES: Cheerelee (McDonald toy), Cheerilee Pie (on Gameloft game beta), Chirayli (official, russian)
 POSE: stand
 SOURCE: (Humle) Desktop ponies
 WIDTH: 45
