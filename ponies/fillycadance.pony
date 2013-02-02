@@ -1,6 +1,6 @@
 $$$
 APPEARANCE: S02E25 The Royal Wedding [Part 1]
-AURA: pink
+AURA: cyan
 BALLOON: top
 COAT: pink
 DISPLAY: full, right
