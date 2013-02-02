@@ -9,7 +9,7 @@ GROUP: mare, background, voiced
 KIND: unicorn
 LINK: regular
 MANE: white
-NAME: Lyra (gameloft game)
+NAME: Lyra (Gameloft game)
 OTHER NAMES: Lyra Heartstrings, Harpass (wikia mention as an old name), Heartstrings (old name)
 POSE: sleep
 SOURCE: (Anonymous, Starly) Desktop ponies

@@ -9,7 +9,8 @@ GROUP: mare, background, voiced
 KIND: earth
 LINK: regular
 MANE: pink
-NAME: Bon Bon (unofficial, but FAR more used)
+MASTER: bonbon
+NAME: Bon Bon (Gameloft game)
 OTHER NAMES: Sweetie Drops (official)
 POSE: stand
 SOURCE: (Jay wright, Starly) Desktop ponies

@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: Jesús Pezuña (official, in gameloft)
+OTHER NAMES: Jesús Pezuña (official, in Gameloft game)
 POSE: trot
 SOURCE: [jristz]
 WIDTH: 41
