@@ -2,15 +2,30 @@ Version 3.0
 
 	New ponies: amira, babseed, bear, beautybrass, bigmacsleep, billneigh, cadancecrystal, cloudchaser, descent,
 		    featherweight, fiddlesticks, flitter, haakim, lighningdust, midnightstrike, mrbreezy, orangebird,
-		    orangefrog, pinkiecrazyface, raccoon, rarityelite, ravenunicorn, royalunicornguard, rumble, shiningarmorcrystal,
-		    sombra, spikecrystal, squirrel, sweetcream (comic), trixieamulet, twilightcrystal, twinkleshine
+		    orangefrog, pinkiecrazyface, raccoon, rarityelite, ravenearth, ravenunicorn, royalunicornguard, rumble,
+		    shiningarmorcrystal, sombra, spikecrystal, squirrel, sweetcream (comic), trixieamulet, twilightcrystal,
+		    twinkleshine
 
 	New extraponies: gleamingshield, johndelancie, pipsqueak (without pirate suit), pizzapony, tempo
 
 	Ponies renamed: lotusbloosom → lotusblossom (typo)
 	                maredowellgallop → maredowellgallop (need a version named as master)
 	                ironwillwalk →  ironwillwalk (need a version named as master)
-	                ravenunicorn → raven (need a version named as master)
+			shadowbolts → nightingale (shadowbolts split)
+			lily → lilyvalley (official name)
+			sweatiesing → sweetiesing (name consistency)
+			carecake become carrotcake (official name)
+			peppermoon → papermoon (miswriting)
+			maria into danger (given by the author)
+			meliot → melilot (miswriting)
+
+	Pony symlink added: lily → lilyvalley
+			sweetiedrops → bonbon
+			carecake → carrotcake
+			berrydreams → blueberry
+			raven → ravenunicorn (need a version named as master)
+
+	fillycelestia and filliestia has been moved to extraponies.
 
 	Renamed option -F to +f and option --F to ++f.
 
@@ -46,22 +61,6 @@ Version 3.0
 	New manditory setup option --freedom.
 
 	Pony metadata options added: --info, ++info and --restrict.
-
-	fillycelestia and filliestia has been moved to extraponies.
-
-	Ponies renamed: shadowbolts → nightingale (shadowbolts split)
-			lily → lilyvalley (official name)
-			sweatiesing → sweetiesing (name consistency)
-			carecake become carrotcake (official name)
-			peppermoon → papermoon (miswriting)
-			maria into danger (given by the author)
-			meliot → melilot (miswriting)
-
-	Pony symlink added: lily → lilyvalley
-			    sweetiedrops → bonbon
-			    carecake → carrotcake
-			    berrydreams → blueberry
-
 
 Version 2.9.1
 
