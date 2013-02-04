@@ -12,7 +12,7 @@ MANE: black
 MASTER: raven
 NAME: (not mentioned)
 OTHER NAMES: Raven (unofficial)
-POSE: stand
+POSE: demon
 SOURCE: [jristz] based on (Bot-chan) Desktop ponies
 WIDTH: 44
 HEIGHT: 25
