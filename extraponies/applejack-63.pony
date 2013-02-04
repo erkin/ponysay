@@ -4,7 +4,7 @@ COAT: brown
 DISPLAY: full, left
 EYE: green
 FREE: yes
-GROUP: stallion, manes, coltifiedi
+GROUP: stallion, manes, coltified
 KIND: earth
 LICENSE: CC0 (CC0 1.0 Universal)
 LINK: regular
