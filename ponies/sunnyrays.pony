@@ -12,7 +12,7 @@ MANE: pink
 NAME: (not mentioned)
 OTHER NAMES: Sunny Rays (official, in merchandise)
 POSE: fly
-SOURCE: desktop ponies
+SOURCE: Desktop ponies
 WIDTH: 49
 HEIGHT: 19
 

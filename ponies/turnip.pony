@@ -7,8 +7,8 @@ KIND: item
 LICENSE: cc-by-nc-sa
 LINK: regular
 NAME: Turnip
-SOURCE: desktop ponies
-WIDTH: 23
+SOURCE: Desktop ponies
+WIDTH: 24
 HEIGHT: 24
 
 License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0

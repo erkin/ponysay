@@ -9,8 +9,8 @@ KIND: item
 LICENSE: cc-by-nc-sa
 LINK: regular
 NAME: Rocky
-SOURCE: desktop ponies
-WIDTH: 22
+SOURCE: Desktop ponies
+WIDTH: 23
 HEIGHT: 27
 
 License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0

@@ -8,8 +8,8 @@ KIND: item
 LICENSE: cc-by-nc-sa
 LINK: regular
 NAME: Lintsalot
-SOURCE: desktop ponies
-WIDTH: 25
+SOURCE: Desktop ponies
+WIDTH: 27
 HEIGHT: 21
 
 License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0

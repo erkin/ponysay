@@ -8,7 +8,7 @@ KIND: item
 LICENSE: cc-by-nc-sa
 LINK: regular
 NAME: Madam la Flour
-SOURCE: desktop ponies
+SOURCE: Desktop ponies
 WIDTH: 28
 HEIGHT: 26
 

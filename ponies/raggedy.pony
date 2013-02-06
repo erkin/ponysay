@@ -12,7 +12,7 @@ MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Raggedy (unofficial), Raggedy Doctor (unofficial)
 POSE: trot
-SOURCE: desktop ponies deviantart group
+SOURCE: Desktop ponies deviantart group
 WIDTH: 39
 HEIGHT: 30
 

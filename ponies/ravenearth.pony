@@ -13,7 +13,7 @@ MASTER: raven
 NAME: (not mentioned)
 OTHER NAMES: Raven (unofficial)
 POSE: demon
-SOURCE: [jristz] based on (Bot-chan) Desktop ponies
+SOURCE: [jristz], based on (Bot-chan) Desktop ponies
 WIDTH: 44
 HEIGHT: 25
 

@@ -12,7 +12,7 @@ MANE: white
 NAME: (not mentioned)
 OTHER NAMES: Perry Pierce (unofficial), Pokey Pierce (unofficial, same look)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: Desktop ponies
 WIDTH: 43
 HEIGHT: 27
 

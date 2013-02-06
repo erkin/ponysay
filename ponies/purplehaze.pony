@@ -12,7 +12,7 @@ MANE: purple
 NAME: (not  mentioned)
 OTHER NAMES: Purple Haze (unofficial)
 POSE: stand
-SOURCE: desktop ponies
+SOURCE: [jristz]
 WIDTH: 43
 HEIGHT: 27
 

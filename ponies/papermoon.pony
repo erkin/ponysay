@@ -12,7 +12,7 @@ MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Papermoon (unofficial), Peppermoon (unofficial)
 POSE: trot
-SOURCE: desktop ponies
+SOURCE: [jristz]
 WIDTH: 39
 HEIGHT: 24
 

@@ -10,7 +10,7 @@ KIND: animal
 LICENSE: cc-by-sa
 LINK: regular
 POSE: smile
-SOURCE: desktop ponies
+SOURCE: sktop ponies
 WIDTH: 26
 HEIGHT: 15
 
