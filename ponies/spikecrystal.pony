@@ -12,7 +12,7 @@ MANE: green
 MASTER: spike
 NAME: Spike
 POSE: crystal
-SOURCE: [jristz]
+SOURCE: [jristz], based on (anonycat) Desktop ponies
 WIDTH: 30
 HEIGHT: 20
 
