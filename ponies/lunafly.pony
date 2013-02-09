@@ -14,7 +14,7 @@ MASTER: luna
 NAME: Luna
 OTHER NAMES: Princess Luna (official, full name), Lunija (official, russian), Nightmare Moon (official, corrupted), Woona (unofficial)
 POSE: fly
-SOURCE: (unknown)
+SOURCE: (Starly) Desktop ponies
 WIDTH: 85
 HEIGHT: 40
 
