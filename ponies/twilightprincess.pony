@@ -1,12 +1,12 @@
 $$$
-APPEARANCE: S01E01 Friendship is Magic [Part 1]
+APPEARANCE: S03E13 Magical Mistery Cure
 AURA: purple (whitish lilac in season 1)
 BALLOON: top
 COAT: purple
 DISPLAY: full, left
 EYE: purple
 FREE: no
-GROUP: mare, mane, toyal
+GROUP: mare, mane, royal
 KIND: alicorn
 LINK: regular
 MANE: purple

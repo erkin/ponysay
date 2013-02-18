@@ -6,7 +6,7 @@ COAT: black
 DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: antagonist
+GROUP: mare, antagonist, royal
 KIND: changeling
 LINK: regular
 MANE: teal
