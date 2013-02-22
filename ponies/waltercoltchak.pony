@@ -12,7 +12,7 @@ MANE: brown
 NAME: (not mentioned)
 OTHER NAMES: Walter Coltchak (official, stated official by the crew)
 POSE: stand
-SOURCE: (bot-chan) Desktop ponies
+SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 40
 HEIGHT: 26
 

@@ -10,7 +10,7 @@ KIND: animal
 LINK: regular
 MANE: orange
 NAME: (not mentioned)
-OTHER NAMES: Sea Serpent (official, in merchandise), Steven Magnet (unofficial), River Serpent (stated by the crew)
+OTHER NAMES: Sea Serpent (official, in merchandise), Steven Magnet (official, on toy line), River Serpent (stated by the crew)
 POSE: idle
 SOURCE: (StarStep) Desktop ponies
 WIDTH: 78

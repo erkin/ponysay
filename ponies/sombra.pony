@@ -6,7 +6,7 @@ COAT: grey
 DISPLAY: full, left
 EYE: green (in flashback), white (in last scene), brown (ponysay) red (source), purple aura
 FREE: no
-GROUP: stallion, antagonist
+GROUP: stallion, antagonist, royal
 KIND: unicorn
 LINK: regular
 MANE: black

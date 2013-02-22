@@ -10,6 +10,7 @@ KIND: earth
 LINK: regular
 MANE: orange (ponysay), red (source)
 NAME: Twist
+OTHER NAMES: Peppermint Twist (official, son Gameloft Game)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 33

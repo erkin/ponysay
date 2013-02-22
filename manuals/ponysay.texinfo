@@ -901,10 +901,10 @@ is) may be added if required.
 This tag decribes what kind of pony a pony is, it is a comma seperated lower case list,
 and it cannot be empty, by it can be (but shouldn't) skipped for every pony in the image.
 
-Every fitting value should be used, however a alicorn (also known as alacorn, winged
-unicorn or pegacorn) should have the values @code{alicorn} and @code{pony}, but neither
-@code{pegasus} nor @code{unicorn}. Earth ponies should have the value @code{pony} and
-@code{earth} (not @code{earth pony}.)
+Every fitting value should be used, however an alicorn (also known as alacorn, winged
+unicorn, acorn, pegasus-unicorn or pegacorn) should have the values @code{alicorn} and
+@code{pony}, but neither @code{pegasus} nor @code{unicorn}. Earth ponies should have
+the value @code{pony} and @code{earth} (not @code{earth pony}.)
 
 The standard values are (you may use other ones if fitting): @code{unicorn}, @code{pegasus},
 @code{alicorn}, @code{earth}, @code{pony}, @code{changeling}, @code{crystal}, @code{seapony},
@@ -2918,13 +2918,14 @@ sequences.
 @itemize @bullet
 @item
 New ponies: @file{amira},  @file{babseed}, @file{bear}, @file{beautybrass}, @file{bigmacsleep}, @file{billneiigh},
-@file{cadancecrystal}, @file{cloudchaser}, @file{descent}, @file{haakim}, @file{halfbakedapple}, @file{hayseed},
+@file{cadancecrystal}, @file{cloudchaser}, @file{descent}, @file{haakim}, @file{halfbakedapple}, @file{hayseed}, @file{jubileena},
 @file{featherweight}, @file{fiddlesticks}, @file{flitter}, @file{lighningdust}, @file{midnightstrike}, @file{mrbreezy},
 @file{orangebird}, @file{orangefrog}, @file{pinkiecrazyface}, @file{raccoon}, @file{rarity}, @file{ravenearth},
 @file{ravenunicorn}, @file{royalunicornguard}, @file{rumble}, @file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal},
-@file{squirrel}, @file{sweetcream} (comic), @file{twilightcrystal}, @file{trixieamulet}, @file{twinkleshine}
+@file{squirrel}, @file{sweetcream} (comic), @file{trixieamulet}, @file{twilightcrystal}, @file{twilightprincess}, @file{twinkleshine}
 @item
-New extraponies: @file{gleamingshield}, @file{johndelancie}, @file{orion}, @file{pipsqueak}, @file{pizzapony}, @file{tempo}
+New extraponies: @file{donutpony}, @file{gleamingshield}, @file{johndelancie}, @file{orion}, @file{pipsqueak}, @file{pardise},
+@file{pizzapony}, @file{tempo}
 @item
 @file{lotusbloosom} has been renamed to @file{lotusblossom} (typo)
 @item
