@@ -8,7 +8,7 @@ FREE: no
 GROUP: mare
 KIND: earth
 LINK: regular
-MANE: white
+MANE: grey (but it is naturally pink)
 NAME: Mayor Mare
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
