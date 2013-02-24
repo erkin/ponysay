@@ -10,7 +10,7 @@ LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: pink, white, red, blue, yellow
 MEDIA: [fanart]
-NAME: Donut pony
+NAME: Donut pony (given by the author)
 POSE: fly
 SOURCE: [jristz]
 WIDTH: 43
