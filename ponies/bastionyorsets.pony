@@ -10,7 +10,7 @@ KIND: unicorn
 LINK: regular
 MANE: white
 NAME: (not mentioned)
-OTHER NAMES: Bastion Yorsets (unofficial),  George Washingtony (unofficial)
+OTHER NAMES: Noble Laureate (unofficial), Bastion Yorsets (unofficial),  George Washingtony (unofficial)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 39
