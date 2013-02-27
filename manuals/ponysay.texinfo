@@ -902,8 +902,10 @@ This tag decribes what kind of pony a pony is, it is a comma seperated lower cas
 and it cannot be empty, by it can be (but shouldn't) skipped for every pony in the image.
 
 Every fitting value should be used, however an alicorn (also known as alacorn, winged
-unicorn, acorn, pegasus-unicorn or pegacorn) should have the values @code{alicorn} and
-@code{pony}, but neither @code{pegasus} nor @code{unicorn}. Earth ponies should have
+unicorn, acorn, pegasus unicorn, unipeg, unisus, horned pegasus, wing-horn, allacorn,
+cerapter pterippus, aquillacorn, pegasos aithiopikos alate unicorns,  or pegacorn)
+should have the values @code{alicorn} and@code{pony}, but neither @code{pegasus} nor
+@code{unicorn} or another of the possible therms mentioned. Earth ponies should have
 the value @code{pony} and @code{earth} (not @code{earth pony}.)
 
 The standard values are (you may use other ones if fitting): @code{unicorn}, @code{pegasus},
