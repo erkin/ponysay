@@ -10,6 +10,7 @@ GROUP: mare, mane, royal
 KIND: alicorn
 LINK: regular
 MANE: purple
+MASTER: twilight
 NAME: Twilight
 OTHER NAMES: Twilight Sparkle (official, full name), Princess Twilight Sparkle (Official, with tittle)
 POSE: princess
