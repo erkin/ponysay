@@ -3,7 +3,7 @@ APPEARANCE: S03E13 Magical Mistery Cure
 AURA: purple (whitish lilac in season 1)
 BALLOON: top
 COAT: purple
-DISPLAY: full, left
+DISPLAY: full, right, turn
 EYE: purple
 FREE: no
 GROUP: mare, mane, royal
