@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: Time Turner (unofficial), Dr Hooves (official according to Welovefine), Dr Whooves (unofficial)
+OTHER NAMES: Time Turner (offifial, Trading cards), Dr Hooves (official, Welovefine merchandise), Dr Whooves (official, Funko's Vinyl figurines)
 POSE: trot
 SOURCE: (Asparagus, RJP!, Doctor Blade, Anonycat) Desktop ponies
 WIDTH: 38
