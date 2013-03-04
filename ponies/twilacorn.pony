@@ -12,7 +12,7 @@ LINK: regular
 MANE: purple
 MASTER: twilight
 NAME: Twilight
-OTHER NAMES: Twilight Sparkle (official, full name), Princess Twilight Sparkle (Official, with tittle)
+OTHER NAMES: Twilight Sparkle (official, full name), Princess Twilight Sparkle (Official, with title)
 POSE: alicorn
 SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 42
