@@ -16,7 +16,7 @@ MEDIA: Ponysay contributor original pony
 NAME: maandree
 OTHER NAMES: Mattias Andrée
 POSE: wings
-SOURCE: http://github.com/maandree/art/pony/maandree [maandree]
+SOURCE: http://github.com/maandree/art/pony/maandree
 WIDTH: 64
 HEIGHT: 40
 
