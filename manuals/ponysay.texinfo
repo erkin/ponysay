@@ -2925,7 +2925,7 @@ New ponies: @file{applesplit}, @file{amira},  @file{babseed}, @file{bear}, @file
 @file{mrbreezy}, @file{orangebird}, @file{orangefrog}, @file{pinkiecrazyface}, @file{poundcake}, @file{raccoon}, @file{rarity},
 @file{ravenearth}, @file{ravenunicorn}, @file{royalunicornguard}, @file{rumble}, @file{shiningarmorcrystal}, @file{sombra},
 @file{spikecrystal}, @file{squirrel}, @file{sweetcream} (comic), @file{trixieamulet}, @file{twilacorn}, @file{twilightcrystal},
-@file{twilightprincess}, @file{twinkleshine}
+@file{twilightcrystal}, @file{twilightfly}, @file{twilightwings}, @file{twinkleshine}
 @item
 New extraponies: @file{donutpony}, @file{gleamingshield}, @file{johndelancie}, @file{orion}, @file{pipsqueak}, @file{pardise},
 @file{pizzapony}, @file{tempo}
