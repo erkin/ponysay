@@ -2927,8 +2927,8 @@ New ponies: @file{applesplit}, @file{amira},  @file{babseed}, @file{bear}, @file
 @file{spikecrystal}, @file{squirrel}, @file{sweetcream} (comic), @file{trixieamulet}, @file{twilacorn}, @file{twilightcrystal},
 @file{twilightcrystal}, @file{twilightfly}, @file{twilightwings}, @file{twinkleshine}
 @item
-New extraponies: @file{donutpony}, @file{gleamingshield}, @file{johndelancie}, @file{orion}, @file{pipsqueak}, @file{pardise},
-@file{pizzapony}, @file{tempo}
+New extraponies: @file{donutpony}, @file{gleamingshield}, @file{johndelancie}, @file{maandree}, @file{orion}, @file{pipsqueak},
+@file{pardise}, @file{pizzapony}, @file{tempo}
 @item
 @file{lotusbloosom} has been renamed to @file{lotusblossom} (typo)
 @item
