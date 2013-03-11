@@ -14,7 +14,7 @@ MANE: gray
 MASTER: jristz
 MEDIA: Ponysay contributor original pony
 NAME: jristz
-OTHER NAMES: Jristz Random, Xristh, Jota, Pablo Lezaeta (used only on IRL Rol)
+OTHER NAMES: Jristz Random, Xristh, Jota, Pablo Lezaeta (author)
 POSE: unsure
 SOURCE: https://github.com/jristz/dotfiles/blob/master/poni/jristz.png
 WIDTH: 57

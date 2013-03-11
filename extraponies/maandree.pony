@@ -18,7 +18,7 @@ OTHER NAMES: Mattias Andrée
 POSE: wings
 SOURCE: http://github.com/maandree/art/pony/maandree
 WIDTH: 64
-HEIGHT: 40
+HEIGHT: 37
 
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright
