@@ -1,8 +1,3 @@
-Amereicans may want to sign a petition to change the US's anthem to the MLP:FiM theme. ☺
-
-https://petitions.whitehouse.gov/petition/change-fine-nations-anthem-theme-my-little-pony-friendship-magic/dD95cQvL
-
-
 `ponysay` — cowsay reimplemention for ponies.
 
 ![Derp](http://i.imgur.com/xOJbE.png)
