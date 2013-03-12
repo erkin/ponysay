@@ -9,7 +9,7 @@ KIND: pegasus
 LICENSE: CC0 (CC0 1.0 Universal)
 LINK: regular
 MANE: blue
-MEDIA: thefyrefly,tumblr.com
+MEDIA: thefyrefly.tumblr.com
 NAME: Fyrefly (previous generation)
 POSE: flying
 SOURCE: (Bot-chan) imageboard, (months later) Desktop ponies OC
