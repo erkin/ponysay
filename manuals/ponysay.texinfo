@@ -2920,7 +2920,7 @@ sequences.
 @itemize @bullet
 @item
 New ponies: @file{applesplit}, @file{amira},  @file{babseed}, @file{bear}, @file{beautybrass}, @file{bigmacsleep},
-@file{billneiigh}, @file{cadancecrystal}, @file{cloudchaser}, @file{descent}, @file{gingersnap}, @file{haakim}, @file{hayseed},
+@file{billneiigh}, @file{cadancecrystal}, @file{cadancescruffy}, @file{cloudchaser}, @file{descent}, @file{gingersnap}, @file{haakim}, @file{hayseed},
 @file{jubileena}, @file{featherweight}, @file{fiddlesticks}, @file{flitter}, @file{lighningdust}, @file{midnightstrike},
 @file{mrbreezy}, @file{orangebird}, @file{orangefrog}, @file{pinkiecrazyface}, @file{princesserroria},  @file{poundcake},
 @file{raccoon}, @file{rarity}, @file{ravenearth}, @file{ravenunicorn}, @file{royalunicornguard}, @file{rumble},
