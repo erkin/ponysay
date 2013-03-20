@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: High Score (unofficial)
+OTHER NAMES: High Score (unofficial), Buttons (unofficial)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 40
