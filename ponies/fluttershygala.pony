@@ -11,7 +11,7 @@ LINK: regular
 MANE: pink
 MASTER: fluttershy
 NAME: Fluttershy
-OTHER NAMES: She (sometimes)
+OTHER NAMES: Shy (sometimes)
 POSE: gala
 SOURCE: (Derpy Delivery, Jay Wright, Humle, StartStep, DeathPony/deathpwny, AngelKat58, Asparagus, HalfnHalf) Desktop ponies
 WIDTH: 55

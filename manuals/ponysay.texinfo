@@ -2922,11 +2922,11 @@ sequences.
 New ponies: @file{applesplit}, @file{amira},  @file{babseed}, @file{bear}, @file{beautybrass}, @file{bigmacsleep},
 @file{billneiigh}, @file{cadancecrystal}, @file{cadancescruffy}, @file{cloudchaser}, @file{descent}, @file{gingersnap},
 @file{haakim}, @file{hayseed}, @file{jubileena}, @file{featherweight}, @file{fiddlesticks}, @file{flitter}, @file{lighningdust},
-@file{midnightstrike}, @file{mrbreezy}, @file{orangebird}, @file{orangefrog}, @file{pinkiecrazyface}, @file{princesserroria},
-@file{poundcake}, @file{raccoon}, @file{rainbowblitz}, @file{rarity}, @file{ravenearth}, @file{ravenunicorn}, @file{royalunicornguard},
-@file{rumble}, @file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal}, @file{squirrel}, @file{sweetcream} (comic),
-@file{trixieamulet}, @file{twilacorn}, @file{twilightcrystal}, @file{twilightfly}, @file{twilightpricess}, @file{twilightwings},
-@file{twinkleshine}
+@file{midnightstrike}, @file{mrbreezy}, @file{orangebird}, @file{orangefrog}, @file{pansyshy}, @file{pinkiecrazyface},
+@file{princesserroria}, @file{poundcake}, @file{raccoon}, @file{rainbowblitz}, @file{rarity}, @file{ravenearth}, @file{ravenunicorn},
+@file{royalunicornguard}, @file{rumble}, @file{shiningarmorcrystal}, @file{sombra}, @file{spikecrystal}, @file{squirrel},
+@file{sweetcream} (IDW Comic Issue #1), @file{trixieamulet}, @file{twilacorn}, @file{twilightcrystal}, @file{twilightfly}, @file{twilightpricess},
+@file{twilightwings}, @file{twinkleshine}
 @item
 New extraponies: @file{donutpony}, @file{gleamingshield}, @file{hastelle}, @file{johndelancie}, @file{jristz}, @file{maandree}, @file{orion},
 @file{pipsqueak}, @file{pardise}, @file{pizzapony}, @file{tempo}
