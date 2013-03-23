@@ -2929,7 +2929,7 @@ New ponies: @file{applesplit}, @file{amira},  @file{babseed}, @file{bear}, @file
 @file{twilightwings}, @file{twinkleshine}
 @item
 New extraponies: @file{donutpony}, @file{gleamingshield}, @file{hastelle}, @file{johndelancie}, @file{jristz}, @file{maandree}, @file{orion},
-@file{pipsqueak}, @file{pardise}, @file{pizzapony}, @file{snowdrop}, @file{tempo}
+@file{pipsqueak}, @file{pardise}, @file{pizzapony}, @file{snowdrop}, @file{tempo}, @file{ticket}
 @item
 @file{lotusbloosom} has been renamed to @file{lotusblossom} (typo)
 @item

@@ -6,7 +6,7 @@ COAT: red
 DISPLAY: full, left
 EYE: brown
 FREE: yes
-GROUP: stallion, fox, oc
+GROUP: stallion, fox, original
 KIND: unicorn, hybrid, animal
 LICENSE: GNU All Permissive License
 LINK: regular
