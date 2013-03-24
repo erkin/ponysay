@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: orange
 NAME: (not mentioned)
-OTHER NAMES: Blue Harvest (unofficial)
+OTHER NAMES: Hazel Harvest (unofficial), Blue Harvest (unofficial)
 POSE: hazmat
 SOURCE: [jristz]
 WIDTH: 45
