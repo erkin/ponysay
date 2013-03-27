@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: orange
 NAME: (not mentioned)
-OTHER NAMES: Horse MD (unofficial), MD Horse (unofficial)
+OTHER NAMES: Hippocrates (unofficial), Dr. Gregory Horse (unofficial), Horse MD (unofficial), MD Horse (unofficial)
 POSE: stand
 SOURCE: My Little Pony On-Line
 WIDTH: 32

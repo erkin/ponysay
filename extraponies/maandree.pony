@@ -6,7 +6,7 @@ COAT: beige
 DISPLAY: full, left
 EYE: blue
 FREE: yes
-GROUP: stallion, oc
+GROUP: stallion, original
 KIND: pegasus
 LICENSE: GNU All Permissive License
 LINK: regular
