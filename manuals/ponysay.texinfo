@@ -57,7 +57,7 @@ Texts. A copy of the license is included in the section entitled
 @insertcopying
 @page
 @*@*
-@center{`For me! For my friends! @b{For EQUESTRIA!}'}
+@center `For me! For my friends! @b{For EQUESTRIA!}'
 @end titlepage
 
 @contents
