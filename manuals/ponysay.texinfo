@@ -2992,7 +2992,7 @@ Pony symlink added:
 @item @file{lily} @arrow{} @file{lilyvalley}
 @item @file{sweetiedrops} @arrow{} @file{bonbon}
 @item @file{carecake} @arrow{} @file{carrotake}
-@item @file{berrydreams} @arrow @fille{blueberry}
+@item @file{berrydreams} @arrow @file{blueberry}
 @end itemize
 @end itemize
 
