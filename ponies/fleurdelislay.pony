@@ -11,7 +11,7 @@ LINK: regular
 MANE: pink
 MASTER: fleurdelis
 NAME: (not mentioned)
-OTHER NAMES: Fleur de Lis (unofficial)
+OTHER NAMES: Fleur de Lis (unofficial), Fleur Dis Lee (official, on Gameloft game)
 POSE: lay
 SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 45
