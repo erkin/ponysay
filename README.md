@@ -1,103 +1,38 @@
 `ponysay` — cowsay reimplemention for ponies.
+You may find the code on github: https://github.com/jaseg/ponysay
 
 ![Derp](http://i.imgur.com/xOJbE.png)
 
-Today your terminal, tomorrow the world!
+```
+usage: ponysay.py [-h] [-p PONY] [-q] [-c] [-C] [-w WIDTH] [-b BALLOON]
+                  [text [text ...]]
 
+Cowsay with ponies
 
-Installation on GNU/Linux (or other Unix implementations)
----------------------------------------------------------
+positional arguments:
+  text                  The text to be placed in the speech bubble
 
-[Download](/erkin/ponysay/downloads) or clone the project.
-In the terminal, `cd` into the ponysay directory and `./setup.py install` or `python3 setup.py install`.
-You may need to be super user to run `./setup.py install` without `--private`, on most systems this
-can be achieved by running `sudo ./setup.py install`.
-For more information we have provided you with an extensive [manual in PDF](https://github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true).
-
-In order to use ponysay, run:
-
-    ponysay "I am just the cutest pony!"
-    
-Or if you have a specific pony in your mind:
-
-    ponysay -p pinkie "Partay!~"
-
-Run `info ponysay`, `man 6 ponysay` or `ponysay -h` for more information.
-
-### Pony fortune on terminal startup 
-
-This requires that you have the `fortune` utility installed. You can install it from your repositories (may be named `fortune-mod`)
-or just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
-
-You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or
-[ponypipe](/maandree/ponypipe) to ponify fortunes.
-
-Edit your `~/.bashrc` and add this to the end of the file
-
-    fortune | ponysay
-
-Now every time you open a terminal a pony should give your fortune
-
-### Pony quotes
-
-Running `ponysay --q` will give you a random pony saying one it its quote from MLP:FiM, or you can specify the pony: `ponysay -q pinkie`.
-Just as with `-f`, `-q` can be used multiple time to to sepecify a set of ponies from which one will be selected randomly.
-
-When running `ponysay -l` or `ponysay -L` the ponies which have quotes will be printed bold or bright (depending on terminal).
-
-### Ponies in TTY (Linux VT)
-
-If you have a custom colour palette edit your `~/.bashrc` and add
-
-    if [ "$TERM" = "linux" ]; then
-        function ponysay
-        {
-            exec ponysay "$@"
-            #RESET PALETTE HERE
-        }
-    fi
-
-Read the PDF or info manual for more information.
-
-
-Installation on Microsoft™ Windows®
------------------------------------
-[¯\\\_(ツ)\_/¯](http://i.imgur.com/2nP5N.png)
-
-
-Dependencies
-------------
-
-### Required runtime dependencies
-
-`coreutils`: `stty` in coreutils used to determine size of the terminal
-
-`python>=3`: written in python 3
-
-### Package building dependencies
-
-`gzip`: used for compressing manuals (suppressable with `./configure --without-info-compression --without-man-compression`)
-
-`texinfo`: used for building info manual (suppressable with `./configure --without-info`)
-
-`python>=3`: the installation process is written in python 3
-
-Run `./dependency-test.sh` if things are not working for you.
-
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PONY, --pony PONY  The name of the pony to be used. Use "-p list" to list
+                        all ponies, "-p random" (default) to use a random
+                        pony.
+  -q, --quote           Use a random quote of the pony being displayed as text
+  -c, --center          Use a random quote of the pony being displayed as text
+  -C, --center-text     Center the text in the bubble
+  -w WIDTH, --width WIDTH
+                        Terminal width. Use 0 for unlimited width. Default:
+                        autodetect
+  -b BALLOON, --balloon BALLOON
+                        Balloon style to use. Use "-b list" to list available
+                        styles.
+```
 
 FAQ
 ---
 
-__Q:__ The output looks like a mess in _(TTY/PuTTY/other)_!
+*Q:* The output looks like a mess in `TTY/PuTTY/other`!
+*A:* Yeah, sorry. If you find a fix, send me a pull request.
 
-__A:__ Unfortunately we cannot make it perfect, see [issue 1](/erkin/ponysay/issues/1). But we have done a lot, read more about how to get the best the current state of the art has to offer in the [manual](/erkin/ponysay/blob/master/ponysay.pdf?raw=true).
-
-__Q:__ You are missing _(my-favourite-pony)_!
-
-__A:__ [Ask](/erkin/ponysay/issues) and we'll add!
-
-__Q:__ Which programs do you use to generate the pony files?
-
-__A:__ The pony files are actually mostly a bunch of selected [browser ponies](//web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](/maandree/util-say).
-
-The [PDF manual](/erkin/ponysay/blob/master/ponysay.pdf?raw=true) should answer most of your questions.
+*Q:* Which programs do you use to generate the pony files?
+*A:* The pony files are actually mostly a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](https://github.com/maandree/util-say).

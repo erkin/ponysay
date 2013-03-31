@@ -29,7 +29,7 @@ except:
 	pass
 
 def list_ponies(markQuotes=False):
-	quotes = lambda n: ' (q)' if markQuotes and exists(ponypath+'/'+n+'.quotes') else ''
+	quotes = lambda n: ' (quotes)' if markQuotes and exists(ponypath+'/'+n+'.quotes') else ''
 	return [ f[:-5]+quotes(f[:-5]) for f in os.listdir(ponypath) if not f.endswith('quotes') ]
 
 def list_ponies_with_quotes(markQuotes=False):
