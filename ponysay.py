@@ -12,14 +12,14 @@ except:
 # (left, right)
 # (top, middle, bottom)
 balloonstyles= {'cowsay':		(((' ', '', '< '), (' ', '', '> ')), ((' /', '|', '\\ '), (' \\', '|', '/ ')), '-', '_', '\\', '/'),
-				'cowthink':		(((' ', '', '( '), (' ', '', ') ')), ((' (', '(', '( '), (' )', ')', ') ')), '-', '_', 'o', 'o'),
+				'cowsay.think':	(((' ', '', '( '), (' ', '', ') ')), ((' (', '(', '( '), (' )', ')', ') ')), '-', '_', 'o', 'o'),
 				'ascii':		(((' /|', '', '\\ '), (' \\|', '', '/ ')), ((' /|', '|', '|\\'), (' \\|', '|', '|/')), '_', '_', 'o', 'o'),
-				'asciithink':	(((' ((', '', '( '), (' ))', '', ') ')), ((' ((', '(', '(('), (' ))', ')', '))')), '_', '_', 'o', 'o'),
+				'ascii.think':	(((' ((', '', '( '), (' ))', '', ') ')), ((' ((', '(', '(('), (' ))', ')', '))')), '_', '_', 'o', 'o'),
 				'unicode':		((('┌││', '', '│└ '), ('┐││', '', '│┘ ')), (('┌││', '│', '││└'), ('┐││', '│', '││┘')), '─', '─', '╲', '╱'),
 				'round':		((('╭││', '', '│╰ '), ('╮││', '', '│╯ ')), (('╭││', '│', '││╰'), ('╮││', '│', '││╯')), '─', '─', '╲', '╱'),
 				'linux-vt':		((('┌││', '', '│└ '), ('┐││', '', '│┘ ')), (('┌││', '│', '││└'), ('┐││', '│', '││┘')), '─', '─', '\\', '/')}
 
-ponypath = realpath(dirname(__file__)+'/../share/ponies')
+ponypath = realpath(dirname(__file__)+'/../share/ponysay')
 if not exists(ponypath):
 	ponypath=realpath(dirname(__file__)+'/ponies')
 termwidth = 80
@@ -49,7 +49,7 @@ def render_balloon(text, balloonstyle, minwidth=0, maxwidth=40, pad=str.center):
 	if text is None:
 		return []
 	(oneline, multiline, bottom, top, linkl, linkr) = balloonstyle
-	lines = [ ' '+wrapline+' ' for textline in text.split('\n') for wrapline in textwrap.wrap(textline, maxwidth) ]
+	lines = [ ' '+wrapline+' ' for textline in text.center(minwidth).split('\n') for wrapline in textwrap.wrap(textline, maxwidth) ]
 	width = max([ len(line) for line in lines ]+[minwidth])
 	def side(top, middle, bottom):
 		return top + middle*(len(lines)-2) + bottom
@@ -82,36 +82,43 @@ def render_pony(name, text, balloonstyle, width=80, center=False, centertext=Fal
 	if center:
 		ponywidth = max([ len(re.sub(r'\x1B\[[0-9;]+m|\$.*\$', '', line)) for line in pony ])
 		indent = ' '*int((width-ponywidth)/2)
-	wre = re.compile('((\x1B\[[0-9;]+m)?.){0,%s}' % width)
+	wre = re.compile('((\x1B\[[0-9;]+m)*.){0,%s}' % width)
 	return ''.join([ indent+wre.search(line).group()+'\n[49m' for line in pony ])
 
-parser = argparse.ArgumentParser(description='Cowsay with ponies')
-parser.add_argument('-p', '--pony', type=str, default='random', help='The name of the pony to be used. Use "-p list" to list all ponies, "-p random" (default) to use a random pony.')
-parser.add_argument('-q', '--quote', action='store_true', help='Use a random quote of the pony being displayed as text')
-parser.add_argument('-c', '--center', action='store_true', help='Use a random quote of the pony being displayed as text')
-parser.add_argument('-C', '--center-text', action='store_true', help='Center the text in the bubble')
-parser.add_argument('-w', '--width', type=int, default=termwidth, help='Terminal width. Use 0 for unlimited width. Default: autodetect')
-parser.add_argument('-b', '--balloon', type=str, default='cowsay', help='Balloon style to use. Use "-b list" to list available styles.')
-parser.add_argument('text', type=str, nargs='*', help='The text to be placed in the speech bubble')
-args = parser.parse_args()
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser(description='Cowsay with ponies')
+	parser.add_argument('-p', '--pony', type=str, default='random', help='The name of the pony to be used. Use "-p list" to list all ponies, "-p random" (default) to use a random pony.')
+	parser.add_argument('-q', '--quote', action='store_true', help='Use a random quote of the pony being displayed as text')
+	parser.add_argument('-c', '--center', action='store_true', help='Use a random quote of the pony being displayed as text')
+	parser.add_argument('-C', '--center-text', action='store_true', help='Center the text in the bubble')
+	parser.add_argument('-w', '--width', type=int, default=termwidth, help='Terminal width. Use 0 for unlimited width. Default: autodetect')
+	parser.add_argument('-b', '--balloon', type=str, default='cowsay', help='Balloon style to use. Use "-b list" to list available styles.')
+	parser.add_argument('text', type=str, nargs='*', help='The text to be placed in the speech bubble')
+	args = parser.parse_args()
 
-if args.pony == "list":
-	print('\n'.join(sorted(list_ponies(True))))
-	sys.exit()
-if args.balloon == 'list':
-	print('\n'.join(balloonstyles.keys()))
-	sys.exit()
-pony = args.pony
-if pony == "random":
-	pony = random.choice(list_ponies() if not args.quote else list_ponies_with_quotes())
-text = ' '.join(args.text) or None
-if text == '-':
-	text = '\n'.join(sys.stdin.readlines())
-if args.quote:
-	text = random_quote(pony)
+	if args.pony == "list":
+		print('\n'.join(sorted(list_ponies(True))))
+		sys.exit()
+	if args.balloon == 'list':
+		print('\n'.join(balloonstyles.keys()))
+		sys.exit()
+	pony = args.pony
+	if pony == "random":
+		pony = random.choice(list_ponies() if not args.quote else list_ponies_with_quotes())
+	text = ' '.join(args.text) or None
+	if text == '-':
+		text = '\n'.join(sys.stdin.readlines())
+	if args.quote:
+		text = random_quote(pony)
 
-print(render_pony(pony, text,
-				  balloonstyle=balloonstyles[args.balloon],
-				  width=args.width or sys.maxint,
-				  center=args.center,
-				  centertext=args.center_text))
+	balloonstyle = None
+	if sys.argv[0].endswith('think'):
+		balloonstyle = balloonstyles[args.balloon+'.think']
+	else:
+		balloonstyle = balloonstyles[args.balloon]
+
+	print(render_pony(pony, text,
+					  balloonstyle=balloonstyle,
+					  width=args.width or sys.maxint,
+					  center=args.center,
+					  centertext=args.center_text))
