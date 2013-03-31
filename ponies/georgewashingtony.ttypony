@@ -1,1 +1,0 @@
-./bastionyorsets.pony
