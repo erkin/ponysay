@@ -1,5 +1,5 @@
-`ponysay` — cowsay reimplemention for ponies.
-You may find the code on github: https://github.com/jaseg/ponysay
+ponysay — cowsay with ponies
+============================
 
 ![Derp](http://i.imgur.com/xOJbE.png)
 
@@ -28,11 +28,18 @@ optional arguments:
                         styles.
 ```
 
+This is my fork of https://github.com/erkin/ponysay
+I really liked the concept, but I sort-of WTF-ed at the 2458-line python script powering it. So I rewrote the thing from scratch in actual python (not that bad since most of the work is done by util-say). Also, I missed a "--center"-option, so I added one. This rewrite is 117 lines long, and that includes the 7 original bubble styles which now are embedded in the python script. This means 95.2% less bloat, which I consider a success. Also, the rewrite is about 50-85% faster.
+
+Fork me on github: https://github.com/jaseg/ponysay
+
 FAQ
 ---
 
-*Q:* The output looks like a mess in `TTY/PuTTY/other`!
-*A:* Yeah, sorry. If you find a fix, send me a pull request.
+__Q:__ The output looks like a mess in `TTY/PuTTY/other`
 
-*Q:* Which programs do you use to generate the pony files?
-*A:* The pony files are actually mostly a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](https://github.com/maandree/util-say).
+__A:__ Yeah, sorry. If you find a fix, send me a pull request.
+
+__Q:__ Which programs do you use to generate the pony files?
+
+__A:__ The pony files are actually mostly a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](https://github.com/maandree/util-say).
