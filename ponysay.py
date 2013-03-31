@@ -8,7 +8,16 @@ try:
 except:
 	import re
 
-balloonstyles={'cowsay': ('<\\|/ _ >\\|/ - \\/', '(((( _ )))) - \\/')}
+# (oneline, multiline, bottom, top, linkl, linkr)
+# (left, right)
+# (top, middle, bottom)
+balloonstyles= {'cowsay':		(((' ', '', '< '), (' ', '', '> ')), ((' /', '|', '\\ '), (' \\', '|', '/ ')), '-', '_', '\\', '/'),
+				'cowthink':		(((' ', '', '( '), (' ', '', ') ')), ((' (', '(', '( '), (' )', ')', ') ')), '-', '_', 'o', 'o'),
+				'ascii':		(((' /|', '', '\\ '), (' \\|', '', '/ ')), ((' /|', '|', '|\\'), (' \\|', '|', '|/')), '_', '_', 'o', 'o'),
+				'asciithink':	(((' ((', '', '( '), (' ))', '', ') ')), ((' ((', '(', '(('), (' ))', ')', '))')), '_', '_', 'o', 'o'),
+				'unicode':		((('┌││', '', '│└ '), ('┐││', '', '│┘ ')), (('┌││', '│', '││└'), ('┐││', '│', '││┘')), '─', '─', '╲', '╱'),
+				'round':		((('╭││', '', '│╰ '), ('╮││', '', '│╯ ')), (('╭││', '│', '││╰'), ('╮││', '│', '││╯')), '─', '─', '╲', '╱'),
+				'linux-vt':		((('┌││', '', '│└ '), ('┐││', '', '│┘ ')), (('┌││', '│', '││└'), ('┐││', '│', '││┘')), '─', '─', '\\', '/')}
 
 ponypath = realpath(dirname(__file__)+'/../share/ponies')
 if not exists(ponypath):
@@ -39,16 +48,18 @@ def random_quote(name):
 def render_balloon(text, balloonstyle, minwidth=0, maxwidth=40, pad=str.center):
 	if text is None:
 		return []
-	[ls, lb, lm, lt, tl, t, tr, rs, rt, rm, rb, br, b, bl, _, _] = balloonstyle
-	lines = [ wrapline for textline in text.split('\n') for wrapline in textwrap.wrap(textline, maxwidth) ]
+	(oneline, multiline, bottom, top, linkl, linkr) = balloonstyle
+	lines = [ ' '+wrapline+' ' for textline in text.split('\n') for wrapline in textwrap.wrap(textline, maxwidth) ]
 	width = max([ len(line) for line in lines ]+[minwidth])
-	lines = [ pad(line, width) for line in lines ]
-	sides = [(lt, rt)] + [(lm, rm)]*(len(lines)-2) + [(lb, rb)] if len(lines) > 1 else [(ls, rs)]
-	return [tl+t*(width+2)+tr+'\n']+\
-		   [sides[i][0]+' '+line+' '+sides[i][1]+'\n' for i,line in enumerate(lines)]+\
-		   [bl+b*(width+2)+br+'\n']
+	def side(top, middle, bottom):
+		return top + middle*(len(lines)-2) + bottom
+	leftside, rightside = oneline if len(lines) == 1 else multiline
+	topextra, bottomextra = len(leftside[0])-2, len(leftside[2])-2
+	leftside, rightside = side(*leftside), side(*rightside)
+	lines = [top*width] + [' '*width]*topextra + [ pad(line, width) for line in lines ] + [' '*width]*bottomextra + [bottom*width]
+	return [ l+m+r for l,m,r in zip(leftside, lines, rightside)]
 
-def render_pony(name, text=None, balloonstyle=balloonstyles['cowsay'][0], width=80, center=False, centertext=False):
+def render_pony(name, text, balloonstyle, width=80, center=False, centertext=False):
 	pony = load_pony(name) #CAUTION: these lines already end with '\n'
 	balloon = link_l = link_r = ''
 	if text:
@@ -80,11 +91,15 @@ parser.add_argument('-q', '--quote', action='store_true', help='Use a random quo
 parser.add_argument('-c', '--center', action='store_true', help='Use a random quote of the pony being displayed as text')
 parser.add_argument('-t', '--center-text', action='store_true', help='Center the text in the bubble')
 parser.add_argument('-w', '--width', type=int, default=termwidth, help='Terminal width. Use 0 for unlimited width. Default: autodetect')
+parser.add_argument('-b', '--balloon', type=str, default='cowsay', help='Balloon style to use. Use "-b list" to list available styles.')
 parser.add_argument('text', type=str, nargs='*', help='The text to be placed in the speech bubble')
 args = parser.parse_args()
 
 if args.pony == "list":
 	print('\n'.join(sorted(list_ponies(True))))
+	sys.exit()
+if args.balloon == 'list':
+	print('\n'.join(balloonstyles.keys()))
 	sys.exit()
 pony = args.pony
 if pony == "random":
@@ -95,4 +110,8 @@ if text == '-':
 if args.quote:
 	text = random_quote(pony)
 
-print(render_pony(pony, text, width=args.width or sys.maxint, center=args.center, centertext=args.center_text))
+print(render_pony(pony, text,
+				  balloonstyle=balloonstyles[args.balloon],
+				  width=args.width or sys.maxint,
+				  center=args.center,
+				  centertext=args.center_text))
