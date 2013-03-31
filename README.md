@@ -4,6 +4,7 @@ ponysay — cowsay with ponies
 ![Derp](http://i.imgur.com/xOJbE.png)
 
 ```
+<3 ./ponysay.py --help
 usage: ponysay.py [-h] [-p PONY] [-q] [-c] [-C] [-w WIDTH] [-b BALLOON]
                   [text [text ...]]
 
