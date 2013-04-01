@@ -2642,15 +2642,16 @@ Using util-say:
 @pindex @command{img2ponysay}
 @cartouche
 @example
-@code{img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE}
+@command{img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE}
 
 @code{PONY_FILE} should end with @file{.pony} and be localed in @file{ponies/},
 or @file{extraponies/} if the pony is not a MLP:FiM pony.
 
 Omit @option{-2} if the source image does not use double pixel size.
 
-For more information see:
-@url{https://github.com/maandree/util-say/wiki/img2ponysay}
+For more information is available in util-say's info manual. @command{img2ponysay}
+is a legacy command that uses the default settings of @command{ponytool} for
+converting a image file to a pony file.
 @end example
 @end cartouche
 
