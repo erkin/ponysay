@@ -203,9 +203,10 @@ class Ponysay():
                     return None
                 return a + b
             return [cat(parsefile(item), file) for item in [
+                    './',
                     '$XDG_DATA_HOME/ponysay/',
                     '$HOME/.local/share/ponysay/',
-                    '/usr/share/ponysay/',
+                    '/usr/share/ponysay/'
                    ]]
         
         
