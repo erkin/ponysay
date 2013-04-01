@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: Aloe (unofficial)
+OTHER NAMES: Aloe (official,on merchandise)
 POSE: stand
 SOURCE: (Jay Wright/Monkey Jay) Desktop ponies
 WIDTH: 39
