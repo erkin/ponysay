@@ -9,7 +9,7 @@
 
 ttyponies()
 {
-    defaultoutparams=--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y
+    defaultoutparams="--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y"
     for x in '' 'extra'; do
 	mkdir -p "${x}ttyponies"
 	for pony in $(find "${x}ponies/" | grep -v '/\.' | grep '\.pony$' | sed -e "s_^${x}ponies/__"); do
@@ -29,7 +29,7 @@ ttyponies()
 
 remaster()
 {
-    defaultoutparams=--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y
+    defaultoutparams="--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y"
     for x in '' 'extra'; do
 	mkdir -p "${x}ttyponies"
 	for pony in $(find "${x}ponies/" | grep -v '/\.' | grep '\.pony$' | sed -e "s_^${x}ponies/__"); do
