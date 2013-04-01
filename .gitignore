@@ -16,6 +16,7 @@
 ## Compile files
 
 /completion/*-completion-think.*
+/completion/pony*.pony*
 /manuals/manpage.*.gz
 /ponysay.info
 /ponysay.info.gz
