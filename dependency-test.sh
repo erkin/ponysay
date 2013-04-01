@@ -28,9 +28,8 @@ pv=0 # python version
 
 (hash stty         2>/dev/null) || (rr=1 ;        echo 'Missing stty, install coreutils [runtime required]')
 
-(hash tty2colourfultty   2>/dev/null) || (ro=1 ;  echo 'Missing tty2colourfultty, install util-say [runtime optional]')
-(hash ponysay2ttyponysay 2>/dev/null) || (ro=1 ;  echo 'Missing ponysay2ttyponysay, install util-say [runtime optional]')
-(hash chmod              2>/dev/null) || (rr=1 ;  echo 'Missing chmod, install coreutils [runtime optional]')
+(hash ponytool     2>/dev/null) || (ro=1 ;        echo 'Missing ponytool, install util-say [runtime optional]')
+(hash chmod        2>/dev/null) || (rr=1 ;        echo 'Missing chmod, install coreutils [runtime optional]')
 
 ( (test $br = 1) || (test $rr = 1) || (test $ro = 1) || (test $pv = 1) ) && echo
 

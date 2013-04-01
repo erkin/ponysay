@@ -1161,7 +1161,8 @@ class Ponysay():
         ## Use PNG file as pony file
         if endswith(pony.lower(), '.png'):
             pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
-            pngcmd = ('img2ponysay -p -- ' if self.linuxvt else 'img2ponysay -- ') + pony
+            pngcmd = 'ponytool --in image --file %s --out ponysay --platform %s --balloon y'
+            pngcmd %= (pony, ('linux' if self.linuxvt else 'xterm')) # XXX xterm should be haiku in Haiku
             pngpipe = os.pipe()
             Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
             pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
@@ -1322,7 +1323,7 @@ class Ponysay():
             return pony
         
         ## KMS support version constant
-        KMS_VERSION = '1'
+        KMS_VERSION = '2'
         
         ## Read the PONYSAY_KMS_PALETTE environment variable
         env_kms = os.environ['PONYSAY_KMS_PALETTE'] if 'PONYSAY_KMS_PALETTE' in os.environ else None
@@ -1339,7 +1340,7 @@ class Ponysay():
         if env_kms == '':
             return pony
         
-        ## Store palette string and a clong with just the essentials
+        ## Store palette string and a clone with just the essentials
         palette = env_kms
         palettefile = env_kms.replace('\033]P', '')
         
@@ -1379,36 +1380,22 @@ class Ponysay():
         
         ## If the kmspony is missing, create it
         if not os.path.isfile(kmspony):
-            ## Protokmsponies are uncolourful ttyponies
-            protokmsponies = cachedir + '/protokmsponies/'
-            protokmspony = (protokmsponies + pony).replace('//', '/')
-            protokmsponydir = protokmspony[:protokmspony.rindex('/')]
-            kmsponydir      =      kmspony[:     kmspony.rindex('/')]
+            ## kmspony directory
+            kmsponydir = kmspony[:kmspony.rindex('/')]
             
             ## Change file names to be shell friendly
-            _protokmspony = '\'' + protokmspony.replace('\'', '\'\\\'\'') + '\''
-            _kmspony      = '\'' +      kmspony.replace('\'', '\'\\\'\'') + '\''
-            _pony         = '\'' +         pony.replace('\'', '\'\\\'\'') + '\''
-            
-            ## Create protokmspony is missing
-            if not os.path.isfile(protokmspony):
-                if not os.path.isdir(protokmsponydir):
-                    os.makedirs(protokmsponydir)
-                    if shared:
-                        Popen('chmod -R 6777 -- ' + _cachedir, shell=True).wait()
-                if not os.system('ponysay2ttyponysay < ' + _pony + ' > ' + _protokmspony) == 0:
-                    sys.stderr.write('Unable to run ponysay2ttyponysay successfully, you need util-say for KMS support\n')
-                    exit(1)
-                if shared:
-                    Popen('chmod 666 -- ' + _protokmspony, shell=True).wait()
+            _kmspony = '\'' + kmspony.replace('\'', '\'\\\'\'') + '\''
+            _pony    = '\'' +    pony.replace('\'', '\'\\\'\'') + '\''
             
             ## Create kmspony
             if not os.path.isdir(kmsponydir):
                 os.makedirs(kmsponydir)
                 if shared:
                     Popen('chmod -R 6777 -- ' + _cachedir, shell=True).wait()
-            if not os.system('tty2colourfultty -p ' + palette + ' < ' + _protokmspony + ' > ' + _kmspony) == 0:
-                sys.stderr.write('Unable to run tty2colourfultty successfully, you need util-say for KMS support\n')
+            ponytoolcmd = 'ponytoolcmd --import ponysay --file %s --export ponysay --file %s --platform linux ' +
+                          '--balloon n --colourful y --fullcolour y --left - --right - --top - --bottom - --palette %s'
+            if not os.system(ponytoolcmd % (_pony, _kmspony, palette)) == 0:
+                sys.stderr.write('Unable to run ponytool successfully, you need util-say>=3 for KMS support\n')
                 exit(1)
             if shared:
                 Popen('chmod 666 -- ' + _kmspony, shell=True).wait()
@@ -1882,7 +1869,7 @@ class Backend():
                 printinfo(info)
                 self.pony = self.pony[infoend:]
         elif self.infolevel == 2:
-            self.message = '\033[1;31mI am the mysterious mare...\033[21;3m'
+            self.message = '\033[01;31mI am the mysterious mare...\033[21;39m'
         elif self.infolevel == 1:
             self.pony = 'There is not metadata for this pony file'
         self.pony = self.mode + self.pony

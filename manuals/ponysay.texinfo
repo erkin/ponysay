@@ -795,8 +795,9 @@ is used togather with @env{PONYSAY_WRAP_LIMIT}. The default value is 5.
 @cindex @file{/var/cache/ponysay}
 @cindex @file{~/.cache/ponysay}
 
-KMS ponies is an optional feature that required that you have @command{util-say>=2}
-(@command{util-say<2} for @command{ponysay<2.1}) installed. It lets TTY users that
+KMS ponies is an optional feature that required that you have @command{util-say>=3}
+(@command{util-say<2} for @command{ponysay<2.1} and @command{util-say<3} for
+@command{ponysay<3}) installed. It lets TTY users that
 have a custom TTY colour palette and KMS support get best TTY images that can be
 display at the current state of the art. KMS is supported on most computers, but due
 to lack of published specifications Nvidia drivers does not support KMS.
@@ -1606,7 +1607,7 @@ in @command{fish}, so case you @command{sh} links to @command{fish}, run
 @cindex optional dependencies
 
 @table @command
-@item util-say>=2
+@item util-say>=3
 @pindex @command{util-say}
 @cindex kms
 @cindex tty
@@ -1664,7 +1665,7 @@ Required to run @command{dev/dist.sh}.
 @pindex @command{coreutils}
 @command{ln} and @command{readlink} are used in the @command{ttyponies} subscript
 of @command{dev/dist.sh}.
-@item util-say>=2
+@item util-say>=3
 Used by @command{dev/dist.sh ttyponies} to build ttyponies from xterm ponies.
 It can be downloaded at @url{https://github.com/maandree/util-say}.
 @end table
@@ -2717,7 +2718,7 @@ pkgdesc="Cowsay reimplementation for ponies"
 url="https://github.com/erkin/ponysay"
 license=('WTFPL' 'GNU FDL v1.3')
 depends=(python>=3 coreutils)
-optdepends=("util-say>=2: Improved TTY support with KMS and PNG files")
+optdepends=("util-say>=3: Improved TTY support with KMS and PNG files")
 makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3')
 
 build()
