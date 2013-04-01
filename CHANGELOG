@@ -64,6 +64,9 @@ Version 3.0
 
 	Pony metadata options added: --info, ++info and --restrict.
 
+	The license has been changed to the GNU General Public License version 3+, WTFPL 2.
+
+
 Version 2.9.1
 
 	Bug fix: correction in the -W option broke the -o option.

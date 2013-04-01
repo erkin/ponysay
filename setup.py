@@ -35,6 +35,7 @@ mansections = [('ponysay', '6'),
                ('fortune', '6')]
 
 miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
+             ('LICENSE', '/usr/share/licenses/ponysay/LICENSE'),
              ('CREDITS', '/usr/share/licenses/ponysay/CREDITS')]
 
 

@@ -3,13 +3,31 @@
 
 '''
 ponysay - Ponysay, cowsay reimplementation for ponies
+
 Copyright (C) 2012, 2013  Erkin Batu Altunbaş et al.
 
-This program is free software. It comes without any warranty, to
-the extent permitted by applicable law. You can redistribute it
-and/or modify it under the terms of the Do What The Fuck You Want
-To Public License, Version 2, as published by Sam Hocevar. See
-http://sam.zoy.org/wtfpl/COPYING for more details.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+If you intend to redistribute ponysay or a fork of it commercially,
+it contains augmented images, some of which may not be commercially
+redistribute, you would be required to remove those. To determine
+whether or not you may commercially redistribute an image make use
+that line ‘FREE: yes’, is included inside the image between two ‘$$$’
+lines and the ‘FREE’ is and upper case and directly followed by
+the colon.
 
 
 Authors of ponysay.py:
