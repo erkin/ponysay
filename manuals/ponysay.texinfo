@@ -183,6 +183,18 @@ supersedes file names.
 Just as @option{+f}, but it uses extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies
 
+@item -F PONY
+@itemx --any-file PONY
+@itemx --anyfile PONY
+@itemx --any-pony PONY
+@itemx --anypony PONY
+@opindex @option{-F}
+@opindex @option{--any-file}
+@opindex @option{--anyfile}
+@opindex @option{--any-pony}
+@opindex @option{--anypony}
+This option combines @option{-f} and @option{+f}.
+
 @item -q PONY
 @itemx --quote PONY
 @opindex @option{-q}
@@ -222,6 +234,18 @@ An important feature of this options, is that you can but it in the end of the
 command line, without any argument to get a random non-MLP:FiM pony. However,
 altough it is not nice, since version 3.0, @option{+f} can also be unargumented
 if at the end of the command line.
+
+@item --F [PONY...]
+@itemx --any-files [PONY...]
+@itemx --anyfiles [PONY...]
+@itemx --any-ponies [PONY...]
+@itemx --anyponies [PONY...]
+@opindex @option{--F}
+@opindex @option{--any-file}
+@opindex @option{--anyfile}
+@opindex @option{--any-pony}
+@opindex @option{--anypony}
+This option combines @option{--f} and @option{++f}.
 
 @item --q [PONY...]
 @itemx --quotes [PONY...]
@@ -2518,15 +2542,17 @@ use Python 3, which as been accomplished in version 2.1.
 @cindex shell, auto-completion
 @opindex @option{--onelist}
 @opindex @option{++onelist}
+@opindex @option{--Onelist}
 @opindex @option{--quoters}
 @pindex @command{auto-auto-complete}
 
 To make it easier to write auto-completion for shells, @command{ponysay} supports
-the two options @option{--onelist}, @option{++onelist} and @option{--quoters},
-which has no short versions. To make it even easier we use @command{auto-auto-complete}
-(@url{https://www.github.com/maandree/auto-auto-complete}) to generate auto-completion
-scripts, currently it supports @command{bash}, @command{fish} and @command{zsh},
-the built system uses that program to generate completion for each shell.
+the options @option{--onelist}, @option{++onelist}, @option{--Onelist} and
+@option{--quoters}, which has no short versions. To make it even easier we use
+@command{auto-auto-complete} (@url{https://www.github.com/maandree/auto-auto-complete})
+to generate auto-completion scripts, currently it supports @command{bash},
+@command{fish} and @command{zsh}, the built system uses that program to generate
+completion for each shell.
 
 Executing @command{ponysay --onelist} will list every available standard (MLP:FiM)
 pony, independent of where it is located, the output is a sorted and consists only
@@ -2535,6 +2561,10 @@ of one pony per line.
 Executing @command{ponysay ++onelist} will list every available extra (non-MLP:FiM)
 pony, independent of where it is located, the output is a sorted and consists only
 of one pony per line.
+
+Executing @command{ponysay --Onelist} will list every available standard pony as
+well as extra pony, independent of where it is located, the output is a sorted and
+consists only of one pony per line.
 
 @command{ponysay --quoters} work just as @command{ponysay --onelist}, excepts
 it limits the ponies to those that have quotes. Ponies that have quotes,
@@ -2938,7 +2968,7 @@ New extraponies: @file{donutpony}, @file{gleamingshield}, @file{hastelle}, @file
 @item
 @file{ironwillwalk} has been renamed to  @file{ironwillwalk} (need a version named as master)
 @item
-Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}.
+Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}, @option{-F} and @option{--F} has new definitions.
 @item
 Environment variable @env{PONYSAY_TYPO_LIMIT} has been added.
 @item
