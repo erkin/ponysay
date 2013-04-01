@@ -9,7 +9,7 @@ GROUP: stallion
 KIND: unicorn
 LINK: regular
 MANE: blue
-NAME: Fancypants
+NAME: Fancy Pants
 POSE: stand
 SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 46

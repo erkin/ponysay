@@ -10,7 +10,7 @@ KIND: earth
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: Walter Coltchak (official, stated official by the crew)
+OTHER NAMES: Walter Coltchak (official, stated official by the crew), Walter (official, on Gamelof game source code)
 POSE: stand
 SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 40
