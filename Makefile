@@ -1,5 +1,5 @@
 
-PREFIX?=/usr
+PREFIX?=/usr/local
 
 install:
 	install -m 0755 ponysay.py $(PREFIX)/bin
@@ -10,6 +10,8 @@ install:
 	install -m 0755 -d $(PREFIX)/share/doc/ponysay
 	install -m 0755 -t $(PREFIX)/share/doc/ponysay COPYING
 	install -m 0755 -t $(PREFIX)/share/doc/ponysay README.md
+	install -m 0644 completion/zsh-completion.sh /usr/share/zsh/site-functions/_ponysay
+	install -m 0755 completion/bash-completion.sh /etc/bash_completion.d/ponysay.sh
 
 uninstall:
 	rm $(PREFIX)/bin/ponysay
@@ -19,4 +21,8 @@ uninstall:
 	rmdir $(PREFIX)/share/ponysay
 	rm $(PREFIX)/share/doc/ponysay/*
 	rmdir $(PREFIX)/share/doc/ponysay
+	rm /usr/share/zsh/site-functions/_ponysay
+	rm /etc/bash_completion.d/ponysay.sh
+
+reinstall: uninstall install
 
