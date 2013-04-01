@@ -9,8 +9,8 @@ except:
 	import re
 
 # (oneline, multiline, bottom, top, linkl, linkr)
-# (left, right)
-# (top, middle, bottom)
+# {one,multi}line := (left, right)
+# {left,right} := (top, middle, bottom)
 balloonstyles= {'cowsay':		(((' ', '', '< '), (' ', '', '> ')), ((' /', '|', '\\ '), (' \\', '|', '/ ')), '-', '_', '\\', '/'),
 				'cowsay.think':	(((' ', '', '( '), (' ', '', ') ')), ((' (', '(', '( '), (' )', ')', ') ')), '-', '_', 'o', 'o'),
 				'ascii':		(((' /|', '', '\\ '), (' \\|', '', '/ ')), ((' /|', '|', '|\\'), (' \\|', '|', '|/')), '_', '_', '\\', '/'),
