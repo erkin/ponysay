@@ -2024,43 +2024,43 @@ Change the section for the @command{cowsay} manpage.
 @opindex @option{--fortune-manpage-section}
 Change the section for the @command{fortune} manpage.
 
-@item --with-ponies=/usr/share/ponysay/ponies
+@item --with-ponies
 @opindex @option{--with-ponies}
 @opindex @option{--without-ponies}
-Install standard xterm ponies, and select installation directory for them. (Default)
+Install standard xterm ponies. (Default)
 
-@item --with-ttyponies=/usr/share/ponysay/ttyponies
+@item --with-ttyponies
 @opindex @option{--with-ttyponies}
 @opindex @option{--without-ttyponies}
-Install standard tty ponies, and select installation directory for them. (Default)
+Install standard tty ponies. (Default)
 
-@item --with-extraponies=/usr/share/ponysay/extraponies
+@item --with-extraponies
 @opindex @option{--with-extraponies}
 @opindex @option{--without-extraponies}
-Install extra xterm ponies, and select installation directory for them. (Default)
+Install extra xterm ponies. (Default)
 
-@item --with-extrattyponies=/usr/share/ponysay/extrattyponies
+@item --with-extrattyponies
 @opindex @option{--with-extrattyponies}
 @opindex @option{--without-extrattyponies}
-Install extra tty ponies, and select installation directory for them. (Default)
+Install extra tty ponies. (Default)
 
-@item --with-quotes=/usr/share/ponysay/quotes
+@item --with-quotes
 @opindex @option{--with-quotes}
 @opindex @option{--without-quotes}
-Install pony quotes, and select installation directory for them. (Default)
+Install pony quotes. (Default)
 
-@item --with-balloons=/usr/share/ponysay/balloons
+@item --with-balloons
 @opindex @option{--with-balloons}
 @opindex @option{--without-balloons}
-Install balloon styles, and select installation directory for them. (Default)
+Install balloon styles. (Default)
 
 @item --with-ucs
-@itemx --with-ucs-names=/usr/share/ponysay/ucsmap
+@itemx --with-ucs-names
 @opindex @option{--with-ucs}
 @opindex @option{--without-ucs}
 @opindex @option{--with-ucs-names}
 @opindex @option{--without-ucs-names}
-Install UCS pony names, and select installation file name for the map. (Default)
+Install UCS pony names. (Default)
 
 @item --without-custom-env-python
 @opindex @option{--without-custom-env-python}
