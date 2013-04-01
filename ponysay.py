@@ -313,8 +313,8 @@ class Ponysay():
                     else:                          args.opts[sl]  = args.opts[ssl]
         
         ## Save whether standard or extra ponies are used
-        self.usingstandard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) or (args.opts['-Q'] is not None)
-        self.usingextra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) or (args.opts['+q'] is not None) or (args.opts['-Q'] is not None)
+        self.usingstandard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) #or (args.opts['-Q'] is not None)
+        self.usingextra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) #or (args.opts['+q'] is not None) or (args.opts['-Q'] is not None)
         
         ## Run modes
         if   args.opts['-h']        is not None:  args.help()
@@ -1216,7 +1216,7 @@ class Ponysay():
         ## Use PNG file as pony file
         if endswith(pony.lower(), '.png'):
             pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
-            pngcmd = 'ponytool --in image --file %s --out ponysay --platform %s --balloon y'
+            pngcmd = 'ponytool --import image --file %s --export ponysay --platform %s --balloon y'
             pngcmd %= (pony, ('linux' if self.linuxvt else 'xterm')) # XXX xterm should be haiku in Haiku
             pngpipe = os.pipe()
             Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
@@ -1447,8 +1447,8 @@ class Ponysay():
                 os.makedirs(kmsponydir)
                 if shared:
                     Popen('chmod -R 6777 -- ' + _cachedir, shell=True).wait()
-            ponytoolcmd = 'ponytoolcmd --import ponysay --file %s --export ponysay --file %s --platform linux ' + _
-            '--balloon n --colourful y --fullcolour y --left - --right - --top - --bottom - --palette %s'
+            ponytoolcmd = 'ponytool --import ponysay --file %s --export ponysay --file %s --platform linux '
+            ponytoolcmd += '--balloon n --colourful y --fullcolour y --left - --right - --top - --bottom - --palette %s'
             if not os.system(ponytoolcmd % (_pony, _kmspony, palette)) == 0:
                 sys.stderr.write('Unable to run ponytool successfully, you need util-say>=3 for KMS support\n')
                 exit(1)
