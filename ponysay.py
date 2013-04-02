@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 If you intend to redistribute ponysay or a fork of it commercially,
-it contains augmented images, some of which may not be commercially
+it contains aggregated images, some of which may not be commercially
 redistribute, you would be required to remove those. To determine
 whether or not you may commercially redistribute an image make use
 that line ‘FREE: yes’, is included inside the image between two ‘$$$’

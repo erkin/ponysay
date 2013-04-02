@@ -3607,7 +3607,7 @@ changes. Access to the source code is a precondition for this.
 @*
 
 If you intend to redistribute ponysay or a fork of it commercially, it contains
-augmented images, some of which may not be commercially redistribute, you would
+aggregated images, some of which may not be commercially redistribute, you would
 be required to remove those. To determine whether or not you may commercially
 redistribute an image make use that line @code{FREE: yes}, is included inside
 the image between two @code{$$$} lines and the @code{FREE} is and upper case and
