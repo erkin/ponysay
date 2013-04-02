@@ -2612,7 +2612,7 @@ Class used for correcting spellos and typos,
 Note that this implementation will not find that correctly spelled word are correct faster than it corrects words.
 It is also limited to words of size 0 to 127 (inclusive)
 '''
-class SpelloCorrecter(): # Naïvely and quickly proted and adapted from optimised Java, may not be the nicest, or even fast, Python code
+class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimised Java, may not be the nicest, or even fast, Python code
     '''
     Constructor
     
