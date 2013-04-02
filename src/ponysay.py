@@ -272,10 +272,10 @@ class Ponysay():
         ## Run modes
         if   test('-h'):                                     args.help()
         elif test('-v'):                                     self.version()
-        elif test('--quoters'):                              self.quoters()
-        elif test('--Onelist', ('--onelist', '++onelist')):  self.fullonelist()
-        elif test('--onelist'):                              self.onelist()
-        elif test('++onelist'):                              self.__extraponies(); self.onelist()
+        elif test('--quoters'):                              self.quoters(True, False)
+        elif test('--Onelist', ('--onelist', '++onelist')):  self.onelist(True, True)
+        elif test('--onelist'):                              self.onelist(True, False)
+        elif test('++onelist'):                              self.onelist(False, True)
         elif test('+A', ('-L', '+L')):                       self.linklist(); self.__extraponies(); self.linklist()
         elif test('-A', ('-l', '+l')):                       self.list(); self.__extraponies(); self.list()
         elif test('-L'):                                     self.linklist()
@@ -335,7 +335,7 @@ class Ponysay():
     '''
     Use extra ponies
     
-    @param  args:ArgParser  Parsed command line arguments, may be `None`
+    @param  args:ArgParser  Parsed command line arguments, `None` to force rather than by reading arguments
     '''
     def __extraponies(self, args = None):
         ## If extraponies are used, change ponydir to extraponydir
@@ -349,12 +349,15 @@ class Ponysay():
     '''
     Use best.pony if nothing else is set
     
-    @param  args:ArgParser  Parsed command line arguments
+    @param  args:ArgParser     Parsed command line arguments
+    @param  ponydirs:itr<str>  Pony directories to use
     '''
-    def __bestpony(self, args):
+    def __bestpony(self, args, ponydirs = None):
+        if ponydirs is None:  ponydirs = self.ponydirs
+        
         ## Set best.pony as the pony to display if none is selected
         if (args.opts['-f'] is None) or (args.opts['-q'] is None) or (len(args.opts['-q']) == 0):
-            for ponydir in self.ponydirs:
+            for ponydir in ponydirs:
                 if os.path.isfile(ponydir + 'best.pony') or os.path.islink(ponydir + 'best.pony'):
                     pony = os.path.realpath(ponydir + 'best.pony') # Canonical path
                     args.opts['-f' if args.opts['-q'] is None else '-q'] = [pony]
@@ -456,15 +459,17 @@ class Ponysay():
     '''
     Returns one file with full path, names is filter for names, also accepts filepaths
     
-    @param   names:list<str>  Ponies to choose from, may be `None`
-    @param   alt:bool         For method internal use...
-    @return  :str             The file name of a pony
+    @param   names:list<str>    Ponies to choose from, may be `None`
+    @param   alt:bool           For method internal use...
+    @param   ponydirs:itr<str>  The pony directories to use
+    @return  :str               The file name of a pony
     '''
-    def __getponypath(self, names = None, alt = False):
+    def __getponypath(self, names = None, alt = False, ponydirs = None):
+        if ponydirs is None:  ponydirs = self.ponydirs
         ponies = {}
         
         ## List all pony files, without the .pony ending
-        for ponydir in self.ponydirs:
+        for ponydir in ponydirs:
             for ponyfile in os.listdir(ponydir):
                 if endswith(ponyfile, '.pony'):
                     pony = ponyfile[:-5]
@@ -532,7 +537,7 @@ class Ponysay():
             if self.restriction is not None:
                 logic = Ponysay.makeRestrictionLogic(self.restriction)
                 ponies = {}
-                for ponydir in self.ponydirs:
+                for ponydir in ponydirs:
                     for pony in Ponysay.restrictedPonies(ponydir, logic):
                         if (pony not in passed) and (pony in oldponies):
                             ponyfile = ponydir + pony + '.pony'
@@ -541,7 +546,7 @@ class Ponysay():
                 oldponies = ponies
             ponies = {}
             (termh, termw) = self.__gettermsize()
-            for ponydir in self.ponydirs:
+            for ponydir in ponydirs:
                 (fitw, fith) = (None, None)
                 if os.path.exists(ponydir + 'widths'):
                     fitw = set()
@@ -570,7 +575,7 @@ class Ponysay():
         pony = names[random.randrange(0, len(names))]
         if pony not in ponies:
             if not alt:
-                autocorrect = SpelloCorrecter(self.ponydirs, '.pony')
+                autocorrect = SpelloCorrecter(ponydirs, '.pony')
                 (alternatives, dist) = autocorrect.correct(pony)
                 limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
                 limit = 5 if len(limit) == 0 else int(dist)
@@ -650,7 +655,7 @@ class Ponysay():
     '''
     Get ponies that pass restriction
     
-    @param   ponydir:str                Pony directory
+    @param   ponydir:str                Pony directory, must end with `os.sep`
     @param   logic:dict<str, str>→bool  Restriction test functor
     @return  :list<str>                 Passed ponies
     '''
@@ -672,14 +677,19 @@ class Ponysay():
     '''
     Returns a set with all ponies that have quotes and are displayable
     
-    @return  :set<str>  All ponies that have quotes and are displayable
+    @param   ponydirs:itr<str>   The pony directories to use
+    @param   quotedirs:itr<str>  The quote directories to use
+    @return  :set<str>           All ponies that have quotes and are displayable
     '''
-    def __quoters(self):
+    def __quoters(self, ponydirs = None, quotedirs = None):
+        if ponydirs  is None:  ponydirs  = self.ponydirs
+        if quotedirs is None:  quotedirs = self.quotedirs
+        
         ## List all unique quote files
         quotes = []
         quoteshash = set()
         _quotes = []
-        for quotedir in self.quotedirs:
+        for quotedir in quotedirs:
             _quotes += [item[:item.index('.')] for item in os.listdir(quotedir)]
         for quote in _quotes:
             if not quote == '':
@@ -689,7 +699,7 @@ class Ponysay():
         
         ## Create a set of all ponyes that have quotes
         ponies = set()
-        for ponydir in self.ponydirs:
+        for ponydir in ponydirs:
             for pony in os.listdir(ponydir):
                 if not pony[0] == '.':
                     p = pony[:-5] # remove .pony
@@ -704,17 +714,22 @@ class Ponysay():
     '''
     Returns a list with all (pony, quote file) pairs
     
+    @param   ponydirs:itr<str>         The pony directories to use
+    @param   quotedirs:itr<str>        The quote directories to use
     @return  (pony, quote):(str, str)  All ponies–quote file-pairs
     '''
-    def __quotes(self):
+    def __quotes(self, ponydirs = None, quotedirs = None):
+        if ponydirs  is None:  ponydirs  = self.ponydirs
+        if quotedirs is None:  quotedirs = self.quotedirs
+        
         ## Get all ponyquote files
         quotes = []
-        for quotedir in self.quotedirs:
+        for quotedir in quotedirs:
             quotes += [quotedir + item for item in os.listdir(quotedir)]
         
         ## Create list of all pony–quote file-pairs
         rc = []
-        for ponydir in self.ponydirs:
+        for ponydir in ponydirs:
             for pony in os.listdir(ponydir):
                 if not pony[0] == '.':
                     p = pony[:-5] # remove .pony
@@ -803,12 +818,16 @@ class Ponysay():
     
     '''
     Lists the available ponies
+    
+    @param  ponydirs:itr<str>  The pony directories to use
     '''
-    def list(self):
+    def list(self, ponydirs = None):
+        if ponydirs is None:  ponydirs = self.ponydirs
+        
         ## Get all quoters
         quoters = self.__quoters()
         
-        for ponydir in self.ponydirs: # Loop ponydirs
+        for ponydir in ponydirs: # Loop ponydirs
             ## Get all ponies in the directory
             _ponies = os.listdir(ponydir)
             
@@ -830,13 +849,17 @@ class Ponysay():
     
     '''
     Lists the available ponies with alternatives inside brackets
+    
+    @param  ponydirs:itr<str>  The pony directories to use
     '''
-    def linklist(self):
+    def linklist(self, ponydirs = None):
+        if ponydirs is None:  ponydirs = self.ponydirs
+        
         ## Get the size of the terminal and all ponies with quotes
         termsize = self.__gettermsize()
         quoters = self.__quoters()
         
-        for ponydir in self.ponydirs: # Loop ponydirs
+        for ponydir in ponydirs: # Loop ponydirs
             ## Get all pony files in the directory
             _ponies = os.listdir(ponydir)
             
@@ -903,18 +926,28 @@ class Ponysay():
     
     '''
     Lists with all ponies that have quotes and are displayable, on one column without anything bold or otherwise formated
+    
+    @param  standard:bool  Include standard ponies
+    @param  extra:bool     Include extra ponies
     '''
-    def quoters(self):
+    def quoters(self, standard = True, extra = False):
         ## Get all quoters
-        ponies = self.__quoters()
+        ponies = list(self.__quoters()) if standard else []
         
-        ## UCS:ise and sort
-        self.__ucsise(ponies)
-        ponies = list(ponies)
-        ponies.sort()
+        if standard:
+            ## UCS:ise
+            self.__ucsise(ponies)
+        
+        ## And now the extra ponies
+        if extra:
+            self.__extraponies()
+            xponies = list(self.__quoters())
+            self.__ucsise(xponies)
+            ponies += xponies
         
         ## Print each one on a seperate line, but skip duplicates
         last = ''
+        ponies.sort()
         for pony in ponies:
             if not pony == last:
                 last = pony
@@ -923,69 +956,51 @@ class Ponysay():
     
     '''
     Lists the available ponies on one column without anything bold or otherwise formated
+    
+    @param  standard:bool  Include standard ponies
+    @param  extra:bool     Include extra ponies
     '''
-    def onelist(self):
-        ## Get all pony files
-        _ponies = []
-        for ponydir in self.ponydirs: # Loop ponydirs
-            _ponies += os.listdir(ponydir)
-        
-        ## Remove .pony from all files and skip those that does not have .pony
+    def onelist(self, standard = True, extra = False):
+        ## All ponies
         ponies = []
-        for pony in _ponies:
-            if endswith(pony, '.pony'):
-                ponies.append(pony[:-5])
         
-        ## UCS:ise and sort
-        self.__ucsise(ponies)
-        ponies.sort()
+        if standard:
+            ## Get all pony files
+            _ponies = []
+            for ponydir in self.ponydirs: # Loop ponydirs
+                _ponies += os.listdir(ponydir)
+            
+            ## Remove .pony from all files and skip those that does not have .pony
+            for pony in _ponies:
+                if endswith(pony, '.pony'):
+                    ponies.append(pony[:-5])
+            
+            ## UCS:ise
+            self.__ucsise(ponies)
+        
+        if extra:
+            ## Swap to extra ponies
+            self.__extraponies()
+            
+            ## Get all pony files
+            _ponies = []
+            for ponydir in self.ponydirs: # Loop ponydirs
+                _ponies += os.listdir(ponydir)
+            
+            ## Remove .pony from all files and skip those that does not have .pony
+            xponies = []
+            for pony in _ponies:
+                if endswith(pony, '.pony'):
+                    xponies.append(pony[:-5])
+            
+            ## UCS:ise
+            self.__ucsise(xponies)
+            
+            ## Add found extra ponies
+            ponies += xponies
         
         ## Print each one on a seperate line, but skip duplicates
         last = ''
-        for pony in ponies:
-            if not pony == last:
-                last = pony
-                print(pony)
-    
-    
-    '''
-    Lists the available ponies on one column without anything bold or otherwise formated, both standard ponies and extra ponies
-    '''
-    def fullonelist(self):
-        ## Get all pony files
-        _ponies = []
-        for ponydir in self.ponydirs: # Loop ponydirs
-            _ponies += os.listdir(ponydir)
-        
-        ## Remove .pony from all files and skip those that does not have .pony
-        ponies = []
-        for pony in _ponies:
-            if endswith(pony, '.pony'):
-                ponies.append(pony[:-5])
-        
-        ## UCS:ise
-        self.__ucsise(ponies)
-        
-        ## Swap to extra ponies
-        self.__extraponies()
-        
-        ## Get all pony files
-        _ponies = []
-        for ponydir in self.ponydirs: # Loop ponydirs
-            _ponies += os.listdir(ponydir)
-        
-        ## Remove .pony from all files and skip those that does not have .pony
-        xponies = []
-        for pony in _ponies:
-            if endswith(pony, '.pony'):
-                xponies.append(pony[:-5])
-        
-        ## UCS:ise
-        self.__ucsise(xponies)
-        
-        ## Print each one on a seperate line, but skip duplicates
-        last = ''
-        ponies += xponies
         ponies.sort()
         for pony in ponies:
             if not pony == last:

@@ -89,7 +89,10 @@ class PonysayTool():
                 cmd %= ('-echo -icanon -echo -isig -ixoff -ixon', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
                 print('\033[?25l', end='') # hide cursor
-                self.browse(opts['-b'][0], opts['-r'])
+                dir = opts['-b'][0]
+                if not dir.endswith(os.sep):
+                    dir += os.sep
+                self.browse(dir, opts['-r'])
             finally:
                 print('\033[?25h', end='') # show cursor
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
