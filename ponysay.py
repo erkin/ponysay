@@ -2386,12 +2386,12 @@ class Backend():
                             if mm + x not in map: # Too much whitespace?
                                 cols = 0
                                 break
-                            nbsp = b[map[mm + x]] == ' '
+                            nbsp = b[map[mm + x]] == ' ' # nbsp
                             m = map[mm + x]
                             
-                            if ('­' in b[bisub : m]) and not nbsp:
+                            if ('­' in b[bisub : m]) and not nbsp: # sort hyphen
                                 hyphen = m - 1
-                                while b[hyphen] != '­':
+                                while b[hyphen] != '­': # sort hyphen
                                     hyphen -= 1
                                 while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hyphenated correctly
                                     x -= 1
