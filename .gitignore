@@ -17,11 +17,15 @@
 
 /completion/*-completion-think.*
 /completion/pony*.pony*
-/manuals/manpage.*.gz
-/ponysay.info
-/ponysay.info.gz
 /truncater
 *.install
+*.gz
+*.xz
+*.bzip2
+*.zip
+*.info
+*.ps
+*.dvi
 /Makefile
 /quotes/
 
