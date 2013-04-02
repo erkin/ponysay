@@ -75,9 +75,9 @@ def printinfo(text = '', end = '\n'):
 '''
 Checks whether a text ends with a specific text, but has more
 
-@param   text    The text to test
-@param   ending  The desired end of the text
-@return  :bool   The result of the test
+@param   text:str    The text to test
+@param   ending:str  The desired end of the text
+@return  :bool       The result of the test
 '''
 def endswith(text, ending):
     return text.endswith(ending) and not (text == ending)
