@@ -51,13 +51,12 @@ def render_balloon(text, balloonstyle, minwidth=0, maxwidth=40, pad=str.center):
 	(oneline, multiline, bottom, top, linkl, linkr) = balloonstyle
 	lines = [ ' '+wrapline+' ' for textline in text.center(minwidth).split('\n') for wrapline in textwrap.wrap(textline, maxwidth) ]
 	width = max([ len(line) for line in lines ]+[minwidth])
-	def side(top, middle, bottom):
-		return top + middle*(len(lines)-2) + bottom
+	side = lambda top, middle, bottom: top + middle*(len(lines)-2) + bottom
 	leftside, rightside = oneline if len(lines) == 1 else multiline
 	topextra, bottomextra = len(leftside[0])-2, len(leftside[2])-2
 	leftside, rightside = side(*leftside), side(*rightside)
 	lines = [top*width] + [' '*width]*topextra + [ pad(line, width) for line in lines ] + [' '*width]*bottomextra + [bottom*width]
-	return [ l+m+r for l,m,r in zip(leftside, lines, rightside)]
+	return [ l+m+r for l,m,r in zip(leftside, lines, rightside) ]
 
 def render_pony(name, text, balloonstyle, width=80, center=False, centertext=False):
 	pony = load_pony(name) #CAUTION: these lines already end with '\n'
