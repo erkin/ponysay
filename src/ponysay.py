@@ -231,10 +231,28 @@ class Ponysay():
             exit(254)
             return
         
+        '''
+        Test arguments written in negation-free disjunctive normal form
+        
+        @param   keys:*str|itr<str>  A list of keys and set of keys, any of which must exists, a set of keys only passes if all of those exists
+        @return  :bool               Whether the check passed
+        '''
+        def test(*keys):
+            for key in keys:
+                if isinstance(key, str):
+                    if args.opts[key] is not None:
+                        return True
+                else:
+                    for skey in key:
+                        if args.opts[skey] is None:
+                            return False
+                    return True
+            return False
+        
         ## Emulate termial capabilities
-        if   args.opts['-X'] is not None:  (self.linuxvt, self.usekms) = (False, False)
-        elif args.opts['-V'] is not None:  (self.linuxvt, self.usekms) = (True, False)
-        elif args.opts['-K'] is not None:  (self.linuxvt, self.usekms) = (True, True)
+        if   test('-X'):  (self.linuxvt, self.usekms) = (False, False)
+        elif test('-V'):  (self.linuxvt, self.usekms) = (True, False)
+        elif test('-K'):  (self.linuxvt, self.usekms) = (True, True)
         self.ponydirs      = self.vtponydirs      if self.linuxvt and not self.usekms else self.xponydirs
         self.extraponydirs = self.extravtponydirs if self.linuxvt and not self.usekms else self.extraxponydirs
         
@@ -248,30 +266,30 @@ class Ponysay():
                     else:                          args.opts[sl]  = args.opts[ssl]
         
         ## Save whether standard or extra ponies are used
-        self.usingstandard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) #or (args.opts['-Q'] is not None)
-        self.usingextra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) #or (args.opts['+q'] is not None) or (args.opts['-Q'] is not None)
+        self.usingstandard = test('-f', '-F', '-q') # -Q
+        self.usingextra    = test('+f', '-F') # +q -Q
         
         ## Run modes
-        if   args.opts['-h']        is not None:  args.help()
-        elif args.opts['--quoters'] is not None:  self.quoters()
-        elif args.opts['--onelist'] is not None:  self.onelist()
-        elif args.opts['--Onelist'] is not None:  self.fullonelist()
-        elif args.opts['-v']        is not None:  self.version()
-        elif args.opts['-l']        is not None:  self.list()
-        elif args.opts['-L']        is not None:  self.linklist()
-        elif args.opts['-B']        is not None:  self.balloonlist()
-        elif args.opts['++onelist'] is not None:  self.__extraponies(); self.onelist()
-        elif args.opts['+l']        is not None:  self.__extraponies(); self.list()
-        elif args.opts['+L']        is not None:  self.__extraponies(); self.linklist()
-        elif args.opts['-A']        is not None:  self.list(); self.__extraponies(); self.list()
-        elif args.opts['+A']        is not None:  self.linklist(); self.__extraponies(); self.linklist()
+        if   test('-h'):                                     args.help()
+        elif test('-v'):                                     self.version()
+        elif test('--quoters'):                              self.quoters()
+        elif test('--Onelist', ('--onelist', '++onelist')):  self.fullonelist()
+        elif test('--onelist'):                              self.onelist()
+        elif test('++onelist'):                              self.__extraponies(); self.onelist()
+        elif test('+A', ('-L', '+L')):                       self.linklist(); self.__extraponies(); self.linklist()
+        elif test('-A', ('-l', '+l')):                       self.list(); self.__extraponies(); self.list()
+        elif test('-L'):                                     self.linklist()
+        elif test('-l'):                                     self.list()
+        elif test('+L'):                                     self.__extraponies(); self.linklist()
+        elif test('+l'):                                     self.__extraponies(); self.list()
+        elif test('-B'):                                     self.balloonlist()
         else:
             ## Colouring features
-            if args.opts['--colour-pony'] is not None:
+            if test('--colour-pony'):
                 self.mode += '\033[' + ';'.join(args.opts['--colour-pony']) + 'm'
             else:
                 self.mode += '\033[0m'
-            if args.opts['+c'] is not None:
+            if test('+c'):
                 if args.opts['--colour-msg']    is None:  args.opts['--colour-msg']    = args.opts['+c']
                 if args.opts['--colour-link']   is None:  args.opts['--colour-link']   = args.opts['+c']
                 if args.opts['--colour-bubble'] is None:  args.opts['--colour-bubble'] = args.opts['+c']
@@ -280,24 +298,24 @@ class Ponysay():
             self.__extraponies(args)
             self.__bestpony(args)
             self.__ucsremap(args)
-            if args.opts['-o'] is not None:
+            if test('-o'):
                 self.mode += '$/= $$\\= $'
                 args.message = ''
                 self.ponyonly = True
             else:
                 self.ponyonly = False
-            if (args.opts['-i'] is not None) or (args.opts['+i'] is not None):
+            if test('-i', '+i'):
                 args.message = ''
             self.restriction = args.opts['-r']
             
             ## The stuff
-            if args.opts['-q'] is not None:
-                warn = (args.opts['-f'] is not None) or (args.opts['+f'] is not None)
+            if test('-q'):
+                warn = test('-f', '+f')
                 if (len(args.opts['-q']) == 1) and ((args.opts['-q'][0] == '-f') or (args.opts['-q'][0] == '+f')):
                     warn = True
                     if args.opts['-q'][0] == '-f':
                         args.opts['-q'] = args.files
-                        if args.opts['-f'] is not None:
+                        if test('-f'):
                             args.opts['-q'] += args.opts['-f']
                 self.quote(args)
                 if warn:
