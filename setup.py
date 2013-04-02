@@ -37,6 +37,10 @@ mansections = [('ponysay', '6'),
 miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
              ('CREDITS', '/usr/share/licenses/ponysay/CREDITS')]
 
+ponysaysrc = [src + '.py' for src in
+              ('__main__', 'common', 'ponysay', 'argparser', 'balloon',
+               'backend', 'colourstack', 'ucs', 'spellocorrecter')]
+
 
 
 
@@ -404,20 +408,34 @@ class Setup():
                 mane = True
                 break
         if mane:
+            for src in ponysaysrc:
+                try:
+                    fileout = open('src/%s.install' % src, 'wb+')
+                    filein = open('src/%s' % src, 'rb')
+                    data = filein.read().decode('utf-8', 'replace')
+                    
+                    if '#!/usr/bin/env python3' in data:
+                        data = data.replace('#!/usr/bin/env python3', '#!/usr/bin/env ' + env)
+                    else:
+                        data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
+                    data = data.replace('/usr/share/', conf['share-dir'] if conf['share-dir'].endswith('/') else (conf['share-dir'] + '/'))
+                    data = data.replace('/etc/', conf['sysconf-dir'] + ('' if conf['sysconf-dir'].endswith('/') else '/'))
+                    data = data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
+                    
+                    fileout.write(data.encode('utf-8'))
+                finally:
+                    if fileout is not None:  fileout.close()
+                    if filein  is not None:  filein .close()
+            try:
+                os.chdir('src')
+                os.system('zip ../ponysay.zip ' + ' '.join(ponysaysrc))
+            finally:
+                os.chdir('..')
             try:
                 fileout = open('ponysay.install', 'wb+')
-                filein = open('ponysay.py', 'rb')
-                data = filein.read().decode('utf-8', 'replace')
-                
-                if '#!/usr/bin/env python3' in data:
-                    data = data.replace('#!/usr/bin/env python3', '#!/usr/bin/env ' + env)
-                else:
-                    data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
-                data = data.replace('/usr/share/', conf['share-dir'] if conf['share-dir'].endswith('/') else (conf['share-dir'] + '/'))
-                data = data.replace('/etc/', conf['sysconf-dir'] + ('' if conf['sysconf-dir'].endswith('/') else '/'))
-                data = data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
-                
-                fileout.write(data.encode('utf-8'))
+                filein = open('src/%s' % src, 'rb')
+                fileout.write(('#!/usr/bin/env %s\n' % env).encode('utf-8'))
+                fileout.write(filein.read())
             finally:
                 if fileout is not None:  fileout.close()
                 if filein  is not None:  filein .close()
@@ -721,7 +739,8 @@ class Setup():
     def clean(self):
         print('\033[1;34m::\033[39mCleaning...\033[21m')
         
-        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install']
+        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install', 'ponysay.zip']
+        files += ['src/%s.install' % file for file in ponysaysrc]
         dirs = ['quotes']
         for comp in ['install', 'gz', 'xz']:
             for man in manpages:
