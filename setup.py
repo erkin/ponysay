@@ -649,7 +649,6 @@ class Setup():
         ponyshare = conf['share-dir']
         if not ponyshare.endswith('/'):
             ponyshare += '/'
-        ponyshare += 'ponysay/'
         for dir in sharedirs:
             if conf[dir[0]] is not None:
                 self.cp(True, dir[0], [ponyshare + dir[0]], Setup.validateFreedom if self.free else None)
