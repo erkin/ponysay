@@ -421,7 +421,7 @@ class Setup():
                         data = data.replace('#!/usr/bin/env python3', '#!/usr/bin/env ' + env)
                     else:
                         data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
-                    data = data.replace('/usr/share/', conf['share-dir'] if conf['share-dir'].endswith('/') else (conf['share-dir'] + '/'))
+                    data = data.replace('/usr/share/ponysay/', conf['share-dir'] + ('' if conf['share-dir'].endswith('/') else '/'))
                     data = data.replace('/etc/', conf['sysconf-dir'] + ('' if conf['sysconf-dir'].endswith('/') else '/'))
                     data = data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
                     
@@ -429,14 +429,10 @@ class Setup():
                 finally:
                     if fileout is not None:  fileout.close()
                     if filein  is not None:  filein .close()
-            try:
-                os.chdir('src')
-                print('Creating uncompressed zip file ponysay.zip with files from src: ' + ' '.join(ponysaysrc))
-                with ZipFile('../ponysay.zip', 'w') as myzip:
-                    for src in ponysaysrc:
-                        myzip.write(src)
-            finally:
-                os.chdir('..')
+            print('Creating uncompressed zip file ponysay.zip with files from src: ' + ' '.join(ponysaysrc))
+            with ZipFile('ponysay.zip', 'w') as myzip:
+                for src in ponysaysrc:
+                    myzip.write('src/%s.install' % src, src)
             os.chmod('ponysay.zip', 0o755)
             try:
                 fileout = open('ponysay.install', 'wb+')
@@ -530,7 +526,7 @@ class Setup():
                             data = data.replace('/usr/bin/ponysay', conf[command])
                             data = data.replace('/ponysay', '\0')
                             data = data.replace('ponysay', command)
-                            data = data.replace('/usr/share/', conf['share-dir'] if conf['share-dir'].endswith('/') else (conf['share-dir'] + '/'))
+                            data = data.replace('/usr/share/ponysay/', conf['share-dir'] if conf['share-dir'].endswith('/') else (conf['share-dir'] + '/'))
                             data = data.replace('\0', '/ponysay')
                             
                             fileout.write(data.encode('utf-8'))
@@ -992,21 +988,20 @@ class Setup():
         conf['~prefix~'] = prefix
         
         if opts['--opt'] is not None:
-            if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/opt/ponysay/bin']
-            if opts['--lib-dir']           is None:  opts['--lib-dir']           = ['/opt/ponysay/lib']
-            if opts['--libexec-dir']       is None:  opts['--libexec-dir']       = ['/opt/ponysay/libexec']
-            if opts['--share-dir']         is None:  opts['--share-dir']         = ['/opt/ponysay/share']
+            if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/opt/ponysay']
+            if opts['--lib-dir']           is None:  opts['--lib-dir']           = ['/opt/ponysay']
+            if opts['--libexec-dir']       is None:  opts['--libexec-dir']       = ['/opt/ponysay']
+            if opts['--share-dir']         is None:  opts['--share-dir']         = ['/opt/ponysay']
             if opts['--with-shared-cache'] is None:  opts['--with-shared-cache'] = ['/var/opt/ponysay/cache']
         
         for dir in ['bin', 'lib', 'libexec', 'share']:
-            if opts['--' + dir + '-dir'] is not None:
-                d = opts['--' + dir + '-dir'][0]
-                if dir == 'lib':
-                    dir += '/ponysay'
-                for key in conf:
-                    if conf[key] not in [None, True, False]:
-                        if conf[key].startswith(prefix + '/' + dir):
-                            conf[key] = d + conf[key][5 + len(dir):]
+            key = dir + '-dir'
+            if opts['--' + key] is not None:
+                conf[key] = opts['--' + key][0]
+                if (dir == 'share') and (opts['--opt'] is None):
+                    conf[key] += '/ponysay'
+            if conf[key].startswith('usr/'):
+                conf[key] = prefix + conf[key][3:]
         if opts['--cache-dir'] is not None:
             dir = opts['--cache-dir'][0]
             for key in conf:
@@ -1085,7 +1080,6 @@ class Setup():
                 conf['man-section-' + mansection[0]] = opts['--man-section-' + mansection[0]][0]
             else:
                 conf['man-section-' + mansection[0]] = mansection[1]
-        
         
         
         self.destDir = None if opts['--dest-dir'] is None else opts['--dest-dir'][0]

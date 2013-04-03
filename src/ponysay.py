@@ -509,7 +509,7 @@ class Ponysay():
                 ponies = {}
                 for ponydir in ponydirs:
                     for pony in Metadata.restrictedPonies(ponydir, logic):
-                        if (pony not in passed) and (pony in oldponies):
+                        if pony in oldponies: # XXX and (pony not in passed)
                             ponyfile = ponydir + pony + '.pony'
                             if oldponies[pony] == ponyfile:
                                 ponies[pony] = ponyfile

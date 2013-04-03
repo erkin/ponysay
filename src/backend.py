@@ -375,7 +375,7 @@ class Backend():
         
         self.output = self.output.replace(AUTO_PUSH, '').replace(AUTO_POP, '')
         
-        if self.balloon is not None:
+        if self.balloon is None:
             if (self.balloontop > 0) or (self.balloonbottom > 0):
                 self.output = self.output.split('\n')
                 self.output = self.output[self.balloontop : ~(self.balloonbottom)]
