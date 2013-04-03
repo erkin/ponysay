@@ -16,12 +16,12 @@ PONYSAY_VERSION = '3.0alpha'
 manpages = [('en', 'English'),  # must be first
             ('es', 'Spanish')]
 
-sharedirs = [('ponies', 'xterm ponies', 'PONYDIR'),  # must be first
-             ('ttyponies', 'tty ponies', 'TTYPONYDIR'),
-             ('extraponies', 'extra xterm ponies', 'XPONYDIR'),
-             ('extrattyponies', 'extra tty ponies', 'XTTYPONYDIR'),
-             ('quotes', 'pony quotes', 'QUOTEDIR'),
-             ('balloons', 'balloon styles', 'BALLOONDIR')]
+sharedirs = [('ponies', 'xterm ponies', 'PONYDIR', True),  # must be first
+             ('ttyponies', 'tty ponies', 'TTYPONYDIR', True),
+             ('extraponies', 'extra xterm ponies', 'XPONYDIR', True),
+             ('extrattyponies', 'extra tty ponies', 'XTTYPONYDIR', True),
+             ('quotes', 'pony quotes', 'QUOTEDIR', False),
+             ('balloons', 'balloon styles', 'BALLOONDIR', False)]
 
 sharefiles = [('ucs', 'ucsmap')]
 
@@ -557,8 +557,8 @@ class Setup():
                 if ponymap is not None:
                     ponymap.close()
         
-        for sharedir in [sharedir[0] for sharedir in sharedirs]: # TODO make this an opt-out option
-            if os.path.isdir(sharedir):
+        for (sharedir, hasponies) in [(sharedir[0], sharedir[3]) for sharedir in sharedirs]: # TODO make this an opt-out option
+            if hasponies and os.path.isdir(sharedir):
                 for toolcommand in ('--dimensions', '--metadata'):
                     if not self.free:
                         print('%s, %s, %s' % ('./src/ponysay-tool.py', toolcommand, sharedir))
