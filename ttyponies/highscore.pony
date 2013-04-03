@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E17 Hearts and Hooves Day
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: brown
 DISPLAY: full, right
 EYE: brown

@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E12 Call of the Cutie
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: grey
 DISPLAY: full, right
 EYE: purple

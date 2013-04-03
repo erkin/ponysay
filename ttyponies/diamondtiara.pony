@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E12 Call of the Cutie
 BALLOON: top
+BALLOON TOP: 0
+BALLOON BOTTOM: 0
 COAT: pink
 DISPLAY: full, left
 EYE: teal

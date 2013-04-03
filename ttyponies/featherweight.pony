@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E23 Ponyville Confidential
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: white
 DISPLAY: full, right
 EYE: brown

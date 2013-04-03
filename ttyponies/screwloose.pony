@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E16 Read It and Weep
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: blue
 DISPLAY: full, right
 EYE: purple

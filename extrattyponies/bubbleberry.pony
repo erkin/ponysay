@@ -1,6 +1,8 @@
 $$$
 AURA: blue
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 EYE: pink
 FREE: yes
 GROUP: stallion, coltified

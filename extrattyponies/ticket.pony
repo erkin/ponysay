@@ -2,6 +2,8 @@ $$$
 APPEARANCE: Ponychan.net /pic/ ( http://www.ponychan.net/chan/pic/res/711613.html )
 AURA: yellow
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: yellow
 DISPLAY: full, left
 EYE: green

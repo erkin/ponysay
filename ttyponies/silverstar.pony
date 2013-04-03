@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E21 Over a Barrel
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: brown
 DISPLAY: full, right
 EYE: cyan

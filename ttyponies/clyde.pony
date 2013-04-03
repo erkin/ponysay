@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
+BALLOON TOP: 0
+BALLOON BOTTOM: 0
 COAT: brown
 DISPLAY: full, left
 EYE: brown

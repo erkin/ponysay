@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S03E01 The Crystal Empire [Part 1]
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: grey
 DISPLAY: full, left
 EYE: green

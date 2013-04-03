@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E05 Sisterhooves Social
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: white
 DISPLAY: full, right
 EYE: blue

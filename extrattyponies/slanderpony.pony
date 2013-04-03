@@ -1,6 +1,8 @@
 $$$
 AURA: black
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 BASED ON: (original)
 COAT: gray
 DISPLAY: full, right

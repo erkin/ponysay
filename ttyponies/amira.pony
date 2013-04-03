@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S03E05 Magic Duel
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: pink
 DISPLAY: full, left
 EYE: blue

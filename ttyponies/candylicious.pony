@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E14 Suited for Success
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: purple
 DISPLAY: full, left
 EYE: purple

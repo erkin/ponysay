@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E10 Swarm of the Century
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: pink
 DISPLAY: full, right
 EYE: closed

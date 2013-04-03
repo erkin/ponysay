@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E06 The Cutie Pox
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: beige
 DISPLAY: full, right
 EYE: brown

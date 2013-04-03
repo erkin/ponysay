@@ -1,6 +1,8 @@
 $$$
 AURA: yellow
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 BASED ON: celestia
 COAT: white
 DISPLAY: full, right

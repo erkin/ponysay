@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E19 Putting Your Hoof Down
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: blue
 DISPLAY: full, right
 EYE: yellow

@@ -2,6 +2,8 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 BASED ON: (none)
 BASED ON: Generation 3 Pinkie Pie
 COAT: yellow

@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E22 Hurricane Fluttershy
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: white
 DISPLAY: full, right
 EYE: red

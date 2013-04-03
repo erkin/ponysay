@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E25 The Royal Wedding [Part 1]
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: white
 DISPLAY: full, left
 EYE: cyan

@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E22 A Bird in the Hood
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: red
 DISPLAY: full, front
 EYE: yellow

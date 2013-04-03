@@ -2,6 +2,8 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 AURA: blue
 BALLOON: top
+BALLOON TOP: 2
+BALLOON BOTTOM: 0
 COAT: white
 DISPLAY: full, left
 EYE: blue

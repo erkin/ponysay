@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E15 The Super Speedy Cider Squeezy 6000
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: yellow
 DISPLAY: full, right
 EYE: green

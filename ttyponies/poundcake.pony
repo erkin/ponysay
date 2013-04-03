@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E13 Baby Cakes
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: creame
 DISPLAY: full, right
 EYE: brown

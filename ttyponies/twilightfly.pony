@@ -2,6 +2,8 @@ $$$
 APPEARANCE: S03E13 Magical Mistery Cure
 AURA: purple (whitish lilac in season 1)
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: purple
 DISPLAY: full, left
 EYE: purple

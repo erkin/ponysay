@@ -2,6 +2,8 @@ $$$
 APPEARANCE: Moonstuck reply 1
 AURA: white
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 BASED ON: woona
 COAT: gray
 DISPLAY: full, left

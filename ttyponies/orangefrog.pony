@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S03E03 Too Many Pinkie Pies
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: orange
 DISPLAY: full, right
 FREE: yes

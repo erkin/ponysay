@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: Moonstuck reply 103
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: gray
 DISPLAY: full, left
 EYE: gray

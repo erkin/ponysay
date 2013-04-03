@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E11 Winter Wrap Up
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: yellow
 DISPLAY: full, left
 EYE: cyan
