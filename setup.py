@@ -433,6 +433,7 @@ class Setup():
                 os.system('zip -0 ../ponysay.zip ' + ' '.join(ponysaysrc)) # use not compress, prefer speed
             finally:
                 os.chdir('..')
+            os.chmod('../ponysay.zip', 0o755)
             try:
                 fileout = open('ponysay.install', 'wb+')
                 filein = open('src/%s' % src, 'rb')
