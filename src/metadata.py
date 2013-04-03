@@ -45,65 +45,76 @@ class Metadata():
     '''
     @staticmethod
     def makeRestrictionLogic(restriction):
-        table = [(get_test((cell[:cell.index('=')],
-                           cell[cell.index('=') + 1:]
-                          ))
-                  for cell in clause.lower().replace('_', '').replace(' ', '').split('+'))
-                  for clause in restriction
-                ]
-        
         def get_test(cell):
             strict = cell[0][-1] != '?'
-            key = cell[0][:-2 if strict else -1]
+            key = cell[0]
+            if not strict:
+                key = key[:-1]
             invert = cell[1][0] == '!'
             value = cell[1][1 if invert else 0:]
             
             class SITest():
                 def __init__(self, cellkey, cellvalue):
-                    (self.cellkey, self.callvalue) = (key, value)
+                    (self.cellkey, self.cellvalue) = (cellkey, cellvalue)
                 def __call__(self, has):
-                    return False if key not in has else (value not in has[key])
+                    return False if self.cellkey not in has else (self.cellvalue not in has[self.cellkey])
+                def __str__(self):
+                    return 'si(%s : %s)' % (self.cellkey, self.callvalue)
             class STest():
                 def __init__(self, cellkey, cellvalue):
-                    (self.cellkey, self.callvalue) = (key, value)
+                    (self.cellkey, self.cellvalue) = (cellkey, cellvalue)
                 def __call__(self, has):
-                    return False if key not in has else (value in has[key])
+                    return False if self.cellkey not in has else (self.cellvalue in has[self.cellkey])
+                def __str__(self):
+                    return 's(%s : %s)' % (self.cellkey, self.callvalue)
             class ITest():
                 def __init__(self, cellkey, cellvalue):
-                    (self.cellkey, self.callvalue) = (key, value)
+                    (self.cellkey, self.cellvalue) = (cellkey, cellvalue)
                 def __call__(self, has):
-                    return True if key not in has else (value not in has[key])
+                    return True if self.cellkey not in has else (self.cellvalue not in has[self.cellkey])
+                def __str__(self):
+                    return 'i(%s : %s)' % (self.cellkey, self.callvalue)
             class NTest():
                 def __init__(self, cellkey, cellvalue):
-                    (self.cellkey, self.callvalue) = (key, value)
+                    (self.cellkey, self.cellvalue) = (cellkey, cellvalue)
                 def __call__(self, has):
-                    return True if key not in has else (value in has[key])
+                    return True if self.cellkey not in has else (self.cellvalue in has[self.cellkey])
+                def __str__(self):
+                    return 'n(%s : %s)' % (self.cellkey, self.callvalue)
             
             if strict and invert:  return SITest(key, value)
             if strict:             return STest(key, value)
             if invert:             return ITest(key, value)
             return NTest(key, value)
         
-        def logic(cells):
-            for alternative in table:
-                ok = True
-                for cell in alternative:
-                    if not cell(cells):
-                        ok = False
-                        break
-                if ok:
-                    return True
-            return False
+        class Logic():
+            def __init__(self, table):
+                self.table = table
+            def __call__(self, cells):
+                for alternative in self.table:
+                    ok = True
+                    for cell in alternative:
+                        if not cell(cells):
+                            ok = False
+                            break
+                    if ok:
+                        return True
+                return False
         
-        return logic
+        table = [[get_test((cell[:cell.index('=')].upper(), cell[cell.index('=') + 1:]))
+                  for cell in clause.replace('_', '').replace(' ', '').split('+')]
+                  for clause in restriction
+                ]
+        
+        return Logic(table)
     
     
     '''
     Get ponies that pass restriction
     
-    @param   ponydir:str                Pony directory, must end with `os.sep`
-    @param   logic:dict<str, str>→bool  Restriction test functor
-    @return  :list<str>                 Passed ponies
+    @param   ponydir:str       Pony directory, must end with `os.sep`
+    @param   logic:(str)→bool  Restriction test functor
+    @return  :list<str>        Passed ponies
     '''
     @staticmethod
     def restrictedPonies(ponydir, logic):

@@ -635,7 +635,7 @@ class PonysayTool():
                     while data[sep] != '$$$':
                         sep += 1
                     meta = data[1 : sep]
-                data = []
+                data = {}
                 for line in meta:
                     if ':' in line:
                         key = line[:line.find(':')].strip()
@@ -644,7 +644,13 @@ class PonysayTool():
                         for c in 'ABCDEFGHIJKLMN OPQRSTUVWXYZ':
                             test = test.replace(c, '')
                         if (len(test) == 0) and (len(key) > 0):
-                            data.append((key, makeset(value.replace(' ', ''))))
+                            vals = makeset(value.replace(' ', ''))
+                            if key not in data:
+                                data[key] = vals
+                            else:
+                                dset = data[key]
+                                for val in vals:
+                                    dset.add(val)
                 everything.append((ponyfile[:-5], data))
         import pickle
         with open((ponydir + '/metadata').replace('//', '/'), 'wb') as file:
