@@ -90,6 +90,8 @@ Dependencies
 
 ### Package building dependencies
 
+`zip`: used to create one executable with all sources
+
 `gzip`: used for compressing manuals (suppressable with `./configure --without-info-compression --without-man-compression`)
 
 `texinfo`: used for building info manual (suppressable with `./configure --without-info`)
