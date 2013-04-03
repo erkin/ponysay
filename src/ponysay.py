@@ -476,18 +476,30 @@ class Ponysay():
         ## If there is no selected ponies, choose all of them
         if (selection is None) or (len(selection) == 0):
             quote    =  args.opts['-q'] is not None ## TODO +q -Q
-            standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) ## TODO -Q
+            standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) ## TODO -Q
             extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) ## TODO +q -Q
             ponydirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else []);
+            quoters  = self.__quoters() if standard and quote else None ## TODO +q -Q
+            if (quoters is not None) and (len(quoters) == 0):
+                printerr('Princess Celestia! All the ponies are mute!')
+                exit(250)
             
-            ## Get all ponies
+            ## Get all ponies, with quotes
             oldponies = {}
-            for ponydir in ponydirs:
-                for ponyfile in os.listdir(ponydir):
-                    if endswith(ponyfile, '.pony'):
-                        pony = ponyfile[:-5]
-                        if pony not in ponies:
-                            oldponies[pony] = ponydir + ponyfile
+            if standard:
+                for ponydir in self.ponydirs:
+                    for ponyfile in os.listdir(ponydir):
+                        if endswith(ponyfile, '.pony'):
+                            pony = ponyfile[:-5]
+                            if (pony not in oldponies) and ((quoters is None) or (pony in quoters)):
+                                oldponies[pony] = ponydir + ponyfile
+            if extra:
+                for ponydir in self.extraponydirs:
+                    for ponyfile in os.listdir(ponydir):
+                        if endswith(ponyfile, '.pony'):
+                            pony = ponyfile[:-5]
+                            if pony not in oldponies:
+                                oldponies[pony] = ponydir + ponyfile
             
             ## Apply metadata restriction
             if self.restriction is not None:
@@ -533,7 +545,10 @@ class Ponysay():
         ## Select a random pony of the choosen ones
         pony = selection[random.randrange(0, len(selection))]
         if os.path.exists(pony[0]):
-            return (pony[0], if pony[2] else None) # FIXME select quote
+            ponyname = pony[0].split(os.sep)[-1]
+            if os.extsep in ponyname:
+                ponyname = ponyname[:ponyname.rfind(os.extsep)]
+            return (pony[0], self.__getquote(ponyname, pony[0]) if pony[2] else None)
         else:
             possibilities = [f.split(os.sep)[-1][:-5] for f in pony[1]]
             if pony[0] not in possibilities:
@@ -552,7 +567,34 @@ class Ponysay():
                     printerr('Have you tested +f or -F?');
                 exit(252)
             else:
-                return (pony[1][possibilities.find(pony[0])], if pony[2] else None) # FIXME select quote
+                file = pony[1][possibilities.index(pony[0])]
+                return (file, self.__getquote(pony[0], file) if pony[2] else None)
+    
+    
+    '''
+    Select a quote for a pony
+    
+    @param   pony:str  The pony name
+    @param   file:str  The pony's file name
+    @return  :str      A quote from the pony, with a failure fall back message
+    '''
+    def __getquote(self, pony, file):
+        quote = []
+        if (os.path.dirname(file) + os.sep).replace(os.sep + os.sep, os.sep) in self.ponydirs:
+            realpony = pony
+            if os.path.islink(file):
+                realpony = os.path.basename(os.path.realpath(file))
+                if os.extsep in realpony:
+                    realpony = realpony[:realpony.rfind(os.extsep)]
+            quote = self.__quotes(ponies = [realpony])
+        if len(quote) == 0:
+            quote = 'Zecora! Help me, I am mute!'
+        else:
+            quote = quote[random.randrange(0, len(quote))][1]
+            printinfo('quote file: ' + quote)
+            with open(quote, 'rb') as qfile:
+                quote = qfile.read().decode('utf8', 'replace').strip()
+        return quote
     
     
     '''
@@ -597,9 +639,10 @@ class Ponysay():
     
     @param   ponydirs:itr<str>?        The pony directories to use
     @param   quotedirs:itr<str>?       The quote directories to use
+    @param   ponies:itr<str>?          The ponies to use
     @return  (pony, quote):(str, str)  All ponies–quote file-pairs
     '''
-    def __quotes(self, ponydirs = None, quotedirs = None):
+    def __quotes(self, ponydirs = None, quotedirs = None, ponies = None):
         if ponydirs  is None:  ponydirs  = self.ponydirs
         if quotedirs is None:  quotedirs = self.quotedirs
         
@@ -610,15 +653,23 @@ class Ponysay():
         
         ## Create list of all pony–quote file-pairs
         rc = []
-        for ponydir in ponydirs:
-            for pony in os.listdir(ponydir):
-                if not pony[0] == '.':
-                    p = pony[:-5] # remove .pony
-                    for quote in quotes:
-                        q = quote[quote.rindex('/') + 1:]
-                        q = q[:q.rindex('.')]
-                        if ('+' + p + '+') in ('+' + q + '+'):
-                            rc.append((p, quote))
+        if ponies is None:
+            for ponydir in ponydirs:
+                for pony in os.listdir(ponydir):
+                    if endswith(pony, '.pony'):
+                        p = pony[:-5] # remove .pony
+                        for quote in quotes:
+                            q = quote[quote.rindex('/') + 1:]
+                            q = q[:q.rindex('.')]
+                            if ('+' + p + '+') in ('+' + q + '+'):
+                                rc.append((p, quote))
+        else:
+            for p in ponies:
+                for quote in quotes:
+                    q = quote[quote.rindex('/') + 1:]
+                    q = q[:q.rindex('.')]
+                    if ('+' + p + '+') in ('+' + q + '+'):
+                        rc.append((p, quote))
         
         return rc
     
@@ -782,25 +833,29 @@ class Ponysay():
         (selection, standard, extra) = ([], [], [])
         for ponydir in self.ponydirs:
             for pony in os.listdir(ponydir):
-                standard.append(ponydir + pony)
+                if endswith(pony, '.pony'):
+                    standard.append(ponydir + pony)
         for ponydir in self.extraponydirs:
             for pony in os.listdir(ponydir):
-                extra.append(ponydir + pony)
+                if endswith(pony, '.pony'):
+                    extra.append(ponydir + pony)
         both = standard + extra
-        if args.opts['-f'] is not None:  for pony in args.opts['-f']:  selection.append(pony, standard, False)
-        if args.opts['+f'] is not None:  for pony in args.opts['+f']:  selection.append(pony, extra, False)
-        if args.opts['-F'] is not None:  for pony in args.opts['-F']:  selection.append(pony, both, False)
-        if args.opts['-q'] is not None:  for pony in args.opts['-q']:  selection.append(pony, standard, True)
+        if args.opts['-f'] is not None:
+            for pony in args.opts['-f']:  selection.append((pony, standard, False))
+        if args.opts['+f'] is not None:
+            for pony in args.opts['+f']:  selection.append((pony, extra, False))
+        if args.opts['-F'] is not None:
+            for pony in args.opts['-F']:  selection.append((pony, both, False))
+        if args.opts['-q'] is not None:
+            for pony in args.opts['-q']:  selection.append((pony, standard, True))
         ## TODO +q -Q
         (pony, quote) = self.__getpony(selection, args)
         
         ## Get message and remove tailing whitespace from stdin (but not for each line)
         msg = None
         if quote is not None:
-            printinfo('quote file: ' + quote)
-            with open(quote, 'rb') as qfile:
-                msg = qfile.read().decode('utf8', 'replace').strip()
-        elif args.message == None:
+            msg = quote
+        elif args.message is None:
             msg = ''.join(sys.stdin.readlines()).rstrip()
         else:
             msg = args.message
@@ -918,45 +973,4 @@ class Ponysay():
                     print(line)
         else:
             print(output)
-    
-    
-    '''
-    Print the pony with a speech or though bubble and a self quote
-    
-    @param  args:ArgParser  Parsed command line arguments
-    '''
-    def quote(self, args):
-        ## Get all quotes, and if any pony is choosen just keep them
-        pairs = self.__quotes()
-        if len(args.opts['-q']) > 0:
-            ponyset = {}
-            for pony in args.opts['-q']:
-                if endswith(pony, '.pony'):
-                    ponyname = pony[:-5]
-                    if '/' in ponyname:
-                        ponyname = ponyname[ponyname.rindex('/') + 1:]
-                    ponyset[ponyname] = pony
-                else:
-                    ponyset[pony] = pony
-            alts = []
-            for pair in pairs:
-                if pair[0] in ponyset:
-                    alts.append((ponyset[pair[0]], pair[1]))
-            pairs = alts
-        
-        ## Select a random pony–quote-pair, load it and print it
-        if not len(pairs) == 0:
-            pair = pairs[random.randrange(0, len(pairs))]
-            printinfo('quote file: ' + pair[1])
-            with open(pair[1], 'rb') as qfile:
-                args.message = qfile.read().decode('utf8', 'replace').strip()
-            args.opts['-f'] = [pair[0]]
-        elif len(args.opts['-q']) == 0:
-            printerr('Princess Celestia! All the ponies are mute!')
-            exit(250)
-        else:
-            args.opts['-f'] = [args.opts['-q'][random.randrange(0, len(args.opts['-q']))]]
-            args.message = 'Zecora! Help me, I am mute!'
-        
-        self.print_pony(args)
 
