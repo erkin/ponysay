@@ -94,12 +94,13 @@ if __name__ == '__main__':
 	parser.add_argument('-b', '--balloon', type=str, default='cowsay', help='Balloon style to use. Use "-b list" to list available styles.')
 	parser.add_argument('text', type=str, nargs='*', help='The text to be placed in the speech bubble')
 	args = parser.parse_args()
-
+  
+	think = sys.argv[0].endswith('think')
 	if args.pony == "list":
-		print('\n'.join(sorted(list_ponies(True))))
+		print('\n'.join(sorted(list_ponies() if not args.quote else list_ponies_with_quotes())))
 		sys.exit()
 	if args.balloon == 'list':
-		print('\n'.join(balloonstyles.keys()))
+		print('\n'.join([ s.replace('.think', '') for s in balloonstyles.keys() if s.endswith('.think') == think ]))
 		sys.exit()
 	pony = args.pony
 	if pony == "random":
@@ -111,7 +112,7 @@ if __name__ == '__main__':
 		text = random_quote(pony)
 
 	balloonstyle = None
-	if sys.argv[0].endswith('think'):
+	if think:
 		balloonstyle = balloonstyles[args.balloon+'.think']
 	else:
 		balloonstyle = balloonstyles[args.balloon]

@@ -14,8 +14,11 @@ local -a _available_ponies
   compadd "$@" -a _available_ponies
 }
 
-_ponysay_balloons(){
-  [[ "$words" == ponythink* ]] && compadd "$@" cowsay ascii || compadd "$@" cowsay ascii unicode round linux-vt
+local -a _ponysay_balloons _ponythink_balloons
+(( $+functions[_ponysay_pony] )) || _ponysay_balloons(){
+  (( $#_ponysay_balloons )) || _ponysay_balloons=($(ponysay -b list))
+  (( $#_ponythink_balloons )) || _ponythink_balloons=($(ponythink -b list))
+  [[ "$words" == ponythink* ]] && compadd "$@" -a _ponythink_balloons || compadd "$@" -a _ponysay_balloons
 }
 
 _arguments -s -w -S \
