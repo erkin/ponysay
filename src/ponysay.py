@@ -423,8 +423,8 @@ class Ponysay():
     '''
     Apply UCS:ise pony names according to UCS settings
     
-    @param  ponies:list<str>     List of all ponies (of interrest)
-    @param  links:map<str, str>  Map to fill with simulated symlink ponies, may be `None`
+    @param  ponies:list<str>      List of all ponies (of interrest)
+    @param  links:map<str, str>?  Map to fill with simulated symlink ponies, may be `None`
     '''
     def __ucsise(self, ponies, links = None):
         ## Read UCS configurations
@@ -470,10 +470,10 @@ class Ponysay():
     '''
     Returns one file with full path, names is filter for names, also accepts filepaths
     
-    @param   names:list<str>    Ponies to choose from, may be `None`
-    @param   alt:bool           For method internal use...
-    @param   ponydirs:itr<str>  The pony directories to use
-    @return  :str               The file name of a pony
+    @param   names:list<str>?    Ponies to choose from, may be `None`
+    @param   alt:bool            For method internal use...
+    @param   ponydirs:itr<str>?  The pony directories to use
+    @return  :str                The file name of a pony
     '''
     def __getponypath(self, names = None, alt = False, ponydirs = None):
         if ponydirs is None:  ponydirs = self.ponydirs
@@ -496,9 +496,9 @@ class Ponysay():
         '''
         Get ponies that fit the terminal
         
-        @param  fitting      The set to fill
-        @param  requirement  The maximum allowed value
-        @param  file         The file with all data
+        @param  fitting:add(str)→void  The set to fill
+        @param  requirement:int        The maximum allowed value
+        @param  file:istream           The file with all data
         '''
         def getfitting(fitting, requirement, file):
             data = file.read() # not too much data, can load everything at once
