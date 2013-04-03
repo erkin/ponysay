@@ -184,6 +184,18 @@ supersedes file names.
 Just as @option{+f}, but it uses extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies
 
+@item -F PONY
+@itemx --any-file PONY
+@itemx --anyfile PONY
+@itemx --any-pony PONY
+@itemx --anypony PONY
+@opindex @option{-F}
+@opindex @option{--any-file}
+@opindex @option{--anyfile}
+@opindex @option{--any-pony}
+@opindex @option{--anypony}
+This option combines @option{-f} and @option{+f}.
+
 @item -q PONY
 @itemx --quote PONY
 @opindex @option{-q}
@@ -223,6 +235,18 @@ An important feature of this options, is that you can but it in the end of the
 command line, without any argument to get a random non-MLP:FiM pony. However,
 altough it is not nice, since version 3.0, @option{+f} can also be unargumented
 if at the end of the command line.
+
+@item --F [PONY...]
+@itemx --any-files [PONY...]
+@itemx --anyfiles [PONY...]
+@itemx --any-ponies [PONY...]
+@itemx --anyponies [PONY...]
+@opindex @option{--F}
+@opindex @option{--any-file}
+@opindex @option{--anyfile}
+@opindex @option{--any-pony}
+@opindex @option{--anypony}
+This option combines @option{--f} and @option{++f}.
 
 @item --q [PONY...]
 @itemx --quotes [PONY...]
@@ -1344,6 +1368,10 @@ ponies will pass the @option{--restrict} option when ponies are randomly selecte
 A metadata colletion file's content a list, of pony files with and their corresponding
 metadata as a map from tag name to tag value set, serialised with Python's cPickle module.
 
+Running @command{ponysay-tool --metadata PONY-DIR} will generate the file @file{metadata}
+with the serialised information. For use by the installer, the files to include can be
+explicity declared appending their basename to the command.
+
 
 @node Dimension files
 @section Dimension files
@@ -1358,7 +1386,9 @@ and may be randomly selected.
 Running @command{ponysay-tool --dimensions PONY-DIR} will generate three files
 @file{widths}, @file{heights} and @file{onlyheights} to the directory @file{PONY-DIR},
 the contain optimised information about the widths, heigths and heights with printed
-without the balloon, respectively, for each pony the the directory.
+without the balloon, respectively, for each pony the the directory. For use by the
+installer, the files to include can be explicity declared appending their basename to
+the command.
 
 
 @node Pony browsing
@@ -1637,6 +1667,12 @@ the file name) in addition to .pony-files or pony names.
 @pindex @command{python3}
 Required to run the @file{./setup.py} file, which is also invoked from the
 make script.
+@item zip
+@pindex @command{zip}
+Required to create an executable containing all Pythons files. This is done by
+creating an (uncompressed) zip-file with all source files and prepended with
+a shebang telling the operating system to run Python 3, and naming the mane
+file @file{__main__.py}.
 @item gzip
 @pindex @command{gzip}
 Used for compressing manuals. (Optional, standard)
@@ -2025,43 +2061,43 @@ Change the section for the @command{cowsay} manpage.
 @opindex @option{--fortune-manpage-section}
 Change the section for the @command{fortune} manpage.
 
-@item --with-ponies=/usr/share/ponysay/ponies
+@item --with-ponies
 @opindex @option{--with-ponies}
 @opindex @option{--without-ponies}
-Install standard xterm ponies, and select installation directory for them. (Default)
+Install standard xterm ponies. (Default)
 
-@item --with-ttyponies=/usr/share/ponysay/ttyponies
+@item --with-ttyponies
 @opindex @option{--with-ttyponies}
 @opindex @option{--without-ttyponies}
-Install standard tty ponies, and select installation directory for them. (Default)
+Install standard tty ponies. (Default)
 
-@item --with-extraponies=/usr/share/ponysay/extraponies
+@item --with-extraponies
 @opindex @option{--with-extraponies}
 @opindex @option{--without-extraponies}
-Install extra xterm ponies, and select installation directory for them. (Default)
+Install extra xterm ponies. (Default)
 
-@item --with-extrattyponies=/usr/share/ponysay/extrattyponies
+@item --with-extrattyponies
 @opindex @option{--with-extrattyponies}
 @opindex @option{--without-extrattyponies}
-Install extra tty ponies, and select installation directory for them. (Default)
+Install extra tty ponies. (Default)
 
-@item --with-quotes=/usr/share/ponysay/quotes
+@item --with-quotes
 @opindex @option{--with-quotes}
 @opindex @option{--without-quotes}
-Install pony quotes, and select installation directory for them. (Default)
+Install pony quotes. (Default)
 
-@item --with-balloons=/usr/share/ponysay/balloons
+@item --with-balloons
 @opindex @option{--with-balloons}
 @opindex @option{--without-balloons}
-Install balloon styles, and select installation directory for them. (Default)
+Install balloon styles. (Default)
 
 @item --with-ucs
-@itemx --with-ucs-names=/usr/share/ponysay/ucsmap
+@itemx --with-ucs-names
 @opindex @option{--with-ucs}
 @opindex @option{--without-ucs}
 @opindex @option{--with-ucs-names}
 @opindex @option{--without-ucs-names}
-Install UCS pony names, and select installation file name for the map. (Default)
+Install UCS pony names. (Default)
 
 @item --without-custom-env-python
 @opindex @option{--without-custom-env-python}
@@ -2519,15 +2555,17 @@ use Python 3, which as been accomplished in version 2.1.
 @cindex shell, auto-completion
 @opindex @option{--onelist}
 @opindex @option{++onelist}
+@opindex @option{--Onelist}
 @opindex @option{--quoters}
 @pindex @command{auto-auto-complete}
 
 To make it easier to write auto-completion for shells, @command{ponysay} supports
-the two options @option{--onelist}, @option{++onelist} and @option{--quoters},
-which has no short versions. To make it even easier we use @command{auto-auto-complete}
-(@url{https://www.github.com/maandree/auto-auto-complete}) to generate auto-completion
-scripts, currently it supports @command{bash}, @command{fish} and @command{zsh},
-the built system uses that program to generate completion for each shell.
+the options @option{--onelist}, @option{++onelist}, @option{--Onelist} and
+@option{--quoters}, which has no short versions. To make it even easier we use
+@command{auto-auto-complete} (@url{https://www.github.com/maandree/auto-auto-complete})
+to generate auto-completion scripts, currently it supports @command{bash},
+@command{fish} and @command{zsh}, the built system uses that program to generate
+completion for each shell.
 
 Executing @command{ponysay --onelist} will list every available standard (MLP:FiM)
 pony, independent of where it is located, the output is a sorted and consists only
@@ -2536,6 +2574,10 @@ of one pony per line.
 Executing @command{ponysay ++onelist} will list every available extra (non-MLP:FiM)
 pony, independent of where it is located, the output is a sorted and consists only
 of one pony per line.
+
+Executing @command{ponysay --Onelist} will list every available standard pony as
+well as extra pony, independent of where it is located, the output is a sorted and
+consists only of one pony per line.
 
 @command{ponysay --quoters} work just as @command{ponysay --onelist}, excepts
 it limits the ponies to those that have quotes. Ponies that have quotes,
@@ -2613,15 +2655,16 @@ Using util-say:
 @pindex @command{img2ponysay}
 @cartouche
 @example
-@code{img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE}
+@command{img2ponysay -2 -- SOURCE_IMAGE > PONY_FILE}
 
 @code{PONY_FILE} should end with @file{.pony} and be localed in @file{ponies/},
 or @file{extraponies/} if the pony is not a MLP:FiM pony.
 
 Omit @option{-2} if the source image does not use double pixel size.
 
-For more information see:
-@url{https://github.com/maandree/util-say/wiki/img2ponysay}
+For more information is available in util-say's info manual. @command{img2ponysay}
+is a legacy command that uses the default settings of @command{ponytool} for
+converting a image file to a pony file.
 @end example
 @end cartouche
 
@@ -2720,7 +2763,7 @@ url="https://github.com/erkin/ponysay"
 license=('GPL3' 'GNU FDL v1.3')
 depends=(python>=3 coreutils)
 optdepends=("util-say>=3: Improved TTY support with KMS and PNG files")
-makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3')
+makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3', 'zip')
 
 build()
 @{   cd "$srcdir"; git clone git://github.com/erkin/ponysay.git ponysay
@@ -2820,7 +2863,7 @@ English, e.g. British English, as the base language.
 @item best.pony
 @cindex best.pony
 The pony you think is [the] best pony. It should be a symlink pony. It is a feature
-affecting the @option{-f}, @option{+f} and @option{-q} options.
+affecting the @option{-f}, @option{+f}, @option{-F} and @option{-q} options.
 
 @item pony symlink
 @itemx symlink pony
@@ -2939,7 +2982,7 @@ New extraponies: @file{donutpony}, @file{gleamingshield}, @file{hastelle}, @file
 @item
 @file{ironwillwalk} has been renamed to  @file{ironwillwalk} (need a version named as master)
 @item
-Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}.
+Renamed option @option{-F} to @option{+f} and option @option{--F} to @option{++f}, @option{-F} and @option{--F} has new definitions.
 @item
 Environment variable @env{PONYSAY_TYPO_LIMIT} has been added.
 @item

@@ -16,13 +16,22 @@
 ## Compile files
 
 /completion/*-completion-think.*
-/manuals/manpage.*.gz
-/ponysay.info
-/ponysay.info.gz
+/completion/pony*.pony*
 /truncater
 *.install
+*.gz
+*.xz
+*.bzip2
+*.zip
+*.info
+*.ps
+*.dvi
 /Makefile
 /quotes/
+/*ponies/heights
+/*ponies/onlyheights
+/*ponies/widths
+/*ponies/metadata
 
 
 ## Texinfo manual stuff

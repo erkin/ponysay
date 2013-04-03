@@ -29,7 +29,7 @@ Version 3.0
 
 	fillycelestia and filliestia has been moved to extraponies.
 
-	Renamed option -F to +f and option --F to ++f.
+	Renamed option -F to +f and option --F to ++f, -F and --F has new definitions.
 
 	Environment variable 'PONYSAY_TYPO_LIMIT' has been added.
 

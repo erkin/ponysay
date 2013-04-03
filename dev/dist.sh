@@ -4,36 +4,47 @@
 #     or  dev/dist.sh pdfmanual
 #     or  dev/dist.sh tag VERSION [OTHER OPTIONS FOR `git tag`]
 #     or  dev/dist.sh beigepdf
+#     or  dev/dist.sh remaster
 
 
 ttyponies()
 {
-    defaultoutparams=--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y
-    mkdir -p "ttyponies"
-    for pony in $(ls --color=no "ponies/"); do
-	if [ ! "$pony" = '.info' ]; then
-	    echo "building ttypony: $pony"
-	    if [ "`readlink "ponies/$pony"`" = '' ]; then
-		ponytool --import ponysay --file "ponies/$pony" --export ponysay --platform linux --file "ttyponies/$pony" $defaultoutparams
-		git add "ttyponies/$pony"
+    defaultoutparams="--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y"
+    for x in '' 'extra'; do
+	mkdir -p "${x}ttyponies"
+	for pony in $(find "${x}ponies/" | grep -v '/\.' | grep '\.pony$' | sed -e "s_^${x}ponies/__"); do
+	    echo "building ${x}ttypony: $pony"
+	    if [ ! -L "${x}ponies/$pony" ]; then
+		ponytool --import ponysay --file "${x}ponies/$pony" \
+		         --export ponysay --platform linux --file "${x}ttyponies/$pony" $defaultoutparams
+		git add "${x}ttyponies/$pony"
 	    else
-		ln -sf `readlink "ponies/$pony"` "ttyponies/$pony"
-		git add "ttyponies/$pony"
+		ln -sf "$(readlink "${x}ponies/$pony")" "${x}ttyponies/$pony"
+		git add "${x}ttyponies/$pony"
 	    fi
-	fi
+	done
     done
-    mkdir -p "extrattyponies"
-    for pony in $(ls --color=no "extraponies/"); do
-	if [ ! "$pony" = '.info' ]; then
-	    echo "building extrattypony: $pony"
-	    if [ "`readlink "extraponies/$pony"`" = '' ]; then
-		ponytool --import ponysay --file "extraponies/$pony" --export ponysay --platform linux --file "extrattyponies/$pony" $defaultoutparams
-	        git add "extrattyponies/$pony"
+}
+
+
+remaster()
+{
+    xtermoutparams="--left - --right - --top - --bottom - --balloon n"
+    linuxoutparams="--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y"
+    for x in '' 'extra'; do
+	mkdir -p "${x}ttyponies"
+	for pony in $(find "${x}ponies/" | grep -v '/\.' | grep '\.pony$' | sed -e "s_^${x}ponies/__"); do
+	    echo "remastering ${x}pony: $pony"
+	    if [ ! -L "${x}ponies/$pony" ]; then
+		ponytool --import ponysay --file "${x}ponies/$pony" \
+		         --export ponysay --file "${x}ponies/$pony" $xtermoutparams \
+		         --export ponysay --platform linux --file "${x}ttyponies/$pony" $linuxoutparams
+		git add "${x}ponies/$pony" "${x}ttyponies/$pony"
 	    else
-                ln -sf `readlink "extraponies/$pony"` "extrattyponies/$pony"
-		git add "extrattyponies/$pony"
+		ln -sf "$(readlink "${x}ponies/$pony")" "${x}ttyponies/$pony"
+		git add "${x}ttyponies/$pony"
 	    fi
-	fi
+	done
     done
 }
 
