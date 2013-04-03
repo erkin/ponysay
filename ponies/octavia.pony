@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E26 The Best Night Ever
 BALLOON: top
+BALLOON TOP: 0
+BALLOON BOTTOM: 0
 COAT: grey
 DISPLAY: full, right
 EYE: purple

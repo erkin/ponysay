@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E19 Putting Your Hood Down
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: blue
 DISPLAY: full, left
 EYE: cyan

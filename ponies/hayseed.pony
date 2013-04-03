@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S03E08 Apple Family Reunion
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: creme
 DISPLAY: full, right
 EYE: brown

@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E03 The Ticket Master
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: beige
 DISPLAY: full, left
 EYE: closed, brown

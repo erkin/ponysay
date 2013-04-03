@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E07 Dragonshy
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: grey
 DISPLAY: full, left
 EYE: yellow

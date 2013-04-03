@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S03E12 Games Ponies Play
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: blue
 DISPLAY: full, right
 EYE: brown

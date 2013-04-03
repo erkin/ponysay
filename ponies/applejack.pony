@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
+BALLOON TOP: 0
+BALLOON BOTTOM: 0
 BASED ON: Generation 1 Apple Jack
 COAT: brown
 DISPLAY: full, left

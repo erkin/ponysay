@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S03E03 So Many Pinkie Pies
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 BASED ON: Generation 1 Cherries Jubilee
 COAT: orange
 DISPLAY: full, left

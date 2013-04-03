@@ -2,6 +2,8 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 APPEARANCE: S01E15 Feeling Pinkie Keen
 BALLOON: top
+BALLOON TOP: 1
+BALLOON BOTTOM: 0
 BASED ON: Generation 3 Pinkie Pie
 BASED ON: (none)
 COAT: pink

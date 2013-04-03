@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E01 Frienship is Magic [Part 1]
 BALLOON: top
+BALLOON TOP: 4
+BALLOON BOTTOM: 0
 COAT: yellow
 DISPLAY: full, right
 EYE: green

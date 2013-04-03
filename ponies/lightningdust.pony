@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S03E07 Wonderbolts Academy
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: cyan
 DISPLAY: full, left
 EYE: orange

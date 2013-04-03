@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E03 Ticket Master
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: yellow
 DISPLAY: full, left
 FREE: no

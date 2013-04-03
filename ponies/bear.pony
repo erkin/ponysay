@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E03 Lesson Zero
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: brown
 DISPLAY: full, front, right
 EYE: yellow

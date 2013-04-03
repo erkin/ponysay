@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E13 Fall Weather Friends
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: purple
 DISPLAY: full, right
 EYE: closed, green

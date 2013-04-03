@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E18 The Show Stoppers
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: brown
 DISPLAY: full, right, turned
 EYE: blue

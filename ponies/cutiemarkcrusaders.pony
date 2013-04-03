@@ -6,6 +6,8 @@ AURA: green
 AURA: (no magic)
 AURA: (no magic)
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: white
 COAT: orange
 COAT: yellow

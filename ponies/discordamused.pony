@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E01 The Return of Harmony [Part 1]
 BALLOON: top
+BALLOON TOP: 1
+BALLOON BOTTOM: 0
 COAT: multiple
 DISPLAY: head, front, left
 EYE: red

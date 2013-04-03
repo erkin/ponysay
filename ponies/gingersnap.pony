@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S03E11 Just For Sidekicks
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 BASED ON: (Bot-chan) Desktop ponies
 COAT: creme
 DISPLAY: full, right

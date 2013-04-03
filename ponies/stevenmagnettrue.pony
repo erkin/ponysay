@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E02 Friendship is Magic [Part 2]
 BALLOON: top
+BALLOON TOP: 2
+BALLOON BOTTOM: 0
 COAT: purple
 DISPLAY: head, left
 EYE: black

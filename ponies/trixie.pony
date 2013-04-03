@@ -2,6 +2,8 @@ $$$
 APPEARANCE: S01E06 Boast Busters
 AURA: pink
 BALLOON: top
+BALLOON TOP: 4
+BALLOON BOTTOM: 0
 COAT: blue
 DISPLAY: full, right
 EYE: purple

@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E09 Sweet and Elite
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: grey
 DISPLAY: full, right
 EYE: brown

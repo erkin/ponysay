@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E07 May the Best Pet Win!
 BALLOON: top
+BALLOON TOP: 0
+BALLOON BOTTOM: 0
 COAT: green
 DISPLAY: full, left
 EYE: black

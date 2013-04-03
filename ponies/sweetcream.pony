@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: Comic issue 1
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: cream
 DISPLAY: full, left
 EYE: blue

@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E19 A Dog and Pony Show
 BALLOON: top
+BALLOON TOP: 2
+BALLOON BOTTOM: 0
 COAT: yellow
 DISPLAY: full, right
 EYE: brown

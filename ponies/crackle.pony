@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E21 Dragon Quest
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: green
 DISPLAY: full, right
 EYE: red

@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E16 Sonic Rainboom
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 BASED ON: Lyra
 COAT: cyan
 DISPLAY: full, left

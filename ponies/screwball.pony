@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E02 Return of Harmony [Part 2]
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: pink
 DISPLAY: full, left
 EYE: purple

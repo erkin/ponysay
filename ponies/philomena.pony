@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E22 A Bird in the Hoof
 BALLOON: top
+BALLOON TOP: 1
+BALLOON BOTTOM: 0
 COAT: pink
 DISPLAY: full, right
 EYE: blue

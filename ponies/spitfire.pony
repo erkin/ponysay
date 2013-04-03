@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E16 Sonic Rainboom
 BALLOON: top
+BALLOON TOP: 4
+BALLOON BOTTOM: 0
 COAT: yellow
 DISPLAY: full, right
 EYE: brown

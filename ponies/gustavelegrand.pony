@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E24 - MMMystery on the Friendship
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: black
 DISPLAY: full, right
 EYE: yellow

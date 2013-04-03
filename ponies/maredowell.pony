@@ -2,6 +2,8 @@ $$$
 APPEARANCE: S02E08 The Mysterious Mare Do Well
 AURA: purple
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: black
 DISPLAY: full, left
 EYE: blue

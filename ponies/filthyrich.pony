@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E12 Family Appreciation Day
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: brown
 DISPLAY: full, left
 EYE: blue

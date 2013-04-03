@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E22 Hurrican Fluttershy
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: purple
 DISPLAY: full, left
 EYE: purple

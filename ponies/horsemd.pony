@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E10 Secret of My Excess
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: brown
 DISPLAY: full, right
 EYE: blue

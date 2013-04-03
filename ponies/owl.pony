@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E24 Owl's Well That Ends Well
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: brown
 DISPLAY: full, front
 EYE: black

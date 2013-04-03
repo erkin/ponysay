@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E09 Bridle Gossip
 BALLOON: top
+BALLOON TOP: 4
+BALLOON BOTTOM: 0
 COAT: grey
 DISPLAY: full, right
 EYE: green

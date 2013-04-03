@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S02E25 Party of One
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 FREE: sharable
 GROUP: imaginary
 KIND: item

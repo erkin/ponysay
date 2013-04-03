@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E08 Look Before You Sleep
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: orange
 DISPLAY: full, right
 EYE: pink

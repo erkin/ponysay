@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E04 Applebuck Season
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 DISPLAY: full, left
 EYE: black
 FREE: no

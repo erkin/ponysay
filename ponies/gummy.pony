@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: S01E15 Feeling Pinkie Keen
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: green
 DISPLAY: full, left
 EYE: purple
