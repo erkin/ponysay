@@ -39,7 +39,7 @@ miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
 
 ponysaysrc = [src + '.py' for src in
               ('__main__', 'common', 'ponysay', 'argparser', 'balloon',
-               'backend', 'colourstack', 'ucs', 'spellocorrecter, kms',
+               'backend', 'colourstack', 'ucs', 'spellocorrecter', 'kms',
                'list', 'metadata')]
 
 
