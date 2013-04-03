@@ -39,11 +39,13 @@ if __name__ == '__main__':
     usage_listhelp = '(-l | -L | -B | +l | +L | -A | + A | -v | -h)'
     usage_file     = '[-f\033[33mPONY\033[39m]* [[--] \033[33mmessage\033[39m]'
     usage_xfile    = '(+f\033[33mPONY\033[39m)* [[--] \033[33mmessage\033[39m]'
+    usage_afile    = '(-F\033[33mPONY\033[39m)* [[--] \033[33mmessage\033[39m]'
     usage_quote    = '(-q\033[33mPONY\033[39m)*'
     
     usage = '%s %s\n%s %s %s\n%s %s %s\n%s %s %s' % (usage_saythink, usage_listhelp,
                                                      usage_saythink, usage_common, usage_file,
                                                      usage_saythink, usage_common, usage_xfile,
+                                                     usage_saythink, usage_common, usage_afile,
                                                      usage_saythink, usage_common, usage_quote)
     
     usage = usage.replace('\033[', '\0')

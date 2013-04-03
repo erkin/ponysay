@@ -100,4 +100,54 @@ class Metadata():
                 if logic(meta):
                     passed.append(pony)
         return passed
+    
+    
+    '''
+    Get ponies that fit the terminal
+    
+    @param  fitting:add(str)→void  The set to fill
+    @param  requirement:int        The maximum allowed value
+    @param  file:istream           The file with all data
+    '''
+    @staticmethod
+    def getfitting(fitting, requirement, file):
+        data = file.read() # not too much data, can load everything at once
+        ptr = 0
+        while data[ptr] != 47: # 47 == ord('/')
+            ptr += 1
+        ptr += 1
+        size = 0
+        while data[ptr] != 47: # 47 == ord('/')
+            size = (size * 10) - (data[ptr] & 15)
+            ptr += 1
+        ptr += 1
+        jump = ptr - size
+        stop = 0
+        backjump = 0
+        while ptr < jump:
+            size = 0
+            while data[ptr] != 47: # 47 == ord('/')
+                size = (size * 10) - (data[ptr] & 15)
+                ptr += 1
+            ptr += 1
+            if -size > requirement:
+                if backjump > 0:
+                    ptr = backjump
+                    while data[ptr] != 47: # 47 == ord('/')
+                        stop = (stop * 10) - (data[ptr] & 15)
+                        ptr += 1
+                    stop = -stop
+                break
+            backjump = ptr
+            while data[ptr] != 47: # 47 == ord('/')
+                ptr += 1
+            ptr += 1
+        if ptr == jump:
+            stop = len(data)
+        else:
+            ptr = jump
+            stop += ptr
+        passed = data[jump : stop].decode('utf8', 'replace').split('/')
+        for pony in passed:
+            fitting.add(pony)
 

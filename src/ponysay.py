@@ -315,19 +315,13 @@ class Ponysay():
             self.restriction = args.opts['-r']
             
             ## The stuff
-            if test('-q'):
-                if (len(args.opts['-q']) == 1) and ((args.opts['-q'][0] == '-f') or (args.opts['-q'][0] == '+f')):
-                    if args.opts['-q'][0] == '-f':
-                        args.opts['-q'] = args.files
-                        if test('-f'):
-                            args.opts['-q'] += args.opts['-f']
-                self.quote(args)
-            elif not self.unrecognised:
+            if not self.unrecognised:
                 self.print_pony(args)
             else:
                 args.help()
                 exit(255)
                 return
+    
     
     
     ##############################################
@@ -468,83 +462,34 @@ class Ponysay():
     
     
     '''
-    Returns one file with full path, names is filter for names, also accepts filepaths
+    Returns one file with full path and ponyquote that should be used, names is filter for names, also accepts filepaths
     
-    @param   names:list<str>?    Ponies to choose from, may be `None`
-    @param   alt:bool            For method internal use...
-    @param   ponydirs:itr<str>?  The pony directories to use
-    @return  :str                The file name of a pony
+    @param   selection:(name:str, dirs:itr<str>, quote:bool)?  Parsed command line arguments as name–directories–quoting tubles:
+                                                                   name:      The pony name
+                                                                   dirfiles:  Files, with the directory, in the pony directories
+                                                                   quote:     Whether to use ponyquotes
+    @param   args:ArgParser                                    Parsed command line arguments
+    @param   alt:bool                                          For method internal use...
+    @return  (path, quote):(str, str?)                         The file name of a pony, and the ponyquote that should be used if any
     '''
-    def __getponypath(self, names = None, alt = False, ponydirs = None):
-        if ponydirs is None:  ponydirs = self.ponydirs
-        ponies = {}
-        
-        ## List all pony files, without the .pony ending
-        for ponydir in ponydirs:
-            for ponyfile in os.listdir(ponydir):
-                if endswith(ponyfile, '.pony'):
-                    pony = ponyfile[:-5]
-                    if pony not in ponies:
-                        ponies[pony] = ponydir + ponyfile
-        
-        ## Support for explicit pony file names
-        if names is not None:
-            for name in names:
-                if os.path.exists(name):
-                    ponies[name] = name
-        
-        '''
-        Get ponies that fit the terminal
-        
-        @param  fitting:add(str)→void  The set to fill
-        @param  requirement:int        The maximum allowed value
-        @param  file:istream           The file with all data
-        '''
-        def getfitting(fitting, requirement, file):
-            data = file.read() # not too much data, can load everything at once
-            ptr = 0
-            while data[ptr] != 47: # 47 == ord('/')
-                ptr += 1
-            ptr += 1
-            size = 0
-            while data[ptr] != 47: # 47 == ord('/')
-                size = (size * 10) - (data[ptr] & 15)
-                ptr += 1
-            ptr += 1
-            jump = ptr - size
-            stop = 0
-            backjump = 0
-            while ptr < jump:
-                size = 0
-                while data[ptr] != 47: # 47 == ord('/')
-                    size = (size * 10) - (data[ptr] & 15)
-                    ptr += 1
-                ptr += 1
-                if -size > requirement:
-                    if backjump > 0:
-                        ptr = backjump
-                        while data[ptr] != 47: # 47 == ord('/')
-                            stop = (stop * 10) - (data[ptr] & 15)
-                            ptr += 1
-                        stop = -stop
-                    break
-                backjump = ptr
-                while data[ptr] != 47: # 47 == ord('/')
-                    ptr += 1
-                ptr += 1
-            if ptr == jump:
-                stop = len(data)
-            else:
-                ptr = jump
-                stop += ptr
-            passed = data[jump : stop].decode('utf8', 'replace').split('/')
-            for pony in passed:
-                fitting.add(pony)
+    def __getpony(self, selection, args, alt = False):
+        ## If there is no selected ponies, choose all of them
+        if (selection is None) or (len(selection) == 0):
+            quote    =  args.opts['-q'] is not None ## TODO +q -Q
+            standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) ## TODO -Q
+            extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) ## TODO +q -Q
+            ponydirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else []);
             
-        
-        ## If there is not select ponies, choose all of them
-        if (names is None) or (len(names) == 0):
-            oldponies = ponies
+            ## Get all ponies
+            oldponies = {}
+            for ponydir in ponydirs:
+                for ponyfile in os.listdir(ponydir):
+                    if endswith(ponyfile, '.pony'):
+                        pony = ponyfile[:-5]
+                        if pony not in ponies:
+                            oldponies[pony] = ponydir + ponyfile
+            
+            ## Apply metadata restriction
             if self.restriction is not None:
                 logic = Metadata.makeRestrictionLogic(self.restriction)
                 ponies = {}
@@ -554,7 +499,10 @@ class Ponysay():
                             ponyfile = ponydir + pony + '.pony'
                             if oldponies[pony] == ponyfile:
                                 ponies[pony] = ponyfile
-                oldponies = ponies
+                if len(ponies) > 0:
+                    oldponies = ponies
+            
+            ## Apply dimension restriction
             ponies = {}
             (termh, termw) = gettermsize()
             for ponydir in ponydirs:
@@ -562,52 +510,57 @@ class Ponysay():
                 if os.path.exists(ponydir + 'widths'):
                     fitw = set()
                     with open(ponydir + 'widths', 'rb') as file:
-                        getfitting(fitw, termw, file)
+                        Metadata.getfitting(fitw, termw, file)
                 if os.path.exists(ponydir + ('onlyheights' if self.ponyonly else 'heights')):
                     fith = set()
                     with open(ponydir + ('onlyheights' if self.ponyonly else 'heights'), 'rb') as file:
-                        getfitting(fith, termh, file)
+                        Metadata.getfitting(fith, termh, file)
                 for ponyfile in oldponies.values():
                     if ponyfile.startswith(ponydir):
                         pony = ponyfile[len(ponydir) : -5]
                         if (fitw is None) or (pony in fitw):
                             if (fith is None) or (pony in fith):
                                 ponies[pony] = ponyfile
-                #for ponyfile in os.listdir(ponydir):
-                #    if endswith(ponyfile, '.pony'):
-                #        pony = ponyfile[:-5]
-                #        if pony not in ponies:
-                #            if (fitw is None) or (pony in fitw):
-                #                if (fith is None) or (pony in fith):
-                #                    ponies[pony] = ponydir + ponyfile
+            
+            ## Select one pony and set all information
             names = list((oldponies if len(ponies) == 0 else ponies).keys())
+            if len(names) == 0:
+                printerr('All the ponies are missing, call the Princess!')
+                exit(249)
+            pony = names[random.randrange(0, len(names))]
+            selection = (pony, ponies[pony], quote)
         
         ## Select a random pony of the choosen ones
-        pony = names[random.randrange(0, len(names))]
-        if pony not in ponies:
-            if not alt:
-                autocorrect = SpelloCorrecter(ponydirs, '.pony')
-                (alternatives, dist) = autocorrect.correct(pony)
-                limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
-                limit = 5 if len(limit) == 0 else int(dist)
-                if (len(alternatives) > 0) and (dist <= limit):
-                    return self.__getponypath(alternatives, True)
-            sys.stderr.write('I have never heard of anypony named %s\n' % (pony));
-            if not self.usingstandard:
-                sys.stderr.write('Use -f/-q or -F if it a MLP:FiM pony');
-            if not self.usingexta:
-                sys.stderr.write('Have you tested +f or -F?');
-            exit(1)
+        pony = selection[random.randrange(0, len(selection))]
+        if os.path.exists(pony[0]):
+            return (pony[0], if pony[2] else None) # FIXME select quote
         else:
-            return ponies[pony]
+            possibilities = [f.split(os.sep)[-1][:-5] for f in pony[1]]
+            if pony[0] not in possibilities:
+                if not alt:
+                    autocorrect = SpelloCorrecter(possibilities)
+                    (alternatives, dist) = autocorrect.correct(pony[0])
+                    limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
+                    limit = 5 if len(limit) == 0 else int(limit)
+                    if (len(alternatives) > 0) and (dist <= limit):
+                        (_, files, quote) = pony
+                        return self.__getpony([(a, files, quote) for a in alternatives], True)
+                printerr('I have never heard of anypony named %s' % pony[0]);
+                if not self.usingstandard:
+                    printerr('Use -f/-q or -F if it a MLP:FiM pony');
+                if not self.usingextra:
+                    printerr('Have you tested +f or -F?');
+                exit(252)
+            else:
+                return (pony[1][possibilities.find(pony[0])], if pony[2] else None) # FIXME select quote
     
     
     '''
     Returns a set with all ponies that have quotes and are displayable
     
-    @param   ponydirs:itr<str>   The pony directories to use
-    @param   quotedirs:itr<str>  The quote directories to use
-    @return  :set<str>           All ponies that have quotes and are displayable
+    @param   ponydirs:itr<str>?   The pony directories to use
+    @param   quotedirs:itr<str>?  The quote directories to use
+    @return  :set<str>            All ponies that have quotes and are displayable
     '''
     def __quoters(self, ponydirs = None, quotedirs = None):
         if ponydirs  is None:  ponydirs  = self.ponydirs
@@ -642,8 +595,8 @@ class Ponysay():
     '''
     Returns a list with all (pony, quote file) pairs
     
-    @param   ponydirs:itr<str>         The pony directories to use
-    @param   quotedirs:itr<str>        The quote directories to use
+    @param   ponydirs:itr<str>?        The pony directories to use
+    @param   quotedirs:itr<str>?       The quote directories to use
     @return  (pony, quote):(str, str)  All ponies–quote file-pairs
     '''
     def __quotes(self, ponydirs = None, quotedirs = None):
@@ -675,11 +628,10 @@ class Ponysay():
     ## Listing methods ##
     #####################
     
-    
     '''
     Lists the available ponies
     
-    @param  ponydirs:itr<str>  The pony directories to use
+    @param  ponydirs:itr<str>?  The pony directories to use
     '''
     def list(self, ponydirs = None):
         List.simplelist(self.ponydirs if ponydirs is None else ponydirs,
@@ -735,6 +687,7 @@ class Ponysay():
                 print(pony)
     
     
+    
     #####################
     ## Balloon methods ##
     #####################
@@ -787,11 +740,11 @@ class Ponysay():
                 autocorrect = SpelloCorrecter(self.balloondirs, '.think' if self.isthink else '.say')
                 (alternatives, dist) = autocorrect.correct(balloon)
                 limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
-                limit = 5 if len(limit) == 0 else int(dist)
+                limit = 5 if len(limit) == 0 else int(limit)
                 if (len(alternatives) > 0) and (dist <= limit):
                     return self.__getballoonpath(alternatives, True)
-            printerr('That balloon style %s does not exist' % (balloon));
-            exit(1)
+            printerr('That balloon style %s does not exist' % balloon)
+            exit(251)
         else:
             return balloons[balloon]
     
@@ -825,8 +778,29 @@ class Ponysay():
     @param  args:ArgParser  Parsed command line arguments
     '''
     def print_pony(self, args):
+        ## Get the pony
+        (selection, standard, extra) = ([], [], [])
+        for ponydir in self.ponydirs:
+            for pony in os.listdir(ponydir):
+                standard.append(ponydir + pony)
+        for ponydir in self.extraponydirs:
+            for pony in os.listdir(ponydir):
+                extra.append(ponydir + pony)
+        both = standard + extra
+        if args.opts['-f'] is not None:  for pony in args.opts['-f']:  selection.append(pony, standard, False)
+        if args.opts['+f'] is not None:  for pony in args.opts['+f']:  selection.append(pony, extra, False)
+        if args.opts['-F'] is not None:  for pony in args.opts['-F']:  selection.append(pony, both, False)
+        if args.opts['-q'] is not None:  for pony in args.opts['-q']:  selection.append(pony, standard, True)
+        ## TODO +q -Q
+        (pony, quote) = self.__getpony(selection, args)
+        
         ## Get message and remove tailing whitespace from stdin (but not for each line)
-        if args.message == None:
+        msg = None
+        if quote is not None:
+            printinfo('quote file: ' + quote)
+            with open(quote, 'rb') as qfile:
+                msg = qfile.read().decode('utf8', 'replace').strip()
+        elif args.message == None:
             msg = ''.join(sys.stdin.readlines()).rstrip()
         else:
             msg = args.message
@@ -854,8 +828,7 @@ class Ponysay():
                     last = c
             msg = buf.replace('\n', '\n\n')
         
-        ## Get the pony
-        pony = self.__getponypath(args.opts['-f'])
+        ## Print info
         printinfo('pony file: ' + pony)
         
         ## Use PNG file as pony file
@@ -979,8 +952,8 @@ class Ponysay():
                 args.message = qfile.read().decode('utf8', 'replace').strip()
             args.opts['-f'] = [pair[0]]
         elif len(args.opts['-q']) == 0:
-            sys.stderr.write('Princess Celestia! All the ponies are mute!\n')
-            exit(1)
+            printerr('Princess Celestia! All the ponies are mute!')
+            exit(250)
         else:
             args.opts['-f'] = [args.opts['-q'][random.randrange(0, len(args.opts['-q']))]]
             args.message = 'Zecora! Help me, I am mute!'

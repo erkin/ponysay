@@ -27,8 +27,12 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
     
     @param  directories:list<str>  List of directories that contains the file names with the correct spelling
     @param  ending:str             The file name ending of the correctly spelled file names, this is removed for the name
+    
+    -- OR -- (emulated overloading [overloading is absent in Python])
+    
+    @param  directories:list<str>  The file names with the correct spelling
     '''
-    def __init__(self, directories, ending):
+    def __init__(self, directories, ending = None):
         self.weights = {'k' : {'c' : 0.25, 'g' : 0.75, 'q' : 0.125},
                         'c' : {'k' : 0.25, 'g' : 0.75, 's' : 0.5, 'z' : 0.5, 'q' : 0.125},
                         's' : {'z' : 0.25, 'c' : 0.5},
@@ -60,11 +64,32 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
         previous = ''
         self.dictionary[-1] = previous;
         
-        for directory in directories:
-            for filename in os.listdir(directory):
-                if (not endswith(filename, ending)) or (len(filename) - len(ending) > 127):
+        if ending is not None:
+            for directory in directories:
+                for filename in os.listdir(directory):
+                    if (not endswith(filename, ending)) or (len(filename) - len(ending) > 127):
+                        continue
+                    proper = filename[:-len(ending)]
+                    
+                    if self.dictionaryEnd == 0:
+                        self.dictionaryEnd = len(self.dictionary)
+                        self.reusable = [0] * self.dictionaryEnd + self.reusable
+                        self.dictionary = [None] * self.dictionaryEnd + self.dictionary
+                    
+                    self.dictionaryEnd -= 1
+                    self.dictionary[self.dictionaryEnd] = proper
+                    
+                    prevCommon = min(len(previous), len(proper))
+                    for i in range(0, prevCommon):
+                        if previous[i] != proper[i]:
+                            prevCommon = i
+                            break
+                    previous = proper
+                    self.reusable[self.dictionaryEnd] = prevCommon
+        else:
+            for proper in directories:
+                if len(proper) > 127:
                     continue
-                proper = filename[:-len(ending)]
                 
                 if self.dictionaryEnd == 0:
                     self.dictionaryEnd = len(self.dictionary)
