@@ -1,3 +1,72 @@
+Version 3.0
+
+	New ponies: applesplit, amira, babseed, bear, beautybrass, bigmacsleep, billneigh, cadancecrystal, cadancescruffy,
+		    cloudchaser, descent, featherweight, fiddlesticks, flitter, gingersnap, haakim, hayseed, lighningdust,
+		    jubileena, midnightstrike, mrbreezy, orangebird, orangefrog, pansyshy, pinkiecrazyface, poundcake,
+		    princesserroria, raccoon, rainbowblitz, rarityelite, ravenearth, ravenunicorn, royalunicornguard, rumble,
+		    shiningarmorcrystal, sombra, spikecrystal, squirrel, sweetcream (comic), trixieamulet, twilacorn,
+		    twilightcrystal, twilightfly, twilightprincess, twilightwings, twinkleshine
+
+	New extraponies: donutpony, gleamingshield, hestelle, johndelancie, jristz, maandree, orion, pipsqueak (without pirate suit),
+			 paradise, pizzapony, snowdrop, tempo, ticket
+
+	Ponies renamed: lotusbloosom → lotusblossom (typo)
+	                maredowellgallop → maredowellgallop (need a version named as master)
+	                ironwillwalk →  ironwillwalk (need a version named as master)
+			shadowbolts → nightingale (shadowbolts split)
+			lily → lilyvalley (official name)
+			sweatiesing → sweetiesing (name consistency)
+			carecake become carrotcake (official name)
+			peppermoon → papermoon (miswriting)
+			maria into danger (given by the author)
+			meliot → melilot (miswriting)
+
+	Pony symlink added: lily → lilyvalley
+			sweetiedrops → bonbon
+			carecake → carrotcake
+			berrydreams → blueberry
+			raven → ravenunicorn (need a version named as master)
+
+	fillycelestia and filliestia has been moved to extraponies.
+
+	Renamed option -F to +f and option --F to ++f, -F and --F has new definitions.
+
+	Environment variable 'PONYSAY_TYPO_LIMIT' has been added.
+
+	Environment variable 'PONYSAY_WRAP_HYPHEN' has been added.
+
+	Environment variable 'PONYSAY_WRAP_LIMIT' has been added.
+
+	Environment variable 'PONYSAY_WRAP_EXCEED' has been added.
+
+	Added support for ~/.ponysayrc with the alternatives: ${XDG_CONFIG_HOME}/ponysay/ponysayrc
+	and ~/.config/ponysay/ponysayrc as well as the global fallback /etc/ponysayrc.
+
+	-f, +f and -q may be unargumented if that are at the end of the command line.
+
+	ponysay-tool is introduced, it can be used to edit, remove and copy pony meta data, and more.
+
+	ponysay-tool --kms generates all kmsponies for the current TTY palette.
+
+	Pony metadata tags BALLOON TOP and BALLOON BOTTOM can be used to specify how
+	much extra height the balloon causes at the top and at the bottom of the pony.
+
+	${XDG_DATA_HOME}/ponysay/* is allowed in favour of ${HOME}/.local/share/ponysay/*
+
+	Balloons can be have and explicit minimum column span with placement justification.
+
+	Only ponies that fit the terminal will be randomly selected (for directory with pony
+	dimension files generated), however if no pony fits, any of the can be randomly selected.
+
+	Setup option --sysconf-dir with default value /etc added.
+
+	New manditory setup option --freedom.
+
+	Pony metadata options added: --info, ++info and --restrict.
+
+	The license has been changed to the GNU General Public License version 3+, WTFPL 2.
+
+
 Version 2.9.1
 
 	Bug fix: correction in the -W option broke the -o option.
@@ -62,7 +131,7 @@ Version 2.7
 			 drhooves11, nyx (Fanfic: Past Sins), nyxdisguised (Fanfic: Past Sins),
 			 pinkaminacupcake (Fanfic)
 
-	Pony renamed: cracky to crackle
+	Pony renamed: cracky → crackle
 
 
 Version 2.6
@@ -154,7 +223,7 @@ Version 2.1.1
 
 Version 2.1
 
-	Pony renamed: applebumkin to applebumpkin
+	Pony renamed: applebumkin → applebumpkin
 
 	New ponies: purplehaze, owlowiscious
 
@@ -193,7 +262,7 @@ Version 1.3
 
 	New ponies: forestspirit, hollydash, raggedy, rhyme
 
-	Pony renamed: sindy to powderrouge
+	Pony renamed: sindy → powderrouge
 
 	Pony symlink added: sindy → powderrouge
 
@@ -210,7 +279,7 @@ Version 1.2
 	            highscore, junebug, mrsparkle, persnickety, ponet,
 		    screwloose, tornadobolt.
 
-	Pony renamed: elsie to prettyvision
+	Pony renamed: elsie → prettyvision
 
 	Pony symlinks added: mrsparkle → nightlight
 			     elsie → prettyvision

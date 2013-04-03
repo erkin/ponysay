@@ -1,0 +1,47 @@
+Contributions to ponysay is greatly appreciated.
+
+-- Populate Equestria --
+
+Ponysay will always need contributors to draw ponies
+both from My Little Pony: Friendship is Magic and
+other My Little Pony shows and fan media.
+
+For a guide on this matter please refer to the info
+[PDF] manual section Contributing::Providing Ponies.
+
+
+-- Maintain the Canterlot Library --
+
+The info manual is constantly updated, and will always
+need to be reviewed. The info manual is written in
+ponified British "-ise" Longish, if this does not hold
+for a section in the manual, or if it contains typos,
+spellos, or can in general be better formulated. Please
+send a patch or mention so in a commit comment.
+
+Additionally the [tex]info manual is primarily check
+in the PDF version, as it is believed to be the most
+common way to view the manual. If you discover that
+the info version or the HTML version looks differently,
+Please send a patch, add an issue or mention so in a
+commit comment.
+
+Although translations of the primary manual (the PDF)
+may not be piratically due to its constant updating,
+translations of the man pages are useful if you
+speak a language from where good understanding of
+English is not common at all ages, ortograffic
+correction are apresiated too.
+
+
+-- Make new magic spells and improve existing ones --
+
+If you want to make contributions to the pony code
+itself, just make a pull request, their are much,
+style-wise, to think about. However, please try to
+document every new method, function and class in the
+same manner is the already existing ones. Maintainability
+is also important, try not to write obscure superoptimised
+code, unless it is actually necessary; and comment
+code segment's when it seems appropriate.
+

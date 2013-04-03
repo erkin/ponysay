@@ -69,7 +69,7 @@ List non-MLP:FiM pony files with alternative names inside brackets.
 Select a pony (either a file name or a pony name), you can use this options multiple times,
 and one of the will be selected randomly.
 .TP
-.B \-F, \+\+file, \+\+pony \fIname\fP
+.B \+f, \+\+file, \+\+pony \fIname\fP
 Select a non-MLP:FiM pony (either a file name or a pony name), you can use this options
 multiple times, and one of the will be selected randomly.
 .TP
@@ -148,6 +148,6 @@ for the Debian GNU/Linux project (and may be used by others), and edited by
 Mattias Andrée <maandree@kth.se> for the official ponysay release.
 .br
 .PP
-This program is licensed under WTFPL.
+This program is licensed under GNU GPLv3+.
 .\" See file COPYING to see the license.
     

@@ -8,7 +8,7 @@ from subprocess import Popen, PIPE
 
 
 
-PONYSAY_VERSION = '2.9.1'
+PONYSAY_VERSION = '3.0alpha'
 
 
 
@@ -35,7 +35,13 @@ mansections = [('ponysay', '6'),
                ('fortune', '6')]
 
 miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
+             ('LICENSE', '/usr/share/licenses/ponysay/LICENSE'),
              ('CREDITS', '/usr/share/licenses/ponysay/CREDITS')]
+
+ponysaysrc = [src + '.py' for src in
+              ('__main__', 'common', 'ponysay', 'argparser', 'balloon',
+               'backend', 'colourstack', 'ucs', 'spellocorrecter', 'kms',
+               'list', 'metadata')]
 
 
 
@@ -178,17 +184,17 @@ class Setup():
         
         
         for dir in sharedirs:
-            opts.add_argumentless(help = 'Do not install ' + dir[0],
+            opts.add_argumentless(help = 'Do not install ' + dir[1],
                                   alternatives = ['--without-' + dir[0]])
             
-            opts.add_argumented  (help = 'Set directory for %s\nDefault = $SHAREDIR/ponysay/%s' % (dir[1], dir[0]),
-                                  alternatives = [   '--with-' + dir[0]], arg=dir[2])
+            opts.add_argumentless(help = 'Install %s\nDefault' % dir[1],
+                                  alternatives = [   '--with-' + dir[0]])
         
         opts.add_argumentless(help = 'Do not install UCS pony name map',
                               alternatives = ['--without-ucs', '--without-ucs-names'])
         
-        opts.add_argumented  (help = 'Set file for the UCS pony name map\nDefault = $SHAREDIR/ponysay/ucsmap',
-                              alternatives = ['--with-ucs', '--with-ucs-names'], arg='UCSFILE')
+        opts.add_argumentless(help = 'Install UCS pony name map\nDefault',
+                              alternatives = ['--with-ucs', '--with-ucs-names'])
         
         
         opts.add_argumentless(help = 'Let the installer set the env name for python in ponysay\nDefault',
@@ -214,10 +220,13 @@ class Setup():
                               alternatives = ['--lib-dir'], arg='LIBDIR')
         
         opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/libexec/ponysay\nNot used.',
-                              alternatives = ['--libexec-dir'], arg='LIBDIR')
+                              alternatives = ['--libexec-dir'], arg='LIBEXECDIR')
         
         opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',
                               alternatives = ['--share-dir'], arg='SHAREDIR')
+        
+        opts.add_argumented  (help = 'Set the system\'s local specific configuration directory\nDefault = /etc',
+                              alternatives = ['--sysconf-dir'], arg='SYSCONFDIR')
         
         opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',
                               alternatives = ['--cache-dir'], arg='CACHEDIR')
@@ -231,6 +240,11 @@ class Setup():
                               alternatives = ['--linking'], arg='TYPE')
         
         
+        opts.add_argumented  (help = 'Install all ponies or only the completely free ponies\nThis option is manditory, use strict, full, true or yes ' +
+                                      'for only free ponies,\nand partial, sloppy, false or no for all ponies',
+                              alternatives = ['--freedom'], arg='FREEDOM')
+        
+        
         
         opts.parse()
         
@@ -238,6 +252,23 @@ class Setup():
         self.linking = SYMBOLIC
         if opts.opts['--linking'] is not None:
             self.linking = opts.opts['--linking'][0]
+        
+        
+        self.free = None
+        if opts.opts['--freedom'] is not None:
+            if opts.opts['--freedom'][0].lower() in ('strict', 'full', 'true', 'yes'):
+                self.free = True
+            elif opts.opts['--freedom'][0].lower() in ('partial', 'sloppy', 'false', 'no'):
+                self.free = False
+        if self.free is None:
+            print('')
+            print('You need to select your freedom, add --freedom=strict or --freedom=partial.')
+            print('')
+            print('--freedom=strict   will install only ponies that are completely free.')
+            print('--freedom=partial  will install all ponies, even if they are not free.')
+            print('')
+            print('')
+            exit(255)
         
         
         if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is None):
@@ -323,15 +354,18 @@ class Setup():
             else:                                  print(RED    % ('Skipping compression of ' + man[1] + ' manpage'))
         for man in mansections:                    print(GREEN  % ('References to manpage for ' + man[0] + ' points to section ', conf['man-section-' + man[0]]))
         for dir in sharedirs:
-            if conf[dir[0]] is not None:           print(GREEN  % ('Installing ' + dir[1] + ' to ', conf[dir[0]]))
+            if conf[dir[0]] is not None:           print(GREEN  % ('Installing ' + dir[1] + ' to ', conf['share-dir'] + '/' + dir[0]))
             else:                                  print(RED    % ('Skipping installation of ' + dir[1]))
         for file in sharefiles:
-            if conf[file[0]] is not None:          print(GREEN  % ('Installing ' + file[1] + ' as ', conf[file[0]]))
+            if conf[file[0]] is not None:          print(GREEN  % ('Installing ' + file[1] + ' as ', conf['share-dir'] + '/' + file[0]))
             else:                                  print(RED    % ('Skipping installation of ' + file[1]))
         if conf['custom-env-python'] is not None:  print(GREEN  % ('Using custom env reference in python script shebang: ', conf['custom-env-python']))
         else:                                      print(YELLOW % ('Looking for best env reference in python script shebang'))
         for miscfile in miscfiles:                 print(GREEN  % ('Installing ' + miscfile[0] + ' to ', conf[miscfile[0]]))
+        print('Using system configuration directory: ' + conf['sysconf-dir'])
         print('Prefered linking style: ' + self.linking)
+        if self.free:                              print(GREEN  % ('', 'Installing only fully free parts of the package'))
+        else:                                      print(RED    % ('Installing \033[1mnot\033[21m only fully free parts of the package'))
         
         print()
     
@@ -357,37 +391,56 @@ class Setup():
                 if fileout is not None:  fileout.close()
                 if filein  is not None:  filein .close()
         
+        (fileout, filein) = (None, None)
+        
         env = conf['custom-env-python']
         if env is None:
-            (out, err) = Popen(['env', 'python', '--version'], stdout=PIPE, stderr=PIPE).communicate()
-            out = out.decode('utf8', 'replace') + err.decode('utf8', 'replace')
-            out = out.replace('\n', '')
-            env = out.split(' ')[1].split('.')[0]
-            if int(env) < 3:  env = 'python3'
-            else:             env = 'python'
+            try:
+                (out, err) = Popen(['env', 'python', '--version'], stdout=PIPE, stderr=PIPE).communicate()
+                out = out.decode('utf8', 'replace') + err.decode('utf8', 'replace')
+                out = out.replace('\n', '')
+                env = out.split(' ')[1].split('.')[0]
+                if int(env) < 3:  env = 'python3'
+                else:             env = 'python'
+            except:
+                env = 'python3'
         mane = False
         for command in commands:
             if conf[command] is not None:
                 mane = True
                 break
         if mane:
-            (fileout, filein) = (None, None)
+            for src in ponysaysrc:
+                try:
+                    fileout = open('src/%s.install' % src, 'wb+')
+                    filein = open('src/%s' % src, 'rb')
+                    data = filein.read().decode('utf-8', 'replace')
+                    
+                    if '#!/usr/bin/env python3' in data:
+                        data = data.replace('#!/usr/bin/env python3', '#!/usr/bin/env ' + env)
+                    else:
+                        data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
+                    data = data.replace('/usr/share/', conf['share-dir'] if conf['share-dir'].endswith('/') else (conf['share-dir'] + '/'))
+                    data = data.replace('/etc/', conf['sysconf-dir'] + ('' if conf['sysconf-dir'].endswith('/') else '/'))
+                    data = data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
+                    
+                    fileout.write(data.encode('utf-8'))
+                finally:
+                    if fileout is not None:  fileout.close()
+                    if filein  is not None:  filein .close()
+            try:
+                os.chdir('src')
+                cmd = 'zip -0 ../ponysay.zip ' + ' '.join(ponysaysrc) # use not compress, prefer speed
+                print(cmd)
+                os.system(cmd)
+            finally:
+                os.chdir('..')
+            os.chmod('ponysay.zip', 0o755)
             try:
                 fileout = open('ponysay.install', 'wb+')
-                filein = open('ponysay.py', 'rb')
-                data = filein.read().decode('utf-8', 'replace')
-                
-                if '#!/usr/bin/env python3' in data:
-                    data = data.replace('#!/usr/bin/env python3', '#!/usr/bin/env ' + env)
-                else:
-                    data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
-                for sharedir in [item[0] for item in sharedirs]:
-                    data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
-                for sharefile in sharefiles:
-                    data = data.replace('/usr/share/ponysay/' + sharefile[1], conf[sharefile[0]])
-                data = data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
-                
-                fileout.write(data.encode('utf-8'))
+                filein = open('ponysay.zip', 'rb')
+                fileout.write(('#!/usr/bin/env %s\n' % env).encode('utf-8'))
+                fileout.write(filein.read())
             finally:
                 if fileout is not None:  fileout.close()
                 if filein  is not None:  filein .close()
@@ -432,23 +485,50 @@ class Setup():
             if ext is not None:
                 compress('ponysay.pdf', 'ponysay.pdf.' + ext, ext)
         
+        for command in commands:
+            source = 'completion/ponysay'
+            sourceed = 'completion/ponysay.%s' % (command)
+            try:
+                fileout = open(sourceed, 'wb+')
+                filein = open(source, 'rb')
+                data = filein.read().decode('utf-8', 'replace')
+                
+                if data.startswith('(ponysay\n'):
+                    data = ('(%s ' % command) + data[len('(ponysay\n'):]
+                elif data.startswith('(ponysay '):
+                    data = ('(%s ' % command) + data[len('(ponysay '):]
+                elif '\n(ponysay\n' in data:
+                    edpos = data.find('\n(ponysay\n')
+                    data = data[:edpos] + ('\n(%s\n' % command) + data[edpas + len('\n(ponysay\n'):]
+                elif '\n(ponysay ' in data:
+                    data = data[:edpos] + ('\n(%s ' % command) + data[edpas + len('\n(ponysay '):]
+                else:
+                    raise Exception('File %s does not look like expected' % source)
+                
+                fileout.write(data.encode('utf-8'))
+            finally:
+                if fileout is not None:  fileout.close()
+                if filein  is not None:  filein .close()
+        
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
-                src = 'completion/%s-completion.%s' % (shell, 'sh' if shell == 'bash' else shell)
                 for command in commands:
+                    sourceed = 'completion/ponysay.%s' % (command)
+                    generated = 'completion/%s-completion.%s' % (shell, command)
+                    generatorcmd = './completion/auto-auto-complete.py %s --output %s --source %s' % (shell, generated, sourceed)
+                    Popen(generatorcmd.split(' ')).communicate()
                     if conf[command] is not None:
-                        dest = src + '.' + command
+                        dest = generated + '.install'
                         (fileout, filein) = (None, None)
                         try:
                             fileout = open(dest, 'wb+')
-                            filein = open(src, 'rb')
+                            filein = open(generated, 'rb')
                             data = filein.read().decode('utf-8', 'replace')
                             
                             data = data.replace('/usr/bin/ponysay', conf[command])
                             data = data.replace('/ponysay', '\0')
                             data = data.replace('ponysay', command)
-                            for sharedir in [item[0] for item in sharedirs]:
-                                data = data.replace('/usr/share/ponysay/' + sharedir, conf[sharedir])
+                            data = data.replace('/usr/share/', conf['share-dir'] if conf['share-dir'].endswith('/') else (conf['share-dir'] + '/'))
                             data = data.replace('\0', '/ponysay')
                             
                             fileout.write(data.encode('utf-8'))
@@ -474,6 +554,24 @@ class Setup():
             finally:
                 if ponymap is not None:
                     ponymap.close()
+        
+        for sharedir in [sharedir[0] for sharedir in sharedirs]: # TODO make this an opt-out option
+            if os.path.isdir(sharedir):
+                for toolcommand in ('--dimensions', '--metadata'):
+                    if not self.free:
+                        print('%s, %s, %s' % ('./src/ponysay-tool.py', toolcommand, sharedir))
+                        Popen(['./src/ponysay-tool.py', toolcommand, sharedir], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
+                    else:
+                        params = ['./src/ponysay-tool.py', toolcommand, sharedir, '--']
+                        for sharefile in os.listdir(sharedir):
+                            if sharefile.endswith('.pony') and (sharefile != '.pony'):
+                                if not Setup.validateFreedom(sharedir + '/' + sharefile):
+                                    print('Skipping metadata correction for %s/%s, did not pass validation process made by setup settings' % (sharedir, sharefile))
+                                else:
+                                    params.append(sharefile)
+                        print('%s, %s, %s (with files)' % ('./src/ponysay-tool.py', toolcommand, sharedir))
+                        Popen(params, stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
+        
         print()
     
     
@@ -512,7 +610,7 @@ class Setup():
             if conf[shell] is not None:
                 for command in commands:
                     if conf[command] is not None:
-                        src = 'completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command)
+                        src = 'completion/%s-completion.%s.install' % (shell, command)
                         dest = conf[shell].replace('ponysay', command)
                         self.cp(False, src, [dest])
         if conf['pdf'] is not None:
@@ -550,14 +648,18 @@ class Setup():
                         dest = '%s/%s/%s.%s%s' % (conf[key], sub, command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression'])
                         dests.append(dest)
                 self.cp(False, src, dests)
+        ponyshare = conf['share-dir']
+        if not ponyshare.endswith('/'):
+            ponyshare += '/'
+        ponyshare += 'ponysay/'
         for dir in sharedirs:
             if conf[dir[0]] is not None:
-                self.cp(True, dir[0], [conf[dir[0]]])
+                self.cp(True, dir[0], [ponyshare + dir[0]], Setup.validateFreedom if self.free else None)
         for file in sharefiles:
             if conf[file[0]] is not None:
-                self.cp(False, 'share/' + file[1], [conf[file[0]]])
+                self.cp(False, 'share/' + file[1], [ponyshare + file[0]], Setup.validateFreedom if self.free else None)
         for file in miscfiles:
-            self.cp(False, file[0], [conf[file[0]]])
+            self.cp(False, file[0], [conf[file[0]]], Setup.validateFreedom if self.free else None)
         print()
     
     
@@ -597,12 +699,16 @@ class Setup():
                 for command in commands:
                     if conf[command] is not None:
                         files.append('%s/%s/%s.%s%s' % (conf[key], sub, command, section, '' if conf[key + '-compression'] is None else '.' + conf[key + '-compression']))
+        ponyshare = conf['share-dir']
+        if not ponyshare.endswith('/'):
+            ponyshare += '/'
+        ponyshare += 'ponysay/'
         for dir in sharedirs:
             if conf[dir[0]] is not None:
-                dirs.append(conf[dir[0]])
+                dirs.append(ponyshare + dir[0])
         for file in sharefiles:
             if conf[file[0]] is not None:
-                files.append(conf[file[0]])
+                files.append(ponyshare + file[0])
         for file in miscfiles:
             files.append(conf[file[0]])
         
@@ -643,7 +749,8 @@ class Setup():
     def clean(self):
         print('\033[1;34m::\033[39mCleaning...\033[21m')
         
-        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install']
+        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install', 'ponysay.zip']
+        files += ['src/%s.install' % file for file in ponysaysrc]
         dirs = ['quotes']
         for comp in ['install', 'gz', 'xz']:
             for man in manpages:
@@ -653,7 +760,11 @@ class Setup():
                     files.append('manuals/manpage%s.%s.%s' % (man, str(sec), comp))
         for shell in [item[0] for item in shells]:
             for command in commands:
-                files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
+                files.append('completion/%s-completion.%s' % (shell, command))
+                files.append('completion/%s-completion.%s.install' % (shell, command))
+        for sharedir in [sharedir[0] for sharedir in sharedirs]:
+            for dimfile in ('widths', 'heights', 'onlyheights'):
+                files.append(sharedir + '/' + dimfile)
         
         self.removeLists(files, dirs)
         print()
@@ -670,6 +781,9 @@ class Setup():
         for shell in [item[0] for item in shells]:
             files.append('completion/%s-completion.%s.install' % (shell, 'sh' if shell == 'bash' else shell))
             files.append('completion/%s-completion-think.%s'   % (shell, 'sh' if shell == 'bash' else shell))
+        for shell in [item[0] for item in shells]:
+            for command in commands:
+                files.append('completion/%s-completion.%s.%s' % (shell, 'sh' if shell == 'bash' else shell, command))
         
         self.removeLists(files, dirs)
         print()
@@ -706,9 +820,34 @@ class Setup():
     
     
     '''
+    Check whether a file is fully free
+    '''
+    @staticmethod
+    def validateFreedom(filename):
+        if not os.path.isdir(filename):
+            if filename.endswith('.pony') and (filename != '.pony') and not filename.endswith('/.pony'):
+                with open(filename, 'rb') as file:
+                    data = file.read().decode('utf8', 'replace')
+                    if data.startswith('$$$\n') and ('\n$$$\n' in data) and not data.startswith('$$$\n$$$\n'):
+                        data = data[4 : data.find('\n$$$\n')].split('\n')
+                        for line in data:
+                            if ':' not in line:
+                                continue
+                            line = [item.strip() for item in line.split(':')]
+                            if (len(line) == 2) and (line[0] == 'FREE'):
+                                return line[1].lower() == 'yes'
+                return False
+        return True
+    
+    
+    '''
     Copys a files or directory to multiple destinations
     '''
-    def cp(self, recursive, source, destinations):
+    def cp(self, recursive, source, destinations, validatehook = None):
+        if validatehook is not None:
+            if not validatehook(source):
+                print('Ignoring installation of file %s (did not pass validation process made by setup settings)' % source)
+                return
         if os.path.islink(source) and (self.linking != COPY) and os.path.isdir(os.path.realpath(source)):
             target = os.readlink(source)
             for dest in destinations:
@@ -752,9 +891,9 @@ class Setup():
                     if os.path.exists(src) and os.path.islink(src):
                         links.append((os.path.isdir(src), src, [dest + '/' + file]))
                     else:
-                        self.cp(os.path.isdir(src), src, [dest + '/' + file])
+                        self.cp(os.path.isdir(src), src, [dest + '/' + file], validatehook)
                 for link in links:
-                    self.cp(link[0], link[1], link[2])
+                    self.cp(link[0], link[1], link[2], validatehook)
             if self.linking != COPY:
                 for dest in destinations[1:]:
                     print('Creating symbolic link %s with target directory %s' % (dest, target))
@@ -823,13 +962,18 @@ class Setup():
         for manpage in manpages:
             conf['man-' + manpage[0]] = '/usr/share/man'
             conf['man-' + manpage[0] + '-compression'] = 'gz'
-        for sharedir in sharedirs:
-            conf[sharedir[0]] = '/usr/share/ponysay/' + sharedir[0]
-        for sharefile in sharefiles:
-            conf[sharefile[0]] = '/usr/share/ponysay/' + sharefile[1]
         conf['custom-env-python'] = 'python3'
+        for sharedir in sharedirs:
+            conf[sharedir[0]] = True
+        for sharefile in sharefiles:
+            conf[sharefile[0]] = True
         for miscfile in miscfiles:
             conf[miscfile[0]] = miscfile[1]
+        conf['sysconf-dir'] = '/etc'
+        conf['bin-dir'] = '/usr/bin'
+        conf['lib-dir'] = '/usr/lib/ponysay'
+        conf['libexec-dir'] = '/usr/libexec/ponysay'
+        conf['share-dir'] = '/usr/share'
         
         
         if opts['--private'] is not None:
@@ -849,12 +993,8 @@ class Setup():
             if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/opt/ponysay/bin']
             if opts['--lib-dir']           is None:  opts['--lib-dir']           = ['/opt/ponysay/lib']
             if opts['--libexec-dir']       is None:  opts['--libexec-dir']       = ['/opt/ponysay/libexec']
-            if opts['--share-dir']         is None:  opts['--share-dir']         = ['/usr/share']
+            if opts['--share-dir']         is None:  opts['--share-dir']         = ['/opt/ponysay/share']
             if opts['--with-shared-cache'] is None:  opts['--with-shared-cache'] = ['/var/opt/ponysay/cache']
-            for sharedir in sharedirs:
-                conf[sharedir[0]] = '/opt/ponysay/share/' + sharedir[0]
-            for sharefile in sharefiles:
-                conf[sharefile[0]] = '/opt/ponysay/share/' + sharefile[1]
         
         for dir in ['bin', 'lib', 'libexec', 'share']:
             if opts['--' + dir + '-dir'] is not None:
@@ -872,6 +1012,8 @@ class Setup():
                     if conf[key].startswith('/var/cache'):
                         conf[key] = dir + conf[key][10:]
         
+        if opts['--sysconf-dir'] is not None:
+            conf['sysconf-dir'] = opts['--sysconf-dir'][0]
         
         for key in conf:
             defaults[key] = conf[key]

@@ -1,0 +1,28 @@
+These files are metadata templetes for licenses that you
+may use on your ponyfiles. These *cannot* be added with
+ponysay-tool --edit-apply. You should add them either using
+ponysay-tool --edit or with a text editor.
+
+If you choose to add them using a text editor, add the
+content between the two $$$ lines. If the files does
+not start with a $$$ line, add the content to the top
+of the file followed by a $$$ line and with a $$$ line
+at the top.
+
+So a ponyfile without any other metadata should begin with
+something like
+
+$$$
+LICENSE: license-abbr (full license name)
+FREE:    yes/no/sharable
+
+license text/links
+$$$
+
+
+Do not forgot to add the source. If you make it yourself,
+from scratch, almost from scratch, the tag should be, if
+your username is XYZ:
+
+SOURCE: [XYZ]
+

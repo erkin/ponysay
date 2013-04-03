@@ -16,13 +16,23 @@
 ## Compile files
 
 /completion/*-completion-think.*
-/manuals/manpage.*.gz
-/ponysay.info
-/ponysay.info.gz
+/completion/pony*.pony*
 /truncater
 *.install
+*.gz
+*.xz
+*.bzip2
+*.zip
+*.info
+*.ps
+*.dvi
 /Makefile
 /quotes/
+/*ponies/heights
+/*ponies/onlyheights
+/*ponies/widths
+/*ponies/metadata
+/ponysay
 
 
 ## Texinfo manual stuff
@@ -42,8 +52,9 @@
 /ponysay.pgs
 /ponysay.vrs
 
-## Python cache files
-## For a misterious force, Those has ben created here
+
+## Python just in time compilation cache for heuristic optimisation
 
 __pycache__/
 *.pyc
+

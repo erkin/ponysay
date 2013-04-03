@@ -1,48 +1,45 @@
 #!/bin/sh
 
-br=0
-bs=0
-bo=0
-rr=0
-ro=0
+# Compatible with  bash  dash  zsh
+# but not with     fish
+# problematic with tcsh  csh
 
-(hash make         2>/dev/null) || (br=1 ; echo 'Missing make, install make [build required]')
-(hash sed          2>/dev/null) || (br=1 ; echo 'Missing sed, install sed [build required]')
-(hash install      2>/dev/null) || (br=1 ; echo 'Missing install, install coreutils [build required]')
-(hash unlink       2>/dev/null) || (br=1 ; echo 'Missing uninstall, install coreutils [build required]')
-(hash rm           2>/dev/null) || (br=1 ; echo 'Missing rm, install coreutils [build required]')
-(hash ln           2>/dev/null) || (br=1 ; echo 'Missing ln, install coreutils [build required]')
-(hash mkdir        2>/dev/null) || (br=1 ; echo 'Missing mkdir, install coreutils [build required]')
-(hash cp           2>/dev/null) || (br=1 ; echo 'Missing cp, install coreutils [build required]')
-(hash cut          2>/dev/null) || (br=1 ; echo 'Missing cut, install coreutils [build required]')
-(hash chmod        2>/dev/null) || (br=1 ; echo 'Missing chmod, install coreutils [build required]')
 
-(hash bash         2>/dev/null) || (bs=1 ; echo 'Missing bash, install bash [build recommended]')
+br=0 # build required
+bs=0 # build recommended
+bo=0 # build optional
+rr=0 # runtime required
+ro=0 # runtime optional
+pv=0 # python version
 
-(hash gzip         2>/dev/null) || (bo=1 ; echo 'Missing gzip, install gzip [build optional]')
-(hash makeinfo     2>/dev/null) || (bo=1 ; echo 'Missing makeinfo, install texinfo [build optional]')
-(hash install-info 2>/dev/null) || (bo=1 ; echo 'Missing install-info, install info [build optional]')
 
-(hash python       2>/dev/null) || (rr=1 ; echo 'Missing python, install python>=3 [build+runtime required]')
+(hash chmod        2>/dev/null) || (br=1 ; ro=1 ; echo 'Missing chmod, install coreutils [build+runtime required]')
+(hash zip          2>/dev/null) || (br=1 ;        echo 'Missing zip, install zip [build required]')
+
+(hash gzip         2>/dev/null) || (bo=1 ;        echo 'Missing gzip, install gzip [build optional]')
+(hash makeinfo     2>/dev/null) || (bo=1 ;        echo 'Missing makeinfo, install texinfo [build optional]')
+(hash install-info 2>/dev/null) || (bo=1 ;        echo 'Missing install-info, install info [build optional]')
+
+(hash python       2>/dev/null) || (br=1 ; rr=1 ; echo 'Missing python, install python>=3 [build+runtime required]')
 
 (hash cut 2>/dev/null) && (hash python 2>/dev/null) &&
     (test ! $(env python --version 2>&1 | cut -d ' ' -f 2 | cut -d '.' -f 1) = 3) && (
-	(hash python3 2>/dev/null) ||
-	    (rr=1 ; echo 'Missing python>=3, install python (may be named python3) [build+runtime required]'))
+        (hash python3 2>/dev/null) ||
+            (br=1 ; rr=1 ; pv=1 ;                 echo 'Missing python>=3, install python (may be named python3) [build+runtime required]'))
 
-(hash stty         2>/dev/null) || (rr=1 ; echo 'Missing stty, install coreutils [runtime required]')
+(hash stty         2>/dev/null) || (rr=1 ;        echo 'Missing stty, install coreutils [runtime required]')
 
-(hash tty2colourfultty   2>/dev/null) || (ro=1 ; echo 'Missing tty2colourfultty, install util-say [runtime optional]')
-(hash ponysay2ttyponysay 2>/dev/null) || (ro=1 ; echo 'Missing ponysay2ttyponysay, install util-say [runtime optional]')
-(hash chmod              2>/dev/null) || (rr=1 ; echo 'Missing chmod, install coreutils [runtime optional]')
+(hash ponytool     2>/dev/null) || (ro=1 ;        echo 'Missing ponytool, install util-say [runtime optional]')
+(hash chmod        2>/dev/null) || (rr=1 ;        echo 'Missing chmod, install coreutils [runtime optional]')
 
-( (test $br = 1) || (test $rr = 1) || (test $ro = 1) ) && echo
+( (test $br = 1) || (test $rr = 1) || (test $ro = 1) || (test $pv = 1) ) && echo
 
 (test $br = 1) && echo 'You will not be able to build and install ponysay.'
 (test $rr = 1) && echo 'You will not be able to run ponysay.'
-(test $br = 1) && (test $rr = 0) && echo 'Unable to verify version of python.'
+(test $pv = 1) && echo 'Unable to verify version of python.'
 
 (test $br = 0) && (test $bs = 0) && (test $bo = 0) && (test $rr = 0) && (test $ro = 0) &&
     echo && echo 'Everything appears to be in order, enjoy ponysay!'
 
 echo
+

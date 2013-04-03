@@ -9,9 +9,10 @@ Installation on GNU/Linux (or other Unix implementations)
 ---------------------------------------------------------
 
 [Download](/erkin/ponysay/downloads) or clone the project.
-In the terminal, `cd` into the ponysay directory and `./setup.py install` or `python3 setup.py install`.
-You may need to be super user to run `./setup.py install` without `--private`, on most systems this
-can be achieved by running `sudo ./setup.py install`.
+In the terminal, `cd` into the ponysay directory and `./setup.py --freedom=partial install` or `python3 setup.py --freedom=partial install`.
+You may need to be super user to run `./setup.py --freedom=partial install` without `--private`, on most systems this
+can be achieved by running `sudo ./setup.py --freedom=partial install`.
+If you only want completely free ponies install use `--freedom=strict` instead of `--freedom=partial`.
 For more information we have provided you with an extensive [manual in PDF](https://github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true).
 
 In order to use ponysay, run:
@@ -89,6 +90,8 @@ Dependencies
 
 ### Package building dependencies
 
+`zip`: used to create one executable with all sources
+
 `gzip`: used for compressing manuals (suppressable with `./configure --without-info-compression --without-man-compression`)
 
 `texinfo`: used for building info manual (suppressable with `./configure --without-info`)
@@ -109,8 +112,13 @@ __Q:__ You are missing _(my-favourite-pony)_!
 
 __A:__ [Ask](/erkin/ponysay/issues) and we'll add!
 
+__Q:__ The outpus look weird on my _(xfce4-terminal/mate-terminal/xterm)_ whit _this_ font
+
+__A:__ We use block for print the ponies, if the block are desalignated or you not use a __real__ monospaced font with aligned blocks try another different and mopnospace font like 'Liberation Mono'.
+
 __Q:__ Which programs do you use to generate the pony files?
 
-__A:__ The pony files are actually mostly a bunch of selected [browser ponies](//web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](/maandree/util-say).
+__A:__ The pony files are actually mostly a bunch of selected [browser ponies](//web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](/maandree/util-say),
+Other are taken from desktop ponies, and finally another are created specificaly for ponysay.
 
 The [PDF manual](/erkin/ponysay/blob/master/ponysay.pdf?raw=true) should answer most of your questions.
