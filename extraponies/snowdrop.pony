@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: Snowdrop ( http://youtu.be/do6RDSwaWek )
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: cyan
 DISPLAY: full, left
 EYE: blue, blind

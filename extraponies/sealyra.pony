@@ -1,5 +1,7 @@
 $$$
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 BASED ON: lyra
 COAT: geen
 DISPLAY: full, left

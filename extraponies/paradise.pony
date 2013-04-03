@@ -1,6 +1,8 @@
 $$$
 APPEARANCE: Paradise
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: white
 COAT: cyan
 DISPLAY: full, left

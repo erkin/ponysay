@@ -2,6 +2,8 @@ $$$
 APPEARANCE: Bronies: The Extremely Unexpected Adult Fans of My Little Pony
 AURA: yellow
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: brown
 DISPLAY: full, right
 EYE: gray

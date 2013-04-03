@@ -1,6 +1,8 @@
 $$$
 AURA: white (majority of sources)
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 COAT: white
 DISPLAY: full, left
 EYE: blue

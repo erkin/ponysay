@@ -1,5 +1,7 @@
 $$$
 BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
 BASED ON: Generation 1 Twilight
 COAT: pink
 DISPLAY: full, right

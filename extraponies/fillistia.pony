@@ -2,6 +2,8 @@ $$$
 APPEARANCE: S01E01 Frienship is Magic [Part 1] (animated in a book, real life first appearance is S01E02 Frienship is Magic [Part 2])
 AURA: yellow
 BALLOON: top
+BALLOON TOP: 4
+BALLOON BOTTOM: 0
 COAT: white
 DISPLAY: full, left
 EYE: pink
