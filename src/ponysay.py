@@ -478,6 +478,8 @@ class Ponysay():
             quote    =  args.opts['-q'] is not None ## TODO +q -Q
             standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) ## TODO -Q
             extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) ## TODO +q -Q
+            if not (standard or extra):
+                standard = True
             ponydirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else []);
             quoters  = self.__quoters() if standard and quote else None ## TODO +q -Q
             if (quoters is not None) and (len(quoters) == 0):
