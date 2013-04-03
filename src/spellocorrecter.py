@@ -84,7 +84,9 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
         
         if ending is not None:
             for directory in directories:
-                for filename in os.listdir(directory):
+                files = os.listdir(directory)
+                files.sort()
+                for filename in files:
                     if (not endswith(filename, ending)) or (len(filename) - len(ending) > 127):
                         continue
                     proper = filename[:-len(ending)]
@@ -105,7 +107,9 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
                     previous = proper
                     self.reusable[self.dictionaryEnd] = prevCommon
         else:
-            for proper in directories:
+            files = directories
+            files.sort()
+            for proper in files:
                 if len(proper) > 127:
                     continue
                 
