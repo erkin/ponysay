@@ -14,7 +14,6 @@ pv=0 # python version
 
 
 (hash chmod        2>/dev/null) || (br=1 ; ro=1 ; echo 'Missing chmod, install coreutils [build+runtime required]')
-(hash zip          2>/dev/null) || (br=1 ;        echo 'Missing zip, install zip [build required]')
 
 (hash gzip         2>/dev/null) || (bo=1 ;        echo 'Missing gzip, install gzip [build optional]')
 (hash makeinfo     2>/dev/null) || (bo=1 ;        echo 'Missing makeinfo, install texinfo [build optional]')

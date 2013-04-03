@@ -1667,12 +1667,6 @@ the file name) in addition to .pony-files or pony names.
 @pindex @command{python3}
 Required to run the @file{./setup.py} file, which is also invoked from the
 make script.
-@item zip
-@pindex @command{zip}
-Required to create an executable containing all Pythons files. This is done by
-creating an (uncompressed) zip-file with all source files and prepended with
-a shebang telling the operating system to run Python 3, and naming the mane
-file @file{__main__.py}.
 @item gzip
 @pindex @command{gzip}
 Used for compressing manuals. (Optional, standard)

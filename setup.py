@@ -4,6 +4,7 @@
 import os
 import shutil
 import sys
+from zipfile import ZipFile
 from subprocess import Popen, PIPE
 
 
@@ -430,9 +431,10 @@ class Setup():
                     if filein  is not None:  filein .close()
             try:
                 os.chdir('src')
-                cmd = 'zip -0 ../ponysay.zip ' + ' '.join(ponysaysrc) # use not compress, prefer speed
-                print(cmd)
-                os.system(cmd)
+                print('Creating uncompressed zip file ponysay.zip with files from src: ' + ' '.join(ponysaysrc))
+                with ZipFile('../ponysay.zip', 'w') as myzip:
+                    for src in ponysaysrc:
+                        myzip.write(src)
             finally:
                 os.chdir('..')
             os.chmod('ponysay.zip', 0o755)
