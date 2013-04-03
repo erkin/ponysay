@@ -540,7 +540,7 @@ class Ponysay():
                 printerr('All the ponies are missing, call the Princess!')
                 exit(249)
             pony = names[random.randrange(0, len(names))]
-            selection = (pony, ponies[pony], quote)
+            selection = [(pony, [ponies[pony]], quote)]
         
         ## Select a random pony of the choosen ones
         pony = selection[random.randrange(0, len(selection))]
