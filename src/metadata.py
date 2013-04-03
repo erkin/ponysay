@@ -107,12 +107,12 @@ class Metadata():
     '''
     @staticmethod
     def restrictedPonies(ponydir, logic):
-        import cPickle
+        import pickle
         passed = []
         if os.path.exists(ponydir + 'metadata'):
             data = None
             with open(ponydir + 'metadata', 'rb') as file:
-                data = cPickle.load(file)
+                data = pickle.load(file)
             for ponydata in data:
                 (pony, meta) = ponydata
                 if logic(meta):

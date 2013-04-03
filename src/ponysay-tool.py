@@ -646,9 +646,9 @@ class PonysayTool():
                         if (len(test) == 0) and (len(key) > 0):
                             data.append((key, makeset(value.replace(' ', ''))))
                 everything.append((ponyfile[:-5], data))
-        import cPickle
+        import pickle
         with open((ponydir + '/metadata').replace('//', '/'), 'wb') as file:
-            cPickle.dump(everything, file, -1)
+            pickle.dump(everything, file, -1)
             file.flush()
     
     
