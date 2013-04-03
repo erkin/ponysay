@@ -1367,6 +1367,10 @@ ponies will pass the @option{--restrict} option when ponies are randomly selecte
 A metadata colletion file's content a list, of pony files with and their corresponding
 metadata as a map from tag name to tag value set, serialised with Python's cPickle module.
 
+Running @command{ponysay-tool --metadata PONY-DIR} will generate the file @file{metadata}
+with the serialised information. For use by the installer, the files to include can be
+explicity declared appending their basename to the command.
+
 
 @node Dimension files
 @section Dimension files
@@ -1381,7 +1385,9 @@ and may be randomly selected.
 Running @command{ponysay-tool --dimensions PONY-DIR} will generate three files
 @file{widths}, @file{heights} and @file{onlyheights} to the directory @file{PONY-DIR},
 the contain optimised information about the widths, heigths and heights with printed
-without the balloon, respectively, for each pony the the directory.
+without the balloon, respectively, for each pony the the directory. For use by the
+installer, the files to include can be explicity declared appending their basename to
+the command.
 
 
 @node Pony browsing

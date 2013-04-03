@@ -78,10 +78,10 @@ class PonysayTool():
             self.generateKMS()
         
         elif (opts['--dimensions'] is not None) and (len(opts['--dimensions']) == 1):
-            self.generateDimensions(opts['--dimensions'][0])
+            self.generateDimensions(opts['--dimensions'][0], args.files)
         
         elif (opts['--metadata'] is not None) and (len(opts['--metadata']) == 1):
-            self.generateMetadata(opts['--metadata'][0])
+            self.generateMetadata(opts['--metadata'][0], args.files)
         
         elif (opts['-b'] is not None) and (len(opts['-b']) == 1):
             try:
@@ -475,11 +475,15 @@ class PonysayTool():
     '''
     Generate pony dimension file for a directory
     
-    @param  ponydir  The directory
+    @param  ponydir:str        The directory
+    @param  ponies:itr<str>?   Ponies to which to limit
     '''
-    def generateDimensions(self, ponydir):
+    def generateDimensions(self, ponydir, ponies = None):
         dimensions = []
+        ponyset = None if (ponies is None) or (len(ponies) == 0) else set(ponies)
         for ponyfile in os.listdir(ponydir):
+            if (ponyset is not None) and (ponyfile not in ponyset):
+                continue
             if ponyfile.endswith('.pony') and (ponyfile != '.pony'):
                 class PhonyArgParser():
                     def __init__(self, balloon):
@@ -557,9 +561,10 @@ class PonysayTool():
     '''
     Generate pony metadata collection file for a directory
     
-    @param  ponydir  The directory
+    @param  ponydir:str       The directory
+    @param  ponies:itr<str>?  Ponies to which to limit
     '''
-    def generateMetadata(self, ponydir):
+    def generateMetadata(self, ponydir, ponies = None):
         if not ponydir.endswith('/'):
             ponydir += '/'
         def makeset(value):
@@ -597,7 +602,10 @@ class PonysayTool():
                 rc.add(buf)
             return rc
         everything = []
+        ponyset = None if (ponies is None) or (len(ponies) == 0) else set(ponies)
         for ponyfile in os.listdir(ponydir):
+            if (ponyset is not None) and (ponyfile not in ponyset):
+                continue
             if ponyfile.endswith('.pony') and (ponyfile != '.pony'):
                 with open(ponydir + ponyfile, 'rb') as file:
                     data = file.read().decode('utf8', 'replace')
@@ -621,7 +629,7 @@ class PonysayTool():
                             data.append((key, makeset(value.replace(' ', ''))))
                 everything.append((ponyfile[:-5], data))
         import cPickle
-        with open(ponydir + 'metadata', 'wb') as file:
+        with open((ponydir + '/metadata').replace('//', '/'), 'wb') as file:
             cPickle.dump(everything, file, -1)
             file.flush()
     

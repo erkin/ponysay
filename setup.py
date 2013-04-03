@@ -553,15 +553,21 @@ class Setup():
         
         for sharedir in [sharedir[0] for sharedir in sharedirs]: # TODO make this an opt-out option
             if os.path.isdir(sharedir):
-                for sharefile in os.listdir(sharedir):
-                    if sharefile.endswith('.pony') and (sharefile != '.pony'):
-                        sharefile = sharedir + '/' + sharefile
-                        if self.free and not Setup.validateFreedom(sharefile):
-                            print('Skipping metadata correction for %s, did not pass validation process made by setup settings' % sharefile)
-                            continue
-                        for toolcommand in ('--dimensions', '--metadata'):
-                            print('%s, %s, %s' % ('./ponysay-tool.py', toolcommand, sharefile))
-                            Popen(['./ponysay-tool.py', toolcommand, sharefile], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
+                if not self.free:
+                    for toolcommand in ('--dimensions', '--metadata'):
+                        print('%s, %s, %s' % ('./src/ponysay-tool.py', toolcommand, sharedir))
+                        Popen(['./src/ponysay-tool.py', toolcommand, sharedir], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
+                else:
+                    params = ['./src/ponysay-tool.py', toolcommand, sharedir, '--']
+                    for sharefile in os.listdir():
+                        if sharefile.endswith('.pony') and (sharefile != '.pony'):
+                            if not Setup.validateFreedom(sharedir + '/' + sharefile):
+                                print('Skipping metadata correction for %s/%s, did not pass validation process made by setup settings' % (sharedir, sharefile))
+                            else:
+                                params.append(sharefile)
+                    for toolcommand in ('--dimensions', '--metadata'):
+                        print('%s, %s, %s (with files)' % ('./src/ponysay-tool.py', toolcommand, sharedir))
+                        Popen(params, stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
         
         print()
     
