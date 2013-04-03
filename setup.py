@@ -430,13 +430,15 @@ class Setup():
                     if filein  is not None:  filein .close()
             try:
                 os.chdir('src')
-                os.system('zip -0 ../ponysay.zip ' + ' '.join(ponysaysrc)) # use not compress, prefer speed
+                cmd = 'zip -0 ../ponysay.zip ' + ' '.join(ponysaysrc) # use not compress, prefer speed
+                print(cmd)
+                os.system(cmd)
             finally:
                 os.chdir('..')
             os.chmod('ponysay.zip', 0o755)
             try:
                 fileout = open('ponysay.install', 'wb+')
-                filein = open('src/%s' % src, 'rb')
+                filein = open('ponysay.zip', 'rb')
                 fileout.write(('#!/usr/bin/env %s\n' % env).encode('utf-8'))
                 fileout.write(filein.read())
             finally:
