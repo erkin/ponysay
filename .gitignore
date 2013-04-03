@@ -28,6 +28,9 @@
 *.dvi
 /Makefile
 /quotes/
+/*ponies/heights
+/*ponies/onlyheights
+/*ponies/widths
 
 
 ## Texinfo manual stuff

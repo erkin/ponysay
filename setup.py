@@ -39,7 +39,8 @@ miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
 
 ponysaysrc = [src + '.py' for src in
               ('__main__', 'common', 'ponysay', 'argparser', 'balloon',
-               'backend', 'colourstack', 'ucs', 'spellocorrecter')]
+               'backend', 'colourstack', 'ucs', 'spellocorrecter, kms',
+               'list', 'metadata')]
 
 
 
@@ -428,7 +429,7 @@ class Setup():
                     if filein  is not None:  filein .close()
             try:
                 os.chdir('src')
-                os.system('zip ../ponysay.zip ' + ' '.join(ponysaysrc))
+                os.system('zip -0 ../ponysay.zip ' + ' '.join(ponysaysrc)) # use not compress, prefer speed
             finally:
                 os.chdir('..')
             try:

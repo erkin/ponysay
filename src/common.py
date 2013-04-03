@@ -72,3 +72,19 @@ Checks whether a text ends with a specific text, but has more
 def endswith(text, ending):
     return text.endswith(ending) and not (text == ending)
 
+
+'''
+Gets the size of the terminal in (rows, columns)
+
+@return  (rows, columns):(int, int)  The number or lines and the number of columns in the terminal's display area
+'''
+def gettermsize():
+    ## Call `stty` to determine the size of the terminal, this way is better than using python's ncurses
+    for channel in (sys.stderr, sys.stdout, sys.stdin):
+        termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
+        if len(termsize) > 0:
+            termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
+            termsize = [int(item) for item in termsize]
+            return termsize
+    return (24, 80) # fall back to minimal sane size
+

@@ -16,6 +16,9 @@ from backend import *
 from balloon import *
 from spellocorrecter import *
 from ucs import *
+from kms import *
+from list import *
+from metadata import *
 
 
 
@@ -100,8 +103,12 @@ class Ponysay():
         '''
         Whether the script is executed as ponythink
         '''
-        self.isthink =  (len(__file__) >= len('think'))    and (__file__.endswith('think'))
-        self.isthink = ((len(__file__) >= len('think.py')) and (__file__.endswith('think.py'))) or self.isthink
+        self.isthink = sys.argv[0]
+        if os.sep in self.isthink:
+            self.isthink = self.isthink[self.isthink.rfind(os.sep) + 1:]
+        if os.extsep in self.isthink:
+            self.isthink = self.isthink[:self.isthink.find(os.extsep)]
+        self.isthink = self.isthink.endswith('think')
         
         
         '''
@@ -123,7 +130,7 @@ class Ponysay():
         '''
         Whether KMS is used
         '''
-        self.usekms = self.isUsingKMS()
+        self.usekms = KMS.usingkms(self.linuxvt)
         
         
         '''
@@ -295,7 +302,6 @@ class Ponysay():
                 if args.opts['--colour-bubble'] is None:  args.opts['--colour-bubble'] = args.opts['+c']
             
             ## Other extra features
-            self.__extraponies(args)
             self.__bestpony(args)
             self.__ucsremap(args)
             if test('-o'):
@@ -310,16 +316,12 @@ class Ponysay():
             
             ## The stuff
             if test('-q'):
-                warn = test('-f', '+f')
                 if (len(args.opts['-q']) == 1) and ((args.opts['-q'][0] == '-f') or (args.opts['-q'][0] == '+f')):
-                    warn = True
                     if args.opts['-q'][0] == '-f':
                         args.opts['-q'] = args.files
                         if test('-f'):
                             args.opts['-q'] += args.opts['-f']
                 self.quote(args)
-                if warn:
-                    printerr('-q cannot be used at the same time as -f or +f.')
             elif not self.unrecognised:
                 self.print_pony(args)
             else:
@@ -334,33 +336,42 @@ class Ponysay():
     
     '''
     Use extra ponies
-    
-    @param  args:ArgParser  Parsed command line arguments, `None` to force rather than by reading arguments
     '''
-    def __extraponies(self, args = None):
+    def __extraponies(self):
         ## If extraponies are used, change ponydir to extraponydir
         if args is None:
             self.ponydirs[:] = self.extraponydirs
-        elif args.opts['+f'] is not None:
-            args.opts['-f'] = args.opts['+f']
-            self.ponydirs[:] = self.extraponydirs
+            self.quotedirs[:] = [] ## TODO +q
     
     
     '''
     Use best.pony if nothing else is set
     
     @param  args:ArgParser     Parsed command line arguments
-    @param  ponydirs:itr<str>  Pony directories to use
     '''
-    def __bestpony(self, args, ponydirs = None):
-        if ponydirs is None:  ponydirs = self.ponydirs
-        
+    def __bestpony(self, args):
         ## Set best.pony as the pony to display if none is selected
-        if (args.opts['-f'] is None) or (args.opts['-q'] is None) or (len(args.opts['-q']) == 0):
-            for ponydir in ponydirs:
+        def test(keys, strict):
+            if strict:
+                for key in keys:
+                    if (args.opts[key] is not None) and (len(args.opts[key]) != 0):
+                        return False
+            else:
+                for key in keys:
+                    if args.opts[key] is not None:
+                        return False
+            return True
+        keys = ['-f', '+f', '-F', '-q'] ## TODO +q -Q
+        if test(keys, False):
+            for ponydir in self.ponydirs:
                 if os.path.isfile(ponydir + 'best.pony') or os.path.islink(ponydir + 'best.pony'):
                     pony = os.path.realpath(ponydir + 'best.pony') # Canonical path
-                    args.opts['-f' if args.opts['-q'] is None else '-q'] = [pony]
+                    if test(keys, True):
+                        args.opts['-f'] = [pony]
+                    else:
+                        for key in keys:
+                            if test(key, True):
+                                args.opts[key] = [pony]
                     break
     
     
@@ -397,8 +408,8 @@ class Ponysay():
                 ascii = line[s + 1:].strip(stripset)
                 map[ucs] = ascii
         
-        ## Apply UCS → ASCII mapping to -f and -q arguments
-        for flag in ('-f', '-q'):
+        ## Apply UCS → ASCII mapping to -f, +f, -F and -q arguments
+        for flag in ('-f', '+f', '-F', '-q'): ## TODO +q -Q
             if args.opts[flag] is not None:
                 for i in range(0, len(args.opts[flag])):
                     if args.opts[flag][i] in map:
@@ -412,8 +423,8 @@ class Ponysay():
     '''
     Apply UCS:ise pony names according to UCS settings
     
-    @param  ponies:list<str>  List of all ponies (of interrest)
-    @param  links:map<str>    Map to fill with simulated symlink ponies, may be `None`
+    @param  ponies:list<str>     List of all ponies (of interrest)
+    @param  links:map<str, str>  Map to fill with simulated symlink ponies, may be `None`
     '''
     def __ucsise(self, ponies, links = None):
         ## Read UCS configurations
@@ -535,17 +546,17 @@ class Ponysay():
         if (names is None) or (len(names) == 0):
             oldponies = ponies
             if self.restriction is not None:
-                logic = Ponysay.makeRestrictionLogic(self.restriction)
+                logic = Metadata.makeRestrictionLogic(self.restriction)
                 ponies = {}
                 for ponydir in ponydirs:
-                    for pony in Ponysay.restrictedPonies(ponydir, logic):
+                    for pony in Metadata.restrictedPonies(ponydir, logic):
                         if (pony not in passed) and (pony in oldponies):
                             ponyfile = ponydir + pony + '.pony'
                             if oldponies[pony] == ponyfile:
                                 ponies[pony] = ponyfile
                 oldponies = ponies
             ponies = {}
-            (termh, termw) = self.__gettermsize()
+            (termh, termw) = gettermsize()
             for ponydir in ponydirs:
                 (fitw, fith) = (None, None)
                 if os.path.exists(ponydir + 'widths'):
@@ -589,89 +600,6 @@ class Ponysay():
             exit(1)
         else:
             return ponies[pony]
-    
-    
-    '''
-    Make restriction test logic function
-    
-    @param   restriction:list<string>  Metadata based restrictions
-    @return  :dict<str, str>→bool      Test function
-    '''
-    @staticmethod
-    def makeRestrictionLogic(restriction):
-        table = [(get_test(cell[:cell.index('=')],
-                           cell[cell.index('=') + 1:]
-                          )
-                  for cell in clause.lower().replace('_', '').replace(' ', '').split('+'))
-                  for clause in restriction
-                ]
-        
-        def get_test(cell):
-            strict = cell[0][-1] != '?'
-            key = cell[0][:-2 if strict else -1]
-            invert = cell[1][0] == '!'
-            value = cell[1][1 if invert else 0:]
-            
-            class SITest:
-                def __init__(self, cellkey, cellvalue):
-                    (self.cellkey, self.callvalue) = (key, value)
-                def __call__(self, has):
-                    return False if key not in has else (value not in has[key])
-            class STest:
-                def __init__(self, cellkey, cellvalue):
-                    (self.cellkey, self.callvalue) = (key, value)
-                def __call__(self, has):
-                    return False if key not in has else (value in has[key])
-            class ITest:
-                def __init__(self, cellkey, cellvalue):
-                    (self.cellkey, self.callvalue) = (key, value)
-                def __call__(self, has):
-                    return True if key not in has else (value not in has[key])
-            class NTest:
-                def __init__(self, cellkey, cellvalue):
-                    (self.cellkey, self.callvalue) = (key, value)
-                def __call__(self, has):
-                    return True if key not in has else (value in has[key])
-            
-            if strict and invert:  return SITest(key, value)
-            if strict:             return STest(key, value)
-            if invert:             return ITest(key, value)
-            return NTest(key, value)
-        
-        def logic(cells):
-            for alternative in table:
-                ok = True
-                for cell in alternative:
-                    if not cell(cells):
-                        ok = False
-                        break
-                if ok:
-                    return True
-            return False
-        
-        return logic
-    
-    
-    '''
-    Get ponies that pass restriction
-    
-    @param   ponydir:str                Pony directory, must end with `os.sep`
-    @param   logic:dict<str, str>→bool  Restriction test functor
-    @return  :list<str>                 Passed ponies
-    '''
-    @staticmethod
-    def restrictedPonies(ponydir, logic):
-        import cPickle
-        passed = []
-        if os.path.exists(ponydir + 'metadata'):
-            data = None
-            with open(ponydir + 'metadata', 'rb') as file:
-                data = cPickle.load(file)
-            for ponydata in data:
-                (pony, meta) = ponydata
-                if logic(meta):
-                    passed.append(pony)
-        return passed
     
     
     '''
@@ -742,78 +670,10 @@ class Ponysay():
         return rc
     
     
-    '''
-    Gets the size of the terminal in (rows, columns)
-    
-    @return  (rows, columns):(int, int)  The number or lines and the number of columns in the terminal's display area
-    '''
-    def __gettermsize(self):
-        ## Call `stty` to determine the size of the terminal, this way is better than using python's ncurses
-        for channel in (sys.stderr, sys.stdout, sys.stdin):
-            termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
-            if len(termsize) > 0:
-                termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
-                termsize = [int(item) for item in termsize]
-                return termsize
-        return (24, 80) # fall back to minimal sane size
-    
-    
     
     #####################
     ## Listing methods ##
     #####################
-    
-    '''
-    Columnise a list and prints it
-    
-    @param  ponies:list<(str, str)>  All items to list, each item should have to elements: unformated name, formated name
-    '''
-    def __columnise(self, ponies):
-        ## Get terminal width, and a 2 which is the space between columns
-        termwidth = self.__gettermsize()[1] + 2
-        ## Sort the ponies, and get the cells' widths, and the largest width + 2
-        ponies.sort(key = lambda pony : pony[0])
-        widths = [UCS.dispLen(pony[0]) for pony in ponies]
-        width = max(widths) + 2 # longest pony file name + space between columns
-        
-        ## Calculate the number of rows and columns, can create a list of empty columns
-        cols = termwidth // width # do not believe electricians, this means ⌊termwidth / width⌋
-        rows = (len(ponies) + cols - 1) // cols
-        columns = []
-        for c in range(0, cols):  columns.append([])
-        
-        ## Fill the columns with cells of ponies
-        (y, x) = (0, 0)
-        for j in range(0, len(ponies)):
-            cell = ponies[j][1] + ' ' * (width - widths[j]);
-            columns[x].append(cell)
-            y += 1
-            if y == rows:
-                x += 1
-                y = 0
-        
-        ## Make the columnisation nicer by letting the last row be partially empty rather than the last column
-        diff = rows * cols - len(ponies)
-        if (diff > 2) and (rows > 1):
-            c = cols - 1
-            diff -= 1
-            while diff > 0:
-                columns[c] = columns[c - 1][-diff:] + columns[c]
-                c -= 1
-                columns[c] = columns[c][:-diff]
-                diff -= 1
-        
-        ## Create rows from columns
-        lines = []
-        for r in range(0, rows):
-             lines.append([])
-             for c in range(0, cols):
-                 if r < len(columns[c]):
-                     line = lines[r].append(columns[c][r])
-        
-        ## Print the matrix, with one extra blank row
-        print('\n'.join([''.join(line)[:-2] for line in lines]))
-        print()
     
     
     '''
@@ -822,29 +682,8 @@ class Ponysay():
     @param  ponydirs:itr<str>  The pony directories to use
     '''
     def list(self, ponydirs = None):
-        if ponydirs is None:  ponydirs = self.ponydirs
-        
-        ## Get all quoters
-        quoters = self.__quoters()
-        
-        for ponydir in ponydirs: # Loop ponydirs
-            ## Get all ponies in the directory
-            _ponies = os.listdir(ponydir)
-            
-            ## Remove .pony from all files and skip those that does not have .pony
-            ponies = []
-            for pony in _ponies:
-                if endswith(pony, '.pony'):
-                    ponies.append(pony[:-5])
-            
-            ## UCS:ise pony names, they are already sorted
-            self.__ucsise(ponies)
-            
-            ## If ther directory is not empty print its name and all ponies, columnised
-            if len(ponies) == 0:
-                continue
-            print('\033[1mponies located in ' + ponydir + '\033[21m')
-            self.__columnise([(pony, '\033[1m' + pony + '\033[21m' if pony in quoters else pony) for pony in ponies])
+        List.simplelist(self.ponydirs if ponydirs is None else ponydirs,
+                        self.__quoters(), lambda x : self.__ucsise(x))
     
     
     '''
@@ -853,75 +692,20 @@ class Ponysay():
     @param  ponydirs:itr<str>  The pony directories to use
     '''
     def linklist(self, ponydirs = None):
-        if ponydirs is None:  ponydirs = self.ponydirs
-        
-        ## Get the size of the terminal and all ponies with quotes
-        termsize = self.__gettermsize()
-        quoters = self.__quoters()
-        
-        for ponydir in ponydirs: # Loop ponydirs
-            ## Get all pony files in the directory
-            _ponies = os.listdir(ponydir)
-            
-            ## Remove .pony from all files and skip those that does not have .pony
-            ponies = []
-            for pony in _ponies:
-                if endswith(pony, '.pony'):
-                    ponies.append(pony[:-5])
-            
-            ## If there are no ponies in the directory skip to next directory, otherwise, print the directories name
-            if len(ponies) == 0:
-                continue
-            print('\033[1mponies located in ' + ponydir + '\033[21m')
-            
-            ## UCS:ise pony names
-            pseudolinkmap = {}
-            self.__ucsise(ponies, pseudolinkmap)
-            
-            ## Create target–link-pair, with `None` as link if the file is not a symlink or in `pseudolinkmap`
-            pairs = []
-            for pony in ponies:
-                if pony in pseudolinkmap:
-                    pairs.append((pony, pseudolinkmap[pony] + '.pony'));
-                else:
-                    pairs.append((pony, os.path.realpath(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else None))
-            
-            ## Create map from source pony to alias ponies for each pony
-            ponymap = {}
-            for pair in pairs:
-                if (pair[1] is None) or (pair[1] == ''):
-                    if pair[0] not in ponymap:
-                        ponymap[pair[0]] = []
-                else:
-                    target = pair[1][:-5]
-                    if '/' in target:
-                        target = target[target.rindex('/') + 1:]
-                    if target in ponymap:
-                        ponymap[target].append(pair[0])
-                    else:
-                        ponymap[target] = [pair[0]]
-            
-            ## Create list of source ponies concatenated with alias ponies in brackets
-            ponies = {}
-            for pony in ponymap:
-                w = UCS.dispLen(pony)
-                item = '\033[1m' + pony + '\033[21m' if (pony in quoters) else pony
-                syms = ponymap[pony]
-                syms.sort()
-                if len(syms) > 0:
-                    w += 2 + len(syms)
-                    item += ' ('
-                    first = True
-                    for sym in syms:
-                        w += UCS.dispLen(sym)
-                        if first:  first = False
-                        else:      item += ' '
-                        item += '\033[1m' + sym + '\033[21m' if (sym in quoters) else sym
-                    item += ')'
-                ponies[(item.replace('\033[1m', '').replace('\033[21m', ''), item)] = w
-            
-            ## Print the ponies, columnised
-            self.__columnise(list(ponies))
+        List.linklist(self.ponydirs if ponydirs is None else ponydirs,
+                      self.__quoters(), lambda x, y : self.__ucsise(x, y))
+    
+    
+    '''
+    Lists the available ponies on one column without anything bold or otherwise formated
+    
+    @param  standard:bool  Include standard ponies
+    @param  extra:bool     Include extra ponies
+    '''
+    def onelist(self, standard = True, extra = False):
+        List.onelist(self.ponydirs if standard else None,
+                     self.extraponydirs if extra else None,
+                     lambda x : self.__ucsise(x))
     
     
     '''
@@ -934,74 +718,17 @@ class Ponysay():
         ## Get all quoters
         ponies = list(self.__quoters()) if standard else []
         
-        if standard:
-            ## UCS:ise
-            self.__ucsise(ponies)
-        
         ## And now the extra ponies
         if extra:
             self.__extraponies()
-            xponies = list(self.__quoters())
-            self.__ucsise(xponies)
-            ponies += xponies
+            ponies += list(self.__quoters())
+        
+        ## UCS:ise here
+        self.__ucsise(ponies)
+        ponies.sort()
         
         ## Print each one on a seperate line, but skip duplicates
         last = ''
-        ponies.sort()
-        for pony in ponies:
-            if not pony == last:
-                last = pony
-                print(pony)
-    
-    
-    '''
-    Lists the available ponies on one column without anything bold or otherwise formated
-    
-    @param  standard:bool  Include standard ponies
-    @param  extra:bool     Include extra ponies
-    '''
-    def onelist(self, standard = True, extra = False):
-        ## All ponies
-        ponies = []
-        
-        if standard:
-            ## Get all pony files
-            _ponies = []
-            for ponydir in self.ponydirs: # Loop ponydirs
-                _ponies += os.listdir(ponydir)
-            
-            ## Remove .pony from all files and skip those that does not have .pony
-            for pony in _ponies:
-                if endswith(pony, '.pony'):
-                    ponies.append(pony[:-5])
-            
-            ## UCS:ise
-            self.__ucsise(ponies)
-        
-        if extra:
-            ## Swap to extra ponies
-            self.__extraponies()
-            
-            ## Get all pony files
-            _ponies = []
-            for ponydir in self.ponydirs: # Loop ponydirs
-                _ponies += os.listdir(ponydir)
-            
-            ## Remove .pony from all files and skip those that does not have .pony
-            xponies = []
-            for pony in _ponies:
-                if endswith(pony, '.pony'):
-                    xponies.append(pony[:-5])
-            
-            ## UCS:ise
-            self.__ucsise(xponies)
-            
-            ## Add found extra ponies
-            ponies += xponies
-        
-        ## Print each one on a seperate line, but skip duplicates
-        last = ''
-        ponies.sort()
         for pony in ponies:
             if not pony == last:
                 last = pony
@@ -1016,27 +743,7 @@ class Ponysay():
     Prints a list of all balloons
     '''
     def balloonlist(self):
-        ## Get the size of the terminal
-        termsize = self.__gettermsize()
-        
-        ## Get all balloons
-        balloonset = set()
-        for balloondir in self.balloondirs:
-            for balloon in os.listdir(balloondir):
-                ## Use .think if running ponythink, otherwise .say
-                if self.isthink and endswith(balloon, '.think'):
-                    balloon = balloon[:-6]
-                elif (not self.isthink) and endswith(balloon, '.say'):
-                    balloon = balloon[:-4]
-                else:
-                    continue
-                
-                ## Add the balloon if there is none with the same name
-                if balloon not in balloonset:
-                    balloonset.add(balloon)
-        
-        ## Print all balloos, columnised
-        self.__columnise([(balloon, balloon) for balloon in list(balloonset)])
+        List.balloonlist(self.balloondirs, self.isthink)
     
     
     '''
@@ -1083,7 +790,7 @@ class Ponysay():
                 limit = 5 if len(limit) == 0 else int(dist)
                 if (len(alternatives) > 0) and (dist <= limit):
                     return self.__getballoonpath(alternatives, True)
-            sys.stderr.write('That balloon style %s does not exist\n' % (balloon));
+            printerr('That balloon style %s does not exist' % (balloon));
             exit(1)
         else:
             return balloons[balloon]
@@ -1096,37 +803,7 @@ class Ponysay():
     @return  :Balloon         Instance describing the balloon's style
     '''
     def __getballoon(self, balloonfile):
-        ## Use default balloon if none is specified
-        if balloonfile is None:
-            if self.isthink:
-                return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )',  ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'],  '( ', '( ', '( ')
-            return    Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
-        
-        ## Initialise map for balloon parts
-        map = {}
-        for elem in ('\\', '/', 'ww', 'ee', 'nw', 'nnw', 'n', 'nne', 'ne', 'nee', 'e', 'see', 'se', 'sse', 's', 'ssw', 'sw', 'sww', 'w', 'nww'):
-            map[elem] = []
-        
-        ## Read all lines in the balloon file
-        with open(balloonfile, 'rb') as balloonstream:
-            data = balloonstream.read().decode('utf8', 'replace')
-            data = [line.replace('\n', '') for line in data.split('\n')]
-        
-        ## Parse the balloon file, and fill the map
-        last = None
-        for line in data:
-            if len(line) > 0:
-                if line[0] == ':':
-                    map[last].append(line[1:])
-                else:
-                    last = line[:line.index(':')]
-                    value = line[len(last) + 1:]
-                    map[last].append(value)
-        
-        ## Return the balloon
-        return Balloon(map['\\'][0], map['/'][0], map['ww'][0], map['ee'][0], map['nw'], map['nnw'], map['n'],
-                       map['nne'], map['ne'], map['nee'][0], map['e'][0], map['see'][0], map['se'], map['sse'],
-                       map['s'], map['ssw'], map['sw'], map['sww'][0], map['w'][0], map['nww'][0])
+        return Balloon.fromfile(balloonfile, self.isthink)
     
     
     
@@ -1191,7 +868,7 @@ class Ponysay():
             pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
         
         ## If KMS is utilies, select a KMS pony file and create it if necessary
-        pony = self.__kms(pony)
+        pony = KMS.kms(pony, self.HOME, self.linuxvt)
         
         ## If in Linux VT clean the terminal (See info/pdf-manual [Printing in TTY with KMS])
         if self.linuxvt:
@@ -1200,19 +877,19 @@ class Ponysay():
         ## Get width truncation and wrapping
         env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
         if env_width is None:  env_width = ''
-        widthtruncation = self.__gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
+        widthtruncation = gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
         messagewrap = 40
         if (args.opts['-W'] is not None) and (len(args.opts['-W'][0]) > 0):
             messagewrap = args.opts['-W'][0]
             if messagewrap[0] in 'nmsNMS': # m is left to n on QWERTY and s is left to n on Dvorak
                 messagewrap = None
             elif messagewrap[0] in 'iouIOU': # o is left to i on QWERTY and u is right to i on Dvorak
-                messagewrap = self.__gettermsize()[1]
+                messagewrap = gettermsize()[1]
             else:
                 messagewrap = int(args.opts['-W'][0])
         
         ## Get balloon object
-        balloonfile = self.__getballoonpath(args.opts['-b'])
+        balloonfile = self.__getballoonpath(args.opts['-b'][0] if args.opts['-b'] is not None else None)
         printinfo('balloon style file: ' + str(balloonfile))
         balloon = self.__getballoon(balloonfile) if args.opts['-o'] is None else None
         
@@ -1258,7 +935,7 @@ class Ponysay():
         if (env_lines is None) or (env_lines == ''):  env_lines = '2'
         
         ## Print the output, truncated on height is so set
-        lines = self.__gettermsize()[0] - int(env_lines)
+        lines = gettermsize()[0] - int(env_lines)
         if self.linuxvt or (env_height is ('yes', 'y', '1')):
             if env_bottom is ('yes', 'y', '1'):
                 for line in output.split('\n')[: -lines]:
@@ -1309,119 +986,4 @@ class Ponysay():
             args.message = 'Zecora! Help me, I am mute!'
         
         self.print_pony(args)
-    
-    
-    '''
-    Identifies whether KMS support is utilised
-    '''
-    def isUsingKMS(self):
-        ## KMS is not utilised if Linux VT is not used
-        if not self.linuxvt:
-            return False
-        
-        ## Read the PONYSAY_KMS_PALETTE environment variable
-        env_kms = os.environ['PONYSAY_KMS_PALETTE'] if 'PONYSAY_KMS_PALETTE' in os.environ else None
-        if env_kms is None:  env_kms = ''
-        
-        ## Read the PONYSAY_KMS_PALETTE_CMD environment variable, and run it
-        env_kms_cmd = os.environ['PONYSAY_KMS_PALETTE_CMD'] if 'PONYSAY_KMS_PALETTE_CMD' in os.environ else None
-        if (env_kms_cmd is not None) and (not env_kms_cmd == ''):
-            env_kms = Popen(shlex.split(env_kms_cmd), stdout=PIPE, stdin=sys.stderr).communicate()[0].decode('utf8', 'replace')
-            if env_kms[-1] == '\n':
-                env_kms = env_kms[:-1]
-        
-        ## If the palette string is empty KMS is not utilised
-        return env_kms != ''
-    
-    
-    '''
-    Returns the file name of the input pony converted to a KMS pony, or if KMS is not used, the input pony itself
-    
-    @param   pony:str  Choosen pony file
-    @return  :str      Pony file to display
-    '''
-    def __kms(self, pony):
-        ## If not in Linux VT, return the pony as is
-        if not self.linuxvt:
-            return pony
-        
-        ## KMS support version constant
-        KMS_VERSION = '2'
-        
-        ## Read the PONYSAY_KMS_PALETTE environment variable
-        env_kms = os.environ['PONYSAY_KMS_PALETTE'] if 'PONYSAY_KMS_PALETTE' in os.environ else None
-        if env_kms is None:  env_kms = ''
-        
-        ## Read the PONYSAY_KMS_PALETTE_CMD environment variable, and run it
-        env_kms_cmd = os.environ['PONYSAY_KMS_PALETTE_CMD'] if 'PONYSAY_KMS_PALETTE_CMD' in os.environ else None
-        if (env_kms_cmd is not None) and (not env_kms_cmd == ''):
-            env_kms = Popen(shlex.split(env_kms_cmd), stdout=PIPE, stdin=sys.stderr).communicate()[0].decode('utf8', 'replace')
-            if env_kms[-1] == '\n':
-                env_kms = env_kms[:-1]
-        
-        ## If not using KMS, return the pony as is
-        if env_kms == '':
-            return pony
-        
-        ## Store palette string and a clone with just the essentials
-        palette = env_kms
-        palettefile = env_kms.replace('\033]P', '')
-        
-        ## Get and in necessary make cache directory
-        cachedir = '/var/cache/ponysay'
-        shared = True
-        if not os.path.isdir(cachedir):
-            cachedir = self.HOME + '/.cache/ponysay'
-            shared = False
-            if not os.path.isdir(cachedir):
-                os.makedirs(cachedir)
-        _cachedir = '\'' + cachedir.replace('\'', '\'\\\'\'') + '\''
-        
-        ## KMS support version control, clean everything if not matching
-        newversion = False
-        if not os.path.isfile(cachedir + '/.version'):
-            newversion = True
-        else:
-            with open(cachedir + '/.version', 'rb') as cachev:
-                if cachev.read().decode('utf8', 'replace').replace('\n', '') != KMS_VERSION:
-                    newversion = True
-        if newversion:
-            for cached in os.listdir(cachedir):
-                cached = cachedir + '/' + cached
-                if os.path.isdir(cached) and not os.path.islink(cached):
-                    shutil.rmtree(cached, False)
-                else:
-                    os.remove(cached)
-            with open(cachedir + '/.version', 'w+') as cachev:
-                cachev.write(KMS_VERSION)
-                if shared:
-                    Popen('chmod 666 -- ' + _cachedir + '/.version', shell=True).wait()
-        
-        ## Get kmspony directory and kmspony file
-        kmsponies = cachedir + '/kmsponies/' + palettefile
-        kmspony = (kmsponies + pony).replace('//', '/')
-        
-        ## If the kmspony is missing, create it
-        if not os.path.isfile(kmspony):
-            ## kmspony directory
-            kmsponydir = kmspony[:kmspony.rindex('/')]
-            
-            ## Change file names to be shell friendly
-            _kmspony = '\'' + kmspony.replace('\'', '\'\\\'\'') + '\''
-            _pony    = '\'' +    pony.replace('\'', '\'\\\'\'') + '\''
-            
-            ## Create kmspony
-            if not os.path.isdir(kmsponydir):
-                os.makedirs(kmsponydir)
-                if shared:
-                    Popen('chmod -R 6777 -- ' + _cachedir, shell=True).wait()
-            ponytoolcmd = 'ponytool --import ponysay --file %s --export ponysay --file %s --platform linux '
-            ponytoolcmd += '--balloon n --colourful y --fullcolour y --left - --right - --top - --bottom - --palette %s'
-            if not os.system(ponytoolcmd % (_pony, _kmspony, palette)) == 0:
-                sys.stderr.write('Unable to run ponytool successfully, you need util-say>=3 for KMS support\n')
-                exit(1)
-            if shared:
-                Popen('chmod 666 -- ' + _kmspony, shell=True).wait()
-        
-        return kmspony
 

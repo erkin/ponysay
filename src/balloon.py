@@ -112,4 +112,46 @@ class Balloon():
                 rc.append(self.sw[j] + self.s[j] * (w - outer) + self.se[j])
         
         return '\n'.join(rc)
+    
+    
+    '''
+    Creates the balloon style object
+    
+    @param   balloonfile:str  The file with the balloon style, may be `None`
+    @param   isthink:bool     Whether the ponythink command is used
+    @return  :Balloon         Instance describing the balloon's style
+    '''
+    @staticmethod
+    def fromfile(balloonfile, isthink):
+        ## Use default balloon if none is specified
+        if balloonfile is None:
+            if isthink:
+                return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )',  ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'],  '( ', '( ', '( ')
+            return    Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
+        
+        ## Initialise map for balloon parts
+        map = {}
+        for elem in ('\\', '/', 'ww', 'ee', 'nw', 'nnw', 'n', 'nne', 'ne', 'nee', 'e', 'see', 'se', 'sse', 's', 'ssw', 'sw', 'sww', 'w', 'nww'):
+            map[elem] = []
+        
+        ## Read all lines in the balloon file
+        with open(balloonfile, 'rb') as balloonstream:
+            data = balloonstream.read().decode('utf8', 'replace')
+            data = [line.replace('\n', '') for line in data.split('\n')]
+        
+        ## Parse the balloon file, and fill the map
+        last = None
+        for line in data:
+            if len(line) > 0:
+                if line[0] == ':':
+                    map[last].append(line[1:])
+                else:
+                    last = line[:line.index(':')]
+                    value = line[len(last) + 1:]
+                    map[last].append(value)
+        
+        ## Return the balloon
+        return Balloon(map['\\'][0], map['/'][0], map['ww'][0], map['ee'][0], map['nw'], map['nnw'], map['n'],
+                       map['nne'], map['ne'], map['nee'][0], map['e'][0], map['see'][0], map['se'], map['sse'],
+                       map['s'], map['ssw'], map['sw'], map['sww'][0], map['w'][0], map['nww'][0])
 

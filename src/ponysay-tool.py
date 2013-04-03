@@ -16,7 +16,9 @@ import os
 import sys
 from subprocess import Popen, PIPE
 
+from argparser import *
 from ponysay import *
+from metadata import *
 
 
 '''
@@ -181,7 +183,7 @@ class PonysayTool():
     @param  message  Message
     '''
     def execPonysay(self, args, message = ''):
-        class PhonyArgParser:
+        class PhonyArgParser():
             def __init__(self, args, message):
                 self.argcount = len(args) + (0 if message is None else 1)
                 for key in args:
@@ -196,10 +198,10 @@ class PonysayTool():
                 return key in args;
         
         stdout = sys.stdout
-        class StringInputStream:
+        class StringInputStream():
             def __init__(self):
                 self.buf = ''
-                class Buffer:
+                class Buffer():
                     def __init__(self, parent):
                         self.parent = parent
                     def write(self, data):
@@ -244,9 +246,9 @@ class PonysayTool():
                     ponies.add(ponyfile)
         if restriction is not None:
             oldponies = ponies
-            logic = Ponysay.makeRestrictionLogic(restriction)
+            logic = Metadata.makeRestrictionLogic(restriction)
             ponies = set()
-            for pony in Ponysay.restrictedPonies(ponydir, logic):
+            for pony in Metadata.restrictedPonies(ponydir, logic):
                 if (pony not in ponies) and (pony in oldponies):
                     ponies.add(pony)
             oldponies = ponies
@@ -415,7 +417,7 @@ class PonysayTool():
     Generate all kmsponies for the current TTY palette
     '''
     def generateKMS(self):
-        class PhonyArgParser:
+        class PhonyArgParser():
             def __init__(self, key, value):
                 self.argcount = 3
                 self.message = ponyfile
@@ -427,10 +429,10 @@ class PonysayTool():
             def __contains__(self, key):
                 return key == self.key;
         
-        class StringInputStream:
+        class StringInputStream():
             def __init__(self):
                 self.buf = ''
-                class Buffer:
+                class Buffer():
                     def __init__(self, parent):
                         self.parent = parent
                     def write(self, data):
@@ -479,7 +481,7 @@ class PonysayTool():
         dimensions = []
         for ponyfile in os.listdir(ponydir):
             if ponyfile.endswith('.pony') and (ponyfile != '.pony'):
-                class PhonyArgParser:
+                class PhonyArgParser():
                     def __init__(self, balloon):
                         self.argcount = 5
                         self.message = ''
@@ -495,10 +497,10 @@ class PonysayTool():
                     def __contains__(self, key):
                         return key in ('-f', '-W', '-b');
                 stdout = sys.stdout
-                class StringInputStream:
+                class StringInputStream():
                     def __init__(self):
                         self.buf = ''
-                        class Buffer:
+                        class Buffer():
                             def __init__(self, parent):
                                 self.parent = parent
                             def write(self, data):
@@ -524,11 +526,11 @@ class PonysayTool():
                 dimensions.append((ponywidth, ponyheight, ponyonlyheight, ponyfile[:-5]))
         (widths, heights, onlyheights) = ([], [], [])
         for item in dimensions:
-            widths     .append(item[0], item[3])
-            heights    .append(item[1], item[3])
-            onlyheights.append(item[2], item[3])
+            widths     .append((item[0], item[3]))
+            heights    .append((item[1], item[3]))
+            onlyheights.append((item[2], item[3]))
         for items in (widths, heights, onlyheights):
-            sort(items, key = lambda item : item[0])
+            sorted(items, key = lambda item : item[0])
         for pair in ((widths, 'widths'), (heights, 'heights'), (onlyheights, 'onlyheights')):
             (items, dimfile) = pair
             dimfile = (ponydir + '/' + dimfile).replace('//', '/')
@@ -617,7 +619,7 @@ class PonysayTool():
                             test = test.replace(c, '')
                         if (len(test) == 0) and (len(key) > 0):
                             data.append((key, makeset(value.replace(' ', ''))))
-                everything.append(ponyfile[:-5], data)
+                everything.append((ponyfile[:-5], data))
         import cPickle
         with open(ponydir + 'metadata', 'wb') as file:
             cPickle.dump(everything, file, -1)
@@ -647,7 +649,7 @@ class PonysayTool():
             image = data[sep + 1:]
         
         
-        class PhonyArgParser:
+        class PhonyArgParser():
             def __init__(self):
                 self.argcount = 5
                 self.message = ponyfile
@@ -689,10 +691,10 @@ class PonysayTool():
         
         
         stdout = sys.stdout
-        class StringInputStream:
+        class StringInputStream():
             def __init__(self):
                 self.buf = ''
-                class Buffer:
+                class Buffer():
                     def __init__(self, parent):
                         self.parent = parent
                     def write(self, data):
@@ -763,7 +765,7 @@ class PonysayTool():
         fields = standardfields[:-1] + fields + [standardfields[-1]]
         
         def saver(ponyfile, ponyheight, ponywidth, data, image):
-            class Saver:
+            class Saver():
                 def __init__(self, ponyfile, ponyheight, ponywidth, data, image):
                     (self.ponyfile, self.ponyheight, self.ponywidth, self.data, self.image) = (ponyfile, ponyheight, ponywidth, data, image)
                 def __call__(self): # functor
@@ -802,7 +804,7 @@ class PonysayTool():
 '''
 GNU Emacs alike text area
 '''
-class TextArea: # TODO support small screens
+class TextArea(): # TODO support small screens
     '''
     Constructor
     
