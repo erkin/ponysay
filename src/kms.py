@@ -128,7 +128,7 @@ class KMS():
             with open(cachedir + '/.version', 'w+') as cachev:
                 cachev.write(KMS_VERSION)
                 if shared:
-                    Popen('chmod 666 -- ' + _cachedir + '/.version', shell=True).wait()
+                    os.chmod(_cachedir + '/.version', 0o666)
         
         ## Get kmspony directory and kmspony file
         kmsponies = cachedir + '/kmsponies/' + palettefile
@@ -154,7 +154,7 @@ class KMS():
                 printerr('Unable to run ponytool successfully, you need util-say>=3 for KMS support')
                 exit(1)
             if shared:
-                Popen('chmod 666 -- ' + _kmspony, shell=True).wait()
+                os.chmod(_kmspony, 0o666)
         
         return kmspony
 
