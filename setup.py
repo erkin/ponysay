@@ -433,7 +433,7 @@ class Setup():
                 os.system('zip -0 ../ponysay.zip ' + ' '.join(ponysaysrc)) # use not compress, prefer speed
             finally:
                 os.chdir('..')
-            os.chmod('../ponysay.zip', 0o755)
+            os.chmod('ponysay.zip', 0o755)
             try:
                 fileout = open('ponysay.install', 'wb+')
                 filein = open('src/%s' % src, 'rb')
@@ -555,19 +555,18 @@ class Setup():
         
         for sharedir in [sharedir[0] for sharedir in sharedirs]: # TODO make this an opt-out option
             if os.path.isdir(sharedir):
-                if not self.free:
-                    for toolcommand in ('--dimensions', '--metadata'):
+                for toolcommand in ('--dimensions', '--metadata'):
+                    if not self.free:
                         print('%s, %s, %s' % ('./src/ponysay-tool.py', toolcommand, sharedir))
                         Popen(['./src/ponysay-tool.py', toolcommand, sharedir], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
-                else:
-                    params = ['./src/ponysay-tool.py', toolcommand, sharedir, '--']
-                    for sharefile in os.listdir():
-                        if sharefile.endswith('.pony') and (sharefile != '.pony'):
-                            if not Setup.validateFreedom(sharedir + '/' + sharefile):
-                                print('Skipping metadata correction for %s/%s, did not pass validation process made by setup settings' % (sharedir, sharefile))
-                            else:
-                                params.append(sharefile)
-                    for toolcommand in ('--dimensions', '--metadata'):
+                    else:
+                        params = ['./src/ponysay-tool.py', toolcommand, sharedir, '--']
+                        for sharefile in os.listdir(sharedir):
+                            if sharefile.endswith('.pony') and (sharefile != '.pony'):
+                                if not Setup.validateFreedom(sharedir + '/' + sharefile):
+                                    print('Skipping metadata correction for %s/%s, did not pass validation process made by setup settings' % (sharedir, sharefile))
+                                else:
+                                    params.append(sharefile)
                         print('%s, %s, %s (with files)' % ('./src/ponysay-tool.py', toolcommand, sharedir))
                         Popen(params, stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
         
