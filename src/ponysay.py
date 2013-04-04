@@ -917,7 +917,7 @@ class Ponysay():
                 messagewrap = int(args.opts['-W'][0])
         
         ## Get balloon object
-        balloonfile = self.__getballoonpath(args.opts['-b'][0] if args.opts['-b'] is not None else None)
+        balloonfile = self.__getballoonpath(args.opts['-b'] if args.opts['-b'] is not None else None)
         printinfo('balloon style file: ' + str(balloonfile))
         balloon = self.__getballoon(balloonfile) if args.opts['-o'] is None else None
         
