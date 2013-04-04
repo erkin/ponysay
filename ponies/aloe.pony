@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E20 Green isn't Your Color
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: pink
 DISPLAY: full, left
 EYE: purple
@@ -12,11 +12,12 @@ KIND: earth
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: Aloe (official,on merchandise)
+OTHER NAMES: Aloe (official, on merchandise)
 POSE: stand
 SOURCE: (Jay Wright/Monkey Jay) Desktop ponies
 WIDTH: 39
 HEIGHT: 25
+
 
 $$$
 $balloon7$[00m

@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E09 Bridle Gossip
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: blue
 DISPLAY: full, left
 EYE: blue
@@ -11,7 +11,8 @@ GROUP: mare, bakground, voiced
 KIND: earth
 LINK: regular
 MANE: pink
-NAME: Lotus Blossom
+NAME: (not mentioned)
+OTHER NAMES: Lotus Blossom (official, on merchandice), Lotus (official, on Tradin cards)
 POSE: stand
 SOURCE: (Jay wright) Desktop ponies
 WIDTH: 39
