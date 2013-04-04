@@ -129,13 +129,13 @@ class KMS():
                 cachev.write(KMS_VERSION)
                 if shared:
                     try:
-                        os.chmod(cachedir + '/.version', 0o666)
+                        os.chmod(cachedir + '/.version', 0o7777)
                     except:
                         pass
         
         ## Get kmspony directory and kmspony file
         kmsponies = cachedir + '/kmsponies/' + palettefile
-        kmspony = (kmsponies + pony).replace('//', '/')
+        kmspony = kmsponies + '/' + pony
         
         ## If the kmspony is missing, create it
         if not os.path.isfile(kmspony):
@@ -150,7 +150,7 @@ class KMS():
             if not os.path.isdir(kmsponydir):
                 os.makedirs(kmsponydir)
                 if shared:
-                    Popen('chmod -R 7777 -- ' + _cachedir, shell=True).wait()
+                    Popen('chmod -R 7777 -- %s/kmsponies' % _cachedir, shell=True).wait()
             ponytoolcmd = 'ponytool --import ponysay --file %s --export ponysay --file %s --platform linux '
             ponytoolcmd += '--balloon n --colourful y --fullcolour y --left - --right - --top - --bottom - --palette %s'
             if not os.system(ponytoolcmd % (_pony, _kmspony, palette)) == 0:
@@ -158,7 +158,7 @@ class KMS():
                 exit(1)
             if shared:
                 try:
-                    os.chmod(kmspony, 0o666)
+                    os.chmod(kmspony, 0o7777)
                 except:
                     pass
         

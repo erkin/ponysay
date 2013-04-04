@@ -700,7 +700,6 @@ class Setup():
         ponyshare = conf['share-dir']
         if not ponyshare.endswith('/'):
             ponyshare += '/'
-        ponyshare += 'ponysay/'
         for dir in sharedirs:
             if conf[dir[0]] is not None:
                 dirs.append(ponyshare + dir[0])
@@ -998,8 +997,8 @@ class Setup():
             key = dir + '-dir'
             if opts['--' + key] is not None:
                 conf[key] = opts['--' + key][0]
-                if (dir == 'share') and (opts['--opt'] is None):
-                    conf[key] += '/ponysay'
+            if (dir == 'share') and (opts['--opt'] is None):
+                conf[key] += '/ponysay'
             if conf[key].startswith('usr/'):
                 conf[key] = prefix + conf[key][3:]
         if opts['--cache-dir'] is not None:
