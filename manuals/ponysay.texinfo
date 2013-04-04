@@ -165,9 +165,9 @@ specified one will be selected randomly.
 
 @cindex @command{util-say}
 @cindex .png
-@cindex png images
-@cindex images, png
-@cindex portable network graphics
+@cindex PNG images
+@cindex images, PNG
+@cindex Portable Network Graphics
 If you have @command{util-say} installed, you can use .png-files as the arguments
 for this options.
 
@@ -575,8 +575,8 @@ script, but I haven't used the script so I wouldn't know for sure.
 
 @node Running on TTY
 @section Running on TTY
-@cindex tty
-@pindex linux vt
+@cindex TTY
+@pindex Linux VT
 @cindex @file{.bashrc}
 @cindex @file{~/.bashrc}
 
@@ -691,7 +691,8 @@ ponythink -f spikefloat -b unicode -W n}
 @table @env
 @item PONYSAY_BOTTOM
 @vindex @env{PONYSAY_BOTTOM}
-@cindex tty
+@cindex TTY
+@cindex Linux VT
 Under TTY (Linux VT), if the output is larger the the screen's height, only
 the beginning is printed, leaving two blank lines. If you want the bottom
 to be printed rather the the beginning you can export @env{PONYSAY_BOTTOM}
@@ -699,7 +700,8 @@ with the value @code{yes}, @code{y} or @code{1}.
 
 @item PONYSAY_SHELL_LINES
 @vindex @env{PONYSAY_SHELL_LINES}
-@cindex tty
+@cindex TTY
+@cindex Linux VT
 Under TTY (Linux VT), if the output is larger than the screen's height, two
 lines are left blank. If you want more, or less, blank lines you can export
 @env{PONYSAY_SHELL_LINES} with the value of how many blank lines you want.
@@ -720,10 +722,10 @@ are not running @command{ponysay} under TTY.
 
 @item PONYSAY_UCS_ME
 @vindex @env{PONYSAY_UCS_ME}
-@cindex ucs
-@cindex universal character set
-@cindex unicode
-@cindex ascii
+@cindex UCS
+@cindex Universal Character Set
+@cindex Unicode
+@cindex ASCII
 Export @env{PONYSAY_UCS_ME} with the value @code{yes}, @code{y} or @code{1},
 if you want [simulated] symlink to pony files using Universal Character Set
 in their names. Otherwise pony files uses only ASCII. If you want to remove
@@ -739,10 +741,10 @@ will still be usable.
 @itemx @env{PONYSAY_KMS_PALETTE_CMD}
 @vindex @env{PONYSAY_KMS_PALETTE}
 @vindex @env{PONYSAY_KMS_PALETTE_CMD}
-@cindex tty
-@pindex linux vt
+@cindex TTY
+@pindex Linux VT
 @cindex kmsponies
-@cindex kms
+@cindex KMS
 @cindex kernel mode setting
 
 @env{PONYSAY_KMS_PALETTE} or @env{PONYSAY_KMS_PALETTE_CMD} is used to tell
@@ -807,9 +809,9 @@ is used togather with @env{PONYSAY_WRAP_LIMIT}. The default value is 5.
 @node KMS ponies
 @section KMS ponies
 @cindex kmsponies
-@cindex tty
-@pindex linux vt
-@cindex kms
+@cindex TTY
+@pindex Linux VT
+@cindex KMS
 @cindex kernel mode setting
 @cindex environment variables
 @vindex @env{PONYSAY_KMS_PALETTE}
@@ -1198,12 +1200,12 @@ its purpose is to provide tools to ponysay relevant actions that is not printing
 
 @node Fill KMS cache
 @section Fill KMS cache
-@cindex fill kms cache
-@cindex kms cache, fill
+@cindex fill KMS cache
+@cindex KMS cache, fill
 @cindex kmsponies
-@cindex kms
-@cindex linux vt
-@cindex tty
+@cindex KMS
+@cindex Linux VT
+@cindex TTY
 
 Before reading this section you may want to read the earlier section @ref{KMS ponies}.
 
@@ -1446,10 +1448,10 @@ Ponysay works perfectly on @command{xterm}, @command{xterm} like terminals inclu
 (UCS) support, but less well, depending on font, on VTE based terminals including
 @command{mate-terminal}.
 
-@cindex kms
+@cindex KMS
 @cindex kernel mode setting
-@cindex tty
-@pindex linux vt
+@cindex TTY
+@pindex Linux VT
 On Linux's native terminal Linux VT (TTY) it works less well, and not good at all
 without Kernel Mode Setting (KMS) support. See @url{https://github.com/erkin/ponysay/issues/1}
 for more information. @command{ponysay} clears the screen before printing to TTY, this
@@ -1482,9 +1484,9 @@ run on it.
 
 @node GNU Hurd
 @section GNU Hurd
-@cindex hurd
-@cindex gnu hurd
-@cindex tty
+@cindex Hurd
+@cindex GNU Hurd
+@cindex TTY
 
 @command{ponysay} should work just fine on GNU/Hurd, except for in the native virtual
 terminal (TTY). Hurd's terminal is limited to 16 colours and does not provide the capaility
@@ -1536,7 +1538,7 @@ the top to the left.
 @cindex external bugs
 @cindex bugs, external
 
-@cindex vte-based terminals
+@cindex VTE-based terminals
 @cindex terminals
 @pindex @command{mate-terminal}
 @pindex @command{gnome-terminal}
@@ -1640,18 +1642,18 @@ in @command{fish}, so case you @command{sh} links to @command{fish}, run
 @table @command
 @item util-say>=3
 @pindex @command{util-say}
-@cindex kms
-@cindex tty
-@pindex linux vt
+@cindex KMS
+@cindex TTY
+@pindex Linux VT
 For improved TTY support for user with custom colour palette and KMS support.
 It can be downloaded at @url{https://github.com/maandree/util-say}. If this is
 used @command{chmod} from @command{coreutils} is also required.
 
 
 @cindex .png
-@cindex png images
-@cindex images, png
-@cindex portable network graphics
+@cindex PNG images
+@cindex images, PNG
+@cindex Portable Network Graphics
 For the purpose of simplifying for pony contributors, @command{ponysay} supports
 using .png-images (note that the file must not miss the @file{.png} at the end of
 the file name) in addition to .pony-files or pony names.
@@ -1755,7 +1757,7 @@ ponies, use @command{--freedom=strict} instread of @command{--freedom=partial}.
 Now you will be to use ponysay, run: @command{ponysay "I am just the cutest pony!"},
 or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 
-@cindex manpage translations
+@cindex man page translations
 @command{ponysay} comes with this @command{info} manual and a manpage in section 6,
 @command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
 in Spanish: @command{man -L es 6 ponysay}. To install the Spanish manual add the
@@ -2205,7 +2207,7 @@ before building and installing.
 
 @node Arch Linux
 @subsection Arch Linux
-@cindex arch linux
+@cindex Arch Linux
 
 The official Arch Linux package repositories contains @command{ponysay} as
 @w{@code{community/ponysay}} (developer maintained). The Arch Linux User Repository
@@ -2215,7 +2217,7 @@ The official Arch Linux package repositories contains @command{ponysay} as
 
 @node Arch Linux ARM
 @subsection Arch Linux ARM
-@cindex arch linux arm
+@cindex Arch Linux ARM
 
 @w{@code{community/ponysay}} from Arch Linux (@ref{Arch Linux}) is also available
 for Arch Linux ARM.
@@ -2223,7 +2225,7 @@ for Arch Linux ARM.
 
 @node Chakra
 @subsection Chakra
-@cindex chakra
+@cindex Chakra
 
 Chakra users can install from (CCR) a stable version named a @code{ponysay}
 (developer maintained Arch Linux mirror), additionally a git verion of ponysay is
@@ -2232,8 +2234,8 @@ available as @code{ponysay-git} (developer maintained Arch Linux mirror).
 
 @node Debian GNU/Linux
 @subsection Debian GNU/Linux and Ubuntu
-@cindex debian gnu/linux
-@cindex ubuntu
+@cindex Debian GNU/Linux
+@cindex Ubuntu
 
 A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay}
 (user maintained), and PPA:s can be found at
@@ -2243,7 +2245,7 @@ A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay}
 
 @node Gentoo Linux
 @subsection Gentoo Linux
-@cindex gentoo linux
+@cindex Gentoo Linux
 
 Gentoo users can use the overlay @url{https://github.com/etu/aidstu-overlay}, which
 contains @command{ponysay} as @w{@code{games-misc/ponysay}} (developer maintained).
@@ -2251,7 +2253,7 @@ contains @command{ponysay} as @w{@code{games-misc/ponysay}} (developer maintaine
 
 @node Source Mage GNU/Linux
 @subsection Source Mage GNU/Linux
-@cindex source mage gnu/linux
+@cindex Source Mage GNU/Linux
 
 The spell @w{@code{util/ponysay}} (user maintained) is available in Grimoire for
 Source Mage @w{GNU/Linux}.
@@ -2259,18 +2261,18 @@ Source Mage @w{GNU/Linux}.
 
 @node Exotic operating systems
 @section Exotic operating systems
-@cindex exotic os:es
+@cindex exotic OS:es
 
 An "exotic operating system" as a operating system that is not GNU (GNU/Linux ("Linux")
 and GNU/Hurd are GNU distor:s.)
 
-@cindex mac os x
-@cindex os x
+@cindex Mac OS X
+@cindex OS X
 Ponysay is told to be running on Mac OS X, which is Unix-like OS meaning that probably
 all future version of ponysay will be able to run without any problems.
 
-@cindex windows
-@cindex cygwin.
+@cindex Windows
+@cindex Cygwin
 Ponysay is also reported to be able to run on Windows 8 through Cygwin, provided that
 @code{python3} is installed. It will probabily also run one any other version of Windows
 through Cygwin. Additionally among the preinstalled fonts in Windows 8; Consolas 10pt,
@@ -2477,10 +2479,10 @@ only if the message contains more than one line.
 
 @node Printing in TTY with KMS
 @section Printing in TTY with KMS
-@cindex tty
-@pindex linux vt
-@cindex clearing tty
-@cindex kms
+@cindex TTY
+@pindex Linux VT
+@cindex clearing TTY
+@cindex KMS
 @cindex kernel mode setting
 
 Since Linux VT (TTY) does not have capabilities for returning the position of the
@@ -2498,7 +2500,7 @@ we would also turn off num. lock and caps. lock.
 @section Truncation
 @cindex truncation
 @cindex output truncation
-@cindex kms
+@cindex KMS
 @cindex kernel mode setting
 
 Ponysay supports three type of output truncations, cutting away overflow on the right
@@ -2590,9 +2592,9 @@ Auto-completion scripts should not suggest these options.
 
 @node Universal Character Set
 @section Universal Character Set
-@cindex universal character set
-@cindex ucs
-@cindex unicode
+@cindex Universal Character Set
+@cindex UCS
+@cindex Unicode
 @cindex pony names
 
 In earlier versions of @command{ponysay} only the output truncation supported
@@ -2673,9 +2675,9 @@ converting a image file to a pony file.
 @*
 @pindex util-say
 @cindex .png
-@cindex png images
-@cindex images, png
-@cindex portable network graphics
+@cindex PNG images
+@cindex images, PNG
+@cindex Portable Network Graphics
 If you have util-say installed, which is required to build ponies, you can use PNG
 files as argument the for @command{ponysay -f}, this requires that the file is named
 @file{.png} at the end.
@@ -2733,7 +2735,7 @@ split into multiple lines, these lines should have their first pony file in comm
 @cindex package maintaining
 @cindex OS package maintaining
 @cindex maintaining OS package
-@cindex fhs
+@cindex FHS
 @cindex filesystem hierarchy standard
 
 If you are planning on maintaining @command{ponysay} in your favourite operating
@@ -2798,19 +2800,19 @@ package()
 The television show My Little Pony: Friendship is Magic.
 
 @item My Little Pony
-@cindex my little pony
+@cindex My Little Pony
 The successor to My Pretty Pony, the toy not the short story by Stephen King.
 
 @item TTY
 @itemx Linux VT
-@cindex tty
-@pindex linux vt
+@cindex TTY
+@pindex Linux VT
 Linux's native terminal emulator. The name TTY comes from the file names for the
 devices used for terminals by Linux VT, which is @file{/dev/tty*}.
 
 @item KMS
 @itemx Kernel Mode Setting
-@cindex kms
+@cindex KMS
 @cindex kernel mode setting
 A feature in Linux allowing mode setting in kernel-space, this gives the TTY,
 for example better colour support. I would go to Wikipedia for more information.
@@ -2886,8 +2888,8 @@ in shell, using the command @command{echo $VARIABLE}.
 
 @item UCS
 @itemx Universal Character Set
-@cindex ucs
-@cindex universal character set
+@cindex UCS
+@cindex Universal Character Set
 The set of of character, develop by the Unicode Consortium. It defined a partially filled
 space of @math{2^{31}} characters, some of which are not glyphs.
 
@@ -2898,7 +2900,7 @@ there is no precomposed character to use.
 
 @item ASCII
 @itemx ASCII character
-@cindex ascii
+@cindex ASCII
 @cindex character
 American Standard Code for Information Interchange (ASCII) defines 128 characters, some
 are not glyphs. It contains control characters, basic punctuation, the decimal digit,
