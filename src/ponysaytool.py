@@ -1184,75 +1184,67 @@ class TextArea(): # TODO support small screens
 
 
 '''
-Start the program
+The user's home directory
 '''
-def startponysaytool():
-    '''
-    The user's home directory
-    '''
-    HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
-    
-    '''
-    Whether stdin is piped
-    '''
-    pipelinein = not sys.stdin.isatty()
-    
-    '''
-    Whether stdout is piped
-    '''
-    pipelineout = not sys.stdout.isatty()
-    
-    '''
-    Whether stderr is piped
-    '''
-    pipelineerr = not sys.stderr.isatty()
-    
-    
-    usage_program = '\033[34;1mponysay-tool\033[21;39m'
-    
-    usage = '\n'.join(['%s %s' % (usage_program, '(--help | --version | --kms)'),
-                       '%s %s' % (usage_program, '(--edit | --edit-rm) \033[33mPONY-FILE\033[39m'),
-                       '%s %s' % (usage_program, '--edit-stash \033[33mPONY-FILE\033[39m > \033[33mSTASH-FILE\033[39m'),
-                       '%s %s' % (usage_program, '--edit-apply \033[33mPONY-FILE\033[39m < \033[33mSTASH-FILE\033[39m'),
-                       '%s %s' % (usage_program, '(--dimensions | --metadata) \033[33mPONY-DIR\033[39m'),
-                       '%s %s' % (usage_program, '--browse \033[33mPONY-DIR\033[39m [-r \033[33mRESTRICTION\033[39m]*'),
-                      ])
-    
-    usage = usage.replace('\033[', '\0')
-    for sym in ('[', ']', '(', ')', '|', '...', '*'):
-        usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
-    usage = usage.replace('\0', '\033[')
-    
-    '''
-    Argument parsing
-    '''
-    opts = ArgParser(program     = 'ponysay-tool',
-                     description = 'Tool chest for ponysay',
-                     usage       = usage,
-                     longdescription = None)
-    
-    opts.add_argumentless(['--no-term-init']) # for debugging
-    
-    opts.add_argumentless(['-h', '--help'],                          help = 'Print this help message.')
-    opts.add_argumentless(['-v', '--version'],                       help = 'Print the version of the program.')
-    opts.add_argumentless(['--kms'],                                 help = 'Generate all kmsponies for the current TTY palette')
-    opts.add_argumented(  ['--dimensions'],     arg = 'PONY-DIR',    help = 'Generate pony dimension file for a directory')
-    opts.add_argumented(  ['--metadata'],       arg = 'PONY-DIR',    help = 'Generate pony metadata collection file for a directory')
-    opts.add_argumented(  ['-b', '--browse'],   arg = 'PONY-DIR',    help = 'Browse ponies in a directory')
-    opts.add_argumented(  ['-r', '--restrict'], arg = 'RESTRICTION', help = 'Metadata based restriction for --browse')
-    opts.add_argumented(  ['--edit'],           arg = 'PONY-FILE',   help = 'Edit a pony file\'s metadata')
-    opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',   help = 'Remove metadata from a pony file')
-    opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',   help = 'Apply metadata from stdin to a pony file')
-    opts.add_argumented(  ['--edit-stash'],     arg = 'PONY-FILE',   help = 'Print applyable metadata from a pony file')
-    
-    '''
-    Whether at least one unrecognised option was used
-    '''
-    unrecognised = not opts.parse()
-    
-    PonysayTool(args = opts)
+HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
+
+'''
+Whether stdin is piped
+'''
+pipelinein = not sys.stdin.isatty()
+
+'''
+Whether stdout is piped
+'''
+pipelineout = not sys.stdout.isatty()
+
+'''
+Whether stderr is piped
+'''
+pipelineerr = not sys.stderr.isatty()
 
 
-if __name__ == '__main__':
-    startponysaytool()
+usage_program = '\033[34;1mponysay-tool\033[21;39m'
+
+usage = '\n'.join(['%s %s' % (usage_program, '(--help | --version | --kms)'),
+                   '%s %s' % (usage_program, '(--edit | --edit-rm) \033[33mPONY-FILE\033[39m'),
+                   '%s %s' % (usage_program, '--edit-stash \033[33mPONY-FILE\033[39m > \033[33mSTASH-FILE\033[39m'),
+                   '%s %s' % (usage_program, '--edit-apply \033[33mPONY-FILE\033[39m < \033[33mSTASH-FILE\033[39m'),
+                   '%s %s' % (usage_program, '(--dimensions | --metadata) \033[33mPONY-DIR\033[39m'),
+                   '%s %s' % (usage_program, '--browse \033[33mPONY-DIR\033[39m [-r \033[33mRESTRICTION\033[39m]*'),
+               ])
+
+usage = usage.replace('\033[', '\0')
+for sym in ('[', ']', '(', ')', '|', '...', '*'):
+    usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
+usage = usage.replace('\0', '\033[')
+
+'''
+Argument parsing
+'''
+opts = ArgParser(program     = 'ponysay-tool',
+                 description = 'Tool chest for ponysay',
+                 usage       = usage,
+                 longdescription = None)
+
+opts.add_argumentless(['--no-term-init']) # for debugging
+
+opts.add_argumentless(['-h', '--help'],                          help = 'Print this help message.')
+opts.add_argumentless(['-v', '--version'],                       help = 'Print the version of the program.')
+opts.add_argumentless(['--kms'],                                 help = 'Generate all kmsponies for the current TTY palette')
+opts.add_argumented(  ['--dimensions'],     arg = 'PONY-DIR',    help = 'Generate pony dimension file for a directory')
+opts.add_argumented(  ['--metadata'],       arg = 'PONY-DIR',    help = 'Generate pony metadata collection file for a directory')
+opts.add_argumented(  ['-b', '--browse'],   arg = 'PONY-DIR',    help = 'Browse ponies in a directory')
+opts.add_argumented(  ['-r', '--restrict'], arg = 'RESTRICTION', help = 'Metadata based restriction for --browse')
+opts.add_argumented(  ['--edit'],           arg = 'PONY-FILE',   help = 'Edit a pony file\'s metadata')
+opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',   help = 'Remove metadata from a pony file')
+opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',   help = 'Apply metadata from stdin to a pony file')
+opts.add_argumented(  ['--edit-stash'],     arg = 'PONY-FILE',   help = 'Print applyable metadata from a pony file')
+
+'''
+Whether at least one unrecognised option was used
+'''
+unrecognised = not opts.parse()
+
+PonysayTool(args = opts)
 

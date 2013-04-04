@@ -56,8 +56,7 @@ if __name__ == '__main__':
         istool = istool[:istool.find(os.extsep)]
     istool = istool.endswith('-tool')
     if istool:
-        from ponysaytool import *
-        startponysaytool()
+        from ponysaytool import * ## will start ponysay-tool
         exit(0)
     
     isthink = sys.argv[0]

@@ -558,17 +558,17 @@ class Setup():
             if hasponies and os.path.isdir(sharedir):
                 for toolcommand in ('--dimensions', '--metadata'):
                     if not self.free:
-                        print('%s, %s, %s' % ('./src/ponysay-tool.py', toolcommand, sharedir))
-                        Popen(['./src/ponysay-tool.py', toolcommand, sharedir], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
+                        print('%s, %s, %s' % ('./src/ponysaytool.py', toolcommand, sharedir))
+                        Popen(['./src/ponysaytool.py', toolcommand, sharedir], stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
                     else:
-                        params = ['./src/ponysay-tool.py', toolcommand, sharedir, '--']
+                        params = ['./src/ponysaytool.py', toolcommand, sharedir, '--']
                         for sharefile in os.listdir(sharedir):
                             if sharefile.endswith('.pony') and (sharefile != '.pony'):
                                 if not Setup.validateFreedom(sharedir + '/' + sharefile):
                                     print('Skipping metadata correction for %s/%s, did not pass validation process made by setup settings' % (sharedir, sharefile))
                                 else:
                                     params.append(sharefile)
-                        print('%s, %s, %s (with files)' % ('./src/ponysay-tool.py', toolcommand, sharedir))
+                        print('%s, %s, %s (with files)' % ('./src/ponysaytool.py', toolcommand, sharedir))
                         Popen(params, stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
         
         print()
