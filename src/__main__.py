@@ -46,11 +46,26 @@ from ponysay import *
 
 
 '''
-Start the program from ponysay.__init__ if this is the executed file
+Start the program
 '''
 if __name__ == '__main__':
-    isthink =  (len(__file__) >= len('think'))    and (__file__.endswith('think'))
-    isthink = ((len(__file__) >= len('think.py')) and (__file__.endswith('think.py'))) or isthink
+    istool = sys.argv[0]
+    if os.sep in istool:
+        istool = istool[istool.rfind(os.sep) + 1:]
+    if os.extsep in istool:
+        istool = istool[:istool.find(os.extsep)]
+    istool = istool.endswith('-tool')
+    if istool:
+        from ponysaytool import *
+        startponysaytool()
+        exit(0)
+    
+    isthink = sys.argv[0]
+    if os.sep in isthink:
+        isthink = isthink[isthink.rfind(os.sep) + 1:]
+    if os.extsep in isthink:
+        isthink = isthink[:isthink.find(os.extsep)]
+    isthink = isthink.endswith('think')
     
     usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
     usage_common   = '[-c] [-W\033[33mCOLUMN\033[39m] [-b\033[33mSTYLE\033[39m]'

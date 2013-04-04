@@ -1184,9 +1184,9 @@ class TextArea(): # TODO support small screens
 
 
 '''
-Start the program from ponysay.__init__ if this is the executed file
+Start the program
 '''
-if __name__ == '__main__':
+def startponysaytool():
     '''
     The user's home directory
     '''
@@ -1251,4 +1251,8 @@ if __name__ == '__main__':
     unrecognised = not opts.parse()
     
     PonysayTool(args = opts)
+
+
+if __name__ == '__main__':
+    startponysaytool()
 

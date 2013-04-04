@@ -25,7 +25,7 @@ sharedirs = [('ponies', 'xterm ponies', 'PONYDIR', True),  # must be first
 
 sharefiles = [('ucs', 'ucsmap')]
 
-commands = ['ponysay', 'ponythink']
+commands = ['ponysay', 'ponythink', 'ponysay-tool']
 
 shells = [('bash', '/usr/share/bash-completion/completions/ponysay', 'GNU Bash'),
           ('fish', '/usr/share/fish/completions/ponysay.fish', 'Friendly interactive shell'),
@@ -42,7 +42,7 @@ miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
 ponysaysrc = [src + '.py' for src in
               ('__main__', 'common', 'ponysay', 'argparser', 'balloon',
                'backend', 'colourstack', 'ucs', 'spellocorrecter', 'kms',
-               'list', 'metadata')]
+               'list', 'metadata', 'ponysaytool')]
 
 
 
@@ -746,7 +746,7 @@ class Setup():
     def clean(self):
         print('\033[1;34m::\033[39mCleaning...\033[21m')
         
-        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install', 'ponysay.zip']
+        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install']
         files += ['src/%s.install' % file for file in ponysaysrc]
         dirs = ['quotes']
         for comp in ['install', 'gz', 'xz']:
@@ -773,7 +773,7 @@ class Setup():
     def cleanOld(self):
         print('\033[1;34m::\033[39mCleaning old files...\033[21m')
         
-        files = ['truncater', 'ponysaytruncater', 'ponysay.py.install', 'ponysay.install~']
+        files = ['truncater', 'ponysaytruncater', 'ponysay.py.install', 'ponysay.install~', 'ponysay.zip']
         dirs = []
         for shell in [item[0] for item in shells]:
             files.append('completion/%s-completion.%s.install' % (shell, 'sh' if shell == 'bash' else shell))

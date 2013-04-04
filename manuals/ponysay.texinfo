@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 3.0
+@set VERSION 3.0.1
 
 @defindex op
 @synindex op vr
@@ -1807,7 +1807,7 @@ Install nothing, except legal documents, that is not explicity included.
 @opindex @option{--without-ponysay}
 @opindex @option{--with-ponysay-command}
 @opindex @option{--without-ponysay-command}
-Install the ponysay command, and set file name. (Default)
+Install the @command{ponysay} command, and set file name. (Default)
 
 @item --with-ponythink
 @itemx --with-ponythink-command=/usr/bin/ponythink
@@ -1815,7 +1815,15 @@ Install the ponysay command, and set file name. (Default)
 @opindex @option{--without-ponytink}
 @opindex @option{--with-ponythink-command}
 @opindex @option{--without-ponytink-command}
-Install the ponythink command, and set file name. (Default)
+Install the @command{ponythink} command, and set file name. (Default)
+
+@item --with-ponysay-tool
+@itemx --with-ponyponysay-tool-command=/usr/bin/ponyponysay-tool
+@opindex @option{--with-ponysay-tool}
+@opindex @option{--without-ponysay-tool}
+@opindex @option{--with-ponysay-tool-command}
+@opindex @option{--without-ponysay-tool-command}
+Install the @command{ponysay-tool} command, and set file name. (Default)
 
 @item --with-shared-cache=/var/cache/ponysay
 @opindex @option{--with-shared-cache}
@@ -2954,6 +2962,13 @@ sequences.
 @cindex change log
 @cindex versions
 @cindex previous releases
+
+@heading Version 3.0.1
+@itemize @bullet
+@item
+The @command{ponysay-tool} command is now installed.
+@end itemize
+
 
 @heading Version 3.0
 @itemize @bullet
