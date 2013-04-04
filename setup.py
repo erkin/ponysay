@@ -9,7 +9,7 @@ from subprocess import Popen, PIPE
 
 
 
-PONYSAY_VERSION = '3.0beta'
+PONYSAY_VERSION = '3.0'
 
 
 
