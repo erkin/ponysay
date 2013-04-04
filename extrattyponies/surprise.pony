@@ -28,10 +28,10 @@ purposes, all without asking permission. See Other Information below.
 
 http://creativecommons.org/publicdomain/zero/1.0/legalcode
 $$$
-$balloon35$[00m
-                                $\$                [00m
-                                 $\$               [00m
-                                  $\$              [00m
+$balloon31$[00m
+                            $\$                    [00m
+                             $\$                   [00m
+                              $\$                  [00m
                              ]PBD7D75F[33;01m▄▄▄]P7AAAAAA[39m   ]PBD7D75F[33m▄]P2D7D75F[42m]PFFFFFAF[37m▄▄]PBD7D75F[33m██]P0000000[49m▄]P7AAAAAA[39m        [00m
                           ]PBD7D75F[33;01m▄]P2D7D75F[42m]PFFFFFAF[37m▄▄]P7FFFFAF[47m███]P2D7D75F[42m▄]P0000000[49m]PBD7D75F[33m▄]P2D7D75F[42m]PFFFFFAF[37m▄]P7FFFFAF[47m█]PBD7D75F[33m▄]P2D7D75F[42m]PFFFFFAF[37m▄]P7FFFFAF[47m██]P2D7D75F[42m]PBD7D75F[33m█]P0000000[49m]P7AAAAAA[39m        [00m
                         ]PBD7D75F[33;01m▄]P2D7D75F[42m]PFFFFFAF[37m▄]PBD7D75F[33m█]P7FFFFAF[47m]PFFFFFAF[37m█]PFD0D0D0[37m▄]P7D0D0D0[47m]PFEEEEEE[37m▄▄]PFD0D0D0[37m█]P7FFFFAF[47m]PFFFFFAF[37m█]P2D7D75F[42m▄]P7FFFFAF[47m██]PBD7D75F[33m▄]P2D7D75F[42m]PFFFFFAF[37m▄]P7FFFFAF[47m██]P2D7D75F[42m]PBD7D75F[33m█]PFFFFFAF[37m▄▄]P0000000[49m]PBD7D75F[33m▄]P7AAAAAA[39m     [00m
