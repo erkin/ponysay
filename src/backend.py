@@ -94,6 +94,7 @@ class Backend():
                 infoend += 5
             if self.infolevel == 2:
                 self.message = Backend.formatInfo(info)
+                self.pony = self.pony[infoend:]
             elif self.infolevel == 1:
                 self.pony = Backend.formatInfo(info).replace('$', '$$')
             else:
