@@ -250,7 +250,7 @@ class List():
         
         ## Get all balloons
         balloonset = set()
-        for balloondir in self.balloondirs:
+        for balloondir in balloondirs:
             for balloon in os.listdir(balloondir):
                 ## Use .think if running ponythink, otherwise .say
                 if isthink and endswith(balloon, '.think'):
