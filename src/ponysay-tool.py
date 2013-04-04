@@ -438,7 +438,7 @@ class PonysayTool():
         class PhonyArgParser():
             def __init__(self, key, value):
                 self.argcount = 3
-                self.message = ponyfile
+                self.message = ''
                 self.opts = self
                 self.key = key
                 self.value = value
@@ -464,6 +464,8 @@ class PonysayTool():
                 return True
         
         stdout = sys.stdout
+        term = os.environ['TERM']
+        os.environ['TERM'] = 'linux'
         
         sys.stdout = StringInputStream()
         ponysay = Ponysay()
@@ -477,16 +479,19 @@ class PonysayTool():
         
         for pony in stdponies:
             printerr('Genering standard kmspony: %s' % pony)
+            sys.stderr.buffer.flush();
             sys.stdout = StringInputStream()
             ponysay = Ponysay()
             ponysay.run(PhonyArgParser('--pony', pony))
         
         for pony in extraponies:
             printerr('Genering extra kmspony: %s' % pony)
+            sys.stderr.buffer.flush();
             sys.stdout = StringInputStream()
             ponysay = Ponysay()
             ponysay.run(PhonyArgParser('++pony', pony))
         
+        os.environ['TERM'] = term
         sys.stdout = stdout
     
     

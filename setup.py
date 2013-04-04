@@ -601,8 +601,8 @@ class Setup():
                     os.makedirs(pdir)
                 print('Creating directory ' + dir)
                 os.mkdir(dir)
-                print('Setting permission mode mask for ' + dir + ' to 6777')
-                Popen('chmod -R 6777 -- \'' + dir.replace('\'', '\'\\\'\'') + '\'', shell=True).wait()
+                print('Setting permission mode mask for ' + dir + ' to 7777')
+                Popen('chmod -R 7777 -- \'' + dir.replace('\'', '\'\\\'\'') + '\'', shell=True).wait()
                 print('Setting group for ' + dir + ' users')
                 Popen('chown -R :users -- \'' + dir.replace('\'', '\'\\\'\'') + '\'', shell=True).wait()
         for shell in [item[0] for item in shells]:
