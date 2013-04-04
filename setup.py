@@ -554,7 +554,7 @@ class Setup():
                 if ponymap is not None:
                     ponymap.close()
         
-        for (sharedir, hasponies) in [(sharedir[0], sharedir[3]) for sharedir in sharedirs]: # TODO make this an opt-out option
+        for (sharedir, hasponies) in [(sharedir[0], sharedir[3]) for sharedir in sharedirs]:
             if hasponies and os.path.isdir(sharedir):
                 for toolcommand in ('--dimensions', '--metadata'):
                     if not self.free:
