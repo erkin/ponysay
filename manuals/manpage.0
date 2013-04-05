@@ -53,6 +53,51 @@ Show summary of options.
 .B \-v, \-\-version
 Show version of program.
 .TP
+.B \-f, \-\-file, \-\-pony \fIname\fP
+Select a pony (either a file name or a pony name), you can use this options multiple times,
+and one of the will be selected randomly.
+.TP
+.B \+f, \+\+file, \+\+pony \fIname\fP
+Select a non-MLP:FiM pony (either a file name or a pony name), you can use this options
+multiple times, and one of the will be selected randomly.
+.TP
+.B \-F, \-\-any\-file, \-\-anyfile, \-\-anypony \-\-any\-pony \fIname\fP
+This option combines \fI-f\fP and \fI+f\fP.
+.TP
+.B \-q, \-\-quote [\fIname\fP...]
+By using this option, a pony will be printed with quotes from her in My Little Pony:
+Friendship is Magic. The pony will be selected randomly, unless at least one pony
+is added as an argument to \fI-q\fP. If one or more ponies are added as an argument
+to \fI-q\fP the pony will be selected randomly from that set of ponies.
+.TP
+.B \-\-f, \-\-files, \-\-ponies \fI[name...]\fP
+Variadic variant of \fI-f\fP, meaning that all arguments added after this one will parsed
+as an argument to this option.
+.TP
+.B \+\+f, \+\+files, \+\+ponies \fI[name...]\fP
+Variadic variant of \fI+f\fP, meaning that all arguments added after this one will parsed
+as an argument to this option.
+.TP
+.B \-\-F, \-\-any\-files, \-\-anyfiles, \-\-anyponies \-\-any\-ponies \fIname\fP
+This option combines \fI--f\fP and \fI++f\fP.
+.TP
+.B \-\-q, \-\-quotes [\fIname\fP...]
+Variadic variant of \fI-q\fP, meaning that all arguments added after this one will
+parsed as an argument to this option.  Additionally, those options are added to \fI-q\fP.
+.TP
+.B \-b, \-\-bubble, \-\-ballon \fIstyle\fP
+Specify the balloon style that should used, this can either be a file name or a
+balloon name printed by \fIponysay -B\fP.
+.TP
+.B \-W, \-\-wrap \fIcolumn\fP
+The screen column where the message should be wrapped, the balloon's extra width is taken
+into consideration. If the argument is not a number, but starts instead with \fIn\fP,
+no wrapping is done, and if it starts with \fIi\fP the width of the terminal is used.
+.TP
+.B \-c, \-\-compress, \-\-compact [\fIansi-colour\fP]
+Compress the message in the same way \fIcowsay\fP does, that is basically without multiple
+spaces, and only paragraphs separations.
+.TP
 .B \-l, \-\-list
 List pony files.
 .TP
@@ -65,41 +110,66 @@ List non-MLP:FiM pony files.
 .B \+L, \+\+symlist, \+\+altlist
 List non-MLP:FiM pony files with alternative names inside brackets.
 .TP
-.B \-f, \-\-file, \-\-pony \fIname\fP
-Select a pony (either a file name or a pony name), you can use this options multiple times,
-and one of the will be selected randomly.
-.TP
-.B \+f, \+\+file, \+\+pony \fIname\fP
-Select a non-MLP:FiM pony (either a file name or a pony name), you can use this options
-multiple times, and one of the will be selected randomly.
-.TP
-.B \-q, \-\-quote [\fIname\fP...]
-By using this option, a pony will be printed with quotes from her in My Little Pony:
-Friendship is Magic. The pony will be selected randomly, unless at least one pony
-is added as an argument to \fI-q\fP. If one or more ponies are added as an argument
-to \fI-q\fP the pony will be selected randomly from that set of ponies.
-.TP
-.B \-W, \-\-wrap \fIcolumn\fP
-The screen column where the message should be wrapped, the balloon's extra width is taken
-into consideration. If the argument is not a number, but starts instead with \fIn\fP,
-no wrapping is done, and if it starts with \fIi\fP the width of the terminal is used.
+.B \-B, \-\-bubblelist, \-\-ballonlist \fIstyle\fP
+Prints a list of all balloon styles.
 .TP
 .B \-A, \-\-all
 List all pony files, MLP-FiM and non-MLP-FiM, in this case the first list are MLP:FiM
 and the second are non-MLP-FiM.
 .TP
 .B \+A, \+\+all, \-\-symall, \-\-altall
-List all pony files, including alternatives names inside brackets, these from MLP:FiM and non-MLP:FiM
-the first list are the MLP:FiM and the second one are non-MLP:FiM.
+List all pony files, including alternatives names inside brackets, these from MLP:FiM
+and non-MLP:FiM the first list are the MLP:FiM and the second one are non-MLP:FiM.
 .TP
 .B \-o, \-\-pony\-only, \-\-ponyonly
 Just print the pony, nothing else like the speech balloon.
+.TP
+.B \-i, \-\-info
+By adding this flag you will get a metadata for a pony printed, rather than the pony itself.
+.TP
+.B \+i, \+\+info
+This works just like the \fI-i\fP option, except the pony will use the output has her message
+rather that just print that information.
+.TP
+.B \-r, \-\-restriction
+This option is used to restrict which ponies can be randomly select based one their metadata.
+A value in the argument is a combination of the tag name and tag value on the form \fINAME=VALUE\fP.
+.TP
+.B \-X, \-\-256\-colours, \-\-256colours, \-\-x\-colours
+Use \fIxterm\fP’s 256\-colour support (supported by most X11 terminals), despite your terminal’s
+actual compatibilies.
+.TP
+.B \-V, \-\-tty\-colours, \-\-ttycolours, \-\-vt\-colours
+Use Linux VT’s compatbilies \fPwithout\fP KMS utilisation, despite your terminal’s actual compatibilies.
+.TP
+.TP
+.B \-K, \-\-kms\-colours, \-\-kmscolours
+Use Linux VT’s compatbilies \fPwith\fP KMS utilisation, despite your terminal’s actual compatibilies
+(not work with all KMS video card).
 .TP
 .B \+c, \-\-colour [\fIansi-colour\fP]
 Colour the balloon, including link and message. For more colouring features, se the \fIinfo\fP
 manual. The argument, \fIansi-colour\fP, should be a ANSI colour sequence without leading CSI
 and without a tailing \fIm\fP, for example \fI1;31\fP will make it in red and bold (or bright
 depending on the terminal.)
+.TP
+.B \-\-colour\-bubble, \-\-colour\-ballon [\fIansi-colour\fP]
+Just like \fP\--colour\fI, but it only colours the balloon, without the message or link.
+.TP
+.B \-\-colour\-link [\fIansi-colour\fP]
+Just like \fI--colour\fP, but it only colours the balloon link.
+.TP
+.B \-\-colour\-msg, \-\-colour\-message [\fIansi-colour\fP]
+Just like \fP--colour'fI, but it only colours the message.
+.TP
+.B \-\-colour\-pony [\fIansi-colour\fP]
+Just like \fI--colour\fP, but it colours the pony.
+This colouring has no effect ony regular pony files, as it has its own colouring.
+.TP
+.B \-\-colour\-wrap, \-\-colour\-hyphen [\fIansi-colour\fP]
+Just like \fI--colour\fP, but it colours hyphen added by the word wrapping.
+if you want uncoloured use \fI0\fP, without \fI0\fP or \fI39\fP, the default \fi31\fP is
+presistent.
 .SH ENVIRONMENT
 .TP
 .B PONYSAY_BOTTOM
@@ -126,11 +196,31 @@ Export \fIPONYSAY_UCS_ME\fP with the value \fIyes\fP, \fIy\fP or \fI1\fP,
 if you want [simulated] symlink to pony files using Universal Character Set
 in their names.
 .TP
-.B PONYSAY_KMS_PALETTE
-.B PONYSAY_KMS_PALETTE_CMD
+.B PONYSAY_KMS_PALETTE, PONYSAY_KMS_PALETTE_CMD
 \fIPONYSAY_KMS_PALETTE\fP or \fIPONYSAY_KMS_PALETTE_CMD\fP is used to tell
 ponysay how your TTY palette looks, this feature lets you get the best images
 in TTY if you have Kernel Mode Setting (KMS) support.
+.TP
+.B PONYSAY_TYPO_LIMIT
+\fIponysay\fP is able to auto correct misspelled pony names and balloon style name.
+Without consideration for transpositioning, by default if the weighted distance is greater
+than 5 for the closest words, auto correction ignored.  This limit can be changed by exporting
+the limit to ‘PONYSAY_TYPO_LIMIT’; setting the limit to zero will disable auto correction.
+.TP
+.B PONYSAY_WRAP_HYPHEN
+You can export what ponysay should use instead of a hyphen when wrapping messages.
+The hythen is red by default, if you want to change the colour or other formating, should should
+do so using the option \fI--colour-hyphen\fP (\fI--colour-wrap\fP).
+.TP
+.BPONYSAY_WRAP_LIMIT
+Defines how long a word mush be to be hyphenated. 
+This is used for to wrap words that are long so the output gets as pretty as possible.
+This s not the only condition under which a word can be hyphenated, it can also be hyphenated
+if the word cannot fit otherwise
+.TP
+.B PONYSAY_WRAP_EXCEED
+Defines how much a word must exceed the wrapping point to be hyphenated.
+This setting is used togather with \fIPONYSAY_WRAP_LIMIT\fP.
 .SH BUG
 Bugs can be reported in <\fBhttps://github.com/erkin/ponysay/issues\fP>.
 .SH SEE ALSO
