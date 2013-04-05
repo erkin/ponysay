@@ -2,7 +2,7 @@
 .\" First parameter, NAME, should be all caps
 .\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
 .\" other parameters are allowed: see man(7), man(1)
-.TH PONYSAY 0 "July 12, 2012"
+.TH PONYSAY 0 "April 05, 2013"
 .\" Please adjust this date whenever revising the manpage.
 .\"
 .\" Some roff macros, for reference:
@@ -83,7 +83,7 @@ This option combines \fI--f\fP and \fI++f\fP.
 .TP
 .B \-\-q, \-\-quotes [\fIname\fP...]
 Variadic variant of \fI-q\fP, meaning that all arguments added after this one will
-parsed as an argument to this option.  Additionally, those options are added to \fI-q\fP.
+parsed as an argument to this option. Additionally, those options are added to \fI-q\fP.
 .TP
 .B \-b, \-\-bubble, \-\-ballon \fIstyle\fP
 Specify the balloon style that should used, this can either be a file name or a
@@ -160,15 +160,15 @@ Just like \fP\--colour\fI, but it only colours the balloon, without the message 
 Just like \fI--colour\fP, but it only colours the balloon link.
 .TP
 .B \-\-colour\-msg, \-\-colour\-message [\fIansi-colour\fP]
-Just like \fP--colour'fI, but it only colours the message.
+Just like \fP--colour\fI, but it only colours the message.
 .TP
 .B \-\-colour\-pony [\fIansi-colour\fP]
 Just like \fI--colour\fP, but it colours the pony.
-This colouring has no effect ony regular pony files, as it has its own colouring.
+This colouring has no effect on regular pony files, as it has its own colouring.
 .TP
 .B \-\-colour\-wrap, \-\-colour\-hyphen [\fIansi-colour\fP]
 Just like \fI--colour\fP, but it colours hyphen added by the word wrapping.
-if you want uncoloured use \fI0\fP, without \fI0\fP or \fI39\fP, the default \fi31\fP is
+if you want uncoloured use \fI0\fP, the default is \fi31\fP.
 presistent.
 .SH ENVIRONMENT
 .TP
@@ -204,19 +204,18 @@ in TTY if you have Kernel Mode Setting (KMS) support.
 .B PONYSAY_TYPO_LIMIT
 \fIponysay\fP is able to auto correct misspelled pony names and balloon style name.
 Without consideration for transpositioning, by default if the weighted distance is greater
-than 5 for the closest words, auto correction ignored.  This limit can be changed by exporting
+than 5 for the closest words, auto correction ignored.
+This limit can be changed by exporting
 the limit to ‘PONYSAY_TYPO_LIMIT’; setting the limit to zero will disable auto correction.
 .TP
 .B PONYSAY_WRAP_HYPHEN
 You can export what ponysay should use instead of a hyphen when wrapping messages.
-The hythen is red by default, if you want to change the colour or other formating, should should
-do so using the option \fI--colour-hyphen\fP (\fI--colour-wrap\fP).
 .TP
 .BPONYSAY_WRAP_LIMIT
 Defines how long a word mush be to be hyphenated. 
 This is used for to wrap words that are long so the output gets as pretty as possible.
 This s not the only condition under which a word can be hyphenated, it can also be hyphenated
-if the word cannot fit otherwise
+if the word cannot fit otherwise.
 .TP
 .B PONYSAY_WRAP_EXCEED
 Defines how much a word must exceed the wrapping point to be hyphenated.
