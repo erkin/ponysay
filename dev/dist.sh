@@ -80,6 +80,20 @@ pdf()
 
 tag()
 {
+    echo 'Testing executability'
+    ./src/__main__.py -l >/dev/null || exit 1
+    ./src/__main__.py -L >/dev/null || exit 1
+    ./src/__main__.py +l >/dev/null || exit 1
+    ./src/__main__.py +L >/dev/null || exit 1
+    ./src/__main__.py -A >/dev/null || exit 1
+    ./src/__main__.py +A >/dev/null || exit 1
+    ./src/__main__.py -B >/dev/null || exit 1
+    ./src/__main__.py -of pinkie >/dev/null || exit 1
+    ./src/__main__.py -o +f faust >/dev/null || exit 1
+    ./src/__main__.py -o -F faust >/dev/null || exit 1
+    echo test | ./src/__main__.py -f pinkie >/dev/null || exit 1
+    echo 'No error was thrown'
+    
     version=`./setup.py version`
     if [ "$version" = 'Ponysay '"$1"' installer' ]; then
 	git tag -a "$@" && git checkout "$1" && git push -u origin "$1"
@@ -91,6 +105,6 @@ tag()
 }
 
 
-[ "$1" = './dist.sh' ] && cd ..
+[ "$0" = './dist.sh' ] && cd ..
 "$@"
 
