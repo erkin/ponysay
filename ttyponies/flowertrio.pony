@@ -40,10 +40,10 @@ WIDTH: 122
 HEIGHT: 34
 
 $$$
-$balloon78$[00m
-                                                                           $\$                                              [00m
-                                                                            $\$                                             [00m
-                                                                             $\$                                            [00m
+$balloon58$[00m
+                                                       $\$                                                                  [00m
+                                                        $\$                                                                 [00m
+                                                         $\$                                                                [00m
                                                                      ]PDD75FD7[35;01m▄]P7AAAAAA[39m      ]PDD75FD7[35m▄▄▄]P5FF87D7[45m]PDFF87D7[35m█]PFFFAFFF[37m▄▄▄]P0000000[49m]PDFF87D7[35m▄]P7AAAAAA[39m                                      [00m
                                                    ]PBAFD75F[33;01m▄▄▄▄]P7AAAAAA[39m   ]PBAFD75F[33m▄▄]P7AAAAAA[39m       ]PDD75FD7[35m▄]P5D75FD7[45m]PDFF87FF[35m▄]P5FF87FF[45m█]P5D75FD7[45m▄]P0000000[49m]PDFF87D7[35m▄]P5FF87D7[45m]PFFFAFFF[37m▄▄]P0000000[49m]PDFF87D7[35m▄]P7AAAAAA[39m ]P5D75FD7[45m]PDD75FD7[35m█]P5FF87FF[45m]PDFF87FF[35m██]P5FF87D7[45m]PDFF87D7[35m█]P7FFAFFF[47m]PFFFAFFF[37m███]P5FF87D7[45m▄]P0000000[49m]PDFF87D7[35m▄]P7AAAAAA[39m                                     [00m
                                                  ]PBAFD75F[33;01m▄]P2AFD75F[42m]PFAFD787[37m▄]P7AFD787[47m████]P2AFD75F[42m▄]P0000000[49m]PBAFD75F[33m▄]P2AFD75F[42m]PFAFD787[37m▄]P7AFD787[47m██]P2AFD75F[42m]PBAFD75F[33m█]P0000000[49m]PDFF87D7[35m▄▄]P7AAAAAA[39m    ]P5D75FD7[45m]PDD75FD7[35m█]P5FF87FF[45m]PDFF87FF[35m██]P5FF87D7[45m]PDFF87D7[35m█]P7FFAFFF[47m]PFFFAFFF[37m████]P5FF87D7[45m]PDFF87D7[35m█]P0000000[49m]PDD75FD7[35m▀]P5FF87FF[45m▄]PDFF87FF[35m█]P5FF87D7[45m▄]P7FFAFFF[47m]PDFF87D7[35m▄]PFFFAFFF[37m███]P5FF87D7[45m]PDFF87D7[35m█]P0000000[49m]P7AAAAAA[39m                                     [00m

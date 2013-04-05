@@ -21,11 +21,11 @@ WIDTH: 44
 HEIGHT: 26
 
 $$$
-$balloon32$[00m
-                             $\$              [00m
-                              $\$             [00m
-                               $\$            [00m
-                               ]PF87AFD7[37;01m▄▄]P787AFD7[47m]PFEEEEEE[37m▄▄]P85F87AF[30m▄]P65F87AF[46m]PF87AFD7[37m▄]P85F87AF[30m█]P787AFD7[47m]PFEEEEEE[37m▄]PFAFD7D7[37m▄]P0000000[49m]PF87AFD7[37m▄▄]P7AAAAAA[39m  [00m
+$balloon26$[00m
+                       $\$                    [00m
+                        $\$                   [00m
+                         $\$                  [00m
+                          $\$    ]PF87AFD7[37;01m▄▄]P787AFD7[47m]PFEEEEEE[37m▄▄]P85F87AF[30m▄]P65F87AF[46m]PF87AFD7[37m▄]P85F87AF[30m█]P787AFD7[47m]PFEEEEEE[37m▄]PFAFD7D7[37m▄]P0000000[49m]PF87AFD7[37m▄▄]P7AAAAAA[39m  [00m
                          ]P85F87AF[30;01m▄▄▄]PF87AFD7[37m▄]P787AFD7[47m]PFAFD7D7[37m▄]PFEEEEEE[37m▄]P7EEEEEE[47m]PFAFD7D7[37m▄]P7AFD7D7[47m█]P85F87AF[30m▄]P65F87AF[46m]PF87AFD7[37m▄]P787AFD7[47m]P85F87AF[30m▄]P65F87AF[46m]PFAFD7D7[37m▄]P7EEEEEE[47m▄]PFEEEEEE[37m███]P7AFD7D7[47m▄]P787AFD7[47m]PF87AFD7[37m█]P0000000[49m]P7AAAAAA[39m [00m
                         ]P65F87AF[46m]P85F87AF[30;01m█]P787AFD7[47m]PF87AFD7[37m██]P65F87AF[46m]P85F87AF[30m█]P7AFD7D7[47m]PFAFD7D7[37m█]P7EEEEEE[47m]PFEEEEEE[37m█]P7AFD7D7[47m]P85F87AF[30m▄▄]P65F87AF[46m]PF87AFD7[37m▄]P787AFD7[47m]P85F87AF[30m▄▄]P65F87AF[46m]PFAFD7D7[37m▄]P7AFD7D7[47m███]P7EEEEEE[47m▄]PFEEEEEE[37m██]P787AFD7[47m]PFAFD7D7[37m▄]P0000000[49m]PF87AFD7[37m▄]P7AAAAAA[39m[00m
                        ]P65F87AF[46m]P85F87AF[30;01m█]P787AFD7[47m]PF87AFD7[37m█]P85F87AF[30m▄]PF87AFD7[37m█]P65F87AF[46m▄▄▄]P787AFD7[47m█████]P65F87AF[46m]P85F87AF[30m█]P7AFD7D7[47m]PFAFD7D7[37m████]P7EEEEEE[47m▄]PFEEEEEE[37m█]P7AFD7D7[47m]PFAFD7D7[37m█]P787AFD7[47m]PF87AFD7[37m█]P0000000[49m]P7AAAAAA[39m[00m

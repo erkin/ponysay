@@ -20,13 +20,13 @@ WIDTH: 43
 HEIGHT: 19
 
 $$$
-$balloon26$[00m
-                       $\$                   [00m
-                        $\$                  [00m
-                         $\$                 [00m
-                         ]PBFFFF87[33;01m▄▄]P2FFFF87[42m]PFFFFFAF[37m▄▄▄▄]P0000000[49m]PBFFFF87[33m▄▄]P7AAAAAA[39m          [00m
-                       ]PBFFFF87[33;01m▄]P2FFFF87[42m]PFFFFFAF[37m▄]P7FFFFAF[47m████████]P2FFFF87[42m▄]P0000000[49m]PBFFFF87[33m▄]P7AAAAAA[39m        [00m
-                ]P88787AF[30;01m▄▄]P78787AF[47m]PFD0D0D0[37m▄▄▄▄▄]P7FFFFAF[47m]P88787AF[30m▄▄]PBFFFF87[33m▄]P0000000[49m▀▀]P7FFFFAF[47m▄]PFFFFFAF[37m█████]P2FFFF87[42m▄]P0000000[49m]PBFFFF87[33m▄]P7AAAAAA[39m       [00m
+$balloon5$[00m
+  $\$                                        [00m
+   $\$                                       [00m
+    $\$                                      [00m
+     $\$                   ]PBFFFF87[33;01m▄▄]P2FFFF87[42m]PFFFFFAF[37m▄▄▄▄]P0000000[49m]PBFFFF87[33m▄▄]P7AAAAAA[39m          [00m
+      $\$                ]PBFFFF87[33;01m▄]P2FFFF87[42m]PFFFFFAF[37m▄]P7FFFFAF[47m████████]P2FFFF87[42m▄]P0000000[49m]PBFFFF87[33m▄]P7AAAAAA[39m        [00m
+       $\$        ]P88787AF[30;01m▄▄]P78787AF[47m]PFD0D0D0[37m▄▄▄▄▄]P7FFFFAF[47m]P88787AF[30m▄▄]PBFFFF87[33m▄]P0000000[49m▀▀]P7FFFFAF[47m▄]PFFFFFAF[37m█████]P2FFFF87[42m▄]P0000000[49m]PBFFFF87[33m▄]P7AAAAAA[39m       [00m
              ]P88787AF[30;01m▄]P78787AF[47m]PFD0D0D0[37m▄▄]P7D0D0D0[47m██]P88787AF[30m▄]P78787AF[47m]PFD0D0D0[37m▄]PFAFAFD7[37m▄]PFD0D0D0[37m▄]P7D0D0D0[47m]P88787AF[30m▄]PFD0D0D0[37m█]PFD7D7FF[37m▄]P78787AF[47m]PFD0D0D0[37m▄]P0000000[49m]P88787AF[30m▄]P7AAAAAA[39m ]P2FFFF87[42m]PBFFFF87[33m█]P7FFFFAF[47m]PFFFFFAF[37m██████]P2FFFF87[42m]PBFFFF87[33m█]P0000000[49m]P7AAAAAA[39m       [00m
   ]PBFFFF87[33;01m▄▄]P2FFFF87[42m]PFFFFFAF[37m▄▄▄▄▄▄]P0000000[49m]PBFFFF87[33m▄▄]P78787AF[47m]PFD0D0D0[37m▄]P7D0D0D0[47m██]P88787AF[30m▄▄]P78787AF[47m]PFD0D0D0[37m▄]P7D0D0D0[47m]PFAFAFD7[37m▄]P7AFAFD7[47m]PFD0D0D0[37m▄]P7D0D0D0[47m]PFAFAFD7[37m▄]P7AFAFD7[47m]PFD0D0D0[37m▄]P78787AF[47m]P88787AF[30m█]P7D0D0D0[47m]PFD0D0D0[37m█]PFD7D7FF[37m▄]P7D7D7FF[47m]PFD0D0D0[37m▄]P78787AF[47m]P88787AF[30m█]P0000000[49m]P7AAAAAA[39m ]P2FFFF87[42m]PBFFFF87[33m█]P7FFFFAF[47m]PFFFFFAF[37m█████]P2FFFF87[42m]PBFFFF87[33m██]P0000000[49m]P7AAAAAA[39m       [00m
 ]PBFFFF87[33;01m▄]P2FFFF87[42m]PFFFFFAF[37m▄]P7FFFFAF[47m]P88787AF[30m▄]PBFFFF87[33m▄]P2FFFF87[42m]PFFFFFAF[37m▄]P7FFFFAF[47m███████]P2FFFF87[42m▄▄]P78787AF[47m]P88787AF[30m█]P7D0D0D0[47m]PFD0D0D0[37m█]PFAFAFD7[37m▄]P78787AF[47m]PFD0D0D0[37m▄]P7D0D0D0[47m]P88787AF[30m▄]P7AFAFD7[47m]PFD0D0D0[37m▄]P7D0D0D0[47m]PFAFAFD7[37m▄]P7AFAFD7[47m]P88787AF[30m▄]P78787AF[47m]PFD0D0D0[37m▄]P7D0D0D0[47m██]PFD7D7FF[37m▄]P78787AF[47m]P88787AF[30m█]P0000000[49m]P7AAAAAA[39m ]P2FFFF87[42m]PBFFFF87[33m█]P7FFFFAF[47m]PFFFFFAF[37m█████]P2FFFF87[42m▄]PBFFFF87[33m█]P0000000[49m]P7AAAAAA[39m ]PBFFFF87[33m▄]P7AAAAAA[39m    ]PBFFFF87[33m▄]P7AAAAAA[39m[00m

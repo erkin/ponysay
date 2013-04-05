@@ -18,7 +18,6 @@ SOURCE: (Jay Wright/Monkey Jay) Desktop ponies
 WIDTH: 39
 HEIGHT: 25
 
-
 $$$
 $balloon7$[00m
     $\$                                  [00m

@@ -18,7 +18,6 @@ SOURCE: (Humle) Desktop ponies
 WIDTH: 45
 HEIGHT: 25
 
-
 $$$
 $balloon7$[00m
     $\$                                        [00m

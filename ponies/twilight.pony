@@ -19,7 +19,6 @@ SOURCE: (Jay Wright, Humle, Bot-chan, StarStep, Anonycat, InfinityDash, supersay
 WIDTH: 53
 HEIGHT: 24
 
-
 $$$
 $balloon10$[00m
      $\$                                               [00m

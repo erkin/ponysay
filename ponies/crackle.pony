@@ -21,9 +21,9 @@ License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0
 Full license text: https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 $$$
 $balloon25$[00m
-                      $\$                                                                        [00m
-                       $\$                                                                       [00m
-                        $\$                                                                      [00m
+                      $\$                                                                                                            [00m
+                       $\$                                                                                                           [00m
+                        $\$                                                                                                          [00m
                          $\$                                  [38;5;97m▄▄[48;5;97m█[49;39m                                                                    [00m
                           $\$                              [38;5;97m▄▄[48;5;97m███[49;39m                                                                     [00m
                            $\$                          [38;5;97m▄[48;5;97;38;5;141m▄▄[48;5;141;38;5;97m▄[48;5;97m███[49;39m                                                                      [00m

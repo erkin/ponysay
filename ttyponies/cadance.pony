@@ -20,10 +20,10 @@ WIDTH: 55
 HEIGHT: 32
 
 $$$
-$balloon$[00m
-                                       $\$               [00m
-                                        $\$              [00m
-                                         $\$             [00m
+$balloon33$[00m
+                              $\$                        [00m
+                               $\$                       [00m
+                                $\$                      [00m
                                   ]PD8700AF[35;01m▄▄▄]P7AAAAAA[39m     ]PFFFD7FF[37m▄]P7FFD7FF[47m]PFD787AF[37m▄]P0000000[49m]P7AAAAAA[39m           [00m
                                ]PD8700AF[35;01m▄]P58700AF[45m█]PFFFFFD7[37m▄]P7FFFFD7[47m]PDD70087[35m▄▄▄]P58700AF[45m]PFFFFFD7[37m▄▄▄▄]P7D787AF[47m]PFFFD7FF[37m▄]P7FFD7FF[47m]PFD787AF[37m▄]P0000000[49m▀]P7AAAAAA[39m           [00m
                               ]PD8700AF[35;01m▄]P58700AF[45m]PFFFFFD7[37m▄]P7FFFFD7[47m█]PFD787AF[37m▄]P7D787AF[47m]PFFFD7FF[37m▄]PFD787AF[37m█]P5D70087[45m]PDD70087[35m████]P7D787AF[47m]PFFFD7FF[37m▄]P7FFD7FF[47m]PFD787AF[37m▄]P7D787AF[47m]PFFFFFD7[37m▄]P58700AF[45m▄]P0000000[49m]PD8700AF[35m▄]P7AAAAAA[39m          [00m
