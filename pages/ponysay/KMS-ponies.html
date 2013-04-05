@@ -1,81 +1,133 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>KMS ponies - Ponysay</title>
+<title>Ponysay: KMS ponies</title>
+
+<meta name="description" content="Ponysay: KMS ponies">
+<meta name="keywords" content="Ponysay: KMS ponies">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Optional-features.html#Optional-features" title="Optional features">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Optional-features.html#Optional-features" rel="up" title="Optional features">
+<link href="Pony-metadata.html#Pony-metadata" rel="next" title="Pony metadata">
+<link href="Optional-features.html#Optional-features" rel="previous" title="Optional features">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="KMS-ponies"></a>
+<div class="header">
 <p>
-Up:&nbsp;<a rel="up" accesskey="u" href="Optional-features.html#Optional-features">Optional features</a>
-<hr>
+Up: <a href="Optional-features.html#Optional-features" accesskey="u" rel="up">Optional features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="KMS-ponies-1"></a>
 <h3 class="section">5.1 KMS ponies</h3>
+<a name="index-kmsponies-1"></a>
+<a name="index-TTY-4"></a>
+<a name="index-Linux-VT-5"></a>
+<a name="index-KMS-1"></a>
+<a name="index-kernel-mode-setting-1"></a>
+<a name="index-environment-variables-2"></a>
+<a name="index-PONYSAY_005fKMS_005fPALETTE-1"></a>
+<a name="index-PONYSAY_005fKMS_005fPALETTE_005fCMD-1"></a>
+<a name="index-_002ebashrc-3"></a>
+<a name="index-_007e_002f_002ebashrc-3"></a>
+<a name="index-cache"></a>
+<a name="index-_002fvar_002fcache_002fponysay"></a>
+<a name="index-_007e_002f_002ecache_002fponysay"></a>
 
-<p><a name="index-kmsponies-133"></a><a name="index-tty-134"></a><a name="index-linux-vt-135"></a><a name="index-kms-136"></a><a name="index-kernel-mode-setting-137"></a><a name="index-environment-variables-138"></a><a name="index-g_t_0040env_007bPONYSAY_005fKMS_005fPALETTE_007d-139"></a><a name="index-g_t_0040env_007bPONYSAY_005fKMS_005fPALETTE_005fCMD_007d-140"></a><a name="index-g_t_0040file_007b_002ebashrc_007d-141"></a><a name="index-g_t_0040file_007b_007e_002f_002ebashrc_007d-142"></a><a name="index-cache-143"></a><a name="index-g_t_0040file_007b_002fvar_002fcache_002fponysay_007d-144"></a><a name="index-g_t_0040file_007b_007e_002f_002ecache_002fponysay_007d-145"></a>
-KMS ponies is an optional feature that required that you have <samp><span class="command">util-say&gt;=2</span></samp>
-(<samp><span class="command">util-say&lt;2</span></samp> for <samp><span class="command">ponysay&lt;2.1</span></samp>) installed. It lets TTY users that
+<p>KMS ponies is an optional feature that required that you have <code>util-say&gt;=3</code>
+(<code>util-say&lt;2</code> for <code>ponysay&lt;2.1</code> and <code>util-say&lt;3</code> for
+<code>ponysay&lt;3</code>) installed. It lets TTY users that
 have a custom TTY colour palette and KMS support get best TTY images that can be
 display at the current state of the art. KMS is supported on most computers, but due
-to lack of published specifications Nvidia drivers does not support KMS. 
-<samp><span class="command">util-say</span></samp> can be downloaded at <a href="https://github.com/maandree/util-say">https://github.com/maandree/util-say</a>.
-
-   <p>To use this feature your <samp><span class="file">~/.bashrc</span></samp> (or equivalent for your shell) must keep
-track of your colour palette; it is not possible for a program to ask to terminal. 
-Either the shell should export a palette string to <samp><span class="env">$PONYSAY_KMS_PALETTE</span></samp> or you
+to lack of published specifications Nvidia drivers does not support KMS.
+<code>util-say</code> can be downloaded at <a href="https://github.com/maandree/util-say">https://github.com/maandree/util-say</a>.
+</p>
+<p>To use this feature your <samp>~/.bashrc</samp> (or equivalent for your shell) must keep
+track of your colour palette; it is not possible for a program to ask to terminal.
+Either the shell should export a palette string to <code>$PONYSAY_KMS_PALETTE</code> or you
 should export a command to can get the palette string to
-<samp><span class="env">$PONYSAY_KMS_PALETTE_CMD</span></samp>. The palette string should be the stream which sets
-the colour palette to the terminal when <samp><span class="command">echo</span></samp>:ed; preferably, to increase
+<code>$PONYSAY_KMS_PALETTE_CMD</code>. The palette string should be the stream which sets
+the colour palette to the terminal when <code>echo</code>:ed; preferably, to increase
 speed and reduce cache usage, it should be consistent every time it is exported for
 every colours palette. So you may want to keep it sorted, always be in either upper
 case or lower case, and not contain an character that is not used to set the colour
 palette.
+</p>
+<p>Assuming you have a function in your <samp>~/.bashrc</samp>, to reset the colour palette
+to what you set it to last time in the terminal, named <code>reset-palette</code>,
+your <samp>~/.bashrc</samp> should, for example, contain:
+</p><table class="cartouche" border="1"><tr><td>
+<div class="example">
+<pre class="example">[ &quot;$TERM&quot; = &quot;linux&quot; ] &amp;&amp;
+    function ponysay
+    {   export PONYSAY_KMS_PALETTE=&quot;$(reset-palette)&quot;
+        exec ponysay &quot;$@&quot;
+    }
+</pre></div>
+</td></tr></table>
 
-   <p>Assuming you have a function in your <samp><span class="file">~/.bashrc</span></samp>, to reset the colour palette
-to what you set it to last time in the terminal, named <samp><span class="command">reset-palette</span></samp>,
-your <samp><span class="file">~/.bashrc</span></samp> should, for example, contain:
-<p><table class="cartouche" summary="cartouche" border="1"><tr><td>
-<pre class="example">     [ "$TERM" = "linux" ] &amp;&amp;
-         function ponysay
-         {   export PONYSAY_KMS_PALETTE="$(reset-palette)"
-             exec ponysay "$@"
-         }
-</pre>
-   </td></tr></table>
-
-   <p>KMS ponies uses <samp><span class="file">/var/cache/ponysay/</span></samp> or, if missing, <samp><span class="file">~/.cache/ponysay/</span></samp>
+<p>KMS ponies uses <samp>/var/cache/ponysay/</samp> or, if missing, <samp>~/.cache/ponysay/</samp>
 for cache space.
+</p>
+<p>You may also want to read <a href="Fill-KMS-cache.html#Fill-KMS-cache">Fill KMS cache</a>.
+</p>
 
-   </body></html>
 
+<hr>
+<div class="header">
+<p>
+Up: <a href="Optional-features.html#Optional-features" accesskey="u" rel="up">Optional features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

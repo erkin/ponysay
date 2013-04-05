@@ -13,10 +13,10 @@ Texts. A copy of the license is included in the section entitled
 "GNU Free Documentation License". -->
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Ponysay: Ponification</title>
+<title>Ponysay: Narcissistic ponies</title>
 
-<meta name="description" content="Ponysay: Ponification">
-<meta name="keywords" content="Ponysay: Ponification">
+<meta name="description" content="Ponysay: Narcissistic ponies">
+<meta name="keywords" content="Ponysay: Narcissistic ponies">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -25,8 +25,8 @@ Texts. A copy of the license is included in the section entitled
 <link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Advanced-usage.html#Advanced-usage" rel="up" title="Advanced usage">
-<link href="Running-on-TTY.html#Running-on-TTY" rel="next" title="Running on TTY">
-<link href="Fortune-cookies.html#Fortune-cookies" rel="previous" title="Fortune cookies">
+<link href="Environment-variables.html#Environment-variables" rel="next" title="Environment variables">
+<link href="_007e_002f_002eponysayrc.html#g_t_007e_002f_002eponysayrc" rel="previous" title="~/.ponysayrc">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -60,28 +60,39 @@ ul.no-bullet {list-style: none}
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Ponification"></a>
+<a name="Narcissistic-ponies"></a>
 <div class="header">
 <p>
-Next: <a href="Running-on-TTY.html#Running-on-TTY" accesskey="n" rel="next">Running on TTY</a>, Previous: <a href="Fortune-cookies.html#Fortune-cookies" accesskey="p" rel="previous">Fortune cookies</a>, Up: <a href="Advanced-usage.html#Advanced-usage" accesskey="u" rel="up">Advanced usage</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="_007e_002f_002eponysayrc.html#g_t_007e_002f_002eponysayrc" accesskey="p" rel="previous">~/.ponysayrc</a>, Up: <a href="Advanced-usage.html#Advanced-usage" accesskey="u" rel="up">Advanced usage</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<a name="Ponification-1"></a>
-<h3 class="section">3.3 Ponification</h3>
-<a name="index-ponification"></a>
-<a name="index-text-ponification"></a>
-<a name="index-ponypipe"></a>
+<a name="Narcissistic-ponies-1"></a>
+<h3 class="section">3.7 Narcissistic ponies</h3>
+<a name="index-narcissistic-ponies"></a>
 
-<p>You can ponify messages (i.e. replaces words search as &lsquo;everyone&rsquo; with &lsquo;everypony&rsquo;) by
-using <code>fortune | ponypipe</code> instead of using <code>fortune</code>. <code>ponypipe</code>
-can be downloaded from <a href="https://github.com/maandree/ponypipe">https://github.com/maandree/ponypipe</a>.
-Alternatively you can use <code>pinkie</code> (or <code>pinkiepie</code>), which can be
-downloaded from <a href="https://github.com/maandree/pinkie-pie">https://github.com/maandree/pinkie-pie</a>, which is just
-<code>fortune | ponypipe</code>. There is also a large <code>sed</code> script, similar to
-<code>ponypipe</code>: <a href="http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/">http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/</a>
-However I think <code>ponypipe</code> as better at replacing words than the <code>sed</code>
-script, but I haven&rsquo;t used the script so I wouldn&rsquo;t know for sure.
+<p>The following will not work if you have line breaks in you file names, but if you do
+have that, you may want to rethink that as it will usually cause problems for programs,
+especially for shell scripts.
 </p>
+<p>The command <code>__pony=$(ponysay -o 3&gt;&amp;1 1&gt;/dev/null | grep ^pony\ file: |
+sed -e s/^pony\ file:\ //g) &amp;&amp; (ponysay -of &quot;$__pony&quot; | ponythink -Wn -f &quot;$__pony&quot;)</code>
+will give you a pony thinking of herself. The command works on GNU Bash, but may
+not work on less POSIX compatible shells. It works by first getting a random pony and
+use the extra information printed the file descriptor 3 (see <a href="Extra-information.html#Extra-information">Extra information</a>),
+and fetchs the file name with help of <code>grep</code> and <code>sed</code>. The file
+name is stored in a shell variable. It the pipes one an execute of ponysay into
+another executing, using the stored file anme in both executions. This does not
+work on FISH shell because os POSIX incompatibility.
+</p>
+<p>Ponysay can use just about anything as a message because it quarantines the message&rsquo;s
+ANSI escape sequences, including colour. And is Unicode aware (including combining
+characters) and ANSI escape sequence aware.
+</p>
+<p>Naturally this means that you can also make ponies think of eachother,
+for example: <code>ponysay -f rarity -b round 'My little Spiky-wiky' |
+ponythink -f spikefloat -b unicode -W n</code>
+</p>
+
 
 
 

@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Ponysay: Pony metadata</title>
+
+<meta name="description" content="Ponysay: Pony metadata">
+<meta name="keywords" content="Ponysay: Pony metadata">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="The-tool-chest.html#The-tool-chest" rel="next" title="The tool chest">
+<link href="KMS-ponies.html#KMS-ponies" rel="previous" title="KMS ponies">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="../../info.css"></head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Pony-metadata"></a>
+<div class="header">
+<p>
+Next: <a href="The-tool-chest.html#The-tool-chest" accesskey="n" rel="next">The tool chest</a>, Previous: <a href="Optional-features.html#Optional-features" accesskey="p" rel="previous">Optional features</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Pony-metadata-1"></a>
+<h2 class="chapter">6 Pony metadata</h2>
+<a name="index-pony-metadata"></a>
+<a name="index-metadata"></a>
+<a name="index-tags_002c-metadata"></a>
+<a name="index-comments_002c-metadata"></a>
+<a name="index-pony-tags_002c-metadata"></a>
+<a name="index-pony-comments_002c-metadata"></a>
+
+<p>Pony files can contain metadata tags and a multiline comment.
+The following are the standard tags (comma separated lists may
+have whitespace surrounding the comma [<code>,</code>]):
+</p>
+<dl compact="compact">
+<dt><var>GROUP NAME</var></dt>
+<dd><a name="index-GROUP-NAME"></a>
+<p>If a pony file contains multiple ponies, it <em>should</em> have a <var>GROUP NAME</var>
+tag. The tag is a comma seperated list of the recognised names of the ponies as a
+groups, if the list is empty the tag value must be <code>(none)</code>. An officiallity
+tag should be added to each name.
+</p>
+</dd>
+<dt><var>NAME</var></dt>
+<dd><a name="index-NAME"></a>
+<p>Every pony file should have this tag, one entry for each pony on the file.
+The value of the tag <em>must</em> be the pony&rsquo;s most common name as used on
+the TV show (or other source). If the pony&rsquo;s name have not been mentioned
+the value must be <code>(not mentioned)</code>.
+</p>
+</dd>
+<dt><var>OTHER NAMES</var></dt>
+<dd><a name="index-OTHER-NAMES"></a>
+<p>If a pony in the pony file has other names then the one in <var>NAME</var> it <em>should</em>
+have this take for this pony. Any pony in the file (in case of multiple ponies) that
+do not need this tag should use the value <code>(none)</code>.
+</p>
+<p>The tag is a comma seperated list of alternative (to <var>NAME</var> names for the pony,
+each name should have an officiallity tag.
+</p>
+</dd>
+<dt><var>APPEARANCE</var></dt>
+<dd><a name="index-APPEARANCE"></a>
+<p>This tag specifies in which episode the pony first appeared. It reasonable to specify
+it even for ponies that appears in every episode.
+</p>
+<p>For uniformity the format <code>S%sE%e %t[ %P]</code> is recommended; <code>[ ]</code> denotes
+and optional part, optional in the sence that it does not apply the every episode,
+but it <em>should</em> be used if applyable. <code>%s</code> is the series (season) number
+in two digits, <code>%e</code> is the episode number in two digits. <code>%t</code> is the
+episode title and should use the standardised title format for the used format
+however without surrounding quotes if the used language has that, in the unlike
+event that <code>[</code> or <code>]</code> is present in the title it should be backslashed
+(<code>\[</code>, <code>\]</code>). <code>%P</code> is the part in the format <code>[Part %p]</code>, where
+<code>[ ]</code> <i>does not</i> denote and optional part but rather is verbatim, and
+<code>%p</code> is the part number in one digit (well, if the part number is not 10 or higher).
+</p>
+<p>The standard way to format titles in American English is the same as in British English,
+however it is not fully standardised. Capitalisation of the first word, and all other words,
+except for articles, prepositions, conjunctions, and forms of &lsquo;to be&rsquo; is recommended.
+</p>
+<p>Be aware that MLP:FiM episodes use American spelling which include a rather uncommon
+why to write for examples abbrevations (like for example Mr. instread of Mr), this may
+however not be the case for non-MLP:FiM episodes. And if there are not series (season)
+the series number defaults to 1, however other numbers and tags (which the part number
+is) may be added if required.
+</p>
+</dd>
+<dt><var>KIND</var></dt>
+<dd><a name="index-KIND"></a>
+<p>This tag decribes what kind of pony a pony is, it is a comma seperated lower case list,
+and it cannot be empty, by it can be (but shouldn&rsquo;t) skipped for every pony in the image.
+</p>
+<p>Every fitting value should be used, however an alicorn (also known as alacorn, winged
+unicorn, acorn, pegasus unicorn, unipeg, unisus, horned pegasus, wing-horn, allacorn,
+cerapter pterippus, aquillacorn, pegasos aithiopikos alate unicorns,  or pegacorn)
+should have the values <code>alicorn</code> and<code>pony</code>, but neither <code>pegasus</code> nor
+<code>unicorn</code> or another of the possible therms mentioned. Earth ponies should have
+the value <code>pony</code> and <code>earth</code> (not <code>earth pony</code>.)
+</p>
+<p>The standard values are (you may use other ones if fitting): <code>unicorn</code>, <code>pegasus</code>,
+<code>alicorn</code>, <code>earth</code>, <code>pony</code>, <code>changeling</code>, <code>crystal</code>, <code>seapony</code>,
+<code>animal</code> (applies to Spike) and <code>item</code> (applies to Tom and Pinkamina&rsquo;s imaginare friends.)
+</p>
+</dd>
+<dt><var>GROUP</var></dt>
+<dd><a name="index-GROUP"></a>
+
+<p>This tag decribes which groups a pony classifies under, it is a comma seperated lower case
+list, and it cannot be empty, by it can be (but shouldn&rsquo;t) skipped for every pony in the
+image.
+</p>
+<p>The standard values are (you may use other ones if fitting): 
+</p><ul>
+<li> <code>mare</code>
+Adult female pony
+</li><li> <code>stallion</code>
+Adult male pony
+</li><li> <code>filly</code>
+Female pony child
+</li><li> <code>colt</code>
+Male pony child
+</li><li> <code>dragon</code>
+Dragon (Spike and the other dragons)
+</li><li> <code>mane</code>
+The mane characters (also known as main characters [unponified] or protagonists)
+</li><li> <code>wildlife</code>
+Wildlife, for example timberwolfs
+</li><li> <code>pet</code>
+A pony&rsquo;s pet, Spike does not count because Twilight does not play with him during
+pony–pet play dates.
+</li><li> <code>royal</code>
+Royal pony, either by birth, marriage, or conquer (i.e. the old school style).
+Shining Armour is royal by marriage, but is biological family does become royal by this.
+</li><li> <code>villain</code>
+Villains, normally minions to antagonists or recurring ponies. Applies to changelings.
+</li><li> <code>antagonist</code> (applies to: nightmare moon, gilda, discord, chrysalis)
+Antagonists are also known as archvillians or archenemies.
+Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one.
+</li><li> <code>deuteragonist</code> (applies to: the cutiemark cruisers)
+Deuteragonists are secondary characters, these are (as of series 2) only the Cutiemark
+Cruisers. The requirement is that thay are somewhat regular characters with dedicated
+episodes, but are not protagonists.
+</li><li> <code>tritagonist</code> (applies to: celestia, luna, cadance, shining armor, spike)
+Important characters (excluding Derpy Hooves) that are neither protagonists,
+deuteragonists nor antagonists.
+</li><li> <code>background</code>
+Background characters are not characters that are neither protagonists, deuteragonist,
+tritagonist, antagonist nor pets. They do not need to be strictly background characters,
+for example Big Mac and Cheerilee classifies under this group, as they are not too
+important to be considered tritagonists (as of series 2).
+</li><li> <code>voiced</code> (only used together with background)
+Only <code>background</code> characters can be <code>voiced</code>. The additional requirement is
+that they have said something (ponies comics can also be voiced).
+</li><li> <code>imaginary</code>
+Imaginary ponies (or other animal).
+</li></ul>
+
+</dd>
+<dt><var>BALLOON</var></dt>
+<dd><a name="index-BALLOON"></a>
+<p>For each balloon in the file (a pony file can have more than one balloon, but
+that is not common) their should one tag entry. There are four values that
+can be used: <code>top</code> (the common setup, the balloon is at the top of the image),
+<code>bottom</code> (the balloon is at the bottom of the image), <code>right</code> (the balloon
+is neither at the top or at the bottom of the image, but is placed to the right of
+the pony) and <code>inside</code> (the balloon is somewhere as inside the image.)
+</p>
+</dd>
+<dt><var>LINK ON</var></dt>
+<dd><a name="index-LINK-ON"></a>
+<p>Files with only one pony <em>should not</em> use this tag. Specifies to which pony
+the link is connected, it is a number, starting from 1.
+</p>
+<p>If a file contains Fluttershy and Pinkie (in that order, i.e. Pinkie is to the
+right of or below Fluttershy) and the link is connected to Pinkie, than the value
+should be 2.
+</p>
+<p>In the rare case that the file contains multiple links (and multi ponies), the
+metadata should contains multiple entries of this tag, one entry for each link
+sorted in the order of the linkes placement in the image, in the same way
+ponies are ordered. 
+</p>
+</dd>
+<dt><var>LINK</var></dt>
+<dd><a name="index-LINK"></a>
+<p>In the rare case that the file contains multiple links the metadata should contains
+multiple entries of this tag, one entry for each link sorted in the order of the
+linkes placement in the image, in the same way ponies are ordered. 
+</p>
+<p>The value for this tag must be either <code>regular</code> or <code>mirrored</code>. <code>regular</code>
+applies to linkes with NNE–SSW (<code>\</code>) direction. <code>mirrored</code> applies to linkes
+with NNW–SSE (<code>/</code>) direction, in version 2.9.1 only <samp>rainbowdrag</samp> uses this.
+</p>
+</dd>
+<dt><var>COAT</var></dt>
+<dd><a name="index-COAT"></a>
+<p>The name of the colour (as best estimated by you), in lowercase, that the pony&rsquo;s coat
+have. If the creature is (for example) a dragon, the colour of the scales is used.
+Common colour names are preferable. Only one colour should be named, but the name may
+describe a colour combination.
+</p>
+</dd>
+<dt><var>MANE</var></dt>
+<dd><a name="index-MANE"></a>
+<p>The name of the colour (as best estimated by you), in lowercase, that the pony&rsquo;s mane
+have. Common colour names are preferable. Only one colour should be named, but the name
+may describe a colour combination.
+</p>
+</dd>
+<dt><var>EYE</var></dt>
+<dd><a name="index-EYE"></a>
+<p>The name of the colour (as best estimated by you), in lowercase, that the pony&rsquo;s eyes
+have. Common colour names are preferable. Only one colour should be named, but the name
+may describe a colour combination. If the eyes are closed in the picture, use
+<code>close</code> in addition the the actual eye colour, separated by a comma.
+</p>
+</dd>
+<dt><var>AURA</var></dt>
+<dd><a name="index-AURA"></a>
+<p>The name of the colour (as best estimated by you), in lowercase, that the pony&rsquo;s magic
+aura have. Common colour names are preferable. Only one colour should be named, but the
+name may describe a colour combination.
+</p>
+<p>The magic aura is the colourisation around items that are affected by magic.
+</p>
+<p>If the pony file have multiple ponies, some with magicial abilities and some without,
+the ponies without magicial abilies should use the value <code>(no magic)</code>. If the pony
+has magicial abilies but without an aura, use the value <code>(invisible)</code>.
+</p>
+<p>Only humans [here we must call ourself humnas rather than ponies, otherwise the sentance
+does not make sense) can se the magic aura, describe the colour that we humans see, not
+ponies and other creatures in the TV Show [proof, see S01E11 Winter Wrap Up and S02E25-26
+A Canterlot Wedding].
+</p>
+</dd>
+<dt><var>DISPLAY</var></dt>
+<dd><a name="index-DISPLAY"></a>
+<p>This tag describes how a pony is places in the image. The standard values are: <code>full</code>
+(full body), <code>head</code> (just the head), <code>down</code> (upside down), <code>left</code> (pony is
+looking to our left), <code>right</code> (pony is looking to our right), <code>front</code> (pony is
+looking at us). <code>front</code> can be combined with <code>left</code> and <code>right</code>, but
+<code>left</code> and <code>right</code> nor <code>full</code> and <code>head</code> cannot be combined.
+</p>
+</dd>
+<dt><var>WIDTH</var></dt>
+<dd><a name="index-WIDTH"></a>
+<p>The width of the pony image measured in text columns.
+</p>
+</dd>
+<dt><var>HEIGHT</var></dt>
+<dd><a name="index-HEIGHT"></a>
+<p>The height of the pony image measured in text lines, this include the balloon
+(occupies one line) even if it the first line with nothing else on that line.
+</p>
+</dd>
+<dt><var>BALLOON TOP</var></dt>
+<dd><a name="index-BALLOON-TOP"></a>
+<p>The number of lines at the beginning of the pony image that should be skipped
+if the balloon is not printed.
+</p>
+</dd>
+<dt><var>BALLOON BOTTOM</var></dt>
+<dd><a name="index-BALLOON-BOTTOM"></a>
+<p>The number of lines at the end of the pony image that should be skipped if the
+balloon is not printed.
+</p>
+</dd>
+<dt><var>POSE</var></dt>
+<dd><a name="index-POSE"></a>
+<a name="index-master-file"></a>
+<a name="index-slave-file"></a>
+<a name="index-extras"></a>
+<p>One word (preferably) to distinguish the pony files from other pony files with the
+same <var>MASTER</var>. It is preferable that this is written in bare infinitive.
+Master files should try to specify this tag but are not required
+to, however, non-master files (slave files) are required to specify this tag.
+<b>This tag is important for the extras feature to function.</b>
+</p>
+</dd>
+<dt><var>BASED ON</var></dt>
+<dd><a name="index-BASED-ON"></a>
+<p>Either the name of a pony that the pony is based. If the original pony is not
+from MLP:FiM, the name a value that pony&rsquo;s MEDIA tag can used inside brackets,
+for example <code>(Tumblr)</code>, after the original pony&rsquo;s name. If the pony is not
+based on any pony the value <code>(original)</code> can be used. If the ponies is
+based on multiple ponies, make a comma separated list.
+</p>
+</dd>
+<dt><var>MASTER</var></dt>
+<dd><a name="index-MASTER"></a>
+<a name="index-ponyquotes"></a>
+<a name="index-quotes-2"></a>
+<p>This tag refers to the pony file that is not named with extra attributes. For example,
+all files where Shining Armor is the (sole) speaking pony the this tag should be
+<code>shiningarmor</code>,  except for in <samp>shiningarmor.pony</samp> where this tag may be omitted.
+<b>This tag is important for the ponyquotes feature to function.</b>
+</p>
+</dd>
+<dt><var>SOURCE</var></dt>
+<dd><a name="index-SOURCE"></a>
+<p>This tag specifies from where the pony image (not the file itself) originates.
+If the source is unknown the value should be <code>(unknown)</code>, if a GitHub user
+draw it the the value should be that user inside square brackets (in case of
+multiple artists, the tag is comma seperated list). Otherwise the source
+should be specified in any reasonable manner.
+</p>
+<p>In order the claim authorship (the GitHub user value) it image must have been
+written from scratch (using templates is okay) or must be a major edit of another
+image. Just converting (including fixing the colours) an image (for example from
+the Internet or a screenshot) with or without removing the background is not enough.
+</p>
+</dd>
+<dt><var>MEDIA</var></dt>
+<dd><a name="index-MEDIA"></a>
+<p>This tag <em>must not</em> be used for MLP:FiM ponies, but only for extraponies.
+It specifies the media from where the pony (not the image) originates.
+</p>
+</dd>
+<dt><var>LICENSE</var></dt>
+<dd><a name="index-LICENSE"></a>
+<p>Which licence applies to the image? Full name and version should be used.
+In case of multiple license there should be one entry for each license.
+Omit this tag is the license is not known.
+</p>
+<p>The are two special cases here where this is no license. In which case it
+either uses regular copyright, in which case use the value <code>(regular)</code>,
+or everyone is the copyright holder (for example Public Domain), in which
+case use the value <code>(public)</code>.
+</p>
+</dd>
+<dt><var>FREE</var></dt>
+<dd><a name="index-FREE"></a>
+<p>Is the image fully free? (For example Linux-libre is fully free, but not regular Linux.)
+The value <em>must</em> either be <code>yes</code> or <code>no</code>, or the tag must be omitted.
+</p>
+<p><b>This is the most important tag</b> as it helps us build a fully free version that can
+be officially distributed on GNU endorsed GNU/Linux distributions (GNU/Linux-libre).
+</p></dd>
+</dl>
+
+<p>Duplicate tags should be ordered in the order of the pony they describe from top-left
+to bottom-right in the image. It is important that if there are for example three ponies
+the image then all used tags that depends on the number of ponies in the image is used
+three times.
+</p>
+<a name="index-officiallity-tag"></a>
+<p>&lsquo;Officiallity tag&rsquo; refers the an annotation added to a tag value&rsquo;s list element.
+If the value is unofficial the string <code>(unofficial)</code> is appended (preferable with
+leading whitespace) to the element. If it is official the appended string is of the
+format <code>(official, %c)</code> (the brackets are verbatim), where <code>%c</code> is a
+comment. For example Chrysalis&rsquo; name has not been mentioned in the show, however it
+is used in the manuscript, therefore a pony file with Chrysalis should have the
+(partial) metadata:
+</p>
+<div class="example">
+<pre class="example">NAME: (not mentioned)
+OTHER NAMES: Chrysalis (official, in manuscript)
+</pre></div>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="The-tool-chest.html#The-tool-chest" accesskey="n" rel="next">The tool chest</a>, Previous: <a href="Optional-features.html#Optional-features" accesskey="p" rel="previous">Optional features</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

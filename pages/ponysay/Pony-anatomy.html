@@ -1,78 +1,120 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Pony anatomy - Ponysay</title>
+<title>Ponysay: Pony anatomy</title>
+
+<meta name="description" content="Ponysay: Pony anatomy">
+<meta name="keywords" content="Ponysay: Pony anatomy">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Inner-workings.html#Inner-workings" title="Inner workings">
-<link rel="next" href="Pony-quote-infrastructure.html#Pony-quote-infrastructure" title="Pony quote infrastructure">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Inner-workings.html#Inner-workings" rel="up" title="Inner workings">
+<link href="Pony-metadata-extension.html#Pony-metadata-extension" rel="next" title="Pony metadata extension">
+<link href="Inner-workings.html#Inner-workings" rel="previous" title="Inner workings">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="Pony-anatomy"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Pony-quote-infrastructure.html#Pony-quote-infrastructure">Pony quote infrastructure</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Inner-workings.html#Inner-workings">Inner workings</a>
-<hr>
+Next: <a href="Pony-metadata-extension.html#Pony-metadata-extension" accesskey="n" rel="next">Pony metadata extension</a>, Up: <a href="Inner-workings.html#Inner-workings" accesskey="u" rel="up">Inner workings</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
+<hr>
+<a name="Pony-anatomy-1"></a>
+<h3 class="section">12.1 Pony anatomy</h3>
+<a name="index-pony-anatomy"></a>
+<a name="index-anatomy-of-pony-files"></a>
 
-<h3 class="section">10.1 Pony anatomy</h3>
-
-<p><a name="index-pony-anatomy-382"></a><a name="index-anatomy-of-pony-files-383"></a>
-The pony files are simple raw output data that can be printed to the terminal,
+<p>The pony files are simple raw output data that can be printed to the terminal,
 except it contains scalar variables. The pony images consists of white space, lower
 half blocks [U+2584], upper half blocks [U+2580] and ANSI colour sequences (CSI m),
 and, in TTY, colour value change sequences (OSI P).
-
-   <p>Variables are recalled by putting the variable's name between two dollar signs
-(<code>$var$</code>), and are stored by putting the variable's name followed by the value
+</p>
+<p>Variables are recalled by putting the variable&rsquo;s name between two dollar signs
+(<code>$var$</code>), and are stored by putting the variable&rsquo;s name followed by the value
 between two dollar signs  and with a equality sign between the name and the value
 (<code>$var=value$</code>). Variable names cannot include equality signs, but the value
 can; dollar signs can be used by placing an ESC character before the dollar sign.
-
-   <p>There are three predefined variables: <code>$$</code> (empty variable name), <code>$\$</code>
+</p>
+<p>There are three predefined variables: <code>$$</code> (empty variable name), <code>$\$</code>
 and <code>$/$</code>. <code>$$</code> has a dollar sign (<code>$</code>) as its value, while <code>$\$</code>
 and <code>$/$</code> contains the characters for the link to the balloon directed in the
-same direction as the variable name's slash.
-
-   <p>Variables whose name begin with <code>balloon</code> are parsed as balloon inserts, it
+same direction as the variable name&rsquo;s slash.
+</p>
+<p>Variables whose name begin with <code>balloon</code> are parsed as balloon inserts, it
 can be either <code>balloon</code>, <code>balloonX</code>, <code>balloon,Y</code> or <code>balloonX,Y</code>,
 whether <code>X</code> is the minimum width of the balloon and <code>Y</code> is the minimum
-height of the balloon.
-
-   <p>Prior to version 2.1 the pony files were cow files used by <samp><span class="command">cowsay</span></samp>, they
+height of the balloon. New in Ponysay 3.0 is that the <code>X</code> can also be an range
+of columns, it contains of two numbers, the preferable start column, from the
+column that variables is placedon, the other number is the minimum width of the
+balloon. The two values are separated either by a <code>l</code>, a <code>r</code> or a <code>c</code>.
+If <code>l</code> is used the the balloon is printed as normal, except that it if wrapping
+is enabled and the balloon whould exceed the wrapping column, the balloon continues
+to fill on its left, at most as much as the position value. If <code>r</code> is used, the
+balloon fills the its left first and then to its right. If <code>c</code> is used the
+balloon will try the fill on its left and right side equally.
+</p>
+<p>Prior to version 2.1 the pony files were cow files used by <code>cowsay</code>, they
 are partial Perl-scripts that assign a value to a scalar variable named
-<var>$the_cow</var>. Cow files use a predefined scalar variable named <code>$thoughts</code>,
+<code>$the_cow</code>. Cow files use a predefined scalar variable named <code>$thoughts</code>,
 these are used to create a link between the message and the pony. The message (and
-the balloon) itself was printed by <samp><span class="command">cowsay</span></samp> and is not defined in the cow
+the balloon) itself was printed by <code>cowsay</code> and is not defined in the cow
 files.
+</p>
 
-   </body></html>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Pony-metadata-extension.html#Pony-metadata-extension" accesskey="n" rel="next">Pony metadata extension</a>, Up: <a href="Inner-workings.html#Inner-workings" accesskey="u" rel="up">Inner workings</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
 
+
+
+</body>
+</html>

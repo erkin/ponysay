@@ -1,199 +1,501 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Invoking ponysay - Ponysay</title>
+<title>Ponysay: Invoking ponysay</title>
+
+<meta name="description" content="Ponysay: Invoking ponysay">
+<meta name="keywords" content="Ponysay: Invoking ponysay">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="prev" href="Overview.html#Overview" title="Overview">
-<link rel="next" href="Advanced-usage.html#Advanced-usage" title="Advanced usage">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Advanced-usage.html#Advanced-usage" rel="next" title="Advanced usage">
+<link href="Overview.html#Overview" rel="previous" title="Overview">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="Invoking-ponysay"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Advanced-usage.html#Advanced-usage">Advanced usage</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Overview.html#Overview">Overview</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
-<hr>
+Next: <a href="Advanced-usage.html#Advanced-usage" accesskey="n" rel="next">Advanced usage</a>, Previous: <a href="Overview.html#Overview" accesskey="p" rel="previous">Overview</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
+<hr>
+<a name="Invoking-ponysay-1"></a>
+<h2 class="chapter">2 Invoking <code>ponysay</code></h2>
+<a name="index-invoking"></a>
+<a name="index-options"></a>
+<a name="index-arguments"></a>
+<a name="index-ponythink"></a>
 
-<h2 class="chapter">2 Invoking <samp><span class="command">ponysay</span></samp></h2>
+<p>The format for running the <code>ponysay</code> program is:
+</p>
+<div class="example">
+<pre class="example">ponysay [<var>option</var>...] [--] [<var>message</var>]
+ponythink [<var>option</var>...] [--] [<var>message</var>]
+</pre></div>
 
-<p><a name="index-invoking-2"></a><a name="index-options-3"></a><a name="index-arguments-4"></a><a name="index-g_t_0040command_007bponythink_007d-5"></a>
-The format for running the <samp><span class="command">ponysay</span></samp> program is:
-
-<pre class="example">     ponysay [<var>option</var>...] [--] [<var>message</var>]
-     ponythink [<var>option</var>...] [--] [<var>message</var>]
-</pre>
-   <p>Running <samp><span class="command">ponysay</span></samp> will print a speech balloon, <samp><span class="command">ponythink</span></samp> will
-print a thought balloon. Otherwise <samp><span class="command">ponysay</span></samp> and <samp><span class="command">ponythink</span></samp> is
+<p>Running <code>ponysay</code> will print a speech balloon, <code>ponythink</code> will
+print a thought balloon. Otherwise <code>ponysay</code> and <code>ponythink</code> is
 the same thing.
-
-   <p><samp><span class="command">ponysay</span></samp> supports the following options:
-
-     <dl>
-<dt><samp><span class="option">--</span></samp><dd><a name="index-g_t_0040option_007b_002d_002d_007d-6"></a>Parse the following arguments as parts of <var>message</var>.
-
-     <br><dt><samp><span class="option">-h</span></samp><dt><samp><span class="option">--help</span></samp><dd><a name="index-g_t_0040option_007b_002dh_007d-7"></a><a name="index-g_t_0040option_007b_002d_002dhelp_007d-8"></a>Show summary of options.
-
-     <br><dt><samp><span class="option">-v</span></samp><dt><samp><span class="option">--verion</span></samp><dd><a name="index-g_t_0040option_007b_002dv_007d-9"></a><a name="index-g_t_0040option_007b_002d_002dversion_007d-10"></a>Show version of program.
-
-     <br><dt><samp><span class="option">-f PONY</span></samp><dt><samp><span class="option">--file PONY</span></samp><dt><samp><span class="option">--pony PONY</span></samp><dd><a name="index-g_t_0040option_007b_002df_007d-11"></a><a name="index-g_t_0040option_007b_002d_002dfile_007d-12"></a><a name="index-g_t_0040option_007b_002d_002dpony_007d-13"></a>Specify the pony that should printed, this can either be a file name or a pony
-name printed by <samp><span class="command">ponysay -l</span></samp>. This option can be used multiple times to
+</p>
+<p><code>ponysay</code> supports the following options:
+</p>
+<dl compact="compact">
+<dt><samp>--</samp></dt>
+<dd><a name="index-_002d_002d"></a>
+<p>Parse the following arguments as parts of <code><var>message</var></code>.
+</p>
+</dd>
+<dt><samp>-h</samp></dt>
+<dt><samp>--help</samp></dt>
+<dd><a name="index-_002dh"></a>
+<a name="index-_002d_002dhelp"></a>
+<p>Show summary of options.
+</p>
+</dd>
+<dt><samp>-v</samp></dt>
+<dt><samp>--verion</samp></dt>
+<dd><a name="index-_002dv"></a>
+<a name="index-_002d_002dversion"></a>
+<p>Show version of program.
+</p>
+</dd>
+<dt><samp>-f PONY</samp></dt>
+<dt><samp>--file PONY</samp></dt>
+<dt><samp>--pony PONY</samp></dt>
+<dd><a name="index-_002df"></a>
+<a name="index-_002d_002dfile"></a>
+<a name="index-_002d_002dpony"></a>
+<p>Specify the pony that should printed, this can either be a file name or a pony
+name printed by <code>ponysay -l</code>. This option can be used multiple times to
 specify a set of ponies from which one will be selected randomly. If no pony is
 specified one will be selected randomly.
-
-     <p><a name="index-g_t_0040command_007butil_002dsay_007d-14"></a><a name="index-g_t_002epng-15"></a><a name="index-png-images-16"></a><a name="index-images_002c-png-17"></a><a name="index-portable-network-graphics-18"></a>If you have <samp><span class="command">util-say</span></samp> installed, you can use .png-files as the arguments
+</p>
+<a name="index-util_002dsay"></a>
+<a name="index-_002epng"></a>
+<a name="index-PNG-images"></a>
+<a name="index-images_002c-PNG"></a>
+<a name="index-Portable-Network-Graphics"></a>
+<p>If you have <code>util-say</code> installed, you can use .png-files as the arguments
 for this options.
-
-     <p>In versions earlier than version 2.0, the if the pony were a file name it had to
-include a `<code>/</code>'. This is not longer required and any existing pony name
+</p>
+<p>In versions earlier than version 2.0, the if the pony were a file name it had to
+include a &lsquo;<code>/</code>&rsquo;. This is not longer required and any existing pony name
 supersedes file names.
-
-     <br><dt><samp><span class="option">-F PONY</span></samp><dt><samp><span class="option">++file PONY</span></samp><dt><samp><span class="option">++pony PONY</span></samp><dd><a name="index-g_t_0040option_007b_002dF_007d-19"></a><a name="index-g_t_0040option_007b_002b_002bfile_007d-20"></a><a name="index-g_t_0040option_007b_002b_002bpony_007d-21"></a>Just as <samp><span class="option">-F</span></samp>, but it uses extra (non-MLP:FiM) ponies instead of standard
+</p>
+</dd>
+<dt><samp>+f PONY</samp></dt>
+<dt><samp>++file PONY</samp></dt>
+<dt><samp>++pony PONY</samp></dt>
+<dd><a name="index-_002bf"></a>
+<a name="index-_002b_002bfile"></a>
+<a name="index-_002b_002bpony"></a>
+<p>Just as <samp>+f</samp>, but it uses extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies
-
-     <br><dt><samp><span class="option">-q PONY</span></samp><dt><samp><span class="option">--quote PONY</span></samp><dd><a name="index-g_t_0040option_007b_002dq_007d-22"></a><a name="index-g_t_0040option_007b_002d_002dquote_007d-23"></a><a name="index-quotes-24"></a><a name="index-pony-quotes-25"></a>By using this option, a pony will be printed with quotes from her in My Little Pony:
+</p>
+</dd>
+<dt><samp>-F PONY</samp></dt>
+<dt><samp>--any-file PONY</samp></dt>
+<dt><samp>--anyfile PONY</samp></dt>
+<dt><samp>--any-pony PONY</samp></dt>
+<dt><samp>--anypony PONY</samp></dt>
+<dd><a name="index-_002dF"></a>
+<a name="index-_002d_002dany_002dfile"></a>
+<a name="index-_002d_002danyfile"></a>
+<a name="index-_002d_002dany_002dpony"></a>
+<a name="index-_002d_002danypony"></a>
+<p>This option combines <samp>-f</samp> and <samp>+f</samp>.
+</p>
+</dd>
+<dt><samp>-q PONY</samp></dt>
+<dt><samp>--quote PONY</samp></dt>
+<dd><a name="index-_002dq"></a>
+<a name="index-_002d_002dquote"></a>
+<a name="index-quotes"></a>
+<a name="index-pony-quotes"></a>
+<p>By using this option, a pony will be printed with quotes from her in My Little Pony:
 Friendship is Magic. The pony will be selected randomly, unless at least one pony
-is added as an argument to <samp><span class="option">-q</span></samp>. If one or more ponies are added as an argument
-to <samp><span class="option">-q</span></samp>, the pony will be selected randomly from that set of ponies. 
-This option requires the extension <samp><span class="command">ponyquotes4ponysay</span></samp>, which is included
+is added as an argument to <samp>-q</samp>. If one or more ponies are added as an argument
+to <samp>-q</samp>, the pony will be selected randomly from that set of ponies.
+This option requires the extension <code>ponyquotes4ponysay</code>, which is included
 by default since version 1.2.
-
-     <p>The argument can be a file name, but only if it ends with <samp><span class="file">.pony</span></samp>.
-
-     <br><dt><samp><span class="option">--f [PONY...]</span></samp><dt><samp><span class="option">--files [PONY...]</span></samp><dt><samp><span class="option">--ponies [PONY...]</span></samp><dd><a name="index-g_t_0040option_007b_002d_002df_007d-26"></a><a name="index-g_t_0040option_007b_002d_002dfiles_007d-27"></a><a name="index-g_t_0040option_007b_002d_002dponies_007d-28"></a>Variadic variant of <samp><span class="option">-f</span></samp>, meaning that all arguments added after this one
+</p>
+<p>The argument can be a file name, but only if it ends with <samp>.pony</samp>.
+</p>
+</dd>
+<dt><samp>--f [PONY...]</samp></dt>
+<dt><samp>--files [PONY...]</samp></dt>
+<dt><samp>--ponies [PONY...]</samp></dt>
+<dd><a name="index-_002d_002df"></a>
+<a name="index-_002d_002dfiles"></a>
+<a name="index-_002d_002dponies"></a>
+<p>Variadic variant of <samp>-f</samp>, meaning that all arguments added after this one
 will parsed as an argument to this option. Additionally, those options are added
-to <samp><span class="option">-f</span></samp>.
-
-     <br><dt><samp><span class="option">--F [PONY...]</span></samp><dt><samp><span class="option">++files [PONY...]</span></samp><dt><samp><span class="option">++ponies [PONY...]</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dF_007d-29"></a><a name="index-g_t_0040option_007b_002b_002bfiles_007d-30"></a><a name="index-g_t_0040option_007b_002b_002bponies_007d-31"></a>Variadic variant of <samp><span class="option">-F</span></samp>, meaning that all arguments added after this one
+to <samp>-f</samp>.
+</p>
+</dd>
+<dt><samp>++f [PONY...]</samp></dt>
+<dt><samp>++files [PONY...]</samp></dt>
+<dt><samp>++ponies [PONY...]</samp></dt>
+<dd><a name="index-_002b_002bf"></a>
+<a name="index-_002b_002bfiles"></a>
+<a name="index-_002b_002bponies"></a>
+<p>Variadic variant of <samp>+f</samp>, meaning that all arguments added after this one
 will parsed as an argument to this option. Additionally, those options are added
-to <samp><span class="option">-F</span></samp>.
-
-     <p>An important feature of this options, is that you can but it in the end of the
-command line, without any argument to get a random non-MLP:FiM pony.
-
-     <br><dt><samp><span class="option">--q [PONY...]</span></samp><dt><samp><span class="option">--quotes [PONY...]</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dq_007d-32"></a><a name="index-g_t_0040option_007b_002d_002dquotes_007d-33"></a><a name="index-quotes-34"></a><a name="index-pony-quotes-35"></a>Variadic variant of <samp><span class="option">-q</span></samp>, meaning that all arguments added after this one
+to <samp>+f</samp>.
+</p>
+<p>An important feature of this options, is that you can but it in the end of the
+command line, without any argument to get a random non-MLP:FiM pony. However,
+altough it is not nice, since version 3.0, <samp>+f</samp> can also be unargumented
+if at the end of the command line.
+</p>
+</dd>
+<dt><samp>--F [PONY...]</samp></dt>
+<dt><samp>--any-files [PONY...]</samp></dt>
+<dt><samp>--anyfiles [PONY...]</samp></dt>
+<dt><samp>--any-ponies [PONY...]</samp></dt>
+<dt><samp>--anyponies [PONY...]</samp></dt>
+<dd><a name="index-_002d_002dF"></a>
+<a name="index-_002d_002dany_002dfile-1"></a>
+<a name="index-_002d_002danyfile-1"></a>
+<a name="index-_002d_002dany_002dpony-1"></a>
+<a name="index-_002d_002danypony-1"></a>
+<p>This option combines <samp>--f</samp> and <samp>++f</samp>.
+</p>
+</dd>
+<dt><samp>--q [PONY...]</samp></dt>
+<dt><samp>--quotes [PONY...]</samp></dt>
+<dd><a name="index-_002d_002dq"></a>
+<a name="index-_002d_002dquotes"></a>
+<a name="index-quotes-1"></a>
+<a name="index-pony-quotes-1"></a>
+<p>Variadic variant of <samp>-q</samp>, meaning that all arguments added after this one
 will parsed as an argument to this option. Additionally, those options are added
-to <samp><span class="option">-q</span></samp>.
-
-     <p>An important feature of this options, is that you can but it in the end of the
+to <samp>-q</samp>.
+</p>
+<p>An important feature of this options, is that you can but it in the end of the
 command line, without any argument to get a quote from any pony with a quote.
-
-     <br><dt><samp><span class="option">-b STYLE</span></samp><dt><samp><span class="option">--bubble STYLE</span></samp><dt><samp><span class="option">--balloon STYLE</span></samp><dd><a name="index-g_t_0040option_007b_002db_007d-36"></a><a name="index-g_t_0040option_007b_002d_002dbubble_007d-37"></a><a name="index-g_t_0040option_007b_002d_002dballoon_007d-38"></a>Specify the balloon style that should used, this can either be a file name or a
-balloon name printed by <samp><span class="option">ponysay -B</span></samp>. This option can be used multiple
+However, altough it is not nice, since version 3.0, <samp>-q</samp> can also be
+unargumented if at the end of the command line.
+</p>
+</dd>
+<dt><samp>-b STYLE</samp></dt>
+<dt><samp>--bubble STYLE</samp></dt>
+<dt><samp>--balloon STYLE</samp></dt>
+<dd><a name="index-_002db"></a>
+<a name="index-_002d_002dbubble"></a>
+<a name="index-_002d_002dballoon"></a>
+<p>Specify the balloon style that should used, this can either be a file name or a
+balloon name printed by <samp>ponysay -B</samp>. This option can be used multiple
 times to specify a set of styles from which one will be selected randomly. If no
 balloon style is specified a fallback style will be used.
-
-     <br><dt><samp><span class="option">-W COLUMN</span></samp><dt><samp><span class="option">--wrap COLUMN</span></samp><dd><a name="index-g_t_0040option_007b_002dW_007d-39"></a><a name="index-g_t_0040option_007b_002d_002dwrap_007d-40"></a>Specify the screen column where the message should be wrapped, this is by default 40,
-as with <samp><span class="command">cowsay</span></samp>. The balloon's extra width is taken into consideration.
-
-     <p>If the argument is not a number, but starts instead with <code>n</code> (for ‘none’ or
+</p>
+</dd>
+<dt><samp>-W COLUMN</samp></dt>
+<dt><samp>--wrap COLUMN</samp></dt>
+<dd><a name="index-_002dW"></a>
+<a name="index-_002d_002dwrap"></a>
+<p>Specify the screen column where the message should be wrapped, this is by default 40,
+as with <code>cowsay</code>. The balloon&rsquo;s extra width is taken into consideration.
+</p>
+<p>If the argument is not a number, but starts instead with <code>n</code> (for ‘none’ or
 ‘no’), no wrapping is done, and if it starts with <code>i</code> (for ‘inherit’) the width
 of the terminal is used.
-
-     <p><code>n</code> and <code>i</code> is case insensitive, so you may use <code>N</code> and <code>I</code>
-instead. Additionally, typo correction is for QWERTY and Dvorak is built in to
-<samp><span class="command">ponysay</span></samp>; the nearest key, either to the left or to the right, depending
-on which hand is used to press the key, is also allowed.
-
-     <br><dt><samp><span class="option">-c</span></samp><dt><samp><span class="option">--compress</span></samp><dd><a name="index-g_t_0040option_007b_002dc_007d-41"></a><a name="index-g_t_0040option_007b_002d_002dcompress_007d-42"></a><a name="index-g_t_0040command_007bfiglet_007d-43"></a><a name="index-g_t_0040command_007bTOIlet_007d-44"></a>Compress the message in the same way <samp><span class="command">cowsay</span></samp> does, that is basically
+</p>
+<p><code>n</code> and <code>i</code> is case insensitive, so you may use <code>N</code> and <code>I</code>
+instead. Additionally, typo correction is for QWERTY (and QWERTZ) and Dvorak is
+built in to <code>ponysay</code>; the nearest key, either to the left or to the
+right, depending on which hand is used to press the key, is also allowed.
+</p>
+</dd>
+<dt><samp>-c</samp></dt>
+<dt><samp>--compress</samp></dt>
+<dt><samp>--compact</samp></dt>
+<dd><a name="index-_002dc"></a>
+<a name="index-_002d_002dcompress"></a>
+<a name="index-_002d_002dcompact"></a>
+<a name="index-figlet"></a>
+<a name="index-TOIlet"></a>
+<p>Compress the message in the same way <code>cowsay</code> does, that is basically
 without multiple spaces, and only paragraphs separations. Using this options
-will mean that you cannot display <samp><span class="command">figlet</span></samp> and <samp><span class="command">TOIlet</span></samp> style
+will mean that you cannot display <code>figlet</code> and <code>TOIlet</code> style
 messages.
-
-     <br><dt><samp><span class="option">-l</span></samp><dt><samp><span class="option">--list</span></samp><dd><a name="index-g_t_0040option_007b_002dl_007d-45"></a><a name="index-g_t_0040option_007b_002d_002dlist_007d-46"></a>Lists all installed ponies. The ponies which have quotes, i.e. can be used with
-the <samp><span class="option">-q</span></samp> option, will be marked by being printed in bold or bright (depending
+</p>
+</dd>
+<dt><samp>-l</samp></dt>
+<dt><samp>--list</samp></dt>
+<dd><a name="index-_002dl"></a>
+<a name="index-_002d_002dlist"></a>
+<p>Lists all installed ponies. The ponies which have quotes, i.e. can be used with
+the <samp>-q</samp> option, will be marked by being printed in bold or bright (depending
 on the terminal.)
-
-     <br><dt><samp><span class="option">-L</span></samp><dt><samp><span class="option">--altlist</span></samp><dt><samp><span class="option">--symlist</span></samp><dd><a name="index-g_t_0040option_007b_002dL_007d-47"></a><a name="index-g_t_0040option_007b_002d_002dsymlist_007d-48"></a><a name="index-g_t_0040option_007b_002d_002daltlist_007d-49"></a>Lists all installed ponies. The ponies which have quotes, i.e. can be used with
-the <samp><span class="option">-q</span></samp> option, will be marked by being printed in bold or bright (depending
-on the terminal.) This options differs from <samp><span class="option">-l</span></samp> by printing alternative
+</p>
+</dd>
+<dt><samp>-L</samp></dt>
+<dt><samp>--altlist</samp></dt>
+<dt><samp>--symlist</samp></dt>
+<dd><a name="index-_002dL"></a>
+<a name="index-_002d_002dsymlist"></a>
+<a name="index-_002d_002daltlist"></a>
+<p>Lists all installed ponies. The ponies which have quotes, i.e. can be used with
+the <samp>-q</samp> option, will be marked by being printed in bold or bright (depending
+on the terminal.) This options differs from <samp>-l</samp> by printing alternative
 names (symbolic links) inside brackets after their target ponies.
-
-     <br><dt><samp><span class="option">+l</span></samp><dt><samp><span class="option">++list</span></samp><dd><a name="index-g_t_0040option_007b_002bl_007d-50"></a><a name="index-g_t_0040option_007b_002b_002blist_007d-51"></a>Just as <samp><span class="option">-l</span></samp>, except it lists extra (non-MLP:FiM) ponies instead of standard
+</p>
+</dd>
+<dt><samp>+l</samp></dt>
+<dt><samp>++list</samp></dt>
+<dd><a name="index-_002bl"></a>
+<a name="index-_002b_002blist"></a>
+<p>Just as <samp>-l</samp>, except it lists extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies.
-
-     <br><dt><samp><span class="option">+L</span></samp><dt><samp><span class="option">++symlist</span></samp><dt><samp><span class="option">++altlist</span></samp><dd><a name="index-g_t_0040option_007b_002bL_007d-52"></a><a name="index-g_t_0040option_007b_002b_002bsymlist_007d-53"></a><a name="index-g_t_0040option_007b_002b_002baltlist_007d-54"></a>Just as <samp><span class="option">-L</span></samp>, except it lists extra (non-MLP:FiM) ponies instead of standard
+</p>
+</dd>
+<dt><samp>+L</samp></dt>
+<dt><samp>++symlist</samp></dt>
+<dt><samp>++altlist</samp></dt>
+<dd><a name="index-_002bL"></a>
+<a name="index-_002b_002bsymlist"></a>
+<a name="index-_002b_002baltlist"></a>
+<p>Just as <samp>-L</samp>, except it lists extra (non-MLP:FiM) ponies instead of standard
 (MLP:FiM) ponies.
-
-     <br><dt><samp><span class="option">-B</span></samp><dt><samp><span class="option">--balloonlist</span></samp><dd><a name="index-g_t_0040option_007b_002dB_007d-55"></a><a name="index-g_t_0040option_007b_002d_002dbubblelist_007d-56"></a><a name="index-g_t_0040option_007b_002d_002dballoonlist_007d-57"></a>Prints a list of all balloon styles.
-
-     <br><dt><samp><span class="option">-A</span></samp><dt><samp><span class="option">--all</span></samp><dd><a name="index-g_t_0040option_007b_002dA_007d-58"></a><a name="index-g_t_0040option_007b_002d_002dall_007d-59"></a>List all ponies, MLP:FiM and non-MLP:FiM, in this case the first list are MLP:FiM
+</p>
+</dd>
+<dt><samp>-B</samp></dt>
+<dt><samp>--bubblelist</samp></dt>
+<dt><samp>--balloonlist</samp></dt>
+<dd><a name="index-_002dB"></a>
+<a name="index-_002d_002dbubblelist"></a>
+<a name="index-_002d_002dballoonlist"></a>
+<p>Prints a list of all balloon styles.
+</p>
+</dd>
+<dt><samp>-A</samp></dt>
+<dt><samp>--all</samp></dt>
+<dd><a name="index-_002dA"></a>
+<a name="index-_002d_002dall"></a>
+<p>List all ponies, MLP:FiM and non-MLP:FiM, in this case the first list are MLP:FiM
 and the second are non-MLP:FiM.
-
-     <br><dt><samp><span class="option">+A</span></samp><dt><samp><span class="option">++all</span></samp><dt><samp><span class="option">--symall</span></samp><dt><samp><span class="option">--altall</span></samp><dd><a name="index-g_t_0040option_007b_002bA_007d-60"></a><a name="index-g_t_0040option_007b_002b_002ball_007d-61"></a><a name="index-g_t_0040option_007b_002d_002dsymall_007d-62"></a><a name="index-g_t_0040option_007b_002d_002daltall_007d-63"></a>List all ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM. 
+</p>
+</dd>
+<dt><samp>+A</samp></dt>
+<dt><samp>++all</samp></dt>
+<dt><samp>--symall</samp></dt>
+<dt><samp>--altall</samp></dt>
+<dd><a name="index-_002bA"></a>
+<a name="index-_002b_002ball"></a>
+<a name="index-_002d_002dsymall"></a>
+<a name="index-_002d_002daltall"></a>
+<p>List all ponies names, including alternatives, these from MLP:FiM and non-MLP:FiM.
 The first list are the MLP:FiM and the second one are non-MLP:FiM.
-
-     <br><dt><samp><span class="option">-o</span></samp><dt><samp><span class="option">--pony-only</span></samp><dt><samp><span class="option">--ponyonly</span></samp><dd><a name="index-g_t_0040option_007b_002do_007d-64"></a><a name="index-g_t_0040option_007b_002d_002dpony_002donly_007d-65"></a><a name="index-g_t_0040option_007b_002d_002dponyonly_007d-66"></a>Print just the pony, nothing else like the speech balloon. Naturally the
-<samp><span class="command">ponysay</span></samp> will not wait for a message from stdin.
-
-     <br><dt><samp><span class="option">-X</span></samp><dt><samp><span class="option">--256-colours</span></samp><dt><samp><span class="option">--256colours</span></samp><dt><samp><span class="option">--x-colours</span></samp><dd><a name="index-g_t_0040option_007b_002dX_007d-67"></a><a name="index-g_t_0040option_007b_002d_002d256_002dcolours_007d-68"></a><a name="index-g_t_0040option_007b_002d_002d256colours_007d-69"></a><a name="index-g_t_0040option_007b_002d_002dx_002dcolours_007d-70"></a>Use <samp><span class="command">xterm</span></samp>'s 256-colour support (supported by most X11 terminals), despite
-your terminal's actual compatibilies.
-
-     <br><dt><samp><span class="option">-V</span></samp><dt><samp><span class="option">--tty-colours</span></samp><dt><samp><span class="option">--ttycolours</span></samp><dt><samp><span class="option">--vt-colours</span></samp><dd><a name="index-g_t_0040option_007b_002dV_007d-71"></a><a name="index-g_t_0040option_007b_002d_002dtty_002dcolours_007d-72"></a><a name="index-g_t_0040option_007b_002d_002dttycolours_007d-73"></a><a name="index-g_t_0040option_007b_002d_002dvt_002dcolours_007d-74"></a>Use Linux VT's compatbilies without KMS utilisation, despite your terminal's actual
+</p>
+</dd>
+<dt><samp>-o</samp></dt>
+<dt><samp>--pony-only</samp></dt>
+<dt><samp>--ponyonly</samp></dt>
+<dd><a name="index-_002do"></a>
+<a name="index-_002d_002dpony_002donly"></a>
+<a name="index-_002d_002dponyonly"></a>
+<p>Print just the pony, nothing else like the speech balloon. Naturally the
+<code>ponysay</code> will not wait for a message from stdin.
+</p>
+</dd>
+<dt><samp>-i</samp></dt>
+<dt><samp>--info</samp></dt>
+<dd><a name="index-_002di"></a>
+<a name="index-_002d_002dinfo"></a>
+<p>By adding this flag you will get a metadata for a pony printed, rather than the pony
+itself. The output will beformated with bold tag names. The output will be wrapped
+according to the <samp>-W</samp> option.
+</p>
+</dd>
+<dt><samp>+i</samp></dt>
+<dt><samp>++info</samp></dt>
+<dd><a name="index-_002bi"></a>
+<a name="index-_002b_002binfo"></a>
+<p>This works just like the <samp>-i</samp> option, except the pony will use the output
+has her message rather that just print that information.
+</p>
+</dd>
+<dt><samp>-r RESTRICTION</samp></dt>
+<dt><samp>--restrict RESTRICTION</samp></dt>
+<dd><a name="index-_002dr"></a>
+<a name="index-_002d_002drestrict"></a>
+<p>This option is used to restrict which ponies can be randomly select based one their
+metadata. The restrict is given is disjunctive normal form, and can hence express any
+logical combination, however only for tags with one entry. For tags with multiple
+values all values are tested and of one of them passes a test passes.
+</p>
+<p>The argument for <samp>--restrict</samp> is a <code>+</code> separated list of values that all
+must be satisfied for a pony to be qualified for random selection. The option
+<samp>--restrict</samp> can be used multiply times, only one of them need to be satisfied
+for a pony to qualified for random selection.
+</p>
+<p>A value in the argument is a combination of the tag name and tag value on the form
+<code>NAME=VALUE</code>. Additionally if the tag names ends with a question mark (<code>?</code>)
+the tag is satsified if the tag is missing; if the value starts with a bang (<code>!</code>)
+the test is inverted. Using just a bang means that the test passes for and only for
+all ponies with the tag definied; using the question mark and a empty value means
+that the test passes for all ponies; finally, using the question mark and just a bang
+for the value means that the test passes for and only for all ponies without the tag
+definied.
+</p>
+<p>For most shells, if not all, trick to not need to use disjunctive normal form is to
+use <code>{ }</code>. For example if you use
+<samp>--restrict={eye={blue,green,cyan}+coat={black,grey},coat=white}</samp>
+(note that there is no whitespaces) means that only ponies with white coat will be
+randomly selected as will as ponies with black or grey coat provided that they
+have either blue, green or cyan eyes.
+</p>
+</dd>
+<dt><samp>-X</samp></dt>
+<dt><samp>--256-colours</samp></dt>
+<dt><samp>--256colours</samp></dt>
+<dt><samp>--x-colours</samp></dt>
+<dd><a name="index-_002dX"></a>
+<a name="index-_002d_002d256_002dcolours"></a>
+<a name="index-_002d_002d256colours"></a>
+<a name="index-_002d_002dx_002dcolours"></a>
+<p>Use <code>xterm</code>&rsquo;s 256-colour support (supported by most X11 terminals), despite
+your terminal&rsquo;s actual compatibilies. 
+</p>
+</dd>
+<dt><samp>-V</samp></dt>
+<dt><samp>--tty-colours</samp></dt>
+<dt><samp>--ttycolours</samp></dt>
+<dt><samp>--vt-colours</samp></dt>
+<dd><a name="index-_002dV"></a>
+<a name="index-_002d_002dtty_002dcolours"></a>
+<a name="index-_002d_002dttycolours"></a>
+<a name="index-_002d_002dvt_002dcolours"></a>
+<p>Use Linux VT&rsquo;s compatbilies without KMS utilisation, despite your terminal&rsquo;s actual
 compatibilies.
-
-     <br><dt><samp><span class="option">-K</span></samp><dt><samp><span class="option">--kms-colours</span></samp><dt><samp><span class="option">--kmscolours</span></samp><dd><a name="index-g_t_0040option_007b_002dK_007d-75"></a><a name="index-g_t_0040option_007b_002d_002dkms_002dcolours_007d-76"></a><a name="index-g_t_0040option_007b_002d_002dkmscolours_007d-77"></a>Use Linux VT's compatbilies with KMS utilisation, despite your terminal's actual
+</p>
+</dd>
+<dt><samp>-K</samp></dt>
+<dt><samp>--kms-colours</samp></dt>
+<dt><samp>--kmscolours</samp></dt>
+<dd><a name="index-_002dK"></a>
+<a name="index-_002d_002dkms_002dcolours"></a>
+<a name="index-_002d_002dkmscolours"></a>
+<p>Use Linux VT&rsquo;s compatbilies with KMS utilisation, despite your terminal&rsquo;s actual
 compatibilies.
-
-     <br><dt><samp><span class="option">+c</span></samp><dt><samp><span class="option">--colour ANSI-COLOUR</span></samp><dd><a name="index-g_t_0040option_007b_002bc_007d-78"></a><a name="index-g_t_0040option_007b_002d_002dcolour_007d-79"></a>Colour the balloon, including link and message (the parts that are not individually
+</p>
+</dd>
+<dt><samp>+c</samp></dt>
+<dt><samp>--colour ANSI-COLOUR</samp></dt>
+<dd><a name="index-_002bc"></a>
+<a name="index-_002d_002dcolour"></a>
+<p>Colour the balloon, including link and message (the parts that are not individually
 specified.) The argument, should be a ANSI colour sequence without leading CSI and
 without a tailing ‘m’, for example <code>1;31</code> will make it in red and bold (or bright
 depending on the terminal.)
-
-     <br><dt><samp><span class="option">--colour-bubble</span></samp><dt><samp><span class="option">--colour-balloon ANSI-COLOUR</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dcolour_002dbubble_007d-80"></a><a name="index-g_t_0040option_007b_002d_002dcolour_002dballoon_007d-81"></a>Just like <samp><span class="option">--colour</span></samp>, but it only colours the balloon, without the message
+</p>
+</dd>
+<dt><samp>--colour-bubble</samp></dt>
+<dt><samp>--colour-balloon ANSI-COLOUR</samp></dt>
+<dd><a name="index-_002d_002dcolour_002dbubble"></a>
+<a name="index-_002d_002dcolour_002dballoon"></a>
+<p>Just like <samp>--colour</samp>, but it only colours the balloon, without the message
 or link.
-
-     <br><dt><samp><span class="option">--colour-link ANSI-COLOUR</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dcolour_002dlink_007d-82"></a>Just like <samp><span class="option">--colour</span></samp>, but it only colours the balloon link.
-
-     <br><dt><samp><span class="option">--colour-msg</span></samp><dt><samp><span class="option">--colour-message ANSI-COLOUR</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dcolour_002dmsg_007d-83"></a><a name="index-g_t_0040option_007b_002d_002dcolour_002dmessage_007d-84"></a>Just like <samp><span class="option">--colour</span></samp>, but it only colours the message.
-
-     <br><dt><samp><span class="option">--colour-pony ANSI-COLOUR</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dcolour_002dpony_007d-85"></a>Just like <samp><span class="option">--colour</span></samp>, but it colours the pony. This colouring has no
+</p>
+</dd>
+<dt><samp>--colour-link ANSI-COLOUR</samp></dt>
+<dd><a name="index-_002d_002dcolour_002dlink"></a>
+<p>Just like <samp>--colour</samp>, but it only colours the balloon link.
+</p>
+</dd>
+<dt><samp>--colour-msg</samp></dt>
+<dt><samp>--colour-message ANSI-COLOUR</samp></dt>
+<dd><a name="index-_002d_002dcolour_002dmsg"></a>
+<a name="index-_002d_002dcolour_002dmessage"></a>
+<p>Just like <samp>--colour</samp>, but it only colours the message.
+</p>
+</dd>
+<dt><samp>--colour-pony ANSI-COLOUR</samp></dt>
+<dd><a name="index-_002d_002dcolour_002dpony"></a>
+<p>Just like <samp>--colour</samp>, but it colours the pony. This colouring has no
 effect ony regular pony files, as it has its own colouring.
-
-     <br><dt><samp><span class="option">--colour-wrap</span></samp><dt><samp><span class="option">--colour-hyphen ANSI-COLOUR</span></samp><dd><a name="index-g_t_0040option_007b_002d_002dcolour_002dwrap_007d-86"></a><a name="index-g_t_0040option_007b_002d_002dcolour_002dhyphen_007d-87"></a>Just like <samp><span class="option">--colour</span></samp>, but it colours hyphen added by the word wrapping. 
+</p>
+</dd>
+<dt><samp>--colour-wrap</samp></dt>
+<dt><samp>--colour-hyphen ANSI-COLOUR</samp></dt>
+<dd><a name="index-_002d_002dcolour_002dwrap"></a>
+<a name="index-_002d_002dcolour_002dhyphen"></a>
+<p>Just like <samp>--colour</samp>, but it colours hyphen added by the word wrapping.
 By default this is red (<code>31</code>), if you want uncoloured use <code>0</code>,
 without <code>0</code> or <code>39</code>, the default <code>31</code> is presistent.
+</p>
+</dd>
+</dl>
 
-   </dl>
-
-   <p><a name="index-g_t_0040var_007bmessage_007d-88"></a>If neither <samp><span class="option">-q</span></samp> is used nor any <var>message</var> is specified, <samp><span class="command">ponysay</span></samp>
+<a name="index-message"></a>
+<p>If neither <samp>-q</samp> is used nor any <var>message</var> is specified, <code>ponysay</code>
 will read the message from stdin (standard input); however, if no arguments are used
 and nothing is piped to stdin, a help message will be printed. If you want to use
-<samp><span class="command">ponysay</span></samp> without arguments and enter the message by hand, you can run
+<code>ponysay</code> without arguments and enter the message by hand, you can run
 <code>cat | ponysay</code>.
-
-   <p><a name="index-g_t_0040file_007bbest_002epony_007d-89"></a>If no pony is selected, <samp><span class="command">ponysay</span></samp> will look for a <samp><span class="file">best.pony</span></samp> file,
+</p>
+<a name="index-best_002epony"></a>
+<p>If no pony is selected, <code>ponysay</code> will look for a <samp>best.pony</samp> file,
 this file should be a symbolic link to the pony you want as a default. If it is not
-a symbolic link, <samp><span class="option">-q</span></samp> cannot determine which quotes to use.
+a symbolic link, <samp>-q</samp> cannot determine which quotes to use.
+</p>
 
-   </body></html>
 
+<hr>
+<div class="header">
+<p>
+Next: <a href="Advanced-usage.html#Advanced-usage" accesskey="n" rel="next">Advanced usage</a>, Previous: <a href="Overview.html#Overview" accesskey="p" rel="previous">Overview</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

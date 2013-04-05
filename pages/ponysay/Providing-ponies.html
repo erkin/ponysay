@@ -1,127 +1,180 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Providing ponies - Ponysay</title>
+<title>Ponysay: Providing ponies</title>
+
+<meta name="description" content="Ponysay: Providing ponies">
+<meta name="keywords" content="Ponysay: Providing ponies">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Contributing.html#Contributing" title="Contributing">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Contributing.html#Contributing" rel="up" title="Contributing">
+<link href="Distributing.html#Distributing" rel="next" title="Distributing">
+<link href="Contributing.html#Contributing" rel="previous" title="Contributing">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="Providing-ponies"></a>
+<div class="header">
 <p>
-Up:&nbsp;<a rel="up" accesskey="u" href="Contributing.html#Contributing">Contributing</a>
-<hr>
+Up: <a href="Contributing.html#Contributing" accesskey="u" rel="up">Contributing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
+<hr>
+<a name="Providing-ponies-1"></a>
+<h3 class="section">13.1 Providing ponies</h3>
+<a name="index-create-pony-file"></a>
 
-<h3 class="section">11.1 Providing ponies</h3>
-
-<p><a name="index-create-pony-file-411"></a>
-Most pony images are browser ponies or desktop ponies, browser ponies is a port of
+<p>Most pony images are browser ponies or desktop ponies, browser ponies is a port of
 desktop ponies, implementing it in JavaScript. Browser ponies are available at
 <a href="https://github.com/panzi/Browser-Ponies">https://github.com/panzi/Browser-Ponies</a>. Desktop ponies are available at
 <a href="http://desktop-pony-team.deviantart.com/">http://desktop-pony-team.deviantart.com/</a>.
-
-   <p>There is also a collection of ponies that are not yet pixelated in a Java
+</p>
+<p>There is also a collection of ponies that are not yet pixelated in a Java
 reimplementation of the early Ponysay:
 <a href="https://github.com/maandree/unisay/tree/develop/dev/newponies">https://github.com/maandree/unisay/tree/develop/dev/newponies</a>
-
-   <p>There is a checklist named <samp><span class="file">pony-checklist</span></samp> at the <samp><span class="file">dev/</span></samp> directory. You
-can use the check which ponies are added and which are not. Please update it when fit. 
+</p>
+<p>There is a checklist named <samp>pony-checklist</samp> at the <samp>dev/</samp> directory. You
+can use the check which ponies are added and which are not. Please update it when fit.
 <br>
-
-   <p>New ponies can be created from regular images by using util-say, which is available
-at <a href="https://github.com/maandree/util-say">https://github.com/maandree/util-say</a>. 
-Prior to version 2.1 of <samp><span class="command">ponysay</span></samp>, <samp><span class="command">img2xterm</span></samp> could be used, by since
-version 2.1 <samp><span class="command">ponysay</span></samp> is using a new format that only util-say supports. 
-<samp><span class="command">img2xterm</span></samp> (<a href="https://github.com/rossy2401/img2xterm">https://github.com/rossy2401/img2xterm</a>) was used in the
+</p>
+<p>New ponies can be created from regular images by using util-say, which is available
+at <a href="https://github.com/maandree/util-say">https://github.com/maandree/util-say</a>.
+Prior to version 2.1 of <code>ponysay</code>, <code>img2xterm</code> could be used, by since
+version 2.1 <code>ponysay</code> is using a new format that only util-say supports.
+<code>img2xterm</code> (<a href="https://github.com/rossy2401/img2xterm">https://github.com/rossy2401/img2xterm</a>) was used in the
 early stage, but util-say tries to optimise the images in some aspects: as good as
 possible for low capability terminals, tries to place the pony–balloon link, displayed
 as good as possible when marked in the terminal (somewhat compromised by the first
 aspect,) and same width on all rows.
+</p>
+<p>Using util-say:
+<a name="index-util_002dsay-2"></a>
+<a name="index-img2ponysay"></a>
+</p><table class="cartouche" border="1"><tr><td>
+<div class="example">
+<pre class="example"><code>img2ponysay -2 -- SOURCE_IMAGE &gt; PONY_FILE</code>
 
-   <p>Using util-say:
-<a name="index-util_002dsay-412"></a><a name="index-g_t_0040command_007bimg2ponysay_007d-413"></a><p><table class="cartouche" summary="cartouche" border="1"><tr><td>
-<pre class="example">     <code>img2ponysay -2 -- SOURCE_IMAGE &gt; PONY_FILE</code>
-     
-     <code>PONY_FILE</code> should end with <samp><span class="file">.pony</span></samp> and be localed in <samp><span class="file">ponies/</span></samp>,
-     or <samp><span class="file">extraponies/</span></samp> if the pony is not a MLP:FiM pony.
-     
-     Omit <samp><span class="option">-2</span></samp> if the source image does not use double pixel size.
-     
-     For more information see:
-     <a href="https://github.com/maandree/util-say/wiki/img2ponysay">https://github.com/maandree/util-say/wiki/img2ponysay</a>
-</pre>
-   </td></tr></table>
+<code>PONY_FILE</code> should end with <samp>.pony</samp> and be localed in <samp>ponies/</samp>,
+or <samp>extraponies/</samp> if the pony is not a MLP:FiM pony.
 
-   <p><br>
-<a name="index-util_002dsay-414"></a><a name="index-g_t_002epng-415"></a><a name="index-png-images-416"></a><a name="index-images_002c-png-417"></a><a name="index-portable-network-graphics-418"></a>If you have util-say installed, which is required to build ponies, you can use PNG
-files as argument the for <samp><span class="command">ponysay -f</span></samp>, this requires that the file is named
-<samp><span class="file">.png</span></samp> at the end.
+Omit <samp>-2</samp> if the source image does not use double pixel size.
 
-   <p><a name="index-palette-419"></a><a name="index-xterm-palette-420"></a><a name="index-pony-palette-421"></a><a name="index-colour-palette-422"></a>The following <samp><span class="command">bash</span></samp> code will print the palette the ponies (the terminals)
+For more information is available in util-say's info manual. <code>img2ponysay</code>
+is a legacy command that uses the default settings of <code>ponytool</code> for
+converting a image file to a pony file.
+</pre></div>
+</td></tr></table>
+
+<br>
+<a name="index-util_002dsay-3"></a>
+<a name="index-_002epng-2"></a>
+<a name="index-PNG-images-2"></a>
+<a name="index-images_002c-PNG-2"></a>
+<a name="index-Portable-Network-Graphics-2"></a>
+<p>If you have util-say installed, which is required to build ponies, you can use PNG
+files as argument the for <code>ponysay -f</code>, this requires that the file is named
+<samp>.png</samp> at the end.
+</p>
+<a name="index-palette"></a>
+<a name="index-xterm-palette"></a>
+<a name="index-pony-palette"></a>
+<a name="index-colour-palette"></a>
+<p>The following <code>bash</code> code will print the palette the ponies (the terminals)
 use:
-<p><table class="cartouche" summary="cartouche" border="1"><tr><td>
-<pre class="example">     c=16
-     while ((c &lt; 256)); do
-         echo -en "\e[48;5;${c}m  \e[49m"
-         c=$(( $c + 1 ))
-         if (( $(( c % 36 )) == 16 )); then
-             echo
-         fi
-     done; echo
-</pre>
-   </td></tr></table>
+</p><table class="cartouche" border="1"><tr><td>
+<div class="example">
+<pre class="example">c=16
+while ((c &lt; 256)); do
+    echo -en &quot;\e[48;5;${c}m  \e[49m&quot;
+    c=$(( $c + 1 ))
+    if (( $(( c % 36 )) == 16 )); then
+        echo
+    fi
+done; echo
+</pre></div>
+</td></tr></table>
 
-   <p><br>
-For the palette to be correct, which is especially important when you draw ponies, you
+<br>
+<p>For the palette to be correct, which is especially important when you draw ponies, you
 must not redefine the colours in the range 16 to 255 (inclusive).
-
-   <p><a name="index-ttypony-423"></a>When a pony is added please also add a ttypony version, i.e. the pony files used in
-TTY, but if you don't please state so in the pull request so we do not miss the
-create it; the simplest way to do this is to run <samp><span class="command">dev/dist.sh ttyponies</span></samp> after
-adding the ponies to <samp><span class="file">ponies/</span></samp>, running <samp><span class="command">dev/dist.sh ttyponies</span></samp> will build
-(or rebuild) all ttyponies with a pony present in <samp><span class="file">ponies/</span></samp>, and creates all
+</p>
+<a name="index-ttypony"></a>
+<p>When a pony is added please also add a ttypony version, i.e. the pony files used in
+TTY, but if you don&rsquo;t please state so in the pull request so we do not miss the
+create it; the simplest way to do this is to run <code>dev/dist.sh ttyponies</code> after
+adding the ponies to <samp>ponies/</samp>, running <code>dev/dist.sh ttyponies</code> will build
+(or rebuild) all ttyponies with a pony present in <samp>ponies/</samp>, and creates all
 needed symlinks.
-
-   <p>To be able to run <samp><span class="command">dev/dist.sh ttyponies</span></samp> you must have the packages listed under
+</p>
+<p>To be able to run <code>dev/dist.sh ttyponies</code> you must have the packages listed under
 <a href="Dependencies-for-pony-providers.html#Dependencies-for-pony-providers">Dependencies for pony providers</a>.
-
-   <p><a name="index-ponyquotes-424"></a><a name="index-quotes-425"></a>Also when adding new ponies, please map them up in the file <samp><span class="file">ponyquotes/ponies</span></samp>. 
+</p>
+<a name="index-ponyquotes-1"></a>
+<a name="index-quotes-3"></a>
+<p>Also when adding new ponies, please map them up in the file <samp>ponyquotes/ponies</samp>.
 If the pony is a new pony without any other alternative image just add it to a new
-line, without <samp><span class="file">.pony</span></samp>, preferably in its alphabetical position. If the file is
+line, without <samp>.pony</samp>, preferably in its alphabetical position. If the file is
 a symlink add it to the same line as the target pony, and if the pony has and
 alternative image add it the the same line as that pony. Ponies on the same line are
 separated with a plus sign (<code>+</code>) without any white space. When a line is too
-long for a file name (this has happened to Pinkie Pie [<samp><span class="file">pinkie</span></samp>],) it must be
+long for a file name (this has happened to Pinkie Pie [<samp>pinkie</samp>],) it must be
 split into multiple lines, these lines should have their first pony file in common.
+</p>
 
-   </body></html>
 
+<hr>
+<div class="header">
+<p>
+Up: <a href="Contributing.html#Contributing" accesskey="u" rel="up">Contributing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

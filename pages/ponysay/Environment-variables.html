@@ -1,92 +1,202 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Environment variables - Ponysay</title>
+<title>Ponysay: Environment variables</title>
+
+<meta name="description" content="Ponysay: Environment variables">
+<meta name="keywords" content="Ponysay: Environment variables">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="prev" href="Advanced-usage.html#Advanced-usage" title="Advanced usage">
-<link rel="next" href="Optional-features.html#Optional-features" title="Optional features">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Optional-features.html#Optional-features" rel="next" title="Optional features">
+<link href="Narcissistic-ponies.html#Narcissistic-ponies" rel="previous" title="Narcissistic ponies">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="Environment-variables"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Optional-features.html#Optional-features">Optional features</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Advanced-usage.html#Advanced-usage">Advanced usage</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
-<hr>
+Next: <a href="Optional-features.html#Optional-features" accesskey="n" rel="next">Optional features</a>, Previous: <a href="Advanced-usage.html#Advanced-usage" accesskey="p" rel="previous">Advanced usage</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Environment-variables-1"></a>
 <h2 class="chapter">4 Environment variables</h2>
+<a name="index-environment-variables-1"></a>
+<a name="index-truncation"></a>
 
-<p><a name="index-environment-variables-110"></a><a name="index-truncation-111"></a>
-<samp><span class="command">ponysay</span></samp> supports the follow environment variables:
-
-     <dl>
-<dt><samp><span class="env">PONYSAY_BOTTOM</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fBOTTOM_007d-112"></a><a name="index-tty-113"></a>Under TTY (Linux VT), if the output is larger the the screen's height, only
+<p><code>ponysay</code> supports the follow environment variables:
+</p>
+<dl compact="compact">
+<dt><code>PONYSAY_BOTTOM</code></dt>
+<dd><a name="index-PONYSAY_005fBOTTOM"></a>
+<a name="index-TTY-1"></a>
+<a name="index-Linux-VT"></a>
+<p>Under TTY (Linux VT), if the output is larger the the screen&rsquo;s height, only
 the beginning is printed, leaving two blank lines. If you want the bottom
-to be printed rather the the beginning you can export <samp><span class="env">PONYSAY_BOTTOM</span></samp>
+to be printed rather the the beginning you can export <code>PONYSAY_BOTTOM</code>
 with the value <code>yes</code>, <code>y</code> or <code>1</code>.
-
-     <br><dt><samp><span class="env">PONYSAY_SHELL_LINES</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fSHELL_005fLINES_007d-114"></a><a name="index-tty-115"></a>Under TTY (Linux VT), if the output is larger than the screen's height, two
+</p>
+</dd>
+<dt><code>PONYSAY_SHELL_LINES</code></dt>
+<dd><a name="index-PONYSAY_005fSHELL_005fLINES"></a>
+<a name="index-TTY-2"></a>
+<a name="index-Linux-VT-1"></a>
+<p>Under TTY (Linux VT), if the output is larger than the screen&rsquo;s height, two
 lines are left blank. If you want more, or less, blank lines you can export
-<samp><span class="env">PONYSAY_SHELL_LINES</span></samp> with the value of how many blank lines you want. 
+<code>PONYSAY_SHELL_LINES</code> with the value of how many blank lines you want.
 Naturally this takes effect eve n if the output is not actually larger than
 the screen.
-
-     <br><dt><samp><span class="env">PONYSAY_FULL_WIDTH</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fFULL_005fWIDTH_007d-116"></a>You can export <samp><span class="env">PONYSAY_FULL_WIDTH</span></samp> with the value <code>yes</code>, <code>y</code>
+</p> 
+</dd>
+<dt><code>PONYSAY_FULL_WIDTH</code></dt>
+<dd><a name="index-PONYSAY_005fFULL_005fWIDTH"></a>
+<p>You can export <code>PONYSAY_FULL_WIDTH</code> with the value <code>yes</code>, <code>y</code>
 or <code>1</code>, if you do not want the output to be truncated on the width to
 fit the terminal.
-
-     <br><dt><samp><span class="env">PONYSAY_TRUNCATE_HEIGHT</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fTRUNCATE_005fHEIGHT_007d-117"></a>Export <samp><span class="env">PONYSAY_TRUNCATE_HEIGHT</span></samp> with the value <code>yes</code>, <code>y</code>
+</p>
+</dd>
+<dt><code>PONYSAY_TRUNCATE_HEIGHT</code></dt>
+<dd><a name="index-PONYSAY_005fTRUNCATE_005fHEIGHT"></a>
+<p>Export <code>PONYSAY_TRUNCATE_HEIGHT</code> with the value <code>yes</code>, <code>y</code>
 or <code>1</code>, if you want to truncate the output on the height even if you
-are not running <samp><span class="command">ponysay</span></samp> under TTY.
-
-     <br><dt><samp><span class="env">PONYSAY_UCS_ME</span></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fUCS_005fME_007d-118"></a><a name="index-ucs-119"></a><a name="index-universal-character-set-120"></a><a name="index-unicode-121"></a><a name="index-ascii-122"></a>Export <samp><span class="env">PONYSAY_UCS_ME</span></samp> with the value <code>yes</code>, <code>y</code> or <code>1</code>,
+are not running <code>ponysay</code> under TTY.
+</p>
+</dd>
+<dt><code>PONYSAY_UCS_ME</code></dt>
+<dd><a name="index-PONYSAY_005fUCS_005fME"></a>
+<a name="index-UCS"></a>
+<a name="index-Universal-Character-Set"></a>
+<a name="index-Unicode"></a>
+<a name="index-ASCII"></a>
+<p>Export <code>PONYSAY_UCS_ME</code> with the value <code>yes</code>, <code>y</code> or <code>1</code>,
 if you want [simulated] symlink to pony files using Universal Character Set
 in their names. Otherwise pony files uses only ASCII. If you want to remove
-the ASCII:ised names export <samp><span class="env">PONYSAY_UCS_ME</span></samp> with the value <code>harder</code>,
+the ASCII:ised names export <code>PONYSAY_UCS_ME</code> with the value <code>harder</code>,
 <code>h</code> or <code>2</code> instead.
-
-     <p>If you have not enabled this, UCS names are not usable, suggested or listed. 
+</p>
+<p>If you have not enabled this, UCS names are not usable, suggested or listed.
 If you use <code>yes</code> UCS names will be usable, suggested and listed. If you
 use <code>harder</code> ASCII:ised names will not be suggested or listed, but they
 will still be usable.
+</p>
+</dd>
+<dt><code><code>PONYSAY_KMS_PALETTE</code></code></dt>
+<dt><code><code>PONYSAY_KMS_PALETTE_CMD</code></code></dt>
+<dd><a name="index-PONYSAY_005fKMS_005fPALETTE"></a>
+<a name="index-PONYSAY_005fKMS_005fPALETTE_005fCMD"></a>
+<a name="index-TTY-3"></a>
+<a name="index-Linux-VT-4"></a>
+<a name="index-kmsponies"></a>
+<a name="index-KMS"></a>
+<a name="index-kernel-mode-setting"></a>
 
-     <br><dt><samp><samp><span class="env">PONYSAY_KMS_PALETTE</span></samp></samp><dt><samp><samp><span class="env">PONYSAY_KMS_PALETTE_CMD</span></samp></samp><dd><a name="index-g_t_0040env_007bPONYSAY_005fKMS_005fPALETTE_007d-123"></a><a name="index-g_t_0040env_007bPONYSAY_005fKMS_005fPALETTE_005fCMD_007d-124"></a><a name="index-tty-125"></a><a name="index-linux-vt-126"></a><a name="index-kmsponies-127"></a><a name="index-kms-128"></a><a name="index-kernel-mode-setting-129"></a>
-<samp><span class="env">PONYSAY_KMS_PALETTE</span></samp> or <samp><span class="env">PONYSAY_KMS_PALETTE_CMD</span></samp> is used to tell
+<p><code>PONYSAY_KMS_PALETTE</code> or <code>PONYSAY_KMS_PALETTE_CMD</code> is used to tell
 ponysay how your TTY palette looks, this feature lets you get the best images
 in TTY if you have Kernel Mode Setting (KMS) support.
+</p>
+<p>See <a href="KMS-ponies.html#KMS-ponies">KMS ponies</a> for information on how to use this.
+</p>
+</dd>
+<dt><code><code>PONYSAY_TYPO_LIMIT</code></code></dt>
+<dd><a name="index-PONYSAY_005fTYPO_005fLIMIT"></a>
+<a name="index-auto-correction"></a>
+<a name="index-typo-correction"></a>
+<a name="index-spello-correction"></a>
 
-     <p>See <a href="KMS-ponies.html#KMS-ponies">KMS ponies</a> for information on how to use this. 
+<p>ponysay is able to auto correct misspelled pony names and balloon style name.
+Without consideration for transpositioning, the distance between two words are
+measured in the number of edits needed to get from one word to the other, with
+weighting on some character changes used to favour spellos over typos.
+</p>
+<p>By default if the weighted distance is greater than 5 for the closest words,
+auto correction ignored. This limit can be changed by exporting the limit to
+<code>PONYSAY_TYPO_LIMIT</code>; setting the limit to zero will disable auto correction.
+</p>
+</dd>
+<dt><code><code>PONYSAY_WRAP_HYPHEN</code></code></dt>
+<dd><a name="index-PONYSAY_005fWRAP_005fHYPHEN"></a>
+<a name="index-wrapping"></a>
+
+<p>You can export what ponysay should use instead of a hyphen when wrapping messages.
+The hythen is red by default, if you want to change the colour or other formating,
+should should do so using the option <samp>--colour-hyphen</samp> (<samp>--colour-wrap</samp>).
+</p>
+</dd>
+<dt><code><code>PONYSAY_WRAP_LIMIT</code></code></dt>
+<dd><a name="index-PONYSAY_005fWRAP_005fLIMIT"></a>
+<a name="index-wrapping-1"></a>
+
+<p>Defines how long a word mush be to be hyphenated. This is used for to wrap words that
+are long so the output gets as pretty as possible. This s not the only condition under
+which a word can be hyphenated, it can also be hyphenated if the word cannot fit
+otherwise. The default value is 8.
+</p>
+</dd>
+<dt><code><code>PONYSAY_WRAP_EXCEED</code></code></dt>
+<dd><a name="index-PONYSAY_005fWRAP_005fEXCEED"></a>
+<a name="index-wrapping-2"></a>
+
+<p>Defines how much a word must exceed the wrapping point to be hyphenated. This setting
+is used togather with <code>PONYSAY_WRAP_LIMIT</code>. The default value is 5.
+</p></dd>
 </dl>
 
-   </body></html>
 
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Optional-features.html#Optional-features" accesskey="n" rel="next">Optional features</a>, Previous: <a href="Advanced-usage.html#Advanced-usage" accesskey="p" rel="previous">Advanced usage</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -13,10 +13,10 @@ Texts. A copy of the license is included in the section entitled
 "GNU Free Documentation License". -->
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Ponysay: Cowsay</title>
+<title>Ponysay: Metadata collections</title>
 
-<meta name="description" content="Ponysay: Cowsay">
-<meta name="keywords" content="Ponysay: Cowsay">
+<meta name="description" content="Ponysay: Metadata collections">
+<meta name="keywords" content="Ponysay: Metadata collections">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -24,9 +24,9 @@ Texts. A copy of the license is included in the section entitled
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Limitations.html#Limitations" rel="up" title="Limitations">
-<link href="Problems-and-requests.html#Problems-and-requests" rel="next" title="Problems and requests">
-<link href="GNU-Hurd.html#GNU-Hurd" rel="previous" title="GNU Hurd">
+<link href="The-tool-chest.html#The-tool-chest" rel="up" title="The tool chest">
+<link href="Dimension-files.html#Dimension-files" rel="next" title="Dimension files">
+<link href="Editing-metadata.html#Editing-metadata" rel="previous" title="Editing metadata">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -60,36 +60,31 @@ ul.no-bullet {list-style: none}
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Cowsay"></a>
+<a name="Metadata-collections"></a>
 <div class="header">
 <p>
-Previous: <a href="GNU-Hurd.html#GNU-Hurd" accesskey="p" rel="previous">GNU Hurd</a>, Up: <a href="Limitations.html#Limitations" accesskey="u" rel="up">Limitations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Dimension-files.html#Dimension-files" accesskey="n" rel="next">Dimension files</a>, Previous: <a href="Editing-metadata.html#Editing-metadata" accesskey="p" rel="previous">Editing metadata</a>, Up: <a href="The-tool-chest.html#The-tool-chest" accesskey="u" rel="up">The tool chest</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<a name="Cowsay-1"></a>
-<h3 class="section">8.3 Cowsay</h3>
-<a name="index-cowsay"></a>
+<a name="Metadata-collections-1"></a>
+<h3 class="section">7.4 Metadata collections</h3>
+<a name="index-metadata-collection-files"></a>
+<a name="index-pony-metadata-collections"></a>
+<a name="index-_002d_002dmetadata"></a>
+<a name="index-_002d_002drestrict-1"></a>
+<a name="index-_002dr-1"></a>
 
-<p>This section describes the limitation of <code>cowsay</code>, but since version 2.1
-<code>cowsay</code> is no longer used because of it. So none of the following limitations
-are present anymore.
+<p>Pony metadata collection files are used by <code>ponysay</code> to by just reading
+one file per directory determine all pony files metadata and determine which
+ponies will pass the <samp>--restrict</samp> option when ponies are randomly selected.
 </p>
-<p>When <code>cowsay</code> determines the length of a word it measures in number of bytes
-(in UTF-8), therefore non-ASCII words will malformat the balloon with the message.
+<p>A metadata colletion file&rsquo;s content a list, of pony files with and their corresponding
+metadata as a map from tag name to tag value set, serialised with Python&rsquo;s cPickle module.
 </p>
-<p>Further, <code>cowsay</code> does not recognise ANSI escape sequences, therefore, using
-colours and text styling in messages will also malformat the balloon with the message.
+<p>Running <code>ponysay-tool --metadata PONY-DIR</code> will generate the file <samp>metadata</samp>
+with the serialised information. For use by the installer, the files to include can be
+explicity declared appending their basename to the command.
 </p>
-<p><code>cowsay</code> does not support balloon, including the link between the message and
-the pony, customisation, other than using <code>cowthink</code>. However you can modify
-<code>cowsay</code> (written Perl, so you can edit the installed files) to make the
-balloon look different, maybe using box drawing characters.
-</p>
-<p><code>cowsay</code> does not support setting the minimum size of the balloon, both
-directions on the balloon–pony links. or any other placement of the balloon than at
-the top to the left.
-</p>
-
 
 
 

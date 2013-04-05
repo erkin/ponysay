@@ -13,10 +13,10 @@ Texts. A copy of the license is included in the section entitled
 "GNU Free Documentation License". -->
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Ponysay: Running on TTY</title>
+<title>Ponysay: ~/.ponysayrc</title>
 
-<meta name="description" content="Ponysay: Running on TTY">
-<meta name="keywords" content="Ponysay: Running on TTY">
+<meta name="description" content="Ponysay: ~/.ponysayrc">
+<meta name="keywords" content="Ponysay: ~/.ponysayrc">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -25,8 +25,8 @@ Texts. A copy of the license is included in the section entitled
 <link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Advanced-usage.html#Advanced-usage" rel="up" title="Advanced usage">
-<link href="Running-on-screen.html#Running-on-screen" rel="next" title="Running on screen">
-<link href="Ponification.html#Ponification" rel="previous" title="Ponification">
+<link href="Narcissistic-ponies.html#Narcissistic-ponies" rel="next" title="Narcissistic ponies">
+<link href="Running-on-screen.html#Running-on-screen" rel="previous" title="Running on screen">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -60,32 +60,42 @@ ul.no-bullet {list-style: none}
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Running-on-TTY"></a>
+<a name="g_t_007e_002f_002eponysayrc"></a>
 <div class="header">
 <p>
-Next: <a href="Running-on-screen.html#Running-on-screen" accesskey="n" rel="next">Running on screen</a>, Previous: <a href="Ponification.html#Ponification" accesskey="p" rel="previous">Ponification</a>, Up: <a href="Advanced-usage.html#Advanced-usage" accesskey="u" rel="up">Advanced usage</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Narcissistic-ponies.html#Narcissistic-ponies" accesskey="n" rel="next">Narcissistic ponies</a>, Previous: <a href="Running-on-screen.html#Running-on-screen" accesskey="p" rel="previous">Running on screen</a>, Up: <a href="Advanced-usage.html#Advanced-usage" accesskey="u" rel="up">Advanced usage</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<a name="Running-on-TTY-1"></a>
-<h3 class="section">3.4 Running on TTY</h3>
-<a name="index-TTY"></a>
-<a name="index-Linux-VT-3"></a>
-<a name="index-_002ebashrc-1"></a>
-<a name="index-_007e_002f_002ebashrc-1"></a>
+<a name="g_t_007e_002f_002eponysayrc-1"></a>
+<h3 class="section">3.6 <samp>~/.ponysayrc</samp></h3>
+<a name="index-_007e_002f_002eponysayrc"></a>
+<a name="index-environment-variables"></a>
 
-<p>If you use TTY and have a custom colour palette, you should also add to your
-<samp>~/.bashrc</samp>, before <code>fortune | ponysay</code>:
+<p>If you have the file <samp>~/.ponysayrc</samp> (<samp>.ponysayrc</samp> in your home directory,
+the home directory can be spoofed by changing the system environment <code>HOME</code>,)
+the first thing <code>ponysay</code> does is running that file. This can be used for
+modifing environment variables (see <a href="Environment-variables.html#Environment-variables">Environment variables</a>). For your convience
+this can be done by modifing the map <code>env</code>. The code in <samp>~/.ponysayrc</samp> must
+be written in Python 3.
+</p>
+<p>For example if you want to set the <code>PONYSAY_SHELL_LINES</code> to 5, but only 1 if you
+are using Linux VT (TTY), your <samp>~/.ponysayrc</samp> may look like this:
 </p><table class="cartouche" border="1"><tr><td>
 <div class="example">
-<pre class="example">[ &quot;$TERM&quot; = &quot;linux&quot; ] &amp;&amp;
-    function ponysay
-    {   exec ponysay &quot;$@&quot;
-        #RESET PALETTE HERE
-    }
+<pre class="example">if env[TERM] == 'linux':
+    env[PONYSAY_SHELL_LINES] = 1
+else:
+    env[PONYSAY_SHELL_LINES] = 5
 </pre></div>
 </td></tr></table>
 
-<p>You should read more about this in <a href="KMS-ponies.html#KMS-ponies">KMS ponies</a>.
+<p>You can examine the source code of <code>ponysay</code> to figure out some nice hacking
+you may want to do, everything in the source code can be used directly as long as it
+is defined before <samp>~/.ponysayrc</samp> is interpreted.
+</p>
+<p><samp>~/.ponysayrc</samp> is a fallback for <samp>~/.config/ponysay/ponysayrc</samp>, which in
+turn is a fallback for <samp>${XDG_CONFIG_HOME}/ponysay/ponysayrc</samp>. If neither of
+those exist, <samp>/etc/ponysayrc</samp> is used if that exists.
 </p>
 
 

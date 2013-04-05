@@ -1,63 +1,100 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Inner workings - Ponysay</title>
+<title>Ponysay: Inner workings</title>
+
+<meta name="description" content="Ponysay: Inner workings">
+<meta name="keywords" content="Ponysay: Inner workings">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="prev" href="Installing.html#Installing" title="Installing">
-<link rel="next" href="Contributing.html#Contributing" title="Contributing">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Pony-anatomy.html#Pony-anatomy" rel="next" title="Pony anatomy">
+<link href="Uninstalling.html#Uninstalling" rel="previous" title="Uninstalling">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="Inner-workings"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Contributing.html#Contributing">Contributing</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Installing.html#Installing">Installing</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
-<hr>
+Next: <a href="Contributing.html#Contributing" accesskey="n" rel="next">Contributing</a>, Previous: <a href="Installing.html#Installing" accesskey="p" rel="previous">Installing</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
+<hr>
+<a name="Inner-workings-1"></a>
+<h2 class="chapter">12 Inner workings</h2>
+<a name="index-inner-workings"></a>
+<a name="index-hacking"></a>
 
-<h2 class="chapter">10 Inner workings</h2>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Pony-anatomy.html#Pony-anatomy" accesskey="1">Pony anatomy</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Anatomy of pony files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Pony-metadata-extension.html#Pony-metadata-extension" accesskey="2">Pony metadata extension</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Metadata in pony files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Pony-quote-infrastructure.html#Pony-quote-infrastructure" accesskey="3">Pony quote infrastructure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Pony quote infrastructure.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Balloon-style-files.html#Balloon-style-files" accesskey="4">Balloon style files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Balloon style files.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Printing-in-TTY-with-KMS.html#Printing-in-TTY-with-KMS" accesskey="5">Printing in TTY with KMS</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Printing in TTY with KMS support.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Truncation.html#Truncation" accesskey="6">Truncation</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Output truncation.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Languages.html#Languages" accesskey="7">Languages</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Selection of programming languages.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Shell-auto_002dcompletion.html#Shell-auto_002dcompletion" accesskey="8">Shell auto-completion</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Things that make auto-completion simpler.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Universal-Character-Set.html#Universal-Character-Set" accesskey="9">Universal Character Set</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Something about Universal Character Set support.
+</td></tr>
+</table>
 
-<p><a name="index-inner-workings-380"></a><a name="index-hacking-381"></a>
 
-<ul class="menu">
-<li><a accesskey="1" href="Pony-anatomy.html#Pony-anatomy">Pony anatomy</a>:                  Anatomy of pony files. 
-<li><a accesskey="2" href="Pony-quote-infrastructure.html#Pony-quote-infrastructure">Pony quote infrastructure</a>:     Pony quote infrastructure. 
-<li><a accesskey="3" href="Balloon-style-files.html#Balloon-style-files">Balloon style files</a>:           Balloon style files. 
-<li><a accesskey="4" href="Printing-in-TTY-with-KMS.html#Printing-in-TTY-with-KMS">Printing in TTY with KMS</a>:      Printing in TTY with KMS support. 
-<li><a accesskey="5" href="Truncation.html#Truncation">Truncation</a>:                    Output truncation. 
-<li><a accesskey="6" href="Languages.html#Languages">Languages</a>:                     Selection of programming languages. 
-<li><a accesskey="7" href="Shell-auto_002dcompletion.html#Shell-auto_002dcompletion">Shell auto-completion</a>:         Things that make auto-completion simpler. 
-<li><a accesskey="8" href="Universal-Character-Set.html#Universal-Character-Set">Universal Character Set</a>:       Something about Universal Character Set support. 
-</ul>
 
-   </body></html>
 
+
+</body>
+</html>

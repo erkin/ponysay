@@ -1,96 +1,169 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Balloon style files - Ponysay</title>
+<title>Ponysay: Balloon style files</title>
+
+<meta name="description" content="Ponysay: Balloon style files">
+<meta name="keywords" content="Ponysay: Balloon style files">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Inner-workings.html#Inner-workings" title="Inner workings">
-<link rel="prev" href="Pony-quote-infrastructure.html#Pony-quote-infrastructure" title="Pony quote infrastructure">
-<link rel="next" href="Printing-in-TTY-with-KMS.html#Printing-in-TTY-with-KMS" title="Printing in TTY with KMS">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Inner-workings.html#Inner-workings" rel="up" title="Inner workings">
+<link href="Printing-in-TTY-with-KMS.html#Printing-in-TTY-with-KMS" rel="next" title="Printing in TTY with KMS">
+<link href="Pony-quote-infrastructure.html#Pony-quote-infrastructure" rel="previous" title="Pony quote infrastructure">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="Balloon-style-files"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Printing-in-TTY-with-KMS.html#Printing-in-TTY-with-KMS">Printing in TTY with KMS</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Pony-quote-infrastructure.html#Pony-quote-infrastructure">Pony quote infrastructure</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Inner-workings.html#Inner-workings">Inner workings</a>
-<hr>
+Next: <a href="Printing-in-TTY-with-KMS.html#Printing-in-TTY-with-KMS" accesskey="n" rel="next">Printing in TTY with KMS</a>, Previous: <a href="Pony-quote-infrastructure.html#Pony-quote-infrastructure" accesskey="p" rel="previous">Pony quote infrastructure</a>, Up: <a href="Inner-workings.html#Inner-workings" accesskey="u" rel="up">Inner workings</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
+<hr>
+<a name="Balloon-style-files-1"></a>
+<h3 class="section">12.4 Balloon style files</h3>
+<a name="index-balloon-style-files"></a>
+<a name="index-bubble-style-files"></a>
+<a name="index-ponythink-1"></a>
 
-<h3 class="section">10.3 Balloon style files</h3>
-
-<p><a name="index-balloon-style-files-386"></a><a name="index-bubble-style-files-387"></a><a name="index-ponythink-388"></a>
-Balloon style files are located in the directory <samp><span class="file">balloons/</span></samp>, the ones ending
-with <samp><span class="file">.say</span></samp> applies to <samp><span class="command">ponysay</span></samp> and the ones ending with <samp><span class="file">.think</span></samp>
-applies to <samp><span class="command">ponythink</span></samp>.
-
-   <p>Balloon style consists of 20 strings. Each string is defined on separate lines, by
+<p>Balloon style files are located in the directory <samp>balloons/</samp>, the ones ending
+with <samp>.say</samp> applies to <code>ponysay</code> and the ones ending with <samp>.think</samp>
+applies to <code>ponythink</code>.
+</p>
+<p>Balloon style consists of 20 strings. Each string is defined on separate lines, by
 their name and their value separated with a colon (<code>name:value</code>), if the name is
 empty it continues the last one on a new line in the value. Only 10 of the strings
 may be multi-lined: <var>nw</var>, <var>nnw</var>, <var>n</var>, <var>nne</var>, <var>ne</var>, <var>sw</var>,
 <var>ssw</var>, <var>s</var>, <var>sse</var> and <var>se</var>.
-
-   <p>The following strings are used, and must be defined in the files:
-     <dl>
-<dt><var>\</var><dd>The character for the link to the balloon directed as <code>\</code>. 
-<br><dt><var>/</var><dd>The character for the link to the balloon directed as <code>/</code>. 
-<br><dt><var>ww</var><dd>The beginning of the balloon's line where the message is located if and only if the
-message contains only one line. 
-<br><dt><var>ee</var><dd>The end of the balloon's line where the message is located if and only if the message
-contains only one line. 
-<br><dt><var>nw</var><dd>The top left corner of the balloon. 
-<br><dt><var>nnw</var><dd>If both this string and the <var>nne</var> string fits between the top corners, this is
-printed directly to the right of the top left corner. 
-<br><dt><var>n</var><dd>The top edge of the balloon. 
-<br><dt><var>nne</var><dd>If both this string and the <var>nnw</var> string fits between the top corners, this is
-printed directly to the right of the top left corner. 
-<br><dt><var>ne</var><dd>The top right corner of the balloon. 
-<br><dt><var>nee</var><dd>The end of the balloon's line where the message's first line is located if and only
-if the message contains more than one line. 
-<br><dt><var>e</var><dd>The right edge of the balloon. 
-<br><dt><var>see</var><dd>The end of the balloon's line where the message's last line is located if and only
-if the message contains more than one line. 
-<br><dt><var>se</var><dd>The bottom right corner of the balloon. 
-<br><dt><var>sse</var><dd>If both this string and the <var>ssw</var> string fits between the bottom corners, this
-is printed directly to the left of the bottom right corner. 
-<br><dt><var>s</var><dd>The bottom edge of the balloon. 
-<br><dt><var>ssw</var><dd>If both this string and the <var>sse</var> string fits between the bottom corners, this
-is printed directly to the right of the bottom left corner. 
-<br><dt><var>sw</var><dd>The bottom left corner of the balloon. 
-<br><dt><var>sww</var><dd>The beginning of the balloon's line where the message's last line is located if and
-only if the message contains more than one line. 
-<br><dt><var>w</var><dd>The left edge of the balloon. 
-<br><dt><var>nww</var><dd>The beginning of the balloon's line where the message's first line is located if and
-only if the message contains more than one line. 
+</p>
+<p>The following strings are used, and must be defined in the files:
+</p><dl compact="compact">
+<dt><var>\</var></dt>
+<dd><p>The character for the link to the balloon directed as <code>\</code>.
+</p></dd>
+<dt><var>/</var></dt>
+<dd><p>The character for the link to the balloon directed as <code>/</code>.
+</p></dd>
+<dt><var>ww</var></dt>
+<dd><p>The beginning of the balloon&rsquo;s line where the message is located if and only if the
+message contains only one line.
+</p></dd>
+<dt><var>ee</var></dt>
+<dd><p>The end of the balloon&rsquo;s line where the message is located if and only if the message
+contains only one line.
+</p></dd>
+<dt><var>nw</var></dt>
+<dd><p>The top left corner of the balloon.
+</p></dd>
+<dt><var>nnw</var></dt>
+<dd><p>If both this string and the <var>nne</var> string fits between the top corners, this is
+printed directly to the right of the top left corner.
+</p></dd>
+<dt><var>n</var></dt>
+<dd><p>The top edge of the balloon.
+</p></dd>
+<dt><var>nne</var></dt>
+<dd><p>If both this string and the <var>nnw</var> string fits between the top corners, this is
+printed directly to the right of the top left corner.
+</p></dd>
+<dt><var>ne</var></dt>
+<dd><p>The top right corner of the balloon.
+</p></dd>
+<dt><var>nee</var></dt>
+<dd><p>The end of the balloon&rsquo;s line where the message&rsquo;s first line is located if and only
+if the message contains more than one line.
+</p></dd>
+<dt><var>e</var></dt>
+<dd><p>The right edge of the balloon.
+</p></dd>
+<dt><var>see</var></dt>
+<dd><p>The end of the balloon&rsquo;s line where the message&rsquo;s last line is located if and only
+if the message contains more than one line.
+</p></dd>
+<dt><var>se</var></dt>
+<dd><p>The bottom right corner of the balloon.
+</p></dd>
+<dt><var>sse</var></dt>
+<dd><p>If both this string and the <var>ssw</var> string fits between the bottom corners, this
+is printed directly to the left of the bottom right corner.
+</p></dd>
+<dt><var>s</var></dt>
+<dd><p>The bottom edge of the balloon.
+</p></dd>
+<dt><var>ssw</var></dt>
+<dd><p>If both this string and the <var>sse</var> string fits between the bottom corners, this
+is printed directly to the right of the bottom left corner.
+</p></dd>
+<dt><var>sw</var></dt>
+<dd><p>The bottom left corner of the balloon.
+</p></dd>
+<dt><var>sww</var></dt>
+<dd><p>The beginning of the balloon&rsquo;s line where the message&rsquo;s last line is located if and
+only if the message contains more than one line.
+</p></dd>
+<dt><var>w</var></dt>
+<dd><p>The left edge of the balloon.
+</p></dd>
+<dt><var>nww</var></dt>
+<dd><p>The beginning of the balloon&rsquo;s line where the message&rsquo;s first line is located if and
+only if the message contains more than one line.
+</p></dd>
 </dl>
 
-   </body></html>
 
+<hr>
+<div class="header">
+<p>
+Next: <a href="Printing-in-TTY-with-KMS.html#Printing-in-TTY-with-KMS" accesskey="n" rel="next">Printing in TTY with KMS</a>, Previous: <a href="Pony-quote-infrastructure.html#Pony-quote-infrastructure" accesskey="p" rel="previous">Pony quote infrastructure</a>, Up: <a href="Inner-workings.html#Inner-workings" accesskey="u" rel="up">Inner workings</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

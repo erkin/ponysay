@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Ponysay: Editing metadata</title>
+
+<meta name="description" content="Ponysay: Editing metadata">
+<meta name="keywords" content="Ponysay: Editing metadata">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="The-tool-chest.html#The-tool-chest" rel="up" title="The tool chest">
+<link href="Metadata-collections.html#Metadata-collections" rel="next" title="Metadata collections">
+<link href="Metadata-pasting.html#Metadata-pasting" rel="previous" title="Metadata pasting">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="../../info.css"></head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Editing-metadata"></a>
+<div class="header">
+<p>
+Next: <a href="Metadata-collections.html#Metadata-collections" accesskey="n" rel="next">Metadata collections</a>, Previous: <a href="Metadata-pasting.html#Metadata-pasting" accesskey="p" rel="previous">Metadata pasting</a>, Up: <a href="The-tool-chest.html#The-tool-chest" accesskey="u" rel="up">The tool chest</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Editing-metadata-1"></a>
+<h3 class="section">7.3 Editing metadata</h3>
+<a name="index-editing-metadata-1"></a>
+<a name="index-metadata_002c-editing"></a>
+
+<a name="index-_002d_002dedit"></a>
+<p><code>ponysay-tool</code> allows you to edit the metadata in a pony file by running
+<code>ponysay-tool --edit PONY-FILE</code>, where <code>PONY-FILE</code> is the pony file to edit,
+not the pony name. No additional options are available.
+</p>
+<p><code>ponysay-tool --edit PONY-FILE</code> is interative and opens an editor inspired by GNU Emacs.
+The tool will give you the standard tags to fill and will automatically fill in <var>HEIGHT</var>
+and <var>WIDTH</var> for you without allowing you to editing those two tags. Additionally the editor
+will print the pony at the right side of the terminal with the name of the file you are editing.
+</p>
+<p>The commands the editor use is a small subset of the standard commands in GNU Emacs.
+Currently the commands are only coded for xterm (just about all terminals except Linux VT.)
+<kbd>C-x</kbd> means <kbd>x</kbd> with <kbd>control</kbd> held down.
+<kbd>M-x</kbd> means <kbd>x</kbd> with <kbd>alt</kbd> (<kbd>meta</kbd>) held down.
+</p>
+<dl compact="compact">
+<dt><kbd>C-space</kbd></dt>
+<dt><kbd>C-@</kbd></dt>
+<dd><p>Set mark; only if mark is set and is at the same position
+as the point (cursor) the mark is deactivated.
+A mark creates a text select, it cannot span between lines.
+</p>
+</dd>
+<dt><kbd>C-k</kbd></dt>
+<dd><p>Cut out the rest of the line and add it to the kill ring.
+</p>
+</dd>
+<dt><kbd>C-w</kbd></dt>
+<dd><p>Cut out selected text and add it to the kill ring.
+</p>
+</dd>
+<dt><kbd>M-w</kbd></dt>
+<dd><p>Add the selected text to the kill ring and unset the mark.
+</p>
+</dd>
+<dt><kbd>C-y</kbd></dt>
+<dd><p>Paste (yank) text from the kill ring.
+</p>
+</dd>
+<dt><kbd>M-y</kbd></dt>
+<dd><p>Cycle in the kill ring.
+</p>
+</dd>
+<dt><kbd>C-o</kbd></dt>
+<dd><p>Insert a next line below the current line and go to it.
+This is useful if you want to add another entry for a tag.
+</p>
+</dd>
+<dt><kbd>C-j</kbd></dt>
+<dt><kbd>enter</kbd></dt>
+<dd><p>Go to next line, create a new line if at last line.
+</p>
+</dd>
+<dt><kbd>C-n</kbd></dt>
+<dt><kbd>down</kbd></dt>
+<dd><p>Go to next line, do not create a new line if at last line.
+</p>
+</dd>
+<dt><kbd>C-p</kbd></dt>
+<dt><kbd>up</kbd></dt>
+<dd><p>Go to previous line.
+</p>
+</dd>
+<dt><kbd>C-f</kbd></dt>
+<dt><kbd>right</kbd></dt>
+<dd><p>Go to next column.
+</p>
+</dd>
+<dt><kbd>C-b</kbd></dt>
+<dt><kbd>left</kbd></dt>
+<dd><p>Go to previous column.
+</p>
+</dd>
+<dt><kbd>home</kbd></dt>
+<dd><p>Go to the beginning of the line.
+</p>
+</dd>
+<dt><kbd>end</kbd></dt>
+<dd><p>Go to the end of the line.
+</p>
+</dd>
+<dt><kbd>backspace</kbd></dt>
+<dt><kbd>C-h</kbd></dt>
+<dt><kbd>C-?</kbd></dt>
+<dd><p>Remove the previous character on the same line.
+</p>
+</dd>
+<dt><kbd>delete</kbd></dt>
+<dd><p>Remove the current character on the same line.
+</p>
+</dd>
+<dt><kbd>insert</kbd></dt>
+<dd><p>Enter or exit override mode.
+</p>
+</dd>
+<dt><kbd>C-x C-x</kbd></dt>
+<dd><p>Swap the mark and the point.
+</p>
+</dd>
+<dt><kbd>C-x C-s</kbd></dt>
+<dd><p>Save your changes.
+</p>
+</dd>
+<dt><kbd>C-x C-c</kbd></dt>
+<dd><p>Exit the editor, do not forget to save if you have made changes.
+</p></dd>
+</dl>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Metadata-collections.html#Metadata-collections" accesskey="n" rel="next">Metadata collections</a>, Previous: <a href="Metadata-pasting.html#Metadata-pasting" accesskey="p" rel="previous">Metadata pasting</a>, Up: <a href="The-tool-chest.html#The-tool-chest" accesskey="u" rel="up">The tool chest</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

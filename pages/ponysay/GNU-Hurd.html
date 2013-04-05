@@ -13,10 +13,10 @@ Texts. A copy of the license is included in the section entitled
 "GNU Free Documentation License". -->
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Ponysay: Cowsay</title>
+<title>Ponysay: GNU Hurd</title>
 
-<meta name="description" content="Ponysay: Cowsay">
-<meta name="keywords" content="Ponysay: Cowsay">
+<meta name="description" content="Ponysay: GNU Hurd">
+<meta name="keywords" content="Ponysay: GNU Hurd">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -25,8 +25,8 @@ Texts. A copy of the license is included in the section entitled
 <link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Limitations.html#Limitations" rel="up" title="Limitations">
-<link href="Problems-and-requests.html#Problems-and-requests" rel="next" title="Problems and requests">
-<link href="GNU-Hurd.html#GNU-Hurd" rel="previous" title="GNU Hurd">
+<link href="Cowsay.html#Cowsay" rel="next" title="Cowsay">
+<link href="Terminals.html#Terminals" rel="previous" title="Terminals">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -60,36 +60,26 @@ ul.no-bullet {list-style: none}
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
 
 <body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Cowsay"></a>
+<a name="GNU-Hurd"></a>
 <div class="header">
 <p>
-Previous: <a href="GNU-Hurd.html#GNU-Hurd" accesskey="p" rel="previous">GNU Hurd</a>, Up: <a href="Limitations.html#Limitations" accesskey="u" rel="up">Limitations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Cowsay.html#Cowsay" accesskey="n" rel="next">Cowsay</a>, Previous: <a href="Terminals.html#Terminals" accesskey="p" rel="previous">Terminals</a>, Up: <a href="Limitations.html#Limitations" accesskey="u" rel="up">Limitations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<a name="Cowsay-1"></a>
-<h3 class="section">8.3 Cowsay</h3>
-<a name="index-cowsay"></a>
+<a name="GNU-Hurd-1"></a>
+<h3 class="section">8.2 GNU Hurd</h3>
+<a name="index-Hurd"></a>
+<a name="index-GNU-Hurd"></a>
+<a name="index-TTY-7"></a>
 
-<p>This section describes the limitation of <code>cowsay</code>, but since version 2.1
-<code>cowsay</code> is no longer used because of it. So none of the following limitations
-are present anymore.
+<p><code>ponysay</code> should work just fine on GNU/Hurd, except for in the native virtual
+terminal (TTY). Hurd&rsquo;s terminal is limited to 16 colours and does not provide the capaility
+of modifing 
 </p>
-<p>When <code>cowsay</code> determines the length of a word it measures in number of bytes
-(in UTF-8), therefore non-ASCII words will malformat the balloon with the message.
+<p>If we are lucky it may be possible draw pictures, in full resultions, as you can in linux;
+which is currently not inplementedin <code>ponysay</code>. Another, not yet implemented
+possiblity, is to use low resoltion with ACSII character for colour interpolation.
 </p>
-<p>Further, <code>cowsay</code> does not recognise ANSI escape sequences, therefore, using
-colours and text styling in messages will also malformat the balloon with the message.
-</p>
-<p><code>cowsay</code> does not support balloon, including the link between the message and
-the pony, customisation, other than using <code>cowthink</code>. However you can modify
-<code>cowsay</code> (written Perl, so you can edit the installed files) to make the
-balloon look different, maybe using box drawing characters.
-</p>
-<p><code>cowsay</code> does not support setting the minimum size of the balloon, both
-directions on the balloon–pony links. or any other placement of the balloon than at
-the top to the left.
-</p>
-
 
 
 

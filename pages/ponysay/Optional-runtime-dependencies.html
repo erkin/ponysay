@@ -1,62 +1,100 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Optional runtime dependencies - Ponysay</title>
+<title>Ponysay: Optional runtime dependencies</title>
+
+<meta name="description" content="Ponysay: Optional runtime dependencies">
+<meta name="keywords" content="Ponysay: Optional runtime dependencies">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Dependencies.html#Dependencies" title="Dependencies">
-<link rel="prev" href="Required-runtime-dependencies.html#Required-runtime-dependencies" title="Required runtime dependencies">
-<link rel="next" href="Package-building-dependencies.html#Package-building-dependencies" title="Package building dependencies">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Dependencies.html#Dependencies" rel="up" title="Dependencies">
+<link href="Package-building-dependencies.html#Package-building-dependencies" rel="next" title="Package building dependencies">
+<link href="Required-runtime-dependencies.html#Required-runtime-dependencies" rel="previous" title="Required runtime dependencies">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="Optional-runtime-dependencies"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Package-building-dependencies.html#Package-building-dependencies">Package building dependencies</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Required-runtime-dependencies.html#Required-runtime-dependencies">Required runtime dependencies</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Dependencies.html#Dependencies">Dependencies</a>
-<hr>
+Next: <a href="Package-building-dependencies.html#Package-building-dependencies" accesskey="n" rel="next">Package building dependencies</a>, Previous: <a href="Required-runtime-dependencies.html#Required-runtime-dependencies" accesskey="p" rel="previous">Required runtime dependencies</a>, Up: <a href="Dependencies.html#Dependencies" accesskey="u" rel="up">Dependencies</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
+<hr>
+<a name="Optional-runtime-dependencies-1"></a>
+<h3 class="section">10.2 Optional runtime dependencies</h3>
+<a name="index-extensions"></a>
+<a name="index-optional-dependencies-2"></a>
 
-<h3 class="section">8.2 Optional runtime dependencies</h3>
-
-<p><a name="index-extensions-169"></a><a name="index-optional-dependencies-170"></a>
-     <dl>
-<dt><samp><span class="command">util-say&gt;=2</span></samp><dd><a name="index-g_t_0040command_007butil_002dsay_007d-171"></a><a name="index-kms-172"></a><a name="index-tty-173"></a><a name="index-linux-vt-174"></a>For improved TTY support for user with custom colour palette and KMS support. 
+<dl compact="compact">
+<dt><code>util-say&gt;=3</code></dt>
+<dd><a name="index-util_002dsay-1"></a>
+<a name="index-KMS-4"></a>
+<a name="index-TTY-8"></a>
+<a name="index-Linux-VT-7"></a>
+<p>For improved TTY support for user with custom colour palette and KMS support.
 It can be downloaded at <a href="https://github.com/maandree/util-say">https://github.com/maandree/util-say</a>. If this is
-used <samp><span class="command">chmod</span></samp> from <samp><span class="command">coreutils</span></samp> is also required.
+used <code>chmod</code> from <code>coreutils</code> is also required.
+</p>
 
-     <p><a name="index-g_t_002epng-175"></a><a name="index-png-images-176"></a><a name="index-images_002c-png-177"></a><a name="index-portable-network-graphics-178"></a>For the purpose of simplifying for pony contributors, <samp><span class="command">ponysay</span></samp> supports
-using .png-images (note that the file must not miss the <samp><span class="file">.png</span></samp> at the end of
-the file name) in addition to .pony-files or pony names. 
+<a name="index-_002epng-1"></a>
+<a name="index-PNG-images-1"></a>
+<a name="index-images_002c-PNG-1"></a>
+<a name="index-Portable-Network-Graphics-1"></a>
+<p>For the purpose of simplifying for pony contributors, <code>ponysay</code> supports
+using .png-images (note that the file must not miss the <samp>.png</samp> at the end of
+the file name) in addition to .pony-files or pony names.
+</p></dd>
 </dl>
 
-   </body></html>
 
+
+
+
+</body>
+</html>

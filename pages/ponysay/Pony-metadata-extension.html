@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Ponysay: Pony metadata extension</title>
+
+<meta name="description" content="Ponysay: Pony metadata extension">
+<meta name="keywords" content="Ponysay: Pony metadata extension">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Inner-workings.html#Inner-workings" rel="up" title="Inner workings">
+<link href="Pony-quote-infrastructure.html#Pony-quote-infrastructure" rel="next" title="Pony quote infrastructure">
+<link href="Pony-anatomy.html#Pony-anatomy" rel="previous" title="Pony anatomy">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="../../info.css"></head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Pony-metadata-extension"></a>
+<div class="header">
+<p>
+Next: <a href="Pony-quote-infrastructure.html#Pony-quote-infrastructure" accesskey="n" rel="next">Pony quote infrastructure</a>, Previous: <a href="Pony-anatomy.html#Pony-anatomy" accesskey="p" rel="previous">Pony anatomy</a>, Up: <a href="Inner-workings.html#Inner-workings" accesskey="u" rel="up">Inner workings</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Pony-metadata-extension-1"></a>
+<h3 class="section">12.2 Pony metadata extension</h3>
+<a name="index-pony-metadata-1"></a>
+<a name="index-metadata-1"></a>
+<a name="index-tags_002c-metadata-1"></a>
+<a name="index-comments_002c-metadata-1"></a>
+<a name="index-pony-tags_002c-metadata-1"></a>
+<a name="index-pony-comments_002c-metadata-1"></a>
+
+<p>New in ponysay 3.0 is pony metadata, this feature is not supported in <code>util-say</code>
+(at least not yet). It extends the previously described<a name="DOCF4" href="#FOOT4"><sup>4</sup></a>
+format of the pony files, by letting you specify details about the pony image, and
+the pony itself, as well as adding comments.
+</p>
+<p>The metadata entry must be at the absolute beginning of the file (UTF-8 signture
+excluded), and is the file must be encoded in UNIX line breaks. The metadata entry
+begins with a line with exact 3 dollar signs and nothing else (<code>$$$</code>), and
+end in the same way direct follow by the pony image starting from the next line.
+</p>
+<p>A metadata tag consists of a tag name in upper case and a tag value, with a colon
+(<code>:</code>), optionally with regular spaces or tab spaces. Multiple tag names can
+be used multiple times or can be completely skipped. There are only a few tags,
+namely <var>BALLOON TOP</var>, <var>BALLOON BOTTOM</var>, <var>MASTER</var>, <var>FREE</var>, that
+absolutely should not be used muliple tag; a general rule is that a tag desribing
+a pony should be duplicated exact as many times as there are ponies in the image.
+</p>
+<p>Any line that does not conform to the format of a tag line is a part of the comment
+field. Leading line breaks in the comment field is ignored.
+</p>
+
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h3><a name="FOOT4" href="#DOCF4">(4)</a></h3>
+<p><a href="Pony-anatomy.html#Pony-anatomy">Pony anatomy</a></p>
+</div>
+
+
+
+</body>
+</html>

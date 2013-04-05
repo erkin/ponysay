@@ -1,76 +1,120 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Terminals - Ponysay</title>
+<title>Ponysay: Terminals</title>
+
+<meta name="description" content="Ponysay: Terminals">
+<meta name="keywords" content="Ponysay: Terminals">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="up" href="Limitations.html#Limitations" title="Limitations">
-<link rel="next" href="Cowsay.html#Cowsay" title="Cowsay">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Limitations.html#Limitations" rel="up" title="Limitations">
+<link href="GNU-Hurd.html#GNU-Hurd" rel="next" title="GNU Hurd">
+<link href="Limitations.html#Limitations" rel="previous" title="Limitations">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="Terminals"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Cowsay.html#Cowsay">Cowsay</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="Limitations.html#Limitations">Limitations</a>
-<hr>
+Next: <a href="GNU-Hurd.html#GNU-Hurd" accesskey="n" rel="next">GNU Hurd</a>, Up: <a href="Limitations.html#Limitations" accesskey="u" rel="up">Limitations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
+<hr>
+<a name="Terminals-1"></a>
+<h3 class="section">8.1 Terminals</h3>
+<a name="index-terminals"></a>
+<a name="index-fonts"></a>
+<a name="index-broken-ponies"></a>
 
-<h3 class="section">6.1 Terminals</h3>
-
-<p><a name="index-terminals-147"></a><a name="index-fonts-148"></a><a name="index-broken-ponies-149"></a>
-<a name="index-xterm-150"></a><a name="index-putty-151"></a>Ponysay works perfectly on <samp><span class="command">xterm</span></samp>, <samp><span class="command">xterm</span></samp> like terminals including
-<samp><span class="command">putty</span></samp>, settings may however need to be customised for Unicode Character Set
+<a name="index-xterm"></a>
+<a name="index-putty"></a>
+<p>Ponysay works perfectly on <code>xterm</code>, <code>xterm</code> like terminals including
+<code>putty</code>, settings may however need to be customised for Unicode Character Set
 (UCS) support, but less well, depending on font, on VTE based terminals including
-<samp><span class="command">mate-terminal</span></samp>.
-
-   <p><a name="index-kms-152"></a><a name="index-kernel-mode-setting-153"></a><a name="index-tty-154"></a><a name="index-linux-vt-155"></a>On Linux's native terminal Linux VT (TTY) it works less well, and not good at all
+<code>mate-terminal</code>.
+</p>
+<a name="index-KMS-3"></a>
+<a name="index-kernel-mode-setting-2"></a>
+<a name="index-TTY-6"></a>
+<a name="index-Linux-VT-6"></a>
+<p>On Linux&rsquo;s native terminal Linux VT (TTY) it works less well, and not good at all
 without Kernel Mode Setting (KMS) support. See <a href="https://github.com/erkin/ponysay/issues/1">https://github.com/erkin/ponysay/issues/1</a>
-for more information. <samp><span class="command">ponysay</span></samp> clears the screen before printing to TTY, this
+for more information. <code>ponysay</code> clears the screen before printing to TTY, this
 is because if your graphics driver supports KMS, the colours will be messed by when the
 ponies position moves on the screen, this is also reason why the output is truncated on
 the height in TTY by default.
-
-   <p>Most terminals have support for 256 colours, we do however only use the top 240
+</p>
+<p>Most terminals have support for 256 colours, we do however only use the top 240
 colours; this is because the lower 16 colours are usually, in contrast to the top 240,
 customised. We assume that the top 240 colours have their standard values. In TTY with
-KMS support we dot have any actual limit (except for 2^24 + full
+KMS support we dot have any actual limit (except for <em>2^{24}</em> + full
 transparency.)
-
-   <p><a name="index-xterm-156"></a><a name="index-urxvt-157"></a><a name="index-putty-158"></a><a name="index-rxvt-159"></a><a name="index-mrxvt-160"></a><a name="index-Eterm-161"></a><a name="index-aterm-162"></a><samp><span class="command">ponysay</span></samp> works perfectly on <samp><span class="command">xterm</span></samp>, <samp><span class="command">urxvt</span></samp> and
-<samp><span class="command">putty</span></samp>, but <samp><span class="command">rxvt</span></samp>, <samp><span class="command">mrxvt</span></samp> and <samp><span class="command">Eterm</span></samp> do not have
-UTF-8 support and are currently not supported. Additionally <samp><span class="command">aterm</span></samp> have
+</p>
+<a name="index-xterm-1"></a>
+<a name="index-urxvt"></a>
+<a name="index-putty-1"></a>
+<a name="index-rxvt"></a>
+<a name="index-mrxvt"></a>
+<a name="index-Eterm"></a>
+<a name="index-aterm"></a>
+<p><code>ponysay</code> works perfectly on <code>xterm</code>, <code>urxvt</code> and
+<code>putty</code>, but <code>rxvt</code>, <code>mrxvt</code> and <code>Eterm</code> do not have
+UTF-8 support and are currently not supported. Additionally <code>aterm</code> have
 neither UTF-8 support nor 256 colour support, and is therefore not yet supported.
-
-   <p><a name="index-g_t9term-163"></a>Due to extreme limitations in <samp><span class="command">9term</span></samp> <samp><span class="command">ponysay</span></samp> will never be able to
+</p>
+<a name="index-9term"></a>
+<p>Due to extreme limitations in <code>9term</code> <code>ponysay</code> will never be able to
 run on it.
+</p>
 
-   </body></html>
 
+
+
+</body>
+</html>

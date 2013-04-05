@@ -1,68 +1,96 @@
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for ponysay
+(version 3.0.1).
+
+Copyright (C) 2012, 2013 Mattias Andrée
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts. A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Overview - Ponysay</title>
+<title>Ponysay: Overview</title>
+
+<meta name="description" content="Ponysay: Overview">
+<meta name="keywords" content="Ponysay: Overview">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="Ponysay">
-<meta name="generator" content="makeinfo 4.13">
-<link title="Top" rel="start" href="index.html#Top">
-<link rel="prev" href="index.html#Top" title="Top">
-<link rel="next" href="Invoking-ponysay.html#Invoking-ponysay" title="Invoking ponysay">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-and-program-index.html#Concept-and-program-index" rel="index" title="Concept and program index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Invoking-ponysay.html#Invoking-ponysay" rel="next" title="Invoking ponysay">
+<link href="index.html#Top" rel="previous" title="Top">
+<style type="text/css">
 <!--
-This manual is for ponysay
-(version 2.9.1),
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-Copyright (C) 2012 Mattias Andrée
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts. A copy of the license is included in
-     the section entitled ``GNU Free Documentation License''.
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 <link rel="stylesheet" type="text/css" href="../../info.css"></head>
-<body>
-<h1 class="settitle">Ponysay</h1>
-<div class="node">
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <a name="Overview"></a>
+<div class="header">
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Invoking-ponysay.html#Invoking-ponysay">Invoking ponysay</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="index.html#Top">Top</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
-<hr>
+Next: <a href="Invoking-ponysay.html#Invoking-ponysay" accesskey="n" rel="next">Invoking ponysay</a>, Previous: <a href="index.html#Top" accesskey="p" rel="previous">Top</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-and-program-index.html#Concept-and-program-index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<hr>
+<a name="Overview-1"></a>
 <h2 class="chapter">1 Overview</h2>
+<a name="index-overview"></a>
 
-<p><a name="index-overview-1"></a>
-<samp><span class="command">ponysay</span></samp> displays an image of a My Little Pony pony saying a message provided
+<p><code>ponysay</code> displays an image of a My Little Pony pony saying a message provided
 by the user in a terminal, or a quote from the show My Little Pony: Friendship is Magic
-(MLP:FiM). Historically <samp><span class="command">ponysay</span></samp> was a wrapper for cowsay, but has since
-version 2.1 become an independent reimplementation of <samp><span class="command">cowsay</span></samp>.
-
-   <p>If a message is not provided, e.g. by piping, it accepts standard input. The pony
+(MLP:FiM). Historically <code>ponysay</code> was a wrapper for cowsay, but has since
+version 2.1 become an independent reimplementation of <code>cowsay</code>.
+</p>
+<p>If a message is not provided, e.g. by piping, it accepts standard input. The pony
 quoting the given message is printed on standard output.
-
-   <p><samp><span class="command">ponythink</span></samp> is to <samp><span class="command">ponysay</span></samp> as <samp><span class="command">cowthink</span></samp> is to
-<samp><span class="command">cowsay</span></samp>.
-
-   <p><samp><span class="command">ponysay</span></samp> is generally used to decorate your terminal with a random pony, when
+</p>
+<p><code>ponythink</code> is to <code>ponysay</code> as <code>cowthink</code> is to
+<code>cowsay</code>.
+</p>
+<p><code>ponysay</code> is generally used to decorate your terminal with a random pony, when
 you start the terminal. But if you know anypony how does like ponies [fat chance] you
-can always make screen-shots of <samp><span class="command">ponysay --q</span></samp> executions and communication that
+can always make screen-shots of <code>ponysay --q</code> executions and communication that
 way over e-mail.
+</p>
 
-   </body></html>
 
+
+
+
+
+</body>
+</html>
