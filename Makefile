@@ -3,8 +3,9 @@ SHELL=bash
 manual-update:
 	(branch=$$(git branch | grep \\\* | sed -e s/\*\ //g)	;\
 	 git checkout master					;\
+	 (rm -r "./ponysay" || true)				;\
 	 makeinfo --html "./manuals/ponysay.texinfo"		;\
-	 git add "./ponysay"					;\
+	 git add -f "./ponysay"					;\
 	 git stash						;\
 	 git checkout $$branch					;\
 	)
