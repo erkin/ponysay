@@ -73,7 +73,7 @@ fd3 = None
 '''
 def printinfo(text = '', end = '\n'):
     global fd3
-    if os.path.exists('/proc/self/fd/3') and os.path.isfile('/proc/self/fd/3'):
+    if os.path.exists('/proc/self/fd/3') and not os.path.isdir(os.path.realpath('/proc/self/fd/3')):
         if fd3 is None:
             fd3 = os.fdopen(3, 'w')
     if fd3 is not None:
