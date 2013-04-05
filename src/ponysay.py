@@ -332,10 +332,9 @@ class Ponysay():
     Use extra ponies
     '''
     def __extraponies(self):
-        ## If extraponies are used, change ponydir to extraponydir
-        if args is None:
-            self.ponydirs[:] = self.extraponydirs
-            self.quotedirs[:] = [] ## TODO +q
+        ## Change ponydir to extraponydir
+        self.ponydirs[:] = self.extraponydirs
+        self.quotedirs[:] = [] ## TODO +q
     
     
     '''
