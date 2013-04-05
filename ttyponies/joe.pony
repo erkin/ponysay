@@ -19,12 +19,12 @@ WIDTH: 39
 HEIGHT: 28
 
 $$$
-$balloon25$[00m
-                      $\$                [00m
-                       $\$               [00m
-                        $\$              [00m
-                         ]PF949494[37;01m▄]P7949494[47m]PFFFFFFF[37m▄▄]P0000000[49m]PF949494[37m▄▄▄]P7AAAAAA[39m        [00m
-                        ]PF949494[37;01m▄]P7949494[47m]PFFFFFFF[37m▄]P7BCBCBC[47m▄]P7FFFFFF[47m]PFBCBCBC[37m▄▄]PFFFFFFF[37m██]P7949494[47m▄]P0000000[49m]PF949494[37m▄]P7AAAAAA[39m      [00m
+$balloon17$[00m
+              $\$                        [00m
+               $\$                       [00m
+                $\$                      [00m
+                 $\$       ]PF949494[37;01m▄]P7949494[47m]PFFFFFFF[37m▄▄]P0000000[49m]PF949494[37m▄▄▄]P7AAAAAA[39m        [00m
+                  $\$     ]PF949494[37;01m▄]P7949494[47m]PFFFFFFF[37m▄]P7BCBCBC[47m▄]P7FFFFFF[47m]PFBCBCBC[37m▄▄]PFFFFFFF[37m██]P7949494[47m▄]P0000000[49m]PF949494[37m▄]P7AAAAAA[39m      [00m
                     ]PFFFD787[37;01m▄]PBAFAF5F[33m▄]P7AAAAAA[39m ]P8875F5F[30m▄]P7949494[47m▄]P7FFFFFF[47m▄▄]PFFFFFFF[37m██]P7BCBCBC[47m▄]P7FFFFFF[47m]PBAFAF5F[33m▄]P7BCBCBC[47m▄]P7FFFFFF[47m▄]P7949494[47m]PF949494[37m█]P0000000[49m]P7AAAAAA[39m     [00m
                     ]P2AFAF5F[42m]P8875F5F[30;01m▄]P7FFFFAF[47m]PBAFAF5F[33m▄]P2AFAF5F[42m]PFFFFFAF[37m▄]P3AF875F[43m]PFFFD787[37m▄]PBAF875F[33m██]P9875F00[31m▄]P3875F5F[43m▄]PBAF875F[33m▄]P7FFFFFF[47m]P8875F5F[30m▄]P2AFAF5F[42m]PBAFAF5F[33m█]P7FFFFAF[47m]PFFFFFAF[37m██]P2AFAF5F[42m]PBAFAF5F[33m█]P0000000[49m]P7AAAAAA[39m     [00m
                    ]P8875F5F[30;01m▄▀]P3875F5F[43m█]P2AFAF5F[42m]PBAF875F[33m▄]P7FFFFAF[47m]PBAFAF5F[33m▄]P7FFD787[47m]P9875F00[31m▄]P3875F00[43m]PBAF875F[33m▄]P3AF875F[43m]P8875F5F[30m▄▄]PBAF875F[33m█]P8875F5F[30m▄]P2AFAF5F[42m]PFFFFFAF[37m▄]P7FFFFAF[47m█]PBAFAF5F[33m▄]PFFFFFAF[37m█]P2AFAF5F[42m]PBAFAF5F[33m█]P0000000[49m]P8875F5F[30m▄]P7AAAAAA[39m   [00m

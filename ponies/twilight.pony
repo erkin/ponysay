@@ -2,8 +2,8 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 AURA: purple (whitish lilac in season 1)
 BALLOON: top
-BALLOON TOP: 2
 BALLOON BOTTOM: 0
+BALLOON TOP: 2
 COAT: purple
 DISPLAY: full, left
 EYE: purple
@@ -18,6 +18,7 @@ POSE: stand
 SOURCE: (Jay Wright, Humle, Bot-chan, StarStep, Anonycat, InfinityDash, supersayanmikito, aslic96) Desktop ponies
 WIDTH: 53
 HEIGHT: 24
+
 
 $$$
 $balloon10$[00m

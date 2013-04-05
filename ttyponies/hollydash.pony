@@ -19,10 +19,10 @@ WIDTH: 49
 HEIGHT: 24
 
 $$$
-$balloon$[00m
-                              $\$                  [00m
-                               $\$                 [00m
+$balloon36$[00m
                                 $\$                [00m
+                                 $\$               [00m
+                                  $\$              [00m
                      ]P85F87AF[30;01m▄▄]P7AAAAAA[39m    ]P85F87AF[30m▄▄▄▄▄▄]PFD7AFAF[37m▄]P7D7AFAF[47m]PFD0D0D0[37m▄▄]PFD7AFAF[37m█]P7D7D787[47m]P85F87AF[30m▄▄]PFD7D7AF[37m▄▄▄▄▄▄]P0000000[49m]PFD7D787[37m▄]P7AAAAAA[39m ]PFD7AFAF[37m▄▄]P7AAAAAA[39m[00m
                       ]P85F87AF[30;01m▀]P65F87AF[46m█]PF87AFFF[37m▄▄▄]P787AFFF[47m█████]PFD7AFAF[37m▄]P7D7AFAF[47m]PFD0D0D0[37m▄]P7D0D0D0[47m██]P7D7AFAF[47m]PFD7AFAF[37m█]P787AFFF[47m]P85F87AF[30m▄]PF87AFFF[37m█]P65F87AF[46m▄]P7D7D7AF[47m]P85F87AF[30m▄]PFD7D7AF[37m███]PFD7D787[37m▄]PFD7AFAF[37m▄]P7D7AFAF[47m]PFD0D0D0[37m▄]P7D0D0D0[47m]PFC6C6C6[37m▄]P0000000[49m]PFD7AFAF[37m▀]P7AAAAAA[39m[00m
                       ]P85F87AF[30;01m▄▄]P65F87AF[46m]PF87AFFF[37m▄]P787AFFF[47m███████]P7D7AFAF[47m]PFD7AFAF[37m█]P7D0D0D0[47m]PFD0D0D0[37m█]P7D7AFAF[47m]PFD7AFAF[37m█]P7D0D0D0[47m]PFD0D0D0[37m██]P7D7AFAF[47m▄]P65F87AF[46m]PFD7AFAF[37m▄]P787AFFF[47m]P85F87AF[30m▄]PF87AFFF[37m█]P65F87AF[46m]P85F87AF[30m█]P7D7D7AF[47m]PFD7D787[37m▄]PFD7D7AF[37m█]P7D7D787[47m▄]P7C6C6C6[47m]PFD7D787[37m▄]P7D0D0D0[47m]PFC6C6C6[37m▄]P7D7D787[47m]PFD7D787[37m█]P0000000[49m]P7AAAAAA[39m [00m

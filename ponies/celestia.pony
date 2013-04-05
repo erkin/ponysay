@@ -2,8 +2,8 @@ $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1] (animated in a book, real life first appearance is S01E02 Frienship is Magic [Part 2])
 AURA: yellow
 BALLOON: top
-BALLOON TOP: 4
 BALLOON BOTTOM: 0
+BALLOON TOP: 4
 COAT: white
 DISPLAY: full, right
 EYE: pink
@@ -16,8 +16,9 @@ NAME: Celestia
 OTHER NAMES: Princess Celestia (official, full name)
 POSE: stand
 SOURCE: (oppl jok, StarStep) Desktop ponies
-WIDTH: 95
+WIDTH: 96
 HEIGHT: 42
+
 
 $$$
 $balloon53$[00m
