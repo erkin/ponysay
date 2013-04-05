@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E06 Boast Busters
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: purple
 DISPLAY: full, left
 EYE: green
@@ -17,6 +17,7 @@ POSE: stand
 SOURCE: (Humle) Desktop ponies
 WIDTH: 45
 HEIGHT: 25
+
 
 $$$
 $balloon7$[00m

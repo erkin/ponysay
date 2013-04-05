@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E06 Boast Busters
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: purple
 DISPLAY: full, left
 EYE: green

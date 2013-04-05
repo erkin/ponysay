@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 4
 BALLOON BOTTOM: 0
+BALLOON TOP: 4
 COAT: grey
 DISPLAY: full, left
 EYE: closed, yellow
@@ -16,7 +16,8 @@ OTHER NAMES: Derpy Hooves (partially offical), Ditzy Doo (official, in manuscrip
 POSE: fly
 SOURCE: (Jay Wright, vulcan539/james539, Blackfeathr, The Coop) Desktop ponies
 WIDTH: 49
-HEIGHT: 27
+HEIGHT: 26
+
 
 $$$
 $balloon9$[00m

@@ -19,12 +19,12 @@ WIDTH: 47
 HEIGHT: 26
 
 $$$
-$balloon$[00m
-                                  $\$            [00m
-                                   $\$           [00m
-                                    $\$          [00m
-                                      ]P787AFD7[47m]PF87AFD7[37;01m█]P0000000[49m▀]P7AAAAAA[39m       [00m
-                                  ]PF87AFD7[37;01m▄▀▄]P787AFD7[47m]PFD7D7FF[37m▄▄▄]P0000000[49m]PF87AFD7[37m▄]P787AFD7[47m]PFD7D7FF[37m▄▄]P0000000[49m]PF87AFD7[37m▄]P7AAAAAA[39m   [00m
+$balloon30$[00m
+                          $\$                    [00m
+                           $\$                   [00m
+                            $\$                  [00m
+                             $\$        ]P787AFD7[47m]PF87AFD7[37;01m█]P0000000[49m▀]P7AAAAAA[39m       [00m
+                              $\$   ]PF87AFD7[37;01m▄▀▄]P787AFD7[47m]PFD7D7FF[37m▄▄▄]P0000000[49m]PF87AFD7[37m▄]P787AFD7[47m]PFD7D7FF[37m▄▄]P0000000[49m]PF87AFD7[37m▄]P7AAAAAA[39m   [00m
                             ]P80087AF[30;01m▄▄]PF87AFD7[37m▄▄▄]P787AFD7[47m]PFD7D7FF[37m▄]P7D7D7FF[47m█]P787AFD7[47m▄]P7D7D7FF[47m]PF87AFD7[37m▄▄▄▄]PFD7D7FF[37m█]P787AFD7[47m▄]P7D7D7FF[47m]PF87AFD7[37m▄▄]P787AFD7[47m]PFD7D7FF[37m▄]P0000000[49m]PF87AFD7[37m▄▄]P7AAAAAA[39m[00m
                          ]P80087AF[30;01m▄▄]P60087AF[46m]PF87D7FF[37m▄]P787D7FF[47m███]P787AFD7[47m▄]P7D7D7FF[47m]PF87AFD7[37m▄]P787AFD7[47m█]P7D7D7FF[47m▄▄]PFD7D7FF[37m█]PF87AFD7[37m▄]PFD7D7FF[37m██]P787AFD7[47m▄]P7D7D7FF[47m]PF87AFD7[37m▄]PFD7D7FF[37m██]P787AFD7[47m]PF87AFD7[37m█]P0000000[49m]P7AAAAAA[39m ]PF87AFD7[37m▀]P7AAAAAA[39m[00m
                         ]P80087AF[30;01m▀]P787D7FF[47m▄▄▄▄▄]PF87D7FF[37m███]P787AFD7[47m▄]P787D7FF[47m██]P787AFD7[47m]PF87AFD7[37m█]P7D7D7FF[47m]PFD7D7FF[37m█]PF87AFD7[37m▄]P787AFD7[47m]PF87D7FF[37m▄]P7D7D7FF[47m]PF87AFD7[37m▄]PFD7D7FF[37m█]P787AFD7[47m]PF87AFD7[37m█]P7D7D7FF[47m]PFD7D7FF[37m█]PF87AFD7[37m▄]P787AFD7[47m█]P0000000[49m]P7AAAAAA[39m [00m

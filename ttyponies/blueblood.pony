@@ -22,12 +22,12 @@ The author of this pony [jristz] not like blueblood... this is why not look soo 
 aditionaly I not going to make it look good, you only possibility is making another Blueblood
 and submit to upstream, I going to add it as soon as possible.
 $$$
-$balloon$[00m
-      $\$                                   [00m
-       $\$                                  [00m
-        $\$                                 [00m
-         ]PFD0D0D0[37;01m▄]P7D0D0D0[47m]PFFFFFFF[37m▄]P0000000[49m]PFD0D0D0[37m▄]P7AAAAAA[39m                              [00m
-         ]P7D0D0D0[47m]PFD0D0D0[37;01m█]P7E4E4E4[47m]PFFFFFFF[37m▄]P7D0D0D0[47m]PFD0D0D0[37m█]P0000000[49m]P7AAAAAA[39m                              [00m
+$balloon6$[00m
+  $\$                                       [00m
+   $\$                                      [00m
+    $\$                                     [00m
+     $\$   ]PFD0D0D0[37;01m▄]P7D0D0D0[47m]PFFFFFFF[37m▄]P0000000[49m]PFD0D0D0[37m▄]P7AAAAAA[39m                              [00m
+      $\$  ]P7D0D0D0[47m]PFD0D0D0[37;01m█]P7E4E4E4[47m]PFFFFFFF[37m▄]P7D0D0D0[47m]PFD0D0D0[37m█]P0000000[49m]P7AAAAAA[39m                              [00m
    ]PFD0D0D0[37;01m▄▄▄]P7AAAAAA[39m ]PFD7D7AF[37m▄▄]P7D0D0D0[47m]PFD0D0D0[37m█]P7E4E4E4[47m]PFFFFFFF[37m▄]P7D0D0D0[47m]PFD0D0D0[37m█]P0000000[49m]PFD7D7AF[37m▄▄]PFD0D0D0[37m▄▄]P7AAAAAA[39m                          [00m
   ]P7D0D0D0[47m]PFD0D0D0[37;01m█]P7FFFFFF[47m]PFFFFFFF[37m██]P7D0D0D0[47m]PFD0D0D0[37m█]P7D7D7AF[47m]PFD7D7AF[37m█]P7D7D787[47m]PFD7D787[37m█]PFD7D7AF[37m▄]P7D0D0D0[47m▄]P7E4E4E4[47m]PFFFFFFF[37m▄]P7D0D0D0[47m]PFD0D0D0[37m█]P7D7D787[47m]PFD7D787[37m█]P7D0D0D0[47m]PFD7D7AF[37m▄]P7FFFFFF[47m]PFFFFFFF[37m██]P7D0D0D0[47m]PFD0D0D0[37m█]P0000000[49m]P7AAAAAA[39m                         [00m
  ]P7D0D0D0[47m]PFD0D0D0[37;01m█]P7FFFFFF[47m]PFFFFFFF[37m█]PFD0D0D0[37m▄]PFFFFFFF[37m█]P7D0D0D0[47m]PFD0D0D0[37m█]P7D7D787[47m]PFD7D787[37m█]P7D7D7AF[47m▄]P7D7D787[47m]PFD7D7AF[37m▄]PFD7D787[37m█]P7D7D7AF[47m]PFD7D7AF[37m█]PFD7D787[37m▄]P7D7D787[47m]PFD7D7AF[37m▄]PFD7D787[37m█]P7D7D7AF[47m▄]P7FFFFFF[47m]PFD7D7AF[37m▄]PFFFFFFF[37m█]P7D0D0D0[47m]PFD0D0D0[37m█]P0000000[49m]P7AAAAAA[39m                        [00m

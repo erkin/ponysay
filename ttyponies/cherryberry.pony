@@ -22,12 +22,12 @@ HEIGHT: 26
 License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0
 Full license text: https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 $$$
-$balloon26$[00m
+$balloon25$[00m
                       $\$                      [00m
                        $\$                     [00m
                         $\$                    [00m
                          $\$         ]PBD7AF00[33;01m▄▄▄]P3D7AF00[43m]PBFFFF5F[33m▄▄▄]P0000000[49m]PBD7AF00[33m▄]P7AAAAAA[39m   [00m
-                                 ]PBFFFF5F[33;01m▄]P3D7AF00[43m▄]P2FFFF5F[42m████]PBD7AF00[33m▄▄]P0000000[49m▀]P7AAAAAA[39m   [00m
+                          $\$      ]PBFFFF5F[33;01m▄]P3D7AF00[43m▄]P2FFFF5F[42m████]PBD7AF00[33m▄▄]P0000000[49m▀]P7AAAAAA[39m   [00m
                            ]P9AF5F5F[31;01m▄]P3AF5F5F[43m]PDFF87D7[35m▄▄]P9AF5F5F[31m█]P0000000[49m]PBFFFF5F[33m▄]P3D7AF00[43m]PBD7AF00[33m█]PBFFFF5F[33m▄]P2FFFF5F[42m█]PBD7AF00[33m▄]PBFFFF5F[33m█████]P3D7AF00[43m▄▄]P0000000[49m]PBD7AF00[33m▄]P7AAAAAA[39m [00m
                           ]P9AF5F5F[31;01m▄]P3AF5F5F[43m]PDFF87D7[35m▄]P5FF87D7[45m]PDD70087[35m▄]PDFF87D7[35m█]P3AF5F5F[43m]P9AF5F5F[31m█]P3D7AF00[43m]PBD7AF00[33m█]P2FFFF5F[42m]PBFFFF5F[33m█]PBD7AF00[33m▄]P3D7AF00[43m]PBFFFF5F[33m▄]P2FFFF5F[42m█]PBD7AF00[33m▄▄]P3D7AF00[43m]PBFFFF5F[33m▄]P2FFFF5F[42m██]P3D7AF00[43m]PBD7AF00[33m█]P2FFFF5F[42m]PBFFFF5F[33m██]P3D7AF00[43m]PBD7AF00[33m█]P0000000[49m]P7AAAAAA[39m[00m
                           ]P3AF5F5F[43m]P9AF5F5F[31;01m█]P5FF87D7[45m]PDFF87D7[35m█]P3AF5F5F[43m]P9AF5F5F[31m█]P5FF87D7[45m]PDFF87D7[35m██]P3D7AF00[43m▄▄]P5FF87D7[45m█]P3D7AF00[43m▄▄]P5FF87D7[45m█]P3D7AF00[43m]PBD7AF00[33m█]P2FFFF5F[42m]PBFFFF5F[33m██]P3D7AF00[43m]PBD7AF00[33m█]P0000000[49m]P7AAAAAA[39m ]PBD7AF00[33m▀]P2FFFF5F[42m▄]P0000000[49m▀]P7AAAAAA[39m[00m

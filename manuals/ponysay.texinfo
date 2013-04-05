@@ -2968,6 +2968,8 @@ sequences.
 @heading Version 3.0.1
 @itemize @bullet
 @item
+New ponies: @file{harshwhinny}
+@item
 The @command{ponysay-tool} command is now installed.
 @end itemize
 

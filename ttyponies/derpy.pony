@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 4
 BALLOON BOTTOM: 0
+BALLOON TOP: 4
 COAT: grey
 DISPLAY: full, left
 EYE: closed, yellow
@@ -16,14 +16,14 @@ OTHER NAMES: Derpy Hooves (partially offical), Ditzy Doo (official, in manuscrip
 POSE: fly
 SOURCE: (Jay Wright, vulcan539/james539, Blackfeathr, The Coop) Desktop ponies
 WIDTH: 49
-HEIGHT: 27
+HEIGHT: 26
 
 $$$
-$balloon$[00m
+$balloon9$[00m
+     $\$                                           [00m
+      $\$                                          [00m
        $\$                                         [00m
         $\$                                        [00m
-         $\$                                       [00m
-          $\$                                      [00m
      ]PBFFD75F[33;01m▄▄]P2FFD75F[42m]PFFFFFAF[37m▄▄▄▄▄]P0000000[49m]PBFFD75F[33m▄▄▄]P7AAAAAA[39m                                  [00m
    ]PBFFD75F[33;01m▄]P2FFD75F[42m]PFFFFFAF[37m▄]P7FFFFAF[47m█]PBFFD75F[33m▄]PFFFFFAF[37m████████]P2FFD75F[42m▄▄▄]P0000000[49m]P88787AF[30m▄]P78787AF[47m]PFD0D0D0[37m▄]P0000000[49m]P88787AF[30m▄]P7AAAAAA[39m                            [00m
   ]P2FFD75F[42m]PBFFD75F[33;01m█]P0000000[49m▀]P2FFD75F[42m█]PFFFFFAF[37m▄]P7FFFFAF[47m███████████]P78787AF[47m]P88787AF[30m█]P7D0D0D0[47m]PFD0D0D0[37m█]PFAFAFD7[37m▄]P78787AF[47m]PFD0D0D0[37m▄]P0000000[49m]P88787AF[30m▄]P7AAAAAA[39m                           [00m
