@@ -2970,6 +2970,8 @@ sequences.
 @item
 New ponies: @file{harshwhinny}
 @item
+All ponies has been reviewed and improved when needed.
+@item
 The @command{ponysay-tool} command is now installed.
 @end itemize
 
