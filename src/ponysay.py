@@ -888,7 +888,7 @@ class Ponysay():
         ## Use PNG file as pony file
         if endswith(pony.lower(), '.png'):
             pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
-            pngcmd = 'ponytool --import image --file %s --export ponysay --platform %s --balloon y'
+            pngcmd = 'ponytool --import image --file %s --balloon n --export ponysay --platform %s --balloon y'
             pngcmd %= (pony, ('linux' if self.linuxvt else 'xterm')) # XXX xterm should be haiku in Haiku
             pngpipe = os.pipe()
             Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()

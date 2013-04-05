@@ -151,8 +151,9 @@ class KMS():
                 os.makedirs(kmsponydir)
                 if shared:
                     Popen('chmod -R 7777 -- %s/kmsponies' % _cachedir, shell=True).wait()
-            ponytoolcmd = 'ponytool --import ponysay --file %s --export ponysay --file %s --platform linux '
-            ponytoolcmd += '--balloon n --colourful y --fullcolour y --left - --right - --top - --bottom - --palette %s'
+            opts = '--balloon n --left - --right - --top - --bottom -'
+            ponytoolcmd = 'ponytool --import ponysay --file %%s %s --export ponysay --file %%s --platform linux %s' % (opts, opts)
+            ponytoolcmd += ' --colourful y --fullcolour y --palette %s'
             if not os.system(ponytoolcmd % (_pony, _kmspony, palette)) == 0:
                 printerr('Unable to run ponytool successfully, you need util-say>=3 for KMS support')
                 exit(1)

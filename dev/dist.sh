@@ -9,13 +9,14 @@
 
 ttyponies()
 {
+    defaultinparams="--left - --right - --top - --bottom -"
     defaultoutparams="--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y"
     for x in '' 'extra'; do
 	mkdir -p "${x}ttyponies"
 	for pony in $(find "${x}ponies/" | grep -v '/\.' | grep '\.pony$' | sed -e "s_^${x}ponies/__"); do
 	    echo "building ${x}ttypony: $pony"
 	    if [ ! -L "${x}ponies/$pony" ]; then
-		ponytool --import ponysay --file "${x}ponies/$pony" \
+		ponytool --import ponysay --file "${x}ponies/$pony" $defaultinparams \
 		         --export ponysay --platform linux --file "${x}ttyponies/$pony" $defaultoutparams
 		git add "${x}ttyponies/$pony"
 	    else
@@ -29,6 +30,7 @@ ttyponies()
 
 remaster()
 {
+    inparams="--left - --right - --top - --bottom -"
     xtermoutparams="--left - --right - --top - --bottom - --balloon n"
     linuxoutparams="--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y"
     for x in '' 'extra'; do
@@ -36,7 +38,7 @@ remaster()
 	for pony in $(find "${x}ponies/" | grep -v '/\.' | grep '\.pony$' | sed -e "s_^${x}ponies/__"); do
 	    echo "remastering ${x}pony: $pony"
 	    if [ ! -L "${x}ponies/$pony" ]; then
-		ponytool --import ponysay --file "${x}ponies/$pony" \
+		ponytool --import ponysay --file "${x}ponies/$pony" $inparams \
 		         --export ponysay --file "${x}ponies/$pony" $xtermoutparams \
 		         --export ponysay --platform linux --file "${x}ttyponies/$pony" $linuxoutparams
 		git add "${x}ponies/$pony" "${x}ttyponies/$pony"
