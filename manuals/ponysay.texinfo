@@ -2375,7 +2375,7 @@ the pony itself, as well as adding comments.
 
 The metadata entry must be at the absolute beginning of the file (UTF-8 signture
 excluded), and is the file must be encoded in UNIX line breaks. The metadata entry
-begins with a line with exact 3 dollar signs and nothing else (@code{$$$}), and
+begins with a line with exactly 3 dollar signs and nothing else (@code{$$$}), and
 end in the same way direct follow by the pony image starting from the next line.
 
 A metadata tag consists of a tag name in upper case and a tag value, with a colon
@@ -2383,7 +2383,7 @@ A metadata tag consists of a tag name in upper case and a tag value, with a colo
 be used multiple times or can be completely skipped. There are only a few tags,
 namely @var{BALLOON TOP}, @var{BALLOON BOTTOM}, @var{MASTER}, @var{FREE}, that
 absolutely should not be used muliple tag; a general rule is that a tag desribing
-a pony should be duplicated exact as many times as there are ponies in the image.
+a pony should be duplicated exactly as many times as there are ponies in the image.
 
 Any line that does not conform to the format of a tag line is a part of the comment
 field. Leading line breaks in the comment field is ignored.
