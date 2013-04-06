@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E11 Winter Wrap Up
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: yellow
 DISPLAY: full, left
 EYE: cyan
@@ -11,8 +11,8 @@ GROUP: stallion
 KIND: earth
 LINK: regular
 MANE: brown
-NAME: (not mentioned)
-OTHER NAMES: Caramel (official, in Gameloft game), Cance-A-Lot (unofficial, but the toy ressemble him)
+NAME: Caramel
+OTHER NAMES: sCance-A-Lot (unofficial, but the toy ressemble him)
 POSE: trot
 SOURCE: (Starly) Desktop ponies
 WIDTH: 39
