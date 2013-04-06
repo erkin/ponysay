@@ -2969,6 +2969,12 @@ sequences.
 @cindex versions
 @cindex previous releases
 
+@heading Version 3.0.2
+@itemize @bullet
+@item
+New ponies: @file{peachbottom}
+@end itemize
+
 @heading Version 3.0.1
 @itemize @bullet
 @item
