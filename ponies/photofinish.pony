@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E20 Green isn't Your Color
+BALLOON: top
+COAT: blue
+DISPLAY: full, right
+EYE: black
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: white
+NAME: Photo Finish
+POSE: stand
+SOURCE: (Pony Noia) Dektop ponies
+WIDTH: 41
+HEIGHT: 25
+
+
+$$$
 $balloon24$[0m
                      $\$
                       $\$

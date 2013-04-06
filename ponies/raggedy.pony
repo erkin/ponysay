@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E09 Sweet and Elite
+BALLOON: top
+COAT: grey
+DISPLAY: full, right
+EYE: brown
+FREE: no
+GROUP: stallion, background
+KIND: earth
+LINK: regular
+MANE: black
+NAME: (not mentioned)
+OTHER NAMES: Raggedy (unofficial), Raggedy Doctor (unofficial)
+POSE: trot
+SOURCE: desktop ponies deviantart group
+WIDTH: 39
+HEIGHT: 30
+
+
+$$$
 $balloon$
 [0m                      $\$
                        $\$

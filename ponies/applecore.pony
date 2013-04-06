@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: pink
+DISPLAY: full, right
+EYE: cyan
+FREE: no
+GROUP: filly, background
+KIND: earth
+LINK: regular
+MANE: pink
+NAME: (not mentioned)
+OTHER NAMES: Apple Core (unofficial), Piña Colada (unofficial, merged in wiki), Pina Colada (ASCII)
+POSE: trot
+SOURCE: [jristz]
+WIDTH: 33
+HEIGHT: 21
+
+
+$$$
 $balloon19$[0m
                 $\$
                  $\$

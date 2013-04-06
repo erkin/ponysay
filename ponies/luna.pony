@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1] (animated in a book, real life first appearance is S01E02 Frienship is Magic [Part 2])
+AURA: blue
+BALLOON: top
+COAT: blue
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare, royal, tritagonist
+KIND: alicorn
+LINK: regular
+MANE: cyan, blue (season 2)
+NAME: Luna
+OTHER NAMES: Princess Luna (official, full name), Lunija (official, russian), Nightmare Moon (official, corrupted), Woona (unofficial)
+POSE: trot
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 70
+HEIGHT: 38
+
+
+$$$
 $balloon15$[0m
            $\$
             $\$

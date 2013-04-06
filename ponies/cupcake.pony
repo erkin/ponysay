@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E04 Applebuck Season
+BALLOON: top
+COAT: blue
+DISPLAY: full, right
+EYE: purple
+FREE: no
+GROUP: mare, backgrund, voiced
+KIND: earth
+LINK: regular
+MANE: red
+NAME: Mrs Cup Cake
+OTHER NAMES: Cup Cake, Mrs Cupcake, Cupcake
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 43
+HEIGHT: 28
+
+
+$$$
 $balloon25$[0m
                       $\$
                        $\$

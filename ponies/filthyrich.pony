@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E12 Family Appreciation Day
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: stallion, background, voiced
+KIND: earth
+LINK: regular
+MANE: black
+NAME: Filthy Rich
+OTHER NAMES: Filthy (official, short name), Rich (official, he prefers that you call him by surname)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 27
+
+
+$$$
 $balloon$
 [0m     $\$
       $\$

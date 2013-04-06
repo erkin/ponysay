@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E07 Dragonshy
+BALLOON: top
+COAT: beige
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: stallion, background
+KIND: earth
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Goldengrape (official, toy line), Colton Vines (unofficial), Sir Colton Vines III (unofficial)
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 41
+HEIGHT: 25
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

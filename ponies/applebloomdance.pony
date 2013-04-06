@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: yellow
+DISPLAY: full, left
+EYE: brown
+FREE: no
+GROUP: filly, deuteragonist
+KIND: earth
+LINK: regular
+MANE: red
+MASTER: applebloom
+NAME: Apple Bloom
+POSE: dance
+SOURCE: (The Coop, Pony Noia) Desktop ponies
+WIDTH: 34
+HEIGHT: 24
+
+
+$$$
 $balloon11$[0m
         $\$
          $\$

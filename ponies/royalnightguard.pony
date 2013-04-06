@@ -1,3 +1,21 @@
+$$$
+APPEARANCE: S02E04 Luna Eclipsed
+BALLOON: top
+COAT: grey
+DISPLAY: full, right
+EYE: brown
+FREE: no
+GROUP: stallion, guard
+KIND: pegasus
+LINK: regular
+MANE: black
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 40
+HEIGHT: 26
+
+
+$$$
 $balloon25$[0m
                       $\$
                        $\$

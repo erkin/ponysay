@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
+COAT: beige
+DISPLAY: full, right
+EYE: purple
+FREE: no
+GROUP: filly
+KIND: earth
+LINK: regular
+MANE: orange (ponysay), red (source)
+NAME: Twist
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 33
+HEIGHT: 21
+
+
+$$$
 $balloon20$[0m
                  $\$
                   $\$

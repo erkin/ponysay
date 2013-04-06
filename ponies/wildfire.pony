@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E25 The Royal Wedding [Part 1]
+BALLOON: top
+COAT: yellow
+DISPLAY: full, right
+EYE: brown
+FREE: no
+GROUP: mare
+KIND: pegasus
+LINK: regular
+MANE: brown
+NAME: (not mentioned)
+OTHER NAMES: Wild Fire (stated official by the crew)
+POSE: pose
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 38
+HEIGHT: 25
+
+
+$$$
 $balloon29$[0m
                           $\$
                            $\$

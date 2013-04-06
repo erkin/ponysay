@@ -1,3 +1,25 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+BASED ON: Generation 3 Pinkie Pie
+COAT: pink
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: mare, mane
+KIND: earth
+LINK: regular
+MANE: pink
+MASTER: pinkie
+NAME: Pinkie Pie
+OTHER NAMES: Pinkie (official, short name), Pinkamina Diane Pie (official, full name)
+POSE: filly
+SOURCE: desktop ponies
+WIDTH: 33
+HEIGHT: 20
+
+
+$$$
 $balloon9$[0m
       $\$
        $\$

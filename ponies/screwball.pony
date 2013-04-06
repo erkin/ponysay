@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E02 Return of Harmony [Part 2]
+BALLOON: top
+COAT: pink
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: purple
+NAME: (not mentioned)
+OTHER NAMES: Screwball (unofficial)
+POSE: float
+SOURCE: (DeathPony/deathpwny) Desktop ponies
+WIDTH: 53
+HEIGHT: 23
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

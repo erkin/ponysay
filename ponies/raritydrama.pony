@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: blue
+BALLOON: top
+COAT: white
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: mare, mane
+KIND: unicorn
+LINK: regular
+MANE: purple
+MASTER: rarity
+NAME: Rarity
+POSE: drama
+SOURCE: (Jay wright, StarStep, Bot-chan, The Coop, Miriam the Bat, Kloopp) Desktop ponies
+WIDTH: 91
+HEIGHT: 39
+
+
+$$$
 $balloon24$[0m
                     $\$
                      $\$

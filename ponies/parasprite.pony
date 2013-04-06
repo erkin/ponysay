@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E10 Swarm of the Century
+BALLOON: top
+COAT: multiple, green
+DISPLAY: full, front
+EYE: multiple, green
+FREE: yes
+GROUP: parasprite
+KIND: animal
+LICENSE: cc-by-sa
+LINK: regular
+POSE: smile
+SOURCE: desktop ponies
+WIDTH: 26
+HEIGHT: 15
+
+License summary:   https://creativecommons.org/licenses/by-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+$$$
 $balloon5$[0m
   $\$
    $\$

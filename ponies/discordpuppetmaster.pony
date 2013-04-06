@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S02E01 The Return of Harmony [Part 1]
+AURA: (invisible)
+BALLOON: top
+COAT: multiple
+DISPLAY: full, left
+EYE: red
+FREE: no
+GROUP: antagonist, reconciled
+KIND: draconequus
+LINK: regular
+MANE: grey
+MASTER: discord
+NAME: Discord
+POSE: puppet master
+SOURCE: (StartStep) Desktop ponies
+WIDTH: 90
+HEIGHT: 37
+
+
+$$$
 $balloon12$[0m
          $\$
           $\$                           [38;5;16m▄[48;5;235m▀▀▀▀▀▀[49m▄[39m                                            [0m

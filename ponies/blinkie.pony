@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: grey
+DISPLAY: full, right
+EYE: brown
+FREE: no
+GROUP: filly, background
+KIND: earth
+LINK: regular
+MANE: grey
+NAME: (not mentioned)
+OTHER NAMES: Blinkie Pie (unofficial)
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 31
+HEIGHT: 20
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

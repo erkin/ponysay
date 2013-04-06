@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: yellow
+DISPLAY: full, left
+EYE: brown, closed
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: pink
+NAME: Apple Bumpkin
+OTHER NAMES: Apple Dazzler (official, according to January 2012 toy)
+POSE: trot
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 47
+HEIGHT: 25
+
+
+$$$
 $balloon11$[0m
         $\$
          $\$

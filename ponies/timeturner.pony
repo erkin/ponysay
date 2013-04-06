@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: black
+NAME: (not mentioned)
+OTHER NAMES: Time Turner (unofficial), Dr Hooves (official according to Welovefine), Dr Whooves (unofficial)
+POSE: trot
+SOURCE: (Asparagus, RJP!, Doctor Blade, Anonycat) Desktop ponies
+WIDTH: 38
+HEIGHT: 24
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

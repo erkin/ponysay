@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: filly
+KIND: earth
+LINK: regular
+MANE: orange
+NAME: (not mentioned)
+OTHER NAMES: Noi (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 36
+HEIGHT: 21
+
+
+$$$
 $balloon9$[0m
       $\$
        $\$

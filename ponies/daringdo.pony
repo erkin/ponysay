@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S02E16 Read it and Weep
+BALLOON: top
+COAT: brown
+DISPLAY: full, right
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: pegasus
+LINK: regular
+MANE: grey
+NAME: Daring Do
+POSE: stand
+SOURCE: (Anonymous) Desktop ponies
+WIDTH: 50
+HEIGHT: 27
+
+
+$$$
 $balloon30$[0m
                            $\$
                             $\$

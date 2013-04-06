@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E06 Boast Busters
+BALLOON: top
+COAT: blue
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare, villian, reconciled
+KIND: unicorn
+LINK: regular
+MANE: white
+MASTER: trixie
+NAME: Trixie
+OTHER NAMES: The Great and Powerful Trixie (official, titled), Trixie Lulamoon (official, toy line), Lulamoon (official, toy line)
+POSE: stand
+SOURCE: (Jay Wright/Monkey Jay, Yamino, Zipman, Humle, Starly) Desktop ponies
+WIDTH: 48
+HEIGHT: 28
+
+
+$$$
 $balloon6$[0m
    $\$                 [38;5;97m▄▄[48;5;97m▀[48;5;229m▀▀[48;5;97m▀[49m▄[39m                    [0m
     $\$             [38;5;97m▄▄[48;5;97m▀[48;5;104m▀[38;5;104m▀▀▀[38;5;229m▀[38;5;104m▀[38;5;97m▀[48;5;97m▀[49m▄[39m                  [0m

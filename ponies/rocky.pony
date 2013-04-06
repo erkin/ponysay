@@ -1,3 +1,21 @@
+$$$
+APPEARANCE: S01E25 Party of one
+BALLOON: top
+COAT: grey
+DISPLAY: full, right
+FREE: sharable
+GROUP: imaginary
+KIND: item
+LICENSE: cc-by-nc-sa
+LINK: regular
+NAME: Rocky
+SOURCE: desktop ponies
+WIDTH: 22
+HEIGHT: 27
+
+License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+$$$
 $balloon5$[0m
   $\$
    $\$

@@ -1,3 +1,25 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: purple (whitish lilac in season 1)
+BALLOON: top
+COAT: purple
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare, mane
+KIND: unicorn
+LINK: regular
+MANE: purple
+MASTER: twilight
+NAME: Twilight
+OTHER NAMES: Twilight Sparkle (official, full name)
+POSE: filly
+SOURCE: (Pony Noia, RJP!) Desktop ponies
+WIDTH: 35
+HEIGHT: 21
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

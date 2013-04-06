@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: orange
+DISPLAY: full, left
+EYE: cyan
+FREE: no
+GROUP: stallion, background, voiced
+KIND: earth
+LINK: regular
+MANE: green
+NAME: Uncle Orange
+OTHER NAMES: Mosely Orange (unofficial, on toy line)
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 37
+HEIGHT: 25
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

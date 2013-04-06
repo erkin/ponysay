@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: grey
+NAME: (not mentioned)
+OTHER NAMES: Clyde (unofficial)
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 47
+HEIGHT: 25
+
+
+$$$
 $balloon10$[0m
        $\$      [38;5;236m▄[48;5;239m▀▀[49m▄[39m                             [0m
         $\$    [38;5;236m▄[48;5;239m▀[38;5;239m▀▀▀[38;5;236m▀[48;5;236m▀[48;5;239m▀▀▀[49m▄[39m                       [0m

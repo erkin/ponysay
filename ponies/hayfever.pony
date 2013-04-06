@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E17 Hearts and Hooves Day
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: stallion, background
+KIND: earth
+LINK: regular
+MANE: brown
+NAME: (not mentioned)
+OTHER NAMES: Hay Fever (unofficial)
+POSE: heal
+SOURCE: [jristz]
+WIDTH: 43
+HEIGHT: 23
+
+
+$$$
 $balloon$
 [0m        $\$
          $\$

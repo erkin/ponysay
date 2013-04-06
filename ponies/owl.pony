@@ -1,5 +1,30 @@
 $$$
+APPEARANCE: S01E24 Owl's Well That Ends Well
+BALLOON: top
+COAT: brown
+DISPLAY: full, front
+EYE: black
 FREE: yes
+GROUP: owl, pet
+KIND: animals
+LICENSE: CC0
+LINK: regular
+MASTER: owlowiscious
+NAME: Owlowiscious
+POSE: watch
+SOURCE: imageboard
+WIDTH: 21
+HEIGHT: 23
+
+The person who associated a work with this deed has dedicated the work to
+the public domain by waiving all of his or her rights to the work worldwide under
+copyright law, including all related and neighboring rights, to the extent allowed
+by law.
+
+You can copy, modify, distribute and perform the work, even for commercial
+purposes, all without asking permission. See Other Information below.
+
+http://creativecommons.org/publicdomain/zero/1.0/legalcode
 $$$
 $balloon$
 [0m$\$

@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: orange
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: filly, deuteragonist, chicken (😊 )
+KIND: pegasus
+LINK: regular
+MANE: purple
+NAME: Scootaloo
+POSE: scoot
+SOURCE: (Miles000/Midnyte, RainbowCrash, The Coop) Desktop ponies
+WIDTH: 46
+HEIGHT: 24
+
+
+$$$
 $balloon8$[0m
      $\$
       $\$

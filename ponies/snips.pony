@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E06 Boast Busters
+BALLOON: top
+COAT: green
+DISPLAY: full, right
+EYE: black
+FREE: no
+GROUP: colt, backgound, voiced
+KIND: unicorn
+LINK: regular
+MANE: orange
+NAME: Snips
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 35
+HEIGHT: 20
+
+
+$$$
 $balloon18$[0m
                $\$
                 $\$

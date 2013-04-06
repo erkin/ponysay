@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E20 Green isn't Your Color
+BALLOON: top
+COAT: beige
+DISPLAY: full, left
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: white
+NAME: (not mentioned)
+OTHER NAMES: Picture Perfect (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 41
+HEIGHT: 25
+
+
+$$$
 $balloon3$[0m
 $\$
  $\$

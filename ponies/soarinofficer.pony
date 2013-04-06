@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
+COAT: blue
+DISPLAY: full, right
+EYE: green
+FREE: no
+GROUP: stallion, wonderbolt
+KIND: pegasus
+LINK: regular
+MANE: blue
+MASTER: soarin
+NAME: Soarin
+POSE: officer
+SOURCE: [jristz]
+WIDTH: 43
+HEIGHT: 25
+
+
+$$$
 $balloon29$[0m
                           $\$
                            $\$

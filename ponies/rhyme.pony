@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E16 Read it and Weep
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: filly, background
+KIND: earth
+LINK: regular
+MANE: black
+NAME: (not mentioned)
+OTHER NAMES: Nursery Rhyme (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 33
+HEIGHT: 23
+
+
+$$$
 $balloon$
 [0m $\$
   $\$

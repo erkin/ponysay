@@ -1,3 +1,25 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: purple (whitish lilac in season 1)
+BALLOON: top
+BASED ON: Starswirl the Bearded
+COAT: purple
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare, mane
+KIND: unicorn
+LINK: regular
+MANE: purple
+NAME: Twilight
+OTHER NAMES: Twilight Sparkle (official, full name)
+POSE: twilight
+SOURCE: (Jay Wright, Humle, Bot-chan, StarStep, Anonycat, InfinityDash, supersayanmikito, aslic96) Desktop ponies
+WIDTH: 58
+HEIGHT: 33
+
+
+$$$
 $balloon18$[0m
                $\$
                 $\$

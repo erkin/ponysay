@@ -1,3 +1,44 @@
+$$$
+APPEARANCE: S01E01 Friendship is magic [Part 1]
+APPEARANCE: S01E04 Applebuck Season
+APPEARANCE: S01E04 Applebuck Season
+BALLOON: top
+COAT: pink
+COAT: beige
+COAT: pink
+DISPLAY: full, left
+DISPLAY: full, right
+DISPLAY: full, left
+EYE: closed, blue
+EYE: grey (ponysay), green (source)
+EYE: closed, orange
+FREE: no
+GROUP: mare, background, voiced
+GROUP: mare, background
+GROUP: mare, background
+GROUP NAME: Flower Trio
+KIND: earth
+KIND: earth
+KIND: earth
+LINK: regular
+LINK ON: 1
+MANE: green
+MANE: red
+MANE: yellow
+MASTER: daisy
+NAME: Daisy
+NAME: Rose
+NAME: (not mentioned)
+OTHER NAMES: Flower Wishes (unofficial, a toy match here)
+OTHER NAMES: Roseluck (official, toy line)
+OTHER NAMES: Lily Valley (official, on collector card)
+POSE: disaster
+SOURCE: (Bot-chan) desktop ponies deviatart group
+WIDTH: 122
+HEIGHT: 34
+
+
+$$$
 $balloon78$[0m
                                                                            $\$
                                                                             $\$

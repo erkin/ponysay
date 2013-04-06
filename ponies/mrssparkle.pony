@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+BASED ON: Generation 1 Twilight
+COAT: white
+DISPLAY: full, left
+EYE: cyan
+FREE: no
+GROUP: mare, background, voiced
+KIND: unicorn
+LINK: regular
+MANE: purple (and white)
+NAME: (not mentioned)
+OTHER NAMES: Mrs Sparkle, Twilight Velvet (official, toy line)
+POSE: stand
+SOURCE: (supersaiyanmikito) Desktop ponies
+WIDTH: 50
+HEIGHT: 24
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

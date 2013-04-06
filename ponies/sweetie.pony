@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: white
+DISPLAY: full, right, turned
+EYE: green
+FREE: no
+GROUP: filly, deuteragonist
+KIND: unicorn
+LINK: regular
+MANE: pink
+NAME: Sweetie Belle
+POSE: sit
+SOURCE: (Miles000/Midnyte, The Coop, Cantorlot, StarTep) Desktop ponies
+WIDTH: 37
+HEIGHT: 23
+
+
+$$$
 $balloon20$[0m
 [39;49m [39;49m             $\$
                $\$    [38;5;250m▄    [38;5;96m▄▄▄▄▄▄▄▄[39;49m

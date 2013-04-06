@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E06 Boast Busters
+BALLOON: top
+COAT: orange
+DISPLAY: full, left
+EYE: black
+FREE: no
+GROUP: colt, background, voiced
+KIND: unicorn
+LINK: regular
+MANE: green
+NAME: Snails
+POSE: stand
+SOURCE: desktop ponies
+WIDTH: 34
+HEIGHT: 26
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

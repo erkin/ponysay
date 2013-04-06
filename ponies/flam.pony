@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S02E15 The Super Speedy Cider Squeezy 6000
+BALLOON: top
+COAT: yellow
+DISPLAY: full, right
+EYE: green
+FREE: no
+GROUP: stallion, antagonist
+KIND: unicorn
+LINK: regular
+MANE: red
+NAME: Flam
+POSE: trot
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 44
+HEIGHT: 29
+
+
+$$$
 $balloon$
 [0m                     $\$
                       $\$

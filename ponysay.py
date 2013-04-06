@@ -69,7 +69,6 @@ def render_pony(name, text, balloonstyle, width=80, center=False, centertext=Fal
 			minwidth = int(match.group(1) or '0')
 			pony[i:i+1] = render_balloon(text, balloonstyle, minwidth=minwidth, maxwidth=int(width/2), pad=str.center if centertext else str.ljust)
 			break
-	#FIXME I have no idea what these three-dollar-sign-pairs thingys are for. Can they occur more than once per pony?
 	try:
 		first = pony.index('$$$\n')
 		second = pony[first+1:].index('$$$\n')

@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S02E09 Sweed and Elite
+BALLOON: top
+COAT: white
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: unicorn
+LINK: regular
+MANE: blue
+NAME: Fancypants
+POSE: stand
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 46
+HEIGHT: 31
+
+
+$$$
 $balloon28$[0m
                          $\$
                           $\$

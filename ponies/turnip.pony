@@ -1,3 +1,19 @@
+$$$
+APPEARANCE: S02E25 Party of One
+BALLOON: top
+FREE: sharable
+GROUP: imaginary
+KIND: item
+LICENSE: cc-by-nc-sa
+LINK: regular
+NAME: Turnip
+SOURCE: desktop ponies
+WIDTH: 23
+HEIGHT: 24
+
+License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+$$$
 $balloon5$[0m
   $\$
    $\$

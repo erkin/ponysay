@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S02E22 Hurricane Fluttershy
+BALLOON: top
+COAT: black
+DISPLAY: full, left
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: pegasus
+LINK: regular
+MANE: cyan
+NAME: Thunderlane
+POSE: trot
+SOURCE: (fanofetcetera) Desktop ponies
+WIDTH: 36
+HEIGHT: 25
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E04 Applebuck Season
+BALLOON: top
+COAT: cyan
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: green
+NAME: (not mentioned)
+OTHER NAMES: Nurse Tenderheart (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 40
+HEIGHT: 26
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

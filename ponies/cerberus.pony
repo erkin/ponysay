@@ -1,3 +1,30 @@
+$$$
+APPEARANCE: S02E20 It's About Time
+BALLOON: top
+COAT: black
+DISPLAY: full, left
+EYE: red
+FREE: yes
+GROUP: dog, wildlife, cerberus
+KIND: animal
+LICENSE: CC0
+LINK: regular
+NAME: Cerberus
+POSE: play
+SOURCE: (screenshoot)
+WIDTH: 107
+HEIGHT: 33
+
+The person who associated a work with this deed has dedicated the work to
+the public domain by waiving all of his or her rights to the work worldwide under
+copyright law, including all related and neighboring rights, to the extent allowed
+by law.
+
+You can copy, modify, distribute and perform the work, even for commercial
+purposes, all without asking permission. See Other Information below.
+
+http://creativecommons.org/publicdomain/zero/1.0/legalcode
+$$$
 $balloon46$[0m
                                            $\$
                                             $\$

@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E21 Over a Barrel
+BALLOON: top
+COAT: brown
+DISPLAY: full, right
+EYE: cyan
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: brown
+NAME: Sheriff Silverstar
+OTHER NAMES: Silverstar (official, without title)
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 40
+HEIGHT: 28
+
+
+$$$
 $balloon17$[0m
               $\$
                $\$

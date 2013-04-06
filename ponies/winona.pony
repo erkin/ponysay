@@ -1,3 +1,21 @@
+$$$
+APPEARANCE: S01E04 Applebuck Season
+BALLOON: top
+DISPLAY: full, left
+EYE: black
+FREE: no
+GROUP: dog, pet
+KIND: animals
+LINK: regular
+MANE: brown
+NAME: Winona
+POSE: happy
+SOURCE: (DeathPony/deathpwny) Desktop ponies
+WIDTH: 35
+HEIGHT: 21
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

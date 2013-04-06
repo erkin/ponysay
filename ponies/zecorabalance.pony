@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E09 - Bridle Gossip
+BALLOON: top
+COAT: grey
+DISPLAY: full, front, down
+EYE: green, closed
+FREE: no
+GROUP: mare
+KIND: zebra
+LINK: regular
+MANE: zebra
+MASTER: zecora
+NAME: Zecora
+POSE: balance
+SOURCE: (Sidekick ponyguy, RJP!) Desktop ponies
+WIDTH: 40
+HEIGHT: 45
+
+
+$$$
 $balloon14$[0m
            $\$
             $\$

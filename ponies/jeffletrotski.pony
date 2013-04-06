@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E06 The Cutie Pox
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: stallion, background
+KIND: earth
+LINK: regular
+MANE: brown
+NAME: (not mentioned)
+OTHER NAMES: Jeff "The Dude" Letrotski (official, in Gameloft games)
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 43
+HEIGHT: 24
+
+
+$$$
 $balloon26$[0m
                        $\$
                         $\$

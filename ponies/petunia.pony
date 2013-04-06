@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
+COAT: purple
+DISPLAY: full, right
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: purple
+NAME: (not mentioned)
+OTHER NAMES: Petunia (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 27
+
+
+$$$
 $balloon$
 [0m                          $\$
                            $\$

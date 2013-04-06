@@ -1,3 +1,25 @@
+$$$
+APPEARANCE: S01E02 Friendship is Magic [Part 1]
+AURA: blue
+BALLOON: top
+COAT: blue
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare, tritagonist, royal
+KIND: alicorn
+LINK: regular
+MANE: cyan, blue (season 2)
+MASTER: luna
+NAME: Luna
+OTHER NAMES: Princess Luna (official, full name), Lunija (official, russian), Nightmare Moon (official, corrupted), Woona (unofficial)
+POSE: fly
+SOURCE: (unknown)
+WIDTH: 85
+HEIGHT: 40
+
+
+$$$
 $balloon17$[0m
               $\$
                $\$

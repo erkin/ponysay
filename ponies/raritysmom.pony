@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E05 Sisterhooves Social
+BALLOON: top
+COAT: pink
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: unicorn
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Pearl (unofficial)
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 43
+HEIGHT: 28
+
+
+$$$
 $balloon24$[0m
                      $\$
                       $\$

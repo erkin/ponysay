@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E21 Over a Barrel
+BALLOON: top
+COAT: yellow
+DISPLAY: full, left
+EYE: green
+FREE: no
+GROUP: unicorn
+KIND: earth
+LINK: regular
+MANE: brown
+NAME: Braeburn
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 47
+HEIGHT: 25
+
+
+$$$
 $balloon6$[0m
    $\$        [38;5;237m▄[48;5;95m▀▀[49m▄[39m                               [0m
     $\$      [38;5;236m▄[48;5;237m▄[48;5;95m▄[38;5;95m▀▀[38;5;237m▀[48;5;237m▀[48;5;95m▀▀▀[49m▄[39m                         [0m

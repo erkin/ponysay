@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
+COAT: pink
+DISPLAY: full, left
+EYE: teal
+FREE: no
+GROUP: filly, villain
+KIND: earth
+LINK: regular
+MANE: purple
+NAME: Diamond Tiara
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 36
+HEIGHT: 21
+
+
+$$$
 $balloon7$[0m
     $\$   [38;5;67m▀[39m  [38;5;152m▄[39m                        [0m
      $\$  [48;5;152m[38;5;152m▄[49m▀[38;5;67m▄▄[39m  [38;5;67m▄[39m                     [0m

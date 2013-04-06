@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E24 - MMMystery on the Friendship
+BALLOON: top
+COAT: black
+DISPLAY: full, right
+EYE: yellow
+FREE: no
+GROUP: griffin
+KIND: animal
+LINK: regular
+MANE: white
+NAME: Gustave le Grand
+OTHER NAMES: Le Grand (official, short)
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 61
+HEIGHT: 31
+
+
+$$$
 $balloon38$[0m
                                    $\$
                                     $\$

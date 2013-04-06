@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E04 Applebuck Season
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: white (ponysay), pink (source)
+NAME: (not mentioned)
+OTHER NAMES: Nurse Redheart (unofficial)
+POSE: stand
+SOURCE: (Logan, StarStep) Desktop ponies
+WIDTH: 40
+HEIGHT: 27
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

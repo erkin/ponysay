@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: green
+FREE: no
+GROUP: stallion, background, voiced
+KIND: earth
+LINK: regular
+MANE: black
+NAME: (not mentioned)
+OTHER NAMES: Cherry Fizzy (official, collector card and toy line), Cherry Cola (unofficial), Cherry Coke (unofficial)
+POSE: trot
+SOURCE: Desktop ponies
+WIDTH: 39
+HEIGHT: 25
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: beige
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: blue
+NAME: Bon Bon (Gameloft game)
+OTHER NAMES: Sweetie Drops (official)
+POSE: sleep
+SOURCE: (Jay Wright, Starly) Desktop ponies
+WIDTH: 42
+HEIGHT: 27
+
+
+$$$
 $balloon15$[0m
            $\$
             $\$

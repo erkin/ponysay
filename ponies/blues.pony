@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E11 Winter Wrap Up
+BALLOON: top
+COAT: blue
+DISPLAY: full, right
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: earth, background
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Noteworthy (unofficial, toy line), Blues (unofficial)
+POSE: play
+SOURCE: (Anonycat, StarStep) Desktop ponies
+WIDTH: 49
+HEIGHT: 25
+
+
+$$$
 $balloon23$[0m
                     $\$
                      $\$

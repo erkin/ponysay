@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: yellow
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Mjölna (unofficial), Sandy (unoffical)
+POSE: trot
+SOURCE: (Anonymous) Desktop ponies
+WIDTH: 45
+HEIGHT: 26
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

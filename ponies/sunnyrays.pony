@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E08 Look Before You Sleep
+BALLOON: top
+COAT: orange
+DISPLAY: full, right
+EYE: pink
+FREE: no
+GROUP: mare
+KIND: pegasus
+LINK: regular
+MANE: pink
+NAME: (not mentioned)
+OTHER NAMES: Sunny Rays (official, in merchandise)
+POSE: fly
+SOURCE: desktop ponies
+WIDTH: 49
+HEIGHT: 19
+
+
+$$$
 $balloon3$[0m
 $\$
  $\$

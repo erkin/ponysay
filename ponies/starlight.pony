@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E13 Fall Weather Friends
+BALLOON: top
+COAT: purple
+DISPLAY: full, right
+EYE: closed, green
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Starlight (unofficial)
+POSE: smile
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 26
+
+
+$$$
 $balloon29$[0m
                           $\$
                            $\$

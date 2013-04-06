@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: grey
+DISPLAY: full, left
+EYE: yellow
+FREE: no
+GROUP: mare, background, voiced
+KIND: pegasus
+LINK: regular
+MANE: yellow
+MASTER: derpy
+NAME: Derpy
+OTHER NAMES: Derpy Hooves (partially offical), Ditzy Doo (on manuscripts)
+POSE: wings
+SOURCE: (Jay Wright, vulcan539/james539, Blackfeathr, The Coop) Desktop ponies
+WIDTH: 48
+HEIGHT: 25
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

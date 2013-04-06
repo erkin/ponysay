@@ -1,3 +1,25 @@
+$$$
+APPEARANCE: S01E03 Ticket Master
+BALLOON: top
+COAT: white
+DISPLAY: full, left, turned
+EYE: blue
+FREE: no
+GROUP: stallion, royal
+KIND: unicorn
+LINK: regular
+MANE: yellow
+NAME: Prince Blueblood
+OTHER NAMES: Blueblood (official, without title)
+POSE: watch
+SOURCE: [jristz]
+WIDTH: 42
+HEIGHT: 29
+
+The author of this pony [jristz] not like blueblood... this is why not look soo good
+aditionaly I not going to make it look good, you only possibility is making another Blueblood
+and submit to upstream, I going to add it as soon as possible.
+$$$
 $balloon$
 [0m      $\$
        $\$

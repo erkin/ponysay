@@ -1,3 +1,26 @@
+$$$
+APPEARANCE: S02E26 The Royal Wedding [Part 2]
+AURA: green
+BALLOON: top
+COAT: black
+DISPLAY: full, right
+EYE: green
+FREE: no
+GROUP: antagonist
+KIND: changeling
+LINK: regular
+MANE: teal
+MASTER: chrysalis
+NAME: (not mentioned)
+OTHER NAMES: Chrysalis (official, in manuscript and comic)
+POSE: alternative
+SOURCE: unknown
+WING: teal
+WIDTH: 65
+HEIGHT: 34
+
+
+$$$
 $balloon35$[0m
                                 $\$
                                  $\$

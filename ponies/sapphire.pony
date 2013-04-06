@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E19 A Dog and Pony Show
+BALLOON: top
+COAT: yellow
+DISPLAY: full, right
+EYE: brown
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: blue
+NAME: Sapphire Shores
+POSE: stand
+SOURCE: (Pony noia) Desktop ponies
+WIDTH: 44
+HEIGHT: 31
+
+
+$$$
 $balloon17$[0m
               $\$
                $\$

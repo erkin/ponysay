@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E19 A Dog and Pony Show
+BALLOON: top
+COAT: grey
+DISPLAY: full, left
+EYE: green
+FREE: no
+GROUP: dog, antagonist, diamond dog
+KIND: animals
+LINK: regular
+NAME: (not mentioned)
+OTHER NAMES: Rover (official, in manuscripts)
+POSE: trot
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 51
+HEIGHT: 26
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

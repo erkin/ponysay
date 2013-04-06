@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: yellow
+DISPLAY: full, left
+EYE: teal
+FREE: no
+GROUP: mare, mane
+KIND: pegasus
+LINK: regular
+MANE: pink
+NAME: Fluttershy
+OTHER NAMES: Shy (sometimes)
+POSE: trot
+SOURCE: (Derpy Delivery, Jay Wright, Humle, StartStep, DeathPony/deathpwny, AngelKat58, Asparagus, HalfnHalf) Desktop ponies
+WIDTH: 54
+HEIGHT: 26
+
+
+$$$
 $balloon10$[0m
      $\$
       $\$

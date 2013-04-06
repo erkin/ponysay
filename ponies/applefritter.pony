@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: yellow
+DISPLAY: full, left
+EYE: green
+FREE: no
+GROUP: filly, background
+KIND: earth
+LINK: regular
+MANE: green
+NAME: Apple Fritter
+OTHER NAMES: Apple Strudely (unofficial)
+POSE: trot
+SOURCE: (Anonimous, vulcan539/james539) Desktop ponies
+WIDTH: 40
+HEIGHT: 25
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

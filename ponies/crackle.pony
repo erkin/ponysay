@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E21 Dragon Quest
+BALLOON: top
+COAT: green
+DISPLAY: full, right
+EYE: red
+FREE: sharable
+GROUP: dragon
+KIND: animal
+LICENSE: cc-by-nc-sa
+LINK: regular
+NAME: Crackle
+POSE: derped
+SOURCE: deviantar brony art group
+WIDTH: 131
+HEIGHT: 60
+
+License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+$$$
 $balloon61$[0m
                                                           $\$
                                                            $\$

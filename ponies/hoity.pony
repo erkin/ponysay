@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E14 Suited for Success
+BALLOON: top
+COAT: grey
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: white
+NAME: Hoity Toity
+POSE: stand
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 42
+HEIGHT: 27
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

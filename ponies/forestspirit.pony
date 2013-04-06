@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
+COAT: brown
+DISPLAY: full, right
+EYE: black
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: green
+NAME: (not mentioned)
+OTHER NAMES: Forest Spirit (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 26
+
+
+$$$
 $balloon$
 [0m                                  $\$
                                    $\$

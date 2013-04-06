@@ -1,3 +1,36 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: purple (whitish lilac in season 1)
+AURA: (no magic)
+BALLOON: top
+COAT: purple
+COAT: purple
+DISPLAY: full, left
+DISPLAY: full, tritagonist, right
+EYE: purple
+EYE: green
+FREE: no
+GROUP: mare, mane
+GROUP: dragon, tritagonist
+KIND: unicorn
+KIND: animal
+LINK: regular
+LINK ON: 2
+MANE: purple
+MANE: green
+MASTER: spike
+NAME: Twilight
+NAME: Spike
+OTHER NAMES: Twilight Sparkle (official, full name)
+OTHER NAMES: (none)
+POSE: ride
+SOURCE: Desktop ponies deviantart
+WIDTH: 44
+HEIGHT: 28
+
+
+$$$
 $balloon20$[0m
                  $\$
                   $\$

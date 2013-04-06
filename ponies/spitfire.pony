@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E16 Sonic Rainboom
+BALLOON: top
+COAT: yellow
+DISPLAY: full, right
+EYE: brown
+FREE: no
+GROUP: mare, wonderbolt
+GROUP NAME: wonderbolts
+KIND: pegasus
+LINK: regular
+MANE: orange
+NAME: Spitfire
+POSE: fly
+SOURCE: (Rainbowdutch, Bot-chan) Desktop ponies
+WIDTH: 53
+HEIGHT: 23
+
+
+$$$
 $balloon30$[0m
                           $\$
                            $\$

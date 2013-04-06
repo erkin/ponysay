@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S02E10 Secret of My Excess
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: closed, green
+FREE: no
+GROUP: mare, background, voiced
+KIND: earth
+LINK: regular
+MANE: orange
+NAME: Junebug
+POSE: trot
+SOURCE: desktop ponies
+WIDTH: 40
+HEIGHT: 27
+
+
+$$$
 $balloon$
 [0m  $\$
    $\$

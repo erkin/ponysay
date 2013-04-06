@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: brown
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: white
+NAME: Mayor Mare
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 50
+HEIGHT: 27
+
+
+$$$
 $balloon24$[0m
                      $\$
                       $\$

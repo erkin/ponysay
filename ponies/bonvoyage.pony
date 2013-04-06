@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E22 Hurrican Fluttershy
+BALLOON: top
+COAT: yellow
+DISPLAY: full, left
+EYE: pink
+FREE: no
+GROUP: mare, background
+KIND: pegasus
+LINK: regular
+MANE: pink
+NAME: (not mentioned)
+OTHER NAMES: Bon Voyage (unofficial)
+POSE: fly
+SOURCE: [jristz]
+WIDTH: 49
+HEIGHT: 20
+
+
+$$$
 $balloon$
 [0m$\$
  $\$

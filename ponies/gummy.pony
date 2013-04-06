@@ -1,3 +1,21 @@
+$$$
+APPEARANCE: S01E15 Feeling Pinkie Keen
+BALLOON: top
+COAT: green
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: alligator, pet
+KIND: animal
+LINK: regular
+NAME: Gummy
+POSE: dance
+SOURCE: (CANDYBAG, Anonycat, DeathPony/deathpwny) Desktop ponies
+WIDTH: 27
+HEIGHT: 15
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

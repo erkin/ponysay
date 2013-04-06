@@ -1,3 +1,21 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: white
+DISPLAY: full, right
+EYE: cyan
+FREE: no
+GROUP: stallion, guard, background, voiced
+KIND: pegasus
+LINK: regular
+MANE: blue
+POSE: stand
+SOURCE: (StarStep) Desktop ponies
+WIDTH: 44
+HEIGHT: 27
+
+
+$$$
 $balloon26$[0m
                        $\$
                         $\$

@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: blue
+DISPLAY: full, right
+EYE: green
+FREE: no
+GROUP: stallion
+KIND: unicorn
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Ponet (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 44
+HEIGHT: 27
+
+
+$$$
 $balloon$
 [0m                                 $\$
                                   $\$

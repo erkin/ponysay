@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E02 Friendship is Magic [Part 2]
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: green
+FREE: no
+GROUP: stallion, background, voiced
+KIND: earth
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Meadow Song (official, toy line), Blue Grass (unofficial), Guitar (unofficial), Yellow Burst (unofficial)
+POSE: trot
+SOURCE: [jristz]
+WIDTH: 41
+HEIGHT: 28
+
+
+$$$
 $balloon8$[0m
      $\$
       $\$

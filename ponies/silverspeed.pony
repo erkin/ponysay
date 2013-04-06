@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S02E22 Hurricane Fluttershy
+BALLOON: top
+COAT: grey
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: pegasus
+LINK: regular
+MANE: grey
+NAME: Silverspeed
+POSE: trot
+SOURCE: (fanofetcetera) Desktop ponies
+WIDTH: 45
+HEIGHT: 25
+
+
+$$$
 $balloon10$[0m
        $\$
         $\$

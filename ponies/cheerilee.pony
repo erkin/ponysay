@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E06 Boast Busters
+BALLOON: top
+COAT: purple
+DISPLAY: full, left
+EYE: green
+FREE: no
+GROUP: mare, background, voiced
+KIND: earth
+LINK: regular
+MANE: pink
+NAME: Cheerilee
+OTHER NAMES: Cheerelee (McDonald toy), Cheerilee Pie (on Gameloft game beta), Chirayli (russian)
+POSE: stand
+SOURCE: (Humle) Desktop ponies
+WIDTH: 45
+HEIGHT: 25
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

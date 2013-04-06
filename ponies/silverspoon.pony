@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
+COAT: grey
+DISPLAY: full, right
+EYE: purple
+FREE: no
+GROUP: filly, villain
+KIND: earth
+LINK: regular
+MANE: white
+NAME: Silver Spoon
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 33
+HEIGHT: 21
+
+
+$$$
 $balloon17$[0m
               $\$
                $\$

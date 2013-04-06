@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: blue
+DISPLAY: full, right
+EYE: yellow
+FREE: no
+GROUP: stallion
+KIND: unicorn
+LINK: regular
+MANE: white
+NAME: (not mentioned)
+OTHER NAMES: Bastion Yorsets (unofficial),  George Washingtony (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 39
+HEIGHT: 26
+
+
+$$$
 $balloon35$[0m
                                 $\$
                                  $\$

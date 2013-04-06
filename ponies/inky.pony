@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: grey
+DISPLAY: full, front, left
+EYE: closed, purple
+FREE: no
+GROUP: filly, background
+KIND: earth
+LINK: regular
+MANE: grey
+NAME: (not mentioned)
+OTHER NAMES: Inkie Pie (unofficial), Inky (unofficial)
+POSE: dance
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 32
+HEIGHT: 22
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

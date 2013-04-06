@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: closed
+FREE: no
+GROUP: mare, wonderbolt
+KIND: pegasus
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Surprise (unofficial), Fleetfoot (Gameloft game beta)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 37
+HEIGHT: 26
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

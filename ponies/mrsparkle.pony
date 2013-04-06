@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: blue
+DISPLAY: full, right
+EYE: yellow
+FREE: no
+GROUP: stallion, background, voiced
+KIND: unicorn
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Night Light (unofficial), Mr Sparkle, Crescent Sparkle (unofficial)
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies, [jristz] (ponysay 2.8)
+WIDTH: 40
+HEIGHT: 25
+
+
+$$$
 $balloon33$[0m
                               $\$
                                $\$

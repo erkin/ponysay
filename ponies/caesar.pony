@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
+COAT: grey
+DISPLAY: full, left
+EYE: brown
+FREE: no
+GROUP: stallion, background, voiced
+KIND: earth
+LINK: regular
+MANE: grey
+NAME: (not mentioned)
+OTHER NAMES: Caesar (unofficial)
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 48
+HEIGHT: 26
+
+
+$$$
 $balloon6$[0m
    $\$         [38;5;234m▄[48;5;238m▀▀[49m▄▄[39m                              [0m
     $\$        [48;5;234m[38;5;234m▄[48;5;238m[38;5;238m▄▀▀▀[38;5;234m▀▀[49m▄[39m                           [0m

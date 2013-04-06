@@ -1,3 +1,21 @@
+$$$
+APPEARANCE: S01E22 A Bird in the Hoof
+BALLOON: top
+COAT: pink
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: phoenix, pet
+KIND: animals
+LINK: regular
+NAME: Philomena
+POSE: featherless
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 29
+HEIGHT: 20
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$      [48;5;174m[38;5;174m▄[39m[49m                [0m

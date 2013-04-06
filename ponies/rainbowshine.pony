@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: blue
+DISPLAY: full, right
+EYE: purple
+FREE: no
+GROUP: mare, background
+KIND: pegasus
+LINK: regular
+MANE: pink
+NAME: (not mentioned)
+OTHER NAMES: Rainbowshine (official, toy line), Rainbow Day (unofficial)
+POSE: trot
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 41
+HEIGHT: 25
+
+
+$$$
 $balloon24$[0m
                      $\$
                       $\$

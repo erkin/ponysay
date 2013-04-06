@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: pink
+DISPLAY: full, right
+EYE: purple
+FREE: no
+GROUP: mare, background
+KIND: unicorn
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Royal Ribbon (unofficial), Violet (unofficial)
+POSE: sit
+SOURCE: (vulcan539/james539) Desktop ponies
+WIDTH: 38
+HEIGHT: 26
+
+
+$$$
 $balloon23$[0m
                     $\$
                      $\$

@@ -1,3 +1,25 @@
+$$$
+APPEARANCE: S02E26 The Royal Wedding [Part 2]
+AURA: green
+BALLOON: top
+COAT: black
+DISPLAY: full, right
+EYE: green
+FREE: no
+GROUP: mare, antagonist
+KIND: changeling
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Chrysalis (official, in manuscript and in the official comic)
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies
+WING: teal
+WIDTH: 52
+HEIGHT: 36
+
+
+$$$
 $balloon27$[0m
                       $\$
                        $\$

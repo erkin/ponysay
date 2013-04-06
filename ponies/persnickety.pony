@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E17 Hearts and Hooves Day
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: closed, purple
+FREE: no
+GROUP: stallion, background, voiced
+KIND: earth
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Persnickety (unofficial)
+POSE: elegant
+SOURCE: [jristz]
+WIDTH: 46
+HEIGHT: 32
+
+
+$$$
 $balloon$
 [0m $\$
   $\$

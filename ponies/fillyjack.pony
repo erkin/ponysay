@@ -1,3 +1,25 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+BASED ON: Generation 1 Apple Jack
+COAT: brown
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare, mane
+KIND: earth
+LINK: regular
+MANE: yellow
+MASTER: applejack
+NAME: Applejack
+OTHER NAMES: AJ (official, short)
+POSE: filly
+SOURCE: (SupaSpeedStrut) Desktop ponies
+WIDTH: 34
+HEIGHT: 21
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

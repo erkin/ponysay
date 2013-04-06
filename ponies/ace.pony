@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
+COAT: beige
+DISPLAY: full, left
+EYE: teal
+FREE: no
+GROUP: stallion, background, voice
+KIND: earth
+LINK: regular
+MANE: black
+NAME: (not mentioned)
+OTHER NAMES: Ace (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 48
+HEIGHT: 27
+
+
+$$$
 $balloon$
 [0m $\$
   $\$

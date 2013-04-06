@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: purple
+DISPLAY: full, right
+EYE: green
+FREE: no
+GROUP: dragon
+KIND: animal
+LINK: regular
+MANE: green
+NAME: Spike
+POSE: float
+SOURCE: (Peter Kuruc/Fantos, StarStep, Anonycat) Desktop ponies
+WIDTH: 28
+HEIGHT: 20
+
+
+$$$
 $balloon13$[0m
           $\$
            $\$

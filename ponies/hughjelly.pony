@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E17 Hearts and Hooves Day
+BALLOON: top
+COAT: grey
+DISPLAY: head, left
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Hugh Jelly (unofficial)
+POSE: jelly
+SOURCE: (imagegrou) deviantar
+WIDTH: 38
+HEIGHT: 37
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

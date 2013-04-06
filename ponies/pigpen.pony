@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S02E17 Hearts and Hooves Day
+BALLOON: top
+COAT: brown
+DISPLAY: full, right
+FREE: no
+GROUP: stallion, background
+KIND: earth
+LINK: regular
+MANE: brown
+NAME: (not mentioned)
+OTHER NAMES: Pigpen (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 44
+HEIGHT: 27
+
+
+$$$
 $balloon33$[0m
                               $\$
                                $\$

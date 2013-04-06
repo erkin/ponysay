@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: yellow
+DISPLAY: full, right
+EYE: pink
+FREE: no
+GROUP: mare
+KIND: unicorn
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Lemon Hearts (official, in merchandise)
+POSE: stand
+SOURCE: (fanonfetcetera) Desktop ponies
+WIDTH: 39
+HEIGHT: 22
+
+
+$$$
 $balloon29$[0m
                           $\$
                            $\$

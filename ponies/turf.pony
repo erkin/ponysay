@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E19 Putting Your Hood Down
+BALLOON: top
+COAT: blue
+DISPLAY: full, left
+EYE: cyan
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: brown
+NAME: (not mentioned)
+OTHER NAMES: Turf (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 26
+
+
+$$$
 $balloon20$[0m
                  $\$
                   $\$

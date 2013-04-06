@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E25 The Royal Wedding [Part 1]
+BALLOON: top
+COAT: white
+DISPLAY: full, right
+EYE: cyan
+FREE: no
+GROUP: stallion, royal, tritagonist
+KIND: unicorn
+LINK: regular
+MANE: blue
+MASTER: shiningarmor
+NAME: Shining Armor
+POSE: guard
+SOURCE: [jristz]
+WIDTH: 44
+HEIGHT: 27
+
+
+$$$
 $balloon30$[0m
                         $\$
                          $\$

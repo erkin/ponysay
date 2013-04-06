@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E20 Green Isn't Your Color
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: green
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Pretty vision (unofficial), Elsie (unofficial), Suity Voyage (unofficial)
+POSE: stand
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 42
+HEIGHT: 25
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

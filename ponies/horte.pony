@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
+COAT: beige
+DISPLAY: full, left
+EYE: closed, brown
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Horte Cuisine (unofficial)
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 40
+HEIGHT: 24
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

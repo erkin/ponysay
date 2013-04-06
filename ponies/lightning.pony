@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: pegasus
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Lightning Bolt (unofficial)
+POSE: fly
+SOURCE: (Starly) Desktop ponies
+WIDTH: 41
+HEIGHT: 25
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

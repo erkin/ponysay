@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E14 Suited for Success
+BALLOON: top
+COAT: purple
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Candylicious (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 49
+HEIGHT: 25
+
+
+$$$
 $balloon3$[0m
 $\$
  $\$

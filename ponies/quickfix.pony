@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Frienship is Magic [Part 1]
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare, background
+KIND: unicorn
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Quickfix (unofficial), Epona (unofficial), Clockwork (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 46
+HEIGHT: 25
+
+
+$$$
 $balloon3$[0m
 $\$
  $\$

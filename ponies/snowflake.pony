@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E22 Hurricane Fluttershy
+BALLOON: top
+COAT: white
+DISPLAY: full, right
+EYE: red
+FREE: no
+GROUP: stallion, background, voiced
+KIND: pegasus
+LINK: regular
+MANE: yellow
+NAME: (not mentioned)
+OTHER NAMES: Snowflake (unofficial), Horse Power (unofficial)
+POSE: loud
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 48
+HEIGHT: 25
+
+
+$$$
 $balloon33$[0m
                               $\$
                                $\$

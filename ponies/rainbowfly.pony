@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: blue
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare, mane
+KIND: pegasus
+LINK: regular
+MANE: rainbow
+NAME: Rainbow Dash
+OTHER NAMES: Rainbow (official, short name), Dashie (official, short), Dash (official, sometimes)
+POSE: fly
+SOURCE: (Jay Wright, StarStep, SarkinaBox, fanofetcetera, Bot-chan, Felix-0, DrZoin, supersayanmikito) Desktop ponies
+WIDTH: 53
+HEIGHT: 19
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

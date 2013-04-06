@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E06 The Cutie Pox
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: cyan
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: black
+NAME: (not mentioned)
+OTHER NAMES: Jesús Pezuña (official, in gameloft)
+POSE: trot
+SOURCE: [jristz]
+WIDTH: 41
+HEIGHT: 29
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

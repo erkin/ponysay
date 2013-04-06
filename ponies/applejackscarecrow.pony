@@ -1,3 +1,25 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+BASED ON: Generation 1 Apple Jack
+COAT: brown
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: mare, mane
+KIND: earth
+LINK: regular
+MANE: yellow
+MASTER: applejack
+NAME: Applejack
+OTHER NAMES: AJ (official, short)
+POSE: scarecrow
+SOURCE: (Jay Wright, RJP!, Pony Noi, Bot-chan, StarStep, Anonycat) Desktop ponies
+WIDTH: 47
+HEIGHT: 33
+
+
+$$$
 $balloon16$[0m
              $\$
               $\$

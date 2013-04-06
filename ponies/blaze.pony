@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E03 Ticket Master
+BALLOON: top
+COAT: yellow
+DISPLAY: full, left
+FREE: no
+GROUP: mare, wonderbolt
+KIND: pegasus
+LINK: regular
+MANE: orange
+NAME: (not mentioned)
+OTHER NAMES: Blaze (unofficial)
+POSE: fly
+SOURCE: [jristz]
+WIDTH: 53
+HEIGHT: 20
+
+
+$$$
 $balloon10$[0m
        $\$
         $\$

@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E20 Green Isn't Your Color
+BALLOON: top
+COAT: beige
+DISPLAY: full, right
+EYE: closed, purple
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Powder Rouge (unofficial), Sindy (unofficial)
+POSE: sit
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 39
+HEIGHT: 21
+
+
+$$$
 $balloon$
 [0m                   $\$
                     $\$

@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: filly
+KIND: pegasus
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Cotton Cloudy (unofficial)
+POSE: trot
+SOURCE: desktop ponies
+WIDTH: 37
+HEIGHT: 20
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

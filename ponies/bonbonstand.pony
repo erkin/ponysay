@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: beige
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare, background, voiced
+KIND: earth
+LINK: regular
+MANE: pink
+NAME: Bon Bon (unofficial, but FAR more used)
+OTHER NAMES: Sweetie Drops (official)
+POSE: stand
+SOURCE: (Jay wright, Starly) Desktop ponies
+WIDTH: 52
+HEIGHT: 26
+
+
+$$$
 $balloon6$
    [0m$\$
     $\$

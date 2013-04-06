@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E04 Applebuck Season
+BALLOON: top
+COAT: beige
+DISPLAY: full, left
+EYE: gray (ponysay), green (source)
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: red
+NAME: Rose
+OTHER NAMES: Roseluck (official, toy line)
+POSE: stand
+SOURCE: (Anonymous) Desktop ponies
+WIDTH: 50
+HEIGHT: 26
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

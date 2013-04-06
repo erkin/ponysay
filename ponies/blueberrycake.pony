@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: blue
+DISPLAY: full, left
+EYE: green
+FREE: no
+GROUP: filly, background
+KIND: earth
+LINK: regular
+MANE: purple
+NAME: (not mentioned)
+OTHER NAMES: BlueBerry Cake (unofficial)
+POSE: disguised
+SOURCE: [jristz]
+WIDTH: 47
+HEIGHT: 24
+
+
+$$$
 $balloon31$[0m
                             $\$
                              $\$

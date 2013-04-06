@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E20 Green isn't Your Color
+BALLOON: top
+COAT: pink
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Aloe (unofficial)
+POSE: stand
+SOURCE: (Jay Wright/Monkey Jay) Desktop ponies
+WIDTH: 39
+HEIGHT: 25
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

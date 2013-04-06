@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: blue
+BALLOON: top
+COAT: pink
+DISPLAY: full, right
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: unicorn
+LINK: regular
+MANE: blue
+NAME: Sea Swirl
+OTHER NAMES: SeaFoam (unofficial), Dolphin Dream (unofficial)
+POSE: cast
+SOURCE: (Jay Wright, Whimsy Morning) Desktop ponies
+WIDTH: 50
+HEIGHT: 24
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

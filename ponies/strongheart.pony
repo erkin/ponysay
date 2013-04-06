@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E21 Over a Barrel
+BALLOON: top
+COAT: brown
+DISPLAY: full, right
+EYE: black
+FREE: no
+GROUP: buffalo, wildlife
+KIND: animal
+LINK: regular
+MANE: yellow
+NAME: Little Strongheart
+OTHER NAMES: Strongheart (sometimes)
+POSE: stand
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 42
+HEIGHT: 27
+
+
+$$$
 $balloon16$[0m
              $\$    [38;5;234m▄▄[39m        [38;5;234m▄[48;5;235m▀[48;5;234m▀[39m[49m           [0m
               $\$   [48;5;234m[38;5;234m▄[48;5;235m[38;5;235m▄[48;5;234m[38;5;234m▄[39m[49m     [38;5;248m▄[48;5;234m[38;5;234m▄[48;5;235m[38;5;235m▄▀[48;5;234m[38;5;234m▄[39m[49m           [0m

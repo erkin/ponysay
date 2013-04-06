@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: cyan
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: grey
+NAME: (not mentioned)
+OTHER NAMES: Sue (unofficial)
+POSE: stand
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 42
+HEIGHT: 26
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

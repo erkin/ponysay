@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E15 Feeling Pinkie Keen
+BALLOON: top
+COAT: brown
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: stallion, background, voiced
+KIND: pegasus
+LINK: regular
+MANE: beige
+NAME: (not mentioned)
+OTHER NAMES: Crafty Crate (unofficial), Boxxy Brown (unofficial), Pete (unofficial)
+POSE: fly
+SOURCE: (Bot-Chan) Desktop ponies
+WIDTH: 48
+HEIGHT: 28
+
+
+$$$
 $balloon26$[0m
                        $\$
                         $\$

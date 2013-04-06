@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E02 Friendship is Magic [Part 2]
+BALLOON: top
+COAT: pink
+DISPLAY: full, right
+EYE: green
+FREE: no
+GROUP: filly, background
+KIND: earth
+LINK: regular
+MANE: pink
+NAME: (not mentioned)
+OTHER NAMES: Berry Pinch (unofficial), Ruby (unofficial), Ruby Pinch (unofficial)
+POSE: stand
+SOURCE: (Azure Fang) Desktop ponies
+WIDTH: 36
+HEIGHT: 21
+
+
+$$$
 $balloon20$[0m
                  $\$
                   $\$

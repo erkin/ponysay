@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E10 Swarm of the Century
+BALLOON: top
+COAT: pink
+DISPLAY: full, right
+EYE: closed
+FREE: no
+GROUP: mare, background
+KIND: unicorn
+LINK: regular
+MANE: multiple
+NAME: (not mentioned)
+OTHER NAMES: Holly Dash (official)
+POSE: gallop
+SOURCE: [jristz]
+WIDTH: 49
+HEIGHT: 24
+
+
+$$$
 $balloon$
 [0m                              $\$
                                $\$

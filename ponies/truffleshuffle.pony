@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E12 Family Appreciation Day
+BALLOON: top
+COAT: grey
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: colt
+KIND: earth
+LINK: regular
+MANE: black
+NAME: (not mentioned)
+OTHER NAMES: Truffle Shuffle (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 32
+HEIGHT: 21
+
+
+$$$
 $balloon$
 [0m                   $\$
                     $\$

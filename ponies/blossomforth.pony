@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S02E22 Hurricane Fluttershy
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: green (ponysay), blue (source)
+FREE: no
+GROUP: mare, background
+KIND: pegasus
+LINK: regular
+MANE: pink, green
+NAME: Blossomforth
+POSE: trot
+SOURCE: (fanofetcetera) Desktop ponies
+WIDTH: 51
+HEIGHT: 24
+
+
+$$$
 $balloon8$[0m
      $\$
       $\$

@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E26 The Royal Wedding [Part 2]
+BALLOON: top
+COAT: red
+DISPLAY: full, right
+EYE: grey
+FREE: no
+GROUP: stallion
+KIND: unicorn
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Poppycock (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 43
+HEIGHT: 26
+
+
+$$$
 $balloon35$[0m
                                 $\$
                                  $\$

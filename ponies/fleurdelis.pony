@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E09 Sweet and Elite
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: unicorn
+LINK: regular
+MANE: pink
+NAME: (not mentioned)
+OTHER NAMES: Fleur de Lis (unofficial)
+POSE: stand
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 46
+HEIGHT: 29
+
+
+$$$
 $balloon$[0m
   $\$
    $\$

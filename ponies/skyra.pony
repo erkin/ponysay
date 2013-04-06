@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E16 Sonic Rainboom
+BALLOON: top
+BASED ON: Lyra
+COAT: cyan
+DISPLAY: full, left
+EYE: yellow
+FREE: no
+GROUP: mare
+KIND: pegasus
+LINK: regular
+MANE: white
+NAME: (not mentioned)
+OTHER NAMES: Skyra (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 43
+HEIGHT: 26
+
+
+$$$
 $balloon$
 [0m                                 $\$
                                   $\$

@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E08 The Mysterious Mare Do Well
+BALLOON: top
+COAT: black
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: pegasus
+LINK: regular
+MASTER: maredowell
+NAME: Mare Do Well
+OTHER NAMES: The Mysterious Mare Do Well (official, titled name)
+POSE: fly
+SOURCE: (JavaNut, DrZoin) Desktop ponies
+WIDTH: 41
+HEIGHT: 25
+
+
+$$$
 $balloon10$[0m
        $\$
         $\$

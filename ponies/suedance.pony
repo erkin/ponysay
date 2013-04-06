@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E23 The Cutie Mark Chronicles
+BALLOON: top
+COAT: white
+DISPLAY: full, right
+EYE: cyan
+FREE: no
+GROUP: mare, mane
+KIND: earth
+LINK: regular
+MANE: grey
+MASTER: sue
+NAME: (not mentioned)
+OTHER NAMES: Sue (unofficial)
+POSE: dance
+SOURCE: (Anonycat) Desktop ponies
+WIDTH: 43
+HEIGHT: 30
+
+
+$$$
 $balloon19$[0m
                 $\$
                  $\$

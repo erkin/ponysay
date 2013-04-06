@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E04 Luna Eclipsed
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: white
+FREE: no
+GROUP: colt, background, voiced
+KIND: earth
+LINK: regular
+MANE: brown
+NAME: Pipsqueak
+OTHER NAMES: Pip (unofficial, short name)
+POSE: pirate
+SOURCE: (StatStep) Desktop ponies
+WIDTH: 33
+HEIGHT: 21
+
+
+$$$
 $balloon9$[0m
       $\$
        $\$

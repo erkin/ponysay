@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E19 A Dog and Pony Show
+BALLOON: top
+COAT: grey
+DISPLAY: full, left
+EYE: yellow
+FREE: no
+GROUP: dog, antagonist, diamond dog
+KIND: animals
+LINK: regular
+NAME: (not mentioned)
+OTHER NAMES: Fido (official, in manuscript)
+POSE: angry
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 47
+HEIGHT: 26
+
+
+$$$
 $balloon8$[0m
      $\$
       $\$

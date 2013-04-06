@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E09 Bridle Gossip
+BALLOON: top
+COAT: blue
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare, bakground, voiced
+KIND: earth
+LINK: regular
+MANE: pink
+NAME: Lotus Blossom
+POSE: stand
+SOURCE: (Jay wright) Desktop ponies
+WIDTH: 39
+HEIGHT: 25
+
+
+$$$
 $balloon6$[0m
    $\$
     $\$

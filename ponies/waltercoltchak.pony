@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E06 The Cutie Pox
+BALLOON: top
+COAT: brown
+DISPLAY: full, right
+EYE: black
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: brown
+NAME: (not mentioned)
+OTHER NAMES: Walter Coltchak (official, stated official by the crew)
+POSE: stand
+SOURCE: (bot-chan) Desktop ponies
+WIDTH: 40
+HEIGHT: 26
+
+
+$$$
 $balloon31$[0m
                             $\$
                              $\$

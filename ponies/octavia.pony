@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E26 The Best Night Ever
+BALLOON: top
+COAT: grey
+DISPLAY: full, right
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: black
+NAME: (not mentioned)
+OTHER NAMES: Octavia (official, on trading card)
+POSE: play
+SOURCE: (RJP!) Desktop ponies
+WIDTH: 45
+HEIGHT: 31
+
+
+$$$
 $balloon18$[0m
 [49m             $\$                [38;5;131m▄[48;5;131m [48;5;215m▄ [49m
               [0m$\$[38;5;131m               [48;5;131m [48;5;94m▄[48;5;131;38;5;215m▄[49m▀

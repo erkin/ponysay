@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E06 The Cutie Pox
+BALLOON: top
+COAT: yellow
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: mare, background
+KIND: unicorn
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Allie (unofficial), Allie Way (unofficial)
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 49
+HEIGHT: 29
+
+
+$$$
 $balloon28$[0m
                          $\$
                           $\$

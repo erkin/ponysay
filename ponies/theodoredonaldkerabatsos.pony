@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E06 The Cutie Pox
+BALLOON: top
+COAT: beige
+DISPLAY: full, right
+EYE: brown
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: brown (source), black (ponysay)
+NAME: (not mentioned)
+OTHER NAMES: Theodore Donald "Donny" Kerabatsos (unofficial)
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 42
+HEIGHT: 24
+
+
+$$$
 $balloon21$[0m
                   $\$
                    $\$

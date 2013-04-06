@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: purple
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare, background
+KIND: earth
+LINK: regular
+MANE: purple
+NAME: (not mentioned)
+OTHER NAMES: Berry Punch (unofficial)
+POSE: stand
+SOURCE: (CANDYBAG, vulcan569/james569, Azure Fang) Desktop ponies
+WIDTH: 45
+HEIGHT: 26
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: green
+DISPLAY: full, left
+EYE: orange
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: white
+NAME: Granny Smith
+OTHER NAMES: Granny (official, short)
+POSE: stand
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 35
+HEIGHT: 23
+
+
+$$$
 $balloon5$[0m
   $\$
    $\$

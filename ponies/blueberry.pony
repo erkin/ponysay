@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E13 Fall Weather Friends
+BALLOON: top
+COAT: blue
+DISPLAY: full, left
+EYE: purple
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: brown
+NAME: (not mentioned)
+OTHER NAMES: Berry Dreams (official, toy line), Blue berry (unofficial)
+POSE: stand
+SOURCE: [jristz]
+WIDTH: 45
+HEIGHT: 25
+
+
+$$$
 $balloon4$[0m
  $\$
   $\$

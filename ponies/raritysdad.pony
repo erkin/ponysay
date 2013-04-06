@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S02E05 Sisterhooves Social
+BALLOON: top
+COAT: white
+DISPLAY: full, right
+EYE: blue
+FREE: no
+GROUP: stallion
+KIND: earth
+LINK: regular
+MANE: black
+NAME: (not mentioned)
+OTHER NAMES: Magnum (official, in Gameloft game), Carlton (unofficial)
+POSE: stand
+SOURCE: (Bot-chsn) Desktop ponies
+WIDTH: 41
+HEIGHT: 27
+
+
+$$$
 $balloon23$[0m
                     $\$
                      $\$

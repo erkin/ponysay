@@ -1,3 +1,21 @@
+$$$
+APPEARANCE: S02E07 May the Best Pet Win!
+BALLOON: top
+COAT: green
+DISPLAY: full, left
+EYE: black
+FREE: no
+GROUP: pet, tortoise, turtle (not really)
+KIND: animals
+LINK: regular
+NAME: Tank
+POSE: fly
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 49
+HEIGHT: 21
+
+
+$$$
 $balloon6$[0m
    $\$                           [38;5;109m▄▄▄▄▄▄▄[48;5;195m▀▀[48;5;231m▀▀▀▀▀[49m▄▄[39m  [0m
     $\$                  [38;5;109m▄▄▄[48;5;231m▀▀[48;5;195m▀▀▀[38;5;231m▄▄[38;5;195m▀▀[48;5;231m▀▀▀▄▄[48;5;195m▀[48;5;231m▀[38;5;231m▀[48;5;109m▀▀▀[49m[38;5;109m▀[39m  [0m

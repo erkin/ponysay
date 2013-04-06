@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E05 Griffon the Brush Off (sic!)
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: yellow
+FREE: no
+GROUP: griffin, antagonist
+KIND: animal
+LINK: regular
+MANE: white
+NAME: Gilda
+OTHER NAMES: Grizelda (initial name but not pass copyright)
+POSE: fly
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 71
+HEIGHT: 32
+
+
+$$$
 $balloon15$[0m
       $\$
        $\$

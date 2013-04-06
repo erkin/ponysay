@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+BALLOON: top
+COAT: yellow
+DISPLAY: full, left
+EYE: closed, teal
+FREE: no
+GROUP: mare, mane
+KIND: unicorn
+LINK: regular
+MANE: pink
+MASTER: fluttershy
+NAME: Fluttershy
+OTHER NAMES: Shy (sometimes)
+POSE: filly
+SOURCE: (PsychoSutin) Desktop ponies
+WIDTH: 42
+HEIGHT: 21
+
+
+$$$
 $balloon8$[0m
      $\$
       $\$

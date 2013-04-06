@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E20 Green Isn't Your Color
+BALLOON: top
+COAT: green
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare
+KIND: earth
+LINK: regular
+MANE: orange
+NAME: (not mentioned)
+OTHER NAMES: Stella (unofficial)
+POSE: stand
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 41
+HEIGHT: 26
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

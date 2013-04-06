@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E01 Friendship is Magic [Part 1]
+AURA: blue
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: blue
+FREE: no
+GROUP: mare, mane
+KIND: unicorn
+LINK: regular
+MANE: purple
+MASTER: rarity
+NAME: Rarity
+POSE: filly
+SOURCE: (RJP!) Desktop ponies
+WIDTH: 38
+HEIGHT: 21
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

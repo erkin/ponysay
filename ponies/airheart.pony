@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E06 Boast Busters
+BALLOON: top
+COAT: pink
+DISPLAY: full, front
+EYE: cyan, closed
+FREE: no
+GROUP: mare, background
+KIND: pegasus
+LINK: regular
+MANE: brown
+NAME: (not mentioned)
+OTHER NAMES: Airheart (unofficial)
+POSE: smile
+SOURCE: [jristz]
+WIDTH: 24
+HEIGHT: 26
+
+
+$$$
 $balloon7$[0m
     $\$
      $\$

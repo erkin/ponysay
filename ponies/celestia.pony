@@ -1,3 +1,24 @@
+$$$
+APPEARANCE: S01E01 Frienship is Magic [Part 1] (animated in a book, real life first appearance is S01E02 Frienship is Magic [Part 2])
+AURA: yellow
+BALLOON: top
+COAT: white
+DISPLAY: full, right
+EYE: pink
+FREE: no
+GROUP: mare, tritagonist, royal
+KIND: alicorn
+LINK: regular
+MANE: pastel
+NAME: Celestia
+OTHER NAMES: Princess Celestia (official, full name)
+POSE: stand
+SOURCE: (oppl jok, StarStep) Desktop ponies
+WIDTH: 95
+HEIGHT: 42
+
+
+$$$
 $balloon35$[0m
                             $\$
                              $\$

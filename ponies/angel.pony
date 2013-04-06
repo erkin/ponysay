@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E03 The Ticket Master
+BALLOON: top
+COAT: white
+DISPLAY: full, left
+EYE: black
+FREE: no
+GROUP: pet, rabbit
+KIND: animal
+LINK: regular
+NAME: Angel
+OTHER NAMES: Angel Bunny (official, used by Fluttershy sometimes)
+POSE: concerned
+SOURCE: (DesdthPony/DeathPwny) Desktop ponies
+WIDTH: 25
+HEIGHT: 19
+
+
+$$$
 $balloon6$[0m
    $\$         [48;5;145m[38;5;145m▄[48;5;255m▀[49m▄[39m     [38;5;145m▄[48;5;255m▀[49m▄[39m [0m
     $\$        [48;5;145m[38;5;145m▄[48;5;255m[38;5;255m▄▀[48;5;145m[38;5;145m▄[39m[49m   [48;5;145m[38;5;145m▄[48;5;255m[38;5;255m▄▀[48;5;145m[38;5;145m▄[39m[49m [0m

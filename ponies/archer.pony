@@ -1,3 +1,23 @@
+$$$
+APPEARANCE: S01E12 Call of the Cutie
+BALLOON: top
+COAT: blue
+DISPLAY: full, right
+EYE: grey
+FREE: no
+GROUP: filly, background
+KIND: earth
+LINK: regular
+MANE: blue
+NAME: (not mentioned)
+OTHER NAMES: Archer (unofficial)
+POSE: stand
+SOURCE: (vulcan539/james539) Desktop ponies
+WIDTH: 46
+HEIGHT: 21
+
+
+$$$
 $balloon25$[0m
                       $\$
                        $\$

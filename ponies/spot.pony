@@ -1,3 +1,22 @@
+$$$
+APPEARANCE: S01E19 A Dog and Pony Show
+BALLOON: top
+COAT: brown
+DISPLAY: full, left
+EYE: yellow
+FREE: no
+GROUP: dog, antagonist, diamond dog
+KIND: animals
+LINK: regular
+NAME: (not mentioned)
+OTHER NAMES: Spot (official, in manuscript)
+POSE: grap
+SOURCE: (Pony Noia) Desktop ponies
+WIDTH: 47
+HEIGHT: 23
+
+
+$$$
 $balloon13$[0m
           $\$
            $\$
