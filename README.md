@@ -44,3 +44,11 @@ __A:__ Yeah, sorry. If you find a fix, send me a pull request.
 __Q:__ Which programs do you use to generate the pony files?
 
 __A:__ The pony files are actually mostly a bunch of selected [browser ponies](http://web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](https://github.com/maandree/util-say).
+
+Conversion
+----------
+Convert the old quote format with
+```
+for line in $(cat ponyquotes/ponies|grep +); do n=${line%%+*}; for a in $(sed s/+/\\n/g<<<${line#*+}); do ln -s quotes/${n}.quotes quotes/${a}.quotes; done; done
+```
+Afterwards, clean up the broken symlinks with ```find -L quotes -type l -delete```
