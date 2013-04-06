@@ -702,7 +702,7 @@ class PonysayTool():
         data = {}
         comment = []
         for line in meta:
-            if ': ' in line:
+            if ': ' in line.replace('\t', ' '):
                 key = line.replace('\t', ' ')
                 key = key[:key.find(': ')]
                 test = key
