@@ -7,7 +7,7 @@ COAT: purple
 DISPLAY: full, right
 EYE: green
 FREE: no
-GROUP: male, dragon
+GROUP: male, dragon, deuteragonist
 KIND: animal
 LINK: regular
 MANE: green

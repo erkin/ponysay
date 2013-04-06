@@ -7,7 +7,7 @@ COAT: brown
 DISPLAY: full, right
 EYE: black
 FREE: yes
-GROUP: colt
+GROUP: colt, deuteragonist
 KIND: pegasus
 LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
