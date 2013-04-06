@@ -2633,6 +2633,7 @@ because it can cause problems on some platforms.
 
 @menu
 * Providing ponies::            Providing ponies.
+* Pony naming guildlines::      Suggestions on how to name your pony files.
 @end menu
 
 @node Providing ponies
@@ -2734,6 +2735,33 @@ alternative image add it the the same line as that pony. Ponies on the same line
 separated with a plus sign (@code{+}) without any white space. When a line is too
 long for a file name (this has happened to Pinkie Pie [@file{pinkie}],) it must be
 split into multiple lines, these lines should have their first pony file in common.
+
+
+@node Pony naming guildlines
+@chapter Pony naming guildlines
+@cindex naming ponies
+@cindex pony naming
+
+These are not rules, this are guildlines you can use when in doubt on how you
+want to name your ponies. That is, these are only suggestioned based on observion
+of current practice and discussions, it is probable that these suggestions are
+not optimal in complex cases.
+
+Try to follow the MPL Wikia on @url{http://mlp.wikia.com/wiki/List_of_ponies},
+if it is in conflict with an authorised game, such as Gameloft, it is more likly
+that that game has make an error, especially ignore a game on palette mismatch,
+and the Wikia is probabily more agreed with by fans.
+
+Sometimes there are background ponies with the same palette and cutie mark, but
+of different kinds (earth pony, unicorn, pegasus and so on). In these cases the
+Wikia often list them as the same pony, they are given the same name. When this
+happens you can name the pony that appears first in the show just the name and
+append either `earth', `unicorn' or `pegasus' depending on the kind. If the pony
+is a background alicorn, it is a princess and is titled as such, you can bet your
+sweet flank the Wikia will have given her a royal name.
+
+When there are many alternative names, but no official, use one you think is most
+recognised or your personal favourite. It with short names when the names are similar.
 
 
 
