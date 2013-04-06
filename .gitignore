@@ -1,3 +1,5 @@
 *.swo
 *.swp
+genpngs
+genponies
 __pycache__

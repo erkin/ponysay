@@ -1,12 +1,13 @@
 
 PREFIX?=/usr/local
 
-install:
+install: genponies
 	install -m 0755 ponysay.py $(PREFIX)/bin
 	ln -s $(PREFIX)/bin/ponysay.py $(PREFIX)/bin/ponysay
 	ln -s $(PREFIX)/bin/ponysay.py $(PREFIX)/bin/ponythink
 	install -m 0755 -d $(PREFIX)/share/ponysay
-	install -m 0755 -t $(PREFIX)/share/ponysay ponies/*
+	install -m 0755 -t $(PREFIX)/share/ponysay quotes/*
+	install -m 0755 -t $(PREFIX)/share/ponysay genponies/*
 	install -m 0755 -d $(PREFIX)/share/doc/ponysay
 	install -m 0755 -t $(PREFIX)/share/doc/ponysay COPYING
 	install -m 0755 -t $(PREFIX)/share/doc/ponysay README.md
@@ -25,4 +26,12 @@ uninstall:
 	rm /etc/bash_completion.d/ponysay.sh
 
 reinstall: uninstall install
+
+genpngs:
+	mkdir genpngs
+	unpixelterm -d genpngs ponies/*.pony
+
+genponies:
+	mkdir genponies
+	pixelterm -d genponies pngs/*.png
 

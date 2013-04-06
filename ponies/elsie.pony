@@ -1,1 +1,0 @@
-./prettyvision.pony
