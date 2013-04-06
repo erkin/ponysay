@@ -11,8 +11,8 @@ GROUP: mare, voiced
 KIND: earth
 LINK: top
 MANE: green
-NAME: Ms Peachbottom
-OTHER NAMES: Chickadee (unofficial), Chickenbottom (unofficial, give by Meghan McCarthy)
+NAME: (not mentioned)
+OTHER NAMES: Ms Peachbottom (official, by the crew), Chickadee (unofficial), Chickenbottom (unofficial, give by Meghan McCarthy)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 47
