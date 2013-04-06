@@ -431,9 +431,13 @@ class Setup():
                     if fileout is not None:  fileout.close()
                     if filein  is not None:  filein .close()
             print('Creating uncompressed zip file ponysay.zip with files from src: ' + ' '.join(ponysaysrc))
-            with ZipFile('ponysay.zip', 'w') as myzip:
+            myzip = None
+            try:
+                myzip = ZipFile('ponysay.zip', 'w')
                 for src in ponysaysrc:
                     myzip.write('src/%s.install' % src, src)
+            finally:
+                myzip.close()
             os.chmod('ponysay.zip', 0o755)
             try:
                 fileout = open('ponysay.install', 'wb+')
