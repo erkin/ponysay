@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S02E24 - MMMystery on the Friendship
+APPEARANCE: S02E24 - MMMystery on the Friendship Express
 BALLOON: top
 BALLOON TOP: 3
 BALLOON BOTTOM: 0
