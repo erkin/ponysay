@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S03E12 Games Pony Play
+APPEARANCE: S03E12 Games Ponies Play
 BALLOON: regular
 BALLOON BOTTOM: 0
 BALLOON TOP: 3

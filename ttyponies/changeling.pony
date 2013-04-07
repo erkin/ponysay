@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S02E26 The Royal Wedding [Part 2]
+APPEARANCE: S02E26 A Canterlot Wedding [Part 2]
 BALLOON: top
 BALLOON TOP: 3
 BALLOON BOTTOM: 0
