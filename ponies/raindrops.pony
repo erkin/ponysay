@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: orange
 DISPLAY: full, right
 EYE: cyan
@@ -17,6 +17,7 @@ POSE: stand
 SOURCE: (Starly, AngelKat58, StarStep) Desktop ponies
 WIDTH: 48
 HEIGHT: 25
+
 
 $$$
 $balloon34$[00m
