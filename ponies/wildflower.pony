@@ -4,7 +4,7 @@ BALLOON: top
 BALLOON BOTTOM: 0
 BALLOON TOP: 3
 COAT: pink
-DISPLAY: full, right
+DISPLAY: full, left, turn
 EYE: blue
 FREE: no
 GROUP: mare
