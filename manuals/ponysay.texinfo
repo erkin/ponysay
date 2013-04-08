@@ -3004,7 +3004,7 @@ sequences.
 @heading Version 3.0.2
 @itemize @bullet
 @item
-New ponies: @file{peachbottom}, @file{wildflower}
+New ponies: @file{deepblue}, @file{peachbottom}, @file{rainbowdrop}, @file{wildflower}
 @end itemize
 
 @heading Version 3.0.1
