@@ -2738,7 +2738,7 @@ split into multiple lines, these lines should have their first pony file in comm
 
 
 @node Pony naming guildlines
-@chapter Pony naming guildlines
+@section Pony naming guildlines
 @cindex naming ponies
 @cindex pony naming
 
