@@ -1,4 +1,5 @@
 $$$
+APPEARANCE: S02E17 Hearts and Hooves Days
 BALLOON: top
 BALLOON BOTTOM: 0
 BALLOON TOP: 3
