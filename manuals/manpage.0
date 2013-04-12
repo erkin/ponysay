@@ -35,7 +35,7 @@ ponysay \- Cowsay reimplementation for ponies
 .\" respectively.
 \fBponysay\fP displays an image of a pony saying some text provided by the user in a terminal.
 If \fImessage\fP is not provided, it accepts standard input, word-wraps the message given at
-about 40 columns, and prints the pony saying the given message on standard output.
+about 60 columns, and prints the pony saying the given message on standard output.
 .PP
 If no arguments are provided, the program only accepts standard input piped from another
 program, a file or either here documents or here strings (see man bash(1) for details on here

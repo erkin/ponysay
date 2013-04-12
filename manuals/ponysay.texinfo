@@ -282,7 +282,7 @@ balloon style is specified a fallback style will be used.
 @itemx --wrap COLUMN
 @opindex @option{-W}
 @opindex @option{--wrap}
-Specify the screen column where the message should be wrapped, this is by default 40,
+Specify the screen column where the message should be wrapped, this is by default 460,
 as with @command{cowsay}. The balloon's extra width is taken into consideration.
 
 If the argument is not a number, but starts instead with @code{n} (for ‘none’ or
@@ -3006,6 +3006,8 @@ sequences.
 @item
 New ponies: @file{deepblue}, @file{hairytipper}, @file{peachbottom}, @file{rainbowdrop}, @file{strawberrycream},
 @file{wildflower}
+@item
+Default value for @option{-W}, the message wrapping column, has been changed from 40 to 60, to wrap messages better.
 @end itemize
 
 @heading Version 3.0.1
