@@ -37,7 +37,7 @@ ponysay \- Una reimplementación de cowsay usando ponis
 terminal.
 .br
 Si el \fImesaje\fP no es provisto, ponysay aceptará una orden estándar.
-El mensaje debería de tener alrededor de 40 columnas, y el o la poni devería de mostrar este
+El mensaje debería de tener alrededor de 60 columnas, y el o la poni devería de mostrar este
 mensaje
 en una salida estándar.
 .PP

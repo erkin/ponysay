@@ -905,7 +905,7 @@ class Ponysay():
         env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
         if env_width is None:  env_width = ''
         widthtruncation = gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
-        messagewrap = 40
+        messagewrap = 60
         if (args.opts['-W'] is not None) and (len(args.opts['-W'][0]) > 0):
             messagewrap = args.opts['-W'][0]
             if messagewrap[0] in 'nmsNMS': # m is left to n on QWERTY and s is left to n on Dvorak
