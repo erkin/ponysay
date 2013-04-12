@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: white
 DISPLAY: full, right
 EYE: blue
@@ -17,6 +17,7 @@ POSE: complaining
 SOURCE: (Jay wright, StarStep, Bot-chan, The Coop, Miriam the Bat, Kloopp) Desktop ponies
 WIDTH: 44
 HEIGHT: 25
+
 
 $$$
 $balloon32$[00m
