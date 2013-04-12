@@ -15,6 +15,7 @@
 
 ## Compile files
 
+/completion/*-completion.pony*
 /completion/*-completion-think.*
 /completion/pony*.pony*
 /truncater
