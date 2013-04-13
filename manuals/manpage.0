@@ -211,7 +211,7 @@ the limit to ‘PONYSAY_TYPO_LIMIT’; setting the limit to zero will disable au
 .B PONYSAY_WRAP_HYPHEN
 You can export what ponysay should use instead of a hyphen when wrapping messages.
 .TP
-.BPONYSAY_WRAP_LIMIT
+.B PONYSAY_WRAP_LIMIT
 Defines how long a word mush be to be hyphenated. 
 This is used for to wrap words that are long so the output gets as pretty as possible.
 This s not the only condition under which a word can be hyphenated, it can also be hyphenated

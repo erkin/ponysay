@@ -217,7 +217,7 @@ Dejando este valor en 0 se desactiva la autocorrección.
 .B PONYSAY_WRAP_HYPHEN
 Puede exportar que usara ponysay en lugar del guión cuando se envuelven los mensajes.
 .TP
-.BPONYSAY_WRAP_LIMIT
+.B PONYSAY_WRAP_LIMIT
 Define cuan largo deverá de ser la palabra para que se utilice el guión.
 Esta se utiliza para envolver palabras que son muy largas para que la salida sea lo mejor posible.
 Esta no es el única condición bajo la cual puede ser cortada una palabra, también puede cortar
