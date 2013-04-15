@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E26 The Best Night Ever
 BALLOON: top
-BALLOON TOP: 0
 BALLOON BOTTOM: 0
+BALLOON TOP: 0
 COAT: grey
 DISPLAY: full, right
 EYE: purple
@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: Octavia (official, on trading card)
+OTHER NAMES: Octavia (official, on mercandise), Tavi (unofficial, short name)s
 POSE: play
 SOURCE: (RJP!) Desktop ponies
 WIDTH: 45
