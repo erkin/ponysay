@@ -3007,6 +3007,8 @@ sequences.
 New ponies: @file{deepblue}, @file{hairytipper}, @file{peachbottom}, @file{rainbowdrop}, @file{strawberrycream},
 @file{wildflower}
 @item
+New extraponies: @file{milky}
+@item
 Default value for @option{-W}, the message wrapping column, has been changed from 40 to 60, to wrap messages better.
 @end itemize
 
