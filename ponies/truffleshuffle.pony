@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E12 Family Appreciation Day
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: grey
 DISPLAY: full, right
 EYE: blue
@@ -12,11 +12,12 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: Truffle Shuffle (unofficial)
+OTHER NAMES: Truffle Shuffle (official, on Gameloft game source code), Truffle (official, on Gameloft game source code)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 32
 HEIGHT: 21
+
 
 $$$
 $balloon18$[00m
