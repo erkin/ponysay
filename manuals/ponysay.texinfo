@@ -3063,6 +3063,8 @@ New ponies: @file{brucemane}, @file{deepblue}, @file{hairytipper}, @file{peachbo
 New extraponies: @file{milky}
 @item
 Default value for @option{-W}, the message wrapping column, has been changed from 40 to 60, to wrap messages better.
+@item
+The options @option{+q}, @option{-Q}, @option{++q} and @option{--Q} has been added.
 @end itemize
 
 @heading Version 3.0.1

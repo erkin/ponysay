@@ -1,10 +1,13 @@
-Version 3.0.2
+Version 3.1
 
 	New ponies: brucemane, deepblue, hairytipper, peachbottom, rainbowdrop, strawberrycream, wildflower
 
 	New extraponies: milky
 
 	Default value for -W has been changed from 40 to 60.
+
+	The options +q, -Q, ++q and --Q has been added.
+
 
 Version 3.0.1
 
