@@ -2571,12 +2571,15 @@ use Python 3, which as been accomplished in version 2.1.
 @opindex @option{++onelist}
 @opindex @option{--Onelist}
 @opindex @option{--quoters}
+@opindex @option{++quoters}
+@opindex @option{--Quoters}
 @pindex @command{auto-auto-complete}
 
 To make it easier to write auto-completion for shells, @command{ponysay} supports
-the options @option{--onelist}, @option{++onelist}, @option{--Onelist} and
-@option{--quoters}, which has no short versions. To make it even easier we use
-@command{auto-auto-complete} (@url{https://www.github.com/maandree/auto-auto-complete})
+the options @option{--onelist}, @option{++onelist}, @option{--Onelist},
+@option{--quoters} @option{++quoters} and @option{--Quoters}, which has no short
+versions. To make it even easier we use @command{auto-auto-complete}
+(@url{https://www.github.com/maandree/auto-auto-complete})
 to generate auto-completion scripts, currently it supports @command{bash},
 @command{fish} and @command{zsh}, the built system uses that program to generate
 completion for each shell.
@@ -2596,6 +2599,11 @@ consists only of one pony per line.
 @command{ponysay --quoters} work just as @command{ponysay --onelist}, excepts
 it limits the ponies to those that have quotes. Ponies that have quotes,
 but does not exist, i.e. does not have a .pony-file, are not listed.
+
+@command{ponysay ++quoters} is to @command{ponysay --quoters} as
+@command{ponysay ++onelist} is to @command{ponysay --onelist} and
+@command{ponysay --Quoters} is to @command{ponysay --quoters} as
+@command{ponysay --Onelist} is to @command{ponysay --onelist}.
 
 Auto-completion scripts should not suggest these options.
 

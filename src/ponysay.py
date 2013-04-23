@@ -291,7 +291,9 @@ class Ponysay():
         ## Run modes
         if   test('-h'):                                     args.help()
         elif test('-v'):                                     self.version()
+        elif test('--Quoters', ('--quoters', '++quoters')):  self.quoters(True, True)
         elif test('--quoters'):                              self.quoters(True, False)
+        elif test('++quoters'):                              self.quoters(False, True)
         elif test('--Onelist', ('--onelist', '++onelist')):  self.onelist(True, True)
         elif test('--onelist'):                              self.onelist(True, False)
         elif test('++onelist'):                              self.onelist(False, True)

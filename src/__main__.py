@@ -98,6 +98,8 @@ documentation run `info ponysay`, or for just a little more help than this
 run `man ponysay`. Ponysay has so much more to offer than described here.''')
     
     opts.add_argumentless(['--quoters'])
+    opts.add_argumentless(['++quoters'])
+    opts.add_argumentless(['--Quoters'])
     opts.add_argumentless(['--onelist'])
     opts.add_argumentless(['++onelist'])
     opts.add_argumentless(['--Onelist'])
