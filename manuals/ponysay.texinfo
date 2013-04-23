@@ -2336,7 +2336,9 @@ can; dollar signs can be used by placing an ESC character before the dollar sign
 There are three predefined variables: @code{$$} (empty variable name), @code{$\$}
 and @code{$/$}. @code{$$} has a dollar sign (@code{$}) as its value, while @code{$\$}
 and @code{$/$} contains the characters for the link to the balloon directed in the
-same direction as the variable name's slash.
+same direction as the variable name's slash. New for Ponysay 3.1 is @code{$X$}, which
+is a cross if the @code{$/$} directed balloon link and the @code{$\$} directed balloon
+link.
 
 Variables whose name begin with @code{balloon} are parsed as balloon inserts, it
 can be either @code{balloon}, @code{balloonX}, @code{balloon,Y} or @code{balloonX,Y},
