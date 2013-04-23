@@ -69,7 +69,8 @@ class Backend():
         
         if self.balloon is not None:
             self.link = {'\\' : linkcolour + self.balloon.link,
-                         '/'  : linkcolour + self.balloon.linkmirror}
+                         '/'  : linkcolour + self.balloon.linkmirror,
+                         'X'  : linkcolour + self.balloon.linkcross}
         else:
             self.link = {}
         
