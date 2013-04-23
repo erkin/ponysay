@@ -215,6 +215,30 @@ by default since version 1.2.
 
 The argument can be a file name, but only if it ends with @file{.pony}.
 
+@item +q PONY
+@itemx ++quote PONY
+@opindex @option{+q}
+@opindex @option{++quote}
+@cindex quotes
+@cindex pony quotes
+By using this option, an extra (non-MLP:FiM) pony will be printed with quotes from
+her in My Little Pony: Friendship is Magic. The pony will be selected randomly, unless
+at least one pony is added as an argument to @option{+q}. If one or more ponies are
+added as an argument to @option{+q}, the pony will be selected randomly from that set
+of ponies.
+
+The argument can be a file name, but only if it ends with @file{.pony}.
+
+@item -Q PONY
+@itemx --any-quote PONY
+@itemx --anyquote PONY
+@opindex @option{-Q}
+@opindex @option{--any-quote}
+@opindex @option{--anyquote}
+@cindex quotes
+@cindex pony quotes
+This option combines @option{-q} and @option{+q}.
+
 @item --f [PONY...]
 @itemx --files [PONY...]
 @itemx --ponies [PONY...]
@@ -266,6 +290,25 @@ An important feature of this options, is that you can but it in the end of the
 command line, without any argument to get a quote from any pony with a quote.
 However, altough it is not nice, since version 3.0, @option{-q} can also be
 unargumented if at the end of the command line.
+
+@item ++q [PONY...]
+@itemx ++quotes [PONY...]
+@opindex @option{++q}
+@opindex @option{++quotes}
+@cindex quotes
+@cindex pony quotes
+Variadic variant of @option{+q}, meaning that all arguments added after this one
+will parsed as an argument to this option. Additionally, those options are added
+to @option{+q}.
+
+@item --Q [PONY...]
+@itemx --quotes [PONY...]
+@opindex @option{--Q}
+@opindex @option{--any-quotes}
+@opindex @option{--anyquotes}
+@cindex quotes
+@cindex pony quotes
+This option combines @option{--q} and @option{++q}.
 
 @item -b STYLE
 @itemx --bubble STYLE
