@@ -578,7 +578,7 @@ class Ponysay():
                 if not self.usingstandard:
                     printerr('Use -f/-q or -F if it a MLP:FiM pony');
                 if not self.usingextra:
-                    printerr('Have you tested +f or -F?');
+                    printerr('Have you tested +f/+q or -F/-Q?');
                 exit(252)
             else:
                 file = pony[1][possibilities.index(pony[0])]
@@ -634,7 +634,7 @@ class Ponysay():
                     quoteshash.add(quote)
                     quotes.append(quote)
         
-        ## Create a set of all ponyes that have quotes
+        ## Create a set of all ponies that have quotes
         ponies = set()
         for ponydir in ponydirs:
             for pony in os.listdir(ponydir):
