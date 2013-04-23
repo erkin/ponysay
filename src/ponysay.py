@@ -203,6 +203,18 @@ class Ponysay():
         
         
         '''
+        The directories where quotes files fore extraponies are stored
+        '''
+        appendset = set()
+        self.extraquotedirs = []
+        _quotedirs = share('extraquotes/')
+        for quotedir in _quotedirs:
+            if (quotedir is not None) and os.path.isdir(quotedir) and (quotedir not in appendset):
+                self.extraquotedirs.append(quotedir)
+                appendset.add(quotedir)
+        
+        
+        '''
         The directories where balloon style files are stored
         '''
         appendset = set()
@@ -334,7 +346,7 @@ class Ponysay():
     def __extraponies(self):
         ## Change ponydir to extraponydir
         self.ponydirs[:] = self.extraponydirs
-        self.quotedirs[:] = [] ## TODO +q
+        self.quotedirs[:] = self.extraquotedirs
     
     
     '''
@@ -354,7 +366,7 @@ class Ponysay():
                     if args.opts[key] is not None:
                         return False
             return True
-        keys = ['-f', '+f', '-F', '-q'] ## TODO +q -Q
+        keys = ['-f', '+f', '-F', '-q', '+q', '-Q']
         if test(keys, False):
             for ponydir in self.ponydirs:
                 if os.path.isfile(ponydir + 'best.pony') or os.path.islink(ponydir + 'best.pony'):
@@ -401,8 +413,8 @@ class Ponysay():
                 ascii = line[s + 1:].strip(stripset)
                 map[ucs] = ascii
         
-        ## Apply UCS → ASCII mapping to -f, +f, -F and -q arguments
-        for flag in ('-f', '+f', '-F', '-q'): ## TODO +q -Q
+        ## Apply UCS → ASCII mapping to -f, +f, -F, -q, +q and -Q arguments
+        for flag in ('-f', '+f', '-F', '-q', '+q', '-Q'):
             if args.opts[flag] is not None:
                 for i in range(0, len(args.opts[flag])):
                     if args.opts[flag][i] in map:
@@ -474,9 +486,10 @@ class Ponysay():
     def __getpony(self, selection, args, alt = False):
         ## If there is no selected ponies, choose all of them
         if (selection is None) or (len(selection) == 0):
-            quote    =  args.opts['-q'] is not None ## TODO +q -Q
-            standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) ## TODO -Q
-            extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) ## TODO +q -Q
+            quote      = (args.opts['-q'] is not None) or (args.opts['-Q'] is not None)
+            extraquote = (args.opts['+q'] is not None) or (args.opts['-Q'] is not None)
+            standard   = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) or (args.opts['-Q'] is not None)
+            extra      = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) or (args.opts['+q'] is not None) or (args.opts['-q'] is not None)
             if not (standard or extra):
                 standard = True
             ponydirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else []);
@@ -847,7 +860,10 @@ class Ponysay():
             for pony in args.opts['-F']:  selection.append((pony, both, False))
         if args.opts['-q'] is not None:
             for pony in args.opts['-q']:  selection.append((pony, standard, True))
-        ## TODO +q -Q
+        if args.opts['+q'] is not None:
+            for pony in args.opts['+q']:  selection.append((pony, extra, True))
+        if args.opts['-Q'] is not None:
+            for pony in args.opts['-Q']:  selection.append((pony, both, True))
         (pony, quote) = self.__getpony(selection, args)
         
         ## Get message and remove tailing whitespace from stdin (but not for each line)

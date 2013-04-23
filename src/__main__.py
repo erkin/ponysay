@@ -140,6 +140,8 @@ run `man ponysay`. Ponysay has so much more to offer than described here.''')
     opts.add_variadic(    ['++f', '++files', '++ponies'],          arg = 'PONY')
     opts.add_variadic(    ['--F'] + __F,                           arg = 'PONY')
     opts.add_variadic(    ['--q', '--quotes'],                     arg = 'PONY')
+    opts.add_variadic(    ['++q', '++quotes'],                     arg = 'PONY')
+    opts.add_variadic(    ['--Q', '--anyquotes', '--any-quotes'],  arg = 'PONY')
     
     '''
     Whether at least one unrecognised option was used
