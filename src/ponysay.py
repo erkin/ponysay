@@ -285,8 +285,8 @@ class Ponysay():
                     else:                          args.opts[sl]  = args.opts[ssl]
         
         ## Save whether standard or extra ponies are used
-        self.usingstandard = test('-f', '-F', '-q') # -Q
-        self.usingextra    = test('+f', '-F') # +q -Q
+        self.usingstandard = test('-f', '-F', '-q', '-Q')
+        self.usingextra    = test('+f', '-F', '+q', '-Q')
         
         ## Run modes
         if   test('-h'):                                     args.help()
