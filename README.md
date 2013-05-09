@@ -104,19 +104,19 @@ FAQ
 
 __Q:__ The output looks like a mess in _(TTY/PuTTY/other)_!
 
-__A:__ Unfortunately we cannot make it perfect, see [issue 1](/erkin/ponysay/issues/1). But we have done a lot, read more about how to get the best the current state of the art has to offer in the [manual](/erkin/ponysay/blob/master/ponysay.pdf?raw=true).
+__A:__ Unfortunately we cannot make it perfect, see [issue 1](//github.com/erkin/ponysay/issues/1). But we have done a lot, read more about how to get the best the current state of the art has to offer in the [manual](//github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true).
 
 __Q:__ You are missing _(my-favourite-pony)_!
 
-__A:__ [Ask](/erkin/ponysay/issues) and we'll add!
+__A:__ [Ask](//github.com/erkin/ponysay/issues) and we'll add!
 
-__Q:__ The outpus look weird on my _(xfce4-terminal/mate-terminal/xterm)_ whit _this_ font
+__Q:__ The outpus look weird on my _(xfce4-terminal/mate-terminal/xterm)_ with _this_ font
 
 __A:__ We use blocks for printing the ponies, if the blocks are misalignated or you not use a __real__ monospaced font with aligned blocks try another monospaced font like 'fixed [misc]' or 'Liberation Mono'.
 
 __Q:__ Which programs do you use to generate the pony files?
 
-__A:__ The pony files are actually mostly a bunch of selected [browser ponies](//web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](/maandree/util-say),
+__A:__ The pony files are actually mostly a bunch of selected [browser ponies](//web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](//github.com/maandree/util-say),
 Other are taken from desktop ponies, and finally another are created specificaly for ponysay.
 
-The [PDF manual](/erkin/ponysay/blob/master/ponysay.pdf?raw=true) should answer most of your questions.
+The [PDF manual](//github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true) should answer most of your questions.
