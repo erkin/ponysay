@@ -48,7 +48,7 @@ For now is same as \fIponysay \-v\fP
 Generate all kmsponies for the current TTY palette, not work in all videos.
 .TP
 .B \-\-dimensions [\fIPONYDIR\fP]
-Generate pony dimension file for a directory, usefull at build time.
+Generate pony dimension file for a directory, useful at build time.
 .TP
 .B \-\-metadata [\fIPONYDIR\fP]
 Generate pony metadata collection file for a directory, useful at build time.
