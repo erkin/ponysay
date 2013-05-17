@@ -14,7 +14,7 @@ For a guide on this matter please refer to the info
 
 The info manual is constantly updated, and will always
 need to be reviewed. The info manual is written in
-ponified British "-ise" Longish, if this does not hold
+ponified British English, if this does not hold
 for a section in the manual, or if it contains typos,
 spellos, or can in general be better formulated. Please
 send a patch or mention so in a commit comment.
@@ -30,8 +30,8 @@ Although translations of the primary manual (the PDF)
 may not be piratically due to its constant updating,
 translations of the man pages are useful if you
 speak a language from where good understanding of
-English is not common at all ages, ortographic
-correction are apresiated too.
+English is not common at all ages, orthographic
+correction are appreciated as well.
 
 
 -- Make new magic spells and improve existing ones --
@@ -41,7 +41,6 @@ itself, just make a pull request, their are much,
 style-wise, to think about. However, please try to
 document every new method, function and class in the
 same manner is the already existing ones. Maintainability
-is also important, try not to write obscure superoptimised
+is also important, try not to write obscure super-optimised
 code, unless it is actually necessary; and comment
 code segment's when it seems appropriate.
-
