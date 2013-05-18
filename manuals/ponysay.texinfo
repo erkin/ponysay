@@ -3007,11 +3007,14 @@ sequences.
 @itemize @bullet
 @item
 New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue}, @file{hairytipper}, @file{mantishy},
-@file{peachbottom}, @file{unclewing}, @file{rainbowdrop}, @file{strawberrycream}, @file{wildflower}
+@file{mule}, @file{peachbottom}, @file{unclewing}, @file{rainbowdrop}, @file{strawberrycream},
+@file{wildflower}
 @item
 New extraponies: @file{milky}
 @item
 Default value for @option{-W}, the message wrapping column, has been changed from 40 to 60, to wrap messages better.
+@item
+Added manpage for @command{ponysay-tool}
 @end itemize
 
 @heading Version 3.0.1
