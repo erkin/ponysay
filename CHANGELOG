@@ -1,11 +1,13 @@
 Version 3.0.2
 
-	New ponies: brucemane, cremebrulee, deepblue, hairytipper, mantishy, peachbottom, rainbowdrop, strawberrycream,
-		    unclewing, wildflower
+	New ponies: brucemane, cremebrulee, deepblue, hairytipper, mantishy, mule, peachbottom, rainbowdrop,
+		    strawberrycream, unclewing, wildflower
 
 	New extraponies: milky
 
 	Default value for -W has been changed from 40 to 60.
+
+	Added manpage for ponysay-tool
 
 Version 3.0.1
 
