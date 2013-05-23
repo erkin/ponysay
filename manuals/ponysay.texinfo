@@ -3010,7 +3010,7 @@ New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue}, @file{hairyti
 @file{mule}, @file{peachbottom}, @file{unclewing}, @file{rainbowdrop}, @file{strawberrycream},
 @file{wildflower}
 @item
-New extraponies: @file{milky}
+New extraponies: @file{fluffle}, @file{milky}
 @item
 Default value for @option{-W}, the message wrapping column, has been changed from 40 to 60, to wrap messages better.
 @item
