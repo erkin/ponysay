@@ -3006,9 +3006,9 @@ sequences.
 @heading Version 3.0.2
 @itemize @bullet
 @item
-New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue}, @file{hairytipper}, @file{mantishy},
-@file{mule}, @file{peachbottom}, @file{unclewing}, @file{rainbowdrop}, @file{strawberrycream},
-@file{wildflower}
+New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue}, @file{hairytipper},
+@file{mantishy}, @file{mule}, @file{peachbottom}, @file{unclewing}, @file{rainbowdashcrystal},
+@file{rainbowdrop}, @file{strawberrycream}, @file{wildflower}
 @item
 New extraponies: @file{fluffle}, @file{milky}
 @item
