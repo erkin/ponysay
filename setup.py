@@ -7,14 +7,11 @@ import sys
 from zipfile import ZipFile
 from subprocess import Popen, PIPE
 
-
-
-PONYSAY_VERSION = '3.0.1'
-
-
+PONYSAY_VERSION = '3.0.2'
 
 manpages = [('en', 'English'),  # must be first
-            ('es', 'Spanish')]
+            ('es', 'Spanish'),
+            ('tr', 'Turkish')]
 
 sharedirs = [('ponies', 'xterm ponies', 'PONYDIR', True),  # must be first
              ('ttyponies', 'tty ponies', 'TTYPONYDIR', True),
@@ -44,9 +41,6 @@ ponysaysrc = [src + '.py' for src in
                'backend', 'colourstack', 'ucs', 'spellocorrecter', 'kms',
                'list', 'metadata', 'ponysaytool')]
 
-
-
-
 COPY = 'copy'
 HARD = 'hard'
 SYMBOLIC = 'symbolic'
@@ -68,37 +62,32 @@ class Setup():
                          description = 'installer for ponysay',
                          usage       = usage)
 
-
         opts.add_argumentless(alternatives = ['--help'])
         opts.add_argumentless(alternatives = ['--version'])
         opts.add_argumented  (alternatives = ['---DESTDIR'], arg="DESTDIR")
         opts.add_argumented  (alternatives = ['---PREFIX'], arg="PREFIX")
 
-
-        opts.add_argumentless(help = 'Install everything that is not explicity excluded',
+        opts.add_argumentless(help = 'Install everything that is not explicitly excluded',
                               alternatives = ['--everything', '--with-everything'])
 
-        opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depending on version',
+        opts.add_argumentless(help = 'Install only the essentials\nNote that this can vary depending on the version',
                               alternatives = ['--minimal'])
 
-        opts.add_argumentless(help = 'Install nothing (except legal documents) that is not explicity included',
+        opts.add_argumentless(help = 'Install nothing (except legal documents) that is not explicitly included',
                               alternatives = ['--nothing', '--with-nothing'])
-
 
         for command in commands:
             opts.add_argumentless(help = 'Do not install the %s command' % (command),
                                   alternatives = ['--without-' + command, '--without-' + command + '-command'])
 
-            opts.add_argumented  (help = 'Install the %s command, and set file name\nDefualt = /usr/bin/%s' % (command, command),
+            opts.add_argumented  (help = 'Install the %s command, and set file name\nDefault = /usr/bin/%s' % (command, command),
                                   alternatives = ['--with-' + command, '--with-' + command + '-command'], arg='EXEC')
-
 
         opts.add_argumentless(help = 'Do not install a user shared cache',
                               alternatives = ['--without-shared-cache'])
 
         opts.add_argumented  (help = 'Install a user shared cache at CACHEDIR\nDefault = /var/cache/ponysay',
                               alternatives = [   '--with-shared-cache'], arg='CACHEDIR')
-
 
         for shell in shells:
             opts.add_argumentless(help = 'Do not install completion for ' + shell[2],
@@ -107,13 +96,11 @@ class Setup():
             opts.add_argumented  (help = 'Set file name for the completion for ponysay in' + shell[2],
                                   alternatives = ['--with-' + shell[0], '--with-' + shell[0] + '-completion'], arg='PONYSAY_%s_FILE' % (shell[0].upper()))
 
-
         opts.add_argumentless(help = 'Only install explicitly included shell completions',
                               alternatives = ['--without-shell', '--without-shell-completion'])
 
         opts.add_argumented  (help = 'Set share/ directory used for shell completions\nDefault = $SHAREDIR',
                               alternatives = ['--with-shell', '--with-shell-completion'], arg='SHAREDIR')
-
 
         opts.add_argumentless(help = 'Do not install PDF manual\nDefault',
                               alternatives = ['--without-pdf', '--without-pdf-manual'])
@@ -145,7 +132,6 @@ class Setup():
         opts.add_argumented  (help = 'Select compression for info manual\nDefault = gz, xz is also recognised',
                               alternatives = ['--with-info-compression', '--with-info-manual-compression'], arg='COMPRESSION')
 
-
         for man in manpages:
             opts.add_argumentless(help = 'Do not install %s manpage manual' % (man[1]),
                                   alternatives = ['--without-man-%s' % (man[0]), '--without-manpage-%s' % (man[0]), '--without-man-manual-%s' % (man[0]),
@@ -154,7 +140,6 @@ class Setup():
             opts.add_argumented  (help = 'Set directory for %s manpage\nDefault = $SHARE/man' % (man[1]),
                                   alternatives = ['--with-man-%s' % (man[0]), '--with-manpage-%s' % (man[0]), '--with-man-manual-%s' % (man[0]),
                                                   '--with-%s-man' % (man[0]), '--with-%s-manpage' % (man[0]), '--with-%s-man-manual' % (man[0])], arg='MANDIR')
-
 
         opts.add_argumentless(help = 'Do not install any manpages',
                               alternatives = ['--without-man', '--without-manpage', '--without-man-manual'])
@@ -183,7 +168,6 @@ class Setup():
                                   alternatives = ['--man-section-%s' % (man[0]), '--%s-manpage-section' % (man[0]),
                                                   '--man-section-%s' % (man[0]), '--%s-manpage-section' % (man[0])], arg='SECTION')
 
-
         for dir in sharedirs:
             opts.add_argumentless(help = 'Do not install ' + dir[1],
                                   alternatives = ['--without-' + dir[0]])
@@ -197,13 +181,11 @@ class Setup():
         opts.add_argumentless(help = 'Install UCS pony name map\nDefault',
                               alternatives = ['--with-ucs', '--with-ucs-names'])
 
-
         opts.add_argumentless(help = 'Let the installer set the env name for python in ponysay\nDefault',
                               alternatives = ['--without-custom-env-python'])
 
         opts.add_argumented  (help = 'Set the env name for python in ponysay',
                               alternatives = ['--with-custom-env-python'], arg='PYTHON')
-
 
         opts.add_argumented  (help = 'Set a prefix to all implicit directories\nDefault = /usr',
                               alternatives = ['--prefix'], arg='PREFIX')
@@ -232,28 +214,21 @@ class Setup():
         opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',
                               alternatives = ['--cache-dir'], arg='CACHEDIR')
 
-
         opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',
                               alternatives = ['--dest-dir'], arg='DESTDIR')
 
-
         opts.add_argumented  (help = 'Set how to link identical files\nDefault = symbolic, copy and hard are also recognised',
                               alternatives = ['--linking'], arg='TYPE')
-
 
         opts.add_argumented  (help = 'Install all ponies or only the completely free ponies\nThis option is manditory, use strict, full, true or yes ' +
                                       'for only free ponies,\nand partial, sloppy, false or no for all ponies',
                               alternatives = ['--freedom'], arg='FREEDOM')
 
-
-
         opts.parse()
-
 
         self.linking = SYMBOLIC
         if opts.opts['--linking'] is not None:
             self.linking = opts.opts['--linking'][0]
-
 
         self.free = None
         if opts.opts['--freedom'] is not None:
@@ -272,7 +247,6 @@ class Setup():
                 print('')
                 exit(255)
 
-
         if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is None):
             destdir = opts.opts['---DESTDIR'][0]
             if len(destdir) > 0:
@@ -282,7 +256,6 @@ class Setup():
             prefix = opts.opts['---PREFIX'][0]
             if len(prefix) > 0:
                 opts.opts['--prefix'] = [prefix]
-
 
         if (len(opts.files) > 1) or (opts.opts['--help'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'help')):
             opts.help()
@@ -319,7 +292,6 @@ class Setup():
 
                 elif not method == 'view':
                     opts.help()
-
 
     '''
     Display configurations
@@ -370,7 +342,6 @@ class Setup():
         else:                                      print(RED    % ('Installing \033[1mnot\033[21m only fully free parts of the package'))
 
         print()
-
 
     '''
     Compile ponysay
@@ -454,7 +425,7 @@ class Setup():
             if man is manpages[0]:  lang = ''
             else:                   lang = '.' + man[0]
             if conf[key] is not None:
-                src = 'manuals/manpage' + lang + '.0'
+                src = 'manuals/manpage' + lang + '.6'
                 dest = src + '.install'
                 (fileout, filein) = (None, None)
                 try:
@@ -473,7 +444,7 @@ class Setup():
                 src = dest
                 ext = conf[key + '-compression']
                 if ext is not None:
-                    dest = 'manuals/manpage' + lang + '.0.' + ext
+                    dest = 'manuals/manpage' + lang + '.6.' + ext
                     compress(src, dest, ext)
 
         if conf['info'] is not None:
@@ -577,7 +548,6 @@ class Setup():
 
         print()
 
-
     '''
     Install compiled ponysay
     '''
@@ -644,7 +614,7 @@ class Setup():
             if man is manpages[0]:  lang = ''
             else:                   lang = '.' + man[0]
             if conf[key] is not None:
-                src = 'manuals/manpage' + lang + '.0.' + ('install' if conf[key + '-compression'] is None else conf[key + '-compression'])
+                src = 'manuals/manpage' + lang + '.6.' + ('install' if conf[key + '-compression'] is None else conf[key + '-compression'])
                 dests = []
                 for command in commands:
                     if conf[command] is not None:
@@ -663,7 +633,6 @@ class Setup():
         for file in miscfiles:
             self.cp(False, file[0], [conf[file[0]]], Setup.validateFreedom if self.free else None)
         print()
-
 
     '''
     Uninstall ponysay
@@ -722,7 +691,6 @@ class Setup():
         self.removeLists(files, dirs)
         print()
 
-
     '''
     Uninstall file ponysay no longer uses
     '''
@@ -742,7 +710,6 @@ class Setup():
 
         self.removeLists(files, dirs)
         print()
-
 
     '''
     Remove compiled files
@@ -770,7 +737,6 @@ class Setup():
         self.removeLists(files, dirs)
         print()
 
-
     '''
     Remove compiled files ponysay is no longer compiling
     '''
@@ -788,7 +754,6 @@ class Setup():
 
         self.removeLists(files, dirs)
         print()
-
 
     '''
     Removes listed files and directories
@@ -819,7 +784,6 @@ class Setup():
                     else:
                         break;
 
-
     '''
     Check whether a file is fully free
     '''
@@ -839,7 +803,6 @@ class Setup():
                                 return line[1].lower() == 'yes'
                 return False
         return True
-
 
     '''
     Copys a files or directory to multiple destinations
@@ -919,7 +882,6 @@ class Setup():
                         os.unlink(dest)
                     self.symlink(target, dest)
 
-
     '''
     Create a symlink with a relative path
     '''
@@ -942,7 +904,6 @@ class Setup():
                 targets = (['..'] * (len(dests) - 1)) + targets
 
             os.symlink('/'.join(targets), dest)
-
 
     '''
     Parses configurations
@@ -975,7 +936,6 @@ class Setup():
         conf['lib-dir'] = '/usr/lib/ponysay'
         conf['libexec-dir'] = '/usr/libexec/ponysay'
         conf['share-dir'] = '/usr/share'
-
 
         if opts['--private'] is not None:
             if opts['--prefix'] is None:
@@ -1018,13 +978,11 @@ class Setup():
         for key in conf:
             defaults[key] = conf[key]
 
-
         if opts['--nothing'] is not None:
             opts['--minimal'] = opts['--nothing']
 
         for key in ['custom-env-python']:
             conf[key] = None
-
 
         if opts['--everything'] is None:
             for key in ['pdf', 'pdf-compression']:
@@ -1054,7 +1012,6 @@ class Setup():
                 conf[command] = None
             conf[sharedirs[0][0]] = None
 
-
         for coll in [['shell', '/usr/share', [item[0] for item in shells]],
                      ['man', '/usr/share/man', ['man-' + item[0] for item in manpages]],
                      ['man-compression', 'gz', ['man-' + item[0] + '-compression' for item in manpages]]
@@ -1065,7 +1022,6 @@ class Setup():
             if opts['--with-' + coll[0]] is not None:
                 for item in coll[2]:
                     defaults[item] = conf[item] = defaults[item].replace(coll[1], coll[1] if opts['--with-' + coll[0]][0] is None else opts['--with-' + coll[0]][0]);
-
 
         for key in conf:
             if '--with-' + key not in opts:
@@ -1084,11 +1040,9 @@ class Setup():
             else:
                 conf['man-section-' + mansection[0]] = mansection[1]
 
-
         self.destDir = None if opts['--dest-dir'] is None else opts['--dest-dir'][0]
 
         return conf
-
 
     def applyDestDir(self, conf):
         if self.destDir is not None:
@@ -1097,14 +1051,12 @@ class Setup():
                     if conf[key].startswith('/'):
                         conf[key] = self.destDir + conf[key]
 
-
     def unapplyDestDir(self, conf):
         if self.destDir is not None:
             for key in conf:
                 if conf[key] not in (None, False, True):
                     if conf[key].startswith(self.destDir):
                         conf[key] = conf[key][len(self.destDir):]
-
 
 
 ARGUMENTLESS = 0
@@ -1220,7 +1172,6 @@ class ArgParser():
                     first = False
                 print()
         print()
-
 
 
 if __name__ == '__main__':

@@ -1,20 +1,4 @@
-.\"                                      
-.\" First parameter, NAME, should be all caps
-.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
-.\" other parameters are allowed: see man(7), man(1)
-.TH PONYSAY 0 "Abril 05 de 2013"
-.\" Please adjust this date whenever revising the manpage.
-.\"
-.\" Some roff macros, for reference:
-.\" .nh        disable hyphenation
-.\" .hy        enable hyphenation
-.\" .ad l      left justify
-.\" .ad b      justify to both left and right margins
-.\" .nf        disable filling
-.\" .fi        enable filling
-.\" .br        insert line break
-.\" .sp <n>    insert n+1 empty lines
-.\" for manpage-specific macros, see man(7)
+.TH PONYSAY 6 "Abril 05 de 2013"
 .SH NOMBRE
 ponysay \- Una reimplementación de cowsay usando ponis
 .SH SINOPSIS
@@ -30,9 +14,6 @@ ponysay \- Una reimplementación de cowsay usando ponis
 .br
 .SH DESCRIPCIÓN
 .PP
-.\" TeX users may be more comfortable with the \fB<whatever>\fP and
-.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
-.\" respectively.
 \fBponysay\fP muestra la imagen de un poni con un texto dado por el usuario, esto dentro de la
 terminal.
 .br
@@ -87,7 +68,7 @@ Esta opción combina \fI--f\fP y \fI++f\fP.
 Viable variante de \fI-q\fP, todos los argumentos dados después de este argumento serán
 pasados a dicha opción.
 .TP
-.B \-b, \-\-bubble, \-\-ballon \fIstyle\fP
+.B \-b, \-\-bubble, \-\-balloon \fIstyle\fP
 Especifica el tipo de globo de texto a utilizar, puede ser la ruta a un archivo o bien uno de las
 opciones dadas por \fIponysay -B\fP.
 .TP
@@ -112,10 +93,10 @@ Lista los ponis no pertenecientes a MLP:FiM disponibles.
 .B \+L, \+\+symlist, \+\+altlist
 Lista los ponis no pertenecientes a MLP:FiM con nombres alternativos dentro de paréntesis.
 .TP
-.B \-B, \-\-bubblelist, \-\-ballonlist \fIstyle\fP
+.B \-B, \-\-bubblelist, \-\-balloonlist \fIstyle\fP
 Muestra la lista de globos de texto disponibles.
 .TP
-.B \-A. \-\-all 
+.B \-A. \-\-all
 Lista todos los ponis, tanto pertenecientes a MLP:FiM cono no pertenecientes a esta
 la primera lista son los pertenecientes a esta y la subsiguente los no pertenecientes.
 .TP
@@ -157,7 +138,7 @@ Colorea el globo, Incluyendo mensajes y enlaces. Para más información acerca d
 y sin la cola \fIm\fP, por ejemplo \fI1;31\fP puede referirse al color rojo y en negrita (o claro
 dependiendo de la terminal.)
 .TB
-.B \-\-colour\-bubble, \-\-colour\-ballon [\fIansi-colour\fP]
+.B \-\-colour\-bubble, \-\-colour\-balloon [\fIansi-colour\fP]
 Trabaja como \fP\--colour\fI pero solo colorea el globo de texto.
 .TP
 .B \-\-colour\-link [\fIansi-colour\fP]

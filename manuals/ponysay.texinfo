@@ -431,7 +431,7 @@ have either blue, green or cyan eyes.
 @opindex @option{--256colours}
 @opindex @option{--x-colours}
 Use @command{xterm}'s 256-colour support (supported by most X11 terminals), despite
-your terminal's actual compatibilies. 
+your terminal's actual compatibilies.
 
 @item -V
 @itemx --tty-colours
@@ -711,7 +711,7 @@ lines are left blank. If you want more, or less, blank lines you can export
 @env{PONYSAY_SHELL_LINES} with the value of how many blank lines you want.
 Naturally this takes effect eve n if the output is not actually larger than
 the screen.
- 
+
 @item PONYSAY_FULL_WIDTH
 @vindex @env{PONYSAY_FULL_WIDTH}
 You can export @env{PONYSAY_FULL_WIDTH} with the value @code{yes}, @code{y}
@@ -951,7 +951,7 @@ This tag decribes which groups a pony classifies under, it is a comma seperated 
 list, and it cannot be empty, by it can be (but shouldn't) skipped for every pony in the
 image.
 
-The standard values are (you may use other ones if fitting): 
+The standard values are (you may use other ones if fitting):
 @itemize @bullet
 @item @code{mare}
 Adult female pony
@@ -1018,13 +1018,13 @@ should be 2.
 In the rare case that the file contains multiple links (and multi ponies), the
 metadata should contains multiple entries of this tag, one entry for each link
 sorted in the order of the linkes placement in the image, in the same way
-ponies are ordered. 
+ponies are ordered.
 
 @item LINK
 @vindex @var{LINK}
 In the rare case that the file contains multiple links the metadata should contains
 multiple entries of this tag, one entry for each link sorted in the order of the
-linkes placement in the image, in the same way ponies are ordered. 
+linkes placement in the image, in the same way ponies are ordered.
 
 The value for this tag must be either @code{regular} or @code{mirrored}. @code{regular}
 applies to linkes with NNE–SSW (@code{\}) direction. @code{mirrored} applies to linkes
@@ -1494,7 +1494,7 @@ run on it.
 
 @command{ponysay} should work just fine on GNU/Hurd, except for in the native virtual
 terminal (TTY). Hurd's terminal is limited to 16 colours and does not provide the capaility
-of modifing 
+of modifing
 
 If we are lucky it may be possible draw pictures, in full resultions, as you can in linux;
 which is currently not inplementedin @command{ponysay}. Another, not yet implemented
@@ -1764,8 +1764,9 @@ or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 @cindex man page translations
 @command{ponysay} comes with this @command{info} manual and a manpage in section 6,
 @command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
-in Spanish: @command{man -L es 6 ponysay}. To install the Spanish manual add the
-option @option{--with-man-es} when running @command{./setup.py}.
+in Spanish and Turkish: @command{man -L es 6 ponysay}, @command{man -L tr 6 ponysay}.
+To install the localised manual, add the option @option{--with-man-es} or
+@option{--with-man-tr} when running @command{./setup.py}.
 
 
 
@@ -1975,6 +1976,26 @@ Install English @command{man} manual. Set directory for @command{man} manuals.
 @opindex @option{--without-es-man-manual}
 Install Spanish @command{man} manual. Set directory for @command{man} manuals.
 
+@item --with-man-tr
+@itemx --with-manpage-tr
+@itemx --with-man-manual-tr
+@itemx --with-tr-man
+@itemx --with-tr-manpage
+@itemx --with-tr-man-manual=/usr/share/man
+@opindex @option{--with-man-tr}
+@opindex @option{--without-man-tr}
+@opindex @option{--with-manpage-tr}
+@opindex @option{--without-manpage-tr}
+@opindex @option{--with-man-manual-tr}
+@opindex @option{--without-man-manual-tr}
+@opindex @option{--with-tr-man}
+@opindex @option{--without-tr-man}
+@opindex @option{--with-tr-manpage}
+@opindex @option{--without-tr-manpage}
+@opindex @option{--with-tr-man-manual}
+@opindex @option{--without-tr-man-manual}
+Install Turkish @command{man} manual. Set directory for @command{man} manuals.
+
 @item --with-man
 @itemx --with-manpage
 @itemx --with-man-manual
@@ -2027,6 +2048,27 @@ This option does not imply @option{--with-man-en}. (Default)
 @opindex @option{--without-es-man-manual-compression}
 Compress Spanish @command{man} manual, select compression by file name extension.
 This option does not imply @option{--with-man-es}. (Default)
+
+@item --with-man-tr-compression
+@itemx --with-manpage-tr-compression
+@itemx --with-man-manual-tr-compression
+@itemx --with-tr-man-compression
+@itemx --with-tr-manpage-compression
+@itemx --with-tr-man-manual-compression=gz
+@opindex @option{--with-man-tr-compression}
+@opindex @option{--without-man-tr-compression}
+@opindex @option{--with-manpage-tr-compression}
+@opindex @option{--without-manpage-tr-compression}
+@opindex @option{--with-man-manual-tr-compression}
+@opindex @option{--without-man-manual-tr-compression}
+@opindex @option{--with-tr-man-compression}
+@opindex @option{--without-tr-man-compression}
+@opindex @option{--with-tr-manpage-compression}
+@opindex @option{--without-tr-manpage-compression}
+@opindex @option{--with-tr-man-manual-compression}
+@opindex @option{--without-tr-man-manual-compression}
+Compress Turkish @command{man} manual, select compression by file name extension.
+This option does not imply @option{--with-man-tr}. (Default)
 
 @item --with-man-compression
 @itemx --with-manpage-compression
@@ -2808,11 +2850,11 @@ makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3', 'zip')
 build()
 @{   cd "$srcdir"; git clone git://github.com/erkin/ponysay.git ponysay
     cd ponysay  ; git checkout "$pkgver"
-    
+
     ./setup.py --everything --without-pdf-compression  \
                --bin-dir=/usr/bin --dest-dir="$pkgdir" \
                --freedom=parital build
-    
+
     # CHANGE --freedom=parital to --freedom=strict
     # FOR ONLY COMPLETELY FREE PONIES,
     # useful for GNU/Linux-libre distributions
@@ -3010,6 +3052,8 @@ New ponies: @file{brucemane}, @file{deepblue}, @file{hairytipper}, @file{peachbo
 New extraponies: @file{milky}
 @item
 Default value for @option{-W}, the message wrapping column, has been changed from 40 to 60, to wrap messages better.
+@item
+Turkish manual page added.
 @end itemize
 
 @heading Version 3.0.1
@@ -3143,7 +3187,7 @@ Arguments starting with @code{n} or @code{i} is allowed for @option{-W}.
 @item
 New ponies: @file{airheart}, @file{bastionyorsets}, @file{gustavelegrand}, @file{milkyway},
 @file{peppermoon}, @file{pinkacopter}, @file{pinkiefly}, @file{pinkieparade},
-@file{pinkieumbrellahat}, @file{shiningarmorwedding}, @file{soaringofficer}, 
+@file{pinkieumbrellahat}, @file{shiningarmorwedding}, @file{soaringofficer},
 @file{starlight}, @file{sunnyrays}, @file{sweatiesing}, @file{tenderheart}, @file{tom},
 @file{twilightspike}, @file{zecorabalance}
 @item
@@ -3177,7 +3221,7 @@ Automatic correction of incorrectly spelled pony names and balloon style names a
 @item
 New ponies: @file{basil}, @file{cloudkicker}, @file{cerberus}, @file{cow}, @file{derpysad},
 @file{flowertrio}, @file{frederickhorseshoepin}, @file{horsemd}, @file{jeffletroski},
-@file{jesuspezuna}, @file{joe}, @file{joetuxedo}, @file{manticore}, 
+@file{jesuspezuna}, @file{joe}, @file{joetuxedo}, @file{manticore},
 @file{meadownsong}, @file{meliot}, @file{pinkiegummydisguise}, @file{seaswirl},
 @file{theodoredonaldkerabatsos}, @file{turf}, @file{waltercoltchak}
 @item
@@ -3703,7 +3747,7 @@ The freedom to study how the program works, and change it so it does your
 computing as you wish (freedom 1). Access to the source code is a precondition
 for this.
 @item
-The freedom to redistribute copies so you can help your neighbour (freedom 2). 
+The freedom to redistribute copies so you can help your neighbour (freedom 2).
 @item
 The freedom to distribute copies of your modified versions to others (freedom 3).
 By doing this you can give the whole community a chance to benefit from your
@@ -3754,4 +3798,3 @@ If not, see <http://www.gnu.org/licenses/>.
 
 
 @bye
-
