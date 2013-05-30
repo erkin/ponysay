@@ -1199,7 +1199,8 @@ image for inclusion a long side free ponies.
 
 @b{This is the most important tag} as it helps us build a fully free version
 that can be officially distributed on FSF endorsed GNU/Linux distributions
-(GNU/Linux-libre). @end table
+(GNU/Linux-libre).
+@end table
 
 Duplicate tags should be ordered in the order of the pony they describe from
 top-left to bottom-right in the image. It is important that if there are for
