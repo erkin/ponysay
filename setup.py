@@ -11,6 +11,7 @@ PONYSAY_VERSION = '3.0.2'
 
 manpages = [('en', 'English'),  # must be first
             ('es', 'Spanish'),
+            ('sv', 'Swedish'),
             ('tr', 'Turkish')]
 
 sharedirs = [('ponies', 'xterm ponies', 'PONYDIR', True),  # must be first

@@ -1764,9 +1764,9 @@ or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 @cindex man page translations
 @command{ponysay} comes with this @command{info} manual and a manpage in section 6,
 @command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
-in Spanish and Turkish: @command{man -L es 6 ponysay}, @command{man -L tr 6 ponysay}.
-To install the localised manual, add the option @option{--with-man-es} or
-@option{--with-man-tr} when running @command{./setup.py}.
+in Spanish, Swedish and Turkish: @command{man -L es 6 ponysay}, @command{man -L sv 6 ponysay},
+@command{man -L tr 6 ponysay}. To install the localised manual, add the option @option{--with-man-es},
+@option{--with-man-sv} or @option{--with-man-tr} when running @command{./setup.py}.
 
 
 
@@ -1975,6 +1975,26 @@ Install English @command{man} manual. Set directory for @command{man} manuals.
 @opindex @option{--with-es-man-manual}
 @opindex @option{--without-es-man-manual}
 Install Spanish @command{man} manual. Set directory for @command{man} manuals.
+
+@item --with-man-sv
+@itemx --with-manpage-sv
+@itemx --with-man-manual-sv
+@itemx --with-sv-man
+@itemx --with-sv-manpage
+@itemx --with-sv-man-manual=/usr/share/man
+@opindex @option{--with-man-sv}
+@opindex @option{--without-man-sv}
+@opindex @option{--with-manpage-sv}
+@opindex @option{--without-manpage-sv}
+@opindex @option{--with-man-manual-sv}
+@opindex @option{--without-man-manual-sv}
+@opindex @option{--with-sv-man}
+@opindex @option{--without-sv-man}
+@opindex @option{--with-sv-manpage}
+@opindex @option{--without-sv-manpage}
+@opindex @option{--with-sv-man-manual}
+@opindex @option{--without-sv-man-manual}
+Install Swedish @command{man} manual. Set directory for @command{man} manuals.
 
 @item --with-man-tr
 @itemx --with-manpage-tr
@@ -3054,6 +3074,8 @@ New extraponies: @file{milky}
 Default value for @option{-W}, the message wrapping column, has been changed from 40 to 60, to wrap messages better.
 @item
 Turkish manual page added.
+@item
+Swedish manual page added.
 @end itemize
 
 @heading Version 3.0.1
