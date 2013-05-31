@@ -1064,7 +1064,7 @@ the ponies without magicial abilies should use the value @code{(no magic)}. If t
 has magicial abilies but without an aura, use the value @code{(invisible)}.
 
 Only humans [here we must call ourself humnas rather than ponies, otherwise the sentance
-does not make sense) can se the magic aura, describe the colour that we humans see, not
+does not make sense] can se the magic aura, describe the colour that we humans see, not
 ponies and other creatures in the TV Show [proof, see S01E11 Winter Wrap Up and S02E25-26
 A Canterlot Wedding].
 
