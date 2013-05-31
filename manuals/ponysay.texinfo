@@ -110,10 +110,10 @@ quoting the given message is printed on standard output.
 @command{ponythink} is to @command{ponysay} as @command{cowthink} is to
 @command{cowsay}.
 
-@command{ponysay} is generally used to decorate your terminal with a random pony, when
-you start the terminal. But if you know anypony how does like ponies [fat chance] you
-can always make screen-shots of @command{ponysay --q} executions and communication that
-way over e-mail.
+@command{ponysay} is generally used to decorate your terminal with a random
+pony from a shell start-up script. But if you know anyone else who likes ponies
+you can always make screen-shots of @command{ponysay --q} executions and
+communicate that way over e-mail.
 
 
 
