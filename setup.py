@@ -240,7 +240,7 @@ class Setup():
             elif opts.opts['--freedom'][0].lower() in ('partial', 'sloppy', 'false', 'no'):
                 self.free = False
         def checkFreedom():
-            if force and (self.free is None):
+            if self.free is None:
                 if (opts.opts['--version'] is None) and ((len(opts.files) != 1) or (opts.files[0] != 'version')):
                     print('')
                     print('You need to select your freedom, add --freedom=strict or --freedom=partial.')
