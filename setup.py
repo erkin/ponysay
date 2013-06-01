@@ -198,25 +198,25 @@ class Setup():
                               alternatives = ['--opt'])
 
         opts.add_argumented  (help = 'Set the system\'s directory for command executables\nDefault = $PREFIX/bin',
-                              alternatives = ['--bin-dir'], arg='BINDIR')
+                              alternatives = ['--bin-dir', '--bindir'], arg='BINDIR')
 
         opts.add_argumented  (help = 'Set the system\'s directory for non-executable libraries\nDefault = $PREFIX/lib/ponysay\nNot used.',
-                              alternatives = ['--lib-dir'], arg='LIBDIR')
+                              alternatives = ['--lib-dir', '--libdir'], arg='LIBDIR')
 
         opts.add_argumented  (help = 'Set the system\'s directory for non-command executables\nDefault = $PREFIX/libexec/ponysay\nNot used.',
-                              alternatives = ['--libexec-dir'], arg='LIBEXECDIR')
+                              alternatives = ['--libexec-dir', '--libexecdir'], arg='LIBEXECDIR')
 
         opts.add_argumented  (help = 'Set the system\'s directory for resource files\nDefault = $PREFIX/share',
-                              alternatives = ['--share-dir'], arg='SHAREDIR')
+                              alternatives = ['--share-dir', '--sharedir'], arg='SHAREDIR')
 
         opts.add_argumented  (help = 'Set the system\'s local specific configuration directory\nDefault = /etc',
-                              alternatives = ['--sysconf-dir'], arg='SYSCONFDIR')
+                              alternatives = ['--sysconf-dir', '--sysconfdir'], arg='SYSCONFDIR')
 
         opts.add_argumented  (help = 'Set the system\'s directory for cache directories\nDefault = /var/cache',
-                              alternatives = ['--cache-dir'], arg='CACHEDIR')
+                              alternatives = ['--cache-dir', '--cachedir'], arg='CACHEDIR')
 
         opts.add_argumented  (help = 'Set off environment for installation\nEmpty by default',
-                              alternatives = ['--dest-dir'], arg='DESTDIR')
+                              alternatives = ['--dest-dir', '--destdir'], arg='DESTDIR')
 
         opts.add_argumented  (help = 'Set how to link identical files\nDefault = symbolic, copy and hard are also recognised',
                               alternatives = ['--linking'], arg='TYPE')

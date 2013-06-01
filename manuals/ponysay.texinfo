@@ -2268,35 +2268,49 @@ for the current user.
 @opindex @option{--opt}
 Change all implicit directories to fit installation to @file{/opt}.
 
-@item --bin-dir=/usr/bin
+@item --bin-dir
+@itemx --bindir=/usr/bin
+@opindex @option{--bindir}
 @opindex @option{--bin-dir}
 Set the system's directory for command executables.
 
-@item --lib-dir=/usr/lib/ponysay
+@item --lib-dir
+@itemx --libdir=/usr/lib/ponysay
+@opindex @option{--libdir}
 @opindex @option{--lib-dir}
 Set the system's directory for non-command executables. Currently their
 is not non-executable library, so this options has no effect, but bleeding
 edge distributors should specify it if it differs from prefered.
 
-@item --libexec-dir=/usr/libexec/ponysay
+@item --libexec-dir
+@itemx --libexecdir=/usr/libexec/ponysay
+@opindex @option{--libexecdir}
 @opindex @option{--libexec-dir}
 Set the system's directory for non-command executables. Currently their
 is not non-command executables, so this options has no effect, but bleeding
 edge distributors should specify it if it differs from prefered.
 
-@item --share-dir=/usr/share
+@item --share-dir
+@itemx --sharedir=/usr/share
+@opindex @option{--sharedir}
 @opindex @option{--share-dir}
 Set the system's directory for resource files.
 
-@item --sysconf-dir=/etc
+@item --sysconf-dir
+@itemx --sysconfdir=/etc
+@opindex @option{--sysconfdir}
 @opindex @option{--sysconf-dir}
 Set the system's local specific configuration directory.
 
-@item --cache-dir=/var/cache
+@item --cache-dir
+@itemx --cachedir=/var/cache
+@opindex @option{--cachedir}
 @opindex @option{--cache-dir}
 Set the system's directory for cache directories.
 
-@item --dest-dir=
+@item --dest-dir
+@itemx --destdir=
+@opindex @option{--destdir}
 @opindex @option{--dest-dir}
 Set off environment for installation.
 
