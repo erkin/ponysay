@@ -271,7 +271,7 @@ class Setup():
             else:
                 conf = self.configure(opts.opts)
                 self.viewconf(conf)
-                os.umask(0o77)
+                os.umask(0o755)
 
                 if method == 'build':
                     self.build(conf)
