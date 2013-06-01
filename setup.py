@@ -200,8 +200,8 @@ class Setup():
         opts.add_argumented  (help = 'Set the system\'s directory for command executables\nDefault = $PREFIX/bin',
                               alternatives = ['--bin-dir', '--bindir'], arg='BINDIR')
 
-	opts.add_argumented  (help = 'Set the system\'s directory for command executables by root\nDefault = $PREFIX/sbin',
-                              alternatives = ['--sbin-dir'], arg='SBINDIR')
+        opts.add_argumented  (help = 'Set the system\'s directory for command executables by root\nDefault = $PREFIX/sbin',
+                              alternatives = ['--sbin-dir', '--sbindir'], arg='SBINDIR')
 
 
         opts.add_argumented  (help = 'Set the system\'s directory for non-executable libraries\nDefault = $PREFIX/lib/ponysay\nNot used.',
