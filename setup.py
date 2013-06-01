@@ -232,23 +232,24 @@ class Setup():
         self.linking = SYMBOLIC
         if opts.opts['--linking'] is not None:
             self.linking = opts.opts['--linking'][0]
-
+        
         self.free = None
         if opts.opts['--freedom'] is not None:
             if opts.opts['--freedom'][0].lower() in ('strict', 'full', 'true', 'yes'):
                 self.free = True
             elif opts.opts['--freedom'][0].lower() in ('partial', 'sloppy', 'false', 'no'):
                 self.free = False
-        if self.free is None:
-            if (opts.opts['--version'] is None) and ((len(opts.files) != 1) or (opts.files[0] != 'version')):
-                print('')
-                print('You need to select your freedom, add --freedom=strict or --freedom=partial.')
-                print('')
-                print('--freedom=strict   will install only ponies that are completely free.')
-                print('--freedom=partial  will install all ponies, even if they are not free.')
-                print('')
-                print('')
-                exit(255)
+        def checkFreedom():
+            if force and (self.free is None):
+                if (opts.opts['--version'] is None) and ((len(opts.files) != 1) or (opts.files[0] != 'version')):
+                    print('')
+                    print('You need to select your freedom, add --freedom=strict or --freedom=partial.')
+                    print('')
+                    print('--freedom=strict   will install only ponies that are completely free.')
+                    print('--freedom=partial  will install all ponies, even if they are not free.')
+                    print('')
+                    print('')
+                    exit(255)
 
         if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is None):
             destdir = opts.opts['---DESTDIR'][0]
@@ -276,13 +277,16 @@ class Setup():
                 os.umask(0o022)
 
                 if method == 'build':
+                    checkFreedom()
                     self.build(conf)
 
                 elif method == 'prebuilt':
+                    checkFreedom()
                     self.applyDestDir(conf)
                     self.install(conf)
 
                 elif method == 'install':
+                    checkFreedom()
                     self.build(conf)
                     self.applyDestDir(conf)
                     self.install(conf)
@@ -342,7 +346,9 @@ class Setup():
         for miscfile in miscfiles:                 print(GREEN  % ('Installing ' + miscfile[0] + ' to ', conf[miscfile[0]]))
         print('Using system configuration directory: ' + conf['sysconf-dir'])
         print('Prefered linking style: ' + self.linking)
-        if self.free:                              print(GREEN  % ('', 'Installing only fully free parts of the package'))
+        print('Using umask: 022 (only owner can do modifications)')
+        if self.free is None:                      print(YELLOW % ('\033[01m--freedom is manditory and has not be specified\033[21m'))
+        elif self.free:                            print(GREEN  % ('', 'Installing only fully free parts of the package'))
         else:                                      print(RED    % ('Installing \033[1mnot\033[21m only fully free parts of the package'))
 
         print()
@@ -1167,7 +1173,7 @@ class ArgParser():
             if opt_help is not None:
                 for opt_alt in opt_alts:
                     if opt_alt is opt_alts[-1]:
-                        print('\t%s \033[4m%s\033[24m' % (opt_alt, opt_arg) if opt_type == ARGUMENTED else '\t' + opt_alt)
+                        print('\t%s=\033[4m%s\033[24m' % (opt_alt, opt_arg) if opt_type == ARGUMENTED else '\t' + opt_alt)
                     else:
                         print('\t\033[2m' + opt_alt + '\033[22m')
                 first = True
