@@ -1,0 +1,94 @@
+.\"                                      
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH PONYSAY 0 "April 05, 2013"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+ponysay\-tool \- Tool chest for ponysay
+.SH SYNOPSIS
+.B ponysay-tool
+.RI [ options ]
+[--]
+.RI [ file if apply ]
+.br
+.SH DESCRIPTION
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
+.\" respectively.
+\fBponysay\-tool\fP this is a ponysay developing tool that can edit metadata for
+\fB.pony\fP files and others options related to \fBpony file\fP modifications.
+\fIfile\fP is not provided, then fallback to help.
+.PP
+.PP
+For an extensive documentation run `info ponysay`.
+.SH OPTIONS
+A summary of options is included below.
+.TP
+.B \-h, \-\-help
+Show summary of options.
+.TP
+.B\-v, \-\-version
+Print the version of the program.
+For now is same as \fIponysay \-v\fP
+.TP
+.B \-\-kms
+Generate all kmsponies for the current TTY palette, not work in all videos.
+.TP
+.B \-\-dimensions [\fIPONYDIR\fP]
+Generate pony dimension file for a directory, useful at build time.
+.TP
+.B \-\-metadata [\fIPONYDIR\fP]
+Generate pony metadata collection file for a directory, useful at build time.
+.TP
+.B \-b, \-\-browse [\fIPONYDIR\fP]
+Browse ponies in a directory and show them.
+.TP
+.B \-b, \-\-restrict [\fIPONYDIR\fP]
+Metadata based restriction for \fI\-\-browse\fP, you can restrict the ponies showed
+in \fI\-\-browse\fP using same sintaxis as \fIponysay \-\-restrict\fP.
+.TP
+.B \-\-edit [\fIPONYFILE\fP]
+Edit a pony file\'s metadata, forfiling a predefined options, this metadata later
+can by used \fIponysay \-\-info\fP, \fIponysay \+\+info\fP and \fIponysay-tool \-\-restrict\fP
+for show metadata or restrict who ponies are used by other options.
+.TP
+.B \-\-edit\-rm [\fIPONYFILE\fP]
+Remove metadata from a pony file, use with caution because deleted metadata is unrecoverable
+unless you reintall the affected [\fIponyfyle\fP] directrly from the source code or a backup.
+.TP
+.B \-\-edit\-apply [\fIPONYFILE\fP]
+Apply metadata from stdin to a pony file, this include \fBHEIGHT\fP and \fBWIDTH\fP.
+.TP
+.B \-\-edit\-stash [\fIPONYFILE\fP]
+Print applyable meta with data from a pony file, can by used alongside in a combo with
+\-\-edit\-apply for sped metadata in same pony with different pose.
+.SH BUG
+Bugs can be reported in <\fBhttps://github.com/erkin/ponysay/issues\fP>.
+.SH SEE ALSO
+.BR ponysay,
+.br
+.SH AUTHOR
+ponysay was written by Erkin Batu Altunbaş <erkinbatu@gmail.com>
+with contributions from Mattias Andrée, Elis Axelsson, Sven-Hendrik Haase,
+Pablo Lezaeta, Jan Alexander Steffens et al.
+.\" See file CREDITS for full list.
+.PP
+This manual page was originally written by Pablo Lezaeta <prflr88@gmail.com>
+for 'ponysay'.
+.br
+.PP
+This program is licensed under GNU GPLv3+.
+.\" See file COPYING to see the license.

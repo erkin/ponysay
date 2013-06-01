@@ -1,8 +1,8 @@
 $$$
 AURA: yellow
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 BASED ON: celestia
 COAT: white
 DISPLAY: full, right
@@ -16,9 +16,10 @@ MEDIA: (John Joseco) askprincessmolestia.tumblr.com NSFW
 NAME: Princess Molestia (Named given by the author)
 OTHER NAMES: Molestia (short name), Molly (given by the author on comments)
 POSE: smile
-SOURCE: [jristz]
+SOURCE: [jristz], based on Desktop ponies
 WIDTH: 95
 HEIGHT: 40
+
 
 $$$
 $balloon52$[00m

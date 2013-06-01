@@ -1,14 +1,17 @@
 Version 3.0.2
 
-        New ponies: brucemane, deepblue, hairytipper, peachbottom, rainbowdrop, strawberrycream, wildflower
+        New ponies: brucemane, cremebrulee, deepblue, hairytipper, mantishy, mule, peachbottom, rainbowdashcrystal,
+                    rainbowdrop, strawberrycream, unclewing, wildflower
 
-        New extraponies: milky
+        New extraponies: firefox, fluffle, IE, milky
 
         Default value for -W has been changed from 40 to 60.
 
         Turkish manual page added.
 
         Swedish manual page added.
+
+	Added manpage for ponysay-tool
 
 
 Version 3.0.1
@@ -459,7 +462,7 @@ Version 0.7
 
 Version 0.6
 
-        New ponies: bonbon, celestia, doctor, fillistia,
+        New ponies: bonbon, celestia, doctor, fillistia (filly Celestia),
                     spitfire, woona (not moonstuck).
 
         Dropping usage of utility 'which', using 'hash' instead.

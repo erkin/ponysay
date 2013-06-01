@@ -43,6 +43,7 @@ class Balloon():
     
     @param  link:str        The \-directional balloon line character
     @param  linkmirror:str  The /-directional balloon line character
+    @param  linkcross:str   The /-directional balloon crossing a \-driectional ballonon line character
     @param  ww:str          See the info manual
     @param  ee:str          See the info manual
     @param  nw:list<str>    See the info manual
@@ -62,8 +63,8 @@ class Balloon():
     @param  w:str           See the info manual
     @param  nww:str         See the info manual
     '''
-    def __init__(self, link, linkmirror, ww, ee, nw, nnw, n, nne, ne, nee, e, see, se, sse, s, ssw, sw, sww, w, nww):
-        (self.link, self.linkmirror) = (link, linkmirror)
+    def __init__(self, link, linkmirror, linkcross, ww, ee, nw, nnw, n, nne, ne, nee, e, see, se, sse, s, ssw, sw, sww, w, nww):
+        (self.link, self.linkmirror, self.linkcross) = (link, linkmirror, linkcross)
         (self.ww, self.ee) = (ww, ee)
         (self.nw, self.ne, self.se, self.sw) = (nw, ne, se, sw)
         (self.nnw, self.n, self.nne) = (nnw, n, nne)
@@ -144,12 +145,12 @@ class Balloon():
         ## Use default balloon if none is specified
         if balloonfile is None:
             if isthink:
-                return Balloon('o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )',  ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'],  '( ', '( ', '( ')
-            return    Balloon('\\', '/', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
+                return Balloon('o', 'o', 'o', '( ', ' )', [' _'], ['_'], ['_'], ['_'], ['_ '], ' )',  ' )', ' )', ['- '], ['-'], ['-'], ['-'], [' -'],  '( ', '( ', '( ')
+            return    Balloon('\\', '/', 'X', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
         
         ## Initialise map for balloon parts
         map = {}
-        for elem in ('\\', '/', 'ww', 'ee', 'nw', 'nnw', 'n', 'nne', 'ne', 'nee', 'e', 'see', 'se', 'sse', 's', 'ssw', 'sw', 'sww', 'w', 'nww'):
+        for elem in ('\\', '/', 'X', 'ww', 'ee', 'nw', 'nnw', 'n', 'nne', 'ne', 'nee', 'e', 'see', 'se', 'sse', 's', 'ssw', 'sw', 'sww', 'w', 'nww'):
             map[elem] = []
         
         ## Read all lines in the balloon file
@@ -169,7 +170,7 @@ class Balloon():
                     map[last].append(value)
         
         ## Return the balloon
-        return Balloon(map['\\'][0], map['/'][0], map['ww'][0], map['ee'][0], map['nw'], map['nnw'], map['n'],
+        return Balloon(map['\\'][0], map['/'][0], map['X'][0], map['ww'][0], map['ee'][0], map['nw'], map['nnw'], map['n'],
                        map['nne'], map['ne'], map['nee'][0], map['e'][0], map['see'][0], map['se'], map['sse'],
                        map['s'], map['ssw'], map['sw'], map['sww'][0], map['w'][0], map['nww'][0])
 

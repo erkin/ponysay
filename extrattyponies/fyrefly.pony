@@ -1,7 +1,7 @@
 $$$
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: pink
 DISPLAY: full, left
 EYE: purple (ponysay), blue (source)
