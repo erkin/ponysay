@@ -1,86 +1,40 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <link rel="stylesheet" type="text/css" href="screen.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../screen.css" media="screen"/>
 
     <title>ponysay</title>
   </head>
   <body>
-
-    <div class="header">
-      <table class="header" valign="middle">
-        <tr>
-          <td class="title">ponysay</td>
-          <td class="headspace"></td><td><a target="page" href="./pages/index.html">Introduction</a></td>
-          <td class="headspace"></td><td><a target="page" href="./pages/ponysay/index.html">Manual</a></td>
-          <td class="headspace"></td><td><a target="page" href="./pages/ponysay/Ponysay-license.html#Ponysay-license">Licence</a></td>
-          <td class="headspace"></td><td><a target="page" href="./pages/ponysay/Ponysay-contributors.html#Ponysay-contributors">Contributors</a></td>
-          <td class="headspace"></td><td><a target="page" href="./pages/ponysay/Change-log.html#Change-log">Change Log</a></td>
-          <td class="headspace"></td><td><a               href="http://www.github.com/erkin/ponysay">GitHub Repository↗</a></td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="main">
-      <table class="main">
-        <col id="left"/>
-        <col id="right"/>
-        <tr>
-
-          <td valign="top">
-            <table>
-              <cols class="image"/>
-              <cols class="sep"/>
-              <cols/>
-
-              <tr>
-                <td><img alt="ponysay example" src="bonbonlyra.png"/></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>
-                  <br/>
-                  <table class="fill">
-                    <tr>
-
-                      <td class="fill"></td>
-
-                      <td>
-                        <i>recommended reading:</i><br/>
-                        <a target="page" href="./pages/ponysay/Installing.html">Installing</a><br/>
-                        <a target="page" href="./pages/ponysay/Invoking-ponysay.html">Basic usage</a><br/>
-                        <a target="page" href="./pages/ponysay/Advanced-usage.html">Advanced usage</a><br/>
-                        <a target="page" href="./pages/ponysay/Environment-variables.html">Configurations</a><br/>
-                        <br/>
-
-                        <i>external links:</i><br/>
-                        <a target="page" href="./pages/youtube-demo.html">Demonstration</a><br/>
-                        <a target="page" href="./pages/fortune+ponysay.html">ponysay fortunes</a><br/>
-                        <br/>
-                      </td>
-
-                    </tr>
-                  </table>
-                </td>
-
-                <td></td>
-              </tr>
-
-            </table>
-          </td>
-
-          <td valign="top">
-            <div id="text"><iframe id="page" name="page" src="./pages/index.html"></iframe></div>
-          </td>
-
-        </tr>
-      </table>
-    </div>
-
+    <p>
+      <code>ponysay</code> — a cowsay reimplemention for ponies
+    </p>
+    <p>
+      ponysay as an awesome terminal application to display ponies speaking messages in your terminal.<br/>
+      It has many features; you can use its <code>info</code> manual to explore them, the manual is <br/>
+      available <b><a href="./ponysay/index.html">here</a></b> and <b><a href="https://github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true">here</a></b> as PDF. On the left you can find a few recommended<br/>
+      sections of the manual to read, if you are not up for reading the entire manual.
+    </p>
+    <p>
+      If you cannot find a package for ponysay in your operating system's repositories, take a look <b><a href="./ponysay/Package-repositories.html#Package-repositories">here</a></b> or build it yourself.<br/>
+      On most systems with the base and base-devel packages with Python 3 installed,<br/>
+      downloading the software and running <code>sudo ./setup.py --everything install</code><br/>
+      should suffice to install ponysay, complete with everything it has to offer. If you are not privileged to run as<br/>
+      superuser you can install it only for your user by omitting <code>sudo</code> and appending<br/>
+      <code>--private</code>.<br/>
+    </p>
+    <p>
+      If you are missing your favourite pony, <b><a href="https://github.com/erkin/ponysay/issues?direction=desc&sort=created&state=open">ask</a></b> and we shall add it (as soon as possible).
+    </p>
+    <p>
+      <img alt="derpy screenshot" src="../screenshot.png">
+    </p>
+    <p>
+      <i>Today your terminal, tomorrow the world!</i>
+    </p>
   </body>
 </html>
