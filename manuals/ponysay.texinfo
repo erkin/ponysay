@@ -110,10 +110,10 @@ quoting the given message is printed on standard output.
 @command{ponythink} is to @command{ponysay} as @command{cowthink} is to
 @command{cowsay}.
 
-@command{ponysay} is generally used to decorate your terminal with a random pony, when
-you start the terminal. But if you know anypony how does like ponies [fat chance] you
-can always make screen-shots of @command{ponysay --q} executions and communication that
-way over e-mail.
+@command{ponysay} is generally used to decorate your terminal with a random
+pony from a shell start-up script. But if you know anyone else who likes ponies
+you can always make screen-shots of @command{ponysay --q} executions and
+communicate that way over e-mail.
 
 
 
@@ -668,12 +668,13 @@ especially for shell scripts.
 The command @command{__pony=$(ponysay -o 3>&1 1>/dev/null | grep ^pony\ file: |
 sed -e s/^pony\ file:\ //g) && (ponysay -of "$__pony" | ponythink -Wn -f "$__pony")}
 will give you a pony thinking of herself. The command works on GNU Bash, but may
-not work on less POSIX compatible shells. It works by first getting a random pony and
-use the extra information printed the file descriptor 3 (see @ref{Extra information}),
-and fetchs the file name with help of @command{grep} and @command{sed}. The file
-name is stored in a shell variable. It the pipes one an execute of ponysay into
-another executing, using the stored file anme in both executions. This does not
-work on FISH shell because os POSIX incompatibility.
+not work on less POSIX compatible shells. It works by first getting a random
+pony and then uses the extra information printed to the file descriptor 3 (see
+@ref{Extra information}) to fetch the file name with help of @command{grep} and
+@command{sed}. The file name is stored in a shell variable. It then the pipes
+output from one execution of ponysay into the second, using the stored file
+name in both. This does not work on FISH shell because of POSIX
+incompatibility.
 
 Ponysay can use just about anything as a message because it quarantines the message's
 ANSI escape sequences, including colour. And is Unicode aware (including combining
@@ -1063,7 +1064,7 @@ the ponies without magicial abilies should use the value @code{(no magic)}. If t
 has magicial abilies but without an aura, use the value @code{(invisible)}.
 
 Only humans [here we must call ourself humnas rather than ponies, otherwise the sentance
-does not make sense) can se the magic aura, describe the colour that we humans see, not
+does not make sense] can se the magic aura, describe the colour that we humans see, not
 ponies and other creatures in the TV Show [proof, see S01E11 Winter Wrap Up and S02E25-26
 A Canterlot Wedding].
 
