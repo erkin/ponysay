@@ -18,8 +18,16 @@
 /manuals/manpage.*.gz
 /ponysay.info
 /ponysay.info.gz
+/ponysay.zip
 /truncater
 *.install
 /Makefile
 /quotes/
+/src/
+/ponies/
+/ttyponies/
+/extraponies/
+/extrattyponies/
+/completion/
+/__pycache__/
 
