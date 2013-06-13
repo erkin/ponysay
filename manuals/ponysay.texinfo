@@ -3197,8 +3197,8 @@ ANSI escape sequences.
 @item
 New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
 @file{hairytipper}, @file{mantishy}, @file{mule}, @file{peachbottom},
-@file{unclewing}, @file{rainbowdashcrystal}, @file{rainbowdrop},
-@file{strawberrycream}, @file{wildflower}
+@file{rainbowdashcrystal}, @file{rainbowdrop}, @file{strawberrycream}, 
+@file{sunsetshimmer}, @file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aquarius}, @file{aries}, @file{cancer}, @file{capricorn},
 @file{firefox}, @file{fluffle}, @file{gemini}, @file{IE}, @file{leo}, 
