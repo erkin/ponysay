@@ -2,12 +2,14 @@ Version 3.0.2
 
         New ponies: brucemane, cremebrulee, deepblue, hairytipper, mantishy,
                     mule, peachbottom, rainbowdashcrystal, rainbowdrop,
-                    rainbowfim, strawberrycream, sunsetshimmer, unclewing,
-                    wildflower
+                    rainbowfim, shortround, strawberrycream, sunsetshimmer, 
+                    unclewing, wildflower
 
         New extraponies: aquarius, aries, cancer, capricorn, firefox, gemini, 
 			 fluffle, fyreflyready, IE, leo, libra, milky, milkylay,
 			 pisces, redit, sagittarius, scorpio, taurus, virgo
+
+	Pony symlink added: walter → waltercoltchack
 
         Default value for -W has been changed from 40 to 60.
 
