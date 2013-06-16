@@ -6,10 +6,10 @@ Version 3.0.2
                     unclewing, wildflower
 
         New extraponies: aquarius, aries, cancer, capricorn, firefox, gemini, 
-			 fluffle, fyreflyready, IE, leo, libra, milky, milkylay,
-			 pisces, redit, sagittarius, scorpio, taurus, virgo
+                         fluffle, fyreflyready, IE, leo, libra, milky, milkylay,
+                         pisces, redit, sagittarius, scorpio, taurus, virgo
 
-	Pony symlink added: walter → waltercoltchack
+        Pony symlink added: walter → waltercoltchack
 
         Default value for -W has been changed from 40 to 60.
 
@@ -17,7 +17,7 @@ Version 3.0.2
 
         Swedish manual page added.
 
-	Added manpage for ponysay-tool
+        Added manpage for ponysay-tool
 
 
 Version 3.0.1
@@ -31,15 +31,22 @@ Version 3.0.1
 
 Version 3.0
 
-        New ponies: applesplit, amira, babseed, bear, beautybrass, bigmacsleep, billneigh, cadancecrystal, cadancescruffy,
-                    cloudchaser, descent, featherweight, fiddlesticks, flitter, gingersnap, haakim, hayseed, lighningdust,
-                    jubileena, midnightstrike, mrbreezy, orangebird, orangefrog, pansyshy, pinkiecrazyface, poundcake,
-                    princesserroria, raccoon, rainbowblitz, rarityelite, ravenearth, ravenunicorn, royalunicornguard, rumble,
-                    shiningarmorcrystal, sombra, spikecrystal, squirrel, sweetcream (comic), trixieamulet, twilacorn,
-                    twilightcrystal, twilightfly, twilightprincess, twilightwings, twinkleshine
+        New ponies: applesplit, amira, babseed, bear, beautybrass, bigmacsleep,
+                    billneigh, cadancecrystal, cadancescruffy, cloudchaser,
+                    descent, featherweight, fiddlesticks, flitter, gingersnap,
+                    haakim, hayseed, lighningdust, jubileena, midnightstrike,
+                    mrbreezy, orangebird, orangefrog, pansyshy, pinkiecrazyface,
+                    poundcake, princesserroria, raccoon, rainbowblitz, 
+                    rarityelite, ravenearth, ravenunicorn, royalunicornguard,
+                    rumble, shiningarmorcrystal, sombra, spikecrystal, squirrel,
+                    sweetcream (comic), trixieamulet, twilacorn, 
+                    twilightcrystal, twilightfly, twilightprincess,
+                    twilightwings, twinkleshine
 
-        New extraponies: donutpony, gleamingshield, hestelle, johndelancie, jristz, maandree, orion, pipsqueak (without pirate suit),
-                         paradise, pizzapony, snowdrop, tempo, ticket
+        New extraponies: donutpony, gleamingshield, hestelle, johndelancie,
+                         jristz, maandree, orion,
+                         pipsqueak (without pirate suit), paradise, pizzapony,
+                         snowdrop, tempo, ticket
 
         Ponies renamed: lotusbloosom → lotusblossom (typo)
                         maredowellgallop → maredowellgallop (need a version named as master)
@@ -126,12 +133,15 @@ Version 2.9
 
 Version 2.8
 
-        New ponies: airheart, bastionyorsets, gustavelegrand, milkyway, peppermoon, pinkacopter, pinkiefly,
-                    pinkieparade, pinkieumbrellahat, raritycomplaining, shiningarmorwedding, soarinofficer,
-                    starlight, sunnyrays, sweatiesing, tenderheart, tom, twilightspike, zecorabalance
+        New ponies: airheart, bastionyorsets, gustavelegrand, milkyway,
+                    peppermoon, pinkacopter, pinkiefly, pinkieparade, 
+                    pinkieumbrellahat, raritycomplaining, shiningarmorwedding,
+                    soarinofficer, starlight, sunnyrays, sweatiesing, 
+                    tenderheart, tom, twilightspike, zecorabalance
 
-        New extraponies: applejack (Tumblr), applejack-63, artemis, blueberry, butterscotch,
-                         drhoovesdiscorded (Tumblr), duskshine, elusive, rainbowblitz
+        New extraponies: applejack (Tumblr), applejack-63, artemis, blueberry,
+                         butterscotch, drhoovesdiscorded (Tumblr), duskshine,
+                         elusive, rainbowblitz
 
         Pony symlink added: georgewachingtony → bastionyorsets
 
@@ -152,14 +162,17 @@ Version 2.8
 
 Version 2.7
 
-        New ponies: basil, cloudkicker, cerberus, cow, derpysad, flowertrio, frederickhorseshoepin,
-                    horsemd, jeffletroski, jesuspezuna, joe, joetuxedo, manticore, meadowsong,
-                    meliot, pinkiegummydisguise, seaswirl, theodoredonaldkerabatsos, turf,
-                    waltercoltchak
+        New ponies: basil, cloudkicker, cerberus, cow, derpysad, flowertrio,
+                    frederickhorseshoepin, horsemd, jeffletroski, jesuspezuna,
+                    joe, joetuxedo, manticore, meadowsong, meliot, 
+                    pinkiegummydisguise, seaswirl, theodoredonaldkerabatsos,
+                    turf, waltercoltchak
 
-        New extraponies: blueballblitz (Various fanfics, Shadowbolt), drhooves1, drhooves2, drhooves3,
-                         drhooves4, drhooves5, drhooves6, drhooves7, drhooves8, drhooves9, drhooves10,
-                         drhooves11, nyx (Fanfic: Past Sins), nyxdisguised (Fanfic: Past Sins),
+        New extraponies: blueballblitz (Various fanfics, Shadowbolt),
+                         drhooves1, drhooves2, drhooves3, drhooves4, drhooves5,
+                         drhooves6, drhooves7, drhooves8, drhooves9, drhooves10,
+                         drhooves11, nyx (Fanfic: Past Sins),
+                         nyxdisguised (Fanfic: Past Sins),
                          pinkaminacupcake (Fanfic)
 
         Pony renamed: cracky → crackle
@@ -167,14 +180,17 @@ Version 2.7
 
 Version 2.6
 
-        New ponies: applebloomdance, blueberry, blueberrycake, blueharvest, candylicious,
-                    cherrycola, cracky, cutiemarkcrusaders, derpybags, derpycloud, firestreak,
-                    hughjelly, lemonhearts, lyrabonbon, noi, pictureperfect, pigpen,
-                    poppycock, quickfix, rainbowhurricane, rainboshadowbolt, silverspeed,
-                    surprise (wonderbolt), thunderlane, timeturner, twilightthebearded
+        New ponies: applebloomdance, blueberry, blueberrycake, blueharvest,
+                    candylicious, cherrycola, cracky, cutiemarkcrusaders,
+                    derpybags, derpycloud, firestreak, hughjelly, lemonhearts,
+                    lyrabonbon, noi, pictureperfect, pigpen, poppycock,
+                    quickfix, rainbowhurricane, rainboshadowbolt, silverspeed,
+                    surprise (wonderbolt), thunderlane, timeturner,
+                    twilightthebearded
 
-        New extraponies: faust (alicorn), maria (Moonstuck, seapony), posey (Tumblr),
-                         slanderpony (Various tumblr), sparkler (Tumblr), twilight (Tumblr)
+        New extraponies: faust (alicorn), maria (Moonstuck, seapony),
+                         posey (Tumblr), slanderpony (Various tumblr), 
+                         sparkler (Tumblr), twilight (Tumblr)
 
         Pony symlink added: bonbonlyra → lyrabonbon
                             clockwork → quickfix
