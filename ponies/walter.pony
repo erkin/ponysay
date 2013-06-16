@@ -1,1 +1,1 @@
-./waltercoltchack.pony
+./waltercoltchak.pony
