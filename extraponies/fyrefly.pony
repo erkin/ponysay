@@ -5,28 +5,22 @@ BALLOON TOP: 3
 COAT: pink
 DISPLAY: full, left
 EYE: purple (ponysay), blue (source)
-FREE: yes
+FREE: sharable
 GROUP: mare, consept
 KIND: pegasus
 LICENSE: CC0 (CC0 1.0 Universal)
+LICENSE: cc-by-nc-sa (Creative Commons Attribution-NonCommerical-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: blue
 MEDIA: thefyrefly.tumblr.com
 NAME: Fyrefly (previous generation)
 POSE: flying
 SOURCE: (Bot-chan) imageboard, (months later) Desktop ponies OC
-WIDTH: 36
+WIDTH: 65
 HEIGHT: 37
 
-The person who associated a work with this deed has dedicated the work to
-the public domain by waiving all of his or her rights to the work worldwide under
-copyright law, including all related and neighboring rights, to the extent allowed
-by law.
-
-You can copy, modify, distribute and perform the work, even for commercial
-purposes, all without asking permission. See Other Information below.
-
-http://creativecommons.org/publicdomain/zero/1.0/legalcode
+License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 $$$
 $balloon18$[00m
                $\$                    [00m
