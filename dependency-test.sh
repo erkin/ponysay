@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Compatible with  bash  dash  zsh  mksh
 # but not with     fish
