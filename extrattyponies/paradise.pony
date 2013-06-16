@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: Paradise
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: white
 COAT: cyan
 DISPLAY: full, left
@@ -16,7 +16,7 @@ GROUP NAME: paradise
 KIND: earth
 KIND: earth
 LINK: regular
-LINK ON: 1
+LINK ON: 1, 2
 MANE: pink
 MANE: blue
 MASTER: celestia
