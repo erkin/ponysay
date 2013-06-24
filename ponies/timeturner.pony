@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: brown
 DISPLAY: full, left
 EYE: blue
@@ -17,6 +17,7 @@ POSE: trot
 SOURCE: (Asparagus, RJP!, Doctor Blade, Anonycat) Desktop ponies
 WIDTH: 38
 HEIGHT: 24
+
 
 $$$
 $balloon7$[00m
