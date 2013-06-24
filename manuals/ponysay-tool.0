@@ -30,7 +30,7 @@ ponysay\-tool \- Tool chest for ponysay
 .\" respectively.
 \fBponysay\-tool\fP this is a ponysay developing tool that can edit metadata for
 \fB.pony\fP files and others options related to \fBpony file\fP modifications.
-\fIfile\fP is not provided, then fallback to help.
+If \fIfile\fP is not provided, then fallback to \-\-help.
 .PP
 .PP
 For an extensive documentation run `info ponysay`.
@@ -55,22 +55,28 @@ Generate pony metadata collection file for a directory, useful at build time.
 .TP
 .B \-b, \-\-browse [\fIPONYDIR\fP]
 Browse ponies in a directory and show them.
+This option NEED a \fIPONYDIR\fP for work. 
 .TP
 .B \-b, \-\-restrict [\fIPONYDIR\fP]
-Metadata based restriction for \fI\-\-browse\fP, you can restrict the ponies showed
-in \fI\-\-browse\fP using same sintaxis as \fIponysay \-\-restrict\fP.
+Metadata based restriction for \fI\-\-browse\fP, you can restrict the ponies showed in
+\fI\-\-browse\fP using same sintaxis as \fIponysay \-\-restrict\fP.
+Due that \-\-browse need a \fIPONYDIR\fP this option need to be last alongside they
+restrictions.
 .TP
 .B \-\-edit [\fIPONYFILE\fP]
-Edit a pony file\'s metadata, forfiling a predefined options, this metadata later
-can by used \fIponysay \-\-info\fP, \fIponysay \+\+info\fP and \fIponysay-tool \-\-restrict\fP
+Edit a pony file\'s metadata filling a predefined template, this metadata later is used
+by \fIponysay \-\-info\fP, \fIponysay \+\+info\fP and \fIponysay-tool \-\-restrict\fP
 for show metadata or restrict who ponies are used by other options.
+The metadata editor have a \fIEMACS\fP alike syntaxis key combination.
 .TP
 .B \-\-edit\-rm [\fIPONYFILE\fP]
 Remove metadata from a pony file, use with caution because deleted metadata is unrecoverable
-unless you reintall the affected [\fIponyfyle\fP] directrly from the source code or a backup.
+unless you reintall the affected [\fIpony file\fP] directrly from the source code or a backup.
 .TP
 .B \-\-edit\-apply [\fIPONYFILE\fP]
 Apply metadata from stdin to a pony file, this include \fBHEIGHT\fP and \fBWIDTH\fP.
+`info ponysay` include a trick that include \-\-edit\-stash that easy the metadata edition
+in large amount of [\fIpony file\fP]
 .TP
 .B \-\-edit\-stash [\fIPONYFILE\fP]
 Print applyable meta with data from a pony file, can by used alongside in a combo with
@@ -87,7 +93,7 @@ Pablo Lezaeta, Jan Alexander Steffens et al.
 .\" See file CREDITS for full list.
 .PP
 This manual page was originally written by Pablo Lezaeta <prflr88@gmail.com>
-for 'ponysay'.
+for ponysay release.
 .br
 .PP
 This program is licensed under GNU GPLv3+.
