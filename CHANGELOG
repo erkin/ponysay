@@ -5,12 +5,13 @@ Version 3.0.2
                     rainbowfim, shortround, strawberrycream, sunsetshimmer, 
                     unclewing, wildflower
 
-        New extraponies: aquarius, aries, cancer, capricorn, firefox, gemini, 
-                         fluffle, fyreflyready, IE, leo, libra, milky, milkylay,
-                         oscura, pisces, princeartemis, redit, sagittarius,
-                         scorpio, taurus, virgo
+        New extraponies: aquarius, aries, barbara, cancer, capricorn, firefox,
+                         gemini, fluffle, fyreflyready, IE, leo, libra, milky,
+                         milkylay, oscura, pisces, princeartemis, redit, 
+                         sagittarius, scorpio, taurus, virgo
 
         Pony symlink added: walter → waltercoltchack
+                            barbra → barbara (in extraponies)
 
         Default value for -W has been changed from 40 to 60.
 
