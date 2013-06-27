@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: white
 DISPLAY: full, left
 EYE: cyan
@@ -12,11 +12,12 @@ KIND: earth
 LINK: regular
 MANE: grey
 NAME: (not mentioned)
-OTHER NAMES: Sue (unofficial)
+OTHER NAMES: Sue (unofficial), Cloudy Quartz (Official, on official Book)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 42
 HEIGHT: 26
+
 
 $$$
 $balloon6$[00m
