@@ -34,7 +34,7 @@ mansections = [('ponysay', '6'),
                ('fortune', '6')]
 
 miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
-             ('LICENCE', '/usr/share/licenses/ponysay/LICENCE'),
+             ('LICENSE', '/usr/share/licenses/ponysay/LICENSE'),
              ('CREDITS', '/usr/share/licenses/ponysay/CREDITS')]
 
 ponysaysrc = [src + '.py' for src in
