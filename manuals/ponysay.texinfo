@@ -1195,7 +1195,7 @@ The value @emph{must} either be @code{yes}. @code{sharable} or @code{no},
 or the tag must be omitted.
 @code{yes} mean free, @code{no} mean non free for a @code{libre} distro and
 @code{sharable} mean that you need permission from the author of the original
-image for inclusion a long side free ponies.
+image (or consept art like @file{aurora}) for inclusion with free ponies.
 
 @b{This is the most important tag} as it helps us build a fully free version
 that can be officially distributed on FSF endorsed GNU/Linux distributions
@@ -1545,8 +1545,8 @@ Due to extreme limitations in @command{9term} @command{ponysay} will never be
 able to run on it.
 
 @pindex vt50
-Any Terminal runing in VT50 compatibility mode (like @command{xterm}) lost many
-of the VT100 terminals capabilities like UTF-8 and 256 colour support, making
+Any Terminal runing in VT50 compatibility mode lost many of the VT100 
+terminals capabilities like UTF-8 and 256 colour support, making
 impossible for @command{ponysay} run in that emulated mode indiferent if the
 terminal used can support those two requisites.
 
@@ -1562,7 +1562,7 @@ provide the capaility of modifing.
 
 If we are lucky it may be possible draw pictures, in full resultions, as you
 can in linux; which is currently not inplemented in @command{ponysay}.
-Another, not yet implemented possiblity, is to use low resoltion with ACSII
+Another, not yet implemented possiblity, is to use low resolution with ACSII
 character for colour interpolation.
 
 
@@ -1663,6 +1663,9 @@ from @url{https://github.com/erkin/ponysay}, and if it is still
 present, please report it at @url{https://github.com/erkin/ponysay/issues}.
 Please be as descriptive as possible, as it will help us verify it
 solve it faster.
+Wrong authorship, author name, alias and source  count as bug, but in 
+this case you need provide evidence that we are wrong, and who are the real
+artist, we not want fix a mistaken with another one.
 
 
 @node Requesting ponies
@@ -1720,7 +1723,8 @@ than @command{python}.}
 @cindex TTY
 @pindex Linux VT
 For improved TTY support for user with custom colour palette and KMS support.
-It can be downloaded at @url{https://github.com/maandree/util-say}. If this is
+It can be downloaded at 
+@url{https://github.com/maandree/util-say}. If this is
 used @command{chmod} from @command{coreutils} is also required.
 
 
@@ -1750,6 +1754,11 @@ Used for compressing manuals. (Optional, standard)
 @item xz
 @pindex @command{xz}
 Used for compressing manuals. (Optional, non-standard)
+@item @command{coreutils}
+@pindex @command{chmod}
+For set ownership on directories at build time.
+@pindex @command{ln}
+For set simbolic links on files.
 @item texinfo
 @pindex @command{texinfo}
 @pindex @command{info}
