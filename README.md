@@ -48,7 +48,7 @@ You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_po
 
 Edit your `~/.bashrc` and add this to the end of the file
 
-    `fortune | ponysay`
+    fortune | ponysay
 
 Afterwards, every time you open a terminal a pony should give you a fortune.
 
