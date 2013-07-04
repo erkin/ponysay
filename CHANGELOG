@@ -1,9 +1,9 @@
 Version 3.0.2
 
-        New ponies: brucemane, cremebrulee, deepblue, hairytipper, mantishy,
-                    mule, peachbottom, rainbowdashcrystal, rainbowdrop,
-                    rainbowfim, shortround, strawberrycream, sunsetshimmer, 
-                    unclewing, wildflower
+        New ponies: brucemane, cremebrulee, deepblue, flashsentry,
+                    hairytipper, mantishy, mule, peachbottom, 
+                    rainbowdashcrystal, rainbowdrop, rainbowfim, shortround,
+                    strawberrycream, sunsetshimmer, unclewing, wildflower
 
         New extraponies: aurora, aquarius, aries, barbara, cancer, capricorn,
                          firefox, gemini, fluffle, fyreflyready, IE, leo, 
@@ -13,6 +13,7 @@ Version 3.0.2
 
         Pony symlink added: walter → waltercoltchack
                             barbra → barbara (in extraponies)
+                            brad → flashsentry (was used on EQD)
 
         Default value for -W has been changed from 40 to 60.
 

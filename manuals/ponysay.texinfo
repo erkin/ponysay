@@ -3219,10 +3219,10 @@ ANSI escape sequences.
 @itemize @bullet
 @item
 New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
-@file{hairytipper}, @file{mantishy}, @file{mule}, @file{peachbottom},
-@file{rainbowdashcrystal}, @file{rainbowdrop}, @file{rainbowfim},
-@file{shortround}, @file{strawberrycream}, @file{sunsetshimmer}, 
-@file{unclewing}, @file{wildflower}
+@file{flashsentry}, @file{hairytipper}, @file{mantishy}, @file{mule}, 
+@file{peachbottom}, @file{rainbowdashcrystal}, @file{rainbowdrop}, 
+@file{rainbowfim}, @file{shortround}, @file{strawberrycream}, 
+@file{sunsetshimmer}, @file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{cancer}, @file{capricorn}, @file{firefox},
@@ -3235,6 +3235,7 @@ Pony symlink added:
 @itemize @bullet
 @item @file{walter} @arrow{} @file{walter}
 @item @file{barbra} @arrow{} @file{barbara}
+@item @file{brad} @arrow{} @file{flashsentry}
 @end itemize
 @item
 Default value for @option{-W}, the message wrapping column, has been changed
