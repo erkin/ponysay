@@ -953,11 +953,11 @@ every pony in the image.
 Every fitting value should be used, however an alicorn (also known as alacorn,
 winged unicorn, acorn, pegasus unicorn, unipeg, unisus, horned pegasus,
 wing-horn, allacorn, cerapter pterippus, aquillacorn, pegasos aithiopikos,
-alate unicorns,  or pegacorn) (really all those name ARE actually historicaly
-used to define a unicorn whit wing or pegasus whit a horn) should have the
-values @code{alicorn} and@code{pony}, but neither @code{pegasus} nor
-@code{unicorn} or another of the possible therms mentioned. Earth ponies
-should have the value @code{pony} and @code{earth} (not @code{earth pony}.)
+alate unicorns, or pegacorn (really all those name has been used throw history
+to define a unicorn whit wing or pegasus whit a horn)) should have the values
+@code{alicorn} and@code{pony}, but neither @code{pegasus} nor @code{unicorn}
+or another of the possible therms mentioned. Earth ponies should have the value 
+@code{pony} and @code{earth} (not @code{earth pony}.)
 
 The standard values are (you may use other ones if fitting): @code{unicorn},
 @code{pegasus}, @code{alicorn}, @code{earth}, @code{pony}, @code{changeling},
@@ -992,7 +992,7 @@ A pony's pet, Spike does not count because Twilight does not play with him
 during pony–pet play dates.
 @item @code{royal}
 Royal pony, either by birth, marriage, or conquer (i.e. the old school style).
-Shining Armour is royal by marriage, but his biological family does become
+Shining Armour is royal by marriage, but his biological family doesn't become
 royal by this.
 @item @code{villain}
 Villains, normally minions to antagonists or recurring ponies. Applies to
@@ -1156,6 +1156,11 @@ For example, all files where Shining Armor is the (sole) speaking pony the this
 tag should be @code{shiningarmor}, except for in @file{shiningarmor.pony} where
 this tag may be omitted. 
 @b{This tag is important for the ponyquotes feature to work.}
+
+@item WING
+@vindex @var{WING}
+This is added manually only if needed, is the colour of wings from a pegasus or
+other alated creature (i.e.: Chrysalis).
 
 @item SOURCE
 @vindex @var{SOURCE}
@@ -1524,7 +1529,7 @@ truncated on the height in TTY by default.
 Most terminals have support for 256 colours, we do however only use the top 240
 colours; this is because the lower 16 colours are usually, in contrast to the
 top 240, customised. We assume that the top 240 colours have their standard
-values. In TTY with KMS support we dot have any actual limit (except for
+values. In TTY with KMS support we don't have any actual limit (except for
 @math{2^{24}} + full transparency.)
 
 @pindex xterm
@@ -1545,7 +1550,7 @@ Due to extreme limitations in @command{9term} @command{ponysay} will never be
 able to run on it.
 
 @pindex vt50
-Any Terminal runing in VT50 compatibility mode lost many of the VT100 
+Any Terminal runing in VT-50 compatibility mode lost many of the VT100 
 terminals capabilities like UTF-8 and 256 colour support, making
 impossible for @command{ponysay} run in that emulated mode indiferent if the
 terminal used can support those two requisites.
@@ -2936,9 +2941,23 @@ Try to follow the MLP:FiM Wikia on
 @url{http://mlp.wikia.com/wiki/List_of_ponies}, if it is in conflict with an
 authorised game, such as Gameloft, it is more likely that that game has make
 an error, especially ignore a game on palette mismatch, and the Wikia is
-probabily more agreed with by fans and respecting fist line merchandise at same
-time (merchandise take preference, but if no merchandise exist a fan placeholder
-names is used).
+probabily more agreed with fist party merchandice, fans and crew at same time.
+
+For in the wikia the order of precedence is: 
+@item
+@emph{The series itself}: In they first run
+@emph{The crew}: M. A. Larson, Sabrina "Sibsy", Lauren Faust (For the first and second
+seasson only), et al. 
+@emph{First party merchandice}: Blind Bags and colectable toys [Further
+duscution is taken after any renamed]
+@emph{Second party merchandise}: Any that clam to by official whitout logo and
+all the fancy stuff
+@emph{Three party merchandice}: Any that use the toys or characters but
+only in they tags, on-line stores and soo
+@emph{Placeholder}: Any fan given name gived voted in a open procees on
+@url{reddit.com/r/listofponies} where any can vote or give sugestions fallow
+they rules. These ones @emph{Can} by potentially becomed officially and influence
+subsecuent discutions about renaming ponies. 
 
 Sometimes there are background ponies with the same palette and cutie mark, but
 of different kinds (earth pony, unicorn, pegasus and so on). In these cases the
@@ -2993,7 +3012,7 @@ arch=('any')
 pkgdesc="Cowsay reimplementation for ponies"
 url="https://github.com/erkin/ponysay"
 license=('GPL3' 'FDL')
-depends=(python>=3 coreutils)
+depends=('python>=3' 'coreutils')
 optdepends=("util-say>=3: Improved TTY support with KMS and PNG files")
 makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3')
 
@@ -3090,10 +3109,10 @@ A JavaScript program which is the source for most of our ponies. It is a port of
 A program for Windows (need @command{.NET framework 4}), OSX (need 
 @command{Mono 3.0.2} and @command{XQuartz}) and Unix (need 
 @command{mono} and @command{mono-basic}) this say they README file, but 
-is reported have really many problems or simply not work) that 
-run gif pixelated ponies like those ones on @command{ponysay} on your screen with
-interactivity one and each other, quotes and one or two games. 
-Developed by RoosterDragon as coder and artists like Botchan, Jay Wright and
+is reported have really many problems or simply not work outside Windows)
+that run gif pixelated ponies like those ones on @command{ponysay} on your
+screen with interactivity one and each other, quotes and one or two games. 
+Programmed by RoosterDragon with help of artists like Botchan, Jay Wright and
 many others artist. 
 
 @item ponification
