@@ -2958,6 +2958,7 @@ only in they tags, on-line stores and soo
 @url{reddit.com/r/listofponies} where any can vote or give sugestions fallow
 they rules. These ones @emph{Can} by potentially becomed officially and influence
 subsecuent discutions about renaming ponies. 
+@end itemize
 
 Sometimes there are background ponies with the same palette and cutie mark, but
 of different kinds (earth pony, unicorn, pegasus and so on). In these cases the
