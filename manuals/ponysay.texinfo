@@ -2944,6 +2944,8 @@ an error, especially ignore a game on palette mismatch, and the Wikia is
 probabily more agreed with fist party merchandice, fans and crew at same time.
 
 For in the wikia the order of precedence is: 
+
+@itemize @bullet
 @item
 @emph{The series itself}: In they first run
 @emph{The crew}: M. A. Larson, Sabrina "Sibsy", Lauren Faust (For the first and second
