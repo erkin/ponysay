@@ -41,7 +41,7 @@ The DEB file can be found on this PPA [here](https://launchpad.net/~vincent-c/+a
 ### Print a pony fortune upon terminal startup
 
 This requires the `fortune` utility to be installed. It can install be from the distribution's repositories (might be named `fortune-mod`).
-Alternatively, one can just fetch the source code from [here](ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
+Alternatively, one can just fetch the source code from [here](http://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
 
 You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or
 [ponypipe](/maandree/ponypipe) to ponify fortunes.
