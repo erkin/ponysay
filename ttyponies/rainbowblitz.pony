@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S03E12 Games Ponies Play
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: blue
 DISPLAY: full, right
 EYE: brown
@@ -12,7 +12,7 @@ KIND: pegasus
 LINK: regular
 MANE: rainbow
 NAME: (not mentioned)
-OTHER NAMES: Rainbow Blitz (unofficial), Bifröst (unofficial)
+OTHER NAMES: Rainbow Blitz (unofficial), Bifröst (unofficial), Rainbow Strike (unofficial)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 40
