@@ -3242,10 +3242,11 @@ ANSI escape sequences.
 @itemize @bullet
 @item
 New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
-@file{flashsentry}, @file{hairytipper}, @file{mantishy}, @file{mule}, 
-@file{peachbottom}, @file{rainbowdashcrystal}, @file{rainbowdrop}, 
-@file{rainbowfim}, @file{shortround}, @file{strawberrycream}, 
-@file{sunsetshimmer}, @file{unclewing}, @file{wildflower}
+@file{fleetfoot}, @file{flashsentry}, @file{hairytipper}, 
+@file{mantishy}, @file{misty}, @file{mule}, @file{peachbottom}, 
+@file{rainbowdashcrystal}, @file{rainbowdrop}, @file{rainbowfim}, 
+@file{shortround}, @file{strawberrycream}, @file{sunsetshimmer}, 
+@file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{cancer}, @file{capricorn}, @file{firefox},
