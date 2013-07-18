@@ -2945,20 +2945,21 @@ probabily more agreed with fist party merchandice, fans and crew at same time.
 
 For in the wikia the order of precedence is: 
 
-@itemize @bullet
-@item
-@emph{The series itself}: In they first run
-@emph{The crew}: M. A. Larson, Sabrina "Sibsy", Lauren Faust (For the first and second
+
+@itemize
+@item @emph{The series itself}: In they first run, and uncensored
+@item @emph{The crew}: M. A. Larson, Sabrina "Sibsy", Lauren Faust (For the first and second
 seasson only), et al. 
-@emph{First party merchandice}: Blind Bags and colectable toys [Further
+@item @emph{First party merchandice}: Blind Bags and colectable toys [Further
 duscution is taken after any renamed]
-@emph{Second party merchandise}: Any that clam to by official whitout logo and
-all the fancy stuff
-@emph{Three party merchandice}: Any that use the toys or characters but
-only in they tags, on-line stores and soo
-@emph{Placeholder}: Any fan given name gived voted in a open procees on
-@url{reddit.com/r/listofponies} where any can vote or give sugestions fallow
-they rules. These ones @emph{Can} by potentially becomed officially and influence
+@item @emph{Second party merchandise}: Any that clam to by official whitout logo and
+all the fancy stuff [further discusion first]
+@item @emph{Three party merchandice}: Any that use the toys or characters but
+only in they tags, on-line stores and soo [Only if the evidence and use are far extended that 
+a further discusion for renaming or not is needed]
+@item @emph{Placeholder}: Any fan given name gived voted in a open procees on
+@url{http://reddit.com/r/listofponies} where any can vote or give sugestions fallow
+they rules. These ones @emph{Can} by potentially becomed official names or/and influence
 subsecuent discutions about renaming ponies. 
 @end itemize
 
@@ -2974,7 +2975,7 @@ your sweet flank the Wikia will have given her a royal name
 When there are many alternative names, but no official, use one you think is
 most recognised or your personal favourite. It with short names when the names
 are similar.
-
+Symbolic links can help in this last case.
 
 
 @node Distributing
@@ -3257,6 +3258,7 @@ Pony symlink added:
 @itemize @bullet
 @item @file{walter} @arrow{} @file{walter}
 @item @file{barbra} @arrow{} @file{barbara}
+@item @file{buttonsmash} @arrow{} @file{highscore}
 @item @file{brad} @arrow{} @file{flashsentry}
 @end itemize
 @item

@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E17 Hearts and Hooves Day
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: brown
 DISPLAY: full, right
 EYE: brown
@@ -12,11 +12,12 @@ KIND: earth
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: High Score (unofficial), Buttons (unofficial)
+OTHER NAMES: High Score (unofficial), Buttons (unofficial), Buttons Mash (unofficial)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 40
 HEIGHT: 29
+
 
 $$$
 $balloon22$[00m
