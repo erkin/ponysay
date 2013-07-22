@@ -1,11 +1,11 @@
 $$$
 APPEARANCE: Comic issue 1
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: cream
 DISPLAY: full, left
-EYE: blue
+EYE: blue (as a changeling), gray
 FREE: no
 GROUP: mare, changeling
 KIND: unicorn
@@ -18,6 +18,7 @@ POSE: changeling
 SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 24
+
 
 $$$
 $balloon30$[00m
