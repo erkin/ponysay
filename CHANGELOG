@@ -1,7 +1,7 @@
 Version 3.0.2
 
         New ponies: brucemane, cremebrulee, deepblue, flashsentry, fleetfoot,
-                    hairytipper, mantishy, misty, mule, peachbottom, 
+                    hairytipper, mantishy, maybelle, misty, mule, peachbottom, 
                     rainbowdashcrystal, rainbowdrop, rainbowfim, shortround,
                     strawberrycream, sunsetshimmer, unclewing, wildflower
 
@@ -15,6 +15,7 @@ Version 3.0.2
                             barbra → barbara (in extraponies)
                             buttonsmash → highscore
                             brad → flashsentry (was used on EQD)
+                            mabel → maybelle
 
         Default value for -W has been changed from 40 to 60.
 
