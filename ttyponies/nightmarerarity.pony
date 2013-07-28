@@ -5,7 +5,7 @@ BALLOON: top
 BALLOON BOTTOM: 0
 BALLOON TOP: 3
 COAT: black
-DISPLAY: full, left
+DISPLAY: full, right
 EYE: cyan
 FREE: no
 GROUP: mare, antagonist
