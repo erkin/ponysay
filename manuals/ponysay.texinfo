@@ -3270,6 +3270,10 @@ from 40 to 60, to wrap messages better.
 @file{nightmare} has renamed into @file{nightmaremoon} for concistency 
 with the comic
 @item
+@file{doctor} has ben reintegrated to ponies thanks to official comic
+issue 8 where @file{drhooves} is siting alongside @file{doctor} and in
+front of @file{celestia}
+@item
 Added manpage for @command{ponysay-tool}
 @item
 Turkish manual page added.
