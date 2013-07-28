@@ -3244,9 +3244,10 @@ ANSI escape sequences.
 New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
 @file{fleetfoot}, @file{flashsentry}, @file{hairytipper}, 
 @file{mantishy}, @file{maybelle}, @file{misty}, @file{mule}, 
-@file{peachbottom}, @file{rainbowdashcrystal}, @file{rainbowdrop}, 
-@file{rainbowfim}, @file{shortround}, @file{strawberrycream}, 
-@file{sunsetshimmer}, @file{unclewing}, @file{wildflower}
+@file{nightmarerarity}, @file{peachbottom}, @file{rainbowdashcrystal}, 
+@file{rainbowdrop}, @file{rainbowfim}, @file{shortround}, 
+@file{strawberrycream}, @file{sunsetshimmer}, @file{unclewing}, 
+@file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{cancer}, @file{capricorn}, @file{firefox},
@@ -3265,6 +3266,9 @@ Pony symlink added:
 @item
 Default value for @option{-W}, the message wrapping column, has been changed
 from 40 to 60, to wrap messages better.
+@item
+@file{nightmare} has renamed into @file{nightmaremoon} for concistency 
+with the comic
 @item
 Added manpage for @command{ponysay-tool}
 @item

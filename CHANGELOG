@@ -1,9 +1,10 @@
 Version 3.0.2
 
         New ponies: brucemane, cremebrulee, deepblue, flashsentry, fleetfoot,
-                    hairytipper, mantishy, maybelle, misty, mule, peachbottom, 
-                    rainbowdashcrystal, rainbowdrop, rainbowfim, shortround,
-                    strawberrycream, sunsetshimmer, unclewing, wildflower
+                    hairytipper, mantishy, maybelle, misty, mule, 
+                    nightmarerarity, peachbottom, rainbowdashcrystal, 
+                    rainbowdrop, rainbowfim, shortround, strawberrycream, 
+                    sunsetshimmer, unclewing, wildflower
 
         New extraponies: aurora, aquarius, aries, barbara, cancer, capricorn,
                          firefox, gemini, fluffle, fyreflyready, IE, leo, 
@@ -18,6 +19,9 @@ Version 3.0.2
                             mabel → maybelle
 
         Default value for -W has been changed from 40 to 60.
+        
+        nightmare was renamed to nightmaremoon for consistency whit the 
+        comic
 
         Turkish manual page added.
 
