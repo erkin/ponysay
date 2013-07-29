@@ -10,23 +10,17 @@ ver = "1.0"
 def read(filename):
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
-def dir_copy(dirname):
-	return (dirname, [dirname+'/'+f for f in os.listdir(dirname)])
+def dir_copy(dirname, src=None):
+	if not src:
+		src = dirname
+	return (dirname, [src+'/'+f for f in os.listdir(src)])
 
 
 if sys.version_info < (3,0):
     print('Oops, only python >= 3.0 supported!')
     sys.exit()
 
-class MakeCommand(distutils.core.Command):
-	sub_commands = None
-	user_options = []
-	def initialize_options(self):
-		pass
-	def finalize_options(self):
-		pass
-	def run(self):
-		subprocess.call('make')
+subprocess.call('make', cwd=os.path.realpath(os.path.dirname(__file__)))
 
 setup(name = 'ponysay',
     version = ver,
@@ -37,7 +31,7 @@ setup(name = 'ponysay',
     url = 'https://github.com/jaseg/ponysay',
 	py_modules = ['ponysay'],
 	data_files = [dir_copy('quotes'),
-				  dir_copy('ponies')],
+				  dir_copy('ponies', src='genponies')],
     scripts = ['ponysay',
 			   'ponythink',
 			   'termcenter',
@@ -58,7 +52,6 @@ setup(name = 'ponysay',
 		'Topic :: Text Processing :: Filters',
 		'Topic :: Utilities',
     ],
-	cmdclass = {'build_ext': MakeCommand},
     long_description = read('README.md'),
     dependency_links = [],
 )
