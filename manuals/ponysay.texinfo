@@ -3255,8 +3255,8 @@ New extraponies: @file{aurora}, @file{aquarius}, @file{aries},
 @file{fyreflyready}, @file{gemini}, @file{IE},@file{leo}, 
 @file{libra}, @file{milky}, @file{milkylay}, @file{oscura},
 @file{pisces}, @file{princeartemis}, @file{reddit}, 
-@file{sagittarius}, @file{scorpio}, @file{solaris}, @file{taurus}, 
-@file{virgo}
+@file{sagittarius}, @file{scorpio}, @file{solaris}, 
+@file{sweetiebot}, @file{taurus}, @file{virgo}
 @item
 Pony symlink added:
 @itemize @bullet
