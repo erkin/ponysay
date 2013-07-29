@@ -10,10 +10,8 @@ ver = "1.0"
 def read(filename):
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
-def dir_copy(dirname, src=None):
-	if not src:
-		src = dirname
-	return (dirname, [src+'/'+f for f in os.listdir(src)])
+def dir_copy(src, dst):
+	return (dst, [src+'/'+f for f in os.listdir(src)])
 
 
 if sys.version_info < (3,0):
@@ -30,8 +28,8 @@ setup(name = 'ponysay',
     author_email = 'ponysay@jaseg.net',
     url = 'https://github.com/jaseg/ponysay',
 	py_modules = ['ponysay'],
-	data_files = [dir_copy('quotes'),
-				  dir_copy('ponies', src='genponies')],
+	data_files = [dir_copy('quotes', 'ponies'),
+				  dir_copy('genponies', 'ponies')],
     scripts = ['ponysay',
 			   'ponythink',
 			   'termcenter',

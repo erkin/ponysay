@@ -2,6 +2,7 @@
 
 import os, sys, random
 from os.path import dirname, realpath, exists
+from pkg_resources import resource_string, resource_listdir, resource_exists
 import argparse, textwrap
 try:
 	import re2 as re
@@ -19,24 +20,20 @@ balloonstyles= {'cowsay':		(((' ', '', '< '), (' ', '', '> ')), ((' /', '|', '\\
 				'round':		((('╭││', '', '│╰ '), ('╮││', '', '│╯ ')), (('╭││', '│', '││╰'), ('╮││', '│', '││╯')), '─', '─', '╲', '╱'),
 				'linux-vt':		((('┌││', '', '│└ '), ('┐││', '', '│┘ ')), (('┌││', '│', '││└'), ('┐││', '│', '││┘')), '─', '─', '\\', '/')}
 
-ponypath=realpath(dirname(__file__)+'/ponies')
-if not exists(ponypath):
-	ponypath=realpath(dirname(__file__)+'/../../ponies')
-
 def list_ponies(markQuotes=False):
 	quotes = lambda n: ' (quotes)' if markQuotes and exists(ponypath+'/'+n+'.quotes') else ''
-	return [ f[:-5]+quotes(f[:-5]) for f in os.listdir(ponypath) if not f.endswith('quotes') ]
+	return [ f[:-5]+quotes(f[:-5]) for f in resource_listdir(__name__, 'ponies') if not f.endswith('.quotes') ]
 
-def list_ponies_with_quotes(markQuotes=False):
-	return [ f[:-7] for f in os.listdir(ponypath) if f.endswith('quotes') ]
+def list_ponies_with_quotes():
+	return [ f[:-7] for f in resource_listdir(__name__, 'ponies') if f.endswith('.quotes') ]
 
 def load_pony(name):
-	return open(ponypath+'/'+name+'.pony').readlines()
+	return str(resource_string(__name__, 'ponies/'+name+'.pony'), 'utf-8').split('\n')
 
 def random_quote(name):
-	quotepath=ponypath+'/'+name+'.quotes'
-	if exists(quotepath):
-		return random.choice(open(quotepath).read().split('\n\n'))
+	quotepath='ponies/'+name+'.quotes'
+	if resource_exists(__name__, quotepath):
+		return random.choice(str(resource_string(__name__, quotepath), 'utf-8').split('\n\n'))
 	else:
 		return None
 
@@ -54,7 +51,7 @@ def render_balloon(text, balloonstyle, minwidth=0, maxwidth=40, pad=str.center):
 	return [ l+m+r for l,m,r in zip(leftside, lines, rightside) ]
 
 def render_pony(name, text, balloonstyle, width=80, center=False, centertext=False):
-	pony = load_pony(name) #CAUTION: these lines already end with '\n'
+	pony = load_pony(name)
 	balloon = link_l = link_r = ''
 	if text:
 		[link_l, link_r] = balloonstyle[-2:]
@@ -65,8 +62,8 @@ def render_pony(name, text, balloonstyle, width=80, center=False, centertext=Fal
 			pony[i:i+1] = render_balloon(text, balloonstyle, minwidth=minwidth, maxwidth=int(width/2), pad=str.center if centertext else str.ljust)
 			break
 	try:
-		first = pony.index('$$$\n')
-		second = pony[first+1:].index('$$$\n')
+		first = pony.index('$$$')
+		second = pony[first+1:].index('$$$')
 		pony[first:] = pony[first+1+second+1:]
 	except:
 		pass
