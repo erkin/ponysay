@@ -1,0 +1,1 @@
+ * Move package data into actual package data to make this work on non-standard platforms and out of zip archives and so on. See also: http://peak.telecommunity.com/DevCenter/PythonEggs#resource-management

@@ -2,4 +2,8 @@
 *.swp
 genpngs
 genponies
+build
+dist
+setuptest
+ponysay.egg-info
 __pycache__

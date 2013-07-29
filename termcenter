@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+
+import os,sys,time, itertools
+import argparse
+from subprocess import *
+try:
+	import re2 as re
+except:
+	import re
+
+parser = argparse.ArgumentParser(description='Center stuff on terminals')
+parser.add_argument('string', nargs='*', type=str)
+args = parser.parse_args()
+
+for e in [sys.stdin] + args.string:
+	lines = [e] if isinstance(e, str) else e.readlines()
+	if lines:
+		width = max(map(len, map(lambda s: re.sub(r'\x1B\[[0-9;]+m|\$.*\$', '', s), lines)))
+		pad = int((os.get_terminal_size()[0]- width)/2)
+		for line in lines:
+			print(' '*pad + re.sub(r'\$.*\$|\n', '', line))
+

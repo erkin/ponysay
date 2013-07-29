@@ -19,14 +19,9 @@ balloonstyles= {'cowsay':		(((' ', '', '< '), (' ', '', '> ')), ((' /', '|', '\\
 				'round':		((('╭││', '', '│╰ '), ('╮││', '', '│╯ ')), (('╭││', '│', '││╰'), ('╮││', '│', '││╯')), '─', '─', '╲', '╱'),
 				'linux-vt':		((('┌││', '', '│└ '), ('┐││', '', '│┘ ')), (('┌││', '│', '││└'), ('┐││', '│', '││┘')), '─', '─', '\\', '/')}
 
-ponypath = realpath(dirname(__file__)+'/../share/ponysay')
+ponypath=realpath(dirname(__file__)+'/ponies')
 if not exists(ponypath):
-	ponypath=realpath(dirname(__file__)+'/ponies')
-termwidth = 80
-try:
-	termwidth = os.get_terminal_size()[0]
-except:
-	pass
+	ponypath=realpath(dirname(__file__)+'/../../ponies')
 
 def list_ponies(markQuotes=False):
 	quotes = lambda n: ' (quotes)' if markQuotes and exists(ponypath+'/'+n+'.quotes') else ''
@@ -83,41 +78,3 @@ def render_pony(name, text, balloonstyle, width=80, center=False, centertext=Fal
 	wre = re.compile('((\x1B\[[0-9;]+m)*.){0,%s}' % width)
 	return ''.join([ indent+wre.search(line).group()+'\n[49m' for line in pony ])
 
-if __name__ == '__main__':
-	parser = argparse.ArgumentParser(description='Cowsay with ponies')
-	parser.add_argument('-p', '--pony', type=str, default='random', help='The name of the pony to be used. Use "-p list" to list all ponies, "-p random" (default) to use a random pony.')
-	parser.add_argument('-q', '--quote', action='store_true', help='Use a random quote of the pony being displayed as text')
-	parser.add_argument('-c', '--center', action='store_true', help='Use a random quote of the pony being displayed as text')
-	parser.add_argument('-C', '--center-text', action='store_true', help='Center the text in the bubble')
-	parser.add_argument('-w', '--width', type=int, default=termwidth, help='Terminal width. Use 0 for unlimited width. Default: autodetect')
-	parser.add_argument('-b', '--balloon', type=str, default='cowsay', help='Balloon style to use. Use "-b list" to list available styles.')
-	parser.add_argument('text', type=str, nargs='*', help='The text to be placed in the speech bubble')
-	args = parser.parse_args()
-  
-	think = sys.argv[0].endswith('think')
-	if args.pony == "list":
-		print('\n'.join(sorted(list_ponies() if not args.quote else list_ponies_with_quotes())))
-		sys.exit()
-	if args.balloon == 'list':
-		print('\n'.join([ s.replace('.think', '') for s in balloonstyles.keys() if s.endswith('.think') == think ]))
-		sys.exit()
-	pony = args.pony
-	if pony == "random":
-		pony = random.choice(list_ponies() if not args.quote else list_ponies_with_quotes())
-	text = ' '.join(args.text) or None
-	if text == '-':
-		text = '\n'.join(sys.stdin.readlines())
-	if args.quote:
-		text = random_quote(pony)
-
-	balloonstyle = None
-	if think:
-		balloonstyle = balloonstyles[args.balloon+'.think']
-	else:
-		balloonstyle = balloonstyles[args.balloon]
-
-	print(render_pony(pony, text,
-					  balloonstyle=balloonstyle,
-					  width=args.width or sys.maxint,
-					  center=args.center,
-					  centertext=args.center_text))
