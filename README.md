@@ -34,6 +34,8 @@ I really liked the concept, but I sort-of WTF-ed at the 2458-line python script 
 
 Fork me on github: https://github.com/jaseg/ponysay
 
+The repo now also contains a small script for providing PAAS (Ponies As A Service) via the [QOTD protocol defined in RFC 865](https://tools.ietf.org/html/rfc865).
+
 FAQ
 ---
 
