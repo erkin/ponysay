@@ -2952,15 +2952,15 @@ For in the wikia the order of precedence is:
 seasson only), et al. 
 @item @emph{First party merchandice}: Blind Bags and colectable toys [Further
 duscution is taken after any renamed]
-@item @emph{Second party merchandise}: Any that clam to by official whitout logo and
+@item @emph{Second party merchandise}: Any that claim to by official whitout logo and
 all the fancy stuff [further discusion first]
 @item @emph{Three party merchandice}: Any that use the toys or characters but
 only in they tags, on-line stores and soo [Only if the evidence and use are far extended that 
 a further discusion for renaming or not is needed]
 @item @emph{Placeholder}: Any fan given name gived voted in a open procees on
 @url{http://reddit.com/r/listofponies} where any can vote or give sugestions fallow
-they rules. These ones @emph{Can} by potentially becomed official names or/and influence
-subsecuent discutions about renaming ponies. 
+they rules. These ones @emph{CAN} potentially becomed official names 
+or/and influence subsecuent discutions about renaming ponies. 
 @end itemize
 
 Sometimes there are background ponies with the same palette and cutie mark, but
