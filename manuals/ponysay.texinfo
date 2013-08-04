@@ -843,7 +843,7 @@ KMS ponies is an optional feature that required that you have
 have a custom TTY colour palette and KMS support get best TTY images that can be
 display at the current state of the art. KMS is supported on most computers, but
 due to lack of published specifications Nvidia drivers does not support KMS.
-Other video cards can have problems too like ´gma500_gfx' due to lack of propper
+Other video cards can have problems too like `gma500_gfx' due to lack of propper
 drivers and correct KMS support.
 @command{util-say} can be downloaded at
 @url{https://github.com/maandree/util-say}.
@@ -2436,7 +2436,7 @@ Note: They skip impar versions.
 @section Exotic operating systems
 @cindex exotic OS:s
 
-An "exotic operating system" as a operating system that is not GNU (GNU/Linux
+An "exotic operating system" is a operating system that is not GNU (GNU/Linux
 ("Linux") and GNU/Hurd are GNU distro:s.)
 
 @cindex Mac OS X
