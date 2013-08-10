@@ -17,7 +17,8 @@ class QOTDHandler(BaseRequestHandler):
 		s = ponysay.render_pony(pony, ponysay.random_quote(pony),
 			balloonstyle=ponysay.balloonstyles['cowsay'],
 			center=True,
-			centertext=False)
+			centertext=False,
+			width=120)
 		self.request.sendall(bytes(s, "UTF-8"))
 
 if __name__ == "__main__":
