@@ -56,43 +56,9 @@ class Ponysay():
             os.environ['HOME'] = self.HOME = os.path.expanduser('~')
         
         
-        def parsefile(file):
-            '''
-            Parse a file name encoded with environment variables
-            
-            @param   file  The encoded file name
-            @return        The target file name, None if the environment variables are not declared
-            '''
-            if '$' in file:
-                buf = ''
-                esc = False
-                var = None
-                for c in file:
-                    if esc:
-                        buf += c
-                        esc = False
-                    elif var is not None:
-                        if c == '/':
-                            var = os.environ[var] if var in os.environ else ''
-                            if len(var) == 0:
-                                return None
-                            buf += var + c
-                            var = None
-                        else:
-                            var += c
-                    elif c == '$':
-                        var = ''
-                    elif c == '\\':
-                        esc = True
-                    else:
-                        buf += c
-                return buf
-            return file
-        
-        
         ## Change system enviroment variables with ponysayrc
         for file in ('$XDG_CONFIG_HOME/ponysay/ponysayrc', '$HOME/.config/ponysay/ponysayrc', '$HOME/.ponysayrc', '/etc/ponysayrc'):
-            file = parsefile(file)
+            file = Ponysay.__parseFile(file)
             if (file is not None) and os.path.exists(file):
                 with open(file, 'rb') as ponysayrc:
                     code = ponysayrc.read().decode('utf8', 'replace') + '\n'
@@ -113,14 +79,8 @@ class Ponysay():
         # Whether the program is execute in Linux VT (TTY)
         self.linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
         
-        
         # Whether the script is executed as ponythink
-        self.isthink = sys.argv[0]
-        if os.sep in self.isthink:
-            self.isthink = self.isthink[self.isthink.rfind(os.sep) + 1:]
-        if os.extsep in self.isthink:
-            self.isthink = self.isthink[:self.isthink.find(os.extsep)]
-        self.isthink = self.isthink.endswith('think')
+        self.isthink = Ponysay.__isPonythink()
         
         
         # Whether stdin is piped
@@ -141,81 +101,105 @@ class Ponysay():
         self.mode = ''
         
         
-        def share(file):
-            def cat(a, b):
-                if a is None:
-                    return None
-                return a + b
-            return [cat(parsefile(item), file) for item in [
-                    './',
-                    '$XDG_DATA_HOME/ponysay/',
-                    '$HOME/.local/share/ponysay/',
-                    '/usr/share/ponysay/'
-                   ]]
-        
-        
         # The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-        appendset = set()
-        self.xponydirs = []
-        _ponydirs = share('ponies/')
-        for ponydir in _ponydirs:
-            if (ponydir is not None) and os.path.isdir(ponydir) and (ponydir not in appendset):
-                self.xponydirs.append(ponydir)
-                appendset.add(ponydir)
-        appendset = set()
-        self.vtponydirs = []
-        _ponydirs = share('ttyponies/')
-        for ponydir in _ponydirs:
-            if (ponydir is not None) and os.path.isdir(ponydir) and (ponydir not in appendset):
-                self.vtponydirs.append(ponydir)
-                appendset.add(ponydir)
-        
+        self.xponydirs = Ponysay.__getShareDirectories('ponies/'):
+        self.vtponydirs = Ponysay.__getShareDirectories('ttyponies/'):
         
         # The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-        appendset = set()
-        self.extraxponydirs = []
-        _extraponydirs = share('extraponies/')
-        for extraponydir in _extraponydirs:
-            if (extraponydir is not None) and os.path.isdir(extraponydir) and (extraponydir not in appendset):
-                self.extraxponydirs.append(extraponydir)
-                appendset.add(extraponydir)
-        appendset = set()
-        self.extravtponydirs = []
-        _extraponydirs = share('extrattyponies/')
-        for extraponydir in _extraponydirs:
-            if (extraponydir is not None) and os.path.isdir(extraponydir) and (extraponydir not in appendset):
-                self.extravtponydirs.append(extraponydir)
-                appendset.add(extraponydir)
-        
+        self.extraxponydirs = Ponysay.__getShareDirectories('extraponies/'):
+        self.extravtponydirs = Ponysay.__getShareDirectories('extrattyponies/'):
         
         # The directories where quotes files are stored
-        appendset = set()
-        self.quotedirs = []
-        _quotedirs = share('quotes/')
-        for quotedir in _quotedirs:
-            if (quotedir is not None) and os.path.isdir(quotedir) and (quotedir not in appendset):
-                self.quotedirs.append(quotedir)
-                appendset.add(quotedir)
-        
+        self.quotedirs = Ponysay.__getShareDirectories('quotes/'):
         
         # The directories where balloon style files are stored
-        appendset = set()
-        self.balloondirs = []
-        _balloondirs = share('balloons/')
-        for balloondir in _balloondirs:
-            if (balloondir is not None) and os.path.isdir(balloondir) and (balloondir not in appendset):
-                self.balloondirs.append(balloondir)
-                appendset.add(balloondir)
-        
+        self.balloondirs = Ponysay.__getShareDirectories('balloons/'):
         
         # ucsmap files
+        self.ucsmaps = Ponysay.__getShareDirectories('ucsmap/'):
+        
+        
+    def __parseFile(file):
+        '''
+        Parse a file name encoded with environment variables
+        
+        @param   file  The encoded file name
+        @return        The target file name, None if the environment variables are not declared
+        '''
+        if '$' in file:
+            buf = ''
+            esc = False
+            var = None
+            for c in file:
+                if esc:
+                    buf += c
+                    esc = False
+                elif var is not None:
+                    if c == '/':
+                        var = os.environ[var] if var in os.environ else ''
+                        if len(var) == 0:
+                            return None
+                        buf += var + c
+                        var = None
+                    else:
+                        var += c
+                elif c == '$':
+                    var = ''
+                elif c == '\\':
+                    esc = True
+                else:
+                    buf += c
+            return buf
+        return file
+
+    
+    def __getShareDirectories(directory):
+        '''
+        Gets existing unique /share directories
+        
+        @param   directory:str  The directory base name
+        @return  :list<str>     Absolute directory names
+        '''
         appendset = set()
-        self.ucsmaps = []
-        _ucsmaps = share('ucsmap/')
-        for ucsmap in _ucsmaps:
-            if (ucsmap is not None) and os.path.isdir(ucsmap) and (ucsmap not in appendset):
-                self.ucsmaps.append(ucsmap)
-                appendset.add(ucsmap)
+        rc = []
+        _ponydirs = Ponysay.__share(directory)
+        for ponydir in _ponydirs:
+            if (ponydir is not None) and os.path.isdir(ponydir) and (ponydir not in appendset):
+                rc.append(ponydir)
+                appendset.add(ponydir)
+        return rc
+    
+    
+    def __share(file):
+        '''
+        Gets /share files
+        
+        @param   file:str    The file base name
+        @return  :list<str>  Absolute file names
+        '''
+        def cat(a, b):
+            if a is None:
+                return None
+            return a + b
+        return [cat(Ponysay.__parseFile(item), file) for item in [
+                './',
+                '$XDG_DATA_HOME/ponysay/',
+                '$HOME/.local/share/ponysay/',
+                '/usr/share/ponysay/'
+               ]]
+    
+    
+    def __isPonythink():
+        '''
+        Check if ponythink is executed
+        '''
+        isthink = sys.argv[0]
+        if os.sep in isthink:
+            isthink = isthink[isthink.rfind(os.sep) + 1:]
+        if os.extsep in isthink:
+            isthink = isthink[:isthink.find(os.extsep)]
+        isthink = isthink.endswith('think')
+        return isthink
     
     
     
@@ -308,7 +292,7 @@ class Ponysay():
             
             ## The stuff
             if not self.unrecognised:
-                self.print_pony(args)
+                self.printPony(args)
             else:
                 args.help()
                 exit(255)
@@ -439,7 +423,7 @@ class Ponysay():
                 ascii = line[s + 1:].strip(stripset)
                 map[ascii] = ucs
         
-        ## Apply UCS → ACII mapping to ponies, by alias if weak settings
+        ## Apply UCS → ASCII mapping to ponies, by alias if weak settings
         if ucs_conf == 1:
             for pony in ponies:
                 if pony in map:
@@ -814,7 +798,7 @@ class Ponysay():
         print('%s %s' % ('ponysay', VERSION))
     
     
-    def print_pony(self, args):
+    def printPony(self, args):
         '''
         Print the pony with a speech or though bubble. message, pony and wrap from args are used.
         
