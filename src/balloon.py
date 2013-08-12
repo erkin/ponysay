@@ -96,11 +96,13 @@ class Balloon():
     @return  :str              The balloon as a formated string
     '''
     def get(self, minw, minh, lines, lencalc):
+        ## Get dimension
         h = self.minheight + len(lines)
         w = self.minwidth + lencalc(max(lines, key = lencalc))
         if w < minw:  w = minw
         if h < minh:  h = minh
         
+        ## Create edges
         if len(lines) > 1:
             (ws, es) = ({0 : self.nww, len(lines) - 1 : self.sww}, {0 : self.nee, len(lines) - 1 : self.see})
             for j in range(1, len(lines) - 1):
@@ -111,6 +113,7 @@ class Balloon():
         
         rc = []
         
+        ## Create the upper part of the balloon
         for j in range(0, len(self.n)):
             outer = UCS.dispLen(self.nw[j]) + UCS.dispLen(self.ne[j])
             inner = UCS.dispLen(self.nnw[j]) + UCS.dispLen(self.nne[j])
@@ -119,9 +122,11 @@ class Balloon():
             else:
                 rc.append(self.nw[j] + self.n[j] * (w - outer) + self.ne[j])
         
+        ## Encapsulate the message instead left and right edges of balloon
         for j in range(0, len(lines)):
             rc.append(ws[j] + lines[j] + ' ' * (w - lencalc(lines[j]) - UCS.dispLen(self.w) - UCS.dispLen(self.e)) + es[j])
         
+        ## Create the lower part of the balloon
         for j in range(0, len(self.s)):
             outer = UCS.dispLen(self.sw[j]) + UCS.dispLen(self.se[j])
             inner = UCS.dispLen(self.ssw[j]) + UCS.dispLen(self.sse[j])
