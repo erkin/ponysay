@@ -189,7 +189,7 @@ class Backend():
                 c = line[i]
                 i += 1
                 if c == '\033':
-                    colour = Backend.getcolour(line, i - 1)
+                    colour = Backend.getColour(line, i - 1)
                     i += len(colour) - 1
                     buf += colour
                 elif c == '\t':
@@ -226,7 +226,7 @@ class Backend():
                 c = line[i]
                 i += 1
                 if c == '\033':
-                    colour = Backend.getcolour(line, i - 1)
+                    colour = Backend.getColour(line, i - 1)
                     i += len(colour) - 1
                     self.output += colour
                 else:
@@ -335,7 +335,7 @@ class Backend():
                     i += 1
                 dollar += c
             elif c == '\033':
-                colour = Backend.getcolour(self.pony, i - 1)
+                colour = Backend.getColour(self.pony, i - 1)
                 for b in colour:
                     self.output += b + colourstack.feed(b);
                 i += len(colour) - 1
@@ -392,7 +392,7 @@ class Backend():
     @return  :str        The escape sequence
     '''
     @staticmethod
-    def getcolour(input, offset):
+    def getColour(input, offset):
         (i, n) = (offset, len(input))
         rc = input[i]
         i += 1
@@ -452,7 +452,7 @@ class Backend():
         while i < n:
             c = input[i]
             if c == '\033':
-                i += len(Backend.getcolour(input, i))
+                i += len(Backend.getColour(input, i))
             else:
                 i += 1
                 if not UCS.isCombining(c):
@@ -527,7 +527,7 @@ class Backend():
         try:
             AUTO_PUSH = '\033[01010~'
             AUTO_POP  = '\033[10101~'
-            msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP);
+            msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
             cstack = ColourStack(AUTO_PUSH, AUTO_POP)
             for c in msg:
                 buf += c + cstack.feed(c)
@@ -549,7 +549,7 @@ class Backend():
                     if d == '\033':
                         ## Invisible stuff
                         i -= 1
-                        colourseq = Backend.getcolour(line, i)
+                        colourseq = Backend.getColour(line, i)
                         b[bi : bi + len(colourseq)] = colourseq
                         i += len(colourseq)
                         bi += len(colourseq)
@@ -599,7 +599,7 @@ class Backend():
                             
                             w = iwrap
                             if indent != -1:
-                                buf += line[:indent]
+                                buf += ' ' * indentc
                         
                         for j in range(bisub, bi):
                             b[j - bisub] = b[j]
@@ -609,7 +609,7 @@ class Backend():
                             buf += '\n'
                             w = wrap
                             if indent != -1:
-                                buf += line[:indent]
+                                buf += ' ' * indentc
                                 w -= indentc
                         for bb in b[:bi]:
                             if bb is not None:
@@ -627,18 +627,18 @@ class Backend():
                                 buf += '\n'
                                 w = wrap
                                 if indent != -1:
-                                    buf + line[:indent]
+                                    buf += ' ' * indentc
                                     w -= indentc
                 buf += '\n'
             
-            rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
+            rc = '\n'.join(line.rstrip(' ') for line in buf[:-1].split('\n'));
             rc = rc.replace('­', ''); # remove soft hyphens
             rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
             return rc
         except Exception as err:
             import traceback
             errormessage = ''.join(traceback.format_exception(type(err), err, None))
-            rc = '\n'.join(line.rstrip() for line in buf.split('\n'));
+            rc = '\n'.join(line.rstrip(' ') for line in buf.split('\n'));
             rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
             errormessage += '\n---- WRAPPING BUFFER ----\n\n' + rc
             try:

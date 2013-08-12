@@ -105,15 +105,15 @@ class ColourStack():
                         part = self.seq[i]
                         p = 0 if part == '' else int(part)
                         i += 1
-                        if p == 0:                       self.stack[0][1:] = [None, None, [False] * 9]
-                        elif (1 <= p) and (p <= 9):      self.stack[0][3][p - 1] = True
-                        elif (21 <= p) and (p <= 29):    self.stack[0][3][p - 21] = False
-                        elif p == 39:                    self.stack[0][1] = None
-                        elif p == 49:                    self.stack[0][2] = None
-                        elif (30 <= p) and (p <= 37):    self.stack[0][1] = part
-                        elif (90 <= p) and (p <= 97):    self.stack[0][1] = part
-                        elif (40 <= p) and (p <= 47):    self.stack[0][2] = part
-                        elif (100 <= p) and (p <= 107):  self.stack[0][2] = part
+                        if p == 0:             self.stack[0][1:] = [None, None, [False] * 9]
+                        elif 1 <= p <= 9:      self.stack[0][3][p - 1] = True
+                        elif 21 <= p <= 29:    self.stack[0][3][p - 21] = False
+                        elif p == 39:          self.stack[0][1] = None
+                        elif p == 49:          self.stack[0][2] = None
+                        elif 30 <= p <= 37:    self.stack[0][1] = part
+                        elif 90 <= p <= 97:    self.stack[0][1] = part
+                        elif 40 <= p <= 47:    self.stack[0][2] = part
+                        elif 100 <= p <= 107:  self.stack[0][2] = part
                         elif p == 38:
                             self.stack[0][1] = '%s;%s;%s' % (part, self.seq[i], self.seq[i + 1])
                             i += 2
