@@ -102,21 +102,21 @@ class Ponysay():
         
         
         # The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-        self.xponydirs = Ponysay.__getShareDirectories('ponies/'):
-        self.vtponydirs = Ponysay.__getShareDirectories('ttyponies/'):
+        self.xponydirs = Ponysay.__getShareDirectories('ponies/')
+        self.vtponydirs = Ponysay.__getShareDirectories('ttyponies/')
         
         # The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-        self.extraxponydirs = Ponysay.__getShareDirectories('extraponies/'):
-        self.extravtponydirs = Ponysay.__getShareDirectories('extrattyponies/'):
+        self.extraxponydirs = Ponysay.__getShareDirectories('extraponies/')
+        self.extravtponydirs = Ponysay.__getShareDirectories('extrattyponies/')
         
         # The directories where quotes files are stored
-        self.quotedirs = Ponysay.__getShareDirectories('quotes/'):
+        self.quotedirs = Ponysay.__getShareDirectories('quotes/')
         
         # The directories where balloon style files are stored
-        self.balloondirs = Ponysay.__getShareDirectories('balloons/'):
+        self.balloondirs = Ponysay.__getShareDirectories('balloons/')
         
         # ucsmap files
-        self.ucsmaps = Ponysay.__getShareDirectories('ucsmap/'):
+        self.ucsmaps = Ponysay.__getShareDirectories('ucsmap/')
         
         
     def __parseFile(file):
@@ -725,7 +725,7 @@ class Ponysay():
         List.balloonlist(self.balloondirs, self.isthink)
     
     
-    def __getballoonpath(self, names, alt = False):
+    def __getBalloonPath(self, names, alt = False):
         '''
         Returns one file with full path, names is filter for style names, also accepts filepaths
         
@@ -733,7 +733,7 @@ class Ponysay():
         @param  alt:bool         For method internal use
         @param  :str             The file name of the balloon, will be `None` iff `names` is `None`
         '''
-        ## Stop if their is no choosen balloon
+        ## Stop if there is no choosen balloon
         if names is None:
             return None
         
@@ -768,14 +768,14 @@ class Ponysay():
                 limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
                 limit = 5 if len(limit) == 0 else int(limit)
                 if (len(alternatives) > 0) and (dist <= limit):
-                    return self.__getballoonpath(alternatives, True)
+                    return self.__getBalloonPath(alternatives, True)
             printerr('That balloon style %s does not exist' % balloon)
             exit(251)
         else:
             return balloons[balloon]
     
     
-    def __getballoon(self, balloonfile):
+    def __getBalloon(self, balloonfile):
         '''
         Creates the balloon style object
         
@@ -815,14 +815,10 @@ class Ponysay():
                 if endswith(pony, '.pony'):
                     extra.append(ponydir + pony)
         both = standard + extra
-        if args.opts['-f'] is not None:
-            for pony in args.opts['-f']:  selection.append((pony, standard, False))
-        if args.opts['+f'] is not None:
-            for pony in args.opts['+f']:  selection.append((pony, extra, False))
-        if args.opts['-F'] is not None:
-            for pony in args.opts['-F']:  selection.append((pony, both, False))
-        if args.opts['-q'] is not None:
-            for pony in args.opts['-q']:  selection.append((pony, standard, True))
+        if args.opts['-f'] is not None:  for pony in args.opts['-f']:  selection.append((pony, standard, False))
+        if args.opts['+f'] is not None:  for pony in args.opts['+f']:  selection.append((pony, extra, False))
+        if args.opts['-F'] is not None:  for pony in args.opts['-F']:  selection.append((pony, both, False))
+        if args.opts['-q'] is not None:  for pony in args.opts['-q']:  selection.append((pony, standard, True))
         ## TODO +q -Q
         (pony, quote) = self.__getpony(selection, args)
         
@@ -892,9 +888,9 @@ class Ponysay():
                 messagewrap = int(args.opts['-W'][0])
         
         ## Get balloon object
-        balloonfile = self.__getballoonpath(args.opts['-b'] if args.opts['-b'] is not None else None)
+        balloonfile = self.__getBalloonPath(args.opts['-b'] if args.opts['-b'] is not None else None)
         printinfo('balloon style file: ' + str(balloonfile))
-        balloon = self.__getballoon(balloonfile) if args.opts['-o'] is None else None
+        balloon = self.__getBalloon(balloonfile) if args.opts['-o'] is None else None
         
         ## Get hyphen style
         hyphen = os.environ['PONYSAY_WRAP_HYPHEN'] if 'PONYSAY_WRAP_HYPHEN' in os.environ else None
