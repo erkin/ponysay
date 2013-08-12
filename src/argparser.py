@@ -33,35 +33,38 @@ from common import *
 
 
 
+ARGUMENTLESS = 0
 '''
 Option takes no arguments
 '''
-ARGUMENTLESS = 0
 
+ARGUMENTED = 1
 '''
 Option takes one argument per instance
 '''
-ARGUMENTED = 1
 
+VARIADIC = 2
 '''
 Option consumes all following arguments
 '''
-VARIADIC = 2
 
-'''
-Simple argument parser
-'''
+
+
 class ArgParser():
     '''
-    Constructor.
-    The short description is printed on same line as the program name
-    
-    @param  program:str          The name of the program
-    @param  description:str      Short, single-line, description of the program
-    @param  usage:str            Formated, multi-line, usage text
-    @param  longdescription:str  Long, multi-line, description of the program, may be `None`
+    Simple argument parser
     '''
+    
     def __init__(self, program, description, usage, longdescription = None):
+        '''
+        Constructor.
+        The short description is printed on same line as the program name
+        
+        @param  program:str          The name of the program
+        @param  description:str      Short, single-line, description of the program
+        @param  usage:str            Formated, multi-line, usage text
+        @param  longdescription:str  Long, multi-line, description of the program, may be `None`
+        '''
         self.linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
         self.__program = program
         self.__description = description
@@ -72,41 +75,41 @@ class ArgParser():
         self.optmap = {}
     
     
-    '''
-    Add option that takes no arguments
-    
-    @param  alternatives:list<str>  Option names
-    @param  help:str                Short description, use `None` to hide the option
-    '''
     def add_argumentless(self, alternatives, help = None):
+        '''
+        Add option that takes no arguments
+        
+        @param  alternatives:list<str>  Option names
+        @param  help:str                Short description, use `None` to hide the option
+        '''
         self.__arguments.append((ARGUMENTLESS, alternatives, None, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
             self.optmap[alt] = (stdalt, ARGUMENTLESS)
     
-    '''
-    Add option that takes one argument
-    
-    @param  alternatives:list<str>  Option names
-    @param  arg:str                 The name of the takes argument, one word
-    @param  help:str                Short description, use `None` to hide the option
-    '''
     def add_argumented(self, alternatives, arg, help = None):
+        '''
+        Add option that takes one argument
+        
+        @param  alternatives:list<str>  Option names
+        @param  arg:str                 The name of the takes argument, one word
+        @param  help:str                Short description, use `None` to hide the option
+        '''
         self.__arguments.append((ARGUMENTED, alternatives, arg, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
             self.optmap[alt] = (stdalt, ARGUMENTED)
     
-    '''
-    Add option that takes all following argument
-    
-    @param  alternatives:list<str>  Option names
-    @param  arg:str                 The name of the takes arguments, one word
-    @param  help:str                Short description, use `None` to hide the option
-    '''
     def add_variadic(self, alternatives, arg, help = None):
+        '''
+        Add option that takes all following argument
+        
+        @param  alternatives:list<str>  Option names
+        @param  arg:str                 The name of the takes arguments, one word
+        @param  help:str                Short description, use `None` to hide the option
+        '''
         self.__arguments.append((VARIADIC, alternatives, arg, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
@@ -114,13 +117,13 @@ class ArgParser():
             self.optmap[alt] = (stdalt, VARIADIC)
     
     
-    '''
-    Parse arguments
-    
-    @param   args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
-    @return  :bool           Whether no unrecognised option is used
-    '''
     def parse(self, argv = sys.argv):
+        '''
+        Parse arguments
+        
+        @param   args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
+        @return  :bool           Whether no unrecognised option is used
+        '''
         self.argcount = len(argv) - 1
         self.files = []
         
@@ -242,10 +245,10 @@ class ArgParser():
         return self.rc
     
     
-    '''
-    Prints a colourful help message
-    '''
     def help(self):
+        '''
+        Prints a colourful help message
+        '''
         print('\033[1m%s\033[21m %s %s' % (self.__program, '-' if self.linuxvt else '—', self.__description))
         print()
         if self.__longdescription is not None:

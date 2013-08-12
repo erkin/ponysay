@@ -3,13 +3,31 @@
 
 '''
 ponysay - Ponysay, cowsay reimplementation for ponies
+
 Copyright (C) 2012, 2013  Erkin Batu Altunbaş et al.
 
-This program is free software. It comes without any warranty, to
-the extent permitted by applicable law. You can redistribute it
-and/or modify it under the terms of the Do What The Fuck You Want
-To Public License, Version 2, as published by Sam Hocevar. See
-http://sam.zoy.org/wtfpl/COPYING for more details.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+If you intend to redistribute ponysay or a fork of it commercially,
+it contains aggregated images, some of which may not be commercially
+redistribute, you would be required to remove those. To determine
+whether or not you may commercially redistribute an image make use
+that line ‘FREE: yes’, is included inside the image between two ‘$$$’
+lines and the ‘FREE’ is and upper case and directly followed by
+the colon.
 '''
 from common import *
 from backend import *
@@ -22,29 +40,29 @@ from metadata import *
 
 
 
-'''
-This is the mane class of ponysay
-'''
 class Ponysay():
     '''
-    Constructor
+    This is the mane class of ponysay
     '''
+    
     def __init__(self):
         '''
-        The user's home directory
+        Constructor
         '''
+        
+        # The user's home directory
         self.HOME = os.environ['HOME'] if 'HOME' in os.environ else ''
         if len(self.HOME) == 0:
             os.environ['HOME'] = self.HOME = os.path.expanduser('~')
         
         
-        '''
-        Parse a file name encoded with environment variables
-        
-        @param   file  The encoded file name
-        @return        The target file name, None if the environment variables are not declared
-        '''
         def parsefile(file):
+            '''
+            Parse a file name encoded with environment variables
+            
+            @param   file  The encoded file name
+            @return        The target file name, None if the environment variables are not declared
+            '''
             if '$' in file:
                 buf = ''
                 esc = False
@@ -88,21 +106,15 @@ class Ponysay():
             os.environ['HOME'] = self.HOME = os.path.expanduser('~')
         
         
-        '''
-        Whether any unrecognised options was parsed, this should be set by the invoker before run()
-        '''
+        # Whether any unrecognised options was parsed, this should be set by the invoker before run()
         self.unrecognised = False
         
         
-        '''
-        Whether the program is execute in Linux VT (TTY)
-        '''
+        # Whether the program is execute in Linux VT (TTY)
         self.linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
         
         
-        '''
-        Whether the script is executed as ponythink
-        '''
+        # Whether the script is executed as ponythink
         self.isthink = sys.argv[0]
         if os.sep in self.isthink:
             self.isthink = self.isthink[self.isthink.rfind(os.sep) + 1:]
@@ -111,31 +123,21 @@ class Ponysay():
         self.isthink = self.isthink.endswith('think')
         
         
-        '''
-        Whether stdin is piped
-        '''
+        # Whether stdin is piped
         self.pipelinein = not sys.stdin.isatty()
         
-        '''
-        Whether stdout is piped
-        '''
+        # Whether stdout is piped
         self.pipelineout = not sys.stdout.isatty()
         
-        '''
-        Whether stderr is piped
-        '''
+        # Whether stderr is piped
         self.pipelineerr = not sys.stderr.isatty()
         
         
-        '''
-        Whether KMS is used
-        '''
+        # Whether KMS is used
         self.usekms = KMS.usingkms(self.linuxvt)
         
         
-        '''
-        Mode string that modifies or adds $ variables in the pony image
-        '''
+        # Mode string that modifies or adds $ variables in the pony image
         self.mode = ''
         
         
@@ -152,9 +154,7 @@ class Ponysay():
                    ]]
         
         
-        '''
-        The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-        '''
+        # The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
         appendset = set()
         self.xponydirs = []
         _ponydirs = share('ponies/')
@@ -171,9 +171,7 @@ class Ponysay():
                 appendset.add(ponydir)
         
         
-        '''
-        The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-        '''
+        # The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
         appendset = set()
         self.extraxponydirs = []
         _extraponydirs = share('extraponies/')
@@ -190,9 +188,7 @@ class Ponysay():
                 appendset.add(extraponydir)
         
         
-        '''
-        The directories where quotes files are stored
-        '''
+        # The directories where quotes files are stored
         appendset = set()
         self.quotedirs = []
         _quotedirs = share('quotes/')
@@ -202,9 +198,7 @@ class Ponysay():
                 appendset.add(quotedir)
         
         
-        '''
-        The directories where balloon style files are stored
-        '''
+        # The directories where balloon style files are stored
         appendset = set()
         self.balloondirs = []
         _balloondirs = share('balloons/')
@@ -214,9 +208,7 @@ class Ponysay():
                 appendset.add(balloondir)
         
         
-        '''
-        ucsmap files
-        '''
+        # ucsmap files
         appendset = set()
         self.ucsmaps = []
         _ucsmaps = share('ucsmap/')
@@ -227,24 +219,24 @@ class Ponysay():
     
     
     
-    '''
-    Starts the part of the program the arguments indicate
-    
-    @param  args:ArgParser  Parsed command line arguments
-    '''
     def run(self, args):
+        '''
+        Starts the part of the program the arguments indicate
+        
+        @param  args:ArgParser  Parsed command line arguments
+        '''
         if (args.argcount == 0) and not self.pipelinein:
             args.help()
             exit(254)
             return
         
-        '''
-        Test arguments written in negation-free disjunctive normal form
-        
-        @param   keys:*str|itr<str>  A list of keys and set of keys, any of which must exists, a set of keys only passes if all of those exists
-        @return  :bool               Whether the check passed
-        '''
         def test(*keys):
+            '''
+            Test arguments written in negation-free disjunctive normal form
+            
+            @param   keys:*str|itr<str>  A list of keys and set of keys, any of which must exists, a set of keys only passes if all of those exists
+            @return  :bool               Whether the check passed
+            '''
             for key in keys:
                 if isinstance(key, str):
                     if args.opts[key] is not None:
@@ -328,21 +320,21 @@ class Ponysay():
     ## Methods that run before the mane methods ##
     ##############################################
     
-    '''
-    Use extra ponies
-    '''
     def __extraponies(self):
+        '''
+        Use extra ponies
+        '''
         ## Change ponydir to extraponydir
         self.ponydirs[:] = self.extraponydirs
         self.quotedirs[:] = [] ## TODO +q
     
     
-    '''
-    Use best.pony if nothing else is set
-    
-    @param  args:ArgParser     Parsed command line arguments
-    '''
     def __bestpony(self, args):
+        '''
+        Use best.pony if nothing else is set
+        
+        @param  args:ArgParser     Parsed command line arguments
+        '''
         ## Set best.pony as the pony to display if none is selected
         def test(keys, strict):
             if strict:
@@ -368,12 +360,12 @@ class Ponysay():
                     break
     
     
-    '''
-    Apply pony name remapping to args according to UCS settings
-    
-    @param  args:ArgParser  Parsed command line arguments
-    '''
     def __ucsremap(self, args):
+        '''
+        Apply pony name remapping to args according to UCS settings
+        
+        @param  args:ArgParser  Parsed command line arguments
+        '''
         ## Read UCS configurations
         env_ucs = os.environ['PONYSAY_UCS_ME'] if 'PONYSAY_UCS_ME' in os.environ else ''
         ucs_conf = 0
@@ -413,13 +405,13 @@ class Ponysay():
     ## Auxiliary methods ##
     #######################
     
-    '''
-    Apply UCS:ise pony names according to UCS settings
-    
-    @param  ponies:list<str>      List of all ponies (of interrest)
-    @param  links:map<str, str>?  Map to fill with simulated symlink ponies, may be `None`
-    '''
     def __ucsise(self, ponies, links = None):
+        '''
+        Apply UCS:ise pony names according to UCS settings
+        
+        @param  ponies:list<str>      List of all ponies (of interrest)
+        @param  links:map<str, str>?  Map to fill with simulated symlink ponies, may be `None`
+        '''
         ## Read UCS configurations
         env_ucs = os.environ['PONYSAY_UCS_ME'] if 'PONYSAY_UCS_ME' in os.environ else ''
         ucs_conf = 0
@@ -460,18 +452,18 @@ class Ponysay():
                     ponies[j] = map[ponies[j]]
     
     
-    '''
-    Returns one file with full path and ponyquote that should be used, names is filter for names, also accepts filepaths
-    
-    @param   selection:(name:str, dirs:itr<str>, quote:bool)?  Parsed command line arguments as name–directories–quoting tubles:
-                                                                   name:      The pony name
-                                                                   dirfiles:  Files, with the directory, in the pony directories
-                                                                   quote:     Whether to use ponyquotes
-    @param   args:ArgParser                                    Parsed command line arguments
-    @param   alt:bool                                          For method internal use...
-    @return  (path, quote):(str, str?)                         The file name of a pony, and the ponyquote that should be used if any
-    '''
     def __getpony(self, selection, args, alt = False):
+        '''
+        Returns one file with full path and ponyquote that should be used, names is filter for names, also accepts filepaths
+        
+        @param   selection:(name:str, dirs:itr<str>, quote:bool)?  Parsed command line arguments as name–directories–quoting tubles:
+                                                                       name:      The pony name
+                                                                       dirfiles:  Files, with the directory, in the pony directories
+                                                                       quote:     Whether to use ponyquotes
+        @param   args:ArgParser                                    Parsed command line arguments
+        @param   alt:bool                                          For method internal use...
+        @return  (path, quote):(str, str?)                         The file name of a pony, and the ponyquote that should be used if any
+        '''
         ## If there is no selected ponies, choose all of them
         if (selection is None) or (len(selection) == 0):
             quote    =  args.opts['-q'] is not None ## TODO +q -Q
@@ -570,14 +562,14 @@ class Ponysay():
                 return (file, self.__getquote(pony[0], file) if pony[2] else None)
     
     
-    '''
-    Select a quote for a pony
-    
-    @param   pony:str  The pony name
-    @param   file:str  The pony's file name
-    @return  :str      A quote from the pony, with a failure fall back message
-    '''
     def __getquote(self, pony, file):
+        '''
+        Select a quote for a pony
+        
+        @param   pony:str  The pony name
+        @param   file:str  The pony's file name
+        @return  :str      A quote from the pony, with a failure fall back message
+        '''
         quote = []
         if (os.path.dirname(file) + os.sep).replace(os.sep + os.sep, os.sep) in self.ponydirs:
             realpony = pony
@@ -596,14 +588,14 @@ class Ponysay():
         return quote
     
     
-    '''
-    Returns a set with all ponies that have quotes and are displayable
-    
-    @param   ponydirs:itr<str>?   The pony directories to use
-    @param   quotedirs:itr<str>?  The quote directories to use
-    @return  :set<str>            All ponies that have quotes and are displayable
-    '''
     def __quoters(self, ponydirs = None, quotedirs = None):
+        '''
+        Returns a set with all ponies that have quotes and are displayable
+        
+        @param   ponydirs:itr<str>?   The pony directories to use
+        @param   quotedirs:itr<str>?  The quote directories to use
+        @return  :set<str>            All ponies that have quotes and are displayable
+        '''
         if ponydirs  is None:  ponydirs  = self.ponydirs
         if quotedirs is None:  quotedirs = self.quotedirs
         
@@ -633,15 +625,15 @@ class Ponysay():
         return ponies
     
     
-    '''
-    Returns a list with all (pony, quote file) pairs
-    
-    @param   ponydirs:itr<str>?        The pony directories to use
-    @param   quotedirs:itr<str>?       The quote directories to use
-    @param   ponies:itr<str>?          The ponies to use
-    @return  (pony, quote):(str, str)  All ponies–quote file-pairs
-    '''
     def __quotes(self, ponydirs = None, quotedirs = None, ponies = None):
+        '''
+        Returns a list with all (pony, quote file) pairs
+        
+        @param   ponydirs:itr<str>?        The pony directories to use
+        @param   quotedirs:itr<str>?       The quote directories to use
+        @param   ponies:itr<str>?          The ponies to use
+        @return  (pony, quote):(str, str)  All ponies–quote file-pairs
+        '''
         if ponydirs  is None:  ponydirs  = self.ponydirs
         if quotedirs is None:  quotedirs = self.quotedirs
         
@@ -678,45 +670,45 @@ class Ponysay():
     ## Listing methods ##
     #####################
     
-    '''
-    Lists the available ponies
-    
-    @param  ponydirs:itr<str>?  The pony directories to use
-    '''
     def list(self, ponydirs = None):
+        '''
+        Lists the available ponies
+        
+        @param  ponydirs:itr<str>?  The pony directories to use
+        '''
         List.simplelist(self.ponydirs if ponydirs is None else ponydirs,
                         self.__quoters(), lambda x : self.__ucsise(x))
     
     
-    '''
-    Lists the available ponies with alternatives inside brackets
-    
-    @param  ponydirs:itr<str>  The pony directories to use
-    '''
     def linklist(self, ponydirs = None):
+        '''
+        Lists the available ponies with alternatives inside brackets
+        
+        @param  ponydirs:itr<str>  The pony directories to use
+        '''
         List.linklist(self.ponydirs if ponydirs is None else ponydirs,
                       self.__quoters(), lambda x, y : self.__ucsise(x, y))
     
     
-    '''
-    Lists the available ponies on one column without anything bold or otherwise formated
-    
-    @param  standard:bool  Include standard ponies
-    @param  extra:bool     Include extra ponies
-    '''
     def onelist(self, standard = True, extra = False):
+        '''
+        Lists the available ponies on one column without anything bold or otherwise formated
+        
+        @param  standard:bool  Include standard ponies
+        @param  extra:bool     Include extra ponies
+        '''
         List.onelist(self.ponydirs if standard else None,
                      self.extraponydirs if extra else None,
                      lambda x : self.__ucsise(x))
     
     
-    '''
-    Lists with all ponies that have quotes and are displayable, on one column without anything bold or otherwise formated
-    
-    @param  standard:bool  Include standard ponies
-    @param  extra:bool     Include extra ponies
-    '''
     def quoters(self, standard = True, extra = False):
+        '''
+        Lists with all ponies that have quotes and are displayable, on one column without anything bold or otherwise formated
+        
+        @param  standard:bool  Include standard ponies
+        @param  extra:bool     Include extra ponies
+        '''
         ## Get all quoters
         ponies = list(self.__quoters()) if standard else []
         
@@ -742,21 +734,21 @@ class Ponysay():
     ## Balloon methods ##
     #####################
     
-    '''
-    Prints a list of all balloons
-    '''
     def balloonlist(self):
+        '''
+        Prints a list of all balloons
+        '''
         List.balloonlist(self.balloondirs, self.isthink)
     
     
-    '''
-    Returns one file with full path, names is filter for style names, also accepts filepaths
-    
-    @param  names:list<str>  Balloons to choose from, may be `None`
-    @param  alt:bool         For method internal use
-    @param  :str             The file name of the balloon, will be `None` iff `names` is `None`
-    '''
     def __getballoonpath(self, names, alt = False):
+        '''
+        Returns one file with full path, names is filter for style names, also accepts filepaths
+        
+        @param  names:list<str>  Balloons to choose from, may be `None`
+        @param  alt:bool         For method internal use
+        @param  :str             The file name of the balloon, will be `None` iff `names` is `None`
+        '''
         ## Stop if their is no choosen balloon
         if names is None:
             return None
@@ -799,13 +791,13 @@ class Ponysay():
             return balloons[balloon]
     
     
-    '''
-    Creates the balloon style object
-    
-    @param   balloonfile:str  The file with the balloon style, may be `None`
-    @return  :Balloon         Instance describing the balloon's style
-    '''
     def __getballoon(self, balloonfile):
+        '''
+        Creates the balloon style object
+        
+        @param   balloonfile:str  The file with the balloon style, may be `None`
+        @return  :Balloon         Instance describing the balloon's style
+        '''
         return Balloon.fromFile(balloonfile, self.isthink)
     
     
@@ -814,20 +806,20 @@ class Ponysay():
     ## Displaying methods ##
     ########################
     
-    '''
-    Prints the name of the program and the version of the program
-    '''
     def version(self):
+        '''
+        Prints the name of the program and the version of the program
+        '''
         ## Prints the "ponysay $VERSION", if this is modified, ./dev/dist.sh must be modified accordingly
         print('%s %s' % ('ponysay', VERSION))
     
     
-    '''
-    Print the pony with a speech or though bubble. message, pony and wrap from args are used.
-    
-    @param  args:ArgParser  Parsed command line arguments
-    '''
     def print_pony(self, args):
+        '''
+        Print the pony with a speech or though bubble. message, pony and wrap from args are used.
+        
+        @param  args:ArgParser  Parsed command line arguments
+        '''
         ## Get the pony
         (selection, standard, extra) = ([], [], [])
         for ponydir in self.ponydirs:

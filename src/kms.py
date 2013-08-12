@@ -33,18 +33,19 @@ from common import *
 
 
 
-'''
-KMS support utilisation
-'''
 class KMS():
     '''
-    Identifies whether KMS support is utilised
-    
-    @param   linuxvt:bool  Whether Linux VT is used
-    @return  :bool         Whether KMS support is utilised
+    KMS support utilisation
     '''
+    
     @staticmethod
     def usingkms(linuxvt):
+        '''
+        Identifies whether KMS support is utilised
+        
+        @param   linuxvt:bool  Whether Linux VT is used
+        @return  :bool         Whether KMS support is utilised
+        '''
         ## KMS is not utilised if Linux VT is not used
         if not linuxvt:
             return False
@@ -64,16 +65,16 @@ class KMS():
         return env_kms != ''
     
     
-    '''
-    Returns the file name of the input pony converted to a KMS pony, or if KMS is not used, the input pony itself
-    
-    @param   pony:str      Choosen pony file
-    @param   home:str      The home directory
-    @param   linuxvt:bool  Whether Linux VT is used
-    @return  :str          Pony file to display
-    '''
     @staticmethod
     def kms(pony, home, linuxvt):
+        '''
+        Returns the file name of the input pony converted to a KMS pony, or if KMS is not used, the input pony itself
+        
+        @param   pony:str      Choosen pony file
+        @param   home:str      The home directory
+        @param   linuxvt:bool  Whether Linux VT is used
+        @return  :str          Pony file to display
+        '''
         ## If not in Linux VT, return the pony as is
         if not linuxvt:
             return pony

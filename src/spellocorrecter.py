@@ -33,24 +33,25 @@ from common import *
 
 
 
-'''
-Class used for correcting spellos and typos,
-
-Note that this implementation will not find that correctly spelled word are correct faster than it corrects words.
-It is also limited to words of size 0 to 127 (inclusive)
-'''
 class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimised Java, may not be the nicest, or even fast, Python code
     '''
-    Constructor
+    Class used for correcting spellos and typos,
     
-    @param  directories:list<str>  List of directories that contains the file names with the correct spelling
-    @param  ending:str             The file name ending of the correctly spelled file names, this is removed for the name
-    
-    -- OR -- (emulated overloading [overloading is absent in Python])
-    
-    @param  directories:list<str>  The file names with the correct spelling
+    Note that this implementation will not find that correctly spelled word are correct faster than it corrects words.
+    It is also limited to words of size 0 to 127 (inclusive)
     '''
+    
     def __init__(self, directories, ending = None):
+        '''
+        Constructor
+        
+        @param  directories:list<str>  List of directories that contains the file names with the correct spelling
+        @param  ending:str             The file name ending of the correctly spelled file names, this is removed for the name
+        
+        -- OR -- (emulated overloading [overloading is absent in Python])
+        
+        @param  directories:list<str>  The file names with the correct spelling
+        '''
         self.weights = {'k' : {'c' : 0.25, 'g' : 0.75, 'q' : 0.125},
                         'c' : {'k' : 0.25, 'g' : 0.75, 's' : 0.5, 'z' : 0.5, 'q' : 0.125},
                         's' : {'z' : 0.25, 'c' : 0.5},
@@ -145,13 +146,13 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
         #    index -= 1;    
     
     
-    '''
-    Finds the closests correct spelled word
-    
-    @param   used:str                               The word to correct
-    @return  (words, distance):(list<string>, int)  A list the closest spellings and the weighted distance
-    '''
     def correct(self, used):
+        '''
+        Finds the closests correct spelled word
+        
+        @param   used:str                               The word to correct
+        @return  (words, distance):(list<string>, int)  A list the closest spellings and the weighted distance
+        '''
         if len(used) > 127:
             return ([used], 0)
         
@@ -159,12 +160,12 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
         return (self.corrections, self.closestDistance)
     
     
-    '''
-    Finds the closests correct spelled word
-    
-    @param  used:str  The word to correct, it must satisfy all restrictions
-    '''
     def __correct(self, used):
+        '''
+        Finds the closests correct spelled word
+        
+        @param  used:str  The word to correct, it must satisfy all restrictions
+        '''
         self.closestDistance = 0x7FFFFFFF
         previous = self.dictionary[-1]
         prevLen = 0
@@ -217,18 +218,18 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
                     prevLen = len(proper)
     
     
-    '''
-    Calculate the distance between a correct word and a incorrect word
-    
-    @param   proper:str  The correct word
-    @param   y0:int      The offset for `proper`
-    @param   yn:int      The length, before applying `y0`, of `proper`
-    @param   used:str    The incorrect word
-    @param   x0:int      The offset for `used`
-    @param   xn:int      The length, before applying `x0`, of `used`
-    @return  :float      The distance between the words
-    '''
     def __distance(self, proper, y0, yn, used, x0, xn):
+        '''
+        Calculate the distance between a correct word and a incorrect word
+        
+        @param   proper:str  The correct word
+        @param   y0:int      The offset for `proper`
+        @param   yn:int      The length, before applying `y0`, of `proper`
+        @param   used:str    The incorrect word
+        @param   x0:int      The offset for `used`
+        @param   xn:int      The length, before applying `x0`, of `used`
+        @return  :float      The distance between the words
+        '''
         my = self.M[y0]
         for y in range(y0, yn):
             best = 0x7FFFFFFF
