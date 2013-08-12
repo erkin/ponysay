@@ -161,7 +161,7 @@ class Backend():
     '''
     def __unpadMessage(self):
         lines = self.message.split('\n')
-        for spaces in (8, 4, 2, 1):
+        for spaces in (128, 64, 32, 16, 8, 4, 2, 1):
             padded = True
             for line in lines:
                 if not line.startswith(' ' * spaces):
@@ -170,8 +170,7 @@ class Backend():
             if padded:
                 for i in range(0, len(lines)):
                     line = lines[i]
-                    while line.startswith(' ' * spaces):
-                        line = line[spaces:]
+                    line = line[spaces:]
                     lines[i] = line
         lines = [line.rstrip(' ') for line in lines]
         self.message = '\n'.join(lines)
