@@ -806,7 +806,7 @@ class Ponysay():
     @return  :Balloon         Instance describing the balloon's style
     '''
     def __getballoon(self, balloonfile):
-        return Balloon.fromfile(balloonfile, self.isthink)
+        return Balloon.fromFile(balloonfile, self.isthink)
     
     
     

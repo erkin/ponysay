@@ -141,7 +141,7 @@ class Balloon():
     @return  :Balloon         Instance describing the balloon's style
     '''
     @staticmethod
-    def fromfile(balloonfile, isthink):
+    def fromFile(balloonfile, isthink):
         ## Use default balloon if none is specified
         if balloonfile is None:
             if isthink:
