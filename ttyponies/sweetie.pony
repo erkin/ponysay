@@ -6,6 +6,7 @@ BALLOON BOTTOM: 0
 COAT: white
 DISPLAY: full, right, turned
 EYE: green
+AURA: green
 FREE: no
 GROUP: filly, deuteragonist
 KIND: unicorn
@@ -17,6 +18,9 @@ SOURCE: (Miles000/Midnyte, The Coop, Cantorlot, StarTep) Desktop ponies
 WIDTH: 37
 HEIGHT: 23
 
+In S03E04 (2:00) Sweetie Belle says ‘I am just so excited I can burst’
+and make a green spark from here horn, impling that the colour of her
+magic aura is green, the same colour has her eyes.
 $$$
 $balloon20$[00m
               $\$                      [00m

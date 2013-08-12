@@ -8,7 +8,6 @@ EYE: purple (ponysay), blue (source)
 FREE: sharable
 GROUP: mare, consept
 KIND: pegasus
-LICENSE: CC0 (CC0 1.0 Universal)
 LICENSE: cc-by-nc-sa (Creative Commons Attribution-NonCommerical-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: blue
@@ -16,7 +15,7 @@ MEDIA: thefyrefly.tumblr.com
 NAME: Fyrefly (previous generation)
 POSE: flying
 SOURCE: (Bot-chan) imageboard, (months later) Desktop ponies OC
-WIDTH: 65
+WIDTH: 36
 HEIGHT: 37
 
 License summary:   https://creativecommons.org/licenses/by-nc-sa/3.0
