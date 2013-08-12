@@ -9,6 +9,7 @@ FREE: sharable
 GROUP: mare, mane
 KIND: earth
 LICENSE: cc-by-nc-sa (Creative Commons Attribution-NonCommerical-ShareAlike 3.0 Unported)
+LINK: regular
 MANE: yellow
 MEDIA: Comics
 NAME: Internet Explorer (r)
