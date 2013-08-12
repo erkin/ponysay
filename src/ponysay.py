@@ -134,7 +134,7 @@ class Ponysay():
         
         
         # Whether KMS is used
-        self.usekms = KMS.usingkms(self.linuxvt)
+        self.usekms = KMS.usingKMS(self.linuxvt)
         
         
         # Mode string that modifies or adds $ variables in the pony image
