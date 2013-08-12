@@ -826,7 +826,7 @@ class Ponysay():
         for (opt, ponies, quotes) in [('-f', standard, False), ('+f', extra, False), ('-F', both, False), ('-q', standard, True)]:
             if args.opts[opt] is not None:
                 for pony in args.opts[opt]:
-                    selection.append((opt, ponies, quotes))
+                    selection.append((pony, ponies, quotes))
         ## TODO +q -Q
         (pony, quote) = self.__getPony(selection, args)
         
