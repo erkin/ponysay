@@ -213,29 +213,12 @@ class Ponysay():
             args.help()
             exit(254)
             return
-        
-        def test(*keys):
-            '''
-            Test arguments written in negation-free disjunctive normal form
-            
-            @param   keys:*str|itr<str>  A list of keys and set of keys, any of which must exists, a set of keys only passes if all of those exists
-            @return  :bool               Whether the check passed
-            '''
-            for key in keys:
-                if isinstance(key, str):
-                    if args.opts[key] is not None:
-                        return True
-                else:
-                    for skey in key:
-                        if args.opts[skey] is None:
-                            return False
-                    return True
-            return False
+        self.args = args;
         
         ## Emulate termial capabilities
-        if   test('-X'):  (self.linuxvt, self.usekms) = (False, False)
-        elif test('-V'):  (self.linuxvt, self.usekms) = (True, False)
-        elif test('-K'):  (self.linuxvt, self.usekms) = (True, True)
+        if   self.__test_nfdnf('-X'):  (self.linuxvt, self.usekms) = (False, False)
+        elif self.__test_nfdnf('-V'):  (self.linuxvt, self.usekms) = (True, False)
+        elif self.__test_nfdnf('-K'):  (self.linuxvt, self.usekms) = (True, True)
         self.ponydirs      = self.vtponydirs      if self.linuxvt and not self.usekms else self.xponydirs
         self.extraponydirs = self.extravtponydirs if self.linuxvt and not self.usekms else self.extraxponydirs
         
@@ -249,54 +232,79 @@ class Ponysay():
                     else:                          args.opts[sl]  = args.opts[ssl]
         
         ## Save whether standard or extra ponies are used
-        self.usingstandard = test('-f', '-F', '-q') # -Q
-        self.usingextra    = test('+f', '-F') # +q -Q
+        self.usingstandard = self.__test_nfdnf('-f', '-F', '-q') # -Q
+        self.usingextra    = self.__test_nfdnf('+f', '-F') # +q -Q
         
         ## Run modes
-        if   test('-h'):                                     args.help()
-        elif test('-v'):                                     self.version()
-        elif test('--quoters'):                              self.quoters(True, False)
-        elif test('--Onelist', ('--onelist', '++onelist')):  self.onelist(True, True)
-        elif test('--onelist'):                              self.onelist(True, False)
-        elif test('++onelist'):                              self.onelist(False, True)
-        elif test('+A', ('-L', '+L')):                       self.linklist(); self.__extraponies(); self.linklist()
-        elif test('-A', ('-l', '+l')):                       self.list(); self.__extraponies(); self.list()
-        elif test('-L'):                                     self.linklist()
-        elif test('-l'):                                     self.list()
-        elif test('+L'):                                     self.__extraponies(); self.linklist()
-        elif test('+l'):                                     self.__extraponies(); self.list()
-        elif test('-B'):                                     self.balloonlist()
+        if   self.__test_nfdnf('-h'):                                     args.help()
+        elif self.__test_nfdnf('-v'):                                     self.version()
+        elif self.__test_nfdnf('--quoters'):                              self.quoters(True, False)
+        elif self.__test_nfdnf('--Onelist', ('--onelist', '++onelist')):  self.onelist(True, True)
+        elif self.__test_nfdnf('--onelist'):                              self.onelist(True, False)
+        elif self.__test_nfdnf('++onelist'):                              self.onelist(False, True)
+        elif self.__test_nfdnf('+A', ('-L', '+L')):                       self.linklist(); self.__extraponies(); self.linklist()
+        elif self.__test_nfdnf('-A', ('-l', '+l')):                       self.list(); self.__extraponies(); self.list()
+        elif self.__test_nfdnf('-L'):                                     self.linklist()
+        elif self.__test_nfdnf('-l'):                                     self.list()
+        elif self.__test_nfdnf('+L'):                                     self.__extraponies(); self.linklist()
+        elif self.__test_nfdnf('+l'):                                     self.__extraponies(); self.list()
+        elif self.__test_nfdnf('-B'):                                     self.balloonlist()
         else:
-            ## Colouring features
-            if test('--colour-pony'):
-                self.mode += '\033[' + ';'.join(args.opts['--colour-pony']) + 'm'
+            self.__run()
+    
+    
+    def __test_nfdnf(self, *keys):
+        '''
+        Test arguments written in negation-free disjunctive normal form
+        
+        @param   keys:*(str|itr<str>)  A list of keys and set of keys, any of which must exists, a set of keys only passes if all of those exists
+        @return  :bool                 Whether the check passed
+        '''
+        for key in keys:
+            if isinstance(key, str):
+                if self.args.opts[key] is not None:
+                    return True
             else:
-                self.mode += '\033[0m'
-            if test('+c'):
-                if args.opts['--colour-msg']    is None:  args.opts['--colour-msg']    = args.opts['+c']
-                if args.opts['--colour-link']   is None:  args.opts['--colour-link']   = args.opts['+c']
-                if args.opts['--colour-bubble'] is None:  args.opts['--colour-bubble'] = args.opts['+c']
-            
-            ## Other extra features
-            self.__bestpony(args)
-            self.__ucsremap(args)
-            if test('-o'):
-                self.mode += '$/= $$\\= $'
-                args.message = ''
-                self.ponyonly = True
-            else:
-                self.ponyonly = False
-            if test('-i', '+i'):
-                args.message = ''
-            self.restriction = args.opts['-r']
-            
-            ## The stuff
-            if not self.unrecognised:
-                self.printPony(args)
-            else:
-                args.help()
-                exit(255)
-                return
+                for skey in key:
+                    if self.args.opts[skey] is None:
+                        return False
+                return True
+        return False
+    
+    
+    def __run(self):
+        '''
+        Run the important part of the program, the pony
+        '''
+        ## Colouring features
+        if self.__test_nfdnf('--colour-pony'):
+            self.mode += '\033[' + ';'.join(args.opts['--colour-pony']) + 'm'
+        else:
+            self.mode += '\033[0m'
+        if self.__test_nfdnf('+c'):
+            for part in ('msg', 'link', 'bubble'):
+                if self.args.opts['--colour-' + part] is None:
+                    self.args.opts['--colour-' + part] = self.args.opts['+c']
+        
+        ## Other extra features
+        self.__bestpony(self.args)
+        self.__ucsremap(self.args)
+        if self.__test_nfdnf('-o'):
+            self.mode += '$/= $$\\= $'
+            self.args.message = ''
+            self.ponyonly = True
+        else:
+            self.ponyonly = False
+        if self.__test_nfdnf('-i', '+i'):
+            self.args.message = ''
+        self.restriction = self.args.opts['-r']
+        
+        ## The stuff
+        if not self.unrecognised:
+            self.printPony(self.args)
+        else:
+            self.args.help()
+            exit(255)
     
     
     
@@ -436,7 +444,7 @@ class Ponysay():
                     ponies[j] = map[ponies[j]]
     
     
-    def __getpony(self, selection, args, alt = False):
+    def __getPony(self, selection, args, alt = False):
         '''
         Returns one file with full path and ponyquote that should be used, names is filter for names, also accepts filepaths
         
@@ -523,7 +531,7 @@ class Ponysay():
             ponyname = pony[0].split(os.sep)[-1]
             if os.extsep in ponyname:
                 ponyname = ponyname[:ponyname.rfind(os.extsep)]
-            return (pony[0], self.__getquote(ponyname, pony[0]) if pony[2] else None)
+            return (pony[0], self.__getQuote(ponyname, pony[0]) if pony[2] else None)
         else:
             possibilities = [f.split(os.sep)[-1][:-5] for f in pony[1]]
             if pony[0] not in possibilities:
@@ -534,7 +542,7 @@ class Ponysay():
                     limit = 5 if len(limit) == 0 else int(limit)
                     if (len(alternatives) > 0) and (dist <= limit):
                         (_, files, quote) = pony
-                        return self.__getpony([(a, files, quote) for a in alternatives], True)
+                        return self.__getPony([(a, files, quote) for a in alternatives], True)
                 printerr('I have never heard of anypony named %s' % pony[0]);
                 if not self.usingstandard:
                     printerr('Use -f/-q or -F if it a MLP:FiM pony');
@@ -543,10 +551,10 @@ class Ponysay():
                 exit(252)
             else:
                 file = pony[1][possibilities.index(pony[0])]
-                return (file, self.__getquote(pony[0], file) if pony[2] else None)
+                return (file, self.__getQuote(pony[0], file) if pony[2] else None)
     
     
-    def __getquote(self, pony, file):
+    def __getQuote(self, pony, file):
         '''
         Select a quote for a pony
         
@@ -595,7 +603,7 @@ class Ponysay():
                     quoteshash.add(quote)
                     quotes.append(quote)
         
-        ## Create a set of all ponyes that have quotes
+        ## Create a set of all ponies that have quotes
         ponies = set()
         for ponydir in ponydirs:
             for pony in os.listdir(ponydir):
@@ -815,12 +823,12 @@ class Ponysay():
                 if endswith(pony, '.pony'):
                     extra.append(ponydir + pony)
         both = standard + extra
-        if args.opts['-f'] is not None:  for pony in args.opts['-f']:  selection.append((pony, standard, False))
-        if args.opts['+f'] is not None:  for pony in args.opts['+f']:  selection.append((pony, extra, False))
-        if args.opts['-F'] is not None:  for pony in args.opts['-F']:  selection.append((pony, both, False))
-        if args.opts['-q'] is not None:  for pony in args.opts['-q']:  selection.append((pony, standard, True))
+        for (opt, ponies, quotes) in [('-f', standard, False), ('+f', extra, False), ('-F', both, False), ('-q', standard, True)]:
+            if args.opts[opt] is not None:
+                for pony in args.opts[opt]:
+                    selection.append((opt, ponies, quotes))
         ## TODO +q -Q
-        (pony, quote) = self.__getpony(selection, args)
+        (pony, quote) = self.__getPony(selection, args)
         
         ## Get message and remove tailing whitespace from stdin (but not for each line)
         msg = None
