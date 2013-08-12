@@ -513,11 +513,11 @@ class Ponysay():
                 if os.path.exists(ponydir + 'widths'):
                     fitw = set()
                     with open(ponydir + 'widths', 'rb') as file:
-                        Metadata.getfitting(fitw, termw, file)
+                        Metadata.getFitting(fitw, termw, file)
                 if os.path.exists(ponydir + ('onlyheights' if self.ponyonly else 'heights')):
                     fith = set()
                     with open(ponydir + ('onlyheights' if self.ponyonly else 'heights'), 'rb') as file:
-                        Metadata.getfitting(fith, termh, file)
+                        Metadata.getFitting(fith, termh, file)
                 for ponyfile in oldponies.values():
                     if ponyfile.startswith(ponydir):
                         pony = ponyfile[len(ponydir) : -5]

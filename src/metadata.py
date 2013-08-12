@@ -133,7 +133,7 @@ class Metadata():
     
     
     @staticmethod
-    def getfitting(fitting, requirement, file):
+    def getFitting(fitting, requirement, file):
         '''
         Get ponies that fit the terminal
         
