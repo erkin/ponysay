@@ -976,8 +976,8 @@ class Ponysay():
         
         ## Print the output, truncated on height is so set
         lines = gettermsize()[0] - int(env_lines)
-        if self.linuxvt or (env_height is ('yes', 'y', '1')):
-            if env_bottom is ('yes', 'y', '1'):
+        if self.linuxvt or (env_height in ('yes', 'y', '1')):
+            if env_bottom in ('yes', 'y', '1'):
                 for line in output.split('\n')[: -lines]:
                     print(line)
             else:
