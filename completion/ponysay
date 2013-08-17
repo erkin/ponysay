@@ -1,4 +1,4 @@
-(ponysay
+((value command)
 	(default (arg MESSAGE) (files -0) (suggest message) (desc 'Message spoken by the pony'))
 	
 	(multiple unargumented

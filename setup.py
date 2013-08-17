@@ -468,38 +468,13 @@ class Setup():
             ext = conf['pdf-compression']
             if ext is not None:
                 compress('ponysay.pdf', 'ponysay.pdf.' + ext, ext)
-
-        for command in commands:
-            source = 'completion/ponysay'
-            sourceed = 'completion/ponysay.%s' % (command)
-            try:
-                fileout = open(sourceed, 'wb+')
-                filein = open(source, 'rb')
-                data = filein.read().decode('utf-8', 'replace')
-
-                if data.startswith('(ponysay\n'):
-                    data = ('(%s ' % command) + data[len('(ponysay\n'):]
-                elif data.startswith('(ponysay '):
-                    data = ('(%s ' % command) + data[len('(ponysay '):]
-                elif '\n(ponysay\n' in data:
-                    edpos = data.find('\n(ponysay\n')
-                    data = data[:edpos] + ('\n(%s\n' % command) + data[edpas + len('\n(ponysay\n'):]
-                elif '\n(ponysay ' in data:
-                    data = data[:edpos] + ('\n(%s ' % command) + data[edpas + len('\n(ponysay '):]
-                else:
-                    raise Exception('File %s does not look like expected' % source)
-
-                fileout.write(data.encode('utf-8'))
-            finally:
-                if fileout is not None:  fileout.close()
-                if filein  is not None:  filein .close()
-
+        
         for shell in [item[0] for item in shells]:
             if conf[shell] is not None:
                 for command in commands:
-                    sourceed = 'completion/ponysay.%s' % (command)
+                    source = 'completion/%s' % command
                     generated = 'completion/%s-completion.%s' % (shell, command)
-                    generatorcmd = './completion/auto-auto-complete.py %s --output %s --source %s' % (shell, generated, sourceed)
+                    generatorcmd = 'auto-auto-complete %s --output %s --source %s command=%s' % (shell, generated, source, command)
                     Popen(generatorcmd.split(' ')).communicate()
                     if conf[command] is not None:
                         dest = generated + '.install'

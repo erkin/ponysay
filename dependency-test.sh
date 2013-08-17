@@ -13,23 +13,25 @@ ro=0 # runtime optional
 pv=0 # python version
 
 
-(hash chmod        2>/dev/null) || (br=1 ; ro=1 ; echo 'Missing chmod, install coreutils [build+runtime required]')
+(hash chmod              2>/dev/null) || (br=1 ; ro=1 ; echo 'Missing chmod, install coreutils [build required + runtime optional]')
 
-(hash gzip         2>/dev/null) || (bo=1 ;        echo 'Missing gzip, install gzip [build optional]')
-(hash makeinfo     2>/dev/null) || (bo=1 ;        echo 'Missing makeinfo, install texinfo [build optional]')
-(hash install-info 2>/dev/null) || (bo=1 ;        echo 'Missing install-info, install info [build optional]')
+(hash gzip               2>/dev/null) || (bo=1 ;        echo 'Missing gzip, install gzip [build optional]')
+(hash makeinfo           2>/dev/null) || (bo=1 ;        echo 'Missing makeinfo, install texinfo [build optional]')
+(hash install-info       2>/dev/null) || (bo=1 ;        echo 'Missing install-info, install info [build optional]')
 
-(hash python       2>/dev/null) || (br=1 ; rr=1 ; echo 'Missing python, install python>=3 [build+runtime required]')
+(hash auto-auto-complete 2>/dev/null) || (bo=1 ;        echo 'Missing auto-auto-complete, install auto-auto-complete>=3 [build optional]')
+
+(hash python             2>/dev/null) || (br=1 ; rr=1 ; echo 'Missing python, install python>=3 [build+runtime required]')
 
 (hash cut 2>/dev/null) && (hash python 2>/dev/null) &&
     (test ! $(env python --version 2>&1 | cut -d ' ' -f 2 | cut -d '.' -f 1) = 3) && (
         (hash python3 2>/dev/null) ||
             (br=1 ; rr=1 ; pv=1 ;                 echo 'Missing python>=3, install python (may be named python3) [build+runtime required]'))
 
-(hash stty         2>/dev/null) || (rr=1 ;        echo 'Missing stty, install coreutils [runtime required]')
+(hash stty               2>/dev/null) || (rr=1 ;        echo 'Missing stty, install coreutils [runtime required]')
 
-(hash ponytool     2>/dev/null) || (ro=1 ;        echo 'Missing ponytool, install util-say [runtime optional]')
-(hash chmod        2>/dev/null) || (rr=1 ;        echo 'Missing chmod, install coreutils [runtime optional]')
+(hash ponytool           2>/dev/null) || (ro=1 ;        echo 'Missing ponytool, install util-say [runtime optional]')
+(hash chmod              2>/dev/null) || (rr=1 ;        echo 'Missing chmod, install coreutils [runtime optional]')
 
 ( (test $br = 1) || (test $rr = 1) || (test $ro = 1) || (test $pv = 1) ) && echo
 

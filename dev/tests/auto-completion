@@ -10,13 +10,13 @@ echo $'\e[1m-- Testing that the shell auto-completion script compiles --\e[0m'
 ## If this automated bisection stops at a commit with a syntax error or other error that cases the test to fail for another reason,
 ## you will need to manually run bisect, and use `git reset --hard HEAD~1` (or similar) to skip that commit, see `git bisect --help`
 
-if ! ./completion/auto-auto-complete.py bash --source ./completion/ponysay --output /dev/null; then
+if ! auto-auto-complete bash --source ./completion/ponysay --output /dev/null; then
     git bisect start
     git bisect bad
     git bisect good e8aa39a810e43866a8cc978a038545949711f999
     lastlog=""
     while true; do
-	if ! ./completion/auto-auto-complete.py bash --source ./completion/ponysay --output /dev/null; then
+	if ! auto-auto-complete bash --source ./completion/ponysay --output /dev/null; then
 	    git bisect good
 	else
 	    git bisect bad

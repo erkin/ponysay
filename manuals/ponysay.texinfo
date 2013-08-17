@@ -1779,6 +1779,9 @@ Used to compile this @command{info} manual. (Optional, standard)
 @item info@footnote{Normally a part of @command{texinfo}.}
 Used to install this @command{info} manual with @command{install-info}.
 (Optional, standard)
+@item auto-auto-complete
+@pindex @command{auto-auto-complete}
+Used to generate shell tab-completion scripts. (Optional, standard)
 @end table
 
 
@@ -3292,6 +3295,8 @@ Swedish manual page added.
 @option{+h} (@option{++help}, @option{--help-colour}) added.
 @item
 Added manpage for @command{ponysay-tool}.
+@item
+@command{auto-auto-complete>=3} added as optional build dependency.
 @end itemize
 
 @heading Version 3.0.1

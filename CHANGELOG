@@ -36,6 +36,8 @@ Version 3.0.2
 
 	+h (++help, --help-colour) added.
 
+	auto-auto-complete>=3 added as optional build dependency.
+
 
 Version 3.0.1
 
