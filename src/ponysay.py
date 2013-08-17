@@ -473,39 +473,11 @@ class Ponysay():
             oldponies = {}
             self.__getAllPonies(standard, extra, oldponies, quoters):
             
-            ## Apply metadata restriction
-            if self.restriction is not None:
-                logic = Metadata.makeRestrictionLogic(self.restriction)
-                ponies = {}
-                for ponydir in ponydirs:
-                    for pony in Metadata.restrictedPonies(ponydir, logic):
-                        if (pony in oldponies) and not (pony in ponies):
-                            ponies[pony] = ponydir + pony + '.pony'
-                if len(ponies) > 0:
-                    oldponies = ponies
-            
-            ## Apply dimension restriction
-            ponies = {}
-            (termh, termw) = gettermsize()
-            for ponydir in ponydirs:
-                (fitw, fith) = (None, None)
-                if os.path.exists(ponydir + 'widths'):
-                    fitw = set()
-                    with open(ponydir + 'widths', 'rb') as file:
-                        Metadata.getFitting(fitw, termw, file)
-                if os.path.exists(ponydir + ('onlyheights' if self.ponyonly else 'heights')):
-                    fith = set()
-                    with open(ponydir + ('onlyheights' if self.ponyonly else 'heights'), 'rb') as file:
-                        Metadata.getFitting(fith, termh, file)
-                for ponyfile in oldponies.values():
-                    if ponyfile.startswith(ponydir):
-                        pony = ponyfile[len(ponydir) : -5]
-                        if (fitw is None) or (pony in fitw):
-                            if (fith is None) or (pony in fith):
-                                ponies[pony] = ponyfile
+            ## Apply restriction
+            ponies = self.__applyRestriction(oldponies, ponydirs)
             
             ## Select one pony and set all information
-            names = list((oldponies if len(ponies) == 0 else ponies).keys())
+            names = list(ponies.keys())
             if len(names) == 0:
                 printerr('All the ponies are missing, call the Princess!')
                 exit(249)
@@ -547,7 +519,7 @@ class Ponysay():
         
         @param  standard:bool              Whether to include standard ponies
         @parma  extra:bool                 Whether to include extra ponies
-        @param  collection:dict<str, str>  Collection of already found ponies, and collection for new ponies
+        @param  collection:dict<str, str>  Collection of already found ponies, and collection for new ponies, maps to the pony file
         @param  quoters:set<str>?          Ponies to limit to, or `None` to include all ponies
         '''
         if standard:
@@ -561,7 +533,7 @@ class Ponysay():
         Get ponies for a set of directories
         
         @param  directories:list<str>      Directories with ponies
-        @param  collection:dict<str, str>  Collection of already found ponies, and collection for new ponies
+        @param  collection:dict<str, str>  Collection of already found ponies, and collection for new ponies, maps to the pony file
         @param  quoters:set<str>?          Ponies to limit to, or `None` to include all ponies
         '''
         for ponydir in directories:
@@ -570,6 +542,72 @@ class Ponysay():
                     pony = ponyfile[:-5]
                     if (pony not in collection) and ((quoters is None) or (pony in quoters)):
                         collection[pony] = ponydir + ponyfile
+    
+    
+    def __applyRestriction(self, oldponies, ponydirs):
+        '''
+        Restrict ponies
+        
+        @param   oldponies:dict<str, str>  Collection of original ponies, maps to pony file
+        @param   ponydirs:list<sr>         List of pony directories
+        @return  :dict<str, str>           Map from restricted ponies to pony files
+        '''
+        ## Apply metadata restriction
+        if self.restriction is not None:
+            ponies = {}
+            self.__applyMetadataRestriction(ponies, oldponies, ponydirs)
+            if len(ponies) > 0:
+                oldponies = ponies
+            
+        ## Apply dimension restriction
+        ponies = {}
+        self.__applyDimensionRestriction(ponies, oldponies, ponydirs)
+        if len(ponies) > 0:
+            oldponies = ponies
+        
+        return oldponies
+    
+    
+    def __applyMetadataRestriction(self, ponies, oldponies, ponydirs):
+        '''
+        Restrict to ponies by metadata
+        
+        @param  ponies:dict<str, str>     Collection to fill with restricted ponies, mapped to pony file
+        @param  oldponies:dict<str, str>  Collection of original ponies, maps to pony file
+        @param  ponydirs:list<sr>         List of pony directories
+        '''
+        logic = Metadata.makeRestrictionLogic(self.restriction)
+        for ponydir in ponydirs:
+            for pony in Metadata.restrictedPonies(ponydir, logic):
+                if (pony in oldponies) and not (pony in ponies):
+                    ponies[pony] = ponydir + pony + '.pony'
+    
+    
+    def __applyDimensionRestriction(self, ponies, oldponies, ponydirs):
+        '''
+        Restrict to ponies by dimension
+        
+        @param  ponies:dict<str, str>     Collection to fill with restricted ponies, mapped to pony file
+        @param  oldponies:dict<str, str>  Collection of original ponies, maps to pony file
+        @param  ponydirs:list<sr>         List of pony directories
+        '''
+        (termh, termw) = gettermsize()
+        for ponydir in ponydirs:
+            (fitw, fith) = (None, None)
+            if os.path.exists(ponydir + 'widths'):
+                fitw = set()
+                with open(ponydir + 'widths', 'rb') as file:
+                    Metadata.getFitting(fitw, termw, file)
+            if os.path.exists(ponydir + ('onlyheights' if self.ponyonly else 'heights')):
+                fith = set()
+                with open(ponydir + ('onlyheights' if self.ponyonly else 'heights'), 'rb') as file:
+                    Metadata.getFitting(fith, termh, file)
+            for ponyfile in oldponies.values():
+                if ponyfile.startswith(ponydir):
+                    pony = ponyfile[len(ponydir) : -5]
+                    if (fitw is None) or (pony in fitw):
+                        if (fith is None) or (pony in fith):
+                            ponies[pony] = ponyfile
     
     
     def __getQuote(self, pony, file):
