@@ -20,7 +20,7 @@
 	
 	(argumented (options --metadata)    (complete --metadata)   (arg PONYDIR)                  (files -d)        (desc 'Generate pony metadata collection file for a directory'))
 	
-	(argumented (options -b --browse)   (complete --browse)     (arg PONYDIR)                  (files -d)        (desc 'Browse ponies in a directory')
+	(argumented (options -b --browse)   (complete --browse)     (arg PONYDIR)                  (files -d)        (desc 'Browse ponies in a directory'))
 
 	(argumented (options -r --restrict) (complete --restrict)   (arg RESTRICTION) (suggest -r) (files -0)        (desc 'Metadata based restriction for --browse'))
 	
