@@ -872,6 +872,23 @@ class Ponysay():
         print('%s %s' % ('ponysay', VERSION))
     
     
+    def __useImage(self, pony):
+        '''
+        Convert image to the ponysay format if it is a regular image
+        
+        @param  pony:str  The pony file
+        @param  pony:str  The new pony file, or the old if it was already in the ponysay format
+        '''
+        if endswith(pony.lower(), '.png'):
+            pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
+            pngcmd = 'ponytool --import image --file %s --balloon n --export ponysay --platform %s --balloon y'
+            pngcmd %= (pony, ('linux' if self.linuxvt else 'xterm')) # XXX xterm should be haiku in Haiku
+            pngpipe = os.pipe()
+            Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
+            pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
+        return pony
+    
+    
     def printPony(self, args):
         '''
         Print the pony with a speech or though bubble. message, pony and wrap from args are used.
@@ -932,13 +949,7 @@ class Ponysay():
         printinfo('pony file: ' + pony)
         
         ## Use PNG file as pony file
-        if endswith(pony.lower(), '.png'):
-            pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
-            pngcmd = 'ponytool --import image --file %s --balloon n --export ponysay --platform %s --balloon y'
-            pngcmd %= (pony, ('linux' if self.linuxvt else 'xterm')) # XXX xterm should be haiku in Haiku
-            pngpipe = os.pipe()
-            Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
-            pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
+        pony = self.__useImage(pony)
         
         ## If KMS is utilies, select a KMS pony file and create it if necessary
         pony = KMS.kms(pony, self.HOME, self.linuxvt)
