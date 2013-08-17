@@ -73,5 +73,6 @@ def render_pony(name, text, balloonstyle, width=80, center=False, centertext=Fal
 		ponywidth = max([ len(re.sub(r'\x1B\[[0-9;]+m|\$.*\$', '', line)) for line in pony ])
 		indent = ' '*int((width-ponywidth)/2)
 	wre = re.compile('((\x1B\[[0-9;]+m)*.){0,%s}' % width)
-	return ''.join([ indent+wre.search(line).group()+'[49m\n' for line in pony ])
+	reset = '[39;49m\n'
+	return indent+(reset+indent).join([ wre.search(line).group() for line in pony ])+reset
 
