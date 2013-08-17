@@ -954,27 +954,8 @@ class Ponysay():
             output = output[:-1]
         
         
-        ## Load height trunction settings
-        env_bottom = os.environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
-        if env_bottom is None:  env_bottom = ''
-        
-        env_height = os.environ['PONYSAY_TRUNCATE_HEIGHT'] if 'PONYSAY_TRUNCATE_HEIGHT' in os.environ else None
-        if env_height is None:  env_height = ''
-        
-        env_lines = os.environ['PONYSAY_SHELL_LINES'] if 'PONYSAY_SHELL_LINES' in os.environ else None
-        if (env_lines is None) or (env_lines == ''):  env_lines = '2'
-        
-        ## Print the output, truncated on height is so set
-        lines = gettermsize()[0] - int(env_lines)
-        if self.linuxvt or (env_height in ('yes', 'y', '1')):
-            if env_bottom in ('yes', 'y', '1'):
-                for line in output.split('\n')[: -lines]:
-                    print(line)
-            else:
-                for line in output.split('\n')[: lines]:
-                    print(line)
-        else:
-            print(output)
+        ## Print the output, truncated on the height
+        self.__printOutput(output)
     
     
     def __getMessage(self, args, quote):
@@ -1080,4 +1061,33 @@ class Ponysay():
             else:
                 messagewrap = int(args.opts['-W'][0])
         return messagewrap
+    
+    
+    def __printOutput(self, output):
+        '''
+        Print the output, but truncate it on the height
+        
+        @param  output:str  The output truncated on the width but not on the height
+        '''
+        ## Load height trunction settings
+        env_bottom = os.environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
+        if env_bottom is None:  env_bottom = ''
+        
+        env_height = os.environ['PONYSAY_TRUNCATE_HEIGHT'] if 'PONYSAY_TRUNCATE_HEIGHT' in os.environ else None
+        if env_height is None:  env_height = ''
+        
+        env_lines = os.environ['PONYSAY_SHELL_LINES'] if 'PONYSAY_SHELL_LINES' in os.environ else None
+        if (env_lines is None) or (env_lines == ''):  env_lines = '2'
+        
+        ## Print the output, truncated on height if so set
+        lines = gettermsize()[0] - int(env_lines)
+        if self.linuxvt or (env_height in ('yes', 'y', '1')):
+            if env_bottom in ('yes', 'y', '1'):
+                for line in output.split('\n')[: -lines]:
+                    print(line)
+            else:
+                for line in output.split('\n')[: lines]:
+                    print(line)
+        else:
+            print(output)
 
