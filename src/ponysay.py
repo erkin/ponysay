@@ -458,7 +458,7 @@ class Ponysay():
         '''
         ## If there is no selected ponies, choose all of them
         if (selection is None) or (len(selection) == 0):
-            selection = [self.___selectAnypony(args)]
+            selection = [self.__selectAnypony(args)]
         
         ## Select a random pony of the choosen ones
         pony = selection[random.randrange(0, len(selection))]
@@ -509,7 +509,7 @@ class Ponysay():
         
         ## Get all ponies, with quotes
         oldponies = {}
-        self.__getAllPonies(standard, extra, oldponies, quoters):
+        self.__getAllPonies(standard, extra, oldponies, quoters)
         
         ## Apply restriction
         ponies = self.__applyRestriction(oldponies, ponydirs)
