@@ -896,20 +896,10 @@ class Ponysay():
         ## TODO +q -Q
         (pony, quote) = self.__getPony(selection, args)
         
-        ## Get message and remove tailing whitespace from stdin (but not for each line)
-        msg = None
-        if quote is not None:
-            msg = quote
-        elif args.message is None:
-            msg = ''.join(sys.stdin.readlines()).rstrip()
-        else:
-            msg = args.message
-        if args.opts['--colour-msg'] is not None:
-            msg = '\033[' + ';'.join(args.opts['--colour-msg']) + 'm' + msg
-        
-        ## This algorithm should give some result as cowsay's (according to tests)
-        if args.opts['-c'] is not None:
-            msg = self.__compressMessage(msg)
+        ## Get message and manipulate it
+        msg = self.__getMessage(args, quote)
+        msg = self.__colouriseMessage(args, msg)
+        msg = self.__compressMessage(args, msg)
         
         ## Print info
         printinfo('pony file: ' + pony)
@@ -997,13 +987,44 @@ class Ponysay():
             print(output)
     
     
-    def __compressMessage(self, msg):
+    def __getMessage(self, args, quote):
         '''
-        This algorithm should give some result as cowsay's
+        Get message and remove tailing whitespace from stdin (but not for each line)
         
-        @param   msg:str  The message
-        @return  :str     The message compressed
+        @param   args:ArgParser  Command line options
+        @param   quote:str?      The quote, or `None` if none
+        @return  :str            The message
         '''
+        if quote is not None:
+            return quote
+        if args.message is None:
+            return ''.join(sys.stdin.readlines()).rstrip()
+        return args.message
+    
+    
+    def __colouriseMessage(self, args, msg):
+        '''
+        Colourise message if option is set
+        
+        @param   args:ArgParser  Command line options
+        @param   msg:str         The message
+        @return  :str            The message colourised
+        '''
+        if args.opts['--colour-msg'] is not None:
+            msg = '\033[' + ';'.join(args.opts['--colour-msg']) + 'm' + msg
+        return msg
+    
+    
+    def __compressMessage(self, args, msg):
+        '''
+        This algorithm should give some result as cowsay's, if option is set
+        
+        @param   args:ArgParser  Command line options
+        @param   msg:str         The message
+        @return  :str            The message compressed
+        '''
+        if args.opts['-c'] is None:
+            return msg
         buf = ''
         last = ' '
         CHARS = '\t \n'
