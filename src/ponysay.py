@@ -1054,6 +1054,12 @@ class Ponysay():
     
     
     def __getHyphen(self, args):
+        '''
+        Gets the hyphen to use a at hyphenation
+        
+        @param   args:ArgParser  Command line options
+        @return  :str            The hyphen string to use at hyphenation
+        '''
         hyphen = os.environ['PONYSAY_WRAP_HYPHEN'] if 'PONYSAY_WRAP_HYPHEN' in os.environ else None
         if (hyphen is None) or (len(hyphen) == 0):
             hyphen = '-'
@@ -1064,6 +1070,12 @@ class Ponysay():
     
     
     def __getLinkColour(self, args):
+        '''
+        Gets the colour of balloon links
+        
+        @param   args:ArgParser  Command line options
+        @return  :str            The colour of balloon links
+        '''
         linkcolour = ''
         if args.opts['--colour-link'] is not None:
             linkcolour = '\033[' + ';'.join(args.opts['--colour-link']) + 'm'
@@ -1071,6 +1083,12 @@ class Ponysay():
     
     
     def __getBalloonColour(self, args):
+        '''
+        Gets the colour of balloons
+        
+        @param   args:ArgParser  Command line options
+        @return  :str            The colour of balloons
+        '''
         ballooncolour = ''
         if args.opts['--colour-bubble'] is not None:
             ballooncolour = '\033[' + ';'.join(args.opts['--colour-bubble']) + 'm'
