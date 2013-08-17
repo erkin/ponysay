@@ -448,41 +448,17 @@ class Ponysay():
         '''
         Returns one file with full path and ponyquote that should be used, names is filter for names, also accepts filepaths
         
-        @param   selection:(name:str, dirs:itr<str>, quote:bool)?  Parsed command line arguments as name–directories–quoting tubles:
-                                                                       name:      The pony name
-                                                                       dirfiles:  Files, with the directory, in the pony directories
-                                                                       quote:     Whether to use ponyquotes
-        @param   args:ArgParser                                    Parsed command line arguments
-        @param   alt:bool                                          For method internal use...
-        @return  (path, quote):(str, str?)                         The file name of a pony, and the ponyquote that should be used if any
+        @param   selection:(name:str, dirfiles:itr<str>, quote:bool)?  Parsed command line arguments as name–directories–quoting tubles:
+                                                                           name:      The pony name
+                                                                           dirfiles:  Files, with the directory, in the pony directories
+                                                                           quote:     Whether to use ponyquotes
+        @param   args:ArgParser                                        Parsed command line arguments
+        @param   alt:bool                                              For method internal use...
+        @return  (path, quote):(str, str?)                             The file name of a pony, and the ponyquote that should be used if any
         '''
         ## If there is no selected ponies, choose all of them
         if (selection is None) or (len(selection) == 0):
-            quote    =  args.opts['-q'] is not None ## TODO +q -Q
-            standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) ## TODO -Q
-            extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) ## TODO +q -Q
-            if not (standard or extra):
-                standard = True
-            ponydirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else []);
-            quoters  = self.__quoters() if standard and quote else None ## TODO +q -Q
-            if (quoters is not None) and (len(quoters) == 0):
-                printerr('Princess Celestia! All the ponies are mute!')
-                exit(250)
-            
-            ## Get all ponies, with quotes
-            oldponies = {}
-            self.__getAllPonies(standard, extra, oldponies, quoters):
-            
-            ## Apply restriction
-            ponies = self.__applyRestriction(oldponies, ponydirs)
-            
-            ## Select one pony and set all information
-            names = list(ponies.keys())
-            if len(names) == 0:
-                printerr('All the ponies are missing, call the Princess!')
-                exit(249)
-            pony = names[random.randrange(0, len(names))]
-            selection = [(pony, [ponies[pony]], quote)]
+            selection = [self.___selectAnypony(args)]
         
         ## Select a random pony of the choosen ones
         pony = selection[random.randrange(0, len(selection))]
@@ -511,6 +487,40 @@ class Ponysay():
             else:
                 file = pony[1][possibilities.index(pony[0])]
                 return (file, self.__getQuote(pony[0], file) if pony[2] else None)
+    
+    
+    def __selectAnypony(self, args):
+        '''
+        Randomly select a pony from all installed ponies
+        
+        @param   args:ArgParser                                 Parsed command line arguments
+        @return  (name, dirfile, quote):(str, list<str>, bool)  The pony name, pony file with the directory, and whether to use ponyquotes
+        '''
+        quote    =  args.opts['-q'] is not None ## TODO +q -Q
+        standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) ## TODO -Q
+        extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) ## TODO +q -Q
+        if not (standard or extra):
+            standard = True
+        ponydirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else []);
+        quoters  = self.__quoters() if standard and quote else None ## TODO +q -Q
+        if (quoters is not None) and (len(quoters) == 0):
+            printerr('Princess Celestia! All the ponies are mute!')
+            exit(250)
+        
+        ## Get all ponies, with quotes
+        oldponies = {}
+        self.__getAllPonies(standard, extra, oldponies, quoters):
+        
+        ## Apply restriction
+        ponies = self.__applyRestriction(oldponies, ponydirs)
+        
+        ## Select one pony and set all information
+        names = list(ponies.keys())
+        if len(names) == 0:
+            printerr('All the ponies are missing, call the Princess!')
+            exit(249)
+        pony = names[random.randrange(0, len(names))]
+        return (pony, [ponies[pony]], quote)
     
     
     def __getAllPonies(self, standard, extra, collection, quoters):
