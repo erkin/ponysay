@@ -879,21 +879,8 @@ class Ponysay():
         @param  args:ArgParser  Parsed command line arguments
         '''
         ## Get the pony
-        (selection, standard, extra) = ([], [], [])
-        for ponydir in self.ponydirs:
-            for pony in os.listdir(ponydir):
-                if endswith(pony, '.pony'):
-                    standard.append(ponydir + pony)
-        for ponydir in self.extraponydirs:
-            for pony in os.listdir(ponydir):
-                if endswith(pony, '.pony'):
-                    extra.append(ponydir + pony)
-        both = standard + extra
-        for (opt, ponies, quotes) in [('-f', standard, False), ('+f', extra, False), ('-F', both, False), ('-q', standard, True)]:
-            if args.opts[opt] is not None:
-                for pony in args.opts[opt]:
-                    selection.append((pony, ponies, quotes))
-        ## TODO +q -Q
+        selection = []
+        self.__getSelectedPonies(args, selection)
         (pony, quote) = self.__getPony(selection, args)
         
         ## Get message and manipulate it
@@ -943,9 +930,31 @@ class Ponysay():
         if output.endswith('\n'):
             output = output[:-1]
         
-        
         ## Print the output, truncated on the height
         self.__printOutput(output)
+    
+    
+    def __getSelectedPonies(self, args, selection):
+        '''
+        Get all selected ponies
+        
+        @param  args:ArgParser                                     Command line options
+        @param  selection:list<(name:str, file:str, quotes:bool)>  List to fill with tuples of selected pony names, pony files and whether quotes are used
+        '''
+        (standard, extra) = ([], [])
+        for ponydir in self.ponydirs:
+            for pony in os.listdir(ponydir):
+                if endswith(pony, '.pony'):
+                    standard.append(ponydir + pony)
+        for ponydir in self.extraponydirs:
+            for pony in os.listdir(ponydir):
+                if endswith(pony, '.pony'):
+                    extra.append(ponydir + pony)
+        both = standard + extra
+        for (opt, ponies, quotes) in [('-f', standard, False), ('+f', extra, False), ('-F', both, False), ('-q', standard, True)]: ## TODO +q -Q
+            if args.opts[opt] is not None:
+                for pony in args.opts[opt]:
+                    selection.append((pony, ponies, quotes))
     
     
     def __getMessage(self, args, quote):
