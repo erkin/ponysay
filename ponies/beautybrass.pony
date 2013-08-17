@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E26 The Best Night Ever
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: blue
 DISPLAY: full, left
 EYE: closed, purple
@@ -12,11 +12,12 @@ KIND: earth
 LINK: mirrored
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: Beauty Brass (unofficial)
+OTHER NAMES: Beauty Brass (official, on Gameloft game)
 POSE: play
 SOURCE: (asluc96) Desktop ponies
 WIDTH: 39
 HEIGHT: 32
+
 
 $$$
 $balloon23$[00m

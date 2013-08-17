@@ -39,44 +39,45 @@ from ponysay import *
 from metadata import *
 
 
+VERSION = 'dev'  # this line should not be edited, it is fixed by the build system
 '''
 The version of ponysay
 '''
-VERSION = 'dev'  # this line should not be edited, it is fixed by the build system
 
 
 
-'''
-Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in
-programs by default, report them to Princess Celestia so she can banish them to the moon)
-
-@param  text:str  The text to print (empty string is default)
-@param  end:str   The appendix to the text to print (line breaking is default)
-'''
 def print(text = '', end = '\n'):
+    '''
+    Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in
+    programs by default, report them to Princess Celestia so she can banish them to the moon)
+    
+    @param  text:str  The text to print (empty string is default)
+    @param  end:str   The appendix to the text to print (line breaking is default)
+    '''
     sys.stdout.buffer.write((str(text) + end).encode('utf-8'))
 
-'''
-stderr equivalent to print()
-
-@param  text:str  The text to print (empty string is default)
-@param  end:str   The appendix to the text to print (line breaking is default)
-'''
 def printerr(text = '', end = '\n'):
+    '''
+    stderr equivalent to print()
+    
+    @param  text:str  The text to print (empty string is default)
+    @param  end:str   The appendix to the text to print (line breaking is default)
+    '''
     sys.stderr.buffer.write((str(text) + end).encode('utf-8'))
 
 
 
-'''
-This is the mane class of ponysay-tool
-'''
 class PonysayTool():
     '''
-    Starts the part of the program the arguments indicate
-    
-    @param  args:ArgParser  Parsed command line arguments
+    This is the mane class of ponysay-tool
     '''
+    
     def __init__(self, args):
+        '''
+        Starts the part of the program the arguments indicate
+        
+        @param  args:ArgParser  Parsed command line arguments
+        '''
         if args.argcount == 0:
             args.help()
             exit(255)
@@ -84,8 +85,8 @@ class PonysayTool():
         
         opts = args.opts
         
-        if unrecognised or (opts['-h'] is not None):
-            args.help()
+        if unrecognised or (opts['-h'] is not None) or (opts['+h'] is not None):
+            args.help(True if opts['+h'] is not None else None)
             if unrecognised:
                 exit(254)
         
@@ -194,13 +195,13 @@ class PonysayTool():
             exit(253)
     
     
-    '''
-    Execute ponysay!
-    
-    @param  args     Arguments
-    @param  message  Message
-    '''
     def execPonysay(self, args, message = ''):
+        '''
+        Execute ponysay!
+        
+        @param  args     Arguments
+        @param  message  Message
+        '''
         class PhonyArgParser():
             def __init__(self, args, message):
                 self.argcount = len(args) + (0 if message is None else 1)
@@ -239,13 +240,13 @@ class PonysayTool():
         return out
     
     
-    '''
-    Browse ponies
-    
-    @param  ponydir:str            The pony directory to browse
-    @param  restriction:list<str>  Restrictions on listed ponies, may be None
-    '''
     def browse(self, ponydir, restriction):
+        '''
+        Browse ponies
+        
+        @param  ponydir:str            The pony directory to browse
+        @param  restriction:list<str>  Restrictions on listed ponies, may be None
+        '''
         ## Call `stty` to determine the size of the terminal, this way is better than using python's ncurses
         termsize = None
         for channel in (sys.stdout, sys.stdin, sys.stderr):
@@ -431,10 +432,10 @@ class PonysayTool():
                 (x, y) = (0, 0)
     
     
-    '''
-    Generate all kmsponies for the current TTY palette
-    '''
     def generateKMS(self):
+        '''
+        Generate all kmsponies for the current TTY palette
+        '''
         class PhonyArgParser():
             def __init__(self, key, value):
                 self.argcount = 3
@@ -495,13 +496,13 @@ class PonysayTool():
         sys.stdout = stdout
     
     
-    '''
-    Generate pony dimension file for a directory
-    
-    @param  ponydir:str        The directory
-    @param  ponies:itr<str>?   Ponies to which to limit
-    '''
     def generateDimensions(self, ponydir, ponies = None):
+        '''
+        Generate pony dimension file for a directory
+        
+        @param  ponydir:str        The directory
+        @param  ponies:itr<str>?   Ponies to which to limit
+        '''
         dimensions = []
         ponyset = None if (ponies is None) or (len(ponies) == 0) else set(ponies)
         for ponyfile in os.listdir(ponydir):
@@ -581,13 +582,13 @@ class PonysayTool():
                 file.flush()
     
     
-    '''
-    Generate pony metadata collection file for a directory
-    
-    @param  ponydir:str       The directory
-    @param  ponies:itr<str>?  Ponies to which to limit
-    '''
     def generateMetadata(self, ponydir, ponies = None):
+        '''
+        Generate pony metadata collection file for a directory
+        
+        @param  ponydir:str       The directory
+        @param  ponies:itr<str>?  Ponies to which to limit
+        '''
         if not ponydir.endswith('/'):
             ponydir += '/'
         def makeset(value):
@@ -663,12 +664,12 @@ class PonysayTool():
             file.flush()
     
     
-    '''
-    Edit a pony file's metadata
-    
-    @param  ponyfile:str  A pony file to edit
-    '''
     def editmeta(self, ponyfile):
+        '''
+        Edit a pony file's metadata
+        
+        @param  ponyfile:str  A pony file to edit
+        '''
         (data, meta, image) = 3 * [None]
         
         with open(ponyfile, 'rb') as file:
@@ -838,32 +839,32 @@ class PonysayTool():
 
 
 
-'''
-GNU Emacs alike text area
-'''
-class TextArea(): # TODO support small screens
+class TextArea(): # TODO support small screens  (This is being work on in GNU-Pony/featherweight)
     '''
-    Constructor
-    
-    @param  fields:list<str>       Field names
-    @param  datamap:dist<str,str>  Data map
-    @param  left:int               Left position of the component
-    @param  top:int                Top position of the component
-    @param  width:int              Width of the component
-    @param  height:int             Height of the component
-    @param  termsize:(int,int)     The height and width of the terminal
+    GNU Emacs alike text area
     '''
     def __init__(self, fields, datamap, left, top, width, height, termsize):
+        '''
+        Constructor
+        
+        @param  fields:list<str>       Field names
+        @param  datamap:dist<str,str>  Data map
+        @param  left:int               Left position of the component
+        @param  top:int                Top position of the component
+        @param  width:int              Width of the component
+        @param  height:int             Height of the component
+        @param  termsize:(int,int)     The height and width of the terminal
+        '''
         (self.fields, self.datamap, self.left, self.top, self.width, self.height, self.termsize) \
         = (fields, datamap, left, top, width - 1, height, termsize)
     
     
-    '''
-    Execute text reading
-    
-    @param  saver  Save method
-    '''
     def run(self, saver):
+        '''
+        Execute text reading
+        
+        @param  saver  Save method
+        '''
         innerleft = UCS.dispLen(max(self.fields, key = UCS.dispLen)) + self.left + 3
         
         leftlines = []
@@ -1183,25 +1184,25 @@ class TextArea(): # TODO support small screens
 
 
 
+HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
 '''
 The user's home directory
 '''
-HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
 
+pipelinein = not sys.stdin.isatty()
 '''
 Whether stdin is piped
 '''
-pipelinein = not sys.stdin.isatty()
 
+pipelineout = not sys.stdout.isatty()
 '''
 Whether stdout is piped
 '''
-pipelineout = not sys.stdout.isatty()
 
+pipelineerr = not sys.stderr.isatty()
 '''
 Whether stderr is piped
 '''
-pipelineerr = not sys.stderr.isatty()
 
 
 usage_program = '\033[34;1mponysay-tool\033[21;39m'
@@ -1230,6 +1231,7 @@ opts = ArgParser(program     = 'ponysay-tool',
 opts.add_argumentless(['--no-term-init']) # for debugging
 
 opts.add_argumentless(['-h', '--help'],                          help = 'Print this help message.')
+opts.add_argumentless(['+h', '++help', '--help-colour'],         help = 'Print this help message with colours even if piped.')
 opts.add_argumentless(['-v', '--version'],                       help = 'Print the version of the program.')
 opts.add_argumentless(['--kms'],                                 help = 'Generate all kmsponies for the current TTY palette')
 opts.add_argumented(  ['--dimensions'],     arg = 'PONY-DIR',    help = 'Generate pony dimension file for a directory')
@@ -1241,10 +1243,10 @@ opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',   help = 'Remove 
 opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',   help = 'Apply metadata from stdin to a pony file')
 opts.add_argumented(  ['--edit-stash'],     arg = 'PONY-FILE',   help = 'Print applyable metadata from a pony file')
 
+unrecognised = not opts.parse()
 '''
 Whether at least one unrecognised option was used
 '''
-unrecognised = not opts.parse()
 
 PonysayTool(args = opts)
 

@@ -1,12 +1,12 @@
 $$$
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: blue
 DISPLAY: full, left
 EYE: cyan
 FREE: yes
-GROUP: stallion
+GROUP: stallion, royal
 KIND: alicorn
 LICENSE: CC0 (CC0 1.0 Universal)
 LINK: regular

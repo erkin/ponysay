@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E22 Hurricane Fluttershy
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: purple
 DISPLAY: full, left
 EYE: purple
@@ -12,10 +12,12 @@ KIND: pegasus
 LINK: regular
 MANE: cyan
 NAME: Cloudchaser
+OTHER NAMES: Stormwalker (Official, On Book)
 POSE: bridge
 SOURCE: (fanofetcetera) Desktop ponies
 WIDTH: 50
 HEIGHT: 20
+
 
 $$$
 $balloon6$[00m

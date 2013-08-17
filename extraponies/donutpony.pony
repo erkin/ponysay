@@ -1,7 +1,7 @@
 $$$
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: brown
 DISPLAY: full, left
 EYE: yellow
@@ -15,6 +15,7 @@ MEDIA: [fanart]
 NAME: Donut pony (given by the author)
 POSE: fly
 SOURCE: [jristz]
+WING: white
 WIDTH: 43
 HEIGHT: 26
 

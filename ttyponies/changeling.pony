@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E26 A Canterlot Wedding [Part 2]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: black
 DISPLAY: full, right
 EYE: blue

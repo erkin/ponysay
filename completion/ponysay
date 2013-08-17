@@ -3,6 +3,7 @@
 	
 	(multiple unargumented
 		((options -h --help)                      (complete --help)        (desc 'Show summary of options'))
+		((options +h ++help --help-colour)        (complete --help-colour) (desc 'Show help summary, with colour even if piped'))
 		((options -v --version)                   (complete --version)     (desc 'Show version of program'))
 		((options -c --compress --compact)        (complete --compact)     (desc 'Compress message'))
 		((options -l --list)                      (complete --list)        (desc 'List all MLP:FiM ponies'))

@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: brown
 NAME: Caramel
-OTHER NAMES: sCance-A-Lot (unofficial, but the toy ressemble him)
+OTHER NAMES: Chance-A-Lot (unofficial, but the toy ressemble him)
 POSE: trot
 SOURCE: (Starly) Desktop ponies
 WIDTH: 39

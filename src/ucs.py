@@ -33,18 +33,19 @@ from common import *
 
 
 
-'''
-UCS utility class
-'''
 class UCS():
     '''
-    Checks whether a character is a combining character
-    
-    @param   char:chr  The character to test
-    @return  :bool     Whether the character is a combining character
+    UCS utility class
     '''
+    
     @staticmethod
     def isCombining(char):
+        '''
+        Checks whether a character is a combining character
+        
+        @param   char:chr  The character to test
+        @return  :bool     Whether the character is a combining character
+        '''
         o = ord(char)
         if (0x0300 <= o) and (o <= 0x036F):  return True
         if (0x20D0 <= o) and (o <= 0x20FF):  return True
@@ -53,14 +54,14 @@ class UCS():
         return False
     
     
-    '''
-    Gets the number of combining characters in a string
-    
-    @param   string:str  A text to count combining characters in
-    @return  :int        The number of combining characters in the string
-    '''
     @staticmethod
     def countCombining(string):
+        '''
+        Gets the number of combining characters in a string
+        
+        @param   string:str  A text to count combining characters in
+        @return  :int        The number of combining characters in the string
+        '''
         rc = 0
         for char in string:
             if UCS.isCombining(char):
@@ -68,13 +69,13 @@ class UCS():
         return rc
     
     
-    '''
-    Gets length of a string not counting combining characters
-    
-    @param   string:str  The text of which to determine the monospaced width
-    @return              The determine the monospaced width of the text, provided it does not have escape sequnces
-    '''
     @staticmethod
     def dispLen(string):
+        '''
+        Gets length of a string not counting combining characters
+        
+        @param   string:str  The text of which to determine the monospaced width
+        @return              The determine the monospaced width of the text, provided it does not have escape sequnces
+        '''
         return len(string) - UCS.countCombining(string)
 

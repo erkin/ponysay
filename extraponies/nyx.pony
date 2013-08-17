@@ -1,7 +1,7 @@
 $$$
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: black
 DISPLAY: full, left
 EYE: cyan

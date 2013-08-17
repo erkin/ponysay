@@ -33,18 +33,19 @@ from common import *
 
 
 
-'''
-Metadata functions
-'''
 class Metadata():
     '''
-    Make restriction test logic function
-    
-    @param   restriction:list<string>  Metadata based restrictions
-    @return  :dict<str, str>→bool      Test function
+    Metadata functions
     '''
+    
     @staticmethod
     def makeRestrictionLogic(restriction):
+        '''
+        Make restriction test logic function
+        
+        @param   restriction:list<string>  Metadata based restrictions
+        @return  :dict<str, str>→bool      Test function
+        '''
         def get_test(cell):
             strict = cell[0][-1] != '?'
             key = cell[0]
@@ -109,15 +110,15 @@ class Metadata():
         return Logic(table)
     
     
-    '''
-    Get ponies that pass restriction
-    
-    @param   ponydir:str       Pony directory, must end with `os.sep`
-    @param   logic:(str)→bool  Restriction test functor
-    @return  :list<str>        Passed ponies
-    '''
     @staticmethod
     def restrictedPonies(ponydir, logic):
+        '''
+        Get ponies that pass restriction
+        
+        @param   ponydir:str       Pony directory, must end with `os.sep`
+        @param   logic:(str)→bool  Restriction test functor
+        @return  :list<str>        Passed ponies
+        '''
         import pickle
         passed = []
         if os.path.exists(ponydir + 'metadata'):
@@ -131,15 +132,15 @@ class Metadata():
         return passed
     
     
-    '''
-    Get ponies that fit the terminal
-    
-    @param  fitting:add(str)→void  The set to fill
-    @param  requirement:int        The maximum allowed value
-    @param  file:istream           The file with all data
-    '''
     @staticmethod
-    def getfitting(fitting, requirement, file):
+    def getFitting(fitting, requirement, file):
+        '''
+        Get ponies that fit the terminal
+        
+        @param  fitting:add(str)→void  The set to fill
+        @param  requirement:int        The maximum allowed value
+        @param  file:istream           The file with all data
+        '''
         data = file.read() # not too much data, can load everything at once
         ptr = 0
         while data[ptr] != 47: # 47 == ord('/')

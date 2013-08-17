@@ -94,6 +94,8 @@ tag()
     echo test | ./src/__main__.py -f pinkie >/dev/null || exit 1
     echo 'No error was thrown'
     
+    ./dev/tests/test-everything || exit $?
+    
     version=`./setup.py version`
     if [ "$version" = 'Ponysay '"$1"' installer' ]; then
 	git tag -a "$@" && git checkout "$1" && git push -u origin "$1"

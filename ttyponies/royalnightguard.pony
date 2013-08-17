@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E04 Luna Eclipsed
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: grey
 DISPLAY: full, right
 EYE: brown

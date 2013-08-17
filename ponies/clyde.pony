@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
-BALLOON TOP: 0
 BALLOON BOTTOM: 0
+BALLOON TOP: 0
 COAT: brown
 DISPLAY: full, left
 EYE: brown
@@ -12,11 +12,12 @@ KIND: earth
 LINK: regular
 MANE: grey
 NAME: (not mentioned)
-OTHER NAMES: Clyde (unofficial)
+OTHER NAMES: Clyde (unofficial), Igneous Rock (Official, on official Book)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 47
 HEIGHT: 25
+
 
 $$$
 $balloon10$[00m

@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E05 Sisterhooves Social
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: white
 DISPLAY: full, right
 EYE: blue
@@ -14,8 +14,8 @@ MANE: black
 NAME: (not mentioned)
 OTHER NAMES: Magnum (official, in Gameloft game), Carlton (unofficial)
 POSE: stand
-SOURCE: (Bot-chsn) Desktop ponies
-WIDTH: 41
+SOURCE: (Bot-chan) Desktop ponies
+WIDTH: 58
 HEIGHT: 27
 
 $$$

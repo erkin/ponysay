@@ -34,36 +34,37 @@ from ucs import *
 
 
 
-'''
-Balloon format class
-'''
 class Balloon():
     '''
-    Constructor
-    
-    @param  link:str        The \-directional balloon line character
-    @param  linkmirror:str  The /-directional balloon line character
-    @param  linkcross:str   The /-directional balloon crossing a \-driectional ballonon line character
-    @param  ww:str          See the info manual
-    @param  ee:str          See the info manual
-    @param  nw:list<str>    See the info manual
-    @param  nnw:list<str>   See the info manual
-    @param  n:list<str>     See the info manual
-    @param  nne:list<str>   See the info manual
-    @param  ne:list<str>    See the info manual
-    @param  nee:str         See the info manual
-    @param  e:str           See the info manual
-    @param  see:str         See the info manual
-    @param  se:list<str>    See the info manual
-    @param  sse:list<str>   See the info manual
-    @param  s:list<str>     See the info manual
-    @param  ssw:list<str>   See the info manual
-    @param  sw:list<str>    See the info manual
-    @param  sww:str         See the info manual
-    @param  w:str           See the info manual
-    @param  nww:str         See the info manual
+    Balloon format class
     '''
+    
     def __init__(self, link, linkmirror, linkcross, ww, ee, nw, nnw, n, nne, ne, nee, e, see, se, sse, s, ssw, sw, sww, w, nww):
+        '''
+        Constructor
+        
+        @param  link:str        The \-directional balloon line character
+        @param  linkmirror:str  The /-directional balloon line character
+        @param  linkcross:str   The /-directional balloon crossing a \-directional ballonon line character
+        @param  ww:str          See the info manual
+        @param  ee:str          See the info manual
+        @param  nw:list<str>    See the info manual
+        @param  nnw:list<str>   See the info manual
+        @param  n:list<str>     See the info manual
+        @param  nne:list<str>   See the info manual
+        @param  ne:list<str>    See the info manual
+        @param  nee:str         See the info manual
+        @param  e:str           See the info manual
+        @param  see:str         See the info manual
+        @param  se:list<str>    See the info manual
+        @param  sse:list<str>   See the info manual
+        @param  s:list<str>     See the info manual
+        @param  ssw:list<str>   See the info manual
+        @param  sw:list<str>    See the info manual
+        @param  sww:str         See the info manual
+        @param  w:str           See the info manual
+        @param  nww:str         See the info manual
+        '''
         (self.link, self.linkmirror, self.linkcross) = (link, linkmirror, linkcross)
         (self.ww, self.ee) = (ww, ee)
         (self.nw, self.ne, self.se, self.sw) = (nw, ne, se, sw)
@@ -86,21 +87,23 @@ class Balloon():
         self.minheight = minN + minS
     
     
-    '''
-    Generates a balloon with a message
-    
-    @param   minw:int          The minimum number of columns of the balloon
-    @param   minh:int          The minimum number of lines of the balloon
-    @param   lines:list<str>   The text lines to display
-    @param   lencalc:int(str)  Function used to compute the length of a text line
-    @return  :str              The balloon as a formated string
-    '''
     def get(self, minw, minh, lines, lencalc):
+        '''
+        Generates a balloon with a message
+        
+        @param   minw:int          The minimum number of columns of the balloon
+        @param   minh:int          The minimum number of lines of the balloon
+        @param   lines:list<str>   The text lines to display
+        @param   lencalc:int(str)  Function used to compute the length of a text line
+        @return  :str              The balloon as a formated string
+        '''
+        ## Get dimension
         h = self.minheight + len(lines)
         w = self.minwidth + lencalc(max(lines, key = lencalc))
         if w < minw:  w = minw
         if h < minh:  h = minh
         
+        ## Create edges
         if len(lines) > 1:
             (ws, es) = ({0 : self.nww, len(lines) - 1 : self.sww}, {0 : self.nee, len(lines) - 1 : self.see})
             for j in range(1, len(lines) - 1):
@@ -111,6 +114,7 @@ class Balloon():
         
         rc = []
         
+        ## Create the upper part of the balloon
         for j in range(0, len(self.n)):
             outer = UCS.dispLen(self.nw[j]) + UCS.dispLen(self.ne[j])
             inner = UCS.dispLen(self.nnw[j]) + UCS.dispLen(self.nne[j])
@@ -119,9 +123,11 @@ class Balloon():
             else:
                 rc.append(self.nw[j] + self.n[j] * (w - outer) + self.ne[j])
         
+        ## Encapsulate the message instead left and right edges of balloon
         for j in range(0, len(lines)):
             rc.append(ws[j] + lines[j] + ' ' * (w - lencalc(lines[j]) - UCS.dispLen(self.w) - UCS.dispLen(self.e)) + es[j])
         
+        ## Create the lower part of the balloon
         for j in range(0, len(self.s)):
             outer = UCS.dispLen(self.sw[j]) + UCS.dispLen(self.se[j])
             inner = UCS.dispLen(self.ssw[j]) + UCS.dispLen(self.sse[j])
@@ -133,15 +139,15 @@ class Balloon():
         return '\n'.join(rc)
     
     
-    '''
-    Creates the balloon style object
-    
-    @param   balloonfile:str  The file with the balloon style, may be `None`
-    @param   isthink:bool     Whether the ponythink command is used
-    @return  :Balloon         Instance describing the balloon's style
-    '''
     @staticmethod
-    def fromfile(balloonfile, isthink):
+    def fromFile(balloonfile, isthink):
+        '''
+        Creates the balloon style object
+        
+        @param   balloonfile:str  The file with the balloon style, may be `None`
+        @param   isthink:bool     Whether the ponythink command is used
+        @return  :Balloon         Instance describing the balloon's style
+        '''
         ## Use default balloon if none is specified
         if balloonfile is None:
             if isthink:

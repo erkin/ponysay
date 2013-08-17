@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: Octavia (official, on mercandise), Tavi (unofficial, short name)s
+OTHER NAMES: Octavia (official, on merchandise), Octavia Melody (official, on merchandise), Tavi (unofficial, short name)s
 POSE: play
 SOURCE: (RJP!) Desktop ponies
 WIDTH: 45

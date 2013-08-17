@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: grey
 DISPLAY: full, right
 EYE: brown
@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: grey
 NAME: (not mentioned)
-OTHER NAMES: Blinkie Pie (unofficial)
+OTHER NAMES: Blinkie Pie (unofficial), Limestone Pie (official, on book)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 31

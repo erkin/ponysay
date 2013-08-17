@@ -38,40 +38,40 @@ from subprocess import Popen, PIPE
 
 
 
+VERSION = 'dev'  # this line should not be edited, it is fixed by the build system
 '''
 The version of ponysay
 '''
-VERSION = 'dev'  # this line should not be edited, it is fixed by the build system
 
 
 
-'''
-Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in
-programs by default, report them to Princess Celestia so she can banish them to the moon)
-
-@param  text:str  The text to print (empty string is default)
-@param  end:str   The appendix to the text to print (line breaking is default)
-'''
 def print(text = '', end = '\n'):
+    '''
+    Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in
+    programs by default, report them to Princess Celestia so she can banish them to the moon)
+    
+    @param  text:str  The text to print (empty string is default)
+    @param  end:str   The appendix to the text to print (line breaking is default)
+    '''
     sys.stdout.buffer.write((str(text) + end).encode('utf-8'))
 
-'''
-stderr equivalent to print()
-
-@param  text:str  The text to print (empty string is default)
-@param  end:str   The appendix to the text to print (line breaking is default)
-'''
 def printerr(text = '', end = '\n'):
+    '''
+    stderr equivalent to print()
+    
+    @param  text:str  The text to print (empty string is default)
+    @param  end:str   The appendix to the text to print (line breaking is default)
+    '''
     sys.stderr.buffer.write((str(text) + end).encode('utf-8'))
 
 fd3 = None
-'''
-/proc/self/fd/3 equivalent to print()
-
-@param  text:str  The text to print (empty string is default)
-@param  end:str   The appendix to the text to print (line breaking is default)
-'''
 def printinfo(text = '', end = '\n'):
+    '''
+    /proc/self/fd/3 equivalent to print()
+    
+    @param  text:str  The text to print (empty string is default)
+    @param  end:str   The appendix to the text to print (line breaking is default)
+    '''
     global fd3
     if os.path.exists('/proc/self/fd/3') and not os.path.isdir(os.path.realpath('/proc/self/fd/3')):
         if fd3 is None:
@@ -80,23 +80,23 @@ def printinfo(text = '', end = '\n'):
         fd3.write(str(text) + end)
 
 
-'''
-Checks whether a text ends with a specific text, but has more
-
-@param   text:str    The text to test
-@param   ending:str  The desired end of the text
-@return  :bool       The result of the test
-'''
 def endswith(text, ending):
+    '''
+    Checks whether a text ends with a specific text, but has more
+    
+    @param   text:str    The text to test
+    @param   ending:str  The desired end of the text
+    @return  :bool       The result of the test
+    '''
     return text.endswith(ending) and not (text == ending)
 
 
-'''
-Gets the size of the terminal in (rows, columns)
-
-@return  (rows, columns):(int, int)  The number or lines and the number of columns in the terminal's display area
-'''
 def gettermsize():
+    '''
+    Gets the size of the terminal in (rows, columns)
+    
+    @return  (rows, columns):(int, int)  The number or lines and the number of columns in the terminal's display area
+    '''
     ## Call `stty` to determine the size of the terminal, this way is better than using python's ncurses
     for channel in (sys.stderr, sys.stdout, sys.stdin):
         termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]

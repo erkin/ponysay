@@ -122,6 +122,7 @@ run `man ponysay`. Ponysay has so much more to offer than described here.''')
     _F = ['--any-file', '--anyfile', '--any-pony', '--anypony']
     __F = [_.replace("pony", "ponie") + 's' for _ in _F]
     opts.add_argumentless(['-h', '--help'],                                        help = 'Print this help message.')
+    opts.add_argumentless(['+h', '++help', '--help-colour'],                       help = 'Print this help message with colours even if piped.')
     opts.add_argumentless(['-v', '--version'],                                     help = 'Print the version of the program.')
     opts.add_argumentless(['-l', '--list'],                                        help = 'List pony names.')
     opts.add_argumentless(['-L', '--symlist', '--altlist'],                        help = 'List pony names with alternatives.')

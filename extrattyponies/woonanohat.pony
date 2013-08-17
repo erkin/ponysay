@@ -2,8 +2,8 @@ $$$
 APPEARANCE: Moonstuck reply 1
 AURA: white
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 BASED ON: woona
 COAT: gray
 DISPLAY: full, left
@@ -17,7 +17,7 @@ MEDIA: (egophiliac) woonastuck.tumblr.com
 NAME: Woona (by the author)
 OTHER NAMES: Princess Woona (on a reply), Chosen woon (given by the Rocs)
 POSE: stand, no hat
-SOURCE: desktop ponies OC
+SOURCE: (Widsithgrey) OC ponies
 WIDTH: 43
 HEIGHT: 23
 

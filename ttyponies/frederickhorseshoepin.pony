@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E26 The Best Night Ever
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: brown
 DISPLAY: full, left, back
 EYE: green
@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Frederick Horseshoepin (unofficial)
+OTHER NAMES: Frederick Horseshoepin (official, on Gameloft game)
 POSE: play
 SOURCE: (vulcan539/james539) Desktop ponies
 WIDTH: 59

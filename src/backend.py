@@ -36,25 +36,26 @@ from ucs import *
 
 
 
-'''
-Super-ultra-extreme-awesomazing replacement for cowsay
-'''
 class Backend():
     '''
-    Constructor
-    
-    @param  message:str        The message spoken by the pony
-    @param  ponyfile:str       The pony file
-    @param  wrapcolumn:int     The column at where to wrap the message, `None` for no wrapping
-    @param  width:int          The width of the screen, `None` if truncation should not be applied
-    @param  balloon:Balloon    The balloon style object, `None` if only the pony should be printed
-    @param  hyphen:str         How hyphens added by the wordwrapper should be printed
-    @param  linkcolour:str     How to colour the link character, empty string if none
-    @param  ballooncolour:str  How to colour the balloon, empty string if none
-    @param  mode:str           Mode string for the pony
-    @parma  infolevel:int      2 if ++info is used, 1 if --info is used and 0 otherwise
+    Super-ultra-extreme-awesomazing replacement for cowsay
     '''
+    
     def __init__(self, message, ponyfile, wrapcolumn, width, balloon, hyphen, linkcolour, ballooncolour, mode, infolevel):
+        '''
+        Constructor
+        
+        @param  message:str        The message spoken by the pony
+        @param  ponyfile:str       The pony file
+        @param  wrapcolumn:int     The column at where to wrap the message, `None` for no wrapping
+        @param  width:int          The width of the screen, `None` if truncation should not be applied
+        @param  balloon:Balloon    The balloon style object, `None` if only the pony should be printed
+        @param  hyphen:str         How hyphens added by the wordwrapper should be printed
+        @param  linkcolour:str     How to colour the link character, empty string if none
+        @param  ballooncolour:str  How to colour the balloon, empty string if none
+        @param  mode:str           Mode string for the pony
+        @parma  infolevel:int      2 if ++info is used, 1 if --info is used and 0 otherwise
+        '''
         self.message = message
         self.ponyfile = ponyfile
         self.wrapcolumn = None if wrapcolumn is None else wrapcolumn - (0 if balloon is None else balloon.minwidth)
@@ -78,10 +79,10 @@ class Backend():
         self.pony = None
     
     
-    '''
-    Process all data
-    '''
     def parse(self):
+        '''
+        Process all data
+        '''
         self.__loadFile()
         
         if self.pony.startswith('$$$\n'):
@@ -126,14 +127,14 @@ class Backend():
         self.__truncate()
     
     
-    '''
-    Format metadata to be nicely printed, this include bold keys
-    
-    @param   info:str  The metadata
-    @return  :str      The metadata nicely formated
-    '''
     @staticmethod
     def formatInfo(info):
+        '''
+        Format metadata to be nicely printed, this include bold keys
+        
+        @param   info:str  The metadata
+        @return  :str      The metadata nicely formated
+        '''
         info = info.split('\n')
         tags = ''
         comment = ''
@@ -156,12 +157,12 @@ class Backend():
         return tags + comment
     
     
-    '''
-    Remove padding spaces fortune cookies are padded with whitespace (damn featherbrains)
-    '''
     def __unpadMessage(self):
+        '''
+        Remove padding spaces fortune cookies are padded with whitespace (damn featherbrains)
+        '''
         lines = self.message.split('\n')
-        for spaces in (8, 4, 2, 1):
+        for spaces in (128, 64, 32, 16, 8, 4, 2, 1):
             padded = True
             for line in lines:
                 if not line.startswith(' ' * spaces):
@@ -170,17 +171,16 @@ class Backend():
             if padded:
                 for i in range(0, len(lines)):
                     line = lines[i]
-                    while line.startswith(' ' * spaces):
-                        line = line[spaces:]
+                    line = line[spaces:]
                     lines[i] = line
         lines = [line.rstrip(' ') for line in lines]
         self.message = '\n'.join(lines)
     
     
-    '''
-    Converts all tabs in the message to spaces by expanding
-    '''
     def __expandMessage(self):
+        '''
+        Converts all tabs in the message to spaces by expanding
+        '''
         lines = self.message.split('\n')
         buf = ''
         for line in lines:
@@ -189,7 +189,7 @@ class Backend():
                 c = line[i]
                 i += 1
                 if c == '\033':
-                    colour = Backend.getcolour(line, i - 1)
+                    colour = Backend.getColour(line, i - 1)
                     i += len(colour) - 1
                     buf += colour
                 elif c == '\t':
@@ -204,18 +204,18 @@ class Backend():
         self.message = buf[:-1]
     
     
-    '''
-    Loads the pony file
-    '''
     def __loadFile(self):
+        '''
+        Loads the pony file
+        '''
         with open(self.ponyfile, 'rb') as ponystream:
             self.pony = ponystream.read().decode('utf8', 'replace')
     
     
-    '''
-    Truncate output to the width of the screen
-    '''
     def __truncate(self):
+        '''
+        Truncate output to the width of the screen
+        '''
         if self.width is None:
             return
         lines = self.output.split('\n')
@@ -226,7 +226,7 @@ class Backend():
                 c = line[i]
                 i += 1
                 if c == '\033':
-                    colour = Backend.getcolour(line, i - 1)
+                    colour = Backend.getColour(line, i - 1)
                     i += len(colour) - 1
                     self.output += colour
                 else:
@@ -238,10 +238,10 @@ class Backend():
         self.output = self.output[:-1]
     
     
-    '''
-    Process the pony file and generate output to self.output
-    '''
     def __processPony(self):
+        '''
+        Process the pony file and generate output to self.output
+        '''
         self.output = ''
         
         AUTO_PUSH = '\033[01010~'
@@ -308,7 +308,7 @@ class Backend():
                             w -= x;
                         else:
                             w = int(w)
-                        balloon = self.__getballoon(w, h, x, justify, indent)
+                        balloon = self.__getBalloon(w, h, x, justify, indent)
                         balloon = balloon.split('\n')
                         balloon = [AUTO_PUSH + self.ballooncolour + item + AUTO_POP for item in balloon]
                         for b in balloon[0]:
@@ -335,7 +335,7 @@ class Backend():
                     i += 1
                 dollar += c
             elif c == '\033':
-                colour = Backend.getcolour(self.pony, i - 1)
+                colour = Backend.getColour(self.pony, i - 1)
                 for b in colour:
                     self.output += b + colourstack.feed(b);
                 i += len(colour) - 1
@@ -384,15 +384,15 @@ class Backend():
                 self.output = '\n'.join(self.output)
     
     
-    '''
-    Gets colour code att the currect offset in a buffer
-    
-    @param   input:str   The input buffer
-    @param   offset:int  The offset at where to start reading, a escape must begin here
-    @return  :str        The escape sequence
-    '''
     @staticmethod
-    def getcolour(input, offset):
+    def getColour(input, offset):
+        '''
+        Gets colour code att the currect offset in a buffer
+        
+        @param   input:str   The input buffer
+        @param   offset:int  The offset at where to start reading, a escape must begin here
+        @return  :str        The escape sequence
+        '''
         (i, n) = (offset, len(input))
         rc = input[i]
         i += 1
@@ -440,19 +440,19 @@ class Backend():
         return rc
     
     
-    '''
-    Calculates the number of visible characters in a text
-    
-    @param   input:str  The input buffer
-    @return  :int       The number of visible characters
-    '''
     @staticmethod
     def len(input):
+        '''
+        Calculates the number of visible characters in a text
+        
+        @param   input:str  The input buffer
+        @return  :int       The number of visible characters
+        '''
         (rc, i, n) = (0, 0, len(input))
         while i < n:
             c = input[i]
             if c == '\033':
-                i += len(Backend.getcolour(input, i))
+                i += len(Backend.getColour(input, i))
             else:
                 i += 1
                 if not UCS.isCombining(c):
@@ -460,18 +460,18 @@ class Backend():
         return rc
     
     
-    '''
-    Generates a balloon with the message
-    
-    @param   width:int      The minimum width of the balloon
-    @param   height:int     The minimum height of the balloon
-    @param   innerleft:int  The left column of the required span, excluding that of `left`
-    @param   justify:str    Balloon placement justification, 'c' → centered,
-                            'l' → left (expand to right), 'r' → right (expand to left)
-    @param   left:int       The column where the balloon starts
-    @return  :str           The balloon the the message as a string
-    '''
-    def __getballoon(self, width, height, innerleft, justify, left):
+    def __getBalloon(self, width, height, innerleft, justify, left):
+        '''
+        Generates a balloon with the message
+        
+        @param   width:int      The minimum width of the balloon
+        @param   height:int     The minimum height of the balloon
+        @param   innerleft:int  The left column of the required span, excluding that of `left`
+        @param   justify:str    Balloon placement justification, 'c' → centered,
+                                'l' → left (expand to right), 'r' → right (expand to left)
+        @param   left:int       The column where the balloon starts
+        @return  :str           The balloon the the message as a string
+        '''
         wrap = None
         if self.wrapcolumn is not None:
             wrap = self.wrapcolumn - left
@@ -509,14 +509,14 @@ class Backend():
         return rc
     
     
-    '''
-    Wraps the message
-    
-    @param   message:str  The message to wrap
-    @param   wrap:int     The width at where to force wrapping
-    @return  :str         The message wrapped
-    '''
     def __wrapMessage(self, message, wrap):
+        '''
+        Wraps the message
+        
+        @param   message:str  The message to wrap
+        @param   wrap:int     The width at where to force wrapping
+        @return  :str         The message wrapped
+        '''
         wraplimit = os.environ['PONYSAY_WRAP_LIMIT'] if 'PONYSAY_WRAP_LIMIT' in os.environ else ''
         wraplimit = 8 if len(wraplimit) == 0 else int(wraplimit)
         
@@ -527,7 +527,7 @@ class Backend():
         try:
             AUTO_PUSH = '\033[01010~'
             AUTO_POP  = '\033[10101~'
-            msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP);
+            msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
             cstack = ColourStack(AUTO_PUSH, AUTO_POP)
             for c in msg:
                 buf += c + cstack.feed(c)
@@ -549,7 +549,7 @@ class Backend():
                     if d == '\033':
                         ## Invisible stuff
                         i -= 1
-                        colourseq = Backend.getcolour(line, i)
+                        colourseq = Backend.getColour(line, i)
                         b[bi : bi + len(colourseq)] = colourseq
                         i += len(colourseq)
                         bi += len(colourseq)
@@ -580,11 +580,11 @@ class Backend():
                             nbsp = b[map[mm + x]] == ' ' # nbsp
                             m = map[mm + x]
                             
-                            if ('­' in b[bisub : m]) and not nbsp: # sort hyphen
+                            if ('­' in b[bisub : m]) and not nbsp: # soft hyphen
                                 hyphen = m - 1
-                                while b[hyphen] != '­': # sort hyphen
+                                while b[hyphen] != '­': # soft hyphen
                                     hyphen -= 1
-                                while map[mm + x] > hyphen: ## Only looking backward, if foreward is required the word is probabily not hyphenated correctly
+                                while map[mm + x] > hyphen: ## Only looking backward, if forward is required the word is probabily not hyphenated correctly
                                     x -= 1
                                 x += 1
                                 m = map[mm + x]
@@ -599,7 +599,7 @@ class Backend():
                             
                             w = iwrap
                             if indent != -1:
-                                buf += line[:indent]
+                                buf += ' ' * indentc
                         
                         for j in range(bisub, bi):
                             b[j - bisub] = b[j]
@@ -609,7 +609,7 @@ class Backend():
                             buf += '\n'
                             w = wrap
                             if indent != -1:
-                                buf += line[:indent]
+                                buf += ' ' * indentc
                                 w -= indentc
                         for bb in b[:bi]:
                             if bb is not None:
@@ -627,18 +627,18 @@ class Backend():
                                 buf += '\n'
                                 w = wrap
                                 if indent != -1:
-                                    buf + line[:indent]
+                                    buf += ' ' * indentc
                                     w -= indentc
                 buf += '\n'
             
-            rc = '\n'.join(line.rstrip() for line in buf[:-1].split('\n'));
+            rc = '\n'.join(line.rstrip(' ') for line in buf[:-1].split('\n'));
             rc = rc.replace('­', ''); # remove soft hyphens
             rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
             return rc
         except Exception as err:
             import traceback
             errormessage = ''.join(traceback.format_exception(type(err), err, None))
-            rc = '\n'.join(line.rstrip() for line in buf.split('\n'));
+            rc = '\n'.join(line.rstrip(' ') for line in buf.split('\n'));
             rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
             errormessage += '\n---- WRAPPING BUFFER ----\n\n' + rc
             try:

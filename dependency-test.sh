@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
-# Compatible with  bash  dash  zsh
+# Compatible with  bash  dash  zsh   mksh  ksh    ksh93
 # but not with     fish
 # problematic with tcsh  csh
 

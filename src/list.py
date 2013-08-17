@@ -34,17 +34,18 @@ from ucs import *
 
 
 
-'''
-File listing functions
-'''
 class List():
     '''
-    Columnise a list and prints it
-    
-    @param  ponies:list<(str, str)>  All items to list, each item should have to elements: unformated name, formated name
+    File listing functions
     '''
+    
     @staticmethod
     def __columnise(ponies):
+        '''
+        Columnise a list and prints it
+        
+        @param  ponies:list<(str, str)>  All items to list, each item should have to elements: unformated name, formated name
+        '''
         ## Get terminal width, and a 2 which is the space between columns
         termwidth = gettermsize()[1] + 2
         ## Sort the ponies, and get the cells' widths, and the largest width + 2
@@ -90,17 +91,17 @@ class List():
         ## Print the matrix, with one extra blank row
         print('\n'.join([''.join(line)[:-2] for line in lines]))
         print()
-
-
-    '''
-    Lists the available ponies
     
-    @param  ponydirs:itr<str>          The pony directories to use
-    @param  quoters:__in__(str)→bool   Set of ponies that of quotes
-    @param  ucsiser:(list<str>)?→void  Function used to UCS:ise names
-    '''
+    
     @staticmethod
     def simplelist(ponydirs, quoters = [], ucsiser = None):
+        '''
+        Lists the available ponies
+        
+        @param  ponydirs:itr<str>          The pony directories to use
+        @param  quoters:__in__(str)→bool   Set of ponies that of quotes
+        @param  ucsiser:(list<str>)?→void  Function used to UCS:ise names
+        '''
         for ponydir in ponydirs: # Loop ponydirs
             ## Get all ponies in the directory
             _ponies = os.listdir(ponydir)
@@ -122,15 +123,15 @@ class List():
             List.__columnise([(pony, '\033[1m' + pony + '\033[21m' if pony in quoters else pony) for pony in ponies])
     
     
-    '''
-    Lists the available ponies with alternatives inside brackets
-    
-    @param  ponydirs:itr<str>                        The pony directories to use
-    @param  quoters:__in__(str)→bool                  Set of ponies that of quotes
-    @param  ucsiser:(list<str>, map<str, str>)?→void  Function used to UCS:ise names
-    '''
     @staticmethod
     def linklist(ponydirs = None, quoters = [], ucsiser = None):
+        '''
+        Lists the available ponies with alternatives inside brackets
+        
+        @param  ponydirs:itr<str>                        The pony directories to use
+        @param  quoters:__in__(str)→bool                  Set of ponies that of quotes
+        @param  ucsiser:(list<str>, map<str, str>)?→void  Function used to UCS:ise names
+        '''
         ## Get the size of the terminal
         termsize = gettermsize()
         
@@ -200,15 +201,15 @@ class List():
             List.__columnise(list(ponies))
     
     
-    '''
-    Lists the available ponies on one column without anything bold or otherwise formated
-    
-    @param  standard:itr<str>?         Include standard ponies
-    @param  extra:itr<str>?            Include extra ponies
-    @param  ucsiser:(list<str>)?→void  Function used to UCS:ise names
-    '''
     @staticmethod
     def onelist(standarddirs, extradirs = None, ucsiser = None):
+        '''
+        Lists the available ponies on one column without anything bold or otherwise formated
+        
+        @param  standard:itr<str>?         Include standard ponies
+        @param  extra:itr<str>?            Include extra ponies
+        @param  ucsiser:(list<str>)?→void  Function used to UCS:ise names
+        '''
         ## Get all pony files
         _ponies = []
         if standarddirs is not None:
@@ -237,14 +238,14 @@ class List():
                 print(pony)
     
     
-    '''
-    Prints a list of all balloons
-    
-    @param  balloondirs:itr<str>  The balloon directories to use
-    @param  isthink:bool          Whether the ponythink command is used
-    '''
     @staticmethod
     def balloonlist(balloondirs, isthink):
+        '''
+        Prints a list of all balloons
+        
+        @param  balloondirs:itr<str>  The balloon directories to use
+        @param  isthink:bool          Whether the ponythink command is used
+        '''
         ## Get the size of the terminal
         termsize = gettermsize()
         

@@ -1,8 +1,8 @@
 $$$
 AURA: white (majority of sources)
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: white
 DISPLAY: full, left
 EYE: blue
@@ -16,7 +16,7 @@ MEDIA: deviantart.com (varius artists)
 NAME: Faust (most frecuent name)
 OTHER NAMES: Lauren Faust (owner name), Fausticon (given in other minor sources)
 POSE: stand
-SOURCE: [jristz]
+SOURCE: [jristz], based on OC ponies
 WIDTH: 51
 HEIGHT: 31
 

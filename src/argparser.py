@@ -33,35 +33,38 @@ from common import *
 
 
 
+ARGUMENTLESS = 0
 '''
 Option takes no arguments
 '''
-ARGUMENTLESS = 0
 
+ARGUMENTED = 1
 '''
 Option takes one argument per instance
 '''
-ARGUMENTED = 1
 
+VARIADIC = 2
 '''
 Option consumes all following arguments
 '''
-VARIADIC = 2
 
-'''
-Simple argument parser
-'''
+
+
 class ArgParser():
     '''
-    Constructor.
-    The short description is printed on same line as the program name
-    
-    @param  program:str          The name of the program
-    @param  description:str      Short, single-line, description of the program
-    @param  usage:str            Formated, multi-line, usage text
-    @param  longdescription:str  Long, multi-line, description of the program, may be `None`
+    Simple argument parser
     '''
+    
     def __init__(self, program, description, usage, longdescription = None):
+        '''
+        Constructor.
+        The short description is printed on same line as the program name
+        
+        @param  program:str          The name of the program
+        @param  description:str      Short, single-line, description of the program
+        @param  usage:str            Formated, multi-line, usage text
+        @param  longdescription:str  Long, multi-line, description of the program, may be `None`
+        '''
         self.linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
         self.__program = program
         self.__description = description
@@ -72,41 +75,41 @@ class ArgParser():
         self.optmap = {}
     
     
-    '''
-    Add option that takes no arguments
-    
-    @param  alternatives:list<str>  Option names
-    @param  help:str                Short description, use `None` to hide the option
-    '''
     def add_argumentless(self, alternatives, help = None):
+        '''
+        Add option that takes no arguments
+        
+        @param  alternatives:list<str>  Option names
+        @param  help:str                Short description, use `None` to hide the option
+        '''
         self.__arguments.append((ARGUMENTLESS, alternatives, None, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
             self.optmap[alt] = (stdalt, ARGUMENTLESS)
     
-    '''
-    Add option that takes one argument
-    
-    @param  alternatives:list<str>  Option names
-    @param  arg:str                 The name of the takes argument, one word
-    @param  help:str                Short description, use `None` to hide the option
-    '''
     def add_argumented(self, alternatives, arg, help = None):
+        '''
+        Add option that takes one argument
+        
+        @param  alternatives:list<str>  Option names
+        @param  arg:str                 The name of the takes argument, one word
+        @param  help:str                Short description, use `None` to hide the option
+        '''
         self.__arguments.append((ARGUMENTED, alternatives, arg, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
             self.optmap[alt] = (stdalt, ARGUMENTED)
     
-    '''
-    Add option that takes all following argument
-    
-    @param  alternatives:list<str>  Option names
-    @param  arg:str                 The name of the takes arguments, one word
-    @param  help:str                Short description, use `None` to hide the option
-    '''
     def add_variadic(self, alternatives, arg, help = None):
+        '''
+        Add option that takes all following argument
+        
+        @param  alternatives:list<str>  Option names
+        @param  arg:str                 The name of the takes arguments, one word
+        @param  help:str                Short description, use `None` to hide the option
+        '''
         self.__arguments.append((VARIADIC, alternatives, arg, help))
         stdalt = alternatives[0]
         self.opts[stdalt] = None
@@ -114,13 +117,13 @@ class ArgParser():
             self.optmap[alt] = (stdalt, VARIADIC)
     
     
-    '''
-    Parse arguments
-    
-    @param   args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
-    @return  :bool           Whether no unrecognised option is used
-    '''
     def parse(self, argv = sys.argv):
+        '''
+        Parse arguments
+        
+        @param   args:list<str>  The command line arguments, should include the execute file at index 0, `sys.argv` is default
+        @return  :bool           Whether no unrecognised option is used
+        '''
         self.argcount = len(argv) - 1
         self.files = []
         
@@ -242,24 +245,38 @@ class ArgParser():
         return self.rc
     
     
-    '''
-    Prints a colourful help message
-    '''
-    def help(self):
-        print('\033[1m%s\033[21m %s %s' % (self.__program, '-' if self.linuxvt else '—', self.__description))
+    def help(self, use_colours = None):
+        '''
+        Prints a colourful help message
+        
+        @param  use_colours:bool?  Whether to use colours, `None` if stdout is not piped
+        '''
+        if use_colours is None:
+            use_colours = sys.stdout.isatty()
+        
+        print(('\033[1m%s\033[21m %s %s' if use_colours else '%s %s %s') % (self.__program, '-' if self.linuxvt else '—', self.__description))
         print()
         if self.__longdescription is not None:
-            print(self.__longdescription)
+            desc = self.__longdescription
+            if not use_colours:
+                while '\033' in desc:
+                    esc = desc.find('\033')
+                    desc = desc[:esc] + desc[desc.find('m', esc) + 1:]
+            print(desc)
         print()
         
-        print('\033[1mUSAGE:\033[21m', end='')
+        print('\033[1mUSAGE:\033[21m' if use_colours else 'USAGE:', end='')
         first = True
         for line in self.__usage.split('\n'):
             if first:
                 first = False
             else:
                 print('    or', end='')
-            print('\t%s' % (line))
+            if not use_colours:
+                while '\033' in line:
+                    esc = line.find('\033')
+                    line = line[:esc] + line[line.find('m', esc) + 1:]
+            print('\t%s' % line)
         print()
         
         maxfirstlen = []
@@ -274,7 +291,7 @@ class ArgParser():
                 maxfirstlen.append(first)
         maxfirstlen = len(max(maxfirstlen, key = len))
         
-        print('\033[1mSYNOPSIS:\033[21m')
+        print('\033[1mSYNOPSIS:\033[21m' if use_colours else 'SYNOPSIS')
         (lines, lens) = ([], [])
         for opt in self.__arguments:
             opt_type = opt[0]
@@ -292,10 +309,17 @@ class ArgParser():
                 if opt_alt is alts[-1]:
                     line += '%colour%' + opt_alt
                     l += len(opt_alt)
-                    if   opt_type == ARGUMENTED:  line += ' \033[4m%s\033[24m'      % (opt_arg);  l += len(opt_arg) + 1
-                    elif opt_type == VARIADIC:    line += ' [\033[4m%s\033[24m...]' % (opt_arg);  l += len(opt_arg) + 6
+                    if use_colours:
+                        if   opt_type == ARGUMENTED:  line += ' \033[4m%s\033[24m'      % (opt_arg);  l += len(opt_arg) + 1
+                        elif opt_type == VARIADIC:    line += ' [\033[4m%s\033[24m...]' % (opt_arg);  l += len(opt_arg) + 6
+                    else:
+                        if   opt_type == ARGUMENTED:  line += ' %s'      % (opt_arg);  l += len(opt_arg) + 1
+                        elif opt_type == VARIADIC:    line += ' [%s...]' % (opt_arg);  l += len(opt_arg) + 6
                 else:
-                    line += '    \033[2m%s\033[22m  ' % (opt_alt)
+                    if use_colours:
+                        line += '    \033[2m%s\033[22m  ' % (opt_alt)
+                    else:
+                        line += '    %s  ' % (opt_alt)
                     l += len(opt_alt) + 6
             lines.append(line)
             lens.append(l)
@@ -308,14 +332,14 @@ class ArgParser():
             if opt_help is None:
                 continue
             first = True
-            colour = '36' if (index & 1) == 0 else '34'
-            print(lines[index].replace('%colour%', '\033[%s;1m' % (colour)), end=' ' * (col - lens[index]))
+            colour = ('36' if (index & 1) == 0 else '34') if use_colours else ''
+            print(lines[index].replace('%colour%', ('\033[%s;1m' % colour) if use_colours else ''), end=' ' * (col - lens[index]))
             for line in opt_help.split('\n'):
                 if first:
                     first = False
-                    print('%s' % (line), end='\033[21;39m\n')
+                    print('%s' % (line), end='\033[21;39m\n' if use_colours else '\n')
                 else:
-                    print('%s\033[%sm%s\033[39m' % (' ' * col, colour, line))
+                    print(('%s\033[%sm%s\033[39m' if use_colours else '%s%s%s') % (' ' * col, colour, line))
             index += 1
         
         print()

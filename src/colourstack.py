@@ -33,19 +33,20 @@ from common import *
 
 
 
-'''
-ANSI colour stack
-
-This is used to make layers with independent coloursations
-'''
 class ColourStack():
     '''
-    Constructor
+    ANSI colour stack
     
-    @param  autopush:str  String that, when used, will create a new independently colourised layer
-    @param  autopop:str   String that, when used, will end the current layer and continue of the previous layer
+    This is used to make layers with independent coloursations
     '''
+    
     def __init__(self, autopush, autopop):
+        '''
+        Constructor
+        
+        @param  autopush:str  String that, when used, will create a new independently colourised layer
+        @param  autopop:str   String that, when used, will end the current layer and continue of the previous layer
+        '''
         self.autopush = autopush
         self.autopop  = autopop
         self.lenpush  = len(autopush)
@@ -56,24 +57,24 @@ class ColourStack():
         self.seq      = None
     
     
-    '''
-    Create a new independently colourised layer
-    
-    @return  :str  String that should be inserted into your buffer
-    '''
     def push(self):
+        '''
+        Create a new independently colourised layer
+        
+        @return  :str  String that should be inserted into your buffer
+        '''
         self.stack.insert(0, [self.bufproto, None, None, [False] * 9])
         if len(self.stack) == 1:
             return None
         return '\033[0m'
     
     
-    '''
-    End the current layer and continue of the previous layer
-    
-    @return  :str  String that should be inserted into your buffer
-    '''
     def pop(self):
+        '''
+        End the current layer and continue of the previous layer
+        
+        @return  :str  String that should be inserted into your buffer
+        '''
         old = self.stack.pop(0)
         rc = '\033[0;'
         if len(self.stack) == 0: # last resort in case something made it pop too mush
@@ -87,14 +88,14 @@ class ColourStack():
         return rc[:-1] + 'm'
     
     
-    '''
-    Use this, in sequence, for which character in your buffer that contains yor autopush and autopop
-    string, the automatically get push and pop string to insert after each character
-    
-    @param   :chr  One character in your buffer
-    @return  :str  The text to insert after the input character
-    '''
     def feed(self, char):
+        '''
+        Use this, in sequence, for which character in your buffer that contains yor autopush and autopop
+        string, the automatically get push and pop string to insert after each character
+        
+        @param   :chr  One character in your buffer
+        @return  :str  The text to insert after the input character
+        '''
         if self.seq is not None:
             self.seq += char
             if (char == '~') or (('a' <= char) and (char <= 'z')) or (('A' <= char) and (char <= 'Z')):
@@ -105,15 +106,15 @@ class ColourStack():
                         part = self.seq[i]
                         p = 0 if part == '' else int(part)
                         i += 1
-                        if p == 0:                       self.stack[0][1:] = [None, None, [False] * 9]
-                        elif (1 <= p) and (p <= 9):      self.stack[0][3][p - 1] = True
-                        elif (21 <= p) and (p <= 29):    self.stack[0][3][p - 21] = False
-                        elif p == 39:                    self.stack[0][1] = None
-                        elif p == 49:                    self.stack[0][2] = None
-                        elif (30 <= p) and (p <= 37):    self.stack[0][1] = part
-                        elif (90 <= p) and (p <= 97):    self.stack[0][1] = part
-                        elif (40 <= p) and (p <= 47):    self.stack[0][2] = part
-                        elif (100 <= p) and (p <= 107):  self.stack[0][2] = part
+                        if p == 0:             self.stack[0][1:] = [None, None, [False] * 9]
+                        elif 1 <= p <= 9:      self.stack[0][3][p - 1] = True
+                        elif 21 <= p <= 29:    self.stack[0][3][p - 21] = False
+                        elif p == 39:          self.stack[0][1] = None
+                        elif p == 49:          self.stack[0][2] = None
+                        elif 30 <= p <= 37:    self.stack[0][1] = part
+                        elif 90 <= p <= 97:    self.stack[0][1] = part
+                        elif 40 <= p <= 47:    self.stack[0][2] = part
+                        elif 100 <= p <= 107:  self.stack[0][2] = part
                         elif p == 38:
                             self.stack[0][1] = '%s;%s;%s' % (part, self.seq[i], self.seq[i + 1])
                             i += 2

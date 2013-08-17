@@ -1,5 +1,6 @@
-en="en_GB-ise-w_accents"
+!#/usr/bin/env bash
 
+en="en_GB-ise-w_accents"
 
 info()
 {

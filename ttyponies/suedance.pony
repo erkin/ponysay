@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E23 The Cutie Mark Chronicles
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: white
 DISPLAY: full, right
 EYE: cyan
@@ -13,7 +13,7 @@ LINK: regular
 MANE: grey
 MASTER: sue
 NAME: (not mentioned)
-OTHER NAMES: Sue (unofficial)
+OTHER NAMES: Sue (unofficial), CLoudy Quartz (official, on official Book)
 POSE: dance
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 43

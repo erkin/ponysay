@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: purple
 DISPLAY: full, left
 EYE: purple
@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: purple
 NAME: (not mentioned)
-OTHER NAMES: Berry Punch (unofficial)
+OTHER NAMES: Berry Punch (official, in merchandice), Pinot Noir (unofficial, given by Lauren Faust)
 POSE: stand
 SOURCE: (CANDYBAG, vulcan569/james569, Azure Fang) Desktop ponies
 WIDTH: 45

@@ -7,7 +7,7 @@ COAT: white
 DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare, mane
+GROUP: mare, mane, flutter
 KIND: unicorn
 LINK: regular
 MANE: purple
