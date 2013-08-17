@@ -45,9 +45,9 @@ for pony in ponies:
             data = data[:data.index('\n\n')]
         master = name
         if '\nMASTER:' in data:
-            master = data[data.index('\nMASTER:') + 9:] + '\n'
-            master = data[:data.index('\n')]
-            master = master.strip()
+            data = data[data.index('\nMASTER:') + 9:] + '\n'
+            data = data[:data.index('\n')]
+            master = data.strip()
         if master not in masters:
             masters[master] = []
         masters[master].append(name)
