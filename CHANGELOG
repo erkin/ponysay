@@ -32,7 +32,9 @@ Version 3.0.2
 
         Swedish manual page added.
 
-        Added manpage for ponysay-tool
+        Added manpage for ponysay-tool.
+
+	+h (++help, --help-colour) added.
 
 
 Version 3.0.1

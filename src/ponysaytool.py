@@ -1231,6 +1231,7 @@ opts = ArgParser(program     = 'ponysay-tool',
 opts.add_argumentless(['--no-term-init']) # for debugging
 
 opts.add_argumentless(['-h', '--help'],                          help = 'Print this help message.')
+opts.add_argumentless(['+h', '++help', '--help-colour'],         help = 'Print this help message with colours even if piped.')
 opts.add_argumentless(['-v', '--version'],                       help = 'Print the version of the program.')
 opts.add_argumentless(['--kms'],                                 help = 'Generate all kmsponies for the current TTY palette')
 opts.add_argumented(  ['--dimensions'],     arg = 'PONY-DIR',    help = 'Generate pony dimension file for a directory')

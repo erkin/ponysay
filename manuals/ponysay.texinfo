@@ -151,6 +151,13 @@ Parse the following arguments as parts of @code{@var{message}}.
 @opindex @option{--help}
 Show summary of options.
 
+@item +h
+@itemx ++help
+@opindex @option{+h}
+@opindex @option{++help}
+@opindex @option{--help-colour}
+Show summary of options, and use colours even if stdout is piped.
+
 @item -v
 @itemx --verion
 @opindex @option{-v}
@@ -3278,11 +3285,13 @@ with the comic
 issue 8 where @file{drhooves} is siting alongside @file{doctor} and in
 front of @file{celestia}
 @item
-Added manpage for @command{ponysay-tool}
-@item
 Turkish manual page added.
 @item
 Swedish manual page added.
+@item
+@option{+h} (@option{++help}, @option{--help-colour}) added.
+@item
+Added manpage for @command{ponysay-tool}.
 @end itemize
 
 @heading Version 3.0.1
