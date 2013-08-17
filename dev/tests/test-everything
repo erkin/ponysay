@@ -7,4 +7,5 @@ fi
 
 ./dev/tests/correct-pony-f
 ./dev/tests/correct-pony+f
-
+./dev/tests/auto-completion
+./dev/tests/auto-completion-tool
