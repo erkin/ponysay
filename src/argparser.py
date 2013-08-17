@@ -245,10 +245,15 @@ class ArgParser():
         return self.rc
     
     
-    def help(self):
+    def help(self, use_colours = None):
         '''
         Prints a colourful help message
+        
+        @param  use_colours:bool?  Whether to use colours, `None` if stdout is not piped
         '''
+        if use_colours is None:
+            use_colours = sys.stdout.isatty()
+        
         print('\033[1m%s\033[21m %s %s' % (self.__program, '-' if self.linuxvt else '—', self.__description))
         print()
         if self.__longdescription is not None:

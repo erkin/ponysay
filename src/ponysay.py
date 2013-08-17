@@ -237,6 +237,7 @@ class Ponysay():
         
         ## Run modes
         if   self.__test_nfdnf('-h'):                                     args.help()
+        elif self.__test_nfdnf('+h'):                                     args.help(True)
         elif self.__test_nfdnf('-v'):                                     self.version()
         elif self.__test_nfdnf('--quoters'):                              self.quoters(True, False)
         elif self.__test_nfdnf('--Onelist', ('--onelist', '++onelist')):  self.onelist(True, True)

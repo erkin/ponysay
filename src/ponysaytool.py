@@ -85,8 +85,8 @@ class PonysayTool():
         
         opts = args.opts
         
-        if unrecognised or (opts['-h'] is not None):
-            args.help()
+        if unrecognised or (opts['-h'] is not None) or (opts['+h'] is not None):
+            args.help(True if opts['+h'] is not None else None)
             if unrecognised:
                 exit(254)
         
