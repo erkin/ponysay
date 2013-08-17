@@ -30,5 +30,5 @@ if [ ! "$(./src/__main__.py -oX +f firefox 3>&1 >/dev/null | head -n 1)" = "pony
     done
 fi
 
-echo 'Test was passed, you may want to update the last know good commit in ./dev/tests/correct-pony+f'
+echo 'Test passed, you may want to update the last know good commit in ./dev/tests/correct-pony+f'
 
