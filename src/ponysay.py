@@ -916,15 +916,7 @@ class Ponysay():
         
         ## Get width truncation and wrapping
         widthtruncation = self.__getWidthTruncation()
-        messagewrap = 60
-        if (args.opts['-W'] is not None) and (len(args.opts['-W'][0]) > 0):
-            messagewrap = args.opts['-W'][0]
-            if messagewrap[0] in 'nmsNMS': # m is left to n on QWERTY and s is left to n on Dvorak
-                messagewrap = None
-            elif messagewrap[0] in 'iouIOU': # o is left to i on QWERTY and u is right to i on Dvorak
-                messagewrap = gettermsize()[1]
-            else:
-                messagewrap = int(args.opts['-W'][0])
+        messagewrap = self.__getMessageWrap(args)
         
         ## Get balloon object
         balloonfile = self.__getBalloonPath(args.opts['-b'] if args.opts['-b'] is not None else None)
@@ -1069,4 +1061,23 @@ class Ponysay():
         env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
         if env_width is None:  env_width = 'auto'
         return gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
+    
+    
+    def __getMessageWrap(self, args):
+        '''
+        Gets the message balloon wrapping column
+        
+        @param   args:ArgParser  Command line options
+        @return  :int?           The message balloon wrapping column, or `None` if disabled
+        '''
+        messagewrap = 60
+        if (args.opts['-W'] is not None) and (len(args.opts['-W'][0]) > 0):
+            messagewrap = args.opts['-W'][0]
+            if messagewrap[0] in 'nmsNMS': # m is left to n on QWERTY and s is left to n on Dvorak
+                messagewrap = None
+            elif messagewrap[0] in 'iouIOU': # o is left to i on QWERTY and u is right to i on Dvorak
+                messagewrap = gettermsize()[1]
+            else:
+                messagewrap = int(args.opts['-W'][0])
+        return messagewrap
 
