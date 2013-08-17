@@ -915,9 +915,7 @@ class Ponysay():
             print('\033[H\033[2J', end='')
         
         ## Get width truncation and wrapping
-        env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
-        if env_width is None:  env_width = ''
-        widthtruncation = gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
+        widthtruncation = self.__getWidthTruncation()
         messagewrap = 60
         if (args.opts['-W'] is not None) and (len(args.opts['-W'][0]) > 0):
             messagewrap = args.opts['-W'][0]
@@ -1060,4 +1058,15 @@ class Ponysay():
             Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
             pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
         return pony
+    
+    
+    def __getWidthTruncation(self):
+        '''
+        Gets the width trunction setting
+        
+        @return  :int?  The column the truncate the output at, or `None` to not truncate it
+        '''
+        env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
+        if env_width is None:  env_width = 'auto'
+        return gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
 
