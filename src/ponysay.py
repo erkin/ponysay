@@ -501,8 +501,8 @@ class Ponysay():
         '''
         quote      = (args.opts['-q'] is not None) or (args.opts['-Q'] is not None)
         extraquote = (args.opts['+q'] is not None) or (args.opts['-Q'] is not None)
-        standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) or (args.opts['-Q'] is not None)
-        extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) or (args.opts['+q'] is not None) or (args.opts['-Q'] is not None)
+        standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or quote
+        extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) or extraquote
         if not (standard or extra):
             standard = True
         ponydirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else []);
