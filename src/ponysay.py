@@ -924,21 +924,11 @@ class Ponysay():
         balloon = self.__getBalloon(balloonfile) if args.opts['-o'] is None else None
         
         ## Get hyphen style
-        hyphen = os.environ['PONYSAY_WRAP_HYPHEN'] if 'PONYSAY_WRAP_HYPHEN' in os.environ else None
-        if (hyphen is None) or (len(hyphen) == 0):
-            hyphen = '-'
-        hyphencolour = ''
-        if args.opts['--colour-wrap'] is not None:
-            hyphencolour = '\033[' + ';'.join(args.opts['--colour-wrap']) + 'm'
-        hyphen = '\033[31m' + hyphencolour + hyphen
+        hyphen = self.__getHyphen(args)
         
         ## Link and balloon colouring
-        linkcolour = ''
-        if args.opts['--colour-link'] is not None:
-            linkcolour = '\033[' + ';'.join(args.opts['--colour-link']) + 'm'
-        ballooncolour = ''
-        if args.opts['--colour-bubble'] is not None:
-            ballooncolour = '\033[' + ';'.join(args.opts['--colour-bubble']) + 'm'
+        linkcolour = self.__getLinkColour(args)
+        ballooncolour = self.__getBalloonColour(args)
         
         ## Determine --info/++info settings
         minusinfo = args.opts['-i'] is not None
@@ -1061,6 +1051,30 @@ class Ponysay():
             else:
                 messagewrap = int(args.opts['-W'][0])
         return messagewrap
+    
+    
+    def __getHyphen(self, args):
+        hyphen = os.environ['PONYSAY_WRAP_HYPHEN'] if 'PONYSAY_WRAP_HYPHEN' in os.environ else None
+        if (hyphen is None) or (len(hyphen) == 0):
+            hyphen = '-'
+        hyphencolour = ''
+        if args.opts['--colour-wrap'] is not None:
+            hyphencolour = '\033[' + ';'.join(args.opts['--colour-wrap']) + 'm'
+        return '\033[31m' + hyphencolour + hyphen
+    
+    
+    def __getLinkColour(self, args):
+        linkcolour = ''
+        if args.opts['--colour-link'] is not None:
+            linkcolour = '\033[' + ';'.join(args.opts['--colour-link']) + 'm'
+        return linkcolour
+    
+    
+    def __getBalloonColour(self, args):
+        ballooncolour = ''
+        if args.opts['--colour-bubble'] is not None:
+            ballooncolour = '\033[' + ';'.join(args.opts['--colour-bubble']) + 'm'
+        return ballooncolour
     
     
     def __printOutput(self, output):
