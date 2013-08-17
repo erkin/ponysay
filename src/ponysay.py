@@ -471,20 +471,7 @@ class Ponysay():
             
             ## Get all ponies, with quotes
             oldponies = {}
-            if standard:
-                for ponydir in self.ponydirs:
-                    for ponyfile in os.listdir(ponydir):
-                        if endswith(ponyfile, '.pony'):
-                            pony = ponyfile[:-5]
-                            if (pony not in oldponies) and ((quoters is None) or (pony in quoters)):
-                                oldponies[pony] = ponydir + ponyfile
-            if extra:
-                for ponydir in self.extraponydirs:
-                    for ponyfile in os.listdir(ponydir):
-                        if endswith(ponyfile, '.pony'):
-                            pony = ponyfile[:-5]
-                            if pony not in oldponies:
-                                oldponies[pony] = ponydir + ponyfile
+            self.__getAllPonies(standard, extra, oldponies, quoters):
             
             ## Apply metadata restriction
             if self.restriction is not None:
@@ -552,6 +539,37 @@ class Ponysay():
             else:
                 file = pony[1][possibilities.index(pony[0])]
                 return (file, self.__getQuote(pony[0], file) if pony[2] else None)
+    
+    
+    def __getAllPonies(self, standard, extra, collection, quoters):
+        '''
+        Get ponies for a set of directories
+        
+        @param  standard:bool              Whether to include standard ponies
+        @parma  extra:bool                 Whether to include extra ponies
+        @param  collection:dict<str, str>  Collection of already found ponies, and collection for new ponies
+        @param  quoters:set<str>?          Ponies to limit to, or `None` to include all ponies
+        '''
+        if standard:
+            self.__getPonies(self.ponydirs, collection, quoters)
+        if extra:
+            self.__getPonies(self.extraponydirs, collection, quoters)
+    
+    
+    def __getPonies(self, directories, collection, quoters):
+        '''
+        Get ponies for a set of directories
+        
+        @param  directories:list<str>      Directories with ponies
+        @param  collection:dict<str, str>  Collection of already found ponies, and collection for new ponies
+        @param  quoters:set<str>?          Ponies to limit to, or `None` to include all ponies
+        '''
+        for ponydir in directories:
+            for ponyfile in os.listdir(ponydir):
+                if endswith(ponyfile, '.pony'):
+                    pony = ponyfile[:-5]
+                    if (pony not in collection) and ((quoters is None) or (pony in quoters)):
+                        collection[pony] = ponydir + ponyfile
     
     
     def __getQuote(self, pony, file):
