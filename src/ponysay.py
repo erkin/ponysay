@@ -872,50 +872,6 @@ class Ponysay():
         print('%s %s' % ('ponysay', VERSION))
     
     
-    def __compressMessage(self, msg):
-        '''
-        This algorithm should give some result as cowsay's
-        
-        @param   msg:str  The message
-        @return  :str     The message compressed
-        '''
-        buf = ''
-        last = ' '
-        CHARS = '\t \n'
-        for c in msg:
-            if (c in CHARS) and (last in CHARS):
-                if last == '\n':
-                    buf += last
-                last = c
-            else:
-                buf += c
-                last = c
-        msg = buf.strip(CHARS)
-        buf = ''
-        for c in msg:
-            if (c != '\n') or (last != '\n'):
-                buf += c
-                last = c
-        return buf.replace('\n', '\n\n')
-    
-    
-    def __useImage(self, pony):
-        '''
-        Convert image to the ponysay format if it is a regular image
-        
-        @param   pony:str  The pony file
-        @return  :str      The new pony file, or the old if it was already in the ponysay format
-        '''
-        if endswith(pony.lower(), '.png'):
-            pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
-            pngcmd = 'ponytool --import image --file %s --balloon n --export ponysay --platform %s --balloon y'
-            pngcmd %= (pony, ('linux' if self.linuxvt else 'xterm')) # XXX xterm should be haiku in Haiku
-            pngpipe = os.pipe()
-            Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
-            pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
-        return pony
-    
-    
     def printPony(self, args):
         '''
         Print the pony with a speech or though bubble. message, pony and wrap from args are used.
@@ -1039,4 +995,48 @@ class Ponysay():
                     print(line)
         else:
             print(output)
+    
+    
+    def __compressMessage(self, msg):
+        '''
+        This algorithm should give some result as cowsay's
+        
+        @param   msg:str  The message
+        @return  :str     The message compressed
+        '''
+        buf = ''
+        last = ' '
+        CHARS = '\t \n'
+        for c in msg:
+            if (c in CHARS) and (last in CHARS):
+                if last == '\n':
+                    buf += last
+                last = c
+            else:
+                buf += c
+                last = c
+        msg = buf.strip(CHARS)
+        buf = ''
+        for c in msg:
+            if (c != '\n') or (last != '\n'):
+                buf += c
+                last = c
+        return buf.replace('\n', '\n\n')
+    
+    
+    def __useImage(self, pony):
+        '''
+        Convert image to the ponysay format if it is a regular image
+        
+        @param   pony:str  The pony file
+        @return  :str      The new pony file, or the old if it was already in the ponysay format
+        '''
+        if endswith(pony.lower(), '.png'):
+            pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
+            pngcmd = 'ponytool --import image --file %s --balloon n --export ponysay --platform %s --balloon y'
+            pngcmd %= (pony, ('linux' if self.linuxvt else 'xterm')) # XXX xterm should be haiku in Haiku
+            pngpipe = os.pipe()
+            Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
+            pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
+        return pony
 
