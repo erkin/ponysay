@@ -26,21 +26,37 @@ for pony in allponies.keys():
         sys.exit(1)
     allponies[pony] = str(count)
 
-lines = None
-with open('ponyquotes/ponies', 'rb') as file:
-    lines = file.read()
-lines = lines.decode('utf-8', 'error').split('\n')
+masters = {}
+ponies = os.listdir('ponies')
+for pony in ponies:
+    if pony.endswith('.pony') and (len(pony) > 5):
+        name = pony[:-5]
+        pony = 'ponies/' + pony
+        data = None
+        with open(pony, 'rb') as file:
+            data = file.read()
+        data = data.decode('utf-8', 'error')
+        if not data.startswith('$$$\n'):
+            print('%s as no metadata' % pony, file = sys.stderr)
+            sys.exit(1)
+        data = data[3:]
+        data = data[:data.index('$$$\n')]
+        if '\n\n' in data:
+            data = data[:data.index('\n\n')]
+        master = name
+        if '\nMASTER:' in data:
+            master = data[data.index('\nMASTER:') + 9:] + '\n'
+            master = data[:data.index('\n')]
+            master = master.strip()
+        if master not in masters:
+            masters[master] = []
+        masters[master].append(name)
 
 by_master = {}
 by_file = {}
 
-for line in lines:
-    line = line.replace(' ', '')
-    if len(line) == 0:
-        continue
-    
-    ponies = line.split('+')
-    master = ponies[0]
+for master in masters:
+    ponies = masters[master]
     if master not in allponies:
         continue
     count = allponies[master]
