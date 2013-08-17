@@ -24,7 +24,7 @@ if [ ! "$(./src/__main__.py -oX -f sweetiesing 3>&1 >/dev/null | head -n 1)" = "
 	# This part is a little hacky as I assume git use locale settings for the language and there seems to be no good way to automate a bisect.
 	nowlog="$(git bisect log | tail -n 1)"
 	if [ "${nowlog}" = "${lastlog}" ]; then
-	    git checkout master
+	    git bisect reset
 	    exit 1
 	fi
     done
