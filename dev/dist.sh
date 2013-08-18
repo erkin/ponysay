@@ -1,47 +1,22 @@
 #!/usr/bin/env bash
 
-# USAGE:  dev/dist.sh ttyponies
-#     or  dev/dist.sh pdfmanual
+# USAGE:  dev/dist.sh pdfmanual
 #     or  dev/dist.sh tag VERSION [OTHER OPTIONS FOR `git tag`]
 #     or  dev/dist.sh beigepdf
 #     or  dev/dist.sh remaster
-
-
-ttyponies()
-{
-    defaultinparams="--left - --right - --top - --bottom -"
-    defaultoutparams="--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y"
-    for x in '' 'extra'; do
-	mkdir -p "${x}ttyponies"
-	for pony in $(find "${x}ponies/" | grep -v '/\.' | grep '\.pony$' | sed -e "s_^${x}ponies/__"); do
-	    echo "building ${x}ttypony: $pony"
-	    if [ ! -L "${x}ponies/$pony" ]; then
-		ponytool --import ponysay --file "${x}ponies/$pony" $defaultinparams \
-		         --export ponysay --platform linux --file "${x}ttyponies/$pony" $defaultoutparams
-		git add "${x}ttyponies/$pony"
-	    else
-		ln -sf "$(readlink "${x}ponies/$pony")" "${x}ttyponies/$pony"
-		git add "${x}ttyponies/$pony"
-	    fi
-	done
-    done
-}
 
 
 remaster()
 {
     inparams="--left - --right - --top - --bottom -"
     xtermoutparams="--left - --right - --top - --bottom - --balloon n"
-    linuxoutparams="--colourful y --left - --right - --top - --bottom - --balloon n --fullcolour y"
     for x in '' 'extra'; do
-	mkdir -p "${x}ttyponies"
 	for pony in $(find "${x}ponies/" | grep -v '/\.' | grep '\.pony$' | sed -e "s_^${x}ponies/__"); do
 	    echo "remastering ${x}pony: $pony"
 	    if [ ! -L "${x}ponies/$pony" ]; then
 		ponytool --import ponysay --file "${x}ponies/$pony" $inparams \
-		         --export ponysay --file "${x}ponies/$pony" $xtermoutparams \
-		         --export ponysay --platform linux --file "${x}ttyponies/$pony" $linuxoutparams
-		git add "${x}ponies/$pony" "${x}ttyponies/$pony"
+		         --export ponysay --file "${x}ponies/$pony" $xtermoutparams
+		git add "${x}ponies/$pony"
 	    else
 		ln -sf "$(readlink "${x}ponies/$pony")" "${x}ttyponies/$pony"
 		git add "${x}ttyponies/$pony"
