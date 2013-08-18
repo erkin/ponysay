@@ -2586,22 +2586,37 @@ comment field. Leading line breaks in the comment field is ignored.
 @cindex pony quote infrastructure
 @cindex quote infrastructure
 
-When compiling, pony quotes are built to @file{quotes/}, the file names are
-lists of ponies joined with plus signs (@code{+}) -- the pony names are the
-same as the pony files, except they do not end with @file{.pony} -- with a
-index at the end, and a full stop (@code{.}) before the index.
+When compiling, two indices for the pony quotes are built. These indices
+are dbm databases; if you have gdbm, which you probably have, python will
+using gdbm. If you later uninstall gdbm, you will have to reinstall ponysay
+so it is built without, gdbm.
 
-The source files are located in @file{ponyquotes/}, where their is a file named
-@file{ponies}. This file is called the pony map, and is the basis for how the
-compiled files are named. In the ponymap ponies with the same quotes are on the
-same line join together with plus signs (@code{+}), if the lines because too
-long for file names the line is split into multiple lines with the first pony
-in common.
+Prior to version 3.1 of ponysay, there was a @file{ponies} in @file{ponyquotes/}
+where all ponies are group to gather with plus signs (@code{+}), to identify
+which quotes belong to which pony files, because the quote files just hade
+the first ponys' name before compilation.
 
-In @file{ponyquotes/} there are also quote files, each contain just one quote,
-just as when compiled to @file{quotes/}. The source quote files are identical
-to the compiled quote files, except that their name contains just the first
-pony.
+Since version 3.1 of ponysay, the group is instead saved in index databases,
+and built from the pony file metadata tag @code{MASTER}.
+
+The previous solution has some disadvantages:
+
+@itemize @bullet
+@item
+It was not as fast a pony name was needed to be searched for in a all
+quote file names.
+@item
+Was not as flexible for selection another algorithm for randomly selecting
+a pony and a quote.
+@item
+@file{ponyquotes/ponies} was manually edited when a new pony as added,
+altough this could have been solved without changing anything in the
+installed files. This just happened to be solved at the same time.
+@item
+Pinkie Pie had so many images that the resolution quote files' names
+were to long and quotes had to be duplicated. And Pinkie Pie became
+even more likely to be randomly selected.
+@end itemize
 
 
 @node Balloon style files
