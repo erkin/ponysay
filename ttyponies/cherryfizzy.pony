@@ -1,1 +1,0 @@
-./cherrycola.pony

@@ -1,1 +1,0 @@
-./maybelle.pony

@@ -1,1 +1,0 @@
-internetexplorer.pony
