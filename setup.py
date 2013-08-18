@@ -4,6 +4,7 @@
 import os
 import shutil
 import sys
+import dbm
 from zipfile import ZipFile
 from subprocess import Popen, PIPE
 
@@ -18,7 +19,7 @@ sharedirs = [('ponies', 'xterm ponies', 'PONYDIR', True),  # must be first
              ('ttyponies', 'tty ponies', 'TTYPONYDIR', True),
              ('extraponies', 'extra xterm ponies', 'XPONYDIR', True),
              ('extrattyponies', 'extra tty ponies', 'XTTYPONYDIR', True),
-             ('quotes', 'pony quotes', 'QUOTEDIR', False),
+             ('ponyquotes', 'pony quotes', 'QUOTEDIR', False),
              ('balloons', 'balloon styles', 'BALLOONDIR', False)]
 
 sharefiles = [('ucs', 'ucsmap')]
@@ -520,24 +521,8 @@ class Setup():
                             if fileout is not None:  fileout.close()
                             if filein  is not None:  filein .close()
 
-        if conf['quotes'] is not None:
-            self.removeLists([], ['quotes'])
-            os.mkdir('quotes')
-            ponymap = None
-            try:
-                ponymap = open('ponyquotes/ponies', 'rb')
-                ponies = [line for line in ponymap.read().decode('utf-8', 'replace').split('\n')]
-                for _ponies in ponies:
-                    for pony in _ponies.split('+'):
-                        if len(pony) > 0:
-                            print('Generating quote files for \033[34m' + pony + '\033[39m')
-                            for file in os.listdir('ponyquotes'):
-                                if file.startswith(pony + '.'):
-                                    if os.path.isfile('ponyquotes/' + file):
-                                        shutil.copy('ponyquotes/' + file, 'quotes/' + _ponies + file[file.find('.'):])
-            finally:
-                if ponymap is not None:
-                    ponymap.close()
+        if conf['ponyquotes'] is not None:
+            Setup.makeQuotesDatabase('ponies', 'ponyquotes', 'share/by-master', 'share/by-file', Setup.validateFreedom if self.free else None)
 
         for (sharedir, hasponies) in [(sharedir[0], sharedir[3]) for sharedir in sharedirs]:
             if hasponies and os.path.isdir(sharedir):
@@ -640,6 +625,9 @@ class Setup():
         for file in sharefiles:
             if conf[file[0]] is not None:
                 self.cp(False, 'share/' + file[1], [ponyshare + file[0]], Setup.validateFreedom if self.free else None)
+        if conf['ponyquotes'] is not None:
+            for file in ('by-file', 'by-master'):
+                self.cp(False, 'share/' + file, [ponyshare + file], Setup.validateFreedom if self.free else None)
         for file in miscfiles:
             self.cp(False, file[0], [conf[file[0]]], Setup.validateFreedom if self.free else None)
         print()
@@ -689,6 +677,8 @@ class Setup():
         for file in sharefiles:
             if conf[file[0]] is not None:
                 files.append(ponyshare + file[0])
+        files.append(ponyshare + 'by-file')
+        files.append(ponyshare + 'by-master')
         for file in miscfiles:
             files.append(conf[file[0]])
 
@@ -727,9 +717,9 @@ class Setup():
     def clean(self):
         print('\033[1;34m::\033[39mCleaning...\033[21m')
 
-        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install']
+        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install', 'share/by-file', 'share/by-master']
         files += ['src/%s.install' % file for file in ponysaysrc]
-        dirs = ['quotes']
+        dirs = []
         for comp in ['install', 'gz', 'xz']:
             for man in manpages:
                 if man is manpages[0]:  man = ''
@@ -754,7 +744,7 @@ class Setup():
         print('\033[1;34m::\033[39mCleaning old files...\033[21m')
 
         files = ['truncater', 'ponysaytruncater', 'ponysay.py.install', 'ponysay.install~', 'ponysay.zip']
-        dirs = []
+        dirs = ['quotes']
         for shell in [item[0] for item in shells]:
             files.append('completion/%s-completion.%s.install' % (shell, 'sh' if shell == 'bash' else shell))
             files.append('completion/%s-completion-think.%s'   % (shell, 'sh' if shell == 'bash' else shell))
@@ -764,6 +754,84 @@ class Setup():
 
         self.removeLists(files, dirs)
         print()
+
+    '''
+    Generate quotes database
+    '''
+    @staticmethod
+    def makeQuotesDatabase(ponydir, quotedir, masterdb, filedb, validatehook):
+        allponies = {}
+        ponies = os.listdir(quotedir,)
+        for pony in ponies:
+            parts = pony.split('.')
+            if len(parts) == 2:
+                name = parts[0]
+                index = parts[1]
+                if len(name) * len(index) > 0:
+                    if len(index.strip('0123456789')) == 0:
+                        if name not in allponies:
+                            allponies[name] = set([])
+                        allponies[name].add(int(index))
+
+        for pony in allponies.keys():
+            count = max(allponies[pony]) + 1
+            if len(allponies[pony]) != count:
+                print('Index error on quotes for %s' % pony, file = sys.stderr)
+                exit(-1)
+            allponies[pony] = str(count)
+
+        masters = {}
+        ponies = os.listdir(ponydir)
+        for pony in ponies:
+            if (validatehook is not None) and not validatehook(ponydir + '/' + pony):
+                continue
+            if pony.endswith('.pony') and (len(pony) > 5):
+                name = pony[:-5]
+                pony = '%s/%s' % (ponydir, pony)
+                data = None
+                with open(pony, 'rb') as file:
+                    data = file.read()
+                data = data.decode('utf-8', 'error')
+                if not data.startswith('$$$\n'):
+                    print('%s as no metadata' % pony, file = sys.stderr)
+                    exit(-1)
+                data = data[3:]
+                data = data[:data.index('$$$\n')]
+                if '\n\n' in data:
+                    data = data[:data.index('\n\n')]
+                master = name
+                if '\nMASTER:' in data:
+                    data = data[data.index('\nMASTER:') + 9:] + '\n'
+                    data = data[:data.index('\n')]
+                    master = data.strip()
+                if master not in masters:
+                    masters[master] = []
+                masters[master].append(name)
+
+        by_master = {}
+        by_file = {}
+
+        for master in masters:
+            ponies = masters[master]
+            if master not in allponies:
+                continue
+            count = allponies[master]
+
+            by_master[master] = [count] + ponies
+            for pony in ponies:
+                if pony not in by_file:
+                    by_file[pony] = []
+                by_file[pony] += [count, master]
+
+        db = dbm.open(masterdb, 'n')
+        for key in by_master:
+            db[key] = ' '.join(by_master[key])
+        db.close()
+
+        db = dbm.open(filedb, 'n')
+        for key in by_file:
+            db[key] = ' '.join(by_file[key])
+        db.close()
 
     '''
     Removes listed files and directories
