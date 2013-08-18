@@ -5,14 +5,14 @@ import os
 import sys
 
 dependencies = [
-    ('chmod',              'coreutils',             None,                                  2, 1),
-    ('gzip',               'gzip',                  'compression of manuals',              1, 0),
-    ('makeinfo',           'texinfo',               'compilation of info manual',          1, 0),
-    ('install-info',       'texinfo',               'installation of info manual',         1, 0),
-    ('auto-auto-complete', 'auto-auto-complete>=3', 'compilation of shell tab-completion', 1, 0),
-    ('stty',               'coreutils',             None,                                  0, 2),
-    ('ponytool',           'util-say>=3',           'KMS utilisation and PNG support',     0, 1),
-    (None,                 'python>=3',             None,                                  2, 2)
+    ('chmod',              'coreutils',             None,                                                    2, 1),
+    ('gzip',               'gzip',                  'compression of manuals',                                1, 0),
+    ('makeinfo',           'texinfo',               'compilation of info manual',                            1, 0),
+    ('install-info',       'texinfo',               'installation of info manual',                           1, 0),
+    ('auto-auto-complete', 'auto-auto-complete>=3', 'compilation of shell tab-completion',                   1, 0),
+    ('stty',               'coreutils',             None,                                                    0, 2),
+    ('ponytool',           'util-say>=3',           'compiling TTY ponies, KMS utilisation and PNG support', 2, 1),
+    (None,                 'python>=3',             None,                                                    2, 2)
 ]
 
 path = os.environ['PATH'].split(':')
