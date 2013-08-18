@@ -25,7 +25,11 @@ def generateTTY(ponydir, ttyponydir, judge):
         else:
             cmd = ['ponytool', '--import', 'ponysay', '--file', infile] + defaultinparams
             cmd += ['--export', 'ponysay', '--platform', 'linux', '--file', outfile] + defaultoutparams
-            Popen(cmd, stdin = sys.stdin, stdout = sys.stdout, stderr = sys.stderr)
+            proc = Popen(cmd, stdin = sys.stdin, stdout = sys.stdout, stderr = sys.stderr)
+            proc.wait()
+            if proc.returncode != 0:
+                print('Failed to build %s from %s with ponytool' % (outfile, infile))
+                exit(1)
 
 
 if __name__ == '__main__':
