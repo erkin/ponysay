@@ -3297,6 +3297,8 @@ Swedish manual page added.
 Added manpage for @command{ponysay-tool}.
 @item
 @command{auto-auto-complete>=3} added as optional build dependency.
+@item
+TTY ponies are build at installation, promoting @command{util-say>=3} to an optional build dependency.
 @end itemize
 
 @heading Version 3.0.1

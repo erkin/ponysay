@@ -8,8 +8,8 @@ Version 3.0.2
 
         New extraponies: aurora, aquarius, aries, barbara, cancer, capricorn,
                          childrenofthenight, chrome, firefox, gemini, fluffle,
-                         fyreflyready, internetexplorer, leo, libra, milky, 
-                         milkylay, opera, oscura, pisces, princeartemis, 
+                         fyreflyready, internetexplorer, leo, libra, milky,
+                         milkylay, opera, oscura, pisces, princeartemis,
                          redit, sagittarius, scorpio, solaris, sweetiebot,
                          taurus, virgo, wiggles
 
@@ -37,6 +37,8 @@ Version 3.0.2
 	+h (++help, --help-colour) added.
 
 	auto-auto-complete>=3 added as optional build dependency.
+
+	TTY ponies are build at installation, promoting util-say>=3 to an optional build dependency.
 
 
 Version 3.0.1
