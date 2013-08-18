@@ -522,7 +522,7 @@ class Setup():
                             if filein  is not None:  filein .close()
 
         if conf['ponyquotes'] is not None:
-            Setup.makeQuotesDatabase('ponies', 'ponyquotes', 'share/by-master', 'share/by-file', Setup.validateFreedom if self.free else None)
+            Setup.makeQuotesDatabase('ponies', 'ponyquotes', 'share/by-master', 'share/by-image', 'share/by-file', Setup.validateFreedom if self.free else None)
 
         for (sharedir, hasponies) in [(sharedir[0], sharedir[3]) for sharedir in sharedirs]:
             if hasponies and os.path.isdir(sharedir):
@@ -626,7 +626,7 @@ class Setup():
             if conf[file[0]] is not None:
                 self.cp(False, 'share/' + file[1], [ponyshare + file[0]], Setup.validateFreedom if self.free else None)
         if conf['ponyquotes'] is not None:
-            for file in ('by-file', 'by-master'):
+            for file in ('by-file', 'by-image', 'by-master'):
                 self.cp(False, 'share/' + file, [ponyshare + file], Setup.validateFreedom if self.free else None)
         for file in miscfiles:
             self.cp(False, file[0], [conf[file[0]]], Setup.validateFreedom if self.free else None)
@@ -678,6 +678,7 @@ class Setup():
             if conf[file[0]] is not None:
                 files.append(ponyshare + file[0])
         files.append(ponyshare + 'by-file')
+        files.append(ponyshare + 'by-image')
         files.append(ponyshare + 'by-master')
         for file in miscfiles:
             files.append(conf[file[0]])
@@ -717,7 +718,7 @@ class Setup():
     def clean(self):
         print('\033[1;34m::\033[39mCleaning...\033[21m')
 
-        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install', 'share/by-file', 'share/by-master']
+        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install', 'share/by-file', 'share/by-image', 'share/by-master']
         files += ['src/%s.install' % file for file in ponysaysrc]
         dirs = []
         for comp in ['install', 'gz', 'xz']:
@@ -759,7 +760,7 @@ class Setup():
     Generate quotes database
     '''
     @staticmethod
-    def makeQuotesDatabase(ponydir, quotedir, masterdb, filedb, validatehook):
+    def makeQuotesDatabase(ponydir, quotedir, masterdb, imagedb, filedb, validatehook):
         allponies = {}
         ponies = os.listdir(quotedir,)
         for pony in ponies:
@@ -817,7 +818,7 @@ class Setup():
                 continue
             count = allponies[master]
 
-            by_master[master] = [count] + ponies
+            by_master[master] = [count] + filter(lambda p : not os.path.islink('%s/%s.pony' % (ponydir, p)), ponies)
             for pony in ponies:
                 if pony not in by_file:
                     by_file[pony] = []
@@ -826,6 +827,11 @@ class Setup():
         db = dbm.open(masterdb, 'n')
         for key in by_master:
             db[key] = ' '.join(by_master[key])
+        db.close()
+
+        db = dbm.open(imagedb, 'n')
+        for key in filter(lambda p : not os.path.islink('%s/%s.pony' % (ponydir, p)), by_file.keys()):
+            db[key] = ' '.join(by_file[key])
         db.close()
 
         db = dbm.open(filedb, 'n')

@@ -2586,7 +2586,7 @@ comment field. Leading line breaks in the comment field is ignored.
 @cindex pony quote infrastructure
 @cindex quote infrastructure
 
-When compiling, two indices for the pony quotes are built. These indices
+When compiling, three indices for the pony quotes are built. These indices
 are dbm databases; if you have gdbm, which you probably have, python will
 using gdbm. If you later uninstall gdbm, you will have to reinstall ponysay
 so it is built without, gdbm.
@@ -2616,6 +2616,8 @@ installed files. This just happened to be solved at the same time.
 Pinkie Pie had so many images that the resolution quote files' names
 were to long and quotes had to be duplicated. And Pinkie Pie became
 even more likely to be randomly selected.
+@item
+Random selection algorithm with biased towards images with symlink alternatives.
 @end itemize
 
 
