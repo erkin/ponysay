@@ -92,13 +92,17 @@ Dependencies
 
 ### Package building dependencies
 
-`gzip`: Used for compressing manuals (suppressable with `./configure --without-info-compression --without-man-compression`).
+`gzip`: Used for compressing manuals (opt-out)
 
-`texinfo`: Used for building the info manual (suppressable with `./configure --without-info`).
+`texinfo`: Used for building the info manual (opt-out)
+
+`auto-auto-complete>=3`: Used for building shell tab-completion scripts (opt-out)
+
+`util-say>=3`: Used for building TTY ponies (opt-out)
 
 `python>=3`: The installation process is written in Python 3.
 
-Run `./dependency-test.sh` if things are not working for you.
+Run `setup/dependencies.py` if things are not working for you.
 
 
 FAQ
