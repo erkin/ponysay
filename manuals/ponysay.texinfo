@@ -1782,6 +1782,11 @@ Used to install this @command{info} manual with @command{install-info}.
 @item auto-auto-complete
 @pindex @command{auto-auto-complete}
 Used to generate shell tab-completion scripts. (Optional, standard)
+@item util-say>=3
+@pindex @command{util-say}
+@cindex TTY
+@pindex Linux VT
+For generating TTY ponies. (Optional, standard)
 @end table
 
 
@@ -3020,15 +3025,15 @@ well written, it just contains the core of an stable @command{git} distribution.
 @cartouche
 @example
 pkgname=ponysay
-pkgver=3.0.1
+pkgver=3.1
 pkgrel=1
 arch=('any')
 pkgdesc="Cowsay reimplementation for ponies"
 url="https://github.com/erkin/ponysay"
 license=('GPL3' 'FDL')
 depends=('python>=3' 'coreutils')
-optdepends=("util-say>=3: Improved TTY support with KMS and PNG files")
-makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3' 'auto-auto-complete>=3')
+optdepends=('util-say>=3: Improved TTY support with KMS and PNG files')
+makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3' 'auto-auto-complete>=3', 'util-say>=3')
 
 
 
