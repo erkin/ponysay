@@ -3253,8 +3253,8 @@ New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
 @file{mantishy}, @file{maybelle}, @file{misty}, @file{mule}, 
 @file{nightmarerarity}, @file{peachbottom}, @file{rainbowdashcrystal}, 
 @file{rainbowdrop}, @file{rainbowfim}, @file{shortround}, 
-@file{strawberrycream}, @file{sunsetshimmer}, @file{unclewing}, 
-@file{wildflower}
+@file{strawberrycream}, @file{sunsetshimmer}, @file{theoldenpony}, 
+@file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{cancer}, @file{capricorn}, 
