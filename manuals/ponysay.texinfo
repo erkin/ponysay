@@ -3253,24 +3253,23 @@ New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
 @file{mantishy}, @file{maybelle}, @file{misty}, @file{mule}, 
 @file{nightmarerarity}, @file{peachbottom}, @file{rainbowdashcrystal}, 
 @file{rainbowdrop}, @file{rainbowfim}, @file{shortround}, 
-@file{strawberrycream}, @file{sunsetshimmer}, @file{unclewing}, 
-@file{wildflower}
+@file{strawberrycream}, @file{sunsetshimmer}, @file{theoldenpony}, 
+@file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{cancer}, @file{capricorn}, 
 @file{childrenofthenight}, @file{chrome}, @file{firefox}, @file{fluffle}, 
 @file{fyreflyready}, @file{gemini}, @file{internetexplorer}, @file{leo}, 
-@file{libra}, @file{milky}, @file{milkylay}, @file{opera}, @file{oscura},
-@file{pisces}, @file{princeartemis}, @file{reddit}, 
-@file{sagittarius}, @file{scorpio}, @file{solaris}, 
-@file{sweetiebot}, @file{taurus}, @file{virgo},
-@file{wiggles}
+@file{libra}, @file{lilmissrarity}, @file{milky}, @file{milkylay}, 
+@file{opera}, @file{oscura}, @file{pisces}, @file{princeartemis}, 
+@file{reddit}, @file{sagittarius}, @file{scorpio}, @file{solaris}, 
+@file{sweetiebot}, @file{taurus}, @file{virgo}, @file{wiggles}
 @item
 Pony symlink added:
 @itemize @bullet
 @item @file{walter} @arrow{} @file{walter}
 @item @file{barbra} @arrow{} @file{barbara}
-@item @file{buttonsmash} @arrow{} @file{highscore}
+@item @file{buttonmash} @arrow{} @file{highscore}
 @item @file{brad} @arrow{} @file{flashsentry}
 @item @file{ie} @arrow{} @file{internetexplorer}
 @end itemize
