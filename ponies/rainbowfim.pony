@@ -19,8 +19,8 @@ SOURCE: (Robokitty) Desktop ponies
 WIDTH: 51
 HEIGHT: 25
 
-
 $$$
+$balloon15$[00m
             $\$                                      [00m
              $\$                                     [00m
               $\$                                    [00m
