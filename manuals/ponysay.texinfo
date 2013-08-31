@@ -3259,11 +3259,11 @@ New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{buttonmom}, @file{cancer}, @file{capricorn}, 
 @file{childrenofthenight}, @file{chrome}, @file{firefox}, @file{fluffle}, 
-@file{fyreflyready}, @file{gemini}, @file{internetexplorer}, @file{leo}, 
-@file{libra}, @file{lilmissrarity}, @file{milky}, @file{milkylay}, 
-@file{opera}, @file{oscura}, @file{pisces}, @file{princeartemis}, 
-@file{reddit}, @file{sagittarius}, @file{scorpio}, @file{solaris}, 
-@file{sweetiebot}, @file{taurus}, @file{virgo}, @file{wiggles}
+@file{fyreflyready}, @file{gemini}, @file{gnupony}, @file{internetexplorer}, 
+@file{leo}, @file{libra}, @file{lilmissrarity}, @file{milky}, 
+@file{milkylay}, @file{opera}, @file{oscura}, @file{pisces}, 
+@file{princeartemis}, @file{reddit}, @file{sagittarius}, @file{scorpio}, 
+@file{solaris}, @file{sweetiebot}, @file{taurus}, @file{virgo}, @file{wiggles}
 @item
 Pony symlink added:
 @itemize @bullet
