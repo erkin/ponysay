@@ -18,7 +18,6 @@ SOURCE: (RJP!) Desktop ponies
 WIDTH: 45
 HEIGHT: 31
 
-
 $$$
 $balloon18$[00m
              $\$                [38;5;131m▄[48;5;131m█[48;5;215m▄[38;5;215m█[49;39m           [00m

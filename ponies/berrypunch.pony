@@ -18,7 +18,6 @@ SOURCE: (CANDYBAG, vulcan569/james569, Azure Fang) Desktop ponies
 WIDTH: 45
 HEIGHT: 26
 
-
 $$$
 $balloon5$[00m
   $\$                                          [00m

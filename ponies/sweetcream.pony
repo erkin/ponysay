@@ -19,7 +19,6 @@ SOURCE: [jristz]
 WIDTH: 49
 HEIGHT: 24
 
-
 $$$
 $balloon30$[00m
                            $\$                     [00m
