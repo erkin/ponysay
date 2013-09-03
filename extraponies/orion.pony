@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: Rainbow Dash Present: Capitain Hook The Biker Gorrila (whish is secretely Rainbow Factory - don't tell to Equestria Daily)
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: brown
 DISPLAY: full, right
 EYE: black
@@ -16,7 +16,7 @@ NAME: Orion Comet
 OTHER NAMES: Orion (official, sometimes), OC (official, short)
 POSE: crossdress
 SOURCE: Fan Video
-WIDTH: 28
+WIDTH: 27
 HEIGHT: 22
 
 License summary:   https://creativecommons.org/licenses/by-sa/3.0

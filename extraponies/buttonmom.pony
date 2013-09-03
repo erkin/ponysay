@@ -1,4 +1,5 @@
 $$$
+APPEARANCE: Buttons's Adventures ( http://youtu.be/S2VhC1QF7ww )
 BALLOON: top
 BALLOON BOTTOM: 0
 BALLOON TOP: 3
@@ -11,7 +12,7 @@ KIND: earth
 LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: brown
-MEDIA: Fan Video ( http://youtu.be/S2VhC1QF7ww )
+MEDIA: Fan Video
 NAME: (not mentioned for now)
 OTHER NAMES: Button's mom
 POSE: trot

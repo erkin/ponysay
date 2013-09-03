@@ -1,7 +1,7 @@
 $$$
-APPEARANCE: Children of the Night
+APPEARANCE: Children of the Night ( http://youtu.be/jW5n3k2VgZE )
 BALLOON: top
-BALLOON BOTTOM: 3
+BALLOON BOTTOM: 0
 BALLOON TOP: 0
 COAT: brown
 COAT: black

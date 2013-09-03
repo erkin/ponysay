@@ -12,9 +12,9 @@ KIND: alicorn
 LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: red
-MEDIA: deviantart.com (varius artists)
-NAME: Faust (most frecuent name)
-OTHER NAMES: Lauren Faust (owner name), Fausticon (given in other minor sources)
+MEDIA: deviantart.com (various artists)
+NAME: Faust (Most frecuent name)
+OTHER NAMES: Lauren Faust (owner name), Fausticorn (given in other minor sources)
 POSE: stand
 SOURCE: [jristz], based on OC ponies
 WIDTH: 51

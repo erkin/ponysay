@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S03E06 Sleepless in Ponyville
 BALLOON: top
-BALLOON BOTTOM: 3
-BALLOON TOP: 0
+BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: blue
 DISPLAY: full, left
 EYE: red
