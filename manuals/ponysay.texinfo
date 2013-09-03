@@ -3250,11 +3250,11 @@ ANSI escape sequences.
 @item
 New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
 @file{fleetfoot}, @file{flashsentry}, @file{hairytipper}, 
-@file{mantishy}, @file{maybelle}, @file{misty}, @file{mule}, 
-@file{nightmarerarity}, @file{peachbottom}, @file{rainbowdashcrystal}, 
-@file{rainbowdrop}, @file{rainbowfim}, @file{shortround}, 
-@file{strawberrycream}, @file{sunsetshimmer}, @file{theoldenpony}, 
-@file{unclewing}, @file{wildflower}
+@file{ironwill}, @file{mantishy}, @file{maybelle}, @file{misty}, 
+@file{mule}, @file{nightmarerarity}, @file{peachbottom}, 
+@file{rainbowdashcrystal}, @file{rainbowdrop}, @file{rainbowfim}, 
+@file{shortround}, @file{strawberrycream}, @file{sunsetshimmer}, 
+@file{theoldenpony}, @file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{buttonmom}, @file{cancer}, @file{capricorn}, 
@@ -3281,6 +3281,9 @@ from 40 to 60, to wrap messages better.
 @file{nightmare} has renamed into @file{nightmaremoon} for concistency 
 with the comic
 @item
+@file{ironwill} (3.0.1 and lower) has been renamed to 
+@file{ironwillwalk} because now we have a non walk version to be master.
+@item
 @file{doctor} has ben reintegrated to ponies thanks to official comic
 issue 8 where @file{drhooves} is siting alongside @file{doctor} and in
 front of @file{celestia}
@@ -3292,6 +3295,12 @@ Swedish manual page added.
 @option{+h} (@option{++help}, @option{--help-colour}) added.
 @item
 Added manpage for @command{ponysay-tool}.
+@item
+@file{auto-auto-completion} now is no more part of @command{ponysay}, 
+therefor you need install them and rebuild to get 
+@emph{auto-completion}, otherwise these @emph{auto-completion} files 
+aren't installed.
+                
 @end itemize
 
 @heading Version 3.0.1

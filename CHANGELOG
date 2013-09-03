@@ -1,7 +1,7 @@
 Version 3.0.2
 
         New ponies: brucemane, cremebrulee, deepblue, flashsentry, fleetfoot,
-                    hairytipper, mantishy, maybelle, misty, mule,
+                    hairytipper, ironwill, mantishy, maybelle, misty, mule,
                     nightmarerarity, peachbottom, rainbowdashcrystal,
                     rainbowdrop, rainbowfim, shortround, strawberrycream,
                     sunsetshimmer, theoldenpony, unclewing, wildflower
@@ -22,11 +22,14 @@ Version 3.0.2
                             ie → internetexplorer
 
         Default value for -W has been changed from 40 to 60.
-
-        nightmare was renamed to nightmaremoon for consistency whit the
-        comic
-
-        doctor has ben reintegrated to ponies thanks to official comic
+        
+        Special pony cases:
+        * nightmare was renamed to nightmaremoon for consistency whit 
+        the comic
+        * ironwill (3.0.1 and lower) has been renamed to ironwillwalk 
+        because now we have a ironwill in a non walk pose for to be they 
+        master
+        * doctor has ben reintegrated to ponies thanks to official comic
         issue 8 where is sit alongside drhooves
 
         Turkish manual page added.
@@ -36,7 +39,10 @@ Version 3.0.2
         Added manpage for ponysay-tool.
 
 	+h (++help, --help-colour) added.
-
+	
+	auto-auto-completion now is no more part of ponysay, therefor you 
+	need install them and rebuild to get auto-completions, otherwise 
+	these auto-completion files aren't installed.
 
 Version 3.0.1
 
@@ -83,7 +89,8 @@ Version 3.0
                         berrydreams → blueberry
                         raven → ravenunicorn (need a version named as master)
 
-        fillycelestia and filliestia has been moved to extraponies.
+        Special pony cases:
+        * fillycelestia and filliestia has been moved to extraponies.
 
         Renamed option -F to +f and option --F to ++f, -F and --F has new definitions.
 
@@ -216,7 +223,9 @@ Version 2.6
                             epona → quickfix
                             lotusbloosom → lotus
 
-        doctor and doctornohat has become extraponies, because their mane style is
+        Special pony cases:
+        * doctor and doctornohat has become extraponies, because their 
+        mane style is
         different from in the TV show. And timeturner no longer links to any of them.
 
         ./configure and make is no longer support.
