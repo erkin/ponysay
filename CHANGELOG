@@ -1,10 +1,11 @@
 Version 3.0.2
 
-        New ponies: brucemane, cremebrulee, deepblue, flashsentry, fleetfoot,
-                    hairytipper, ironwill, mantishy, maybelle, misty, mule,
-                    nightmarerarity, peachbottom, rainbowdashcrystal,
-                    rainbowdrop, rainbowfim, shortround, strawberrycream,
-                    sunsetshimmer, theoldenpony, unclewing, wildflower
+        New ponies: brucemane, cremebrulee, deepblue, filmreel, flashsentry, 
+        	    fleetfoot, hairytipper, ironwill, mantishy, maybelle, 
+        	    misty, mule, nightmarerarity, peachbottom, 
+        	    rainbowdashcrystal, rainbowdrop, rainbowfim, shortround, 
+        	    strawberrycream, sunsetshimmer, theoldenpony, unclewing, 
+        	    wildflower
 
         New extraponies: aurora, aquarius, aries, barbara, buttonmon, cancer, 
         		 capricorn, childrenofthenight, chrome, firefox, 
@@ -20,6 +21,7 @@ Version 3.0.2
                             brad → flashsentry (was used on EQD)
                             mabel → maybelle
                             ie → internetexplorer
+                            dancefever → hairytipper
 
         Default value for -W has been changed from 40 to 60.
         

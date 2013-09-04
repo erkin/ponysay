@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: Hairy Tipper (unofficial)
+OTHER NAMES: Hairy Tipper (unofficial), Dance Fever (official on Card game)
 POSE: stand
 SOURCE: [jristz], based on Desktop ponies
 WIDTH: 47
