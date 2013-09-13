@@ -38,6 +38,10 @@ There is a package for Gentoo, to make installation and updating simple. You can
 #### Debian GNU/Linux and Ubuntu
 The DEB file can be found on this PPA [here](https://launchpad.net/~vincent-c/+archive/ppa).
 
+#### Mac OS X
+
+A `ponysay` [Homebrew](https://github.com/mxcl/homebrew) formula is available.
+
 ### Print a pony fortune upon terminal startup
 
 This requires the `fortune` utility to be installed. It can install be from the distribution's repositories (might be named `fortune-mod`).
