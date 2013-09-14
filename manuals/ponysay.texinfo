@@ -2448,9 +2448,8 @@ An "exotic operating system" is a operating system that is not GNU (GNU/Linux
 
 @cindex Mac OS X
 @cindex OS X
-Ponysay is told to be running on Mac OS X, which is Unix certificated OS
-meaning that probably all future version of ponysay will be able to run
-without any problems.
+Mac OS X users can use the @code{ponysay} Homebrew
+(@url{https://github.com/mxcl/homebrew}) formula to install @command{ponysay}.
 
 @cindex Windows
 @cindex Cygwin
