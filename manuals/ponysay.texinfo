@@ -3021,17 +3021,17 @@ pkgrel=1
 arch=('any')
 pkgdesc="Cowsay reimplementation for ponies"
 url="https://github.com/erkin/ponysay"
-license=('GPL3' 'FDL')
+license=('custom:GPL3' 'FDL')
 depends=('python>=3' 'coreutils')
 optdepends=("util-say>=3: Improved TTY support with KMS and PNG files")
 makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3')
-
-
+source=("ponysay::git+https://github.com/erkin/ponysay")
+nd5suns=('SKIP')
 
 build()
 @{  
-    cd "$srcdir"; git clone git://github.com/erkin/ponysay.git ponysay
-    cd ponysay  ; git checkout "$pkgver"
+    cd "$srcdir/ponysay"
+    git checkout "$pkgver"
 
     ./setup.py --everything --without-pdf-compression  \
                --bin-dir=/usr/bin --dest-dir="$pkgdir" \
@@ -3044,7 +3044,8 @@ build()
 
 package()
 @{   
-     cd "$srcdir/ponysay"; ./setup.py DESTDIR=$pkgdir install
+    cd "$srcdir/ponysay"
+    ./setup.py DESTDIR=$pkgdir install
 @}
 @end example
 @end cartouche
@@ -3128,6 +3129,8 @@ many others artist.
 @item ponification
 @cindex ponification
 The process of converting English text to Equestrian English.
+The process if transforming a non-pony artowork, character history or another
+thing into a pony version of that.
 
 @item Equestrian English
 @cindex Equestrian English
@@ -3135,7 +3138,7 @@ The English dialect spoken by the ponies in MLP:FiM, the basic role is that it
 is American English with as many words and parts of words as possible exchanged
 to words having to do with ponies, including the work `pony' itself. This is
 normally the language we, the developers, write in, except we may use another
-English, e.g. British English, as the base language.
+English, e.g. British English or Basic English, as the base language.
 
 @item best.pony
 @cindex best.pony
