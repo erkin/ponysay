@@ -1,11 +1,11 @@
 
 all: genponies
 
-genpngs: ponies/*
+genpngs:
 	mkdir genpngs
 	unpixelterm -d genpngs ponies/*.pony
 
-genponies: pngs/*
-	mkdir genponies
-	pixelterm -d genponies pngs/*.png
+genponies:
+	mkdir ponysay/ponies
+	pixelterm -d ponysay/ponies pngs/*.png
 

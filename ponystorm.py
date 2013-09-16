@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import random
-import ponysay
+from ponysay import ponysay
 
 for i in range(0, 1000):
 	pony = random.choice(ponysay.list_ponies_with_quotes())
