@@ -18,7 +18,6 @@ SOURCE: [jristz]
 WIDTH: 41
 HEIGHT: 25
 
-
 $$$
                                          [00m
                          $\$               [00m

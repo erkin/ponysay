@@ -18,7 +18,6 @@ POSE: happy
 WIDTH: 34
 HEIGHT: 21
 
-
 $$$
 $balloon21$[00m
                   $\$               [00m
