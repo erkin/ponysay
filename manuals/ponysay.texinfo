@@ -66,34 +66,115 @@ Texts. A copy of the license is included in the section entitled
 
 @contents
 
-
 @menu
-* Overview::                          Brief overview of @command{ponysay}.
-* Invoking ponysay::                  How to run @command{ponysay}.
-* Advanced usage::                    Advanced usage of @command{ponysay}.
-* Environment variables::             Getting more from @command{ponysay} with environment variables.
-* Optional features::                 Get the most out of @command{ponysay} with optional features.
-* Pony metadata::                     Metadata tags in the pony files.
-* The tool chest::                    Extra Ponysay commands for other stuff than printing ponies.
-* Limitations::                       Known limitations that may not be that easy to overcome.
-* Problems and requests::             External bugs, report issues and making requests.
-* Dependencies::                      Ponysay's dependencies.
-* Installing::                        How to install @command{ponysay}.
-* Inner workings::                    Useful information for those whom want to help hack @command{ponysay}.
-* Contributing::                      Useful information for those whom want to help improve the world.
-* Distributing::                      Useful information for OS package repository package maintainers.
-* Terminology::                       Terminology.
-* Change log::                        Differences between the version of @command{ponysay}.
-* Ponysay contributors::              Ponysay contributors.
-* Ponysay license::                   Copying and sharing ponysay.
-* GNU General Public License::        Ponysay's license.
-* GNU Free Documentation License::    Copying and sharing this manual.
-* Concept and program index::         Concept and program index.
-* Variable and option index::         Variable and option index.
+* Overview::                    Brief overview of @command{ponysay}.
+* Invoking ponysay::            How to run @command{ponysay}.
+* Advanced usage::              Advanced usage of @command{ponysay}.
+* Environment variables::       Getting more from @command{ponysay} with environment variables.
+* Optional features::           Get the most out of @command{ponysay} with optional features.
+* Pony metadata::               Metadata tags in the pony files.
+* The tool chest::              Extra Ponysay commands for other stuff than printing ponies.
+* Limitations::                 Known limitations that may not be that easy to overcome.
+* Problems and requests::       External bugs, report issues and making requests.
+* Dependencies::                Ponysay's dependencies.
+* Installing::                  How to install @command{ponysay}.
+* Inner workings::              Useful information for those whom want to help hack @command{ponysay}.
+* Contributing::                Useful information for those whom want to help improve the world.
+* Distributing::                Useful information for OS package repository package maintainers.
+* Terminology::                 Terminology.
+* Change log::                  Differences between the version of @command{ponysay}.
+* Ponysay contributors::        Ponysay contributors.
+* Ponysay license::             Copying and sharing ponysay.
+* GNU General Public License::  Ponysay's license.
+* GNU Free Documentation License::  Copying and sharing this manual.
+* Concept and program index::   Concept and program index.
+* Variable and option index::   Variable and option index.
+
+@detailmenu
+ --- The Detailed Node Listing ---
+
+Advanced usage of @command{ponysay}.
+
+* Extra information::           Displaying extra information.
+* Fortune cookies::             Displaying with fortune cookies.
+* Ponification::                Ponify your fortune cookies.
+* Running on TTY::              Running on TTY (Linux VT).
+* Running on screen::           Running on @command{screen}.
+* ~/.ponysayrc::                Using the @file{~/.ponysayrc} file.
+* Narcissistic ponies::         Getting ponies to think of themself.
+
+Optional features
+
+* KMS ponies::                  Improved TTY support under KMS support.
+
+The tool chest
+
+* Fill KMS cache::              Pre-generate kmsponies to your cache.
+* Metadata pasting::            Copy, remove, stash and apply stashed pony metadata.
+* Editing metadata::            Editing the metadata in a pony file.
+* Metadata collections::        Generate pony metadata collection files.
+* Dimension files::             Generate pony dimension files.
+* Pony browsing::               Browse ponies or find a pony based on metadata.
+
+Limitations
+
+* Terminals::                   Limitations on terminals.
+* GNU Hurd::                    Limitations of the Hurd.
+* Cowsay::                      Limitations on cowsay.
+
+Problems and requests
+
+* External bugs::               Known external bugs.
+* Reporting bugs::              Reporting bugs and issues in ponysay.
+* Requesting ponies::           Requesting inclusion of your favourite ponies.
+
+Dependencies
+
+* Required runtime dependencies::  Required runtime dependencies.
+* Optional runtime dependencies::  Optional runtime dependencies.
+* Package building dependencies::  Package building dependencies.
+* Dependencies for pony providers::  Dependencies for pony providers.
+
+Installing
+
+* From upstream::               Installing manually from upstream (GitHub repository).
+* Package repositories::        Packages distributed in OS package repositories.
+* Exotic operating systems::    Installing on other OS:es than GNU.
+* Uninstalling::                Uninstalling when installed manually.
+
+From upstream
+
+* Installations basics::        The basics of installations.
+* Custom installations::        Installation customisation.
+
+Package repositories
+
+* Arch Linux::                  Packages for Arch Linux.
+* Arch Linux ARM::              Packages for Arch Linux ARM.
+* Chakra::                      Packages for Chakra.
+* Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
+* Gentoo Linux::                Packages for Gentoo Linux.
+* Source Mage GNU/Linux::       Packages for Source Mage GNU/Linux.
+
+Inner workings
+
+* Pony anatomy::                Anatomy of pony files.
+* Pony metadata extension::     Metadata in pony files.
+* Pony quote infrastructure::   Pony quote infrastructure.
+* Balloon style files::         Balloon style files.
+* Printing in TTY with KMS::    Printing in TTY with KMS support.
+* Truncation::                  Output truncation.
+* Languages::                   Selection of programming languages.
+* Shell auto-completion::       Things that make auto-completion simpler.
+* Universal Character Set::     Something about Universal Character Set support.
+
+Contributing
+
+* Providing ponies::            Providing ponies.
+* Pony naming guildlines::      Suggestions on how to name your pony files.
+
+@end detailmenu
 @end menu
-
-
-
 
 @node Overview
 @chapter Overview
@@ -523,13 +604,13 @@ If it is not a symbolic link, @option{-q} cannot determine which quotes to use.
 @cindex advanced usage
 
 @menu
-* Extra information::       Displaying extra information.
-* Fortune cookies::         Displaying with fortune cookies.
-* Ponification::            Ponify your fortune cookies.
-* Running on TTY::          Running on TTY (Linux VT).
-* Running on screen::       Running on @command{screen}.
-* ~/.ponysayrc::            Using the @file{~/.ponysayrc} file.
-* Narcissistic ponies::     Getting ponies to think of themself.
+* Extra information::           Displaying extra information.
+* Fortune cookies::             Displaying with fortune cookies.
+* Ponification::                Ponify your fortune cookies.
+* Running on TTY::              Running on TTY (Linux VT).
+* Running on screen::           Running on @command{screen}.
+* ~/.ponysayrc::                Using the @file{~/.ponysayrc} file.
+* Narcissistic ponies::         Getting ponies to think of themself.
 @end menu
 
 
@@ -824,7 +905,7 @@ The default value is 5.
 @cindex optional dependencies
 
 @menu
-* KMS ponies::                 Improved TTY support under KMS support.
+* KMS ponies::                  Improved TTY support under KMS support.
 @end menu
 
 
@@ -1248,12 +1329,12 @@ actions that is not printing ponies (like the commands @command{ponysay} and
 @command{ponythink}).
 
 @menu
-* Fill KMS cache::          Pre-generate kmsponies to your cache.
-* Metadata pasting::        Copy, remove, stash and apply stashed pony metadata.
-* Editing metadata::        Editing the metadata in a pony file.
-* Metadata collections::    Generate pony metadata collection files.
-* Dimension files::         Generate pony dimension files.
-* Pony browsing::           Browse ponies or find a pony based on metadata.
+* Fill KMS cache::              Pre-generate kmsponies to your cache.
+* Metadata pasting::            Copy, remove, stash and apply stashed pony metadata.
+* Editing metadata::            Editing the metadata in a pony file.
+* Metadata collections::        Generate pony metadata collection files.
+* Dimension files::             Generate pony dimension files.
+* Pony browsing::               Browse ponies or find a pony based on metadata.
 @end menu
 
 
@@ -1502,9 +1583,9 @@ The tool can be exited using the key combinations @kbd{C-q} or @kbd{C-x C-c}.
 @cindex limitations
 
 @menu
-* Terminals::           Limitations on terminals.
-* GNU Hurd::            Limitations of the Hurd.
-* Cowsay::              Limitations on cowsay.
+* Terminals::                   Limitations on terminals.
+* GNU Hurd::                    Limitations of the Hurd.
+* Cowsay::                      Limitations on cowsay.
 @end menu
 
 
@@ -1611,9 +1692,9 @@ than at the top to the left.
 @cindex problems
 
 @menu
-* External bugs::         Known external bugs.
-* Reporting bugs::        Reporting bugs and issues in ponysay.
-* Requesting ponies::     Requesting inclusion of your favourite ponies.
+* External bugs::               Known external bugs.
+* Reporting bugs::              Reporting bugs and issues in ponysay.
+* Requesting ponies::           Requesting inclusion of your favourite ponies.
 @end menu
 
 
@@ -1705,10 +1786,10 @@ in @command{fish}, so case you @command{sh} links to @command{fish}, run
 @command{bash dependency-test.sh} (or with one of the other compatible shells.)
 
 @menu
-* Required runtime dependencies::       Required runtime dependencies.
-* Optional runtime dependencies::       Optional runtime dependencies.
-* Package building dependencies::       Package building dependencies.
-* Dependencies for pony providers::     Dependencies for pony providers.
+* Required runtime dependencies::  Required runtime dependencies.
+* Optional runtime dependencies::  Optional runtime dependencies.
+* Package building dependencies::  Package building dependencies.
+* Dependencies for pony providers::  Dependencies for pony providers.
 @end menu
 
 
@@ -1807,10 +1888,10 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @pindex @command{make}
 
 @menu
-* From upstream::             Installing manually from upstream (GitHub repository).
-* Package repositories::      Packages distributed in OS package repositories.
-* Exotic operating systems::  Installing on other OS:es than GNU.
-* Uninstalling::              Uninstalling when installed manually.
+* From upstream::               Installing manually from upstream (GitHub repository).
+* Package repositories::        Packages distributed in OS package repositories.
+* Exotic operating systems::    Installing on other OS:es than GNU.
+* Uninstalling::                Uninstalling when installed manually.
 @end menu
 
 
@@ -1819,8 +1900,8 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @cindex upstream installation
 
 @menu
-* Installations basics::      The basics of installations.
-* Custom installations::      Installation customisation.
+* Installations basics::        The basics of installations.
+* Custom installations::        Installation customisation.
 @end menu
 
 @node Installations basics
@@ -2375,12 +2456,12 @@ correct before building and installing.
 @cindex package repositories
 
 @menu
-* Arch Linux::                Packages for Arch Linux.
-* Arch Linux ARM::            Packages for Arch Linux ARM.
-* Chakra::                    Packages for Chakra.
-* Debian GNU/Linux::          Packages for Debian GNU/Linux and Ubuntu.
-* Gentoo Linux::              Packages for Gentoo Linux.
-* Source Mage GNU/Linux::     Packages for Source Mage GNU/Linux.
+* Arch Linux::                  Packages for Arch Linux.
+* Arch Linux ARM::              Packages for Arch Linux ARM.
+* Chakra::                      Packages for Chakra.
+* Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
+* Gentoo Linux::                Packages for Gentoo Linux.
+* Source Mage GNU/Linux::       Packages for Source Mage GNU/Linux.
 @end menu
 
 
@@ -2486,15 +2567,15 @@ Note: make is no longer supported, instead use @file{setup.py} a
 @cindex hacking
 
 @menu
-* Pony anatomy::                 Anatomy of pony files.
-* Pony metadata extension::      Metadata in pony files.
-* Pony quote infrastructure::    Pony quote infrastructure.
-* Balloon style files::          Balloon style files.
-* Printing in TTY with KMS::     Printing in TTY with KMS support.
-* Truncation::                   Output truncation.
-* Languages::                    Selection of programming languages.
-* Shell auto-completion::        Things that make auto-completion simpler.
-* Universal Character Set::      Something about Universal Character Set support.
+* Pony anatomy::                Anatomy of pony files.
+* Pony metadata extension::     Metadata in pony files.
+* Pony quote infrastructure::   Pony quote infrastructure.
+* Balloon style files::         Balloon style files.
+* Printing in TTY with KMS::    Printing in TTY with KMS support.
+* Truncation::                  Output truncation.
+* Languages::                   Selection of programming languages.
+* Shell auto-completion::       Things that make auto-completion simpler.
+* Universal Character Set::     Something about Universal Character Set support.
 @end menu
 
 
@@ -3266,7 +3347,7 @@ New extraponies: @file{aurora}, @file{aquarius}, @file{aries},
 @file{milkylay}, @file{opera}, @file{oscura}, @file{pisces}, 
 @file{princeartemis}, @file{reddit}, @file{robodash}, @file{sagittarius}, 
 @file{scorpio}, @file{snowdrop-crew}, @file{solaris}, @file{sweetiebot}, 
-@file{taurus}, @file{virgo}, @file{wiggles}
+@file{taurus}, @file{twibrain}, @file{virgo}, @file{wiggles}
 @item
 Pony symlink added:
 @itemize @bullet
