@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E02 Friendship is Magic [Part 2]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: blue
 DISPLAY: full, right
 EYE: purple
@@ -12,11 +12,12 @@ KIND: unicorn
 LINK: regular
 MANE: purple
 NAME: (not mentioned)
-OTHER NAMES: Diamond Mint (unofficial)
+OTHER NAMES: Diamond Mint (official on trading cards)
 POSE: trot
 SOURCE: (StarStep, Starly) Sesktop ponies
 WIDTH: 47
 HEIGHT: 25
+
 
 $$$
 $balloon8$[00m
