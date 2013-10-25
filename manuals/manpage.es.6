@@ -1,4 +1,4 @@
-.TH PONYSAY 6 "16 de Julio de 2013"
+.TH PONYSAY 6 "25 de agosto de 2013"
 .SH NOMBRE
 ponysay \- Una reimplementación de cowsay usando ponis
 .SH SINOPSIS
@@ -155,8 +155,8 @@ Trabaja como \fI--colour\fP pero solo colorea en enlace al globo de texto.
 Trabaja como \fI--colour\fP pero solo colorea el texto.
 .TP
 .B \-\-colour\-pony [\fIansi-colour\fP]
-Trabaja como \fI--colour\fP pero solo colorea el poni.
-Este coloreo no tiene efecto en archivos pony dado que tienen su propio coloreo.
+Trabaja como \fI--colour\fP pero solamente colorea la poni.
+Este coloreo no tiene efecto en archivos poni dado que tienen su propio coloreo.
 .TP
 .B \-\-colour\-wrap, \-\-colour\-hyphen [\fIansi-colour\fP]
 Trabaja como \fI--colour\fP pero solo colorea guiones agregados por la 
@@ -167,15 +167,15 @@ por omisión es \fI31\fP (treintaiuno).
 .TP
 .B PONYSAY_BOTTOM
 Bajo TTY (Linux VT), si la imagen es mas larga que la anchura de la terminal 
-en pantalla, solo el inicio de esta es impreso, dejando solamente dos líneas
-blancas, si desea que apesar de todo sea impreso el fondo puede exportar 
-\fIPONYSAY_BOTTOM\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP.
+en pantalla, solamente el inicio de esta es impreso, dejando solamente dos
+líneas blancas, si desea que apesar de todo sea impreso el fondo puede
+exportar \fIPONYSAY_BOTTOM\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP.
 .TP
 .B PONYSAY_SHELL_LINES
-Bajo TTY (Linux VT), si la imagen es mas larga que la anchura de la terminal
-en pantalla, solo dos líneas blancas serán impresas. si desea mas o menos 
-líneas blancas, puede exportar \fIPONYSAY_SHELL_LINES\fP con el valor de cuantas
-desea.
+Bajo TTY (Linux VT), si la imagen es más larga que la anchura de la terminal
+en pantalla, solamente dos líneas blancas serán impresas.
+Si desea mas o menos líneas blancas, puede exportar \fIPONYSAY_SHELL_LINES\fP
+con el valor de cuantas desea.
 .TP
 .B PONYSAY_FULL_WIDTH
 Puede exportar \fIPONYSAY_FULL_WIDTH\fP con el valor \fIyes\fP, \fIy\fP o 
@@ -200,7 +200,7 @@ soporta 'Kernel Mode Seting' (KMS) y este está activo.
 .TP
 .B PONYSAY_TYPO_LIMIT
 \fIponysay\fP es capaz de autocoregir nombres mal escritos y tipos de globo de 
-texto sin conciderar la transposición de texto, por omisión si la distancia 
+texto sin conciderar la trasposición de texto, por omisión si la distancia 
 ponderada es mayor a 5 (cinco) para la palabra más cercana, entonces es 
 ignorada la autocorrección.
 Este limite puede ser cambiado si se exporta un numero a la variable 
@@ -208,13 +208,13 @@ Este limite puede ser cambiado si se exporta un numero a la variable
 autocorrección.
 .TP
 .B PONYSAY_WRAP_HYPHEN
-Puede exportar que usará ponysay en lugar del guion cuando se envuelven 
+Puede exportar lo que usará ponysay en lugar del guion cuando se envuelven 
 los mensajes.
 .TP
 .B PONYSAY_WRAP_LIMIT
-Define cuan largo deverá de ser la palabra para que se utilice el guion.
-Esta se utiliza para envolver palabras que son muy largas para que la salida 
-sea lo mejor posible.
+Define cuan largo deverá ser la palabra para que se utilice el guion.
+Esta se utilizará para envolver palabras que son muy largas para que la
+salida sea lo mejor posible.
 Esta no es la única condición bajo la cual puede ser cortada una palabra, 
 también puede cortar si la palabra no puede encajar de otra manera.
 .TP
@@ -227,7 +227,7 @@ Esta opción es usada en conjunto con \fIPONYSAY_WRAP_LIMIT\fP.
 Los fallos pueden ser reportados en
 .br
 <\fBhttps://github.com/erkin/ponysay/issues\fP>.
-.SH VEA TAMBIÉN
+.SH VÉASE TAMBIÉN
 .BR cowsay (0),
 .BR fortune (0).
 .br
@@ -235,7 +235,7 @@ Los fallos pueden ser reportados en
 ponysay fue escrito por Erkin Batu Altunbaş <erkinbatu@gmail.com>
 con la ayuda de Mattias Andrée, Elis Axelsson, Sven-Hendrik Haase,
 Pablo Lezaeta, Jan Alexander Steffens y otros.
-.\" vea el archivo CREDITS para la lista completa.
+.\" véase también el archivo CREDITS para la lista completa.
 .PP
 Este manual originalmente fue escrito por Louis Taylor <kragniz@gmail.com>
 para el proyecto Debian GNU/Linux (y puede ser usado por otros), y editado por
@@ -244,5 +244,6 @@ los autores de ponysay para el lanzamiento oficial de este.
 La actual traducción al español fue escrita por Pablo Lezaeta <prflr88@gmail.com>.
 .br
 .PP
-Este programa está licenciado bajo la GNU GPLv3+
-.\" Vea el archivo COPYING para ver la licencia completa.
+Este programa está licenciado bajo la 'Licencia General de GNU versión 3 o superior'
+GNU GPLv3+
+.\" Véase también el archivo COPYING para ver la licencia completa.
