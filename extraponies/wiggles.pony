@@ -14,7 +14,7 @@ MANE: none
 MEDIA: http://ask-wiggles.tumblr.com/
 NAME: Wiggles
 POSE: cool
-SOURCE: (wiggles) Tumblpon
+SOURCE: (Nraco) Tumblpon
 WIDTH: 37
 HEIGHT: 28
 
