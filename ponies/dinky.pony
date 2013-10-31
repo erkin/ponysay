@@ -18,7 +18,6 @@ SOURCE: (Anonycat) Desktop ponies
 WIDTH: 38
 HEIGHT: 21
 
-
 $$$
 $balloon9$[00m
       $\$                               [00m

@@ -3331,8 +3331,8 @@ ANSI escape sequences.
 @heading Version 3.0.2
 @itemize @bullet
 @item
-New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
-@file{fleetfoot}, @file{filmreel}, @file{flashsentry}, 
+New ponies: @file{brucemane}, @file{coldheart}, @file{cremebrulee},
+@file{deepblue}, @file{fleetfoot}, @file{filmreel}, @file{flashsentry}, 
 @file{hairytipper}, @file{ironwill}, @file{mantishy}, @file{maybelle}, 
 @file{misty}, @file{mule}, @file{nightmarerarity}, @file{peachbottom}, 
 @file{rainbowdashcrystal}, @file{rainbowdrop}, @file{rainbowfim}, 
@@ -3357,6 +3357,7 @@ Pony symlink added:
 @item @file{brad} @arrow{} @file{flashsentry}
 @item @file{ie} @arrow{} @file{internetexplorer}
 @item @file{dancefever} @arrow{} @file{hairytipper}
+@item @file{snowheart} @arrow{} @file{coldheart}
 @end itemize
 @item
 Default value for @option{-W}, the message wrapping column, has been changed

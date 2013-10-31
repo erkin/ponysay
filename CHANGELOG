@@ -1,8 +1,8 @@
 Version 3.0.2
 
-        New ponies: brucemane, cremebrulee, deepblue, filmreel, flashsentry, 
-        	    fleetfoot, hairytipper, ironwill, mantishy, maybelle, 
-        	    misty, mule, nightmarerarity, peachbottom, 
+        New ponies: brucemane, coldheart, cremebrulee, deepblue, filmreel,
+        	    flashsentry, fleetfoot, hairytipper, ironwill, mantishy,
+        	    maybelle, misty, mule, nightmarerarity, peachbottom, 
         	    rainbowdashcrystal, rainbowdrop, rainbowfim, shortround, 
         	    strawberrycream, sunsetshimmer, theoldenpony, unclewing, 
         	    wildflower
@@ -23,6 +23,7 @@ Version 3.0.2
                             mabel → maybelle
                             ie → internetexplorer
                             dancefever → hairytipper
+                            snowheart → coldheart
 
         Default value for -W has been changed from 40 to 60.
         

@@ -18,7 +18,6 @@ SOURCE: (StarStep, Starly) Sesktop ponies
 WIDTH: 47
 HEIGHT: 25
 
-
 $$$
 $balloon8$[00m
      $\$                                         [00m
