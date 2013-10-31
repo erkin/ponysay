@@ -2,18 +2,18 @@ Version 3.0.2
 
         New ponies: brucemane, coldheart, cremebrulee, deepblue, filmreel,
         	    flashsentry, fleetfoot, hairytipper, ironwill, mantishy,
-        	    maybelle, misty, mule, nightmarerarity, peachbottom, 
-        	    rainbowdashcrystal, rainbowdrop, rainbowfim, shortround, 
-        	    strawberrycream, sunsetshimmer, theoldenpony, unclewing, 
+        	    maybelle, misty, mule, nightmarerarity, peachbottom,
+        	    rainbowdashcrystal, rainbowdrop, rainbowfim, shortround,
+        	    strawberrycream, sunsetshimmer, theoldenpony, unclewing,
         	    wildflower
 
-        New extraponies: aurora, aquarius, aries, barbara, buttonmon, cancer, 
-        		 capricorn, childrenofthenight, chrome, firefox, 
-        		 gemini, gnupony, fluffle, fyreflyready, 
-        		 internetexplorer, leo, libra, lilmissrarity, milky, 
-        		 milkylay, opera, oscura, pisces, princeartemis, 
-        		 reddit, robodash, sagittarius, scorpio, snowdrop-crew, 
-        		 solaris, sweetiebot, taurus, twibrain, virgo, 
+        New extraponies: aurora, aquarius, aries, barbara, buttonmon, cancer,
+        		 capricorn, childrenofthenight, chrome, firefox,
+        		 gemini, gnupony, fluffle, fyreflyready,
+        		 internetexplorer, leo, libra, lilmissrarity, milky,
+        		 milkylay, opera, oscura, pisces, princeartemis,
+        		 reddit, robodash, sagittarius, scorpio, snowdrop-crew,
+        		 solaris, sweetiebot, taurus, twibrain, virgo,
         		 wiggles
 
         Pony symlink added: walter → waltercoltchack
@@ -25,13 +25,13 @@ Version 3.0.2
                             dancefever → hairytipper
                             snowheart → coldheart
 
-        Default value for -W has been changed from 40 to 60.
-        
+        Default value for -W has been changed from 40 to 65.
+
         Special pony cases:
-        * nightmare was renamed to nightmaremoon for consistency whit 
+        * nightmare was renamed to nightmaremoon for consistency with
         the comic
-        * ironwill (3.0.1 and lower) has been renamed to ironwillwalk 
-        because now we have a ironwill in a non walk pose for to be they 
+        * ironwill (3.0.1 and lower) has been renamed to ironwillwalk
+        because now we have a ironwill in a non walk pose for to be they
         master
         * doctor has ben reintegrated to ponies thanks to official comic
         issue 8 where is sit alongside drhooves
@@ -43,10 +43,11 @@ Version 3.0.2
         Added manpage for ponysay-tool.
 
 	+h (++help, --help-colour) added.
-	
-	auto-auto-completion now is no more part of ponysay, therefor you 
-	need install them and rebuild to get auto-completions, otherwise 
+
+	auto-auto-completion now is no more part of ponysay, therefor you
+	need install them and rebuild to get auto-completions, otherwise
 	these auto-completion files aren't installed.
+
 
 Version 3.0.1
 
@@ -218,7 +219,7 @@ Version 2.6
                     twilightthebearded
 
         New extraponies: faust (alicorn), maria (Moonstuck, seapony),
-                         posey (Tumblr), slanderpony (Various tumblr), 
+                         posey (Tumblr), slanderpony (Various tumblr),
                          sparkler (Tumblr), twilight (Tumblr)
 
         Pony symlink added: bonbonlyra → lyrabonbon
@@ -228,7 +229,7 @@ Version 2.6
                             lotusbloosom → lotus
 
         Special pony cases:
-        * doctor and doctornohat has become extraponies, because their 
+        * doctor and doctornohat has become extraponies, because their
         mane style is
         different from in the TV show. And timeturner no longer links to any of them.
 
