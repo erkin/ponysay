@@ -1051,7 +1051,7 @@ class Ponysay():
         @param   args:ArgParser  Command line options
         @return  :int?           The message balloon wrapping column, or `None` if disabled
         '''
-        messagewrap = 60
+        messagewrap = 65
         if (args.opts['-W'] is not None) and (len(args.opts['-W'][0]) > 0):
             messagewrap = args.opts['-W'][0]
             if messagewrap[0] in 'nmsNMS': # m is left to n on QWERTY and s is left to n on Dvorak

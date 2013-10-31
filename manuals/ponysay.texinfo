@@ -372,7 +372,7 @@ balloon style is specified a fallback style will be used.
 @opindex @option{-W}
 @opindex @option{--wrap}
 Specify the screen column where the message should be wrapped, this is by
-default 60, as with @command{cowsay}. The balloon's extra width is taken into
+default 65, as with @command{cowsay}. The balloon's extra width is taken into
 consideration.
 
 If the argument is not a number, but starts instead with @code{n} (for ‘none’ or
@@ -3361,7 +3361,7 @@ Pony symlink added:
 @end itemize
 @item
 Default value for @option{-W}, the message wrapping column, has been changed
-from 40 to 60, to wrap messages better.
+from 40 to 65, to wrap messages better.
 @item
 @file{nightmare} has renamed into @file{nightmaremoon} for concistency 
 with the comic
