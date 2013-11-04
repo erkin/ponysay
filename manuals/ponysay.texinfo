@@ -3104,7 +3104,8 @@ pkgdesc="Cowsay reimplementation for ponies"
 url="https://github.com/erkin/ponysay"
 license=('custom:GPL3' 'FDL')
 depends=('python>=3' 'coreutils')
-optdepends=("util-say>=3: Improved TTY support with KMS and PNG files")
+optdepends=("util-say>=3: Improved TTY support with KMS and PNG files"
+	"auto-auto-completion: Give autocompletion function for ponysay to bash, zsh and fish (need rebuild)")
 makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3')
 source=("ponysay::git+https://github.com/erkin/ponysay")
 nd5suns=('SKIP')
