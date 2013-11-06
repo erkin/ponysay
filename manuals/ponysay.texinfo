@@ -3336,10 +3336,10 @@ New ponies: @file{brucemane}, @file{coldheart}, @file{cremebrulee},
 @file{deepblue}, @file{fleetfoot}, @file{filmreel}, @file{flashsentry}, 
 @file{hairytipper}, @file{ironwill}, @file{mantishy}, @file{maybelle}, 
 @file{misty}, @file{mule}, @file{nightmarerarity}, @file{peachbottom}, 
-@file{poundfly}, @file{rainbowdashcrystal}, @file{rainbowdrop},
-@file{rainbowfim}, @file{shortround}, @file{strawberrycream}, 
-@file{sunsetshimmer}, @file{theoldenpony}, @file{unclewing}, 
-@file{wildflower}
+@file{poundfly}, @file{pumpkincake}, @file{rainbowdashcrystal},
+@file{rainbowdrop}, @file{rainbowfim}, @file{shoeshine},
+@file{shortround}, @file{strawberrycream}, @file{sunsetshimmer},
+@file{theoldenpony}, @file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{buttonmom}, @file{cancer}, @file{capricorn}, 
