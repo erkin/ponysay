@@ -1,4 +1,4 @@
-.TH PONYSAY 6 "25 de agosto de 2013"
+.TH PONYSAY 6 "25 de agosto del 2013"
 .SH NOMBRE
 ponysay \- Una reimplementación de cowsay usando ponis
 .SH SINOPSIS
@@ -42,7 +42,7 @@ puedes usar esta opción con múltiples ponis y de estos será elejído uno al a
 .B \+f, \+\+file, \+\+pony \fInombre\fP
 Selecciona un poni no pertenecientes a MLP:FiM (ya sea un archivo o el nombre
 directamente), puede usar esta opción con múltiples ponis y de estos será
-elejído uno al azar.
+elejído uno aleatoriamente.
 .TP
 .B \-F, \-\-any\-file, \-\-anyfile, \-\-anypony \-\-any\-pony \fInombre\fP
 Esta opción combina \fI-f\fP y \fI+f\fP.
@@ -56,7 +56,7 @@ uno de este conjunto.
 .TP
 .B \-\-f, \-\-files, \-\-ponies \fI[nombre...]\fP
 Variable variádica de \fI-f\fP, o sea, todos los argumentos dados después de
-este argumento serán pasados a dicha opción.
+este serán pasados a dicha opción.
 .TP
 .B \+\+f, \+\+files, \+\+ponies \fI[nombre...]\fP
 Variable variádica de \fI+f\fP, o sea, todos los argumentos dados después de
@@ -111,14 +111,14 @@ a MLP:FiM cono no pertenecientes, la primera lista seran los pertenecientes y la
 subsiguente los no pertenecientes a esta.
 .TP
 .B \-o, \-\-pony\-only, \-\-ponyonly
-Solamente muestra al poni, No así con los demás elementos.
+Solamente muestra al poni, pero no los demás elementos.
 .TP
 .B \-i, \-\-info
 Agregando esta opción podrá ver los metadatos del poni en lugar de este.
 .TP
 .B \+i, \+\+info
-Esta opción funciona como \fI-i\fP, solo que el poni mostrará la información 
-en un globo de texto.
+Esta opción funciona como \fI-i\fP, solamente que el poni mostrará la 
+información en un globo de texto.
 .TP
 .B \-r, \-\-restriction
 Esta opción limita cuales ponis serán mostrados basados en sus metadatos.
@@ -142,23 +142,23 @@ de las capacidades de la terminal (no funciona en todas las tarjetas con soporte
 Colorea el globo, Incluyendo mensajes y enlaces.
 Para más información acerca del coloreo vea las páginas \fIinfo\fP.
 El argumento o \fIcolor-ansi\fP, Puede ser una secuencia de colores ANSI 
-sin precedir de CSI y sin la cola \fIm\fP, por ejemplo \fI1;31\fP puede 
-referirse al color rojo y en negrita (o claro dependiendo de la terminal.)
+sin precedir de CSI y sin la cola \fIm\fP, por ejemplo: \fI1;31\fP puede 
+referirse al color rojo y en negrita (o color claro dependiendo de la terminal.)
 .TP
 .B \-\-colour\-bubble, \-\-colour\-balloon [\fIcolor-ansi\fP]
-Trabaja como \fI\--colour\fP pero solo colorea el globo de texto.
+Trabaja como \fI\--colour\fP pero solamente colorea el globo de texto.
 .TP
 .B \-\-colour\-link [\fIcolor-ansi\fP]
-Trabaja como \fI--colour\fP pero solo colorea en enlace al globo de texto.
+Trabaja como \fI--colour\fP pero solamente colorea en enlace al globo de texto.
 .TP
-.B \-\-colour\-msg, \-\-colour\-message [\fIansi-colour\fP]
-Trabaja como \fI--colour\fP pero solo colorea el texto.
+.B \-\-colour\-msg, \-\-colour\-message [\fIcolor-ansi\fP]
+Trabaja como \fI--colour\fP pero solamente colorea el texto.
 .TP
-.B \-\-colour\-pony [\fIansi-colour\fP]
+.B \-\-colour\-pony [\fIcolor-ansi\fP]
 Trabaja como \fI--colour\fP pero solamente colorea la poni.
 Este coloreo no tiene efecto en archivos poni dado que tienen su propio coloreo.
 .TP
-.B \-\-colour\-wrap, \-\-colour\-hyphen [\fIansi-colour\fP]
+.B \-\-colour\-wrap, \-\-colour\-hyphen [\fIcolor-ansi\fP]
 Trabaja como \fI--colour\fP pero solo colorea guiones agregados por la 
 envoltura del texto.
 Si desea remover el color use \fI0\fP (cero), 
@@ -166,15 +166,15 @@ por omisión es \fI31\fP (treintaiuno).
 .SH ENTORNO
 .TP
 .B PONYSAY_BOTTOM
-Bajo TTY (Linux VT), si la imagen es mas larga que la anchura de la terminal 
-en pantalla, solamente el inicio de esta es impreso, dejando solamente dos
-líneas blancas, si desea que apesar de todo sea impreso el fondo puede
+Bajo TTY (Linux VT), si la imagen es más larga que la anchura de la terminal 
+en pantalla, solamente el inicio de esta es impreso, dejando únicamente dos
+líneas blancas, pero si desea que apesar de todo sea impreso el fondo puede
 exportar \fIPONYSAY_BOTTOM\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP.
 .TP
 .B PONYSAY_SHELL_LINES
 Bajo TTY (Linux VT), si la imagen es más larga que la anchura de la terminal
 en pantalla, solamente dos líneas blancas serán impresas.
-Si desea mas o menos líneas blancas, puede exportar \fIPONYSAY_SHELL_LINES\fP
+Si desea más o menos líneas blancas, puede exportar \fIPONYSAY_SHELL_LINES\fP
 con el valor de cuantas desea.
 .TP
 .B PONYSAY_FULL_WIDTH
@@ -187,7 +187,7 @@ Exporte \fIPONYSAY_TRUNCATE_HEIGHT\fP con el valor \fIyes\fP, \fIy\fP o
 una terminal \fIponysay\fP bajo TTY.
 .TP
 .B PONYSAY_UCS_ME
-Exportar \fIPONYSAY_UCS_ME\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP, si es 
+Exporte \fIPONYSAY_UCS_ME\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP, si es 
 que busca 'simular enlaces simbólicos' a ponis usando 
 'Universal Character Set' (Conjunto de Caracteres Universal) [UCS] apuntando a 
 sus nombres.
@@ -212,11 +212,11 @@ Puede exportar lo que usará ponysay en lugar del guion cuando se envuelven
 los mensajes.
 .TP
 .B PONYSAY_WRAP_LIMIT
-Define cuan largo deverá ser la palabra para que se utilice el guion.
-Esta se utilizará para envolver palabras que son muy largas para que la
-salida sea lo mejor posible.
+Define cuan larga deberá ser la palabra para que se utilice el guion.
+Esta se utilizará para envolver palabras que son muy largas para que así 
+la salida sea lo mejor posible.
 Esta no es la única condición bajo la cual puede ser cortada una palabra, 
-también puede cortar si la palabra no puede encajar de otra manera.
+también podrá cortarse si la palabra no puede encajar de otra manera.
 .TP
 .B PONYSAY_WRAP_EXCEED
 Define cuan larga puede llegar a ser una palabra antes de que sea cortada con 
@@ -244,6 +244,6 @@ los autores de ponysay para el lanzamiento oficial de este.
 La actual traducción al español fue escrita por Pablo Lezaeta <prflr88@gmail.com>.
 .br
 .PP
-Este programa está licenciado bajo la 'Licencia General de GNU versión 3 o superior'
-GNU GPLv3+
+Este programa está licenciado bajo la 'Licencia Pública General de GNU versión 3 o 
+superior' GNU GPLv3+
 .\" Véase también el archivo COPYING para ver la licencia completa.
