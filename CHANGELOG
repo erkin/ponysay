@@ -1,6 +1,6 @@
 Version 3.0.2
 
-        New ponies: brucemane, coldheart, cremebrulee, deepblue,
+        New ponies: brucemane, coldheart, creampuff, cremebrulee, deepblue,
 		    filmreel, flashsentry, fleetfoot, hairytipper, ironwill,
 		    mantishy, maybelle, misty, mule, nightmarerarity,
 		    peachbottom, poundfly, pumpkincake, rainbowdashcrystal,
@@ -21,7 +21,7 @@ Version 3.0.2
                             barbra → barbara (in extraponies)
                             buttonmash → highscore
                             brad → flashsentry (was used on EQD)
-                            mabel → maybelle
+                            mabel → maybelle (Believe or not is canon for both sides)
                             ie → internetexplorer
                             dancefever → hairytipper
                             snowheart → coldheart
@@ -30,12 +30,11 @@ Version 3.0.2
 
         Special pony cases:
         * nightmare was renamed to nightmaremoon for consistency with
-        the comic
+        the comic.
         * ironwill (3.0.1 and lower) has been renamed to ironwillwalk
-        because now we have a ironwill in a non walk pose for to be they
-        master
+        because now we have a ironwill in a non walk pose as they master.
         * doctor has ben reintegrated to ponies thanks to official comic
-        issue 8 where is sit alongside drhooves
+        issue #8 where is sit alongside drhooves.
 
         Turkish manual page added.
 
@@ -231,8 +230,8 @@ Version 2.6
 
         Special pony cases:
         * doctor and doctornohat has become extraponies, because their
-        mane style is
-        different from in the TV show. And timeturner no longer links to any of them.
+        mane style is different from in the TV show. And timeturner no 
+        longer links to any of them.
 
         ./configure and make is no longer support.
 
