@@ -1043,14 +1043,41 @@ winged unicorn, acorn, pegasus unicorn, unipeg, unisus, horned pegasus,
 wing-horn, allacorn, cerapter pterippus, aquillacorn, pegasos aithiopikos,
 alate unicorns, or pegacorn (really all those name has been used throw history
 to define a unicorn whit wing or pegasus whit a horn)) should have the values
-@code{alicorn} and@code{pony}, but neither @code{pegasus} nor @code{unicorn}
+@code{alicorn} and @code{pony}, but neither @code{pegasus} nor @code{unicorn}
 or another of the possible therms mentioned. Earth ponies should have the value 
-@code{pony} and @code{earth} (not @code{earth pony}.)
+@code{pony} and @code{earth} not @code{earth pony}.
 
-The standard values are (you may use other ones if fitting): @code{unicorn},
-@code{pegasus}, @code{alicorn}, @code{earth}, @code{pony}, @code{changeling},
-@code{crystal}, @code{seapony}, @code{animal} (applies to Spike) and
-@code{item} (applies to Tom and Pinkamina's imaginary friends.)
+The standard values are (you may use other ones if fitting):
+@itemize @bullet
+@item @code{unicorn}
+For unicorn like @file{twilight} or presummed unicorns
+@item @code{pegasus}
+For pegasi like @file{fluttershy}
+@item @code{alicorn}
+For Alicorn, Winged pegasus, Pegacorn, etc. like @file{celestia}
+@item @code{earth}
+For earth ponies like @file{applejack}
+@item @code{pony}
+As a generic in case of unknow or sujetable like @file{headlesshorse}
+@item @code{changeling}
+Changeling like @file{queenchrysalis}
+@item @code{crystal}
+Any cristal pony like @file{twilightcrystal} or animal in they crystal 
+form like @file{spikecrystal}
+@item @code{seapony}
+Any seapony from either novel, movies, comics, the series or the fandom
+like @file{sealyra}
+@item @code{animal}
+Applies to Spike and any other animal 
+@item @code{item}
+Applies to Tom and Pinkamina's imaginary friends
+@item @code{batpony} 
+Applies to @file{royalnightguard} and others bat winged pony a like 
+creature, @emph{Word of good} say these ponies are a different species 
+but merchandice call them @code{pegasus}, so you need use 
+@code{pegasus} and @code{batpony} comma separated one earch other for 
+uniformity
+@end itemize
 
 @item GROUP
 @vindex @var{GROUP}
@@ -1058,7 +1085,6 @@ The standard values are (you may use other ones if fitting): @code{unicorn},
 This tag decribes which groups a pony classifies under, it is a comma
 seperated lower case list, and it cannot be empty, by it can be (but shouldn't)
 skipped for every pony in the image.
-
 The standard values are (you may use other ones if fitting):
 @itemize @bullet
 @item @code{mare}
@@ -1069,8 +1095,10 @@ Adult male pony
 Female pony child
 @item @code{colt}
 Male pony child
+@item @code{baby}
+Baby ponies like poundcake
 @item @code{dragon}
-Dragon (Spike, Crakle and the other dragons)
+Dragons (Spike, Crakle, Basil and the other dragons)
 @item @code{mane}
 The mane characters (also known as main characters [unponified] or protagonists)
 @item @code{wildlife}
@@ -1081,13 +1109,17 @@ during pony–pet play dates.
 @item @code{royal}
 Royal pony, either by birth, marriage, or conquer (i.e. the old school style).
 Shining Armour is royal by marriage, but his biological family doesn't become
-royal by this.
+royal by this, and Twilight Sparkle is because Princess Celestia give that 
+tittle because she fullfilled they destiny.
 @item @code{villain}
-Villains, normally minions to antagonists or recurring ponies. Applies to
-changelings.
-@item @code{antagonist} (applies to: Nightmare Moon, Gilda, Discord, Chrysalis)
-Antagonists are also known as archvillians or archenemies.
+Villains, normally minions to antagonists or recurring bad ponies. 
+Applies to changelings.
+@item @code{antagonist} (applies to: Nightmare Moon, Gilda, Discord, Chrysalis, Sombra)
+Antagonists are also known as archivillians or archenemies.
 Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one.
+@item @code{reconciled} (applies to: Trixie, Discord)
+Any @code{villain} that change to the good side (aka become a 
+good citizen or help the mane 6) count as one even if return to the dark side.
 @item @code{deuteragonist} (applies to: the cutiemark cruisers)
 Deuteragonists are secondary characters, these are (as of seasson 3) only the
 Cutiemark Cruisers. The requirement is that thay are somewhat regular
@@ -1105,7 +1137,7 @@ under this group, as they are not too important to be considered tritagonists
 @item @code{voiced} (only used together with background)
 Only @code{background} characters can be @code{voiced}. The additional
 requirement is that they have said something (ponies comics can also be voiced,
-in this case they need a minimal of one dialoge text).
+in this case they need a minimal of one big dialoge text).
 @item @code{imaginary}
 Imaginary ponies (or other animal), in this group classify Tom and Pinkamina's
 imaginary friends for example.
@@ -1115,11 +1147,18 @@ imaginary friends for example.
 @vindex @var{BALLOON}
 For each balloon in the file (a pony file can have more than one balloon, but
 that is not common) their should one tag entry. There are four values that
-can be used: @code{top} (the common setup, the balloon is at the top of the
-image), @code{bottom} (the balloon is at the bottom of the image), @code{right}
-(the balloon is neither at the top or at the bottom of the image, but is
-placed to the right of the pony) and @code{inside} (the balloon is somewhere
-as inside the image.)
+can be used:
+@itemize @bullet
+@item @code{top}
+The common setup, the balloon is at the top of the image
+@item @code{bottom}
+The balloon is at the bottom of the image 
+@item @code{right}
+The balloon is neither at the top or at the bottom of the image, but is
+placed to the right of the pony
+@item @code{inside}
+The balloon is somewhere as inside the image
+@end itemize
 
 @item LINK ON
 @vindex @var{LINK ON}
@@ -1144,7 +1183,7 @@ order of the linkes placement in the image, in the same way ponies are ordered.
 The value for this tag must be either @code{regular} or @code{mirrored}.
 @code{regular} applies to linkes with NNE–SSW (@code{\}) direction.
 @code{mirrored} applies to linkes with NNW–SSE (@code{/}) direction,
-in version 2.9.1 only @file{rainbowdrag} uses this.
+in version 3.0.1 only @file{rainbowdrag} uses this.
 
 @item COAT
 @vindex @var{COAT}
@@ -1158,7 +1197,7 @@ named, but the name may describe a colour combination.
 The name of the colour (as best estimated by you), in lowercase, that the
 pony's mane have. Common colour names are preferable. Only one colour should
 be named, but the name may describe a colour combination like @code{rainbow}
-for Rainbow Dash mane colour schema.
+for Rainbow Dash mane colour schema or @code{pastel} for Princess Celestia.
 
 @item EYE
 @vindex @var{EYE}
@@ -1182,20 +1221,31 @@ without, the ponies without magicial abilies should use the value
 the value @code{(invisible)}.
 
 Only humans [here we must call ourself humans rather than ponies, otherwise
-the sentance does not make sense] can see the magic aura, describe the colour
-that we humans see, not ponies and other creatures in the TV Show [proof, see
-S01E11 Winter Wrap Up and S02E25-26 A Canterlot Wedding] (Presumably Discord
-can see Magic too).
+the next sentance does not make sense] can see the magic aura, describe the 
+colour that we humans see, not ponies and other creatures in the TV Show 
+[proof, see S01E11 Winter Wrap Up and S02E25-26 A Canterlot Wedding] 
+(Presumably Discord can see Magic too).
 
 @item DISPLAY
 @vindex @var{DISPLAY}
 This tag describes how a pony is places in the image. The standard values are:
-@code{full}, (full body), @code{head} (just the head), @code{down}
-(upside down), @code{left} (pony is looking to our left), @code{right}
-(pony is looking to our right), @code{front} (pony is looking at us).
-@code{front} can be combined with @code{left} and @code{right},
+@itemize @bullet
+@item @code{full}
+Full body)
+@item @code{head}
+Just the head
+@item @code{down}
+Upside down
+@item @code{left}
+Pony is looking to our left
+@item @code{right}
+Pony is looking to our right
+@item @code{front}
+Pony is looking at us. 
+@code{front} Can be combined with @code{left} and @code{right},
 but @code{left} and @code{right} nor @code{full} and @code{head} cannot be
 combined.
+@end itemize
 
 @item WIDTH
 @vindex @var{WIDTH}
@@ -1273,7 +1323,7 @@ It specifies the media from where the pony (not the image) originates.
 @vindex @var{LICENSE}
 Which licence applies to the image? Full name and version should be used.
 In case of multiple license there should be one entry for each license.
-Omit this tag is the license is not known.
+Omit this tag is the license is "not known".
 
 The are two special cases here where this is no license. In which case it
 either uses regular copyright, in which case use the value @code{(regular)},
@@ -1286,13 +1336,15 @@ Is the image fully free? (For example Linux-libre is fully free, but not
 regular Linux.) 
 The value @emph{must} either be @code{yes}. @code{sharable} or @code{no},
 or the tag must be omitted.
-@code{yes} mean free, @code{no} mean non free for a @code{libre} distro and
-@code{sharable} mean that you need permission from the author of the original
+@itemize @bullet
+@item @code{yes} mean free like Linux-libre
+@item @code{no} mean non free for @code{libre} distro
+@item @code{sharable} mean that you need permission from the author of the original
 image (or consept art like @file{aurora}) for inclusion with free ponies.
 
 @b{This is the most important tag} as it helps us build a fully free version
 that can be officially distributed on FSF endorsed GNU/Linux distributions
-(GNU/Linux-libre).
+(GNU/Linux-libre) without problems.
 @end table
 
 Duplicate tags should be ordered in the order of the pony they describe from
@@ -1306,8 +1358,8 @@ If the value is unofficial the string @code{(unofficial)} is appended
 (preferable with leading whitespace) to the element. If it is official the
 appended string is of the format @code{(official, %c)} (the brackets are
 verbatim), where @code{%c} is a comment. For example Chrysalis' name has not
-been mentioned in the show, however it is used in the manuscript, therefore a
-pony file with Chrysalis should have the (partial) metadata:
+been mentioned in the show, however it is used in the manuscript and comics, 
+therefore a pony file with Chrysalis should have the (partial) metadata:
 
 @example
 NAME: (not mentioned)
@@ -1358,7 +1410,7 @@ pony to a kmspony. As the kmsponies may change between versions (noted in the
 change log if it happens) you may want to run this commmend after installing a
 new version of @command{ponysay}. Ponies that are already in the cache with
 the current KMS version will not be re-generated.
-May not work in all KMS drivers due to KMS inconsistants.
+May not work in all KMS drivers due to KMS inconsistences.
 
 
 @node Metadata pasting
@@ -1404,6 +1456,7 @@ with the metadata used provided in stdin.
 To copy the metadata from one pony to another (and remove the old metadata)
 you will have to pipe the stashing and the applying command:
 @command{ponysay-tool --edit-stash SOURCE-PONY-FILE | ponysay-tool --edit-apply TARGET-PONY-FILE}
+(yes this is the trix mentioned on the man pages)
 
 
 @node Editing metadata
@@ -1937,8 +1990,8 @@ Now you will be to use ponysay, run:
 or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 
 
-@command{ponysay} comes with this @command{info} manual and a manpage in section 6,
-@command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
+@command{ponysay} comes with this @command{info} manual and a man page in section 6,
+@command{man 6 ponysay} (or just @command{man ponysay}). The man page is also available
 in Spanish, Swedish and Turkish: @command{man -L es 6 ponysay}, @command{man -L sv 6 ponysay},
 @command{man -L tr 6 ponysay}. To install the localised manual, add the option @option{--with-man-es},
 @option{--with-man-sv} or @option{--with-man-tr} when running @command{./setup.py}.
@@ -3084,7 +3137,7 @@ equivalent directories you should read about configurations in
 
 Apart from this, you should configure @command{ponysay} before building it with
 the option @option{--everything}. Otherwise only the @command{info} manual and
-the English manpage will be installed for documentation.
+the English man page will be installed for documentation.
 
 Please inform us about your distribution so we can list it so everypony
 can see it.
@@ -3382,7 +3435,7 @@ Swedish manual page added.
 @item
 @option{+h} (@option{++help}, @option{--help-colour}) added.
 @item
-Added manpage for @command{ponysay-tool}.
+Added man page for @command{ponysay-tool}.
 @item
 @file{auto-auto-completion} now is no more part of @command{ponysay}, 
 therefor you need install them and rebuild to get 
@@ -3815,7 +3868,7 @@ problems with file names including spaces.)
 
 @itemize @bullet
 @item
-Manpages are compressed before installation.
+Man pages are compressed before installation.
 @item
 @command{info} manual added.
 @item
@@ -3867,7 +3920,7 @@ Accepts arbitrary spaces in @option{-f} argument.
 
 @itemize @bullet
 @item
-Spanish translation of the manpage is added.
+Spanish translation of the man page is added.
 @item
 @w{New ponies:} @file{applecore}, @file{applejackscarecrow}, @file{bonbonstand},
 @file{changeling}, @file{chrysalis}, @file{cottoncloudy}, @file{diamondmint},
@@ -3900,7 +3953,7 @@ when the high colour resolution is not available.
 
 @itemize @bullet
 @item
-Manpage manual added.
+Man page manual added.
 @item
 The directories for pony directories are changed from @file{/usr/share} to
 @file{/usr/share/ponysay} and @file{~} to @file{~/.ponysay}.

@@ -5,7 +5,7 @@ Version 3.0.2
 		    mantishy, maybelle, misty, mule, nightmarerarity,
 		    peachbottom, poundfly, pumpkincake, rainbowdashcrystal,
 		    rainbowdrop, rainbowfim, shoeshine, shortround,
-		    strawberrycream, sunsetshimer, theoldenpony, unclewing,
+		    strawberrycream, sunsetshimmer, theoldenpony, unclewing,
 		    wildflower
 
         New extraponies: aurora, aquarius, aries, barbara, buttonmon, cancer,
@@ -40,7 +40,7 @@ Version 3.0.2
 
         Swedish manual page added.
 
-        Added manpage for ponysay-tool.
+        Added man page for ponysay-tool.
 
 	+h (++help, --help-colour) added.
 
@@ -371,7 +371,7 @@ Version 1.2
 
 Version 1.1
 
-        Manpages are compressed before installation.
+        Man pages are compressed before installation.
 
         'info manual' added.
 
@@ -414,7 +414,7 @@ Version 1.1
 
 Version 1.0
 
-        Spanish translation of the manpage is added.
+        Spanish translation of the man page is added.
 
         New ponies: applecore, applejackscarecrow, bonbonstand, changeling,
                     chrysalis, cottoncloudy, diamondmint, discord,
@@ -440,7 +440,7 @@ Version 1.0
 
 Version 0.10
 
-        Manpage manual added.
+        Man page manual added.
 
         The directories for pony directories are changed
         from '/usr/share' to '/usr/share/ponysay' and '~' to '~/.ponysay'.
