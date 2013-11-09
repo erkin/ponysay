@@ -1341,6 +1341,7 @@ or the tag must be omitted.
 @item @code{no} mean non free for @code{libre} distro
 @item @code{sharable} mean that you need permission from the author of the original
 image (or consept art like @file{aurora}) for inclusion with free ponies.
+@end itemize
 
 @b{This is the most important tag} as it helps us build a fully free version
 that can be officially distributed on FSF endorsed GNU/Linux distributions
