@@ -2,7 +2,7 @@
 .\" First parameter, NAME, should be all caps
 .\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
 .\" other parameters are allowed: see man(7), man(1)
-.TH PONYSAY 0 "April 05, 2013"
+.TH PONYSAY\-TOOL 0 "April 05, 2013"
 .\" Please adjust this date whenever revising the manpage.
 .\"
 .\" Some roff macros, for reference:
@@ -68,17 +68,18 @@ Edit a pony file\'s metadata filling a predefined template.
 The metadata editor have a \fIEMACS\fP alike syntaxis key combination.
 .TP
 .B \-\-edit\-rm [\fIPONYFILE\fP]
-Remove metadata from a pony file, use with caution because deleted metadata is unrecoverable
-unless you reintall the affected [\fIpony file\fP] directrly from the source code or a backup.
+Remove metadata from a \fIpony file\fP, use with caution because deleted metadata is unrecoverable
+unless you reintall the affected \fIpony file\fP directrly from the source code or a backup.
 .TP
 .B \-\-edit\-apply [\fIPONYFILE\fP]
-Apply metadata from stdin to a pony file, this include \fBHEIGHT\fP and \fBWIDTH\fP.
+Apply metadata from stdin to a \fIpony file\fP, this include \fBHEIGHT\fP and \fBWIDTH\fP.
 `info ponysay` include a trick that include \-\-edit\-stash that easy the metadata edition
-in large amount of [\fIpony file\fP]
+in large amount of \fIpony file\fP
 .TP
 .B \-\-edit\-stash [\fIPONYFILE\fP]
-Print applyable meta with data from a pony file, can by used alongside in a combo with
-\-\-edit\-apply for apend metadata in the same pony with a different pose.
+Print applyable meta with data from a \fIpony file\fP, can by used alongside whit 
+`ponysay\-tool \-\-edit\-apply` in a combo for apend metadata in the same pony with a 
+different pose but being the same character.
 .SH BUG
 Bugs can be reported in <\fBhttps://github.com/erkin/ponysay/issues\fP>.
 .SH SEE ALSO
