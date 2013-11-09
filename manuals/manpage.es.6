@@ -1,4 +1,4 @@
-.TH PONYSAY 6 "25 de agosto del 2013"
+.TH PONYSAY 6 "09 de noviembre del 2013"
 .SH NOMBRE
 ponysay \- Una reimplementación de cowsay usando ponis
 .SH SINOPSIS
@@ -17,8 +17,8 @@ ponysay \- Una reimplementación de cowsay usando ponis
 \fBponysay\fP muestra la imagen de un poni con un texto dado por el usuario,
 esto dentro de la terminal.
 .br
-Si el \fImesaje\fP no es provisto, ponysay aceptará una orden estándar.
-El mensaje debería de tener alrededor de 60 columnas, y el o la poni devería
+Si el \fImensaje\fP no es provisto, ponysay aceptará una orden estándar.
+El mensaje debería de tener alrededor de 60 columnas, y el o la poni debería
 de mostrar este mensaje en una salida estándar.
 .PP
 Si no se da ningún argumento, el programa solamente aceptará mensajes
@@ -27,7 +27,7 @@ caracteres (véase también bash(1) para detalles de archivos y cadenas de carac
 .PP
 \fBponythink\fP es a \fIponysay\fP lo que \fIcowthink\fP es a \fIcowsay\fP.
 .SH OPCIONES
-El resumen de las opciones está incluido acontinuación.
+El resumen de las opciones está incluido a continuación.
 .TP
 .B \-h, \-\-help
 Muestra la ayuda, un resumen de las opciones.
@@ -37,12 +37,12 @@ Muestra la versión del programa.
 .TP
 .B \-f, \-\-file, \-\-pony \fInombre\fP
 Selecciona un poni específico (ya sea un archivo o el nombre directamente),
-puedes usar esta opción con múltiples ponis y de estos será elejído uno al azar.
+puedes usar esta opción con múltiples ponis y de estos será elegido uno al azar.
 .TP
 .B \+f, \+\+file, \+\+pony \fInombre\fP
 Selecciona un poni no pertenecientes a MLP:FiM (ya sea un archivo o el nombre
 directamente), puede usar esta opción con múltiples ponis y de estos será
-elejído uno aleatoriamente.
+elegido uno aleatoriamente.
 .TP
 .B \-F, \-\-any\-file, \-\-anyfile, \-\-anypony \-\-any\-pony \fInombre\fP
 Esta opción combina \fI-f\fP y \fI+f\fP.
@@ -79,9 +79,9 @@ extra del globo se toma en consideración. Si el argumento no es un número,
 sino que inicia en su lugar con \fIn\fP, no hay ajuste alguno y si comienza
 con \fIi\fP el ancho de la terminal es tomado.
 .TP
-.B \-c, \-\-compress, \-\-compact [\fIcolor-ansi\fP]
+.B \-c, \-\-compress, \-\-compact [\fIcolor-ANSI\fP]
 Comprime en mensaje en la misma manera que \fIcowsay\fP lo hace,
-esto es básicamente sin multiples espacios y solo separando párafos.
+esto es básicamente sin múltiples espacios y solo separando párrafos.
 .TP
 .B \-l, \-\-list
 Lista los ponis disponibles.
@@ -102,13 +102,13 @@ Muestra la lista de globos de texto disponibles.
 .TP
 .B \-A. \-\-all
 Lista todos los ponis, tanto pertenecientes a MLP:FiM cono no pertenecientes a 
-esta la primera lista son los pertenecientes a esta y la subsiguente los no 
+esta la primera lista son los pertenecientes a esta y la subsiguiente los no 
 pertenecientes.
 .TP
 .B \+A, \+\+all, \-\-symall, \-\-altall
 Lista todos los ponis incluyendo sus nombres alternativos, estos pertenecientes 
-a MLP:FiM cono no pertenecientes, la primera lista seran los pertenecientes y la
-subsiguente los no pertenecientes a esta.
+a MLP:FiM cono no pertenecientes, la primera lista serán los pertenecientes y la
+subsiguiente los no pertenecientes a esta.
 .TP
 .B \-o, \-\-pony\-only, \-\-ponyonly
 Solamente muestra al poni, pero no los demás elementos.
@@ -127,7 +127,7 @@ la forma de \fINOMBRE=VALOR\fP.
 .TP
 .B \-X, \-\-256\-colours, \-\-256colours, \-\-x\-colours
 Usa el soporte de 256 colores de \fIxterm\fP (soportado por la mayoría de
-terminales en X11), sindiferencia entre las capacidades de la terminal.
+terminales en X11), sin diferencia entre las capacidades de la terminal.
 .TP
 .B \-V, \-\-tty\-colours, \-\-ttycolours, \-\-vt\-colours
 Usa la compatibilidad de la terminal VT de Linux \fPsin\fP usar KMS, indiferente
@@ -138,27 +138,27 @@ de las capacidades de la terminal.
 Usa la compatibilidad de la terminal VT de Linux \fPusando\fP KMS, indiferente 
 de las capacidades de la terminal (no funciona en todas las tarjetas con soporte KMS).
 .TP
-.B \+c, \-\-colour [\fIcolor-ansi\fP]
+.B \+c, \-\-colour [\fIcolor-ANSI\fP]
 Colorea el globo, Incluyendo mensajes y enlaces.
 Para más información acerca del coloreo vea las páginas \fIinfo\fP.
-El argumento o \fIcolor-ansi\fP, Puede ser una secuencia de colores ANSI 
-sin precedir de CSI y sin la cola \fIm\fP, por ejemplo: \fI1;31\fP puede 
+El argumento o \fIcolor-ANSI\fP, Puede ser una secuencia de colores ANSI 
+sin preceder de CSI y sin la cola \fIm\fP, por ejemplo: \fI1;31\fP puede 
 referirse al color rojo y en negrita (o color claro dependiendo de la terminal.)
 .TP
-.B \-\-colour\-bubble, \-\-colour\-balloon [\fIcolor-ansi\fP]
+.B \-\-colour\-bubble, \-\-colour\-balloon [\fIcolor-ANSI\fP]
 Trabaja como \fI\--colour\fP pero solamente colorea el globo de texto.
 .TP
-.B \-\-colour\-link [\fIcolor-ansi\fP]
+.B \-\-colour\-link [\fIcolor-ANSI\fP]
 Trabaja como \fI--colour\fP pero solamente colorea en enlace al globo de texto.
 .TP
-.B \-\-colour\-msg, \-\-colour\-message [\fIcolor-ansi\fP]
+.B \-\-colour\-msg, \-\-colour\-message [\fIcolor-ANSI\fP]
 Trabaja como \fI--colour\fP pero solamente colorea el texto.
 .TP
-.B \-\-colour\-pony [\fIcolor-ansi\fP]
+.B \-\-colour\-pony [\fIcolor-ANSI\fP]
 Trabaja como \fI--colour\fP pero solamente colorea la poni.
 Este coloreo no tiene efecto en archivos poni dado que tienen su propio coloreo.
 .TP
-.B \-\-colour\-wrap, \-\-colour\-hyphen [\fIcolor-ansi\fP]
+.B \-\-colour\-wrap, \-\-colour\-hyphen [\fIcolor-ANSI\fP]
 Trabaja como \fI--colour\fP pero solo colorea guiones agregados por la 
 envoltura del texto.
 Si desea remover el color use \fI0\fP (cero), 
@@ -168,7 +168,7 @@ por omisión es \fI31\fP (treintaiuno).
 .B PONYSAY_BOTTOM
 Bajo TTY (Linux VT), si la imagen es más larga que la anchura de la terminal 
 en pantalla, solamente el inicio de esta es impreso, dejando únicamente dos
-líneas blancas, pero si desea que apesar de todo sea impreso el fondo puede
+líneas blancas, pero si desea que a pesar de todo sea impreso el fondo puede
 exportar \fIPONYSAY_BOTTOM\fP con el valor \fIyes\fP, \fIy\fP o \fI1\fP.
 .TP
 .B PONYSAY_SHELL_LINES
@@ -195,12 +195,12 @@ sus nombres.
 .B PONYSAY_KMS_PALETTE, PONYSAY_KMS_PALETTE_CMD
 \fIPONYSAY_KMS_PALETTE\fP o \fIPONYSAY_KMS_PALETTE_CMD\fP es usado para llamar a
 ponysay usando la paleta TTY tal cual es, esto es usado para mostrar a las ponis
-usando la mejor calidad de colores posible si esta bajo TTY y si su video 
+usando la mejor calidad de colores posible si esta bajo TTY y si su vídeo 
 soporta 'Kernel Mode Seting' (KMS) y este está activo.
 .TP
 .B PONYSAY_TYPO_LIMIT
-\fIponysay\fP es capaz de autocoregir nombres mal escritos y tipos de globo de 
-texto sin conciderar la trasposición de texto, por omisión si la distancia 
+\fIponysay\fP es capaz de autocorregir nombres mal escritos y tipos de globo de 
+texto sin considerar la trasposición de texto, por omisión si la distancia 
 ponderada es mayor a 5 (cinco) para la palabra más cercana, entonces es 
 ignorada la autocorrección.
 Este limite puede ser cambiado si se exporta un numero a la variable 
