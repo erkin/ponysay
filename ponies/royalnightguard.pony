@@ -16,7 +16,6 @@ SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 40
 HEIGHT: 26
 
-
 $$$
 $balloon25$[00m
                       $\$                 [00m
