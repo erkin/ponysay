@@ -2555,7 +2555,8 @@ A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay}
 (user maintained), and PPA:s can be found at
 @url{https://launchpad.net/~vincent-c/+archive/ppa} (user maintained) and
 @url{https://launchpad.net/~blazemore/+archive/ponysay} (user maintained).
-Note: Look Availabily before use one of these ppa.
+Note: Look Availabily before use one of these ppa, and check version because 
+some are not updated often.
 
 @node Gentoo Linux
 @subsection Gentoo Linux
@@ -3086,20 +3087,21 @@ probabily more agreed with fist party merchandice, fans and crew at same time.
 
 For in the wikia the order of precedence is: 
 
-
 @itemize
-@item @emph{The series itself}: In they first run, and uncensored
-@item @emph{The crew}: M. A. Larson, Sabrina "Sibsy", Lauren Faust (For the first and second
+@item The series itself: In they first run, and uncensored
+@item The crew: M. A. Larson, Sabrina "Sibsy", Lauren Faust (For the first and second
 seasson only), et al. 
-@item @emph{First party merchandice}: Blind Bags and colectable toys [Further
+@item First party merchandice: Blind Bags and colectable toys [Further
 duscution is taken after any renamed]
-@item @emph{Second party merchandise}: Any that claim to by official whitout logo and
+@item Second party merchandise: Any that claim to by official whitout logo and
 all the fancy stuff [further discusion first]
-@item @emph{Three party merchandice}: Any that use the toys or characters but
+@item Three party merchandise: Any that use the toys or characters but
 only in they tags, on-line stores and soo [Only if the evidence and use are far extended that 
 a further discusion for renaming or not is needed]
-@item @emph{Placeholder}: Any fan given name gived voted in a open procees on
-@url{http://reddit.com/r/listofponies} where any can vote or give sugestions fallow
+@item Script and others: Sometimes a name can become official if was used in the script or in
+CC for the official DVD.
+@item Placeholder: Any fan given name from a voted process in a open procees on
+@url{http://reddit.com/r/listofponies} where anypony can vote or give sugestions fallow
 they rules. These ones @emph{CAN} potentially becomed official names 
 or/and influence subsecuent discutions about renaming ponies. 
 @end itemize
@@ -3401,11 +3403,11 @@ New extraponies: @file{aurora}, @file{aquarius}, @file{aries},
 @file{childrenofthenight}, @file{chrome}, @file{coffeetalk}, @file{firefox},
 @file{fluffle}, @file{fyreflyready}, @file{gemini}, @file{gnupony},
 @file{internetexplorer}, @file{leo}, @file{libra}, @file{lilmissrarity},
-@file{milky}, @file{milkylay}, @file{opera}, @file{oscura}, @file{pisces}, 
-@file{princeartemis}, @file{reddit}, @file{robodash}, @file{sagittarius}, 
-@file{scorpio}, @file{snowdrop-crew}, @file{solaris}, @file{starstruck}, 
-@file{sweetiebot}, @file{taurus}, @file{twibrain}, @file{virgo}, 
-@file{wiggles}
+@file{littlepip}, @file{milky}, @file{milkylay}, @file{opera}, @file{oscura}, 
+@file{pisces}, @file{princeartemis}, @file{reddit}, @file{robodash}, 
+@file{sagittarius}, @file{scorpio}, @file{snowdrop-crew}, @file{solaris}, 
+@file{starstruck}, @file{sweetiebot}, @file{taurus}, @file{twibrain}, 
+@file{virgo}, @file{wiggles}
 @item
 Pony symlink added:
 @itemize @bullet
