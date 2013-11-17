@@ -3399,15 +3399,16 @@ New ponies: @file{brucemane}, @file{coldheart}, @file{creampuff},
 @file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
-@file{barbara}, @file{buttonmom}, @file{cancer}, @file{capricorn}, 
-@file{childrenofthenight}, @file{chrome}, @file{coffeetalk}, @file{firefox},
-@file{fluffle}, @file{fyreflyready}, @file{gemini}, @file{gnupony},
-@file{internetexplorer}, @file{leo}, @file{libra}, @file{lilmissrarity},
-@file{littlepip}, @file{milky}, @file{milkylay}, @file{opera}, @file{oscura}, 
-@file{pisces}, @file{princeartemis}, @file{reddit}, @file{robodash}, 
-@file{sagittarius}, @file{scorpio}, @file{snowdrop-crew}, @file{solaris}, 
-@file{starstruck}, @file{sweetiebot}, @file{taurus}, @file{twibrain}, 
-@file{virgo}, @file{wiggles}
+@file{barbara}, @file{buttonmom}, @file{calamity}, @file{cancer},
+@file{capricorn}, @file{childrenofthenight}, @file{chrome}, 
+@file{coffeetalk}, @file{firefox}, @file{fluffle}, @file{fyreflyready},
+@file{gemini}, @file{gnupony}, @file{internetexplorer}, @file{leo},
+@file{libra}, @file{lilmissrarity}, @file{littlepip}, @file{milky},
+@file{milkylay}, @file{opera}, @file{oscura}, @file{pisces},
+@file{princeartemis}, @file{reddit}, @file{robodash}, @file{sagittarius}, 
+@file{scorpio}, @file{snowdrop-crew}, @file{solaris}, @file{starstruck}, 
+@file{sweetiebot}, @file{taurus}, @file{twibrain}, @file{virgo}, 
+@file{wiggles}
 @item
 Pony symlink added:
 @itemize @bullet
@@ -3438,8 +3439,6 @@ Turkish manual page added.
 Swedish manual page added.
 @item
 @option{+h} (@option{++help}, @option{--help-colour}) added.
-@item
-Added man page for @command{ponysay-tool}.
 @item
 @file{auto-auto-completion} now is no more part of @command{ponysay}, 
 therefor you need install them and rebuild to get 
