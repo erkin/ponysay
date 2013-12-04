@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E24 Owl's Well That Ends Well
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: brown
 DISPLAY: full, right
 EYE: green
@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: Davenport (unofficial)
+OTHER NAMES: Davenport (official, on novels)
 POSE: stand
 SOURCE: desktop ponies
 WIDTH: 39
