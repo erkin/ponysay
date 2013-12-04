@@ -3395,8 +3395,8 @@ New ponies: @file{brucemane}, @file{coldheart}, @file{creampuff},
 @file{nightmarerarity}, @file{peachbottom}, @file{poundfly},
 @file{pumpkincake}, @file{rainbowdashcrystal}, @file{rainbowdrop}, 
 @file{rainbowfim}, @file{shoeshine}, @file{shortround}, 
-@file{strawberrycream}, @file{sunsetshimmer}, @file{theoldenpony}, 
-@file{unclewing}, @file{wildflower}
+@file{strawberrycream}, @file{sunsetshimmer}, @file{tealove},
+@file{theoldenpony}, @file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{buttonmom}, @file{calamity}, @file{cancer},
