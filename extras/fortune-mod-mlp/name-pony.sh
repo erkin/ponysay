@@ -15,6 +15,7 @@ case "${pony}" in # Exceptions not supported by the name extraction below
 esac
 
 if [ -n "${name}" ]; then
+    echo "${name}"
     exit 0
 fi
 
