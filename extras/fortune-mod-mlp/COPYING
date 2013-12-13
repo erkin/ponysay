@@ -1,0 +1,31 @@
+fortune-mod-mlp — Fortune quotes from My Little Pony Friendship is Magic
+
+Derived work from ponysay.
+Derived work from fortune-mod-mlp as released to the
+	Arch Linux User Repository by Matthias Devlamynck
+
+
+Copyright (C) 2012, 2013  Erkin Batu Altunbaş et al.
+
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+If you intend to redistribute ponysay or a fork of it commercially,
+it contains aggregated images, some of which may not be commercially
+redistribute, you would be required to remove those. To determine
+whether or not you may commercially redistribute an image make use
+that line ‘FREE: yes’, is included inside the image between two ‘$$$’
+lines and the ‘FREE’ is and upper case and directly followed by
+the colon.
