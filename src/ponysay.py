@@ -56,7 +56,7 @@ class Ponysay():
             os.environ['HOME'] = self.HOME = os.path.expanduser('~')
         
         
-        ## Change system enviroment variables with ponysayrc
+        ## Load extension and configurations via ponysayrc
         for file in ('$XDG_CONFIG_HOME/ponysay/ponysayrc', '$HOME/.config/ponysay/ponysayrc', '$HOME/.ponysayrc', '/etc/ponysayrc'):
             file = Ponysay.__parseFile(file)
             if (file is not None) and os.path.exists(file):
