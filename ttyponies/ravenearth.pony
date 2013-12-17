@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E04 Luna Eclipsed
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: white
 DISPLAY: full, right
 EYE: gray
@@ -13,7 +13,7 @@ LINK: regular
 MANE: black
 MASTER: raven
 NAME: (not mentioned)
-OTHER NAMES: Raven (unofficial)
+OTHER NAMES: Raven (official)
 POSE: demon
 SOURCE: [jristz], based on (Bot-chan) Desktop ponies
 WIDTH: 44

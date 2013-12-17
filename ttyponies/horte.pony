@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E03 The Ticket Master
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: beige
 DISPLAY: full, left
 EYE: closed, brown
@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: Horte Cuisine (unofficial)
+OTHER NAMES: Horte Cuisine (unofficial), Savoir Fare (official on Trading card)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 40
