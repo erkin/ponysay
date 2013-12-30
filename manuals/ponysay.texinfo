@@ -3390,7 +3390,7 @@ ANSI escape sequences.
 @item
 New ponies: @file{brucemane}, @file{coldheart}, @file{creampuff},
 @file{cremebrulee}, @file{deepblue}, @file{fleetfoot}, @file{filmreel}, 
-@file{flashsentry}, @file{hairytipper}, @file{ironwill},
+@file{flashsentry}, @file{hairytipper}, @file{ironwill}, @file{mane-iac},
 @file{mantishy}, @file{maybelle}, @file{misty}, @file{mule},
 @file{nightmarerarity}, @file{peachbottom}, @file{poundfly},
 @file{pumpkincake}, @file{rainbowdashcrystal}, @file{rainbowdrop}, 
