@@ -1,3 +1,26 @@
+$$$
+BALLOON: top
+BALLOON TOP: 3
+BALLOON BOTTOM: 0
+DISPLAY: full, left
+EYE: open, white
+FREE: yes
+GROUP: god
+KIND: god
+LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
+LINK: regular
+MEDIA: [religion]
+NAME: Flying Spaghetti Monster
+OTHER NAMES: FSM
+POSE: fly
+SOURCE: Church of the Flying Spaghetti Monster
+WIDTH: 76
+HEIGHT: 73
+
+License summary: https://creativecommons.org/licenses/by-sa/3.0
+Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
+$$$
+
 $balloon10$[00m
     $\$                                                                            [00m
      $\$             [38;5;240m▄▄▄▄[39m                    [38;5;240m▄[48;5;240;38;5;231m▄▄▄▄[49;38;5;240m▄[39m                              [00m
