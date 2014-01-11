@@ -1,6 +1,6 @@
 $$$
 BALLOON: top
-BALLOON TOP: 1
+BALLOON TOP: 3
 BALLOON BOTTOM: 0
 DISPLAY: full, left
 EYE: open, black
@@ -20,7 +20,6 @@ HEIGHT: 73
 License summary: https://creativecommons.org/licenses/by-sa/3.0
 Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
 $$$
-
 $balloon10$[00m
     $\$                                                                            [00m
      $\$             [38;5;240m▄▄▄▄[39m                    [38;5;240m▄[48;5;240;38;5;231m▄▄▄▄[49;38;5;240m▄[39m                              [00m
