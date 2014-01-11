@@ -3,13 +3,13 @@ BALLOON: top
 BALLOON TOP: 3
 BALLOON BOTTOM: 0
 DISPLAY: full, left
-EYE: open, white
+EYE: open, black
 FREE: yes
 GROUP: god
 KIND: god
 LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
-MEDIA: [religion]
+MEDIA: Internet meme
 NAME: Flying Spaghetti Monster
 OTHER NAMES: FSM
 POSE: fly
