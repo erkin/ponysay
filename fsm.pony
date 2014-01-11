@@ -1,6 +1,6 @@
 $$$
 BALLOON: top
-BALLOON TOP: 3
+BALLOON TOP: 1
 BALLOON BOTTOM: 0
 DISPLAY: full, left
 EYE: open, black
