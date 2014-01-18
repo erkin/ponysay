@@ -608,7 +608,7 @@ If it is not a symbolic link, @option{-q} cannot determine which quotes to use.
 * Fortune cookies::             Displaying with fortune cookies.
 * Ponification::                Ponify your fortune cookies.
 * Running on TTY::              Running on TTY (Linux VT).
-* Running on screen::           Running on @command{screen}.
+* Running on screen and tmux::  Running on @command{screen} and @command{tmux}.
 * ~/.ponysayrc::                Using the @file{~/.ponysayrc} file.
 * Narcissistic ponies::         Getting ponies to think of themself.
 @end menu
@@ -685,7 +685,7 @@ If you use TTY and have a custom colour palette, you should also add to your
 @example
 [ "$TERM" = "linux" ] &&
     function ponysay
-    @{   exec ponysay "$@@"
+    @{   /usr/bin/ponysay "$@@"
         #RESET PALETTE HERE
     @}
 @end example
@@ -694,30 +694,40 @@ If you use TTY and have a custom colour palette, you should also add to your
 You should read more about this in @ref{KMS ponies}.
 
 
-@node Running on screen
-@section Running on @command{screen}
+@node Running on screen and tmux
+@section Running on @command{screen} and @command{tmux}
 @pindex @command{screen}
 @cindex @file{.bashrc}
 @cindex @file{~/.bashrc}
 
-@command{screen} will adapt ANSI colour escape sequences to your terminal's
-capabilities. This means that if your terminal reports itself as @code{xterm}
-in @env{$TERM} ponies will lose their colours; they will only use the lower 16
-colours instead of the top 240 colours. By default, almost all X terminals,
-including @command{xterm} and @command{mate-terminal} reports themselves as
-@code{xterm} in @env{$TERM}, and some reports their actual name in
-@env{$COLORTERM}. So before opening @command{screen} you use set @env{$TERM}
-to @code{xterm-256color}, if you are using a terminal with support for
-@code{xterm}'s 256 colours; this can be done by adding to your @file{~/.bashrc}:
+@command{screen} and @command{tmux} will adapt ANSI colour escape sequences
+to your terminal's capabilities. This means that if your terminal reports
+itself as @code{xterm} in @env{$TERM} ponies will lose their colours; they
+will only use the lower 16 colours instead of the top 240 colours. By default,
+almost all X terminals, including @command{xterm} and @command{mate-terminal}
+reports themselves as @code{xterm} in @env{$TERM}, and some reports their
+actual name in @env{$COLORTERM}. So before opening @command{screen} or
+@command{tmux} you should set @env{$TERM} to @code{xterm-256color}, if you
+are using a terminal with support for @code{xterm}'s 256 colours; this can
+be done by adding to your @file{~/.bashrc}:
 @cartouche
 @example
 [ "$TERM" = "xterm" ] &&
     function screen
-    @{   export TERM="xterm-256color"
-        exec screen "$@@"
+    @{  TERM=xterm-256color /usr/bin/screen "$@@"
+    @}
+
+
+[ "$TERM" = "xterm" ] &&
+    function tmux
+    @{  TERM=xterm-256color /usr/bin/tmux "$@@"
     @}
 @end example
 @end cartouche
+
+Alternatively, you can run @command{tmux} with the option @option{-2}:
+@command{tmux -2}. This also forces @command{tmux} to assume the terminal
+supports 256 colours.
 
 
 @node ~/.ponysayrc
