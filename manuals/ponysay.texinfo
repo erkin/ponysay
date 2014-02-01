@@ -3429,6 +3429,7 @@ Pony symlink added:
 @item @file{ie} @arrow{} @file{internetexplorer}
 @item @file{dancefever} @arrow{} @file{hairytipper}
 @item @file{snowheart} @arrow{} @file{coldheart}
+@item @fle{bulkbiceps} @arrow{} @file{snowflake}
 @end itemize
 @item
 Default value for @option{-W}, the message wrapping column, has been changed
