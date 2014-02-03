@@ -1,0 +1,9 @@
+#!/bin/sh
+
+dir="/usr/share/ponysay/ttyponies"
+if [ -n "${DISPLAY}" ]; then
+   dir="/usr/share/ponysay/ponies"
+fi
+
+find "${dir}" | grep '\.pony$' | shuf | head -n 1 | xargs cat | sed -e ':a;N;$!ba;s:\$[^$]*\$::g'
+

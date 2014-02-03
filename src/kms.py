@@ -156,13 +156,15 @@ class KMS():
     
     
     @staticmethod
-    def __createKMSPony(pony, kmspony, cachedir):
+    def __createKMSPony(pony, kmspony, cachedir, palette, shared):
         '''
         Create KMS pony
         
-        @param   pony:str      Choosen pony file
-        @param   kmspony:str   The KMS pony file
-        @param   cachedir:str  The cache directory
+        @param  pony:str      Choosen pony file
+        @param  kmspony:str   The KMS pony file
+        @param  cachedir:str  The cache directory
+        @param  palette:str   The palette
+        @parma  shared:str    Whether shared cache is used
         '''
         ## kmspony directory
         kmsponydir = kmspony[:kmspony.rindex('/')]
@@ -216,7 +218,7 @@ class KMS():
         palettefile = env_kms.replace('\033]P', '')
         
         ## Get and if necessary make cache directory
-        (cachedir, share) = KMS.__getCacheDirectory(home)
+        (cachedir, shared) = KMS.__getCacheDirectory(home)
         
         ## KMS support version control, clean everything if not matching
         if KMS.__isCacheOld(cachedir):
@@ -228,7 +230,7 @@ class KMS():
         
         ## If the kmspony is missing, create it
         if not os.path.isfile(kmspony):
-            KMS.__createKMSPony(pony, kmspony, cachedir)
+            KMS.__createKMSPony(pony, kmspony, cachedir, palette, shared)
         
         return kmspony
 

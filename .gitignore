@@ -1,15 +1,21 @@
 ## Private workspace directory
 
-/_/
+_/
 /*.pony
+
+
+## Hidden files
+
+.*
+!.git*
 
 
 ## Backup files
 
 *~
 \#*\#
-.\#*
 *.swp
+*.swo
 *.bak
 
 
@@ -34,6 +40,8 @@
 /*ponies/widths
 /*ponies/metadata
 /ponysay
+/bin/
+/obj/
 
 
 ## Texinfo manual stuff

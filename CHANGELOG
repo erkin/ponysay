@@ -1,38 +1,45 @@
 Version 3.0.2
 
-        New ponies: brucemane, cremebrulee, deepblue, flashsentry, fleetfoot,
-                    hairytipper, mantishy, maybelle, misty, mule,
-                    nightmarerarity, peachbottom, rainbowdashcrystal,
-                    rainbowdrop, rainbowfim, shortround, strawberrycream,
-                    sunsetshimmer, unclewing, wildflower
+        New ponies: brucemane, coldheart, creampuff, cremebrulee, deepblue,
+		    filmreel, flashsentry, fleetfoot, hairytipper, ironwill,
+		    mane-iac, mantishy, maybelle, misty, mule, nightmarerarity,
+		    peachbottom, poundfly, pumpkincake, rainbowdashcrystal,
+		    rainbowdrop, rainbowfim, shoeshine, shortround,
+		    strawberrycream, sunsetshimmer, tealove, theoldenpony,
+		    unclewing, wildflower.
 
-        New extraponies: aurora, aquarius, aries, barbara, cancer, capricorn,
-                         childrenofthenight, chrome, firefox, gemini, fluffle,
-                         fyreflyready, internetexplorer, leo, libra, milky, 
-                         milkylay, opera, oscura, pisces, princeartemis, 
-                         redit, sagittarius, scorpio, solaris, sweetiebot,
-                         taurus, virgo, wiggles
+        New extraponies: aurora, aquarius, aries, barbara, buttonmon, calamity,
+			 cancer, capricorn, childrenofthenight, chrome,
+			 coffeetalk, firefox, gemini, gnupony, fluffle,
+			 fyreflyready, internetexplorer, leo, libra, lilmissrarity,
+			 litlepip, milky, milkylay, opera, oscura, pisces,
+			 princeartemis, reddit, robodash, sagittarius, scorpio,
+			 snowdrop-crew, solaris, starstruck, sweetiebot, taurus,
+			 twibrain, virgo, wiggles.
 
         Pony symlink added: walter → waltercoltchack
                             barbra → barbara (in extraponies)
-                            buttonsmash → highscore
+                            buttonmash → highscore
                             brad → flashsentry (was used on EQD)
-                            mabel → maybelle
+                            mabel → maybelle (Believe or not is canon for both sides)
                             ie → internetexplorer
+                            dancefever → hairytipper
+                            snowheart → coldheart
+                            bulkbiceps → snowflake
 
-        Default value for -W has been changed from 40 to 60.
+        Default value for -W has been changed from 40 to 65.
 
-        nightmare was renamed to nightmaremoon for consistency whit the
-        comic
-
-        doctor has ben reintegrated to ponies thanks to official comic
-        issue 8 where is sit alongside drhooves
+        Special pony cases:
+        * nightmare was renamed to nightmaremoon for consistency with
+        the comic.
+        * ironwill (3.0.1 and lower) has been renamed to ironwillwalk
+        because now we have a ironwill in a non walk pose as they master.
+        * doctor has ben reintegrated to ponies thanks to official comic
+        issue #8 where is sit alongside drhooves.
 
         Turkish manual page added.
 
         Swedish manual page added.
-
-        Added manpage for ponysay-tool.
 
 	+h (++help, --help-colour) added.
 
@@ -41,7 +48,7 @@ Version 3.0.2
 
 Version 3.0.1
 
-        New ponies: harshwhinny
+        New ponies: harshwhinny.
 
         All ponies has been reviewed and improved when needed.
 
@@ -58,14 +65,12 @@ Version 3.0
                     poundcake, princesserroria, raccoon, rainbowblitz,
                     rarityelite, ravenearth, ravenunicorn, royalunicornguard,
                     rumble, shiningarmorcrystal, sombra, spikecrystal, squirrel,
-                    sweetcream (comic), trixieamulet, twilacorn,
-                    twilightcrystal, twilightfly, twilightprincess,
-                    twilightwings, twinkleshine
+                    sweetcream (comic), trixieamulet, twilacorn, twilightcrystal,
+		    twilightfly, twilightprincess, twilightwings, twinkleshine.
 
         New extraponies: donutpony, gleamingshield, hestelle, johndelancie,
-                         jristz, maandree, orion,
-                         pipsqueak (without pirate suit), paradise, pizzapony,
-                         snowdrop, tempo, ticket
+                         jristz, maandree, orion, pipsqueak (without pirate suit),
+			 paradise, pizzapony, snowdrop, tempo, ticket.
 
         Ponies renamed: lotusbloosom → lotusblossom (typo)
                         maredowellgallop → maredowellgallop (need a version named as master)
@@ -84,7 +89,8 @@ Version 3.0
                         berrydreams → blueberry
                         raven → ravenunicorn (need a version named as master)
 
-        fillycelestia and filliestia has been moved to extraponies.
+        Special pony cases:
+        * fillycelestia and filliestia has been moved to extraponies.
 
         Renamed option -F to +f and option --F to ++f, -F and --F has new definitions.
 
@@ -131,7 +137,7 @@ Version 2.9.1
 
 Version 2.9
 
-        New ponies: pinkieumbrelahatfear, twilighttime
+        New ponies: pinkieumbrelahatfear, twilighttime.
 
         New extraponies: molestia (Tumblr)
 
@@ -156,11 +162,11 @@ Version 2.8
                     peppermoon, pinkacopter, pinkiefly, pinkieparade,
                     pinkieumbrellahat, raritycomplaining, shiningarmorwedding,
                     soarinofficer, starlight, sunnyrays, sweatiesing,
-                    tenderheart, tom, twilightspike, zecorabalance
+                    tenderheart, tom, twilightspike, zecorabalance.
 
         New extraponies: applejack (Tumblr), applejack-63, artemis, blueberry,
                          butterscotch, drhoovesdiscorded (Tumblr), duskshine,
-                         elusive, rainbowblitz
+                         elusive, rainbowblitz.
 
         Pony symlink added: georgewachingtony → bastionyorsets
 
@@ -185,14 +191,14 @@ Version 2.7
                     frederickhorseshoepin, horsemd, jeffletroski, jesuspezuna,
                     joe, joetuxedo, manticore, meadowsong, meliot,
                     pinkiegummydisguise, seaswirl, theodoredonaldkerabatsos,
-                    turf, waltercoltchak
+                    turf, waltercoltchak.
 
         New extraponies: blueballblitz (Various fanfics, Shadowbolt),
                          drhooves1, drhooves2, drhooves3, drhooves4, drhooves5,
                          drhooves6, drhooves7, drhooves8, drhooves9, drhooves10,
                          drhooves11, nyx (Fanfic: Past Sins),
                          nyxdisguised (Fanfic: Past Sins),
-                         pinkaminacupcake (Fanfic)
+                         pinkaminacupcake (Fanfic).
 
         Pony renamed: cracky → crackle
 
@@ -205,11 +211,11 @@ Version 2.6
                     lyrabonbon, noi, pictureperfect, pigpen, poppycock,
                     quickfix, rainbowhurricane, rainboshadowbolt, silverspeed,
                     surprise (wonderbolt), thunderlane, timeturner,
-                    twilightthebearded
+                    twilightthebearded.
 
         New extraponies: faust (alicorn), maria (Moonstuck, seapony),
-                         posey (Tumblr), slanderpony (Various tumblr), 
-                         sparkler (Tumblr), twilight (Tumblr)
+                         posey (Tumblr), slanderpony (Various tumblr),
+                         sparkler (Tumblr), twilight (Tumblr).
 
         Pony symlink added: bonbonlyra → lyrabonbon
                             clockwork → quickfix
@@ -217,15 +223,17 @@ Version 2.6
                             epona → quickfix
                             lotusbloosom → lotus
 
-        doctor and doctornohat has become extraponies, because their mane style is
-        different from in the TV show. And timeturner no longer links to any of them.
+        Special pony cases:
+        * doctor and doctornohat has become extraponies, because their
+        mane style is different from in the TV show. And timeturner no
+        longer links to any of them.
 
         ./configure and make is no longer support.
 
 
 Version 2.5.1
 
-        New extra ponies: sealyra
+        New extra ponies: sealyra.
 
         Build system as compatibility with standard GNU Make build system.
 
@@ -262,7 +270,7 @@ Version 2.3
         New ponies: blaze
 
         New extraponies: fyrefly (Tumblr), surprise (Tumblr), woona (Moonstuck),
-                         woonanohat (Moonstuck)
+                         woonanohat (Moonstuck).
 
         Pony symlink added: pinkieoink → oinkoinkoink
 
@@ -291,7 +299,7 @@ Version 2.1
 
         Pony renamed: applebumkin → applebumpkin
 
-        New ponies: purplehaze, owlowiscious
+        New ponies: purplehaze, owlowiscious.
 
         Cowsay has be reimplemented, and have full Unicode support
         and support for @code{figlet} style messages.
@@ -326,7 +334,7 @@ Version 1.4
 
 Version 1.3
 
-        New ponies: forestspirit, hollydash, raggedy, rhyme
+        New ponies: forestspirit, hollydash, raggedy, rhyme.
 
         Pony renamed: sindy → powderrouge
 
@@ -358,7 +366,7 @@ Version 1.2
 
 Version 1.1
 
-        Manpages are compressed before installation.
+        Man pages are compressed before installation.
 
         'info manual' added.
 
@@ -401,7 +409,7 @@ Version 1.1
 
 Version 1.0
 
-        Spanish translation of the manpage is added.
+        Spanish translation of the man page is added.
 
         New ponies: applecore, applejackscarecrow, bonbonstand, changeling,
                     chrysalis, cottoncloudy, diamondmint, discord,
@@ -427,7 +435,7 @@ Version 1.0
 
 Version 0.10
 
-        Manpage manual added.
+        Man page manual added.
 
         The directories for pony directories are changed
         from '/usr/share' to '/usr/share/ponysay' and '~' to '~/.ponysay'.
@@ -470,12 +478,12 @@ Version 0.9
 
 Version 0.8
 
-        New ponies: aloe, angle, applebloom, applebumkin, applefritter,
-                    berrypunch, bigmac, blinkie, blues, braeburn, caesar,
-                    candymane, caramel, cheerilee, cheerilee80, clyde,
-                    colgate, colton, daisy, derpystand, derpystandwing,
-                    diamondtiara, dinky, doctornohat, elsie, fido,
-                    fillycelestia, fillydash, fillydashfly, fillyjack,
+        New ponies: aloe, angle, applebloom, applebumkin [sic.],
+		    applefritter, berrypunch, bigmac, blinkie, blues,
+		    braeburn, caesar, candymane, caramel, cheerilee,
+		    cheerilee80, clyde, colgate, colton, daisy, derpystand,
+		    derpystandwing, diamondtiara, dinky, doctornohat, elsie,
+		    fido, fillycelestia, fillydash, fillydashfly, fillyjack,
                     fillyjacktravel, fillypinkie, fillypinkiecurly,
                     fillyrarity, fillyshy, fluttershygala, gilda, gildastand,
                     granny, grannychair, grannysleep, gummy, hoity, horte,
@@ -536,7 +544,7 @@ Version 0.2
 
         Pony files end with '.pony' instead of '.cow'.
 
-        lyrasleep is renamed to lyra.
+        Pony renamed: lyrasleep → lyra.
 
         '.cow' files are kept but not used.
 

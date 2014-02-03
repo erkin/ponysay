@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: Bluce Mane (unofficial)
+OTHER NAMES: Bluce Mane (unofficial), Sir Pony Moore (Unofficial)
 POSE: watch
 SOURCE: [jristz]
 WIDTH: 41

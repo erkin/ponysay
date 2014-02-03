@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S03E11 Just For Sidekicks
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 BASED ON: (Bot-chan) Desktop ponies
 COAT: creme
 DISPLAY: full, right
@@ -13,7 +13,7 @@ KIND: earth
 LINK: regular
 MANE: brown
 NAME: Little Pony
-OTHER NAMES: Ginger Snap (unoffcial)
+OTHER NAMES: Ginger Snap (unoffcial, used by other ponys)
 POSE: happy
 WIDTH: 34
 HEIGHT: 21

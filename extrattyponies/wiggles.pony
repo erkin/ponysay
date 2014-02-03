@@ -1,7 +1,7 @@
 $$$
 BALLOON: top
-BALLOON BOTTOM: 3
-BALLOON TOP: 0
+BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: blue
 DISPLAY: full, left, turn
 EYE: blue, yellow
@@ -13,8 +13,8 @@ LINK: regular
 MANE: none
 MEDIA: http://ask-wiggles.tumblr.com/
 NAME: Wiggles
-POSE: stop
-SOURCE: (wiggles) Tumblpon
+POSE: cool
+SOURCE: (Nraco) Tumblpon
 WIDTH: 37
 HEIGHT: 28
 

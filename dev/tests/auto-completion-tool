@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ ! -f ./src/__main__.py ]; then
     echo $'\e[01;31m-- You need to cd into the repository'\'$'s root directory --\e[00m'

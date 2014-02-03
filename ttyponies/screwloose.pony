@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: Screw Loose (unofficial)
+OTHER NAMES: Screw Loose (unofficial), Screwy (official on Trading card)
 POSE: smile
 SOURCE: (Bot-chsn) Desktop ponies, [jristz] until version 3.0.1
 WIDTH: 49

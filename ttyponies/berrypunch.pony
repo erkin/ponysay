@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: purple
 NAME: (not mentioned)
-OTHER NAMES: Berry Punch (official, in merchandice), Pinot Noir (unofficial, given by Lauren Faust)
+OTHER NAMES: Berry Punch (official, in merchandice), Berryshine (official, in merchandice), Pinot Noir (unofficial, given by Lauren Faust)
 POSE: stand
 SOURCE: (CANDYBAG, vulcan569/james569, Azure Fang) Desktop ponies
 WIDTH: 45

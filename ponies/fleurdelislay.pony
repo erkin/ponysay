@@ -19,7 +19,6 @@ SOURCE: (Pony Noia) Desktop ponies
 WIDTH: 45
 HEIGHT: 21
 
-
 $$$
 $balloon10$[00m
        $\$                                     [00m

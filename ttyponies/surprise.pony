@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E03 The Ticket Master
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: white
 DISPLAY: full, left
 EYE: closed
@@ -12,7 +12,7 @@ KIND: pegasus
 LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Surprise (unofficial), Fleetfoot (Gameloft game beta)
+OTHER NAMES: Surprise (official, on Tradings card game), Fleetfoot (Gameloft game beta)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 37

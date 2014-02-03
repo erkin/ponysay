@@ -14,7 +14,7 @@ LINK: regular
 MANE: pastel
 MASTER: cadance
 NAME: Cadance
-OTHER NAMES: Princess Cadance (official, titled), Mi Amore Cadenza (official, full named without title), Princess Mi Amore Cadenza (official, full named)
+OTHER NAMES: Princess Cadance (official, titled), Mi Amore Cadenza (official, full named without title), Princess Mi Amore Cadenza (official, full name)
 POSE: scruffy
 SOURCE: (robokitty) Desktop ponies
 WIDTH: 48

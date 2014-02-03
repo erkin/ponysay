@@ -702,7 +702,7 @@ class Setup():
     def clean(self):
         print('\033[1;34m::\033[39mCleaning...\033[21m')
 
-        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install']
+        files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install', 'ponysay.zip']
         files += ['src/%s.install' % file for file in ponysaysrc]
         dirs = ['quotes']
         for comp in ['install', 'gz', 'xz']:

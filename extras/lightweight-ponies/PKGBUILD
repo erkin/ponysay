@@ -1,0 +1,17 @@
+pkgname=lightweight-ponies
+pkgver=1
+pkgrel=2
+pkgdesc="Featurefree lightweight ponysay script"
+url="https://github.com/erkin/ponysay/extras/lightweight-ponies"
+license=('custom:GNUAllPermissive')
+arch=('any')
+depends=('sh' 'grep' 'sed' 'findutils' 'coreutils' 'ponysay')
+_commit=1d748f6da31cc81d3c97ea511d5e2d93149d00c8
+source=("https://github.com/erkin/ponysay/archive/${_commit}.tar.gz")
+sha256sums=('b21704be21037172c74d0965be4d04c4d2d2328a0838880009e2c5e23ce482b4')
+
+package() {
+    cd "${srcdir}/ponysay-${_commit}/extras/lightweight-ponies"
+    install -Dm755 -- lightweight-ponies "${pkgdir}/usr/bin/lightweight-ponies"
+}
+

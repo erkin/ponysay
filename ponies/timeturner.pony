@@ -18,7 +18,6 @@ SOURCE: (Asparagus, RJP!, Doctor Blade, Anonycat) Desktop ponies
 WIDTH: 38
 HEIGHT: 24
 
-
 $$$
 $balloon7$[00m
     $\$                                 [00m

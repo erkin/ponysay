@@ -1,0 +1,10 @@
+MAKE DEPENDENCIES
+
+make
+findutils
+grep
+sed
+coreutils
+sh
+fortune-mod
+

@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E04 Luna Eclipsed
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: creme
 DISPLAY: full, left
 EYE: blue
@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: Fiddlesticks (unofficial)
+OTHER NAMES: Fiddlesticks (unofficial), Fiddly Faddle (official, on Trading card game)
 POSE: trot
 SOURCE: (vulcan539/james539) Desktop ponies
 WIDTH: 42

@@ -66,34 +66,115 @@ Texts. A copy of the license is included in the section entitled
 
 @contents
 
-
 @menu
-* Overview::                          Brief overview of @command{ponysay}.
-* Invoking ponysay::                  How to run @command{ponysay}.
-* Advanced usage::                    Advanced usage of @command{ponysay}.
-* Environment variables::             Getting more from @command{ponysay} with environment variables.
-* Optional features::                 Get the most out of @command{ponysay} with optional features.
-* Pony metadata::                     Metadata tags in the pony files.
-* The tool chest::                    Extra Ponysay commands for other stuff than printing ponies.
-* Limitations::                       Known limitations that may not be that easy to overcome.
-* Problems and requests::             External bugs, report issues and making requests.
-* Dependencies::                      Ponysay's dependencies.
-* Installing::                        How to install @command{ponysay}.
-* Inner workings::                    Useful information for those whom want to help hack @command{ponysay}.
-* Contributing::                      Useful information for those whom want to help improve the world.
-* Distributing::                      Useful information for OS package repository package maintainers.
-* Terminology::                       Terminology.
-* Change log::                        Differences between the version of @command{ponysay}.
-* Ponysay contributors::              Ponysay contributors.
-* Ponysay license::                   Copying and sharing ponysay.
-* GNU General Public License::        Ponysay's license.
-* GNU Free Documentation License::    Copying and sharing this manual.
-* Concept and program index::         Concept and program index.
-* Variable and option index::         Variable and option index.
+* Overview::                    Brief overview of @command{ponysay}.
+* Invoking ponysay::            How to run @command{ponysay}.
+* Advanced usage::              Advanced usage of @command{ponysay}.
+* Environment variables::       Getting more from @command{ponysay} with environment variables.
+* Optional features::           Get the most out of @command{ponysay} with optional features.
+* Pony metadata::               Metadata tags in the pony files.
+* The tool chest::              Extra Ponysay commands for other stuff than printing ponies.
+* Limitations::                 Known limitations that may not be that easy to overcome.
+* Problems and requests::       External bugs, report issues and making requests.
+* Dependencies::                Ponysay's dependencies.
+* Installing::                  How to install @command{ponysay}.
+* Inner workings::              Useful information for those whom want to help hack @command{ponysay}.
+* Contributing::                Useful information for those whom want to help improve the world.
+* Distributing::                Useful information for OS package repository package maintainers.
+* Terminology::                 Terminology.
+* Change log::                  Differences between the version of @command{ponysay}.
+* Ponysay contributors::        Ponysay contributors.
+* Ponysay license::             Copying and sharing ponysay.
+* GNU General Public License::  Ponysay's license.
+* GNU Free Documentation License::  Copying and sharing this manual.
+* Concept and program index::   Concept and program index.
+* Variable and option index::   Variable and option index.
+
+@detailmenu
+ --- The Detailed Node Listing ---
+
+Advanced usage of @command{ponysay}.
+
+* Extra information::           Displaying extra information.
+* Fortune cookies::             Displaying with fortune cookies.
+* Ponification::                Ponify your fortune cookies.
+* Running on TTY::              Running on TTY (Linux VT).
+* Running on screen and tmux::  Running on @command{screen} and @command{tmux}.
+* ~/.ponysayrc::                Using the @file{~/.ponysayrc} file.
+* Narcissistic ponies::         Getting ponies to think of themself.
+
+Optional features
+
+* KMS ponies::                  Improved TTY support under KMS support.
+
+The tool chest
+
+* Fill KMS cache::              Pre-generate kmsponies to your cache.
+* Metadata pasting::            Copy, remove, stash and apply stashed pony metadata.
+* Editing metadata::            Editing the metadata in a pony file.
+* Metadata collections::        Generate pony metadata collection files.
+* Dimension files::             Generate pony dimension files.
+* Pony browsing::               Browse ponies or find a pony based on metadata.
+
+Limitations
+
+* Terminals::                   Limitations on terminals.
+* GNU Hurd::                    Limitations of the Hurd.
+* Cowsay::                      Limitations on cowsay.
+
+Problems and requests
+
+* External bugs::               Known external bugs.
+* Reporting bugs::              Reporting bugs and issues in ponysay.
+* Requesting ponies::           Requesting inclusion of your favourite ponies.
+
+Dependencies
+
+* Required runtime dependencies::  Required runtime dependencies.
+* Optional runtime dependencies::  Optional runtime dependencies.
+* Package building dependencies::  Package building dependencies.
+* Dependencies for pony providers::  Dependencies for pony providers.
+
+Installing
+
+* From upstream::               Installing manually from upstream (GitHub repository).
+* Package repositories::        Packages distributed in OS package repositories.
+* Exotic operating systems::    Installing on other OS:es than GNU.
+* Uninstalling::                Uninstalling when installed manually.
+
+From upstream
+
+* Installations basics::        The basics of installations.
+* Custom installations::        Installation customisation.
+
+Package repositories
+
+* Arch Linux::                  Packages for Arch Linux.
+* Arch Linux ARM::              Packages for Arch Linux ARM.
+* Chakra::                      Packages for Chakra.
+* Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
+* Gentoo Linux::                Packages for Gentoo Linux.
+* Source Mage GNU/Linux::       Packages for Source Mage GNU/Linux.
+
+Inner workings
+
+* Pony anatomy::                Anatomy of pony files.
+* Pony metadata extension::     Metadata in pony files.
+* Pony quote infrastructure::   Pony quote infrastructure.
+* Balloon style files::         Balloon style files.
+* Printing in TTY with KMS::    Printing in TTY with KMS support.
+* Truncation::                  Output truncation.
+* Languages::                   Selection of programming languages.
+* Shell auto-completion::       Things that make auto-completion simpler.
+* Universal Character Set::     Something about Universal Character Set support.
+
+Contributing
+
+* Providing ponies::            Providing ponies.
+* Pony naming guildlines::      Suggestions on how to name your pony files.
+
+@end detailmenu
 @end menu
-
-
-
 
 @node Overview
 @chapter Overview
@@ -291,7 +372,7 @@ balloon style is specified a fallback style will be used.
 @opindex @option{-W}
 @opindex @option{--wrap}
 Specify the screen column where the message should be wrapped, this is by
-default 60, as with @command{cowsay}. The balloon's extra width is taken into
+default 65, as with @command{cowsay}. The balloon's extra width is taken into
 consideration.
 
 If the argument is not a number, but starts instead with @code{n} (for ‘none’ or
@@ -523,13 +604,13 @@ If it is not a symbolic link, @option{-q} cannot determine which quotes to use.
 @cindex advanced usage
 
 @menu
-* Extra information::       Displaying extra information.
-* Fortune cookies::         Displaying with fortune cookies.
-* Ponification::            Ponify your fortune cookies.
-* Running on TTY::          Running on TTY (Linux VT).
-* Running on screen::       Running on @command{screen}.
-* ~/.ponysayrc::            Using the @file{~/.ponysayrc} file.
-* Narcissistic ponies::     Getting ponies to think of themself.
+* Extra information::           Displaying extra information.
+* Fortune cookies::             Displaying with fortune cookies.
+* Ponification::                Ponify your fortune cookies.
+* Running on TTY::              Running on TTY (Linux VT).
+* Running on screen and tmux::  Running on @command{screen} and @command{tmux}.
+* ~/.ponysayrc::                Using the @file{~/.ponysayrc} file.
+* Narcissistic ponies::         Getting ponies to think of themself.
 @end menu
 
 
@@ -604,7 +685,7 @@ If you use TTY and have a custom colour palette, you should also add to your
 @example
 [ "$TERM" = "linux" ] &&
     function ponysay
-    @{   exec ponysay "$@@"
+    @{   /usr/bin/ponysay "$@@"
         #RESET PALETTE HERE
     @}
 @end example
@@ -613,30 +694,40 @@ If you use TTY and have a custom colour palette, you should also add to your
 You should read more about this in @ref{KMS ponies}.
 
 
-@node Running on screen
-@section Running on @command{screen}
+@node Running on screen and tmux
+@section Running on @command{screen} and @command{tmux}
 @pindex @command{screen}
 @cindex @file{.bashrc}
 @cindex @file{~/.bashrc}
 
-@command{screen} will adapt ANSI colour escape sequences to your terminal's
-capabilities. This means that if your terminal reports itself as @code{xterm}
-in @env{$TERM} ponies will lose their colours; they will only use the lower 16
-colours instead of the top 240 colours. By default, almost all X terminals,
-including @command{xterm} and @command{mate-terminal} reports themselves as
-@code{xterm} in @env{$TERM}, and some reports their actual name in
-@env{$COLORTERM}. So before opening @command{screen} you use set @env{$TERM}
-to @code{xterm-256color}, if you are using a terminal with support for
-@code{xterm}'s 256 colours; this can be done by adding to your @file{~/.bashrc}:
+@command{screen} and @command{tmux} will adapt ANSI colour escape sequences
+to your terminal's capabilities. This means that if your terminal reports
+itself as @code{xterm} in @env{$TERM} ponies will lose their colours; they
+will only use the lower 16 colours instead of the top 240 colours. By default,
+almost all X terminals, including @command{xterm} and @command{mate-terminal}
+reports themselves as @code{xterm} in @env{$TERM}, and some reports their
+actual name in @env{$COLORTERM}. So before opening @command{screen} or
+@command{tmux} you should set @env{$TERM} to @code{xterm-256color}, if you
+are using a terminal with support for @code{xterm}'s 256 colours; this can
+be done by adding to your @file{~/.bashrc}:
 @cartouche
 @example
 [ "$TERM" = "xterm" ] &&
     function screen
-    @{   export TERM="xterm-256color"
-        exec screen "$@@"
+    @{  TERM=xterm-256color /usr/bin/screen "$@@"
+    @}
+
+
+[ "$TERM" = "xterm" ] &&
+    function tmux
+    @{  TERM=xterm-256color /usr/bin/tmux "$@@"
     @}
 @end example
 @end cartouche
+
+Alternatively, you can run @command{tmux} with the option @option{-2}:
+@command{tmux -2}. This also forces @command{tmux} to assume the terminal
+supports 256 colours.
 
 
 @node ~/.ponysayrc
@@ -824,7 +915,7 @@ The default value is 5.
 @cindex optional dependencies
 
 @menu
-* KMS ponies::                 Improved TTY support under KMS support.
+* KMS ponies::                  Improved TTY support under KMS support.
 @end menu
 
 
@@ -962,14 +1053,41 @@ winged unicorn, acorn, pegasus unicorn, unipeg, unisus, horned pegasus,
 wing-horn, allacorn, cerapter pterippus, aquillacorn, pegasos aithiopikos,
 alate unicorns, or pegacorn (really all those name has been used throw history
 to define a unicorn whit wing or pegasus whit a horn)) should have the values
-@code{alicorn} and@code{pony}, but neither @code{pegasus} nor @code{unicorn}
+@code{alicorn} and @code{pony}, but neither @code{pegasus} nor @code{unicorn}
 or another of the possible therms mentioned. Earth ponies should have the value 
-@code{pony} and @code{earth} (not @code{earth pony}.)
+@code{pony} and @code{earth} not @code{earth pony}.
 
-The standard values are (you may use other ones if fitting): @code{unicorn},
-@code{pegasus}, @code{alicorn}, @code{earth}, @code{pony}, @code{changeling},
-@code{crystal}, @code{seapony}, @code{animal} (applies to Spike) and
-@code{item} (applies to Tom and Pinkamina's imaginary friends.)
+The standard values are (you may use other ones if fitting):
+@itemize @bullet
+@item @code{unicorn}
+For unicorn like @file{twilight} or presummed unicorns
+@item @code{pegasus}
+For pegasi like @file{fluttershy}
+@item @code{alicorn}
+For Alicorn, Winged pegasus, Pegacorn, etc. like @file{celestia}
+@item @code{earth}
+For earth ponies like @file{applejack}
+@item @code{pony}
+As a generic in case of unknow or sujetable like @file{headlesshorse}
+@item @code{changeling}
+Changeling like @file{queenchrysalis}
+@item @code{crystal}
+Any cristal pony like @file{twilightcrystal} or animal in they crystal 
+form like @file{spikecrystal}
+@item @code{seapony}
+Any seapony from either novel, movies, comics, the series or the fandom
+like @file{sealyra}
+@item @code{animal}
+Applies to Spike and any other animal 
+@item @code{item}
+Applies to Tom and Pinkamina's imaginary friends
+@item @code{batpony} 
+Applies to @file{royalnightguard} and others bat winged pony a like 
+creature, @emph{Word of good} say these ponies are a different species 
+but merchandice call them @code{pegasus}, so you need use 
+@code{pegasus} and @code{batpony} comma separated one earch other for 
+uniformity
+@end itemize
 
 @item GROUP
 @vindex @var{GROUP}
@@ -977,7 +1095,6 @@ The standard values are (you may use other ones if fitting): @code{unicorn},
 This tag decribes which groups a pony classifies under, it is a comma
 seperated lower case list, and it cannot be empty, by it can be (but shouldn't)
 skipped for every pony in the image.
-
 The standard values are (you may use other ones if fitting):
 @itemize @bullet
 @item @code{mare}
@@ -988,8 +1105,10 @@ Adult male pony
 Female pony child
 @item @code{colt}
 Male pony child
+@item @code{baby}
+Baby ponies like poundcake
 @item @code{dragon}
-Dragon (Spike, Crakle and the other dragons)
+Dragons (Spike, Crakle, Basil and the other dragons)
 @item @code{mane}
 The mane characters (also known as main characters [unponified] or protagonists)
 @item @code{wildlife}
@@ -1000,13 +1119,17 @@ during pony–pet play dates.
 @item @code{royal}
 Royal pony, either by birth, marriage, or conquer (i.e. the old school style).
 Shining Armour is royal by marriage, but his biological family doesn't become
-royal by this.
+royal by this, and Twilight Sparkle is because Princess Celestia give that 
+tittle because she fullfilled they destiny.
 @item @code{villain}
-Villains, normally minions to antagonists or recurring ponies. Applies to
-changelings.
-@item @code{antagonist} (applies to: Nightmare Moon, Gilda, Discord, Chrysalis)
-Antagonists are also known as archvillians or archenemies.
+Villains, normally minions to antagonists or recurring bad ponies. 
+Applies to changelings.
+@item @code{antagonist} (applies to: Nightmare Moon, Gilda, Discord, Chrysalis, Sombra)
+Antagonists are also known as archivillians or archenemies.
 Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one.
+@item @code{reconciled} (applies to: Trixie, Discord)
+Any @code{villain} that change to the good side (aka become a 
+good citizen or help the mane 6) count as one even if return to the dark side.
 @item @code{deuteragonist} (applies to: the cutiemark cruisers)
 Deuteragonists are secondary characters, these are (as of seasson 3) only the
 Cutiemark Cruisers. The requirement is that thay are somewhat regular
@@ -1024,7 +1147,7 @@ under this group, as they are not too important to be considered tritagonists
 @item @code{voiced} (only used together with background)
 Only @code{background} characters can be @code{voiced}. The additional
 requirement is that they have said something (ponies comics can also be voiced,
-in this case they need a minimal of one dialoge text).
+in this case they need a minimal of one big dialoge text).
 @item @code{imaginary}
 Imaginary ponies (or other animal), in this group classify Tom and Pinkamina's
 imaginary friends for example.
@@ -1034,11 +1157,18 @@ imaginary friends for example.
 @vindex @var{BALLOON}
 For each balloon in the file (a pony file can have more than one balloon, but
 that is not common) their should one tag entry. There are four values that
-can be used: @code{top} (the common setup, the balloon is at the top of the
-image), @code{bottom} (the balloon is at the bottom of the image), @code{right}
-(the balloon is neither at the top or at the bottom of the image, but is
-placed to the right of the pony) and @code{inside} (the balloon is somewhere
-as inside the image.)
+can be used:
+@itemize @bullet
+@item @code{top}
+The common setup, the balloon is at the top of the image
+@item @code{bottom}
+The balloon is at the bottom of the image 
+@item @code{right}
+The balloon is neither at the top or at the bottom of the image, but is
+placed to the right of the pony
+@item @code{inside}
+The balloon is somewhere as inside the image
+@end itemize
 
 @item LINK ON
 @vindex @var{LINK ON}
@@ -1063,7 +1193,7 @@ order of the linkes placement in the image, in the same way ponies are ordered.
 The value for this tag must be either @code{regular} or @code{mirrored}.
 @code{regular} applies to linkes with NNE–SSW (@code{\}) direction.
 @code{mirrored} applies to linkes with NNW–SSE (@code{/}) direction,
-in version 2.9.1 only @file{rainbowdrag} uses this.
+in version 3.0.1 only @file{rainbowdrag} uses this.
 
 @item COAT
 @vindex @var{COAT}
@@ -1077,7 +1207,7 @@ named, but the name may describe a colour combination.
 The name of the colour (as best estimated by you), in lowercase, that the
 pony's mane have. Common colour names are preferable. Only one colour should
 be named, but the name may describe a colour combination like @code{rainbow}
-for Rainbow Dash mane colour schema.
+for Rainbow Dash mane colour schema or @code{pastel} for Princess Celestia.
 
 @item EYE
 @vindex @var{EYE}
@@ -1101,20 +1231,31 @@ without, the ponies without magicial abilies should use the value
 the value @code{(invisible)}.
 
 Only humans [here we must call ourself humans rather than ponies, otherwise
-the sentance does not make sense] can see the magic aura, describe the colour
-that we humans see, not ponies and other creatures in the TV Show [proof, see
-S01E11 Winter Wrap Up and S02E25-26 A Canterlot Wedding] (Presumably Discord
-can see Magic too).
+the next sentance does not make sense] can see the magic aura, describe the 
+colour that we humans see, not ponies and other creatures in the TV Show 
+[proof, see S01E11 Winter Wrap Up and S02E25-26 A Canterlot Wedding] 
+(Presumably Discord can see Magic too).
 
 @item DISPLAY
 @vindex @var{DISPLAY}
 This tag describes how a pony is places in the image. The standard values are:
-@code{full}, (full body), @code{head} (just the head), @code{down}
-(upside down), @code{left} (pony is looking to our left), @code{right}
-(pony is looking to our right), @code{front} (pony is looking at us).
-@code{front} can be combined with @code{left} and @code{right},
+@itemize @bullet
+@item @code{full}
+Full body)
+@item @code{head}
+Just the head
+@item @code{down}
+Upside down
+@item @code{left}
+Pony is looking to our left
+@item @code{right}
+Pony is looking to our right
+@item @code{front}
+Pony is looking at us. 
+@code{front} Can be combined with @code{left} and @code{right},
 but @code{left} and @code{right} nor @code{full} and @code{head} cannot be
 combined.
+@end itemize
 
 @item WIDTH
 @vindex @var{WIDTH}
@@ -1192,7 +1333,7 @@ It specifies the media from where the pony (not the image) originates.
 @vindex @var{LICENSE}
 Which licence applies to the image? Full name and version should be used.
 In case of multiple license there should be one entry for each license.
-Omit this tag is the license is not known.
+Omit this tag is the license is "not known".
 
 The are two special cases here where this is no license. In which case it
 either uses regular copyright, in which case use the value @code{(regular)},
@@ -1205,13 +1346,16 @@ Is the image fully free? (For example Linux-libre is fully free, but not
 regular Linux.) 
 The value @emph{must} either be @code{yes}. @code{sharable} or @code{no},
 or the tag must be omitted.
-@code{yes} mean free, @code{no} mean non free for a @code{libre} distro and
-@code{sharable} mean that you need permission from the author of the original
+@itemize @bullet
+@item @code{yes} mean free like Linux-libre
+@item @code{no} mean non free for @code{libre} distro
+@item @code{sharable} mean that you need permission from the author of the original
 image (or consept art like @file{aurora}) for inclusion with free ponies.
+@end itemize
 
 @b{This is the most important tag} as it helps us build a fully free version
 that can be officially distributed on FSF endorsed GNU/Linux distributions
-(GNU/Linux-libre).
+(GNU/Linux-libre) without problems.
 @end table
 
 Duplicate tags should be ordered in the order of the pony they describe from
@@ -1225,8 +1369,8 @@ If the value is unofficial the string @code{(unofficial)} is appended
 (preferable with leading whitespace) to the element. If it is official the
 appended string is of the format @code{(official, %c)} (the brackets are
 verbatim), where @code{%c} is a comment. For example Chrysalis' name has not
-been mentioned in the show, however it is used in the manuscript, therefore a
-pony file with Chrysalis should have the (partial) metadata:
+been mentioned in the show, however it is used in the manuscript and comics, 
+therefore a pony file with Chrysalis should have the (partial) metadata:
 
 @example
 NAME: (not mentioned)
@@ -1248,12 +1392,12 @@ actions that is not printing ponies (like the commands @command{ponysay} and
 @command{ponythink}).
 
 @menu
-* Fill KMS cache::          Pre-generate kmsponies to your cache.
-* Metadata pasting::        Copy, remove, stash and apply stashed pony metadata.
-* Editing metadata::        Editing the metadata in a pony file.
-* Metadata collections::    Generate pony metadata collection files.
-* Dimension files::         Generate pony dimension files.
-* Pony browsing::           Browse ponies or find a pony based on metadata.
+* Fill KMS cache::              Pre-generate kmsponies to your cache.
+* Metadata pasting::            Copy, remove, stash and apply stashed pony metadata.
+* Editing metadata::            Editing the metadata in a pony file.
+* Metadata collections::        Generate pony metadata collection files.
+* Dimension files::             Generate pony dimension files.
+* Pony browsing::               Browse ponies or find a pony based on metadata.
 @end menu
 
 
@@ -1277,7 +1421,7 @@ pony to a kmspony. As the kmsponies may change between versions (noted in the
 change log if it happens) you may want to run this commmend after installing a
 new version of @command{ponysay}. Ponies that are already in the cache with
 the current KMS version will not be re-generated.
-May not work in all KMS drivers due to KMS inconsistants.
+May not work in all KMS drivers due to KMS inconsistences.
 
 
 @node Metadata pasting
@@ -1323,6 +1467,7 @@ with the metadata used provided in stdin.
 To copy the metadata from one pony to another (and remove the old metadata)
 you will have to pipe the stashing and the applying command:
 @command{ponysay-tool --edit-stash SOURCE-PONY-FILE | ponysay-tool --edit-apply TARGET-PONY-FILE}
+(yes this is the trix mentioned on the man pages)
 
 
 @node Editing metadata
@@ -1502,9 +1647,9 @@ The tool can be exited using the key combinations @kbd{C-q} or @kbd{C-x C-c}.
 @cindex limitations
 
 @menu
-* Terminals::           Limitations on terminals.
-* GNU Hurd::            Limitations of the Hurd.
-* Cowsay::              Limitations on cowsay.
+* Terminals::                   Limitations on terminals.
+* GNU Hurd::                    Limitations of the Hurd.
+* Cowsay::                      Limitations on cowsay.
 @end menu
 
 
@@ -1611,9 +1756,9 @@ than at the top to the left.
 @cindex problems
 
 @menu
-* External bugs::         Known external bugs.
-* Reporting bugs::        Reporting bugs and issues in ponysay.
-* Requesting ponies::     Requesting inclusion of your favourite ponies.
+* External bugs::               Known external bugs.
+* Reporting bugs::              Reporting bugs and issues in ponysay.
+* Requesting ponies::           Requesting inclusion of your favourite ponies.
 @end menu
 
 
@@ -1705,10 +1850,10 @@ in @command{fish}, so case you @command{sh} links to @command{fish}, run
 @command{bash dependency-test.sh} (or with one of the other compatible shells.)
 
 @menu
-* Required runtime dependencies::       Required runtime dependencies.
-* Optional runtime dependencies::       Optional runtime dependencies.
-* Package building dependencies::       Package building dependencies.
-* Dependencies for pony providers::     Dependencies for pony providers.
+* Required runtime dependencies::  Required runtime dependencies.
+* Optional runtime dependencies::  Optional runtime dependencies.
+* Package building dependencies::  Package building dependencies.
+* Dependencies for pony providers::  Dependencies for pony providers.
 @end menu
 
 
@@ -1718,8 +1863,7 @@ in @command{fish}, so case you @command{sh} links to @command{fish}, run
 @table @command
 @item coreutils
 @command{stty} is used to determine the size of the terminal.
-@item python>=3@footnote{Sometimes distributed as @command{python3} rather
-than @command{python}.}
+@item python>=3@footnote{Sometimes distributed as @command{python3} rather than @command{python}.}
 @command{ponysay} is written in pure Python 3.
 @end table
 
@@ -1754,8 +1898,7 @@ of the file name) in addition to .pony-files or pony names.
 @section Package building dependencies
 
 @table @command
-@item python>=3@footnote{Sometimes distributed as @command{python3} rather than
-@command{python}.}
+@item python>=3@footnote{Sometimes distributed as @command{python3} rather than @command{python}.}
 @pindex @command{python}
 @pindex @command{python3}
 Required to run the @file{./setup.py} file, which is also invoked from the
@@ -1810,10 +1953,10 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @pindex @command{make}
 
 @menu
-* From upstream::             Installing manually from upstream (GitHub repository).
-* Package repositories::      Packages distributed in OS package repositories.
-* Exotic operating systems::  Installing on other OS:es than GNU.
-* Uninstalling::              Uninstalling when installed manually.
+* From upstream::               Installing manually from upstream (GitHub repository).
+* Package repositories::        Packages distributed in OS package repositories.
+* Exotic operating systems::    Installing on other OS:es than GNU.
+* Uninstalling::                Uninstalling when installed manually.
 @end menu
 
 
@@ -1822,8 +1965,8 @@ It can be downloaded at @url{https://github.com/maandree/util-say}.
 @cindex upstream installation
 
 @menu
-* Installations basics::      The basics of installations.
-* Custom installations::      Installation customisation.
+* Installations basics::        The basics of installations.
+* Custom installations::        Installation customisation.
 @end menu
 
 @node Installations basics
@@ -1859,8 +2002,8 @@ Now you will be to use ponysay, run:
 or if have a specific pony in your mind: @command{ponysay -f pinkie "Partay!~"}.
 
 
-@command{ponysay} comes with this @command{info} manual and a manpage in section 6,
-@command{man 6 ponysay} (or just @command{man ponysay}). The manpage is also available
+@command{ponysay} comes with this @command{info} manual and a man page in section 6,
+@command{man 6 ponysay} (or just @command{man ponysay}). The man page is also available
 in Spanish, Swedish and Turkish: @command{man -L es 6 ponysay}, @command{man -L sv 6 ponysay},
 @command{man -L tr 6 ponysay}. To install the localised manual, add the option @option{--with-man-es},
 @option{--with-man-sv} or @option{--with-man-tr} when running @command{./setup.py}.
@@ -2378,12 +2521,12 @@ correct before building and installing.
 @cindex package repositories
 
 @menu
-* Arch Linux::                Packages for Arch Linux.
-* Arch Linux ARM::            Packages for Arch Linux ARM.
-* Chakra::                    Packages for Chakra.
-* Debian GNU/Linux::          Packages for Debian GNU/Linux and Ubuntu.
-* Gentoo Linux::              Packages for Gentoo Linux.
-* Source Mage GNU/Linux::     Packages for Source Mage GNU/Linux.
+* Arch Linux::                  Packages for Arch Linux.
+* Arch Linux ARM::              Packages for Arch Linux ARM.
+* Chakra::                      Packages for Chakra.
+* Debian GNU/Linux::            Packages for Debian GNU/Linux and Ubuntu.
+* Gentoo Linux::                Packages for Gentoo Linux.
+* Source Mage GNU/Linux::       Packages for Source Mage GNU/Linux.
 @end menu
 
 
@@ -2423,7 +2566,8 @@ A .deb file is available at @url{http://roryholland.co.uk/misc.html#ponysay}
 (user maintained), and PPA:s can be found at
 @url{https://launchpad.net/~vincent-c/+archive/ppa} (user maintained) and
 @url{https://launchpad.net/~blazemore/+archive/ponysay} (user maintained).
-Note: Look Availabily before use one of these ppa.
+Note: Look Availabily before use one of these ppa, and check version because 
+some are not updated often.
 
 @node Gentoo Linux
 @subsection Gentoo Linux
@@ -2451,9 +2595,8 @@ An "exotic operating system" is a operating system that is not GNU (GNU/Linux
 
 @cindex Mac OS X
 @cindex OS X
-Ponysay is told to be running on Mac OS X, which is Unix certificated OS
-meaning that probably all future version of ponysay will be able to run
-without any problems.
+Mac OS X users can use the @code{ponysay} Homebrew
+(@url{https://github.com/mxcl/homebrew}) formula to install @command{ponysay}.
 
 @cindex Windows
 @cindex Cygwin
@@ -2490,15 +2633,15 @@ Note: make is no longer supported, instead use @file{setup.py} a
 @cindex hacking
 
 @menu
-* Pony anatomy::                 Anatomy of pony files.
-* Pony metadata extension::      Metadata in pony files.
-* Pony quote infrastructure::    Pony quote infrastructure.
-* Balloon style files::          Balloon style files.
-* Printing in TTY with KMS::     Printing in TTY with KMS support.
-* Truncation::                   Output truncation.
-* Languages::                    Selection of programming languages.
-* Shell auto-completion::        Things that make auto-completion simpler.
-* Universal Character Set::      Something about Universal Character Set support.
+* Pony anatomy::                Anatomy of pony files.
+* Pony metadata extension::     Metadata in pony files.
+* Pony quote infrastructure::   Pony quote infrastructure.
+* Balloon style files::         Balloon style files.
+* Printing in TTY with KMS::    Printing in TTY with KMS support.
+* Truncation::                  Output truncation.
+* Languages::                   Selection of programming languages.
+* Shell auto-completion::       Things that make auto-completion simpler.
+* Universal Character Set::     Something about Universal Character Set support.
 @end menu
 
 
@@ -2955,20 +3098,21 @@ probabily more agreed with fist party merchandice, fans and crew at same time.
 
 For in the wikia the order of precedence is: 
 
-
 @itemize
-@item @emph{The series itself}: In they first run, and uncensored
-@item @emph{The crew}: M. A. Larson, Sabrina "Sibsy", Lauren Faust (For the first and second
+@item The series itself: In they first run, and uncensored
+@item The crew: M. A. Larson, Sabrina "Sibsy", Lauren Faust (For the first and second
 seasson only), et al. 
-@item @emph{First party merchandice}: Blind Bags and colectable toys [Further
+@item First party merchandice: Blind Bags and colectable toys [Further
 duscution is taken after any renamed]
-@item @emph{Second party merchandise}: Any that claim to by official whitout logo and
+@item Second party merchandise: Any that claim to by official whitout logo and
 all the fancy stuff [further discusion first]
-@item @emph{Three party merchandice}: Any that use the toys or characters but
+@item Three party merchandise: Any that use the toys or characters but
 only in they tags, on-line stores and soo [Only if the evidence and use are far extended that 
 a further discusion for renaming or not is needed]
-@item @emph{Placeholder}: Any fan given name gived voted in a open procees on
-@url{http://reddit.com/r/listofponies} where any can vote or give sugestions fallow
+@item Script and others: Sometimes a name can become official if was used in the script or in
+CC for the official DVD.
+@item Placeholder: Any fan given name from a voted process in a open procees on
+@url{http://reddit.com/r/listofponies} where anypony can vote or give sugestions fallow
 they rules. These ones @emph{CAN} potentially becomed official names 
 or/and influence subsecuent discutions about renaming ponies. 
 @end itemize
@@ -3007,7 +3151,7 @@ equivalent directories you should read about configurations in
 
 Apart from this, you should configure @command{ponysay} before building it with
 the option @option{--everything}. Otherwise only the @command{info} manual and
-the English manpage will be installed for documentation.
+the English man page will be installed for documentation.
 
 Please inform us about your distribution so we can list it so everypony
 can see it.
@@ -3025,17 +3169,17 @@ pkgrel=1
 arch=('any')
 pkgdesc="Cowsay reimplementation for ponies"
 url="https://github.com/erkin/ponysay"
-license=('GPL3' 'FDL')
+license=('custom:GPL3' 'FDL')
 depends=('python>=3' 'coreutils')
 optdepends=("util-say>=3: Improved TTY support with KMS and PNG files")
 makedepends=('git' 'texinfo' 'info' 'gzip' 'python>=3' 'auto-auto-complete>=3')
-
-
+source=("ponysay::git+https://github.com/erkin/ponysay")
+md5sums=('SKIP')
 
 build()
 @{  
-    cd "$srcdir"; git clone git://github.com/erkin/ponysay.git ponysay
-    cd ponysay  ; git checkout "$pkgver"
+    cd "$srcdir/ponysay"
+    git checkout "$pkgver"
 
     ./setup.py --everything --without-pdf-compression  \
                --bin-dir=/usr/bin --dest-dir="$pkgdir" \
@@ -3048,7 +3192,8 @@ build()
 
 package()
 @{   
-     cd "$srcdir/ponysay"; ./setup.py DESTDIR=$pkgdir install
+    cd "$srcdir/ponysay"
+    ./setup.py DESTDIR=$pkgdir install
 @}
 @end example
 @end cartouche
@@ -3132,6 +3277,8 @@ many others artist.
 @item ponification
 @cindex ponification
 The process of converting English text to Equestrian English.
+The process if transforming a non-pony artowork, character history or another
+thing into a pony version of that.
 
 @item Equestrian English
 @cindex Equestrian English
@@ -3139,7 +3286,7 @@ The English dialect spoken by the ponies in MLP:FiM, the basic role is that it
 is American English with as many words and parts of words as possible exchanged
 to words having to do with ponies, including the work `pony' itself. This is
 normally the language we, the developers, write in, except we may use another
-English, e.g. British English, as the base language.
+English, e.g. British English or Basic English, as the base language.
 
 @item best.pony
 @cindex best.pony
@@ -3251,38 +3398,48 @@ ANSI escape sequences.
 @heading Version 3.0.2
 @itemize @bullet
 @item
-New ponies: @file{brucemane}, @file{cremebrulee}, @file{deepblue},
-@file{fleetfoot}, @file{flashsentry}, @file{hairytipper}, 
-@file{mantishy}, @file{maybelle}, @file{misty}, @file{mule}, 
-@file{nightmarerarity}, @file{peachbottom}, @file{rainbowdashcrystal}, 
-@file{rainbowdrop}, @file{rainbowfim}, @file{shortround}, 
-@file{strawberrycream}, @file{sunsetshimmer}, @file{unclewing}, 
-@file{wildflower}
+New ponies: @file{brucemane}, @file{coldheart}, @file{creampuff},
+@file{cremebrulee}, @file{deepblue}, @file{fleetfoot}, @file{filmreel}, 
+@file{flashsentry}, @file{hairytipper}, @file{ironwill}, @file{mane-iac},
+@file{mantishy}, @file{maybelle}, @file{misty}, @file{mule},
+@file{nightmarerarity}, @file{peachbottom}, @file{poundfly},
+@file{pumpkincake}, @file{rainbowdashcrystal}, @file{rainbowdrop}, 
+@file{rainbowfim}, @file{shoeshine}, @file{shortround}, 
+@file{strawberrycream}, @file{sunsetshimmer}, @file{tealove},
+@file{theoldenpony}, @file{unclewing}, @file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
-@file{barbara}, @file{cancer}, @file{capricorn}, 
-@file{childrenofthenight}, @file{chrome}, @file{firefox}, @file{fluffle}, 
-@file{fyreflyready}, @file{gemini}, @file{internetexplorer}, @file{leo}, 
-@file{libra}, @file{milky}, @file{milkylay}, @file{opera}, @file{oscura},
-@file{pisces}, @file{princeartemis}, @file{reddit}, 
-@file{sagittarius}, @file{scorpio}, @file{solaris}, 
-@file{sweetiebot}, @file{taurus}, @file{virgo},
+@file{barbara}, @file{buttonmom}, @file{calamity}, @file{cancer},
+@file{capricorn}, @file{childrenofthenight}, @file{chrome}, 
+@file{coffeetalk}, @file{firefox}, @file{fluffle}, @file{fyreflyready},
+@file{gemini}, @file{gnupony}, @file{internetexplorer}, @file{leo},
+@file{libra}, @file{lilmissrarity}, @file{littlepip}, @file{milky},
+@file{milkylay}, @file{opera}, @file{oscura}, @file{pisces},
+@file{princeartemis}, @file{reddit}, @file{robodash}, @file{sagittarius}, 
+@file{scorpio}, @file{snowdrop-crew}, @file{solaris}, @file{starstruck}, 
+@file{sweetiebot}, @file{taurus}, @file{twibrain}, @file{virgo}, 
 @file{wiggles}
 @item
 Pony symlink added:
 @itemize @bullet
-@item @file{walter} @arrow{} @file{walter}
+@item @file{walter} @arrow{} @file{waltercoltchack}
 @item @file{barbra} @arrow{} @file{barbara}
-@item @file{buttonsmash} @arrow{} @file{highscore}
+@item @file{buttonmash} @arrow{} @file{highscore}
 @item @file{brad} @arrow{} @file{flashsentry}
 @item @file{ie} @arrow{} @file{internetexplorer}
+@item @file{dancefever} @arrow{} @file{hairytipper}
+@item @file{snowheart} @arrow{} @file{coldheart}
+@item @file{bulkbiceps} @arrow{} @file{snowflake}
 @end itemize
 @item
 Default value for @option{-W}, the message wrapping column, has been changed
-from 40 to 60, to wrap messages better.
+from 40 to 65, to wrap messages better.
 @item
 @file{nightmare} has renamed into @file{nightmaremoon} for concistency 
 with the comic
+@item
+@file{ironwill} (3.0.1 and lower) has been renamed to 
+@file{ironwillwalk} because now we have a non walk version to be master.
 @item
 @file{doctor} has ben reintegrated to ponies thanks to official comic
 issue 8 where @file{drhooves} is siting alongside @file{doctor} and in
@@ -3723,7 +3880,7 @@ problems with file names including spaces.)
 
 @itemize @bullet
 @item
-Manpages are compressed before installation.
+Man pages are compressed before installation.
 @item
 @command{info} manual added.
 @item
@@ -3775,7 +3932,7 @@ Accepts arbitrary spaces in @option{-f} argument.
 
 @itemize @bullet
 @item
-Spanish translation of the manpage is added.
+Spanish translation of the man page is added.
 @item
 @w{New ponies:} @file{applecore}, @file{applejackscarecrow}, @file{bonbonstand},
 @file{changeling}, @file{chrysalis}, @file{cottoncloudy}, @file{diamondmint},
@@ -3808,7 +3965,7 @@ when the high colour resolution is not available.
 
 @itemize @bullet
 @item
-Manpage manual added.
+Man page manual added.
 @item
 The directories for pony directories are changed from @file{/usr/share} to
 @file{/usr/share/ponysay} and @file{~} to @file{~/.ponysay}.

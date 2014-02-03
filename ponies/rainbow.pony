@@ -18,7 +18,6 @@ SOURCE: (Jay Wright, StarStep, SarkinaBox, fanofetcetera, Bot-chan, Felix-0, DrZ
 WIDTH: 51
 HEIGHT: 26
 
-
 $$$
 $balloon10$[00m
      $\$                                             [00m

@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E06 Boast Busters
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: pink
 DISPLAY: full, front
 EYE: cyan, closed
@@ -12,7 +12,7 @@ KIND: pegasus
 LINK: regular
 MANE: brown
 NAME: (not mentioned)
-OTHER NAMES: Airheart (unofficial)
+OTHER NAMES: Airheart (unofficial), Jetstream (official, on Trading card)
 POSE: smile
 SOURCE: [jristz]
 WIDTH: 24

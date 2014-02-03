@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E22 Hurricane Fluttershy
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: white
 DISPLAY: full, right
 EYE: red
@@ -11,7 +11,7 @@ GROUP: stallion, background, voiced
 KIND: pegasus
 LINK: regular
 MANE: yellow
-NAME: (not mentioned)
+NAME: Bulk Bicepss
 OTHER NAMES: Snowflake (unofficial), Horse Power (unofficial)
 POSE: loud
 SOURCE: (Bot-chan) Desktop ponies
