@@ -4,12 +4,18 @@ _/
 /*.pony
 
 
+## Hidden files
+
+.*
+!.git*
+
+
 ## Backup files
 
 *~
 \#*\#
-.\#*
 *.swp
+*.swo
 *.bak
 
 
