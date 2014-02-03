@@ -1863,8 +1863,7 @@ in @command{fish}, so case you @command{sh} links to @command{fish}, run
 @table @command
 @item coreutils
 @command{stty} is used to determine the size of the terminal.
-@item python>=3@footnote{Sometimes distributed as @command{python3} rather
-than @command{python}.}
+@item python>=3@footnote{Sometimes distributed as @command{python3} rather than @command{python}.}
 @command{ponysay} is written in pure Python 3.
 @end table
 
@@ -1899,8 +1898,7 @@ of the file name) in addition to .pony-files or pony names.
 @section Package building dependencies
 
 @table @command
-@item python>=3@footnote{Sometimes distributed as @command{python3} rather than
-@command{python}.}
+@item python>=3@footnote{Sometimes distributed as @command{python3} rather than @command{python}.}
 @pindex @command{python}
 @pindex @command{python3}
 Required to run the @file{./setup.py} file, which is also invoked from the
