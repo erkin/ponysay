@@ -99,7 +99,7 @@ Advanced usage of @command{ponysay}.
 * Fortune cookies::             Displaying with fortune cookies.
 * Ponification::                Ponify your fortune cookies.
 * Running on TTY::              Running on TTY (Linux VT).
-* Running on screen::           Running on @command{screen}.
+* Running on screen and tmux::  Running on @command{screen} and @command{tmux}.
 * ~/.ponysayrc::                Using the @file{~/.ponysayrc} file.
 * Narcissistic ponies::         Getting ponies to think of themself.
 
