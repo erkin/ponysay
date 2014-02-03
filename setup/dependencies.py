@@ -52,7 +52,7 @@ if not build_required:
     print('You will not be able to build and install ponysay.')
     rc = 1
 elif not build_optional:
-    print('You will have to tweak to installation to build and install ponysay.')
+    print('You will have to tweak the installation to build and install ponysay.')
 
 if not runtime_required:
     print('You will not be able to run ponysay.')
