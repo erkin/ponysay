@@ -181,8 +181,8 @@ class Ponysay():
             if a is None:
                 return None
             return a + b
+        # TODO use only ./ in development mode
         return [cat(Ponysay.__parseFile(item), file) for item in [
-                './',
                 '$XDG_DATA_HOME/ponysay/',
                 '$HOME/.local/share/ponysay/',
                 '/usr/share/ponysay/'
