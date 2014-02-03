@@ -6,7 +6,7 @@
 ## Shell auto-completion script generator https://www.github.com/maandree/auto-auto-complete ##
 ## Used by build system to make completions for all supported shells.                        ##
 ##                                                                                           ##
-##    auto-auto-complete is experimental, therefore, brefore updating the version of this    ##
+##    auto-auto-complete is experimental, therefore, before updating the version of this     ##
 ##    make sure that is still work for all shells.                                           ##
 ###############################################################################################
 
