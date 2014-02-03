@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Pipe the content of a pony file to this script to make the printed
+# information easier to read. This is intended for inspection pony
+# files in greater detail than using it in ponysay.
+
+
 comment = False
 while True:
     line = None
