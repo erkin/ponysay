@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: blue
 DISPLAY: full, left
 EYE: yellow
@@ -12,7 +12,7 @@ KIND: unicorn
 LINK: regular
 MANE: white
 NAME: (not mentioned)
-OTHER NAMES: Pokey Pierce (unofficial), Perry Pierce (unofficial, same look)
+OTHER NAMES: Pokey Pierce (unofficial), Perry Pierce (unofficial, same look), Pinprick (official on Trading card)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 44

@@ -13,7 +13,7 @@ KIND: alicorn
 LINK: regular
 MANE: pastel
 NAME: Cadance
-OTHER NAMES: Princess Cadance (official, titled), Mi Amore Cadenza (official, full named without title), Princess Mi Amore Cadenza (official, full named)
+OTHER NAMES: Princess Cadance (official, titled), Mi Amore Cadenza (official, full name without title), Princess Mi Amore Cadenza (official, full name)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 55

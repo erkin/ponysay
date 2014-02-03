@@ -18,7 +18,6 @@ SOURCE: (Jay wright, StarStep, Bot-chan, The Coop, Miriam the Bat, Kloopp) Deskt
 WIDTH: 44
 HEIGHT: 25
 
-
 $$$
 $balloon32$[00m
                              $\$              [00m

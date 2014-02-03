@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E11 Winter Wrap Up
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: purple
 DISPLAY: full, left
 EYE: yellow
@@ -12,7 +12,7 @@ KIND: filly
 LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Dinky Doo (unofficial), Dinky Hooves (unofficial)
+OTHER NAMES: Dinky Doo (unofficial), Dinky Hooves (unofficial), Fire Starter (official on Gamelofrt game)
 POSE: trot
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 38

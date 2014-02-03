@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Frienship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: brown
 DISPLAY: full, left
 EYE: blue
@@ -12,7 +12,7 @@ KIND: unicorn
 LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Quickfix (unofficial), Epona (unofficial), Clockwork (unofficial)
+OTHER NAMES: Quickfix (unofficial), Epona (unofficial), Clockwork (unofficial), Silver Spanner (official on Trading card)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 46

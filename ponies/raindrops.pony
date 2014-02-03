@@ -18,7 +18,6 @@ SOURCE: (Starly, AngelKat58, StarStep) Desktop ponies
 WIDTH: 48
 HEIGHT: 25
 
-
 $$$
 $balloon34$[00m
                                $\$                [00m

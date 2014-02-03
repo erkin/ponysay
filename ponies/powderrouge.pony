@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E20 Green isn't Your Color
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: beige
 DISPLAY: full, right
 EYE: closed, purple

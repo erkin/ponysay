@@ -30,7 +30,6 @@ SOURCE: [jristz]
 WIDTH: 55
 HEIGHT: 30
 
-
 $$$
 $balloon6$[00m
    $\$                                                   [00m

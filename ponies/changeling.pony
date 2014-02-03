@@ -17,7 +17,6 @@ WING: teal
 WIDTH: 37
 HEIGHT: 26
 
-
 $$$
 $balloon20$[00m
                 $\$                    [00m

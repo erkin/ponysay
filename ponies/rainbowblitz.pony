@@ -18,7 +18,6 @@ SOURCE: [jristz]
 WIDTH: 40
 HEIGHT: 27
 
-
 $$$
 $balloon26$[00m
                        $\$                [00m

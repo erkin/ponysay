@@ -56,7 +56,7 @@ class Ponysay():
             os.environ['HOME'] = self.HOME = os.path.expanduser('~')
         
         
-        ## Change system enviroment variables with ponysayrc
+        ## Load extension and configurations via ponysayrc
         for file in ('$XDG_CONFIG_HOME/ponysay/ponysayrc', '$HOME/.config/ponysay/ponysayrc', '$HOME/.ponysayrc', '/etc/ponysayrc'):
             file = Ponysay.__parseFile(file)
             if (file is not None) and os.path.exists(file):
@@ -181,8 +181,8 @@ class Ponysay():
             if a is None:
                 return None
             return a + b
+        # TODO use only ./ in development mode
         return [cat(Ponysay.__parseFile(item), file) for item in [
-                './',
                 '$XDG_DATA_HOME/ponysay/',
                 '$HOME/.local/share/ponysay/',
                 '/usr/share/ponysay/'
@@ -1051,7 +1051,7 @@ class Ponysay():
         @param   args:ArgParser  Command line options
         @return  :int?           The message balloon wrapping column, or `None` if disabled
         '''
-        messagewrap = 60
+        messagewrap = 65
         if (args.opts['-W'] is not None) and (len(args.opts['-W'][0]) > 0):
             messagewrap = args.opts['-W'][0]
             if messagewrap[0] in 'nmsNMS': # m is left to n on QWERTY and s is left to n on Dvorak

@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S03E01 The Crystal Empire [Part 1]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: grey
 DISPLAY: full, left
 EYE: green
@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: white
 NAME: (not mentioned)
-OTHER NAMES: Bill Neigh (unofficial), Professor (on credits)
+OTHER NAMES: Bill Neigh (official, without tittle), Professor (on credits), Professor Bill Neigh (official, on Traidin cards)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 39

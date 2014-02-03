@@ -8,14 +8,13 @@ DISPLAY: full, right
 EYE: brown
 FREE: no
 GROUP: stallion, guard
-KIND: pegasus
+KIND: pegasus, batponys
 LINK: regular
 MANE: black
 POSE: stand
 SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 40
 HEIGHT: 26
-
 
 $$$
 $balloon25$[00m

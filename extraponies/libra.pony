@@ -17,7 +17,6 @@ SOURCE: (Bot-chan) OC ponies
 WIDTH: 53
 HEIGHT: 25
 
-
 $$$
                                 $\$                    [00m
                                  $\$                   [00m

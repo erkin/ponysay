@@ -18,7 +18,6 @@ SOURCE: (fanofetcetera) Desktop ponies
 WIDTH: 50
 HEIGHT: 20
 
-
 $$$
 $balloon6$[00m
    $\$                                              [00m

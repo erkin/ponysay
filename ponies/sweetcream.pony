@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: Comic issue 1
+APPEARANCE: My Little Pony: (Arc 1) [Issues 1-4] The Return of Queen Chrysalis, Merchandise
 BALLOON: top
 BALLOON BOTTOM: 0
 BALLOON TOP: 3
@@ -11,14 +11,13 @@ GROUP: mare, changeling
 KIND: unicorn
 LINK: regular
 MANE: yellow
-MEDIA: official comic
+MEDIA: Official comic, Blind bags
 NAME: Sweetcream Scoops
-OTHER NAMES: Sweetcream (shorter)
+OTHER NAMES: Sweetcream (shorter), Sweet Scream Scoop (Script)
 POSE: changeling
 SOURCE: [jristz]
-WIDTH: 49
+WIDTH: 60
 HEIGHT: 24
-
 
 $$$
 $balloon30$[00m
