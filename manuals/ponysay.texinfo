@@ -3396,15 +3396,15 @@ ANSI escape sequences.
 @heading Version 3.0.2
 @itemize @bullet
 @item
-New ponies: @file{brucemane}, @file{coldheart}, @file{creampuff},
-@file{cremebrulee}, @file{deepblue}, @file{fleetfoot}, @file{filmreel}, 
-@file{flashsentry}, @file{hairytipper}, @file{ironwill}, @file{mane-iac},
-@file{mantishy}, @file{maybelle}, @file{misty}, @file{mule},
-@file{nightmarerarity}, @file{peachbottom}, @file{poundfly},
+New ponies: @file{brucemane}, @file{cheesesandwich}, @file{coldheart}, 
+@file{creampuff}, @file{cremebrulee}, @file{deepblue}, @file{fleetfoot}, 
+@file{filmreel}, @file{flashsentry}, @file{hairytipper}, @file{ironwill}, 
+@file{mane-iac}, @file{mantishy}, @file{maybelle}, @file{misty}, 
+@file{mule}, @file{nightmarerarity}, @file{peachbottom}, @file{poundfly}, 
 @file{pumpkincake}, @file{rainbowdashcrystal}, @file{rainbowdrop}, 
-@file{rainbowfim}, @file{shoeshine}, @file{shortround}, 
-@file{strawberrycream}, @file{sunsetshimmer}, @file{tealove},
-@file{theoldenpony}, @file{unclewing}, @file{wildflower}
+@file{rainbowfim}, @file{shoeshine}, @file{shortround}, @file{strawberrycream}, 
+@file{sunsetshimmer}, @file{tealove}, @file{theoldenpony}, @file{unclewing}, 
+@file{wildflower}
 @item
 New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
 @file{barbara}, @file{buttonmom}, @file{calamity}, @file{cancer},
