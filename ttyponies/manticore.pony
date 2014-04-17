@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E02 Friendship is Magic [Part 2]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: brown
 DISPLAY: full, left
 EYE: black
@@ -13,6 +13,7 @@ LICENSE: CC0
 LINK: regular
 MANE: red
 NAME: (not mentioned)
+OTHER NAMES: Manny Roar (on merchandise)
 POSE: watching
 SOURCE: (screenshoot)
 WIDTH: 80
