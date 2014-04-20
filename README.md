@@ -8,7 +8,7 @@ Today your terminal, tomorrow the world!
 Installation on GNU/Linux (or other Unix implementations)
 ---------------------------------------------------------
 
-[Download](/erkin/ponysay/downloads) or clone the project.
+[Download](https://github.com/erkin/ponysay/releases) or clone the project.
 In the terminal, `cd` into the ponysay directory and `./setup.py --freedom=partial install` or `python3 setup.py --freedom=partial install`.
 Superuser permissions might be required in order to run `./setup.py --freedom=partial install` without `--private`, on most systems this
 can be achieved by running `sudo ./setup.py --freedom=partial install`.
@@ -48,7 +48,7 @@ This requires the `fortune` utility to be installed. It can install be from the 
 Alternatively, one can just fetch the source code from [here](http://ftp.ibiblio.org/pub/linux/games/amusements/fortune/).
 
 You can try [this](http://www.reddit.com/r/mylittlelinux/comments/srixi/using_ponysay_with_a_ponified_fortune_warning/) script or
-[ponypipe](/maandree/ponypipe) to ponify fortunes.
+[ponypipe](https://github.com/maandree/ponypipe) to ponify fortunes.
 
 Edit your `~/.bashrc` and add this to the end of the file
 
