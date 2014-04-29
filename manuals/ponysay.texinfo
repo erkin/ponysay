@@ -3437,6 +3437,10 @@ from 40 to 65, to wrap messages better.
 @file{nightmare} has renamed into @file{nightmaremoon} for concistency 
 with the comic
 @item
+@file{pipsqueak} from ponies has renamed to @file{pipsqeakpirate} and 
+they extraponies counterpart moved to ponies as now is canon they normal 
+appearance.
+@item
 @file{ironwill} (3.0.1 and lower) has been renamed to 
 @file{ironwillwalk} because now we have a non walk version to be master.
 @item
