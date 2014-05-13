@@ -1077,16 +1077,22 @@ form like @file{spikecrystal}
 @item @code{seapony}
 Any seapony from either novel, movies, comics, the series or the fandom
 like @file{sealyra}
+@item @code{breeze}
+Breezes showed on the series or movies, this kind is based on the G3 
+breezes, but with they unique traits like speak in a nordic accent; 
+examples are @file{seabreeze} from main ponydir.
 @item @code{animal}
 Applies to Spike and any other animal 
 @item @code{item}
-Applies to Tom and Pinkamina's imaginary friends
+Applies to @file{tom} and Pinkamina's imaginary friends
 @item @code{batpony} 
 Applies to @file{royalnightguard} and others bat winged pony a like 
 creature, @emph{Word of good} say these ponies are a different species 
 but merchandice call them @code{pegasus}, so you need use 
 @code{pegasus} and @code{batpony} comma separated one earch other for 
-uniformity
+uniformity.
+For other side @file{flutterbat} is simply @file{flutershy} plus a fuit 
+bat but not a natural @code{batpony} so this tag shall not be whit she.
 @end itemize
 
 @item GROUP
@@ -1124,12 +1130,14 @@ tittle because she fullfilled they destiny.
 @item @code{villain}
 Villains, normally minions to antagonists or recurring bad ponies. 
 Applies to changelings.
-@item @code{antagonist} (applies to: Nightmare Moon, Gilda, Discord, Chrysalis, Sombra)
+@item @code{antagonist}
+(applies to: Nightmare Moon, Gilda, Discord, Chrysalis, Sombra, tirek)
 Antagonists are also known as archivillians or archenemies.
 Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one.
 @item @code{reconciled} (applies to: Trixie, Discord)
 Any @code{villain} that change to the good side (aka become a 
-good citizen or help the mane 6) count as one even if return to the dark side.
+good citizen or help the mane 6) count as one even if return to the dark 
+side later, not count if they help for fulfill they malevolent plant.
 @item @code{deuteragonist} (applies to: the cutiemark cruisers)
 Deuteragonists are secondary characters, these are (as of seasson 3) only the
 Cutiemark Cruisers. The requirement is that thay are somewhat regular
