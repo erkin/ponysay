@@ -13,6 +13,7 @@ LINK: regular
 MANE: green
 MASTER: spike
 NAME: Spike
+OTHER NAMES: Great and Honourable Spike the Brave and Glorious (Crystal Empire title)
 POSE: crystal
 SOURCE: [jristz], based on (anonycat) Desktop ponies
 WIDTH: 30
