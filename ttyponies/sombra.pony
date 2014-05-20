@@ -1,21 +1,21 @@
 $$$
 APPEARANCE: S03E01 The Crystal Empire [Part 1]
-AURA: black
+AURA: black (using dark magic), green (in IDW comic)
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: grey
 DISPLAY: full, left
-EYE: green (in flashback), white (in last scene), brown (ponysay) red (source), purple aura
+EYE: green (in flashback), white (in last scene), brown (ponysay) red (source), purple (aura)
 FREE: no
 GROUP: stallion, antagonist, royal
 KIND: unicorn
 LINK: regular
 MANE: black
 NAME: King Sombra
-OTHER NAMES: King Somber (initial leaked name)
+OTHER NAMES: King Somber (initial leaked name), King Sombrero (as a joke thing)
 POSE: stand
-SOURCE: [jristz]
+SOURCE: [jristz], based on Desktop ponies
 WIDTH: 45
 HEIGHT: 32
 
