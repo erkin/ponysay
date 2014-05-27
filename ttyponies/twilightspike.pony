@@ -25,7 +25,7 @@ MASTER: spike
 NAME: Twilight
 NAME: Spike
 OTHER NAMES: Twilight Sparkle (official, full name)
-OTHER NAMES: (none)
+OTHER NAMES: Great and Honourable Spike the Brave and Glorious (Crystal Empire title)
 POSE: ride
 SOURCE: Desktop ponies deviantart group
 WIDTH: 44
