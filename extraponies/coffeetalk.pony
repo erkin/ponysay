@@ -1,4 +1,5 @@
 $$$
+APPEARANCE: Ask King Sombra: Chapter 1 Part 1
 BALLOON: top
 BALLOON BOTTOM: 0
 BALLOON TOP: 3
@@ -7,13 +8,13 @@ DISPLAY: full, right
 EYE: brown
 FREE: yes
 GROUP: mare, mane
-KIND: earth, alicorn (during second dream arc)
+KIND: earth, alicorn (during Chapter 4 Part 1)
 LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: brown
 MEDIA: http://ask-king-sombra.tumblr.com
 NAME: Coffee Talk
-OTHER NAMES: Café talk (used rarely by fans), Coffee (short)
+OTHER NAMES: CT (used by fans), Coffee (short)
 POSE: stand
 SOURCE: (Genayre) Tumblpon
 WIDTH: 49

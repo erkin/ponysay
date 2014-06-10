@@ -1,4 +1,5 @@
 $$$
+APPEARANCE: Ask King Sombra: Chapter 1 Part 1
 AURA: green (word of god say it), black (using dark magic)
 BALLOON: top
 BALLOON BOTTOM: 0
