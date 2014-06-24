@@ -17,9 +17,9 @@ ponysay \- Una reimplementación de cowsay usando ponis
 \fBponysay\fP muestra la imagen de un poni con un texto dado por el usuario,
 esto dentro de la terminal.
 .br
-Si el \fImensaje\fP no es provisto, ponysay aceptará una orden estándar.
-El mensaje debería de tener alrededor de 60 columnas, y el o la poni debería
-de mostrar este mensaje en una salida estándar.
+Si no se da un \fImensaje\fP ponysay aceptará una orden estándar en su lugar.
+El mensaje deberá de tener alrededor de 60 columnas, y el o la poni debera de
+mostrar este mensaje en una salida estándar.
 .PP
 Si no se da ningún argumento, el programa solamente aceptará mensajes
 estándares provistos por otros programas, un archivo, ambos o una cadena de
@@ -37,7 +37,7 @@ Muestra la versión del programa.
 .TP
 .B \-f, \-\-file, \-\-pony \fInombre\fP
 Selecciona un poni específico (ya sea un archivo o el nombre directamente),
-puedes usar esta opción con múltiples ponis y de estos será elegido uno al azar.
+puede usar esta opción con múltiples ponis y de estos será elegido uno al azar.
 .TP
 .B \+f, \+\+file, \+\+pony \fInombre\fP
 Selecciona un poni no pertenecientes a MLP:FiM (ya sea un archivo o el nombre
@@ -48,11 +48,11 @@ elegido uno aleatoriamente.
 Esta opción combina \fI-f\fP y \fI+f\fP.
 .TP
 .B \-q, \-\-quote [\fInombre\fP...]
-Usando esta opción un poni será mostrado dando una cita de
+Usando esta opción un poni será mostrado dando una cita en inglés de
 My Little Pony: Frienship is magic (My Little Pony: La magia de la amistad).
 Este poni será seleccionado aleatoriamente salvo que uno o varios ponis sean
-agregados tras la opción \fI-q\fP, en cuyo caso se seleccionará aleatoriamente
-uno de este conjunto.
+agregados tras la opción \fI-q\fP, en cuyo caso será seleccionado uno al azar 
+de este conjunto.
 .TP
 .B \-\-f, \-\-files, \-\-ponies \fI[nombre...]\fP
 Variable variádica de \fI-f\fP, o sea, todos los argumentos dados después de
@@ -74,8 +74,8 @@ Especifica el tipo de globo de texto a utilizar, puede ser la ruta a un archivo
 o bien una de las opciones dadas por \fIponysay -B\fP.
 .TP
 .B \-W, \-\-wrap \fIcolumna\fP
-Las columnas de la pantalla en las que debe presentarse el mensaje,la anchura
-extra del globo se toma en consideración. Si el argumento no es un número, 
+Las columnas de la pantalla en las que debe presentarse el mensaje, la anchura
+extra del globo se toma también en consideración. Si el argumento no es un número, 
 sino que inicia en su lugar con \fIn\fP, no hay ajuste alguno y si comienza
 con \fIi\fP el ancho de la terminal es tomado.
 .TP
@@ -84,34 +84,33 @@ Comprime en mensaje en la misma manera que \fIcowsay\fP lo hace,
 esto es básicamente sin múltiples espacios y solo separando párrafos.
 .TP
 .B \-l, \-\-list
-Lista los ponis disponibles.
+Lista los y las ponis disponibles.
 .TP
 .B \-L, \-\-symlist, \-\-altlist
-Lista los ponis con nombres alternativos (enlaces simbólicos) dentro de
-paréntesis.
+Lista los y las ponis con nombres alternativos (enlaces simbólicos) dentro 
+de paréntesis.
 .TP
 .B \+l, \+\+list
 Lista los ponis no pertenecientes a MLP:FiM disponibles.
 .TP
 .B \+L, \+\+symlist, \+\+altlist
-Lista los ponis no pertenecientes a MLP:FiM con nombres alternativos dentro de 
-paréntesis.
+Lista los ponis no pertenecientes a MLP:FiM con nombres alternativos dentro 
+de paréntesis.
 .TP
 .B \-B, \-\-bubblelist, \-\-balloonlist \fIestilo\fP
 Muestra la lista de globos de texto disponibles.
 .TP
 .B \-A. \-\-all
-Lista todos los ponis, tanto pertenecientes a MLP:FiM cono no pertenecientes a 
-esta la primera lista son los pertenecientes a esta y la subsiguiente los no 
-pertenecientes.
+Lista todos y todas las ponis, tanto pertenecientes a MLP:FiM como no, en la 
+primera lista se mostrarán los pertenecientes y la subsiguiente los que no.
 .TP
 .B \+A, \+\+all, \-\-symall, \-\-altall
 Lista todos los ponis incluyendo sus nombres alternativos, estos pertenecientes 
-a MLP:FiM cono no pertenecientes, la primera lista serán los pertenecientes y la
-subsiguiente los no pertenecientes a esta.
+a MLP:FiM cono no, en la primera lista se mostrarán los pertenecientes y la
+subsiguiente los no.
 .TP
 .B \-o, \-\-pony\-only, \-\-ponyonly
-Solamente muestra al poni, pero no los demás elementos.
+Solamente muestra a la o el poni, pero no los demás elementos.
 .TP
 .B \-i, \-\-info
 Agregando esta opción podrá ver los metadatos del poni en lugar de este.
