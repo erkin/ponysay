@@ -3404,7 +3404,7 @@ ANSI escape sequences.
 @heading Version 3.0.2
 @itemize @bullet
 @item
-New ponies: @file{brucemane}, @file{cheesesandwich}, @file{coldheart}, 
+New ponies: @file{ahuizotl}, @file{brucemane}, @file{cheesesandwich}, @file{coldheart}, 
 @file{creampuff}, @file{cremebrulee}, @file{deepblue}, @file{fleetfoot}, 
 @file{filmreel}, @file{flashsentry}, @file{hairytipper}, @file{ironwill}, 
 @file{mane-iac}, @file{mantishy}, @file{maudepie}, @file{maybelle}, @file{misty}, 
