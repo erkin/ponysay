@@ -41,8 +41,7 @@ Debian packages can be found [here](http://www.vcheng.org/ponysay/).
 #### Ubuntu
 There is a PPA available, specifically for ponysay, containing packages for all currently supported Ubuntu releases [here](https://launchpad.net/~vincent-c/+archive/ponysay).
 
-#### Mac OS X
-
+#### Mac OS X (OSX)
 A `ponysay` [Homebrew](https://github.com/mxcl/homebrew) formula is available.
 
 ### Print a pony fortune upon terminal startup
