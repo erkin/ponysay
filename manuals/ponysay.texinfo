@@ -3412,20 +3412,18 @@ New ponies: @file{ahuizotl}, @file{brucemane}, @file{cheesesandwich}, @file{cold
 @file{pumpkincake}, @file{rainbowdashcrystal}, @file{rainbowdrop}, 
 @file{rainbowfim}, @file{seabreeze}, @file{shoeshine}, 
 @file{shortround}, @file{strawberrycream}, @file{sunsetshimmer}, @file{tealove},
-@file{theoldenpony}, @file{unclewing}, @file{wildflower}
+@file{theoldenpony}, @file{unclewing}, @file{yearling}, @file{wildflower}
 @item
-New extraponies: @file{aurora}, @file{aquarius}, @file{aries}, 
-@file{barbara}, @file{buttonmom}, @file{calamity}, @file{cancer},
-@file{capricorn}, @file{childrenofthenight}, @file{chrome}, 
-@file{coffeetalk}, @file{coffeewalk}, @file{drizzle}, @file{firefox}, 
-@file{fluffle}, @file{freckles}, @file{fyreflyready}, @file{gemini}, 
-@file{gnupony}, @file{internetexplorer}, @file{kingsley}, @file{kingsleybanner},
-@file{leo}, @file{libra}, @file{lilmissrarity}, @file{littlepip},
-@file{milky}, @file{milkylay}, @file{opera}, @file{oscura}, @file{pisces},
-@file{princeartemis}, @file{reddit}, @file{robodash}, @file{sagittarius}, 
-@file{scorpio}, @file{seabreeze}, @file{snowdrop-crew}, @file{solaris}, 
-@file{starstruck}, @file{sweetiebot}, @file{taurus}, @file{twibrain}, 
-@file{virgo}, @file{wiggles}
+New extraponies: @file{aurora}, @file{aquarius}, @file{archlinux}, @file{aries},
+@file{barbara}, @file{buttonmom}, @file{calamity}, @file{cancer}, @file{capricorn},
+@file{childrenofthenight}, @file{chrome}, @file{coffeetalk}, @file{coffeewalk},
+@file{drizzle}, @file{firefox}, @file{fluffle}, @file{freckles}, @file{fyreflyready},
+@file{gemini}, @file{gnupony}, @file{internetexplorer}, @file{kingsley},
+@file{kingsleybanner}, @file{leo}, @file{libra}, @file{lilmissrarity},
+@file{littlepip}, @file{milky}, @file{milkylay}, @file{opera}, @file{oscura},
+@file{pisces}, @file{princeartemis}, @file{reddit}, @file{robodash}, @file{sagittarius}, 
+@file{scorpio}, @file{seabreeze}, @file{snowdrop-crew}, @file{solaris}, @file{starstruck},
+@file{sweetiebot}, @file{taurus}, @file{twibrain}, @file{virgo}, @file{wiggles}
 @item
 Pony symlink added:
 @itemize @bullet
