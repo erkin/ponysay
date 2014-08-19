@@ -7,7 +7,7 @@ import sys
 from zipfile import ZipFile
 from subprocess import Popen, PIPE
 
-PONYSAY_VERSION = '3.0.2'
+PONYSAY_VERSION = '3.0.3'
 
 manpages = [('en', 'English'),  # must be first
             ('es', 'Spanish'),

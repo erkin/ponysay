@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 3.0.2
+@set VERSION 3.0.3
 
 @defindex op
 @synindex op vr
@@ -3401,6 +3401,12 @@ ANSI escape sequences.
 @cindex versions
 @cindex previous releases
 
+@reading Version 3.0.3
+@itemize @bullet
+@item
+
+@end itemize
+
 @heading Version 3.0.2
 @itemize @bullet
 @item
@@ -3464,8 +3470,7 @@ Swedish manual page added.
 @file{auto-auto-completion} now is no more part of @command{ponysay}, 
 therefor you need install them and rebuild to get 
 @emph{auto-completion}, otherwise these @emph{auto-completion} files 
-aren't installed.
-                
+aren't installed.                
 @end itemize
 
 @heading Version 3.0.1
