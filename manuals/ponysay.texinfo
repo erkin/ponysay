@@ -3404,7 +3404,7 @@ ANSI escape sequences.
 @reading Version 3.0.3
 @itemize @bullet
 @item
-New ponies: @fle{auntorange}
+New ponies: @file{auntorange}
 @item
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
 @end itemize
