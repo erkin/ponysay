@@ -3401,7 +3401,7 @@ ANSI escape sequences.
 @cindex versions
 @cindex previous releases
 
-@reading Version 3.0.3
+@heading Version 3.0.3
 @itemize @bullet
 @item
 New ponies: @file{auntorange}
