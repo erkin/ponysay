@@ -127,8 +127,6 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
     @param  quoters:__in__(str)→bool                  Set of ponies that of quotes
     @param  ucsiser:(list<str>, map<str, str>)?→void  Function used to UCS:ise names
     '''
-    ## Get the size of the terminal
-    termsize = gettermsize()
     
     for ponydir in ponydirs: # Loop ponydirs
         ## Get all pony files in the directory
@@ -239,8 +237,6 @@ def balloonlist(balloondirs, isthink):
     @param  balloondirs:itr<str>  The balloon directories to use
     @param  isthink:bool          Whether the ponythink command is used
     '''
-    ## Get the size of the terminal
-    termsize = gettermsize()
     
     ## Get all balloons
     balloonset = set()
