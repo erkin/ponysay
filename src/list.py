@@ -37,8 +37,6 @@ File listing functions.
 from ucs import *
 
 
-class List: pass
-
 def _columnise(ponies):
     '''
     Columnise a list and prints it
@@ -92,6 +90,17 @@ def _columnise(ponies):
     print()
 
 
+def _get_file_list(dir_path : str, extension : str):
+    """
+    Return a list of files in the specified directory with have the specified file name extension.
+    
+    :param dir_path: Path to the directory.
+    :param extension: The allowed file name extension.
+    """
+    
+    return [i[:-len(extension)] for i in os.listdir(dir_path) if endswith(i, extension)]
+
+
 def simplelist(ponydirs, quoters = [], ucsiser = None):
     '''
     Lists the available ponies
@@ -102,13 +111,9 @@ def simplelist(ponydirs, quoters = [], ucsiser = None):
     '''
     for ponydir in ponydirs: # Loop ponydirs
         ## Get all ponies in the directory
-        _ponies = os.listdir(ponydir)
+        ponies = _get_file_list(ponydir, '.pony')
         
-        ## Remove .pony from all files and skip those that does not have .pony
-        ponies = []
-        for pony in _ponies:
-            if endswith(pony, '.pony'):
-                ponies.append(pony[:-5])
+        print()
         
         ## UCS:ise pony names, they are already sorted
         if ucsiser is not None:
@@ -132,13 +137,7 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
     
     for ponydir in ponydirs: # Loop ponydirs
         ## Get all pony files in the directory
-        _ponies = os.listdir(ponydir)
-        
-        ## Remove .pony from all files and skip those that does not have .pony
-        ponies = []
-        for pony in _ponies:
-            if endswith(pony, '.pony'):
-                ponies.append(pony[:-5])
+        ponies = _get_file_list(ponydirs, '.pony')
         
         ## If there are no ponies in the directory skip to next directory, otherwise, print the directories name
         if len(ponies) == 0:
@@ -205,19 +204,7 @@ def onelist(standarddirs, extradirs = None, ucsiser = None):
     @param  ucsiser:(list<str>)?→void  Function used to UCS:ise names
     '''
     ## Get all pony files
-    _ponies = []
-    if standarddirs is not None:
-        for ponydir in standarddirs:
-            _ponies += os.listdir(ponydir)
-    if extradirs is not None:
-        for ponydir in extradirs:
-            _ponies += os.listdir(ponydir)
-        
-    ## Remove .pony from all files and skip those that does not have .pony
-    ponies = []
-    for pony in _ponies:
-        if endswith(pony, '.pony'):
-            ponies.append(pony[:-5])
+    ponies = [j for i in [standarddirs, extradirs] for j in _get_file_list(i, '.pony')]
     
     ## UCS:ise and sort
     if ucsiser is not None:
@@ -240,21 +227,10 @@ def balloonlist(balloondirs, isthink):
     @param  isthink:bool          Whether the ponythink command is used
     '''
     
+    extension = '.think' if isthink else '.say'
+    
     ## Get all balloons
-    balloonset = set()
-    for balloondir in balloondirs:
-        for balloon in os.listdir(balloondir):
-            ## Use .think if running ponythink, otherwise .say
-            if isthink and endswith(balloon, '.think'):
-                balloon = balloon[:-6]
-            elif (not isthink) and endswith(balloon, '.say'):
-                balloon = balloon[:-4]
-            else:
-                continue
-            
-            ## Add the balloon if there is none with the same name
-            if balloon not in balloonset:
-                balloonset.add(balloon)
+    balloonset = set(j for i in balloondirs for j in _get_file_list(i, extension))
     
     ## Print all balloos, columnised
     _columnise([(balloon, balloon) for balloon in balloonset])
