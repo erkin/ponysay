@@ -3406,6 +3406,9 @@ ANSI escape sequences.
 @item
 New ponies: @file{auntorange}
 @item
+@itemize @bullet
+@item @file{cookiecrumbles} @arrow{} @file{raritysmom}
+@end itemize
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
 @end itemize
 
