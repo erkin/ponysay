@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E05 Sisterhooves Social
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: pink
 DISPLAY: full, right
 EYE: blue
@@ -12,11 +12,12 @@ KIND: unicorn
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: Pearl (unofficial)
+OTHER NAMES: Pearl (unofficial), Cookie Crumbles (official, on Trading Card Game)
 POSE: stand
 SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 43
 HEIGHT: 28
+
 
 $$$
 $balloon24$[00m
