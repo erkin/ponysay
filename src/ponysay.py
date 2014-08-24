@@ -58,7 +58,7 @@ class Ponysay():
         
         ## Load extension and configurations via ponysayrc
         for file in ('$XDG_CONFIG_HOME/ponysay/ponysayrc', '$HOME/.config/ponysay/ponysayrc', '$HOME/.ponysayrc', '/etc/ponysayrc'):
-            file = Ponysay.__parseFile(file)
+            file = self.__parseFile(file)
             if (file is not None) and os.path.exists(file):
                 with open(file, 'rb') as ponysayrc:
                     code = ponysayrc.read().decode('utf8', 'replace') + '\n'
@@ -80,7 +80,7 @@ class Ponysay():
         self.linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
         
         # Whether the script is executed as ponythink
-        self.isthink = Ponysay.__isPonythink()
+        self.isthink = self.__isPonythink()
         
         
         # Whether stdin is piped
@@ -102,24 +102,25 @@ class Ponysay():
         
         
         # The directories where pony files are stored, ttyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-        self.xponydirs = Ponysay.__getShareDirectories('ponies/')
-        self.vtponydirs = Ponysay.__getShareDirectories('ttyponies/')
+        self.xponydirs = self.__getShareDirectories('ponies/')
+        self.vtponydirs = self.__getShareDirectories('ttyponies/')
         
         # The directories where pony files are stored, extrattyponies/ are used if the terminal is Linux VT (also known as TTY) and not with KMS
-        self.extraxponydirs = Ponysay.__getShareDirectories('extraponies/')
-        self.extravtponydirs = Ponysay.__getShareDirectories('extrattyponies/')
+        self.extraxponydirs = self.__getShareDirectories('extraponies/')
+        self.extravtponydirs = self.__getShareDirectories('extrattyponies/')
         
         # The directories where quotes files are stored
-        self.quotedirs = Ponysay.__getShareDirectories('quotes/')
+        self.quotedirs = self.__getShareDirectories('quotes/')
         
         # The directories where balloon style files are stored
-        self.balloondirs = Ponysay.__getShareDirectories('balloons/')
+        self.balloondirs = self.__getShareDirectories('balloons/')
         
         # ucsmap files
-        self.ucsmaps = Ponysay.__getShareDirectories('ucsmap/')
-        
-        
-    def __parseFile(file):
+        self.ucsmaps = self.__getShareDirectories('ucsmap/')
+    
+    
+    @classmethod
+    def __parseFile(cls, file):
         '''
         Parse a file name encoded with environment variables
         
@@ -153,7 +154,8 @@ class Ponysay():
         return file
 
     
-    def __getShareDirectories(directory):
+    @classmethod
+    def __getShareDirectories(cls, directory):
         '''
         Gets existing unique /share directories
         
@@ -162,7 +164,7 @@ class Ponysay():
         '''
         appendset = set()
         rc = []
-        _ponydirs = Ponysay.__share(directory)
+        _ponydirs = cls.__share(directory)
         for ponydir in _ponydirs:
             if (ponydir is not None) and os.path.isdir(ponydir) and (ponydir not in appendset):
                 rc.append(ponydir)
@@ -170,7 +172,8 @@ class Ponysay():
         return rc
     
     
-    def __share(file):
+    @classmethod
+    def __share(cls, file):
         '''
         Gets /share files
         
@@ -182,14 +185,15 @@ class Ponysay():
                 return None
             return a + b
         # TODO use only ./ in development mode
-        return [cat(Ponysay.__parseFile(item), file) for item in [
+        return [cat(cls.__parseFile(item), file) for item in [
                 '$XDG_DATA_HOME/ponysay/',
                 '$HOME/.local/share/ponysay/',
                 '/usr/share/ponysay/'
                ]]
     
     
-    def __isPonythink():
+    @classmethod
+    def __isPonythink(cls):
         '''
         Check if ponythink is executed
         '''
