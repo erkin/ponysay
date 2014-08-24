@@ -29,6 +29,9 @@ that line ‘FREE: yes’, is included inside the image between two ‘$$$’
 lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
+
+import sys
+
 from common import *
 from backend import *
 from balloon import *
