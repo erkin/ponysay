@@ -279,7 +279,7 @@ class Ponysay():
         '''
         ## Colouring features
         if self.__test_nfdnf('--colour-pony'):
-            self.mode += '\033[' + ';'.join(args.opts['--colour-pony']) + 'm'
+            self.mode += '\033[' + ';'.join(self.args.opts['--colour-pony']) + 'm'
         else:
             self.mode += '\033[0m'
         if self.__test_nfdnf('+c'):
