@@ -9,6 +9,8 @@ from subprocess import Popen, PIPE
 
 PONYSAY_VERSION = '3.0.3'
 
+project_dir = os.path.dirname(__file__)
+
 manpages = [('en', 'English'),  # must be first
             ('es', 'Spanish'),
             ('sv', 'Swedish'),
@@ -37,10 +39,7 @@ miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
              ('LICENSE', '/usr/share/licenses/ponysay/LICENSE'),
              ('CREDITS', '/usr/share/licenses/ponysay/CREDITS')]
 
-ponysaysrc = [src + '.py' for src in
-              ('__main__', 'common', 'ponysay', 'argparser', 'balloon',
-               'backend', 'colourstack', 'ucs', 'spellocorrecter', 'kms',
-               'list', 'metadata', 'ponysaytool')]
+ponysaysrc = [i for i in os.listdir(os.path.join(project_dir, 'src')) if i.endswith('.py') and not i.startswith('.')]
 
 COPY = 'copy'
 HARD = 'hard'
