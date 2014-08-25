@@ -38,7 +38,7 @@ from balloon import *
 from spellocorrecter import *
 from ucs import *
 from kms import *
-import list as _list
+import lists
 from metadata import *
 
 
@@ -742,7 +742,7 @@ class Ponysay():
         
         @param  ponydirs:itr<str>?  The pony directories to use
         '''
-        _list.simplelist(self.ponydirs if ponydirs is None else ponydirs,
+        lists.simplelist(self.ponydirs if ponydirs is None else ponydirs,
                         self.__quoters(), lambda x : self.__ucsise(x))
     
     
@@ -752,7 +752,7 @@ class Ponysay():
         
         @param  ponydirs:itr<str>  The pony directories to use
         '''
-        _list.linklist(self.ponydirs if ponydirs is None else ponydirs,
+        lists.linklist(self.ponydirs if ponydirs is None else ponydirs,
                       self.__quoters(), lambda x, y : self.__ucsise(x, y))
     
     
@@ -763,7 +763,7 @@ class Ponysay():
         @param  standard:bool  Include standard ponies
         @param  extra:bool     Include extra ponies
         '''
-        _list.onelist(self.ponydirs if standard else None,
+        lists.onelist(self.ponydirs if standard else None,
                      self.extraponydirs if extra else None,
                      lambda x : self.__ucsise(x))
     
@@ -804,7 +804,7 @@ class Ponysay():
         '''
         Prints a list of all balloons
         '''
-        _list.balloonlist(self.balloondirs, self.isthink)
+        lists.balloonlist(self.balloondirs, self.isthink)
     
     
     def __getBalloonPath(self, names, alt = False):
