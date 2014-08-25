@@ -35,58 +35,61 @@ File listing functions.
 
 
 from ucs import *
+import itertools
 
 
-def _columnise(ponies):
+def _columnise_list(items: list, available_width: int, length_fn: callable, separation : int = 2):
+    """
+    From a list of items, produce a list of columns. Each columns is a list of tuples. Each tuple contains the element and a an int, specifying how much shorter the element is compared to the column width. 
+    
+    :param items: A list of items.
+    :param available_width: The maximum with available horizontally for the items.
+    :param length_fn: Function that is called to compute an element's width.
+    :param separation: Amount of space to insert between columns. 
+    """
+    
+    num_items = len(items)
+    items_with_length = [(i, length_fn(i)) for i in items]
+    max_item_length = max(i for _, i in items_with_length)
+    
+    # Make at least one column to handle very narrow terminals.
+    num_columns = max((available_width + separation) // (max_item_length + separation), 1)
+    column_length = (num_items - 1) // num_columns + 1
+    
+    items_with_spacing = [(i, max_item_length - l + separation) for i, l in items_with_length]
+    
+    return [items_with_spacing[i:i + column_length] for i in range(0, num_items, column_length)]
+
+
+def _print_columnised(items):
     '''
     Columnise a list and prints it
     
-    @param  ponies:list<(str, str)>  All items to list, each item should have to elements: unformated name, formated name
+    @param  ponies:list<(str, str)>  All items to list, each item should have to elements: unformatted name, formatted name.
     '''
-    ## Get terminal width, and a 2 which is the space between columns
-    termwidth = gettermsize()[1] + 2
-    ## Sort the ponies, and get the cells' widths, and the largest width + 2
-    ponies.sort(key = lambda pony : pony[0])
-    widths = [UCS.dispLen(pony[0]) for pony in ponies]
-    width = max(widths) + 2 # longest pony file name + space between columns
+    ## Get terminal width
+    _, term_width = gettermsize()
     
-    ## Calculate the number of rows and columns, can create a list of empty columns
-    cols = termwidth // width # do not believe electricians, this means ⌊termwidth / width⌋
-    rows = (len(ponies) + cols - 1) // cols
-    columns = []
-    for c in range(0, cols):  columns.append([])
+    columns = _columnise_list(
+        sorted(items, key = lambda x: x[0]),
+        term_width,
+        lambda x: UCS.dispLen(x[0]))
     
-    ## Fill the columns with cells of ponies
-    (y, x) = (0, 0)
-    for j in range(0, len(ponies)):
-        cell = ponies[j][1] + ' ' * (width - widths[j]);
-        columns[x].append(cell)
-        y += 1
-        if y == rows:
-            x += 1
-            y = 0
+    for row in itertools.zip_longest(*columns):
+        def iter_parts():
+            spacing = 0
+            
+            for cell in row:
+                if cell:
+                    # Yield this here to prevent whitespace to be printed after the last column.
+                    yield ' ' * spacing
+                    
+                    (_, item), spacing = cell
+                    
+                    yield item
+        
+        print(''.join(iter_parts()))
     
-    ## Make the columnisation nicer by letting the last row be partially empty rather than the last column
-    diff = rows * cols - len(ponies)
-    if (diff > 2) and (rows > 1):
-        c = cols - 1
-        diff -= 1
-        while diff > 0:
-            columns[c] = columns[c - 1][-diff:] + columns[c]
-            c -= 1
-            columns[c] = columns[c][:-diff]
-            diff -= 1
-    
-    ## Create rows from columns
-    lines = []
-    for r in range(0, rows):
-         lines.append([])
-         for c in range(0, cols):
-             if r < len(columns[c]):
-                 line = lines[r].append(columns[c][r])
-    
-    ## Print the matrix, with one extra blank row
-    print('\n'.join([''.join(line)[:-2] for line in lines]))
     print()
 
 
@@ -123,7 +126,7 @@ def simplelist(ponydirs, quoters = [], ucsiser = None):
         if len(ponies) == 0:
             continue
         print('\033[1mponies located in ' + ponydir + '\033[21m')
-        _columnise([(pony, '\033[1m' + pony + '\033[21m' if pony in quoters else pony) for pony in ponies])
+        _print_columnised([(pony, '\033[1m' + pony + '\033[21m' if pony in quoters else pony) for pony in ponies])
 
 
 def linklist(ponydirs = None, quoters = [], ucsiser = None):
@@ -192,7 +195,7 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
             ponies[(item.replace('\033[1m', '').replace('\033[21m', ''), item)] = w
         
         ## Print the ponies, columnised
-        _columnise(list(ponies))
+        _print_columnised(list(ponies))
 
 
 def onelist(standarddirs, extradirs = None, ucsiser = None):
@@ -233,4 +236,4 @@ def balloonlist(balloondirs, isthink):
     balloonset = set(j for i in balloondirs for j in _get_file_list(i, extension))
     
     ## Print all balloos, columnised
-    _columnise([(balloon, balloon) for balloon in balloonset])
+    _print_columnised([(balloon, balloon) for balloon in balloonset])
