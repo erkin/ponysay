@@ -198,16 +198,15 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
         _print_columnised(list(ponies))
 
 
-def onelist(standarddirs, extradirs, ucsiser):
+def onelist(pony_dirs, ucsiser):
     '''
     Lists the available ponies on one column without anything bold or otherwise formated
     
-    @param  standard:itr<str>         Include standard ponies
-    @param  extra:itr<str>            Include extra ponies
+    @param  pony_dirs:itr<str>        List of directories to search for ponies
     @param  ucsiser:(list<str>)→void  Function used to UCS:ise names
     '''
     ## Get all pony files
-    ponies = [name for dir_list in [standarddirs, extradirs] for dir in dir_list for name in _get_file_list(dir, '.pony')]
+    ponies = [name for dir in pony_dirs for name in _get_file_list(dir, '.pony')]
     
     ## UCS:ise and sort
     ucsiser(ponies)
