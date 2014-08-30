@@ -140,7 +140,7 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
     
     for ponydir in ponydirs: # Loop ponydirs
         ## Get all pony files in the directory
-        ponies = _get_file_list(ponydirs, '.pony')
+        ponies = _get_file_list(ponydir, '.pony')
         
         ## If there are no ponies in the directory skip to next directory, otherwise, print the directories name
         if len(ponies) == 0:
