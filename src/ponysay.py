@@ -760,9 +760,10 @@ class Ponysay():
         @param  standard:bool  Include standard ponies
         @param  extra:bool     Include extra ponies
         '''
-        lists.onelist(self.ponydirs if standard else None,
-                     self.extraponydirs if extra else None,
-                     lambda x : self.__ucsise(x))
+        
+        pony_dirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else [])
+        
+        lists.onelist(pony_dirs, self.__ucsise)
     
     
     def quoters(self, standard = True, extra = False):
