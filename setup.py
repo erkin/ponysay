@@ -299,11 +299,12 @@ class Setup():
 
                 elif not method == 'view':
                     opts.help()
-
-    '''
-    Display configurations
-    '''
+    
     def viewconf(self, conf):
+        '''
+        Display configurations
+        '''
+        
         RED = '\033[31m%s\033[39m'
         GREEN = '%s\033[32m%s\033[39m'
         YELLOW = '\033[33m%s\033[39m'
@@ -351,11 +352,12 @@ class Setup():
         else:                                      print(RED    % ('Installing \033[1mnot\033[21m only fully free parts of the package'))
 
         print()
-
-    '''
-    Compile ponysay
-    '''
+    
     def build(self, conf):
+        '''
+        Compile ponysay
+        '''
+        
         print('\033[1;34m::\033[39mCompiling...\033[21m')
 
         def compressCommand(ext):
@@ -556,11 +558,12 @@ class Setup():
                         Popen(params, stdin=PIPE, stdout=PIPE, stderr=PIPE).communicate()
 
         print()
-
-    '''
-    Install compiled ponysay
-    '''
+    
     def install(self, conf):
+        '''
+        Install compiled ponysay
+        '''
+        
         print('\033[1;34m::\033[39mInstalling...\033[21m')
 
         dests = []
@@ -642,11 +645,12 @@ class Setup():
         for file in miscfiles:
             self.cp(False, file[0], [conf[file[0]]], Setup.validateFreedom if self.free else None)
         print()
-
-    '''
-    Uninstall ponysay
-    '''
+    
     def uninstall(self, conf):
+        '''
+        Uninstall ponysay
+        '''
+        
         print('\033[1;34m::\033[39mUninstalling...\033[21m')
 
         (files, dirs, infos) = ([], [], [])
@@ -699,11 +703,12 @@ class Setup():
 
         self.removeLists(files, dirs)
         print()
-
-    '''
-    Uninstall file ponysay no longer uses
-    '''
+    
     def uninstallOld(self, conf):
+        '''
+        Uninstall file ponysay no longer uses
+        '''
+        
         print('\033[1;34m::\033[39mUninstalling old files...\033[21m')
 
         instdir = conf['~prefix~'] + '/usr'
@@ -719,11 +724,12 @@ class Setup():
 
         self.removeLists(files, dirs)
         print()
-
-    '''
-    Remove compiled files
-    '''
+    
     def clean(self):
+        '''
+        Remove compiled files
+        '''
+        
         print('\033[1;34m::\033[39mCleaning...\033[21m')
 
         files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install', 'ponysay.zip']
@@ -746,10 +752,11 @@ class Setup():
         self.removeLists(files, dirs)
         print()
 
-    '''
-    Remove compiled files ponysay is no longer compiling
-    '''
     def cleanOld(self):
+        '''
+        Remove compiled files ponysay is no longer compiling
+        '''
+        
         print('\033[1;34m::\033[39mCleaning old files...\033[21m')
 
         files = ['truncater', 'ponysaytruncater', 'ponysay.py.install', 'ponysay.install~', 'ponysay.zip']
@@ -763,11 +770,12 @@ class Setup():
 
         self.removeLists(files, dirs)
         print()
-
-    '''
-    Removes listed files and directories
-    '''
+    
     def removeLists(self, files, dirs):
+        '''
+        Removes listed files and directories
+        '''
+        
         for file in files:
             if os.path.isfile(file) or os.path.islink(file):
                 print('Unlinking file %s' % (file))
@@ -792,12 +800,13 @@ class Setup():
                         os.rmdir(dir)
                     else:
                         break;
-
-    '''
-    Check whether a file is fully free
-    '''
+    
     @staticmethod
     def validateFreedom(filename):
+        '''
+        Check whether a file is fully free
+        '''
+        
         if not os.path.isdir(filename):
             if filename.endswith('.pony') and (filename != '.pony') and not filename.endswith('/.pony'):
                 with open(filename, 'rb') as file:
@@ -812,11 +821,12 @@ class Setup():
                                 return line[1].lower() == 'yes'
                 return False
         return True
-
-    '''
-    Copys a files or directory to multiple destinations
-    '''
+    
     def cp(self, recursive, source, destinations, validatehook = None):
+        '''
+        Copys a files or directory to multiple destinations
+        '''
+        
         if validatehook is not None:
             if not validatehook(source):
                 print('Ignoring installation of file %s (did not pass validation process made by setup settings)' % source)
@@ -890,11 +900,12 @@ class Setup():
                     if os.path.exists(dest):
                         os.unlink(dest)
                     self.symlink(target, dest)
-
-    '''
-    Create a symlink with a relative path
-    '''
+    
     def symlink(self, target, dest):
+        '''
+        Create a symlink with a relative path
+        '''
+        
         if target.startswith('./') or target.startswith('../'):
             os.symlink(target, dest)
         elif '/' not in target:
@@ -914,10 +925,11 @@ class Setup():
 
             os.symlink('/'.join(targets), dest)
 
-    '''
-    Parses configurations
-    '''
     def configure(self, opts):
+        '''
+        Parses configurations
+        '''
+        
         (defaults, conf) = ({}, {})
 
         for command in commands:
@@ -1070,15 +1082,18 @@ class Setup():
 
 ARGUMENTLESS = 0
 ARGUMENTED = 1
-'''
-Simple argument parser, a strip down of the one in ponysay and slitly modified
-'''
+
 class ArgParser():
     '''
-    Constructor.
-    The short description is printed on same line as the program name
+    Simple argument parser, a strip down of the one in ponysay and slitly modified
     '''
+    
     def __init__(self, program, description, usage, longdescription = None):
+        '''
+        Constructor.
+        The short description is printed on same line as the program name
+        '''
+        
         self.__program = program
         self.__description = description
         self.__usage = usage
@@ -1086,27 +1101,30 @@ class ArgParser():
         self.__arguments = []
         (self.opts, self.optmap) = ({}, {})
 
-    '''
-    Add option that takes no arguments
-    '''
     def add_argumentless(self, alternatives, help = None):
+        '''
+        Add option that takes no arguments
+        '''
+        
         ARGUMENTLESS
         self.__arguments.append((ARGUMENTLESS, alternatives, None, help))
         (stdalt, self.opts[stdalt]) = (alternatives[0], None)
         for alt in alternatives:  self.optmap[alt] = (stdalt, ARGUMENTLESS)
 
-    '''
-    Add option that takes one argument
-    '''
     def add_argumented(self, alternatives, arg, help = None):
+        '''
+        Add option that takes one argument
+        '''
+        
         self.__arguments.append((ARGUMENTED, alternatives, arg, help))
         (stdalt, self.opts[stdalt]) = (alternatives[0], None)
         for alt in alternatives:  self.optmap[alt] = (stdalt, ARGUMENTED)
 
-    '''
-    Parse arguments
-    '''
     def parse(self, argv = sys.argv):
+        '''
+        Parse arguments
+        '''
+        
         self.argcount = len(argv) - 1
         self.files = []
         (argqueue, optqueue, get) = ([], [], False)
@@ -1152,10 +1170,11 @@ class ArgParser():
                 sys.stderr.write('%s: fatal: duplicate option %s\n' % (self.__program, arg))
                 exit(-1)
 
-    '''
-    Prints a colourful help message
-    '''
     def help(self):
+        '''
+        Prints a colourful help message
+        '''
+        
         print('\033[1m%s\033[21m - %s\n' % (self.__program, self.__description))
         if self.__longdescription is not None:
             print(self.__longdescription)
