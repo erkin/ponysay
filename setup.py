@@ -1148,13 +1148,13 @@ class ArgParser():
                         optqueue.append(arg_opt)
                         argqueue.append(arg[arg.index('=') + 1:])
                     else:
-                        sys.stderr.write('%s: fatal: unrecognised option %s. see --help or the manual\n' % (self.__program, arg))
+                        self.print_fatal('Unrecognized option {}. Use the help command or consult the manual.', arg)
                         exit(-1)
                 elif (arg in self.optmap) and (self.optmap[arg][1] == ARGUMENTED):
                     optqueue.append(arg)
                     get = True
                 else:
-                    sys.stderr.write('%s: fatal: unrecognised option %s. see --help or the manual\n' % (self.__program, arg))
+                    self.print_fatal('Unrecognized option {}. Use the help command or consult the manual.', arg)
                     exit(-1)
             else:
                 self.files.append(arg)
@@ -1168,8 +1168,11 @@ class ArgParser():
             if (opt not in self.opts) or (self.opts[opt] is None):
                 self.opts[opt] = [arg]
             else:
-                sys.stderr.write('%s: fatal: duplicate option %s\n' % (self.__program, arg))
+                self.print_fatal('duplicate option {}', arg)
                 exit(-1)
+    
+    def print_fatal(self, message, *args):
+        sys.stderr.write('{}: fatal: {}\n'.format(self.__program, message.format(*args)))
     
     def usage(self):
         '''
