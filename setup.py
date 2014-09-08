@@ -240,16 +240,15 @@ class Setup():
                 self.free = False
         def checkFreedom():
             if self.free is None:
-                if (opts.opts['--version'] is None) and ((len(opts.files) != 1) or (opts.files[0] != 'version')):
-                    print('')
-                    print('You need to select your freedom, add --freedom=strict or --freedom=partial.')
-                    print('')
-                    print('--freedom=strict   will install only ponies that are completely free.')
-                    print('--freedom=partial  will install all ponies, even if they are not free.')
-                    print('')
-                    print('')
-                    exit(255)
-
+                print()
+                print('You need to select your freedom, add --freedom=strict or --freedom=partial.')
+                print()
+                print('--freedom=strict   will install only ponies that are completely free.')
+                print('--freedom=partial  will install all ponies, even if they are not free.')
+                print()
+                print()
+                exit(255)
+        
         if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is None):
             destdir = opts.opts['---DESTDIR'][0]
             if len(destdir) > 0:
