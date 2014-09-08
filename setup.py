@@ -259,14 +259,15 @@ class Setup():
             prefix = opts.opts['---PREFIX'][0]
             if len(prefix) > 0:
                 opts.opts['--prefix'] = [prefix]
-
-        if (len(opts.files) > 1) or (opts.opts['--help'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'help')):
+        
+        if (opts.opts['--help'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'help')):
             opts.help()
         elif (opts.opts['--version'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'version')):
             print('Ponysay %s installer' % (PONYSAY_VERSION))
+        elif len(opts.files) != 1:
+            opts.print_fatal('A single command is expected on the command line.')
+            opts.usage()
         else:
-            if len(opts.files) == 0:
-                opts.files = ['build']
             method = opts.files[0]
             if   method == 'clean':      self.clean()
             elif method == 'clean-old':  self.cleanOld()
@@ -1169,13 +1170,12 @@ class ArgParser():
             else:
                 sys.stderr.write('%s: fatal: duplicate option %s\n' % (self.__program, arg))
                 exit(-1)
-
-    def help(self):
+    
+    def usage(self):
         '''
-        Prints a colourful help message
+        Print a short usage message.
         '''
         
-        print('\033[1m%s\033[21m - %s\n' % (self.__program, self.__description))
         if self.__longdescription is not None:
             print(self.__longdescription)
             print()
@@ -1184,8 +1184,21 @@ class ArgParser():
         for line in self.__usage.split('\n'):
             if first:  first = False
             else:      print('    or', end='')
-            print('\t%s' % (line))
-        print('\n\033[1mCONFIGURATIONS:\033[21m\n')
+            print('\t{}'.format(line))
+        
+        print()
+    
+    def help(self):
+        '''
+        Prints a colourful help message.
+        '''
+        
+        # The usage should be terse so this header is only included in the help command.
+        print('\033[1m{}\033[21m - {}\n'.format(self.__program, self.__description))
+        
+        self.usage()
+        
+        print('\033[1mCONFIGURATIONS:\033[21m\n')
         for opt in self.__arguments:
             (opt_type, opt_alts, opt_arg, opt_help) = opt[0:4]
             if opt_help is not None:
