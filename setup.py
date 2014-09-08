@@ -48,7 +48,7 @@ SYMBOLIC = 'symbolic'
 class Setup():
     def __init__(self):
         usage_script = '\033[34;1msetup.py\033[21;39m'
-        usage_help   = '(version | help)'
+        usage_help   = '(--version | --help)'
         usage_proc   = '[\033[4mconfigurations\033[24m] ([build] | prebuilt | install | (uninstall|clean)[-old] | view)'
 
         usage = '%s %s\n%s %s' % (usage_script, usage_help, usage_script, usage_proc)
@@ -260,9 +260,9 @@ class Setup():
             if len(prefix) > 0:
                 opts.opts['--prefix'] = [prefix]
         
-        if (opts.opts['--help'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'help')):
+        if opts.opts['--help'] is not None:
             opts.help()
-        elif (opts.opts['--version'] is not None) or ((len(opts.files) == 1) and (opts.files[0] == 'version')):
+        elif opts.opts['--version'] is not None:
             print('Ponysay %s installer' % (PONYSAY_VERSION))
         elif len(opts.files) != 1:
             opts.print_fatal('A single command is expected on the command line.')
@@ -1148,13 +1148,13 @@ class ArgParser():
                         optqueue.append(arg_opt)
                         argqueue.append(arg[arg.index('=') + 1:])
                     else:
-                        self.print_fatal('Unrecognized option {}. Use the help command or consult the manual.', arg)
+                        self.print_fatal('Unrecognized option {}. Use --help or consult the manual.', arg)
                         exit(-1)
                 elif (arg in self.optmap) and (self.optmap[arg][1] == ARGUMENTED):
                     optqueue.append(arg)
                     get = True
                 else:
-                    self.print_fatal('Unrecognized option {}. Use the help command or consult the manual.', arg)
+                    self.print_fatal('Unrecognized option {}. Use --help or consult the manual.', arg)
                     exit(-1)
             else:
                 self.files.append(arg)
