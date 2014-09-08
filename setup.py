@@ -249,6 +249,10 @@ class Setup():
                 print()
                 exit(255)
         
+        def setup_config():
+            self.viewconf(conf)
+            os.umask(0o022)
+        
         if (opts.opts['---DESTDIR'] is not None) and (opts.opts['--dest-dir'] is None):
             destdir = opts.opts['---DESTDIR'][0]
             if len(destdir) > 0:
@@ -272,33 +276,39 @@ class Setup():
             elif method == 'clean-old':  self.cleanOld()
             else:
                 conf = self.configure(opts.opts)
-                self.viewconf(conf)
-                os.umask(0o022)
 
                 if method == 'build':
                     checkFreedom()
+                    setup_config()
                     self.build(conf)
 
                 elif method == 'prebuilt':
                     checkFreedom()
+                    setup_config()
                     self.applyDestDir(conf)
                     self.install(conf)
 
                 elif method == 'install':
                     checkFreedom()
+                    setup_config()
                     self.build(conf)
                     self.applyDestDir(conf)
                     self.install(conf)
                     self.clean()
 
                 elif method == 'uninstall':
+                    setup_config()
                     self.uninstall(conf)
 
                 elif method == 'uninstall-old':
+                    setup_config()
                     self.uninstallOld(conf)
 
-                elif not method == 'view':
-                    opts.help()
+                elif method == 'view':
+                    setup_config()
+                else:
+                    opts.print_fatal('Unknown command: {}', method)
+                    opts.usage()
     
     def viewconf(self, conf):
         '''
