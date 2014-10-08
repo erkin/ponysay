@@ -239,15 +239,10 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
             while x < xn:
                 change = my[x]
                 u = used[x]
-                if p == u:
-                    # commence black magick … twilight would be so disappointed
-                    x += 1
-                    myy[x] = change
-                    best = min(best, change)
                 remove = myy[x]
                 add = my[x + 1]
                 
-                cw = 1
+                cw = 0 if p == u else 1
                 if my[x] in self.weights:
                     if p in self.weights[u]:
                       cw = self.weights[u][p]
@@ -260,5 +255,6 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
             if best > self.closestDistance:
                 return 0x7FFFFF00 | y
             my = myy
+        
         return my[xn]
 
