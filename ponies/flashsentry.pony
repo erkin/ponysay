@@ -20,7 +20,7 @@ WIDTH: 46
 HEIGHT: 26
 
 $$$
-$balloon36$
+$balloon36$[00m
                                  $\$            [00m
                                   $\$           [00m
                                    $\$          [00m

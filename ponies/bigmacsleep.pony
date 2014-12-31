@@ -1,10 +1,10 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: red
-DISPLAY: full, right
+DISPLAY: turned, full, right
 EYE: green
 FREE: no
 GROUP: stallion

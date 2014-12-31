@@ -22,7 +22,7 @@ Personal, I [maandree], would not call him I a villian, since he tries to help
 push-overs, which accidentally turned Fluttershy into a villian, and just wanted
 his payment at the end of the episode.
 $$$
-$balloon11$
+$balloon11$[00m
         $\$                                     [00m
          $\$                                    [00m
           $\$                                   [00m

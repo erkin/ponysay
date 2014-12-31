@@ -29,7 +29,7 @@ purposes, all without asking permission. See Other Information below.
 
 http://creativecommons.org/publicdomain/zero/1.0/legalcode
 $$$
-$balloon40$
+$balloon40$[00m
                                      $\$                                                                                                               [00m
                                       $\$                                                                                                              [00m
                                        $\$                                                                                                             [00m

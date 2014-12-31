@@ -20,7 +20,7 @@ WIDTH: 51
 HEIGHT: 25
 
 $$$
-$balloon5$
+$balloon5$[00m
   $\$                                                [00m
    $\$                                               [00m
     $\$                                              [00m

@@ -18,7 +18,7 @@ WIDTH: 24
 HEIGHT: 19
 
 $$$
-$balloon18$
+$balloon18$[00m
                $\$        [00m
                 $\$       [00m
                  $\$      [00m

@@ -21,7 +21,7 @@ HEIGHT: 26
 License summary:   https://creativecommons.org/licenses/by-sa/3.0
 Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcodes
 $$$
-$balloon3$
+$balloon3$[00m
 $\$                                                  [00m
  $\$                                                 [00m
   $\$[38;5;16m▄▄[39m                                              [00m
