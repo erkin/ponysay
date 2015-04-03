@@ -5,16 +5,13 @@
 ###############################################################################################
 ## Shell auto-completion script generator https://www.github.com/maandree/auto-auto-complete ##
 ## Used by build system to make completions for all supported shells.                        ##
-##                                                                                           ##
-##    auto-auto-complete is experimental, therefore, before updating the version of this     ##
-##    make sure that is still work for all shells.                                           ##
 ###############################################################################################
 
 
 '''
 auto-auto-complete – Autogenerate shell auto-completion scripts
 
-Copyright © 2012  Mattias Andrée (maandree@kth.se)
+Copyright © 2012, 2013, 2014, 2015  Mattias Andrée (maandree@member.fsf.org)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -32,40 +29,51 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import sys
 
 
-'''
-Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in
-programs by default, report them to Princess Celestia so she can banish them to the moon)
-
-@param  text:str  The text to print (empty string is default)
-@param  end:str   The appendix to the text to print (line breaking is default)
-'''
 def print(text = '', end = '\n'):
+    '''
+    Hack to enforce UTF-8 in output (in the future, if you see anypony not using utf-8 in
+    programs by default, report them to Princess Celestia so she can banish them to the moon)
+    
+    @param  text:str  The text to print (empty string is default)
+    @param  end:str   The appendix to the text to print (line breaking is default)
+    '''
     sys.stdout.buffer.write((str(text) + end).encode('utf-8'))
 
-'''
-stderr equivalent to print()
-
-@param  text:str  The text to print (empty string is default)
-@param  end:str   The appendix to the text to print (line breaking is default)
-'''
 def printerr(text = '', end = '\n'):
+    '''
+    stderr equivalent to print()
+    
+    @param  text:str  The text to print (empty string is default)
+    @param  end:str   The appendix to the text to print (line breaking is default)
+    '''
     sys.stderr.buffer.write((str(text) + end).encode('utf-8'))
 
 
+def abort(text, returncode = 1):
+    '''
+    Abort the program
+    
+    @param   text:str        Error message
+    @return  returncode:int  The programs return code
+    '''
+    printerr('\033[01;31m%s\033[00m' % text)
+    sys.exit(returncode)
 
 
-'''
-Bracket tree parser
-'''
+
+
 class Parser:
     '''
-    Parse a code and return a tree
-    
-    @param   code:str      The code to parse
-    @return  :list<↑|str>  The root node in the tree
+    Bracket tree parser
     '''
     @staticmethod
     def parse(code):
+        '''
+        Parse a code and return a tree
+        
+        @param   code:str      The code to parse
+        @return  :list<↑|str>  The root node in the tree
+        '''
         stack = []
         stackptr = -1
         
@@ -73,6 +81,10 @@ class Parser:
         escape = False
         quote = None
         buf = None
+        
+        col = 0
+        char = 0
+        line = 1
         
         for charindex in range(0, len(code)):
             c = code[charindex]
@@ -129,17 +141,27 @@ class Parser:
                     quote = c
                 else:
                     buf += c
+            
+            if c == '\t':
+                col |= 7
+            col += 1
+            char += 1
+            if c in '\n\r\f':
+                line += 1
+                col = 0
+                char = 0
         
-        raise Exception('premature end of file')
+        abort('premature end of file')
     
     
-    '''
-    Simplifies a tree
-    
-    @param  tree:list<↑|str>  The tree
-    '''
     @staticmethod
     def simplify(tree):
+        '''
+        Simplifies a tree
+        
+        @param  tree:list<↑|str>  The tree
+        '''
+        global variables
         program = tree[0]
         stack = [tree]
         while len(stack) > 0:
@@ -159,6 +181,17 @@ class Parser:
                                 new.append(alt[1])
                                 break
                         edited = True
+                    elif item[0] == 'value':
+                        variable = item[1]
+                        if variable in variables:
+                            for value in variables[variable]:
+                                new.append(value)
+                        else:
+                            if len(item) == 2:
+                                abort('Undefined variable: ' + variable)
+                            for value in item[2:]:
+                                new.append(value)
+                        edited = True
                     else:
                         new.append(item)
                 else:
@@ -171,21 +204,21 @@ class Parser:
 
 
 
-'''
-Completion script generator for GNU Bash
-'''
 class GeneratorBASH:
     '''
-    Constructor
-    
-    @param  program:str                              The command to generate completion for
-    @param  unargumented:list<dict<str, list<str>>>  Specification of unargumented options
-    @param  argumented:list<dict<str, list<str>>>    Specification of argumented options
-    @param  variadic:list<dict<str, list<str>>>      Specification of variadic options
-    @param  suggestion:list<list<↑|str>>             Specification of argument suggestions
-    @param  default:dict<str, list<str>>?            Specification for optionless arguments
+    Completion script generator for GNU Bash
     '''
     def __init__(self, program, unargumented, argumented, variadic, suggestion, default):
+        '''
+        Constructor
+        
+        @param  program:str                              The command to generate completion for
+        @param  unargumented:list<dict<str, list<str>>>  Specification of unargumented options
+        @param  argumented:list<dict<str, list<str>>>    Specification of argumented options
+        @param  variadic:list<dict<str, list<str>>>      Specification of variadic options
+        @param  suggestion:list<list<↑|str>>             Specification of argument suggestions
+        @param  default:dict<str, list<str>>?            Specification for optionless arguments
+        '''
         self.program      = program
         self.unargumented = unargumented
         self.argumented   = argumented
@@ -194,12 +227,12 @@ class GeneratorBASH:
         self.default      = default
     
     
-    '''
-    Gets the argument suggesters for each option
-    
-    @return  :dist<str, str>  Map from option to suggester
-    '''
     def __getSuggesters(self):
+        '''
+        Gets the argument suggesters for each option
+        
+        @return  :dist<str, str>  Map from option to suggester
+        '''
         suggesters = {}
         
         for group in (self.unargumented, self.argumented, self.variadic):
@@ -221,12 +254,12 @@ class GeneratorBASH:
         return suggesters
     
     
-    '''
-    Returns the generated code
-    
-    @return  :str  The generated code
-    '''
     def get(self):
+        '''
+        Returns the generated code
+        
+        @return  :str  The generated code
+        '''
         buf = '# bash completion for %s         -*- shell-script -*-\n\n' % self.program
         buf += '_%s()\n{\n' % self.program
         buf += '    local cur prev words cword\n'
@@ -248,7 +281,7 @@ class GeneratorBASH:
                 if functionType == 'pipe':
                     return ' ( %s ) ' % (' | '.join(elems))
                 if functionType == 'fullpipe':
-                    return ' ( %s ) ' % (' |% '.join(elems))
+                    return ' ( %s ) ' % (' |& '.join(elems))
                 if functionType == 'cat':
                     return ' ( %s ) ' % (' ; '.join(elems))
                 if functionType == 'and':
@@ -328,24 +361,29 @@ class GeneratorBASH:
         
         buf += '}\n\ncomplete -o default -F _%s %s\n\n' % (self.program, self.program)
         return buf
+    
+    
+    @staticmethod
+    def where(command):
+        return '/share/bash-completion/completions/%s' % command
 
 
 
-'''
-Completion script generator for fish
-'''
 class GeneratorFISH:
     '''
-    Constructor
-    
-    @param  program:str                              The command to generate completion for
-    @param  unargumented:list<dict<str, list<str>>>  Specification of unargumented options
-    @param  argumented:list<dict<str, list<str>>>    Specification of argumented options
-    @param  variadic:list<dict<str, list<str>>>      Specification of variadic options
-    @param  suggestion:list<list<↑|str>>             Specification of argument suggestions
-    @param  default:dict<str, list<str>>?            Specification for optionless arguments
+    Completion script generator for fish
     '''
     def __init__(self, program, unargumented, argumented, variadic, suggestion, default):
+        '''
+        Constructor
+        
+        @param  program:str                              The command to generate completion for
+        @param  unargumented:list<dict<str, list<str>>>  Specification of unargumented options
+        @param  argumented:list<dict<str, list<str>>>    Specification of argumented options
+        @param  variadic:list<dict<str, list<str>>>      Specification of variadic options
+        @param  suggestion:list<list<↑|str>>             Specification of argument suggestions
+        @param  default:dict<str, list<str>>?            Specification for optionless arguments
+        '''
         self.program      = program
         self.unargumented = unargumented
         self.argumented   = argumented
@@ -354,12 +392,12 @@ class GeneratorFISH:
         self.default      = default
     
     
-    '''
-    Gets the argument suggesters for each option
-    
-    @return  :dist<str, str>  Map from option to suggester
-    '''
     def __getSuggesters(self):
+        '''
+        Gets the argument suggesters for each option
+        
+        @return  :dist<str, str>  Map from option to suggester
+        '''
         suggesters = {}
         
         for group in (self.unargumented, self.argumented, self.variadic):
@@ -381,12 +419,12 @@ class GeneratorFISH:
         return suggesters
     
     
-    '''
-    Gets the file pattern for each option
-    
-    @return  :dist<str, list<str>>  Map from option to file pattern
-    '''
     def __getFiles(self):
+        '''
+        Gets the file pattern for each option
+        
+        @return  :dist<str, list<str>>  Map from option to file pattern
+        '''
         files = {}
         
         for group in (self.unargumented, self.argumented, self.variadic):
@@ -408,12 +446,12 @@ class GeneratorFISH:
         return files
     
     
-    '''
-    Returns the generated code
-    
-    @return  :str  The generated code
-    '''
     def get(self):
+        '''
+        Returns the generated code
+        
+        @return  :str  The generated code
+        '''
         buf = '# fish completion for %s         -*- shell-script -*-\n\n' % self.program
         
         files = self.__getFiles()
@@ -439,7 +477,7 @@ class GeneratorFISH:
                 if functionType == 'pipe':
                     return ' ( %s ) ' % (' | '.join(elems))
                 if functionType == 'fullpipe':
-                    return ' ( %s ) ' % (' |% '.join(elems))
+                    return ' ( %s ) ' % (' |& '.join(elems))
                 if functionType == 'cat':
                     return ' ( %s ) ' % (' ; '.join(elems))
                 if functionType == 'and':
@@ -517,24 +555,29 @@ class GeneratorFISH:
                 buf += '\n'
         
         return buf
+    
+    
+    @staticmethod
+    def where(command):
+        return '/share/fish/completions/%s.fish' % command
 
 
 
-'''
-Completion script generator for zsh
-'''
 class GeneratorZSH:
     '''
-    Constructor
-    
-    @param  program:str                              The command to generate completion for
-    @param  unargumented:list<dict<str, list<str>>>  Specification of unargumented options
-    @param  argumented:list<dict<str, list<str>>>    Specification of argumented options
-    @param  variadic:list<dict<str, list<str>>>      Specification of variadic options
-    @param  suggestion:list<list<↑|str>>             Specification of argument suggestions
-    @param  default:dict<str, list<str>>?            Specification for optionless arguments
+    Completion script generator for zsh
     '''
     def __init__(self, program, unargumented, argumented, variadic, suggestion, default):
+        '''
+        Constructor
+        
+        @param  program:str                              The command to generate completion for
+        @param  unargumented:list<dict<str, list<str>>>  Specification of unargumented options
+        @param  argumented:list<dict<str, list<str>>>    Specification of argumented options
+        @param  variadic:list<dict<str, list<str>>>      Specification of variadic options
+        @param  suggestion:list<list<↑|str>>             Specification of argument suggestions
+        @param  default:dict<str, list<str>>?            Specification for optionless arguments
+        '''
         self.program      = program
         self.unargumented = unargumented
         self.argumented   = argumented
@@ -543,12 +586,12 @@ class GeneratorZSH:
         self.default      = default
     
     
-    '''
-    Gets the argument suggesters for each option
-    
-    @return  :dist<str, str>  Map from option to suggester
-    '''
     def __getSuggesters(self):
+        '''
+        Gets the argument suggesters for each option
+        
+        @return  :dist<str, str>  Map from option to suggester
+        '''
         suggesters = {}
         
         for group in (self.unargumented, self.argumented, self.variadic):
@@ -570,12 +613,12 @@ class GeneratorZSH:
         return suggesters
     
     
-    '''
-    Gets the file pattern for each option
-    
-    @return  :dist<str, list<str>>  Map from option to file pattern
-    '''
     def __getFiles(self):
+        '''
+        Gets the file pattern for each option
+        
+        @return  :dist<str, list<str>>  Map from option to file pattern
+        '''
         files = {}
         
         for group in (self.unargumented, self.argumented, self.variadic):
@@ -597,13 +640,13 @@ class GeneratorZSH:
         return files
     
     
-    '''
-    Returns the generated code
-    
-    @return  :str  The generated code
-    '''
     def get(self):
-        buf = '# zsh completion for %s         -*- shell-script -*-\n\n' % self.program
+        '''
+        Returns the generated code
+        
+        @return  :str  The generated code
+        '''
+        buf = '#compdef %s\n\n' % self.program
         
         files = self.__getFiles()
         
@@ -628,7 +671,7 @@ class GeneratorZSH:
                 if functionType == 'pipe':
                     return ' ( %s ) ' % (' | '.join(elems))
                 if functionType == 'fullpipe':
-                    return ' ( %s ) ' % (' |% '.join(elems))
+                    return ' ( %s ) ' % (' |& '.join(elems))
                 if functionType == 'cat':
                     return ' ( %s ) ' % (' ; '.join(elems))
                 if functionType == 'and':
@@ -695,17 +738,22 @@ class GeneratorZSH:
         
         buf += '    )\n\n_arguments "$_opts[@]"\n\n'
         return buf
+    
+    
+    @staticmethod
+    def where(command):
+        return '/share/zsh/site-functions/_%s' % command
 
 
 
-'''
-mane!
-
-@param  shell:str   Shell to generato completion for
-@param  output:str  Output file
-@param  source:str  Source file
-'''
 def main(shell, output, source):
+    '''
+    mane!
+    
+    @param  shell:str   Shell for which to generate completion
+    @param  output:str  Output file
+    @param  source:str  Source file
+    '''
     with open(source, 'rb') as file:
         source = file.read().decode('utf8', 'replace')
     source = Parser.parse(source)
@@ -730,20 +778,30 @@ def main(shell, output, source):
         elif item[0] == 'default':
             default = item[1:];
     
-    for group in (unargumented, argumented, variadic):
+    for (group, not_allowed) in ((unargumented, ['arg', 'suggest', 'files']), (argumented, []), (variadic, [])):
         for index in range(0, len(group)):
             item = group[index]
             map = {}
             for elem in item:
+                if elem[0] not in ('options', 'complete', 'arg', 'suggest', 'files', 'bind', 'desc'):
+                    abort('Unrecognised keyword: ' + elem[0])
+                if elem[0] in not_allowed:
+                    abort('Out of context keyword: ' + elem[0])
                 map[elem[0]] = elem[1:]
             group[index] = map
     if default is not None:
         map = {}
         for elem in default:
+            if elem[0] not in ('arg', 'suggest', 'files', 'desc'):
+                abort('Unrecognised keyword: ' + elem[0])
+            if elem[0] in ('bind', 'options', 'complete'):
+                abort('Out of context keyword: ' + elem[0])
             map[elem[0]] = elem[1:]
         default = map
     
-    generator = 'Generator' + shell.upper()
+    generator = 'Generator' + shell.upper() 
+    if generator not in globals():
+        abort('%s is not a supported shell' % shell)
     generator = globals()[generator]
     generator = generator(program, unargumented, argumented, variadic, suggestion, default)
     code = generator.get()
@@ -753,48 +811,78 @@ def main(shell, output, source):
 
 
 
-'''
-mane!
-'''
-if __name__ == '__main__':
-    if len(sys.argv) != 6:
-        print("USAGE: auto-auto-complete SHELL --output OUTPUT_FILE --source SOURCE_FILE")
-        exit(1)
+def where_main(shell, command):
+    '''
+    --where mane!
     
-    shell = sys.argv[1]
+    @param  shell:str    Shell for which the completion should be installed
+    @param  command:str  The commmad name
+    '''
+    generator = 'Generator' + shell.upper()
+    if generator not in globals():
+        abort('%s is not a supported shell' % shell)
+    generator = globals()[generator]
+    print(generator.where(command))
+
+
+
+# supermane!
+if __name__ == '__main__':
+    if (len(sys.argv) == 1) or ((len(sys.argv) == 2) and (sys.argv[1] in ('-h', '--help'))):
+        print("USAGE: auto-auto-complete SHELL --output OUTPUT_FILE --source SOURCE_FILE [VARIABLE=VALUE...]")
+        print("   or: auto-auto-complete SHELL --where COMMAND")
+        exit(2)
+    
+    shell = None
     output = None
     source = None
+    where = None
+    variables = {}
     
     option = None
     aliases = {'-o' : '--output',
                '-f' : '--source', '--file' : '--source',
-               '-s' : '--source'}
+               '-s' : '--source',
+               '-w' : '--where'}
     
     def useopt(option, arg):
         global source
         global output
+        global where
+        global variables
         old = None
         if   option == '--output': old = output; output = arg
         elif option == '--source': old = source; source = arg
+        elif option == '--where':  old = where;  where = arg
+        elif not option.startswith('-'):
+            if option not in variables:
+                variables[option] = []
+            variables[option].append(arg)
         else:
-            raise Exception('Unrecognised option: ' + option)
+            abort('Unrecognised option: ' + option)
         if old is not None:
-            raise Exception('Duplicate option: ' + option)
+            abort('Duplicate option: ' + option)
     
-    for arg in sys.argv[2:]:
+    for arg in sys.argv[1:]:
         if option is not None:
             if option in aliases:
                 option = aliases[option]
             useopt(option, arg)
             option = None
+        elif (shell is None) and not arg.startswith('-'):
+            shell = arg
         else:
             if '=' in arg:
-                useopt(arg[:index('=')], arg[index('=') + 1:])
+                useopt(arg[:arg.index('=')], arg[arg.index('=') + 1:])
             else:
                 option = arg
     
-    if output is None: raise Exception('Unused option: --output')
-    if source is None: raise Exception('Unused option: --source')
-    
-    main(shell= shell, output= output, source= source)
+    if shell is None:
+        abort('No shell has been specified')
+    if where is None:
+        if output is None: abort('Unused option: --output')
+        if source is None: abort('Unused option: --source')
+        main(shell= shell, output= output, source= source)
+    else:
+        where_main(shell= shell, command= where)
 
