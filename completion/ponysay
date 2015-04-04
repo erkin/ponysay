@@ -62,7 +62,7 @@
 		    	    (no-exec ls "'/usr/share/ponysay/balloons'" (case (ponysay .say) (ponythink .think)))
 	)
 	(suggestion wrap    (verbatim none inherit 100 60)
-		    	    (calc (pipe (stty size)
+		    	    (calc (pipe (stdin-fd (stty size) (stderr))
 			    	  	(cut -d ' ' -f 2)
 				  ) - 10
 			    )

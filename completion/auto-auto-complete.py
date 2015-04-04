@@ -274,7 +274,7 @@ class GeneratorBASH:
             return '\'' + text.replace('\'', '\'\\\'\'') + '\''
         
         def makeexec(functionType, function):
-            if functionType in ('exec', 'pipe', 'fullpipe', 'cat', 'and', 'or'):
+            if functionType in ('exec', 'pipe', 'fullpipe', 'cat', 'and', 'or', 'stdin', 'stdout', 'stderr', 'stdin-fd', 'stdout-fd', 'stderr-fd', 'fd', 'fd-fd'):
                 elems = [(' %s ' % makeexec(item[0], item[1:]) if isinstance(item, list) else verb(item)) for item in function]
                 if functionType == 'exec':
                     return ' $( %s ) ' % (' '.join(elems))
@@ -288,6 +288,36 @@ class GeneratorBASH:
                     return ' ( %s ) ' % (' && '.join(elems))
                 if functionType == 'or':
                     return ' ( %s ) ' % (' || '.join(elems))
+                if functionType == 'stdin':
+                    if len(elems) == 0:
+                        return 0
+                    [command, redirection] = elems
+                    return ' %s < %s ' % (command, redirection)
+                if functionType == 'stdout':
+                    if len(elems) == 0:
+                        return 1
+                    [command, redirection] = elems
+                    return ' %s > %s ' % (command, redirection)
+                if functionType == 'stderr':
+                    if len(elems) == 0:
+                        return 2
+                    [command, redirection] = elems
+                    return ' %s 2> %s ' % (command, redirection)
+                if functionType == 'stdin-fd':
+                    [command, redirection] = elems
+                    return ' %s <&%s ' % (command, redirection.replace('\'', '').replace(' ', ''))
+                if functionType == 'stdout-fd':
+                    [command, redirection] = elems
+                    return ' %s >&%s ' % (command, redirection.replace('\'', '').replace(' ', ''))
+                if functionType == 'stderr-fd':
+                    [command, redirection] = elems
+                    return ' %s 2>&%s ' % (command, redirection.replace('\'', '').replace(' ', ''))
+                if functionType == 'fd':
+                    [command, fd, redirection] = elems
+                    return ' %s %s<> %s ' % (command, fd.replace('\'', '').replace(' ', ''), redirection)
+                if functionType == 'fd-fd':
+                    [command, fd, redirection] = elems
+                    return ' %s %s<>&%s ' % (command, fd.replace('\'', '').replace(' ', ''), redirection.replace('\'', '').replace(' ', ''))
             if functionType in ('params', 'verbatim'):
                 return ' '.join([verb(item) for item in function])
             return ' '.join([verb(functionType)] + [verb(item) for item in function])
@@ -470,7 +500,7 @@ class GeneratorFISH:
             return '\'' + text.replace('\'', '\'\\\'\'') + '\''
         
         def makeexec(functionType, function):
-            if functionType in ('exec', 'pipe', 'fullpipe', 'cat', 'and', 'or'):
+            if functionType in ('exec', 'pipe', 'fullpipe', 'cat', 'and', 'or', 'stdin', 'stdout', 'stderr', 'stdin-fd', 'stdout-fd', 'stderr-fd', 'fd', 'fd-fd'):
                 elems = [(' %s ' % makeexec(item[0], item[1:]) if isinstance(item, list) else verb(item)) for item in function]
                 if functionType == 'exec':
                     return ' ( %s ) ' % (' '.join(elems))
@@ -484,6 +514,36 @@ class GeneratorFISH:
                     return ' ( %s ) ' % (' && '.join(elems))
                 if functionType == 'or':
                     return ' ( %s ) ' % (' || '.join(elems))
+                if functionType == 'stdin':
+                    if len(elems) == 0:
+                        return 0
+                    [command, redirection] = elems
+                    return ' %s < %s ' % (command, redirection)
+                if functionType == 'stdout':
+                    if len(elems) == 0:
+                        return 1
+                    [command, redirection] = elems
+                    return ' %s > %s ' % (command, redirection)
+                if functionType == 'stderr':
+                    if len(elems) == 0:
+                        return 2
+                    [command, redirection] = elems
+                    return ' %s 2> %s ' % (command, redirection)
+                if functionType == 'stdin-fd':
+                    [command, redirection] = elems
+                    return ' %s <&%s ' % (command, redirection.replace('\'', '').replace(' ', ''))
+                if functionType == 'stdout-fd':
+                    [command, redirection] = elems
+                    return ' %s >&%s ' % (command, redirection.replace('\'', '').replace(' ', ''))
+                if functionType == 'stderr-fd':
+                    [command, redirection] = elems
+                    return ' %s 2>&%s ' % (command, redirection.replace('\'', '').replace(' ', ''))
+                if functionType == 'fd':
+                    [command, fd, redirection] = elems
+                    return ' %s %s<> %s ' % (command, fd.replace('\'', '').replace(' ', ''), redirection)
+                if functionType == 'fd-fd':
+                    [command, fd, redirection] = elems
+                    return ' %s %s<>&%s ' % (command, fd.replace('\'', '').replace(' ', ''), redirection.replace('\'', '').replace(' ', ''))
             if functionType in ('params', 'verbatim'):
                 return ' '.join([verb(item) for item in function])
             return ' '.join([verb(functionType)] + [verb(item) for item in function])
@@ -664,7 +724,7 @@ class GeneratorZSH:
             return '\'' + text.replace('\'', '\'\\\'\'') + '\''
         
         def makeexec(functionType, function):
-            if functionType in ('exec', 'pipe', 'fullpipe', 'cat', 'and', 'or'):
+            if functionType in ('exec', 'pipe', 'fullpipe', 'cat', 'and', 'or', 'stdin', 'stdout', 'stderr', 'stdin-fd', 'stdout-fd', 'stderr-fd', 'fd', 'fd-fd'):
                 elems = [(' %s ' % makeexec(item[0], item[1:]) if isinstance(item, list) else verb(item)) for item in function]
                 if functionType == 'exec':
                     return ' $( %s ) ' % (' '.join(elems))
@@ -678,6 +738,36 @@ class GeneratorZSH:
                     return ' ( %s ) ' % (' && '.join(elems))
                 if functionType == 'or':
                     return ' ( %s ) ' % (' || '.join(elems))
+                if functionType == 'stdin':
+                    if len(elems) == 0:
+                        return 0
+                    [command, redirection] = elems
+                    return ' %s < %s ' % (command, redirection)
+                if functionType == 'stdout':
+                    if len(elems) == 0:
+                        return 1
+                    [command, redirection] = elems
+                    return ' %s > %s ' % (command, redirection)
+                if functionType == 'stderr':
+                    if len(elems) == 0:
+                        return 2
+                    [command, redirection] = elems
+                    return ' %s 2> %s ' % (command, redirection)
+                if functionType == 'stdin-fd':
+                    [command, redirection] = elems
+                    return ' %s <&%s ' % (command, redirection.replace('\'', '').replace(' ', ''))
+                if functionType == 'stdout-fd':
+                    [command, redirection] = elems
+                    return ' %s >&%s ' % (command, redirection.replace('\'', '').replace(' ', ''))
+                if functionType == 'stderr-fd':
+                    [command, redirection] = elems
+                    return ' %s 2>&%s ' % (command, redirection.replace('\'', '').replace(' ', ''))
+                if functionType == 'fd':
+                    [command, fd, redirection] = elems
+                    return ' %s %s<> %s ' % (command, fd.replace('\'', '').replace(' ', ''), redirection)
+                if functionType == 'fd-fd':
+                    [command, fd, redirection] = elems
+                    return ' %s %s<>&%s ' % (command, fd.replace('\'', '').replace(' ', ''), redirection.replace('\'', '').replace(' ', ''))
             if functionType in ('params', 'verbatim'):
                 return ' '.join([verb(item) for item in function])
             return ' '.join([verb(functionType)] + [verb(item) for item in function])
@@ -726,7 +816,9 @@ class GeneratorZSH:
                     continue
                 buf += '    \'(%s)\'{%s}' % (' '.join(options), ','.join(options))
                 if 'desc' in item:
-                    buf += '"["%s"]"' % verb(' '.join(item['desc']))
+                    desc = ' '.join(item['desc'])
+                    desc = desc.replace('\\', '\\\\').replace('[', '\\[').replace(']', '\\]')
+                    buf += '"["%s"]"' % verb(desc)
                 if 'arg' in item:
                     buf += '":%s"' % verb(' '.join(item['arg']))
                 elif options[0] in suggesters:
