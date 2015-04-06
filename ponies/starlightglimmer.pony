@@ -15,7 +15,7 @@ MANE: purple, blue
 NAME: Starlight Glimmer
 OTHER NAMES: Starlight, Mayor Marx (By fans)
 POSE: holding
-WIDTH: 97
+WIDTH: 98
 HEIGHT: 44
 
 $$$
