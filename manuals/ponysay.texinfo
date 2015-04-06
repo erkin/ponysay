@@ -3404,7 +3404,8 @@ ANSI escape sequences.
 @heading Version 3.0.3
 @itemize @bullet
 @item
-New ponies: @file{auntorange}, @file{cocopommel}, @file{goldiedelicious}, @file{grace}
+New ponies: @file{auntorange}, @file{cocopommel}, @file{goldiedelicious}, @file{grace},
+@file{starlightglimmer}
 @item
 @itemize @bullet
 Pony symlink added:
