@@ -41,6 +41,10 @@ Debian packages can be found [here](http://www.vcheng.org/ponysay/).
 #### Ubuntu
 There is a PPA available, specifically for ponysay, containing packages for all currently supported Ubuntu releases [here](https://launchpad.net/~vincent-c/+archive/ponysay).
 
+#### OpenSuSe 13.2 or OpenSuSe Factory
+The package is available in OpenSuSe 13.2 and Factory since 6th april 2014, courtesy of Andreas Stieger.
+If you want the individual rpm look [here](http://www.rpmfind.net/linux/rpm2html/search.php?query=ponysay).
+
 #### Mac OS X (OSX)
 A `ponysay` [Homebrew](https://github.com/mxcl/homebrew) formula is available.
 
