@@ -34,6 +34,8 @@ from balloon import *
 from colourstack import *
 from ucs import *
 
+import unicodedata
+
 
 
 class Backend():
@@ -457,6 +459,8 @@ class Backend():
                 i += 1
                 if not UCS.isCombining(c):
                     rc += 1
+                    if unicodedata.east_asian_width(c) in ('F', 'W', 'A'):
+                        rc += 1
         return rc
     
     
