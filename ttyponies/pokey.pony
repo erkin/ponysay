@@ -12,10 +12,10 @@ KIND: unicorn
 LINK: regular
 MANE: white
 NAME: (not mentioned)
-OTHER NAMES: Pokey Pierce (unofficial), Perry Pierce (unofficial, same look), Pinprick (official on Trading card)
+OTHER NAMES: Pokey Pierce (unofficial), Perry Pierce (unofficial, same look), Royal Pin (Gameloft game), Pinprick (official on Trading card)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
-WIDTH: 44
+WIDTH: 78
 HEIGHT: 26
 
 $$$

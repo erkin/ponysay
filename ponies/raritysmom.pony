@@ -12,7 +12,7 @@ KIND: unicorn
 LINK: regular
 MANE: blue
 NAME: (not mentioned)
-OTHER NAMES: Pearl (unofficial), Cookie Crumbles (official, on Trading Card Game)
+OTHER NAMES: Pearl (unofficial), Cookie Crumbles (official, on Trading Card Game), Betty bouffant (Gameloft game)
 POSE: stand
 SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 43
