@@ -3413,6 +3413,10 @@ Pony symlink added:
 @item @file{hondoflanks} @arrow{} @file{raritysdad}
 @end itemize
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
+@item
+Code is cleaned and improved.
+@item
+Fullwidth CJK characters support.
 @end itemize
 
 @heading Version 3.0.2

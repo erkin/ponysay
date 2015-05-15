@@ -13,6 +13,8 @@ version 3.0.3
 	* orange was renamed to uncleorange to not conflict with auntorange.
 
 	Code is cleaned and improved.
+	
+	Fullwidth CJK characters support.
 
 Version 3.0.2
 
