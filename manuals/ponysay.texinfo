@@ -3407,6 +3407,8 @@ ANSI escape sequences.
 New ponies: @file{auntorange}, @file{cocopommel}, @file{goldiedelicious}, @file{grace},
 @file{starlightglimmer}
 @item
+New extraponies: @file{cocoachill}, @file{riverbeauty}
+@item
 @itemize @bullet
 Pony symlink added:
 @item @file{cookiecrumbles} @arrow{} @file{raritysmom}
