@@ -1,5 +1,6 @@
 $$$
 APPEARANCE: Ask King Sombra: Chapter 17 Part 1
+AURA: blue
 BALLOON: top
 BALLOON BOTTOM: 3
 BALLOON TOP: 0
@@ -17,7 +18,7 @@ MEDIA: http://ask-king-sombra.tumblr.com
 NAME: Cocoa Chill
 POSE: trot
 SOURCE: [jristz], based on Desktop ponies
-WIDTH: 71
+WIDTH: 74
 HEIGHT: 23
 
 License summary:   https://creativecommons.org/licenses/by-sa/3.0

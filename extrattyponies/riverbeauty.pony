@@ -1,5 +1,6 @@
 $$$
 APPEARANCE: Ask king Sombra: Chapter 17 part 1
+AURA: blue
 BALLOON: top
 BALLOON BOTTOM: 3
 BALLOON TOP: 0
@@ -17,7 +18,7 @@ MEDIA: http://ask-king-sombra.tumblr.com
 NAME: River Beauty
 POSE: cast
 SOURCE: [jristz], based on Desktop ponies
-WIDTH: 84
+WIDTH: 87
 HEIGHT: 23
 
 License summary:   https://creativecommons.org/licenses/by-sa/3.0
