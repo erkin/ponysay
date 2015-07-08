@@ -1,14 +1,14 @@
 pkgname=lightweight-ponies
-pkgver=1
-pkgrel=2
+pkgver=2
+pkgrel=1
 pkgdesc="Featurefree lightweight ponysay script"
 url="https://github.com/erkin/ponysay/extras/lightweight-ponies"
 license=('custom:GNUAllPermissive')
 arch=('any')
 depends=('sh' 'grep' 'sed' 'findutils' 'coreutils' 'ponysay')
-_commit=1d748f6da31cc81d3c97ea511d5e2d93149d00c8
+_commit=c4fc895c451838a78b93ede7f1ab1b63fdb5a4b9
 source=("https://github.com/erkin/ponysay/archive/${_commit}.tar.gz")
-sha256sums=('b21704be21037172c74d0965be4d04c4d2d2328a0838880009e2c5e23ce482b4')
+sha256sums=('24ee8698f32d5b986efd36aab04f32420ffe57d501ec1594d992bc05555db546')
 
 package() {
     cd "${srcdir}/ponysay-${_commit}/extras/lightweight-ponies"
