@@ -606,7 +606,9 @@ class Setup():
                 for command in commands:
                     if conf[command] is not None:
                         src = 'completion/%s-completion.%s.install' % (shell, command)
-                        dest = conf[shell].replace('ponysay', command)
+                        dest = os.path.join(
+                            os.path.dirname(conf[shell]),
+                            os.path.basename(conf[shell]).replace('ponysay', command))
                         self.cp(False, src, [dest])
         if conf['pdf'] is not None:
             src = 'ponysay.pdf' + ('' if conf['pdf-compression'] is None else '.' + conf['pdf-compression'])
