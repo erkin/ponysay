@@ -621,7 +621,8 @@ class Setup():
             src = 'ponysay.info' + ext
             for command in commands:
                 if conf[command] is not None:
-                    dests.append(conf['info'] + '/' + command + '.info' + ext)
+                    dest = conf['info'] + '/' + command + '.info' + ext
+                    dests.append(dest)
                     if conf['info-install'] is not None:
                         cmdarr = ['install-info', '--entry=Miscellaneous', '--description=' + conf['info-install'], '--dir-file=' + conf['info'] + '/dir', dest]
                         cmd = ' '.join(['\'%s\'' % (elem.replace('\'', '\'\\\'\'')) for elem in cmdarr])
