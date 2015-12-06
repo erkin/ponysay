@@ -922,7 +922,10 @@ class Setup():
         if target.startswith('./') or target.startswith('../'):
             os.symlink(target, dest)
         elif '/' not in target:
-            os.symlink('./' + target, dest)
+            try:
+                os.symlink('./' + target, dest)
+            except:
+                pass
         else:
             targets = target.split('/')
             dests = dest.split('/')
