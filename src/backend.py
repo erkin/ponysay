@@ -459,7 +459,7 @@ class Backend():
                 i += 1
                 if not UCS.isCombining(c):
                     rc += 1
-                    if unicodedata.east_asian_width(c) in ('F', 'W', 'A'):
+                    if unicodedata.east_asian_width(c) in ('F', 'W'):
                         rc += 1
         return rc
     
