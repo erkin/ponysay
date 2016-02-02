@@ -24,7 +24,7 @@ Or if you have a specific pony in your mind:
     ponysay -f pinkie "Partay!~"
 
 Consult `info ponysay`, `man 6 ponysay` or `ponysay -h` for additional information.
-Spanish and Turkish manuals are also available: `man -L es 6 ponysay` and 'man -L tr 6 ponysay` respectively.
+Spanish and Turkish manuals are also available: `man -L es 6 ponysay` and `man -L tr 6 ponysay` respectively.
 
 #### Arch Linux
 The package is in the official repositories as `community/ponysay`. A Git version is also present, named `ponysay-git` in AUR.
