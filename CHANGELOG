@@ -10,9 +10,12 @@ version 3.0.3
 			    hondoflanks → raritysdad (official name)
 			    royalpin → pockeypierce (Gamelft name)
 			    cloudyquartz → sue (Gameloft name)
+			    cocopommel → misscoco (changed in serie)
 
 	Special pony cases:
 	* orange was renamed to uncleorange to not conflict with auntorange.
+	* cocopommel was renamed to misspommel in the serie and merchandise
+	  a symlink was provided pointing to the old name
 
 	Code is cleaned and improved.
 	

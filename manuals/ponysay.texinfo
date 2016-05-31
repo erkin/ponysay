@@ -3412,9 +3412,15 @@ New extraponies: @file{cocoachill}, @file{riverbeauty}
 @itemize @bullet
 Pony symlink added:
 @item @file{cookiecrumbles} @arrow{} @file{raritysmom}
+@item @file{bettyboufant} @arrow{} @file{raritysmom}
 @item @file{hondoflanks} @arrow{} @file{raritysdad}
+@item @file{royalpin} @arrow{} @file{pokeypierce}
+@item @file{cloudyquartz} @arrow{} @file{sue}
+@item @file{cocopommel} @arrow{} @file{misspommel}
 @end itemize
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
+@file{cocopommel} was renamed to @file{misspommel} in the serie and merchandise a
+symlink was provided pointing to the old name.
 @item
 Code is cleaned and improved.
 @item
