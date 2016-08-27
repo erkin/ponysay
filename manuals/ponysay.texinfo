@@ -1037,7 +1037,7 @@ and all other words, except for articles, prepositions, conjunctions, and forms
 of `to be' is recommended.
 
 Be aware that MLP:FiM episodes use American spelling which include a rather
-uncommon why to write for examples abbrevations (like for example Mr. instead
+uncommon way to write for examples abbrevations (like for example Mr. instead
 of Mr), this may however not be the case for non-MLP:FiM episodes. And if there
 are not series (season) the series number defaults to 1, however other numbers
 and tags (which the part number is) may be added if required.
@@ -1052,7 +1052,7 @@ Every fitting value should be used, however an alicorn (also known as alacorn,
 winged unicorn, acorn, pegasus unicorn, unipeg, unisus, horned pegasus,
 wing-horn, allacorn, cerapter pterippus, aquillacorn, pegasos aithiopikos,
 alate unicorns, or pegacorn (really all those name has been used throw history
-to define a unicorn whit wing or pegasus whit a horn)) should have the values
+to define a unicorn with wing or pegasus with a horn)) should have the values
 @code{alicorn} and @code{pony}, but neither @code{pegasus} nor @code{unicorn}
 or another of the possible therms mentioned. Earth ponies should have the value 
 @code{pony} and @code{earth} not @code{earth pony}.
@@ -1077,10 +1077,10 @@ form like @file{spikecrystal}
 @item @code{seapony}
 Any seapony from either novel, movies, comics, the series or the fandom
 like @file{sealyra}
-@item @code{breeze}
-Breezes showed on the series or movies, this kind is based on the G3 
-breezes, but with they unique traits like speak in a nordic accent; 
-examples are @file{seabreeze} from main ponydir.
+@item @code{breezie}
+Breezies showed on the series or movies, this kind is based on the G3 
+breezies, but with they unique traits like speak in a nordic accent; 
+examples are @file{seabreeze} or @file{twilightbreezie} from main ponydir.
 @item @code{animal}
 Applies to Spike and any other animal 
 @item @code{item}
@@ -1114,7 +1114,7 @@ Male pony child
 @item @code{baby}
 Baby ponies like poundcake
 @item @code{dragon}
-Dragons (Spike, Crakle, Basil and the other dragons)
+Dragons (Spike, Crakle, Ember, Basil and the other dragons)
 @item @code{mane}
 The mane characters (also known as main characters [unponified] or protagonists)
 @item @code{wildlife}
@@ -1131,10 +1131,11 @@ tittle because she fullfilled they destiny.
 Villains, normally minions to antagonists or recurring bad ponies. 
 Applies to changelings.
 @item @code{antagonist}
-(applies to: Nightmare Moon, Gilda, Discord, Chrysalis, Sombra, tirek)
+(applies to: Nightmare Moon, Gilda, Discord, Chrysalis, Sombra, Tirek)
 Antagonists are also known as archivillians or archenemies.
-Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one.
-@item @code{reconciled} (applies to: Trixie, Discord)
+Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one
+for her debut.
+@item @code{reconciled} (applies to: Trixie, Discord, et al.)
 Any @code{villain} that change to the good side (aka become a 
 good citizen or help the mane 6) count as one even if return to the dark 
 side later, not count if they help for fulfill they malevolent plant.
@@ -3405,7 +3406,7 @@ ANSI escape sequences.
 @itemize @bullet
 @item
 New ponies: @file{auntorange}, @file{cocopommel}, @file{goldiedelicious}, @file{grace},
-@file{starlightglimmer}
+@file{starlightglimmer}, @file{twilightbreezie}
 @item
 New extraponies: @file{cocoachill}, @file{riverbeauty}
 @item
@@ -3424,7 +3425,7 @@ symlink was provided pointing to the old name.
 @item
 Code is cleaned and improved.
 @item
-Fullwidth CJK characters support.
+Initial fullwidth CJK characters support.
 @end itemize
 
 @heading Version 3.0.2

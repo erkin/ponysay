@@ -1,7 +1,7 @@
 version 3.0.3
 
 	New ponies: auntorange, cocopommel, goldiedelicious, grace, 
-		    starlightglimmer
+		    starlightglimmer, twilightbreezie
 		    
 	New extraponies: cocoachill, riverbeauty
 
@@ -19,7 +19,7 @@ version 3.0.3
 
 	Code is cleaned and improved.
 	
-	Fullwidth CJK characters support added.
+	Initial fullwidth CJK characters support added.
 
 Version 3.0.2
 
