@@ -2607,11 +2607,14 @@ Mac OS X users can use the @code{ponysay} Homebrew
 @cindex Windows
 @cindex Cygwin
 Ponysay is also reported to be able to run on Windows 8 through Cygwin,
-provided that @code{python3} is installed. It will probabily also run one any
+provided that @code{python3} is installed. It will probably also run on any
 other version of Windows through Cygwin. Additionally among the preinstalled
 fonts in Windows 8; Consolas 10pt, and larger, can be used for almost perfect
 ponies (they may be just a little distorted on the height), however Consolas
 is only able print the ASCII based balloons.
+
+Ponysay also runs on Ubuntu on Windows, but the terminal's colour support
+leaves something to be desired.
 
 
 

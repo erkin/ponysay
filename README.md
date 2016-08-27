@@ -88,8 +88,9 @@ Read the PDF or info manual for more information.
 Installation on Microsoft™ Windows®
 -----------------------------------
 [¯\\\_(ツ)\_/¯](http://fc05.deviantart.net/fs71/i/2011/266/d/e/shrugpony_firefly_by_imaplode-d4aqtvx.png)
-Some users report that ponysay work in cygwing, therefor __maybe__ can work.
-Users has reported that ponysay can run in Windows 10 using the Linux layer built in but it don't display the ponyes correctly (or at all).
+Ponysay runs on Cygwin and GNU/NT (a.k.a. Ubuntu on Windows), 
+however the Windows's Bash on Ubuntu on Windows terminal does
+support xterm-256color colours.
 
 
 Dependencies
