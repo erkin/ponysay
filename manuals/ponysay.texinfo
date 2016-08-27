@@ -1075,8 +1075,8 @@ Changeling like @file{queenchrysalis} or @file{thorax}
 Any cristal pony like @file{twilightcrystal} or animal in they crystal 
 form like @file{spikecrystal}
 @item @code{seapony}
-Any seapony from either novel, movies, comics, the series or the fandom
-like @file{sealyra}
+Any seapony or by extenssion an orcapony from either novel, movies, comics, 
+the series or the fandom like @file{sealyra}
 @item @code{breezie}
 Breezies showed on the series or movies, this kind is based on the G3 
 breezies, but with they unique traits like speak in a nordic accent; 
@@ -3408,8 +3408,8 @@ ANSI escape sequences.
 @heading Version 3.0.3
 @itemize @bullet
 @item
-New ponies: @file{auntorange}, @file{cocopommel}, @file{goldiedelicious}, @file{grace},
-@file{starlightglimmer}, @file{twilightbreezie}
+New ponies: @file{auntorange}, @file{cocopommel}, @file {ember}, @file{goldiedelicious}, 
+@file{grace}, @file{starlightglimmer}, @file{twilightbreezie}
 @item
 New extraponies: @file{cocoachill}, @file{riverbeauty}
 @item
