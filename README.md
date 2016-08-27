@@ -89,7 +89,7 @@ Installation on Microsoft™ Windows®
 -----------------------------------
 [¯\\\_(ツ)\_/¯](http://fc05.deviantart.net/fs71/i/2011/266/d/e/shrugpony_firefly_by_imaplode-d4aqtvx.png)
 Some users report that ponysay work in cygwing, therefor __maybe__ can work.
-No user has reported if the windows implementation of the gnu/linux tools in Windows 10™ is able (instaling the apropiate dependencies) to run ponysay.
+Users has reported that ponysay can run in Windows 10 using the Linux layer built in but it don't display the ponyes correctly (or at all).
 
 
 Dependencies
@@ -131,5 +131,9 @@ __Q:__ Which programs do you use to generate the pony files?
 
 __A:__ The pony files are in fact mostly a bunch of selected [browser ponies](//web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](//github.com/maandree/util-say),
 Other are taken from desktop ponies, and the others are created specifically for ponysay.
+
+__Q:__ This project look like abandoned...
+__A:__ Well, most dev and controbutors has moved to more time consuming tasks so our time has been reduced, but we accept most PR for bugfixs and ponies (correctly builded) and
+we're still looking for bug and fixes, so stay tunned for the next release or pushes to the git.
 
 The [PDF manual](//github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true) should answer most of your questions.
