@@ -1070,7 +1070,7 @@ For earth ponies like @file{applejack}
 @item @code{pony}
 As a generic in case of unknow or sujetable like @file{headlesshorse}
 @item @code{changeling}
-Changeling like @file{queenchrysalis}
+Changeling like @file{queenchrysalis} or @file{thorax}
 @item @code{crystal}
 Any cristal pony like @file{twilightcrystal} or animal in they crystal 
 form like @file{spikecrystal}
