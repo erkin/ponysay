@@ -3423,6 +3423,7 @@ Pony symlink added:
 @item @file{royalpin} @arrow{} @file{pokeypierce}
 @item @file{cloudyquartz} @arrow{} @file{sue}
 @item @file{cocopommel} @arrow{} @file{misspommel}
+@item @file{horsemd} @arrow{} @file{doctop}
 @end itemize
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
 @file{cocopommel} was renamed to @file{misspommel} in the serie and merchandise a
