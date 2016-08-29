@@ -13,14 +13,16 @@ LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: black
 NAME: Queen Oscura (Given by the author)
+OTHER NAMES: Oscura (Without her tittle)
 POSE: angry
 SOURCE: [Jristz], based on (Brendanbass) work
 WIDTH: 94
-HEIGHT: 30
+HEIGHT: 33
 
 License summary:   https://creativecommons.org/licenses/by-sa/3.0
 Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
 $$$
+$balloon30$^[[00m                                                                                        [00m
                            $\$                                                                  [00m
                             $\$                                                                 [00m
                              $\$                                                                [00m

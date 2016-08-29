@@ -2,8 +2,8 @@ $$$
 APPEARANCE: Ask King Sombra: Chapter 17 Part 1
 AURA: blue
 BALLOON: top
-BALLOON BOTTOM: 3
-BALLOON TOP: 0
+BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: gray
 DISPLAY: full, left
 EYE: (unknow)
@@ -13,17 +13,17 @@ KIND: unicorn, yakut
 LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: blue
-MASTER: cocoachill
 MEDIA: http://ask-king-sombra.tumblr.com
 NAME: Cocoa Chill
 POSE: trot
 SOURCE: [jristz], based on Desktop ponies
-WIDTH: 74
-HEIGHT: 23
+WIDTH: 80
+HEIGHT: 26
 
 License summary:   https://creativecommons.org/licenses/by-sa/3.0
 Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
 $$$
+$balloon30$^[[00m                                   [00m
    $\$                                     [00m
     $\$                                    [00m
      $\$                                   [00m

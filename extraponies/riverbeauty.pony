@@ -2,8 +2,8 @@ $$$
 APPEARANCE: Ask king Sombra: Chapter 17 part 1
 AURA: blue
 BALLOON: top
-BALLOON BOTTOM: 3
-BALLOON TOP: 0
+BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: purple
 DISPLAY: full, left
 EYE: closed, cyan
@@ -13,17 +13,18 @@ KIND: unicorn, yakut
 LICENSE: cc-by-sa (Creative Commons Attribution-ShareAlike 3.0 Unported)
 LINK: regular
 MANE: pink
-MASTER: riverbeauty
 MEDIA: http://ask-king-sombra.tumblr.com
 NAME: River Beauty
+OTHER NAMES: Beauty (on tags once)
 POSE: cast
 SOURCE: [jristz], based on Desktop ponies
-WIDTH: 87
-HEIGHT: 23
+WIDTH: 81
+HEIGHT: 26
 
 License summary:   https://creativecommons.org/licenses/by-sa/3.0
 Full license text: https://creativecommons.org/licenses/by-sa/3.0/legalcode
 $$$
+$balloon30$^[[00m                                             [00m
            $\$                                       [00m
             $\$                                      [00m
              $\$                                     [00m
