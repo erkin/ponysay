@@ -1087,12 +1087,12 @@ Applies to Spike and any other animal
 Applies to @file{tom} and Pinkamina's imaginary friends
 @item @code{batpony} 
 Applies to @file{royalnightguard} and others bat winged pony a like 
-creature, @emph{Word of good} say these ponies are a different species 
+creatures, @emph{Word of good} say these ponies are a different species 
 but merchandice call them @code{pegasus}, so you need use 
-@code{pegasus} and @code{batpony} comma separated one earch other for 
+@code{pegasus} and @code{batpony} comma separated one each other for 
 uniformity.
-For other side @file{flutterbat} is simply @file{flutershy} plus a fuit 
-bat but not a natural @code{batpony} so this tag shall not be whit she.
+For other side @file{flutterbat} is just @file{flutershy} plus a fuit 
+bat but not a natural @code{batpony} so this tag shall not be with she.
 @end itemize
 
 @item GROUP
@@ -3426,6 +3426,8 @@ Pony symlink added:
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
 @file{cocopommel} was renamed to @file{misspommel} in the serie and merchandise a
 symlink was provided pointing to the old name.
+@file{maudepie} was renamed to @file{maudpie} since that her real name, we just 
+miswritted it.
 @item
 Code is cleaned and improved.
 @item

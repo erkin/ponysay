@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S04E12 Maude Pie
+APPEARANCE: S04E12 Maud Pie
 BALLOON: top
 BALLOON BOTTOM: 0
 BALLOON TOP: 3
@@ -11,11 +11,12 @@ GROUP: mare, background, voiced
 KIND: earth
 LINK: regular
 MANE: gray
-NAME: Maude Pie
+NAME: Maud Pie
 POSE: stand
 SOURCE: Desktop ponies
 WIDTH: 49
-HEIGHT: 24
+HEIGHT: 27
+
 
 $$$
 $balloon22$[00m

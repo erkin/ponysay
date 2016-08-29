@@ -1,4 +1,4 @@
-version 3.0.3
+}version 3.0.3
 
 	New ponies: auntorange, cocopommel, ember, fluttershubat, 
 		    fluttershybathang, goldiedelicious, grace, 
@@ -17,6 +17,8 @@ version 3.0.3
 	* orange was renamed to uncleorange to not conflict with auntorange.
 	* cocopommel was renamed to misspommel in the serie and merchandise
 	  a symlink was provided pointing to the old name
+	* maudepie was renamed to maudpie since that her real name, we 
+	  just miswitted it
 
 	Code is cleaned and improved.
 	
