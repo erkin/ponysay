@@ -15,7 +15,7 @@ NAME: Maud Pie
 POSE: stand
 SOURCE: Desktop ponies
 WIDTH: 49
-HEIGHT: 24
+HEIGHT: 27
 
 $$$
 $balloon22$[00m
