@@ -1019,9 +1019,9 @@ pony, each name should have an officiallity tag.
 This tag specifies in which episode the pony first appeared. It reasonable to
 specify it even for ponies that appears in every episode.
 
-For uniformity the format @code{S%sE%e %t[ %P]} is recommended; @code{[ ]}
+For uniformity the format @code{S%sE%e %t [%P]} is recommended; @code{[ ]}
 denotes and optional part, optional in the sence that it does not apply the
-every episode, but it @emph{should} be used if applyable. @code{%s} is the
+every episode, but it @emph{should} be used if applicable. @code{%s} is the
 series (season) number in two digits, @code{%e} is the episode number in two
 digits. @code{%t} is the episode title and should use the standardised title
 format for the used format however without surrounding quotes if the used
@@ -1060,31 +1060,31 @@ or another of the possible therms mentioned. Earth ponies should have the value
 The standard values are (you may use other ones if fitting):
 @itemize @bullet
 @item @code{unicorn}
-For unicorn like @file{twilight} or presummed unicorns
+For unicorn like @file{rarity} or presummed unicorns.
 @item @code{pegasus}
-For pegasi like @file{fluttershy}
+For pegasi like @file{fluttershy}.
 @item @code{alicorn}
-For Alicorn, Winged pegasus, Pegacorn, etc. like @file{celestia}
+For Alicorn, Winged pegasus, Pegacorn, etc. like @file{celestia}.
 @item @code{earth}
-For earth ponies like @file{applejack}
+For earth ponies like @file{applejack}.
 @item @code{pony}
-As a generic in case of unknow or sujetable like @file{headlesshorse}
+As a generic in case of unknow or sujetable like @file{headlesshorse}.
 @item @code{changeling}
-Changeling like @file{queenchrysalis} or @file{thorax}
+Changeling like @file{queenchrysalis} or @file{thorax}.
 @item @code{crystal}
 Any cristal pony like @file{twilightcrystal} or animal in they crystal 
-form like @file{spikecrystal}
+form like @file{spikecrystal}.
 @item @code{seapony}
 Any seapony or by extenssion an orcapony from either novel, movies, comics, 
-the series or the fandom like @file{sealyra}
+the series or the fandom like @file{sealyra}.
 @item @code{breezie}
 Breezies showed on the series or movies, this kind is based on the G3 
 breezies, but with they unique traits like speak in a nordic accent; 
 examples are @file{seabreeze} or @file{twilightbreezie} from main ponydir.
 @item @code{animal}
-Applies to Spike and any other animal 
+Applies to Spike and any other animal.
 @item @code{item}
-Applies to @file{tom} and Pinkamina's imaginary friends
+Applies to @file{tom} and Pinkamina's imaginary friends.
 @item @code{batpony} 
 Applies to @file{royalnightguard} and others bat winged pony a like 
 creatures, @emph{Word of good} say these ponies are a different species 
@@ -1101,24 +1101,25 @@ bat but not a natural @code{batpony} so this tag shall not be with she.
 This tag decribes which groups a pony classifies under, it is a comma
 seperated lower case list, and it cannot be empty, by it can be (but shouldn't)
 skipped for every pony in the image.
+
 The standard values are (you may use other ones if fitting):
 @itemize @bullet
 @item @code{mare}
-Adult female pony
+Adult female pony.
 @item @code{stallion}
-Adult male pony
+Adult male pony.
 @item @code{filly}
-Female pony child
+Female pony child.
 @item @code{colt}
-Male pony child
+Male pony child.
 @item @code{baby}
-Baby ponies like poundcake
+Baby ponies like @file{poundcake}.
 @item @code{dragon}
-Dragons (Spike, Crakle, Ember, Basil and the other dragons)
+Dragons (Spike, Crakle, Ember, Basil and the other dragons).
 @item @code{mane}
-The mane characters (also known as main characters [unponified] or protagonists)
+The mane characters (also known as main characters [unponified] or protagonists).
 @item @code{wildlife}
-Wildlife, for example timberwolfs
+Wildlife, for example timberwolfs.
 @item @code{pet}
 A pony's pet, Spike does not count because Twilight does not play with him
 during pony–pet play dates.
@@ -1135,7 +1136,7 @@ Applies to changelings.
 Antagonists are also known as archivillians or archenemies.
 Nightmare Moon, Discord and Chrysalis are such, but Gilda also counts as one
 for her debut.
-@item @code{reconciled} (applies to: Trixie, Discord, et al.)
+@item @code{reconciled} (applies to Trixie, Discord, et al.)
 Any @code{villain} that change to the good side (aka become a 
 good citizen or help the mane 6) count as one even if return to the dark 
 side later, not count if they help for fulfill they malevolent plant.
