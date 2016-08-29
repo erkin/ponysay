@@ -11,7 +11,7 @@ GROUP: filly, background
 KIND: earth
 LINK: regular
 MANE: grey
-NAME: MArble Pie
+NAME: Marble Pie
 OTHER NAMES: Inkie Pie (unofficial), Inky (unofficial)
 POSE: dance
 SOURCE: (Anonycat) Desktop ponies
