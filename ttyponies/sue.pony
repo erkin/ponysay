@@ -11,8 +11,8 @@ GROUP: mare
 KIND: earth
 LINK: regular
 MANE: grey
-NAME: (not mentioned)
-OTHER NAMES: Sue (unofficial), Cloudy Quartz (Official, on official Book)
+NAME: Cloudy Quartz
+OTHER NAMES: Sue (unofficial)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 42

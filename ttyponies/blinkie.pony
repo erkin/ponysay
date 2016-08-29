@@ -11,8 +11,8 @@ GROUP: filly, background
 KIND: earth
 LINK: regular
 MANE: grey
-NAME: (not mentioned)
-OTHER NAMES: Blinkie Pie (unofficial), Limestone Pie (official, on book)
+NAME: Limestone Pie
+OTHER NAMES: Blinkie Pie (unofficial)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 31

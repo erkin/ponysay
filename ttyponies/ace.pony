@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E12 Call of the Cutie
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: beige
 DISPLAY: full, left
 EYE: teal
@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: Ace (unofficial)
+OTHER NAMES: Ace (unofficial), Ace Point (official)
 POSE: stand
 SOURCE: [jristz]
 WIDTH: 48

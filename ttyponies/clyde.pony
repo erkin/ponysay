@@ -11,8 +11,8 @@ GROUP: stallion
 KIND: earth
 LINK: regular
 MANE: grey
-NAME: (not mentioned)
-OTHER NAMES: Clyde (unofficial), Igneous Rock (Official, on official Book)
+NAME: Igneous Rock
+OTHER NAMES: Clyde (unofficial), Igneous Rock Pie (Official, promotional material)
 POSE: stand
 SOURCE: (Anonycat) Desktop ponies
 WIDTH: 47
