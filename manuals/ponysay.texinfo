@@ -3410,9 +3410,9 @@ ANSI escape sequences.
 @itemize @bullet
 @item
 New ponies: @file{auntorange}, @file{cocopommel}, @file {ember}, 
-@file{fluttershybat}, @file{fluttershybathang}, @file{goldiedelicious}, 
-@file{grace}, @file{kevin}, @file{starlightglimmer}, @file{stellareclipse}, 
-@file{tirek}, @file{troubleshoes}, @file{twilightbreezie}
+@file{flurryheart}, @file{fluttershybat}, @file{fluttershybathang}, 
+@file{goldiedelicious}, @file{grace}, @file{kevin}, @file{starlightglimmer}, 
+@file{stellareclipse}, @file{tirek}, @file{troubleshoes}, @file{twilightbreezie}
 @item
 New extraponies: @file{cocoachill}, @file{riverbeauty}
 @item
