@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S02E17 Hearts and Hooves Day
 BALLOON: top
-BALLOON TOP: 3
 BALLOON BOTTOM: 0
+BALLOON TOP: 3
 COAT: grey
 DISPLAY: head, left
 EYE: blue
@@ -12,9 +12,9 @@ KIND: earth
 LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Hugh Jelly (unofficial)
+OTHER NAMES: Hughbert Jellius (Official, in merchandise), Hugh Jelly (unofficial)
 POSE: jelly
-SOURCE: (imagegrou) deviantar
+SOURCE: (imagegrou) deviantart
 WIDTH: 38
 HEIGHT: 37
 

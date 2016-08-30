@@ -3429,6 +3429,7 @@ Pony symlink added:
 @item @file{blinkie} @arrow{} @file{limestone}
 @item @file{inky} @arrow{} @file{marble}
 @item @file{clyde} @arrow{} @file{igneousrock}
+@item @file{hughjelly} @arrow{} @file{hughbertjellius}
 @end itemize
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
 @file{cocopommel} was renamed to @file{misspommel} in the serie and merchandise a
