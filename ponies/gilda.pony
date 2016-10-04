@@ -1,5 +1,5 @@
 $$$
-APPEARANCE: S01E05 Griffon the Brush Off (sic!)
+APPEARANCE: S01E05 Griffon the Brush Off
 BALLOON: top
 BALLOON TOP: 2
 BALLOON BOTTOM: 0
@@ -7,7 +7,7 @@ COAT: brown
 DISPLAY: full, left
 EYE: yellow
 FREE: no
-GROUP: griffin, antagonist
+GROUP: griffon, antagonist
 KIND: animal
 LINK: regular
 MANE: white

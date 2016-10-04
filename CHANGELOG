@@ -27,6 +27,9 @@
 	* maudepie was renamed to maudpie since that her real name, we 
 	  just miswitted it
 
+	Changed all the references from griffin to griffon, that the apropiate
+	canon in-universe name for this creature.
+
 	Code is cleaned and improved.
 	
 	Initial fullwidth CJK characters support added.

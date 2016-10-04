@@ -1128,6 +1128,8 @@ Royal pony, either by birth, marriage, or conquer (i.e. the old school style).
 Shining Armour is royal by marriage, but his biological family doesn't become
 royal by this, and Twilight Sparkle is because Princess Celestia give that 
 tittle because she fullfilled they destiny.
+@item @code{griffon}
+Aplies to griffon (also called griffin) like Gilda and others.
 @item @code{villain}
 Villains, normally minions to antagonists or recurring bad ponies. 
 Applies to changelings.
