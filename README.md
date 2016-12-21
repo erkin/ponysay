@@ -33,7 +33,7 @@ The package is in the official repositories as `community/ponysay`. A Git versio
 A git version of the package is available as `ponysay-git` in CCR, alongside a stable package called `ponysay`.
 
 #### Gentoo Linux
-There is a package for Gentoo, to make installation and updating simple. You can find it in [this overlay](https://github.com/etu/aidstu-overlay). The package is named `games-misc/ponysay`.
+The package is in the official Gentoo repository as [games-misc/ponysay](https://packages.gentoo.org/packages/games-misc/ponysay).
 
 #### Debian GNU/Linux
 Debian packages can be found [here](http://www.vcheng.org/ponysay/).
