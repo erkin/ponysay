@@ -240,7 +240,7 @@ Show summary of options.
 Show summary of options, and use colours even if stdout is piped.
 
 @item -v
-@itemx --verion
+@itemx --version
 @opindex @option{-v}
 @opindex @option{--version}
 Show version of program.
