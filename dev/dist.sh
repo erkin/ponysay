@@ -98,7 +98,7 @@ tag()
     
     version=`./setup.py version`
     if [ "$version" = 'Ponysay '"$1"' installer' ]; then
-	git tag -a "$@" && git checkout "$1" && git push -u origin "$1"
+	git tag -a "$@" && git checkout "$1" && git push --tags -u origin "$1"
     else
 	echo 'Setup script reports. '"$version"
 	echo 'This is not consistent with desired tag version: '"$1"
