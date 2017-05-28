@@ -136,7 +136,9 @@ __A:__ The pony files are in fact mostly a bunch of selected [browser ponies](//
 Other are taken from desktop ponies, and the others are created specifically for ponysay.
 
 __Q:__ This project look like abandoned...
-__A:__ Well, most dev and controbutors has moved to more time consuming tasks so our time has been reduced, but we accept most PR for bugfixs and ponies (correctly builded) and
-we're still looking for bug and fixes, so stay tunned for the next release or pushes to the git.
+
+__A:__ Well, most dev and contributors has moved to more time consuming tasks so our time has been reduced, but we accept most 
+PR for bugfixs and ponies (correctly builded) and we're still looking for bug fixes and ponies, so stay tunned for the next 
+release or pushes on the repository.
 
 The [PDF manual](//github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true) should answer most of your questions.
