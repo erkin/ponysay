@@ -47,6 +47,16 @@ The package is available in OpenSuSe 13.2 and Factory since 6th april 2014, if y
 #### Mac OS X (OSX)
 A `ponysay` [Homebrew](https://github.com/mxcl/homebrew) formula is available.
 
+#### Microsoft™ Windows®
+[¯\\\_(ツ)\_/¯](http://fc05.deviantart.net/fs71/i/2011/266/d/e/shrugpony_firefly_by_imaplode-d4aqtvx.png)
+
+You could either run ponysay on:
+
+* Cygwin
+* [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/about) (more compatible)
+
+  Make sure you install the latest Windows updates to [enable true colour console support](https://blogs.msdn.microsoft.com/commandline/2016/09/22/24-bit-color-in-the-windows-console/), then follow the install instructions for Ubuntu in a bash console.
+
 ### Print a pony fortune upon terminal startup
 
 This requires the `fortune` utility to be installed. It can install be from the distribution's repositories (might be named `fortune-mod`).
@@ -83,14 +93,6 @@ fi
 ```
 
 Read the PDF or info manual for more information.
-
-
-Installation on Microsoft™ Windows®
------------------------------------
-[¯\\\_(ツ)\_/¯](http://fc05.deviantart.net/fs71/i/2011/266/d/e/shrugpony_firefly_by_imaplode-d4aqtvx.png)
-Ponysay runs on Cygwin and GNU/NT (a.k.a. Ubuntu on Windows), 
-however the Windows's Bash on Ubuntu on Windows terminal does
-support xterm-256color colours.
 
 
 Dependencies

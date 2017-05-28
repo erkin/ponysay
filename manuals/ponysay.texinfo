@@ -2616,8 +2616,9 @@ fonts in Windows 8; Consolas 10pt, and larger, can be used for almost perfect
 ponies (they may be just a little distorted on the height), however Consolas
 is only able print the ASCII based balloons.
 
-Ponysay also runs on Ubuntu on Windows, but the terminal's colour support
-leaves something to be desired.
+Ponysay also runs on Windows Subsystem for Linux, be sure to install the 
+latest Windows updates to enable true colour console support, then follow the
+install instructions for Ubuntu in a bash console.
 
 
 
