@@ -9,14 +9,14 @@ COAT: pink
 DISPLAY: full, left
 EYE: blue
 FREE: no
-GROUP: mare, antagonist
+GROUP: mare, antagonist, reconciled
 KIND: unicorn
 MANE: purple, blue
 NAME: Starlight Glimmer
-OTHER NAMES: Starlight, Mayor Marx (By fans)
+OTHER NAMES: Starlight, Mayor Marx (By fans), Gimglim (by fans)
 POSE: holding
-WIDTH: 98
-HEIGHT: 44
+WIDTH: 129
+HEIGHT: 49
 
 $$$
 $balloon5$^[[00m                                                                                           [00m
