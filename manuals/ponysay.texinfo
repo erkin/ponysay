@@ -3412,11 +3412,12 @@ ANSI escape sequences.
 @heading Version 3.0.3
 @itemize @bullet
 @item
-New ponies: @file{auntorange}, @file{cocopommel}, @file{ember}, 
-@file{flurryheart}, @file{fluttershybat}, @file{fluttershybathang}, 
-@file{goldiedelicious}, @file{grace}, @file{kevin}, @file{kingthorax}, 
-@file{starlightglimmer}, @file{stellareclipse}, @file{thesmooze}, 
-@file{thorax}, @file{tirek}, @file{troubleshoes}, @file{twilightbreezie}, 
+New ponies: @file{auntorange}, @file{cocopommel}, @file{coriander}, 
+@file{ember}, @file{flurryheart}, @file{fluttershybat}, 
+@file{fluttershybathang}, @file{goldiedelicious}, @file{grace}, 
+@file{kevin}, @file{kingthorax}, @file{saffron}, @file{starlightglimmer}, 
+@file{stellareclipse}, @file{thesmooze}, @file{thorax}, @file{tirek}, 
+@file{treehugger}, @file{troubleshoes}, @file{twilightbreezie}, 
 @file{whoanelly}
 @item
 New extraponies: @file{cocoachill}, @file{riverbeauty}

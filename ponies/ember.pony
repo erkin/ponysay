@@ -7,7 +7,7 @@ COAT: cyan
 DISPLAY: full, right
 EYE: brown
 FREE: no
-GROUP: female, dragon
+GROUP: female, dragon, royal
 KIND: animal
 LINK: regular
 MANE: grey
