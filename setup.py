@@ -34,7 +34,7 @@ shells = [('bash', '/usr/share/bash-completion/completions/ponysay', 'GNU Bash')
 mansections = [('ponysay', '6'),
                ('cowsay', '1'),
                ('fortune', '6'),
-               ('ponysay-tool', 6')]
+               ('ponysay-tool', '6')]
 
 miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
              ('LICENSE', '/usr/share/licenses/ponysay/LICENSE'),
