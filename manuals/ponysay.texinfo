@@ -3422,8 +3422,8 @@ New ponies: @file{auntorange}, @file{caballeron}, @file{cocopommel},
 @item
 New extraponies: @file{cocoachill}, @file{riverbeauty}
 @item
-@itemize @bullet
 Pony symlink added:
+@itemize @bullet
 @item @file{cookiecrumbles} @arrow{} @file{raritysmom}
 @item @file{bettyboufant} @arrow{} @file{raritysmom}
 @item @file{hondoflanks} @arrow{} @file{raritysdad}
