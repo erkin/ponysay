@@ -44,7 +44,7 @@ There is a PPA available, specifically for ponysay, containing packages for all 
 #### OpenSuSe 13.2 or OpenSuSe Factory
 The package is available in OpenSuSe 13.2 and Factory since 6th april 2014, if you want the individual rpm look [here](http://www.rpmfind.net/linux/rpm2html/search.php?query=ponysay).
 
-#### Mac OS X (OSX)
+#### Mac OS X (OSX) (macOS)
 A `ponysay` [Homebrew](https://github.com/mxcl/homebrew) formula is available.
 
 #### Microsoft™ Windows®

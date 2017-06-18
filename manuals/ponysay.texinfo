@@ -2604,7 +2604,8 @@ An "exotic operating system" is a operating system that is not GNU (GNU/Linux
 
 @cindex Mac OS X
 @cindex OS X
-Mac OS X users can use the @code{ponysay} Homebrew
+@cindex macOS
+Mac OS X (OSX) (macOS) users can use the @code{ponysay} Homebrew
 (@url{https://github.com/mxcl/homebrew}) formula to install @command{ponysay}.
 
 @cindex Windows
@@ -3279,7 +3280,7 @@ A JavaScript program which is the source for most of our ponies. It is a port of
 
 @item desktop ponies
 @cindex desktop ponies
-A program for Windows (need @command{.NET framework 4}), OSX (need 
+A program for Windows (need @command{.NET framework 4}), macOS (need 
 @command{Mono 3.0.2} and @command{XQuartz}) and Unix (need 
 @command{mono} and @command{mono-basic}) this say they README file, but 
 is reported have really many problems or simply not work outside Windows)
