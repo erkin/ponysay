@@ -15,7 +15,7 @@ NAME: (not mentioned)
 OTHER NAMES: Airheart (unofficial), Jetstream (official, on Trading card)
 POSE: smile
 SOURCE: [jristz]
-WIDTH: 24
+WIDTH: 22
 HEIGHT: 26
 
 $$$

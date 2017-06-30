@@ -3,8 +3,8 @@ version 3.0.3
 	New ponies: auntorange, caballeron, cocopommel, coloratura, coriander, 
 		    ember, flurryheart, fluttershybat, fluttershybathang, 
 		    goldiedelicious, grace, kevin, kingthorax, moondancer, 
-		    rara, saffron, starlightglimmer, stellareclipse, sunburst, 
-		    sunburstcape, svengallop, thesmooze, thorax, tirek, 
+		    rara, saffron, starlightglimmer, stellareclipse, stormy flare,
+		    sunburst, sunburstcape, svengallop, thesmooze, thorax, tirek, 
 		    treehugger, troubleshoes, twilightbreezie, whoanelly
 		    
 	New extraponies: cocoachill, riverbeauty
@@ -23,13 +23,15 @@ version 3.0.3
 			    hughjelly → hughbertjellius (Official name)
 			    drcaballeron → caballeron (Official spelling)
 			    countess → rara (Real name)
+			    stormyflare → spitfiresmom (family relationship)
+			    airheart → jetstream (official name on merchandise)
 
 	Special pony cases:
 	* orange was renamed to uncleorange to not conflict with auntorange.
 	* cocopommel was renamed to misspommel in the serie and merchandise
 	  a symlink was provided pointing to the old name
 	* maudepie was renamed to maudpie since that her real name, we 
-	  just miswitted it
+	  just miswritted it
 
 	Changed all the references from griffin to griffon, that the apropiate
 	canon in-universe name for this creature.
