@@ -32,17 +32,20 @@ The package is in the official repositories as `community/ponysay`. A Git versio
 #### Chakra
 A git version of the package is available as `ponysay-git` in CCR, alongside a stable package called `ponysay`.
 
-#### Gentoo Linux
-The package is in the official Gentoo repository as [games-misc/ponysay](https://packages.gentoo.org/packages/games-misc/ponysay).
-
 #### Debian GNU/Linux
 Debian packages can be found [here](http://www.vcheng.org/ponysay/).
 
-#### Ubuntu
-There is a PPA available, specifically for ponysay, containing packages for all currently supported Ubuntu releases [here](https://launchpad.net/~vincent-c/+archive/ponysay).
+#### Docker
+Running ponysay on [Docker](https://hub.docker.com/r/mpepping/ponysay/) is a easy as:
 
-#### OpenSuSe 13.2 or OpenSuSe Factory
-The package is available in OpenSuSe 13.2 and Factory since 6th april 2014, if you want the individual rpm look [here](http://www.rpmfind.net/linux/rpm2html/search.php?query=ponysay).
+```
+docker run -ti --rm mpepping/ponysay --help
+docker run -ti --rm mpepping/ponysay -q
+docker run -ti --rm mpepping/ponysay "foo"
+```
+
+#### Gentoo Linux
+The package is in the official Gentoo repository as [games-misc/ponysay](https://packages.gentoo.org/packages/games-misc/ponysay).
 
 #### Mac OS X (OSX) (macOS)
 A `ponysay` [Homebrew](https://github.com/mxcl/homebrew) formula is available.
@@ -56,6 +59,12 @@ You could either run ponysay on:
 * [Windows Subsystem for Linux](https://msdn.microsoft.com/en-us/commandline/wsl/about) (more compatible)
 
   Make sure you install the latest Windows updates to [enable true colour console support](https://blogs.msdn.microsoft.com/commandline/2016/09/22/24-bit-color-in-the-windows-console/), then follow the install instructions for Ubuntu in a bash console.
+
+#### OpenSuSe 13.2 or OpenSuSe Factory
+The package is available in OpenSuSe 13.2 and Factory since 6th april 2014, if you want the individual rpm look [here](http://www.rpmfind.net/linux/rpm2html/search.php?query=ponysay).
+
+#### Ubuntu
+There is a PPA available, specifically for ponysay, containing packages for all currently supported Ubuntu releases [here](https://launchpad.net/~vincent-c/+archive/ponysay).
 
 ### Print a pony fortune upon terminal startup
 
@@ -137,8 +146,8 @@ Other are taken from desktop ponies, and the others are created specifically for
 
 __Q:__ This project look like abandoned...
 
-__A:__ Well, most dev and contributors has moved to more time consuming tasks so our time has been reduced, but we accept most 
-PR for bugfixs and ponies (correctly builded) and we're still looking for bug fixes and ponies, so stay tunned for the next 
+__A:__ Well, most dev and contributors has moved to more time consuming tasks so our time has been reduced, but we accept most
+PR for bugfixs and ponies (correctly builded) and we're still looking for bug fixes and ponies, so stay tunned for the next
 release or pushes on the repository.
 
 The [PDF manual](//github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true) should answer most of your questions.
