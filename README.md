@@ -5,6 +5,27 @@
 Today your terminal, tomorrow the world!
 
 
+Dependencies
+------------
+
+### Runtime dependencies
+
+`coreutils`: `stty` in coreutils used to determine size of the terminal.
+
+`python>=3`: `ponysay` is written in Python 3.
+
+### Package building dependencies
+
+`gzip`: Used for compressing manuals (suppressable with `./configure --without-info-compression --without-man-compression`).
+
+`texinfo`: Used for building the info manual (suppressable with `./configure --without-info`).
+
+`python>=3`: The installation process is written in Python 3.
+
+Run `./dependency-test.sh` if things are not working for you.
+
+
+
 Installation on GNU/Linux (or other Unix implementations)
 ---------------------------------------------------------
 
@@ -102,27 +123,6 @@ fi
 ```
 
 Read the PDF or info manual for more information.
-
-
-Dependencies
-------------
-
-### Runtime dependencies
-
-`coreutils`: `stty` in coreutils used to determine size of the terminal.
-
-`python>=3`: `ponysay` is written in Python 3.
-
-### Package building dependencies
-
-`gzip`: Used for compressing manuals (suppressable with `./configure --without-info-compression --without-man-compression`).
-
-`texinfo`: Used for building the info manual (suppressable with `./configure --without-info`).
-
-`python>=3`: The installation process is written in Python 3.
-
-Run `./dependency-test.sh` if things are not working for you.
-
 
 FAQ
 ---
