@@ -3419,7 +3419,8 @@ New ponies: @file{auntorange}, @file{caballeron}, @file{cocopommel}, @file{color
 @file{kevin}, @file{kingthorax}, @file{moondancer}, @file{rara}. @file{saffron}, 
 @file{starlightglimmer}, @file{stellareclipse}, @file{stormyflare}, @file{sunburst}, 
 @file{sunburstcape}, @file{thesmooze}, @file{thorax}, @file{tirek}, 
-@file{treehugger}, @file{troubleshoes}, @file{twilightbreezie}, @file{whoanelly}
+@file{treehugger}, @file{troubleshoes}, @file{twilightbreezie}, @file{whoanelly}, 
+@file{zipporwhill}, @file{zipporwhillsfather}
 @item
 New extraponies: @file{cocoachill}, @file{riverbeauty}, @file{velvetremedy}
 @item
@@ -3441,6 +3442,7 @@ Pony symlink added:
 @item @file{countess} @arrow{} @file{rara}
 @item @file{stormyflare} @arrow{} @file{spitfiresmom}
 @item @file{airheart} @arrow{} @file{jetstream}
+@item{raindrops} @arrow{} @file{sunshowerraindrops}
 @end itemize
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
 @file{cocopommel} was renamed to @file{misspommel} in the serie and merchandise a

@@ -12,7 +12,7 @@ KIND: pegasus
 LINK: regular
 MANE: cyan
 NAME: (not mentioned)
-OTHER NAMES: Raindrops (unofficial)
+OTHER NAMES: Sunshower Raindrops (Official on merchandise), Raindrops (Official, short version)
 POSE: stand
 SOURCE: (Starly, AngelKat58, StarStep) Desktop ponies
 WIDTH: 48
