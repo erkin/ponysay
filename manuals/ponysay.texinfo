@@ -3421,7 +3421,7 @@ New ponies: @file{auntorange}, @file{caballeron}, @file{cocopommel}, @file{color
 @file{sunburstcape}, @file{thesmooze}, @file{thorax}, @file{tirek}, 
 @file{treehugger}, @file{troubleshoes}, @file{twilightbreezie}, @file{whoanelly}
 @item
-New extraponies: @file{cocoachill}, @file{riverbeauty}
+New extraponies: @file{cocoachill}, @file{riverbeauty}, @file{velvetremedy}
 @item
 Pony symlink added:
 @itemize @bullet
