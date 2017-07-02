@@ -13,7 +13,7 @@ LINK: regular
 MANE: pink
 NAME: Svengallop
 POSE: stand
-SOURCE: (Bot chan) Desktop ponies
+SOURCE: (Anonycat) Desktop ponies
 WIDTH: 36
 HEIGHT: 26
 
