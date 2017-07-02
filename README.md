@@ -27,16 +27,16 @@ Consult `info ponysay`, `man 6 ponysay` or `ponysay -h` for additional informati
 Spanish and Turkish manuals are also available: `man -L es 6 ponysay` and `man -L tr 6 ponysay` respectively.
 
 #### Arch Linux
-The package is in the official repositories as `community/ponysay`. A Git version is also present, named `ponysay-git` in AUR.
+The package is in the official repositories as `community/ponysay`. A Git version is also present, named `ponysay-git` in AUR thanks to an upstream.
 
 #### Chakra
-A git version of the package is available as `ponysay-git` in CCR, alongside a stable package called `ponysay`.
+A git version of the package is available as `ponysay-git` in CCR, alongside a stable package called `ponysay` thanks to an upstream.
 
 #### Debian GNU/Linux
-Debian packages can be found [here](http://www.vcheng.org/ponysay/).
+Debian packages thanks to 'vcheng' can be found [here](http://www.vcheng.org/ponysay/).
 
 #### Docker
-Running ponysay on [Docker](https://hub.docker.com/r/mpepping/ponysay/) is a easy as:
+Running ponysay on [Docker](https://hub.docker.com/r/mpepping/ponysay/) thanks to 'mpepping' is a easy as:
 
 ```
 docker run -ti --rm mpepping/ponysay --help
@@ -64,7 +64,7 @@ You could either run ponysay on:
 The package is available in OpenSuSe 13.2 and Factory since 6th april 2014, if you want the individual rpm look [here](http://www.rpmfind.net/linux/rpm2html/search.php?query=ponysay).
 
 #### Ubuntu
-There is a PPA available, specifically for ponysay, containing packages for all currently supported Ubuntu releases [here](https://launchpad.net/~vincent-c/+archive/ponysay).
+There is a PPA available thanks to 'vincent-c', specifically for ponysay, containing packages for all currently supported Ubuntu releases [here](https://launchpad.net/~vincent-c/+archive/ponysay).
 
 ### Print a pony fortune upon terminal startup
 
