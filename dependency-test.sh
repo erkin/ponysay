@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 
 # Compatible with  bash  dash  zsh   mksh  ksh    ksh93
-# but not with     fish
+# but not with     fish  powershell
 # problematic with tcsh  csh
+#
+# Therefor to ensure it work always this shebang to standard POSIX shell
 
 
 br=0 # build required
