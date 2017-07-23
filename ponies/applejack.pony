@@ -1,8 +1,8 @@
 $$$
 APPEARANCE: S01E01 Friendship is Magic [Part 1]
 BALLOON: top
-BALLOON TOP: 0
 BALLOON BOTTOM: 0
+BALLOON TOP: 0
 BASED ON: Generation 1 Apple Jack
 COAT: brown
 DISPLAY: full, left
@@ -14,10 +14,10 @@ LINK: regular
 MANE: yellow
 NAME: Applejack
 OTHER NAMES: AJ (official, short)
-POSE: stapm
+POSE: stamp
 SOURCE: (Jay Wright, RJP!, Pony Noi, Bot-chan, StarStep, Anonycat) Desktop ponies
 WIDTH: 52
-HEIGHT: 27
+HEIGHT: 26
 
 $$$
 $balloon15$[00m
