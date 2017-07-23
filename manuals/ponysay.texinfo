@@ -3416,8 +3416,8 @@ ANSI escape sequences.
 New ponies: @file{auntorange}, @file{caballeron}, @file{cocopommel}, @file{coloratura}, 
 @file{coriander}, @file{doublediamond}, @file{ember}, @file{flurryheart}, @file{fluttershybat}, 
 @file{fluttershybathang}, @file{goldiedelicious}, @file{grace}, 
-@file{kevin}, @file{kingthorax}, @file{lovemelody}, @file{moondancer}, @file{rara}, 
-@file{saffron}, @file{starlightglimmer}, @file{stellareclipse}, @file{stormyflare}, 
+@file{kevin}, @file{kingthorax}, @file{lovemelody}, @file{moondancer}, @file{plaidstripes}, 
+@file{rara}, @file{saffron}, @file{starlightglimmer}, @file{stellareclipse}, @file{stormyflare}, 
 @file{sunburst}, @file{sunburstcape}, @file{thesmooze}, @file{thorax}, @file{tirek}, 
 @file{treehugger}, @file{troubleshoes}, @file{twilightbreezie}, @file{whoanelly}, 
 @file{zephyrbreeze}, @file{zipporwhill}, @file{zipporwhillsfather}
