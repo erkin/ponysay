@@ -3416,9 +3416,9 @@ ANSI escape sequences.
 New ponies: @file{auntorange}, @file{caballeron}, @file{cocopommel}, @file{coloratura}, 
 @file{coriander}, @file{ember}, @file{flurryheart}, @file{fluttershybat}, 
 @file{fluttershybathang}, @file{goldiedelicious}, @file{grace}, 
-@file{kevin}, @file{kingthorax}, @file{moondancer}, @file{rara}. @file{saffron}, 
-@file{starlightglimmer}, @file{stellareclipse}, @file{stormyflare}, @file{sunburst}, 
-@file{sunburstcape}, @file{thesmooze}, @file{thorax}, @file{tirek}, 
+@file{kevin}, @file{kingthorax}, @file{lovemelody}, @file{moondancer}, @file{rara}, 
+@file{saffron}, @file{starlightglimmer}, @file{stellareclipse}, @file{stormyflare}, 
+@file{sunburst}, @file{sunburstcape}, @file{thesmooze}, @file{thorax}, @file{tirek}, 
 @file{treehugger}, @file{troubleshoes}, @file{twilightbreezie}, @file{whoanelly}, 
 @file{zephyrbreeze}, @file{zipporwhill}, @file{zipporwhillsfather}
 @item
@@ -3443,6 +3443,7 @@ Pony symlink added:
 @item @file{stormyflare} @arrow{} @file{spitfiresmom}
 @item @file{airheart} @arrow{} @file{jetstream}
 @item @file{raindrops} @arrow{} @file{sunshowerraindrops}
+@item @file{lovemelody} @arrow{} @file{venus}
 @end itemize
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
 @file{cocopommel} was renamed to @file{misspommel} in the serie and merchandise a
