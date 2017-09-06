@@ -15,7 +15,7 @@ MANE: gray
 NAME: Thorax
 OTHER NAMES: King Thorax (official, tittled), Crystal Hoof (nickname)
 POSE: stand
-SOURCE: Based on (Bot-chan) Desktop ponies
+SOURCE: [Jristz] Based on (Bot-chan) Desktop ponies
 WIDTH: 34
 HEIGHT: 26
 
