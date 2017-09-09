@@ -13,9 +13,10 @@ KIND: changeling
 LINK: regular
 MANE: gray
 NAME: Thorax
-OTHER NAMES: King Thorax (official, tittled), Crystal Hoof (nickname)
+OTHER NAMES: King Thorax (official, titled), Crystal Hoof (official, nickname)
 POSE: stand
 SOURCE: [Jristz] Based on (Bot-chan) Desktop ponies
+WING: teal
 WIDTH: 34
 HEIGHT: 26
 

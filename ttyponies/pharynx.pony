@@ -16,6 +16,7 @@ NAME: Pharynx
 OTHER NAMES: Prince Pharynx (Full title for after King Thorax events, official)
 POSE: threat
 SOURCE: [jristz] Based on (Bot-chan) Desktop ponies
+WING: purple
 WIDTH: 36
 HEIGHT: 25
 
