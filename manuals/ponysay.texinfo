@@ -3444,6 +3444,7 @@ Pony symlink added:
 @item @file{airheart} @arrow{} @file{jetstream}
 @item @file{raindrops} @arrow{} @file{sunshowerraindrops}
 @item @file{lovemelody} @arrow{} @file{venus}
+@item @file{grace} @arrow{} @file{manewitz}
 @end itemize
 @file{orange} was renamed to @file{uncleorange} to not conflict with @file{auntorange}.
 @file{cocopommel} was renamed to @file{misspommel} in the serie and merchandise a

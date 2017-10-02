@@ -13,10 +13,11 @@ KIND: earth
 LINK: regular
 MANE: yellow
 NAME: (not mentioned)
-OTHER NAMES: Grrace, Grace Manewitz
+OTHER NAMES: Grrace, Grace Manewitz, Janine Manewitz (Official, on merchandice)
 POSE: hoofwritting
 WIDTH: 87
 HEIGHT: 34
+
 
 $$$
 $balloon44$[00m
