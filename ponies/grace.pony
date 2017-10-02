@@ -18,7 +18,6 @@ POSE: hoofwritting
 WIDTH: 87
 HEIGHT: 34
 
-
 $$$
 $balloon44$[00m
                                              $\$                                         [00m
