@@ -3450,7 +3450,7 @@ Pony symlink added:
 @file{cocopommel} was renamed to @file{misspommel} in the serie and merchandise a
 symlink was provided pointing to the old name.
 @file{maudepie} was renamed to @file{maudpie} since that her real name, we just 
-miswritted it.
+misswrite it.
 @item
 Code is cleaned and improved.
 @item
