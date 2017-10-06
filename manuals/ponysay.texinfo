@@ -8,7 +8,7 @@
 @documentlanguage en
 @finalout
 @c %**end of header
-@set VERSION 3.0.3
+@set VERSION 3.0.4
 
 @defindex op
 @synindex op vr

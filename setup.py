@@ -7,7 +7,7 @@ import sys
 from zipfile import ZipFile
 from subprocess import Popen, PIPE
 
-PONYSAY_VERSION = '3.0.3'
+PONYSAY_VERSION = '3.0.4'
 
 project_dir = os.path.dirname(__file__)
 
