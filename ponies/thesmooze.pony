@@ -18,7 +18,7 @@ WIDTH: 72
 HEIGHT: 34
 
 $$$
-$balloon1$[00m
+$balloon10$[00m
                           $\$                                             [00m
                            $\$                                            [00m
                             $\$                                           [00m
