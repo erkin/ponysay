@@ -1,3 +1,26 @@
+$$$
+AURA: (not show)
+BALLOON: top
+BALLOON BOTTOM: 0
+BALLOON TOP: 2
+COAT: white
+DISPLAY: full, left
+EYE: yellow
+FREE: no
+GROUP: mare
+KIND: alicorn
+LINK: regular
+MANE: yellow
+MASTER: celestia
+NAME: SolarFlare
+OTHER NAMES: Day Breaker (Pony base)
+POSE: stand
+SOURCE: [ariSunz] based on (JordiLa-Forge) Deviantart
+WIDTH: 124
+HEIGHT: 48
+
+Image from 2013 predating Day Breaker.
+$$$
 $balloon27$[00m
                             $\$                                                                                               [00m
                              $\$                                                                                              [00m

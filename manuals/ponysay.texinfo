@@ -3410,6 +3410,13 @@ ANSI escape sequences.
 @cindex versions
 @cindex previous releases
 
+@heading Version 3.0.4
+@itemize @bullet
+@item
+New extraponies: @file{solarflare}
+
+@end itemize
+
 @heading Version 3.0.3
 @itemize @bullet
 @item
