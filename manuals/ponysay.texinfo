@@ -1998,10 +1998,10 @@ If you have @command{git} you can @command{clone} the project URL
 @url{https://github.com/erkin/ponysay.git}.
 
 In the terminal, @command{cd} into the ponysay directory and execute
-@command{./setup.py --freedom=parital install} or
-@command{python3 ./setup.py --freedom=parital install}. This will install
+@command{./setup.py --freedom=partial install} or
+@command{python3 ./setup.py --freedom=partial install}. This will install
 @command{ponysay} into @file{/usr}, normally meaning you need to run as root,
-e.g. by running @command{sudo ./setup.py --freedom=parital install}.
+e.g. by running @command{sudo ./setup.py --freedom=partial install}.
 
 The @command{--freedom} option and manditory, if you only want completely free
 ponies, use @command{--freedom=strict} instread of @command{--freedom=partial}.
@@ -3198,9 +3198,9 @@ build()
 
     ./setup.py --everything --without-pdf-compression  \
                --bin-dir=/usr/bin --dest-dir="$pkgdir" \
-               --freedom=parital build
+               --freedom=partial build
 
-    # CHANGE --freedom=parital to --freedom=strict
+    # CHANGE --freedom=partial to --freedom=strict
     # FOR ONLY COMPLETELY FREE PONIES,
     # useful for GNU/Linux-libre distributions
 @}
