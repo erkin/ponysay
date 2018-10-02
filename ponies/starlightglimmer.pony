@@ -19,7 +19,7 @@ WIDTH: 129
 HEIGHT: 49
 
 $$$
-$balloon5$^[[00m                                                                                           [00m
+$balloon5$                                                                                           [00m
                                                                                                  [00m
 $\$                                                                                                [00m
  $\$                                                                                               [00m
