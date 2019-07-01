@@ -17,7 +17,7 @@ MASTER: rarity
 NAME: Rarity
 OTHER NAMES: Raripunk
 POSE: punk
-SOURCE: PhonicBoomun
+SOURCE: PhonicBoom
 WIDTH: 47
 HEIGHT: 36
 
