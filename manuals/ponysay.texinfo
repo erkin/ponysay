@@ -3413,7 +3413,7 @@ ANSI escape sequences.
 @heading Version 3.0.4
 @itemize @bullet
 @item
-New extraponies: @file{raripunk}, @file{solarflare}
+New extraponies: @file{raripunk}, @file{smolder}, @file{solarflare}
 
 @end itemize
 
