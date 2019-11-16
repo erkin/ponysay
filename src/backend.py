@@ -291,7 +291,7 @@ class Backend():
                         props = dollar[7:]
                         if len(props) > 0:
                             if ',' in props:
-                                if props[0] is not ',':
+                                if props[0] != ',':
                                     w = props[:props.index(',')]
                                 h = int(props[props.index(',') + 1:])
                             else:
