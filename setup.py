@@ -28,7 +28,7 @@ sharefiles = [('ucs', 'ucsmap')]
 commands = ['ponysay', 'ponythink', 'ponysay-tool']
 
 shells = [('bash', '/usr/share/bash-completion/completions/ponysay', 'GNU Bash'),
-          ('fish', '/usr/share/fish/completions/ponysay.fish', 'Friendly interactive shell'),
+          ('fish', '/usr/share/fish/vendor_completions.d/ponysay.fish', 'Friendly interactive shell'),
           ('zsh', '/usr/share/zsh/site-functions/_ponysay', 'zsh')]
 
 mansections = [('ponysay', '6'),
