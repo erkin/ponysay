@@ -2,6 +2,8 @@ Version 3.0.4
 
 	New rxtraponies: raripunk, smolder, solarflare
 
+        Fixed incorrect install dir for fish completion.
+
 version 3.0.3
 
 	New ponies: auntorange, caballeron, cocopommel, coloratura, coriander, 
