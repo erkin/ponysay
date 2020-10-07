@@ -1002,7 +1002,7 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                     for row in range(0, len(datalines)):
                         current = leftlines[row]
                         if len(datalines[row].strip()) == 0:
-                            if current is not 'comment':
+                            if current != 'comment':
                                 if current != last:
                                     self.datamap[current] = None
                                 continue
