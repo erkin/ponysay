@@ -30,11 +30,11 @@ lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
 
+import fcntl
 import os
-import shutil
+import struct
 import sys
-import random
-from subprocess import Popen, PIPE
+import termios
 
 
 
@@ -97,12 +97,11 @@ def gettermsize():
     
     @return  (rows, columns):(int, int)  The number or lines and the number of columns in the terminal's display area
     '''
-    ## Call `stty` to determine the size of the terminal, this way is better than using python's ncurses
-    for channel in (sys.stderr, sys.stdout, sys.stdin):
-        termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
-        if len(termsize) > 0:
-            termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
-            termsize = [int(item) for item in termsize]
-            return termsize
-    return (24, 80) # fall back to minimal sane size
+    try:
+        size = bytearray(struct.pack("HHHH",0,0,0,0))
+        fcntl.ioctl(0,termios.TIOCGWINSZ,size)
+        r,c,_,_ = struct.unpack("HHHH",size)
+        return (r,c)
+    except:
+        return (24,80)
 
