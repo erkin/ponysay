@@ -904,8 +904,25 @@ class Ponysay():
         pony = KMS.kms(pony, self.HOME, self.linuxvt)
         
         ## If in Linux VT clean the terminal (See info/pdf-manual [Printing in TTY with KMS])
+        palette = ''
         if self.linuxvt:
             print('\033[H\033[2J', end='')
+            pal = []
+            red = []
+            with open('/sys/module/vt/parameters/default_red') as f:
+                red = f.readline().split(',')
+                f.close()
+            grn = []
+            with open('/sys/module/vt/parameters/default_grn') as f:
+                grn = f.readline().split(',')
+                f.close()
+            blu = []
+            with open('/sys/module/vt/parameters/default_blu') as f:
+                blu = f.readline().split(',')
+                f.close()
+            for i in range(16):
+                pal.append('\033]P{idx:X}{red:0>2X}{grn:0>2X}{blu:0>2X}'.format(idx = i, red = int(red[i]), grn = int(grn[i]), blu = int(blu[i])))
+            palette = ''.join(pal)
         
         ## Get width truncation and wrapping
         widthtruncation = self.__getWidthTruncation()
@@ -938,7 +955,9 @@ class Ponysay():
         
         ## Print the output, truncated on the height
         self.__printOutput(output)
-    
+
+        if self.linuxvt:
+            print(palette)
     
     def __getSelectedPonies(self, args, selection):
         '''
