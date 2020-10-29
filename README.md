@@ -14,6 +14,8 @@ Dependencies
 
 `python>=3`: `ponysay` is written in Python 3.
 
+`texinfo`: for generating documentation during the installation.
+
 ### Package building dependencies
 
 `gzip`: Used for compressing manuals (suppressable with `./configure --without-info-compression --without-man-compression`).
