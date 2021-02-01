@@ -254,7 +254,7 @@ class ArgParser():
         if use_colours is None:
             use_colours = sys.stdout.isatty()
         
-        print(('\033[1m%s\033[21m %s %s' if use_colours else '%s %s %s') % (self.__program, '-' if self.linuxvt else '—', self.__description))
+        print(('\033[1m%s\033[22m %s %s' if use_colours else '%s %s %s') % (self.__program, '-' if self.linuxvt else '—', self.__description))
         print()
         if self.__longdescription is not None:
             desc = self.__longdescription
@@ -265,7 +265,7 @@ class ArgParser():
             print(desc)
         print()
         
-        print('\033[1mUSAGE:\033[21m' if use_colours else 'USAGE:', end='')
+        print('\033[1mUSAGE:\033[22m' if use_colours else 'USAGE:', end='')
         first = True
         for line in self.__usage.split('\n'):
             if first:
@@ -291,7 +291,7 @@ class ArgParser():
                 maxfirstlen.append(first)
         maxfirstlen = len(max(maxfirstlen, key = len))
         
-        print('\033[1mSYNOPSIS:\033[21m' if use_colours else 'SYNOPSIS')
+        print('\033[1mSYNOPSIS:\033[22m' if use_colours else 'SYNOPSIS')
         (lines, lens) = ([], [])
         for opt in self.__arguments:
             opt_type = opt[0]
@@ -337,7 +337,7 @@ class ArgParser():
             for line in opt_help.split('\n'):
                 if first:
                     first = False
-                    print('%s' % (line), end='\033[21;39m\n' if use_colours else '\n')
+                    print('%s' % (line), end='\033[22;39m\n' if use_colours else '\n')
                 else:
                     print(('%s\033[%sm%s\033[39m' if use_colours else '%s%s%s') % (' ' * col, colour, line))
             index += 1
