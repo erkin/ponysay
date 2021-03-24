@@ -141,7 +141,7 @@ __A:__ [Ask](//github.com/erkin/ponysay/issues) and we'll add!
 
 __Q:__ Which programs do you use to generate the pony files?
 
-__A:__ The pony files are in fact mostly a bunch of selected [browser ponies](//web.student.tuwien.ac.at/~e0427417/browser-ponies/ponies.html), converted using [util-say](//github.com/maandree/util-say),
+__A:__ The pony files are in fact mostly a bunch of selected [browser ponies](//panzi.github.io/Browser-Ponies/), converted using [util-say](//github.com/maandree/util-say),
 Other are taken from desktop ponies, and the others are created specifically for ponysay.
 
 __Q:__ This project look like abandoned...
