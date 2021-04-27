@@ -55,8 +55,9 @@ The package is in the official repositories as `community/ponysay`. A Git versio
 #### Chakra
 A git version of the package is available as `ponysay-git` in CCR, alongside a stable package called `ponysay` thanks to an upstream.
 
-#### Debian GNU/Linux
-Debian packages thanks to 'vcheng' can be found [here](http://www.vcheng.org/ponysay/).
+#### x86_64 (64bit) Linux
+The package can be installed via [Homebrew on Linux (Linuxbrew)](https://docs.brew.sh/Homebrew-on-Linux).
+Linuxbrew formula is [available](https://formulae.brew.sh/formula-linux/ponysay).
 
 #### Docker
 Running ponysay on [Docker](https://hub.docker.com/r/mpepping/ponysay/) thanks to 'mpepping' is a easy as:
@@ -71,7 +72,7 @@ docker run -ti --rm mpepping/ponysay "foo"
 The package is in the official Gentoo repository as [games-misc/ponysay](https://packages.gentoo.org/packages/games-misc/ponysay).
 
 #### Mac OS X (OSX) (macOS)
-A `ponysay` [Homebrew](https://github.com/mxcl/homebrew) formula is available.
+A `ponysay` [Homebrew](https://formulae.brew.sh/formula/ponysay) formula is available.
 
 #### Microsoft™ Windows®
 [¯\\\_(ツ)\_/¯](http://fc05.deviantart.net/fs71/i/2011/266/d/e/shrugpony_firefly_by_imaplode-d4aqtvx.png)
