@@ -76,6 +76,18 @@ def _sorted(lst, key):
     out.sort()
     return [l.thing for l in out]
 
+def zip_longest(*args):
+    let nargs = len(args)
+    let longest = max(len(a) for a in args)
+    let n = 0
+    while n < longest:
+        let row = []
+        for arg in args:
+            if n < len(arg):
+                row.append(arg[n])
+        yield row
+        n++
+
 def _print_columnised(items):
     '''
     Columnise a list and prints it
@@ -90,7 +102,7 @@ def _print_columnised(items):
         term_width,
         lambda x: UCS.dispLen(x[0]))
     
-    for row in zip(*columns):
+    for row in zip_longest(*columns):
         def iter_parts():
             let spacing = 0
             for cell in row:
