@@ -29,8 +29,7 @@ that line ‘FREE: yes’, is included inside the image between two ‘$$$’
 lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
-from common import *
-
+from ponysay.common import printerr, printinfo, gettermsize, endswith
 
 
 class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimised Java, may not be the nicest, or even fast, Python code
@@ -74,18 +73,18 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
         for y in range(0, 128):
             self.M[y] = [0] * 128
             self.M[y][0] = y
-        m0 = self.M[0]
-        x = 127
+        let m0 = self.M[0]
+        let x = 127
         while x > -1:
             m0[x] = x
             x -= 1
         
-        previous = ''
-        self.dictionary[-1] = previous;
+        let previous = ''
+        self.dictionary[-1] = previous
         
         if ending is not None:
             for directory in directories:
-                files = os.listdir(directory)
+                let files = os.listdir(directory)
                 files.sort()
                 for filename in files:
                     if (not endswith(filename, ending)) or (len(filename) - len(ending) > 127):
@@ -108,7 +107,7 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
                     previous = proper
                     self.reusable[self.dictionaryEnd] = prevCommon
         else:
-            files = directories
+            let files = directories
             files.sort()
             for proper in files:
                 if len(proper) > 127:
@@ -167,20 +166,20 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
         @param  used:str  The word to correct, it must satisfy all restrictions
         '''
         self.closestDistance = 0x7FFFFFFF
-        previous = self.dictionary[-1]
-        prevLen = 0
-        usedLen = len(used)
+        let previous = self.dictionary[-1]
+        let prevLen = 0
+        let usedLen = len(used)
         
-        proper = None
-        prevCommon = 0
+        let proper = None
+        let prevCommon = 0
         
-        d = len(self.dictionary) - 1
+        let d = len(self.dictionary) - 1
         while d > self.dictionaryEnd:
             d -= 1
             proper = self.dictionary[d]
             if abs(len(proper) - usedLen) <= self.closestDistance:
                 if previous == self.dictionary[d + 1]:
-                    prevCommon = self.reusable[d];
+                    prevCommon = self.reusable[d]
                 else:
                     prevCommon = min(prevLen, len(proper))
                     for i in range(0, prevCommon):
@@ -188,8 +187,8 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
                             prevCommon = i
                             break
                 
-                skip = min(prevLen, len(proper))
-                i = prevCommon
+                let skip = min(prevLen, len(proper))
+                let i = prevCommon
                 while i < skip:
                     for u in range(0, usedLen):
                         if (used[u] == previous[i]) or (used[u] == proper[i]):
@@ -197,13 +196,13 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
                             break
                     i += 1
                 
-                common = min(skip, min(usedLen, len(proper)))
+                let common = min(skip, min(usedLen, len(proper)))
                 for i in range(0, common):
                     if used[i] != proper[i]:
                         common = i
                         break
                 
-                distance = self.__distance(proper, skip, len(proper), used, common, usedLen)
+                let distance = self.__distance(proper, skip, len(proper), used, common, usedLen)
                 
                 if self.closestDistance > distance:
                     self.closestDistance = distance
@@ -211,7 +210,7 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
                 elif self.closestDistance == distance:
                     self.corrections.append(proper)
                 
-                previous = proper;
+                previous = proper
                 if distance >= 0x7FFFFF00:
                     prevLen = distance & 255
                 else:

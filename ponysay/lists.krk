@@ -34,11 +34,17 @@ File listing functions.
 '''
 
 
-from ucs import *
-import itertools
+from ponysay.common import endswith, gettermsize
+from ponysay.ucs import UCS
+import os
 
+def _range(min,max,step):
+    let i = min
+    while i < max:
+        yield i
+        i += step
 
-def _columnise_list(items: list, available_width: int, length_fn: callable, separation : int = 2):
+def _columnise_list(items: list, available_width: int, length_fn: function, separation : int = 2):
     """
     From a list of items, produce a list of columns. Each columns is a list of tuples. Each tuple contains the element and a an int, specifying how much shorter the element is compared to the column width. 
     
@@ -48,18 +54,27 @@ def _columnise_list(items: list, available_width: int, length_fn: callable, sepa
     :param separation: Amount of space to insert between columns. 
     """
     
-    num_items = len(items)
-    items_with_length = [(i, length_fn(i)) for i in items]
-    max_item_length = max(i for _, i in items_with_length)
+    let num_items = len(items)
+    let items_with_length = [(i, length_fn(i)) for i in items]
+    let max_item_length = max(i for _, i in items_with_length)
     
     # Make at least one column to handle very narrow terminals.
-    num_columns = max((available_width + separation) // (max_item_length + separation), 1)
-    column_length = (num_items - 1) // num_columns + 1
+    let num_columns = max((available_width + separation) // (max_item_length + separation), 1)
+    let column_length = (num_items - 1) // num_columns + 1
     
-    items_with_spacing = [(i, max_item_length - l + separation) for i, l in items_with_length]
+    let items_with_spacing = [(i, max_item_length - l + separation) for i, l in items_with_length]
     
-    return [items_with_spacing[i:i + column_length] for i in range(0, num_items, column_length)]
+    return [items_with_spacing[i:(i + column_length)] for i in _range(0, num_items, column_length)]
 
+def _sorted(lst, key):
+    class Sortable():
+        def __init__(self, thing):
+            self.thing = thing
+        def __lt__(self, other):
+            return key(self.thing) < key(other.thing)
+    let out = [Sortable(l) for l in lst]
+    out.sort()
+    return [l.thing for l in out]
 
 def _print_columnised(items):
     '''
@@ -68,26 +83,24 @@ def _print_columnised(items):
     @param  ponies:list<(str, str)>  All items to list, each item should have to elements: unformatted name, formatted name.
     '''
     ## Get terminal width
-    _, term_width = gettermsize()
+    let _, term_width = gettermsize()
     
-    columns = _columnise_list(
-        sorted(items, key = lambda x: x[0]),
+    let columns = _columnise_list(
+        _sorted(items, key = lambda x: x[0]),
         term_width,
         lambda x: UCS.dispLen(x[0]))
     
-    for row in itertools.zip_longest(*columns):
+    for row in zip(*columns):
         def iter_parts():
-            spacing = 0
-            
+            let spacing = 0
             for cell in row:
                 if cell:
                     # Yield this here to prevent whitespace to be printed after the last column.
                     yield ' ' * spacing
-                    
-                    (_, item), spacing = cell
-                    
+                    let item, _, inner
+                    inner, spacing = cell
+                    _, item = inner
                     yield item
-        
         print(''.join(iter_parts()))
     
     print()
@@ -114,7 +127,7 @@ def simplelist(ponydirs, quoters = [], ucsiser = None):
     '''
     for ponydir in ponydirs: # Loop ponydirs
         ## Get all ponies in the directory
-        ponies = _get_file_list(ponydir, '.pony')
+        let ponies = _get_file_list(ponydir, '.pony')
         
         print()
         
@@ -125,8 +138,8 @@ def simplelist(ponydirs, quoters = [], ucsiser = None):
         ## If ther directory is not empty print its name and all ponies, columnised
         if len(ponies) == 0:
             continue
-        print('\033[1mponies located in ' + ponydir + '\033[21m')
-        _print_columnised([(pony, '\033[1m' + pony + '\033[21m' if pony in quoters else pony) for pony in ponies])
+        print('\033[1mponies located in ' + ponydir + '\033[22m')
+        _print_columnised([(pony, '\033[1m' + pony + '\033[22m' if pony in quoters else pony) for pony in ponies])
 
 
 def linklist(ponydirs = None, quoters = [], ucsiser = None):
@@ -145,7 +158,7 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
         ## If there are no ponies in the directory skip to next directory, otherwise, print the directories name
         if len(ponies) == 0:
             continue
-        print('\033[1mponies located in ' + ponydir + '\033[21m')
+        print('\033[1mponies located in ' + ponydir + '\033[22m')
         
         ## UCS:ise pony names
         pseudolinkmap = {}
@@ -156,7 +169,7 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
         pairs = []
         for pony in ponies:
             if pony in pseudolinkmap:
-                pairs.append((pony, pseudolinkmap[pony] + '.pony'));
+                pairs.append((pony, pseudolinkmap[pony] + '.pony'))
             else:
                 pairs.append((pony, os.path.realpath(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else None))
         
@@ -179,7 +192,7 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
         ponies = {}
         for pony in ponymap:
             w = UCS.dispLen(pony)
-            item = '\033[1m' + pony + '\033[21m' if (pony in quoters) else pony
+            item = '\033[1m' + pony + '\033[22m' if (pony in quoters) else pony
             syms = ponymap[pony]
             syms.sort()
             if len(syms) > 0:
@@ -190,9 +203,9 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
                     w += UCS.dispLen(sym)
                     if first:  first = False
                     else:      item += ' '
-                    item += '\033[1m' + sym + '\033[21m' if (sym in quoters) else sym
+                    item += '\033[1m' + sym + '\033[22m' if (sym in quoters) else sym
                 item += ')'
-            ponies[(item.replace('\033[1m', '').replace('\033[21m', ''), item)] = w
+            ponies[(item.replace('\033[1m', '').replace('\033[22m', ''), item)] = w
         
         ## Print the ponies, columnised
         _print_columnised(list(ponies))
@@ -206,14 +219,14 @@ def onelist(pony_dirs, ucsiser):
     @param  ucsiser:(list<str>)→void  Function used to UCS:ise names
     '''
     ## Get all pony files
-    ponies = [name for dir in pony_dirs for name in _get_file_list(dir, '.pony')]
+    let ponies = [name for dir in pony_dirs for name in _get_file_list(dir, '.pony')]
     
     ## UCS:ise and sort
     ucsiser(ponies)
     ponies.sort()
     
     ## Print each one on a seperate line, but skip duplicates
-    last = ''
+    let last = ''
     for pony in ponies:
         if not pony == last:
             last = pony

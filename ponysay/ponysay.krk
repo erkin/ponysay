@@ -29,16 +29,72 @@ that line ‘FREE: yes’, is included inside the image between two ‘$$$’
 lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
-from common import *
-from backend import *
-from balloon import *
-from spellocorrecter import *
-from ucs import *
-from kms import *
-import lists
-from metadata import *
+from ponysay.common import printerr, printinfo, gettermsize, endswith
+from ponysay.backend import Backend
+from ponysay.balloon import Balloon
+from ponysay.spellocorrecter import SpelloCorrecter
+from ponysay.ucs import UCS
+import ponysay.lists as lists
+from ponysay.metadata import Metadata
 
+import os
+import kuroko
+import fileio
+import stat
 
+import random
+
+def randrange(low,high):
+    with fileio.open('/dev/urandom','rb') as f:
+        let b = f.read(4)
+        let val = (b[0] << 24) | (b[1] << 16) | (b[2] << 8) | b[3]
+        let flt = val / 0xFFFFFFFF
+        return int(flt*(high-low)+low)
+
+def rfind(self, sub):
+    let last = self.find(sub)
+    while True:
+        let next = self.find(sub,last+1)
+        if next == -1: break
+        last = next
+    return last
+
+str.rfind = rfind
+
+random.randrange = randrange
+
+class OSExtensions():
+    def exists(self, p):
+        try:
+            os.stat(p)
+            return True
+        except:
+            return False
+    def isdir(self, p):
+        try:
+            let res = os.stat(p)
+            return stat.S_ISDIR(res.st_mode)
+        except:
+            return False
+    def isfile(self, p):
+        try:
+            let res = os.stat(p)
+            return stat.S_ISREG(res.st_mode)
+        except:
+            return False
+    def islink(self, p):
+        try:
+            let res = os.stat(p)
+            return stat.S_ISLNK(res.st_mode)
+        except:
+            return False
+
+os.path = OSExtensions()
+let exit = os.exit
+
+def listdir(p):
+    return [c['name'] for c in fileio.opendir(p)]
+os.listdir = listdir
 
 class Ponysay():
     '''
@@ -54,7 +110,6 @@ class Ponysay():
         self.HOME = os.environ['HOME'] if 'HOME' in os.environ else ''
         if len(self.HOME) == 0:
             os.environ['HOME'] = self.HOME = os.path.expanduser('~')
-        
         
         ## Load extension and configurations via ponysayrc
         for file in ('$XDG_CONFIG_HOME/ponysay/ponysayrc', '$HOME/.config/ponysay/ponysayrc', '$HOME/.ponysayrc', '/etc/ponysayrc'):
@@ -84,17 +139,17 @@ class Ponysay():
         
         
         # Whether stdin is piped
-        self.pipelinein = not sys.stdin.isatty()
+        self.pipelinein = not os.isatty(0) #sys.stdin.isatty()
         
         # Whether stdout is piped
-        self.pipelineout = not sys.stdout.isatty()
+        self.pipelineout = not os.isatty(1) #sys.stdout.isatty()
         
         # Whether stderr is piped
-        self.pipelineerr = not sys.stderr.isatty()
+        self.pipelineerr = not os.isatty(2) #sys.stderr.isatty()
         
         
         # Whether KMS is used
-        self.usekms = KMS.usingKMS(self.linuxvt)
+        self.usekms = False #KMS.usingKMS(self.linuxvt)
         
         
         # Mode string that modifies or adds $ variables in the pony image
@@ -128,9 +183,9 @@ class Ponysay():
         @return        The target file name, None if the environment variables are not declared
         '''
         if '$' in file:
-            buf = ''
-            esc = False
-            var = None
+            let buf = ''
+            let esc = False
+            let var = None
             for c in file:
                 if esc:
                     buf += c
@@ -162,9 +217,9 @@ class Ponysay():
         @param   directory:str  The directory base name
         @return  :list<str>     Absolute directory names
         '''
-        appendset = set()
-        rc = []
-        _ponydirs = cls.__share(directory)
+        let appendset = set()
+        let rc = []
+        let _ponydirs = cls.__share(directory)
         for ponydir in _ponydirs:
             if (ponydir is not None) and os.path.isdir(ponydir) and (ponydir not in appendset):
                 rc.append(ponydir)
@@ -188,7 +243,8 @@ class Ponysay():
         return [cat(cls.__parseFile(item), file) for item in [
                 '$XDG_DATA_HOME/ponysay/',
                 '$HOME/.local/share/ponysay/',
-                '/usr/share/ponysay/'
+                '/usr/share/ponysay/',
+                './'
                ]]
     
     
@@ -197,7 +253,7 @@ class Ponysay():
         '''
         Check if ponythink is executed
         '''
-        isthink = sys.argv[0]
+        let isthink = kuroko.argv[0]
         if os.sep in isthink:
             isthink = isthink[isthink.rfind(os.sep) + 1:]
         if os.extsep in isthink:
@@ -217,7 +273,7 @@ class Ponysay():
             args.help()
             exit(254)
             return
-        self.args = args;
+        self.args = args
         
         ## Emulate termial capabilities
         if   self.__test_nfdnf('-X'):  (self.linuxvt, self.usekms) = (False, False)
@@ -229,8 +285,8 @@ class Ponysay():
         ## Variadic variants of -f, -q &c
         for sign in ('-', '+'):
             for letter in ('f', 'F', 'q', 'Q'):
-                ssl = sign + sign + letter
-                sl = sign + letter
+                let ssl = sign + sign + letter
+                let sl = sign + letter
                 if (ssl in args.opts) and (args.opts[ssl] is not None):
                     if args.opts[sl] is not None:  args.opts[sl] += args.opts[ssl]
                     else:                          args.opts[sl]  = args.opts[ssl]
@@ -343,11 +399,11 @@ class Ponysay():
                     if args.opts[key] is not None:
                         return False
             return True
-        keys = ['-f', '+f', '-F', '-q'] ## TODO +q -Q
+        let keys = ['-f', '+f', '-F', '-q'] ## TODO +q -Q
         if test(keys, False):
             for ponydir in self.ponydirs:
                 if os.path.isfile(ponydir + 'best.pony') or os.path.islink(ponydir + 'best.pony'):
-                    pony = os.path.realpath(ponydir + 'best.pony') # Canonical path
+                    let pony = os.path.realpath(ponydir + 'best.pony') # Canonical path
                     if test(keys, True):
                         args.opts['-f'] = [pony]
                     else:
@@ -364,8 +420,8 @@ class Ponysay():
         @param  args:ArgParser  Parsed command line arguments
         '''
         ## Read UCS configurations
-        env_ucs = os.environ['PONYSAY_UCS_ME'] if 'PONYSAY_UCS_ME' in os.environ else ''
-        ucs_conf = 0
+        let env_ucs = os.environ['PONYSAY_UCS_ME'] if 'PONYSAY_UCS_ME' in os.environ else ''
+        let ucs_conf = 0
         if   env_ucs in ('yes',    'y', '1'):  ucs_conf = 1
         elif env_ucs in ('harder', 'h', '2'):  ucs_conf = 2
         
@@ -410,8 +466,8 @@ class Ponysay():
         @param  links:map<str, str>?  Map to fill with simulated symlink ponies, may be `None`
         '''
         ## Read UCS configurations
-        env_ucs = os.environ['PONYSAY_UCS_ME'] if 'PONYSAY_UCS_ME' in os.environ else ''
-        ucs_conf = 0
+        let env_ucs = os.environ['PONYSAY_UCS_ME'] if 'PONYSAY_UCS_ME' in os.environ else ''
+        let ucs_conf = 0
         if   env_ucs in ('yes',    'y', '1'):  ucs_conf = 1
         elif env_ucs in ('harder', 'h', '2'):  ucs_conf = 2
         
@@ -420,20 +476,20 @@ class Ponysay():
             return
         
         ## Read all lines in all UCS → ASCII map files
-        maplines = []
+        let maplines = []
         for ucsmap in self.ucsmaps:
             if os.path.isfile(ucsmap):
                 with open(ucsmap, 'rb') as mapfile:
                     maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
         
         ## Create UCS → ASCII mapping from read lines
-        map = {}
-        stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
+        let map = {}
+        let stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
         for line in maplines:
             if not line.startswith('#'):
-                s = line.index('→')
-                ucs   = line[:s]    .strip(stripset)
-                ascii = line[s + 1:].strip(stripset)
+                let s = line.index('→')
+                let ucs   = line[:s]    .strip(stripset)
+                let ascii = line[s + 1:].strip(stripset)
                 map[ascii] = ucs
         
         ## Apply UCS → ASCII mapping to ponies, by alias if weak settings
@@ -466,31 +522,31 @@ class Ponysay():
             selection = [self.__selectAnypony(args)]
         
         ## Select a random pony of the choosen ones
-        pony = selection[random.randrange(0, len(selection))]
+        let pony = selection[random.randrange(0, len(selection))]
         if os.path.exists(pony[0]):
-            ponyname = pony[0].split(os.sep)[-1]
+            let ponyname = pony[0].split(os.sep)[-1]
             if os.extsep in ponyname:
                 ponyname = ponyname[:ponyname.rfind(os.extsep)]
             return (pony[0], self.__getQuote(ponyname, pony[0]) if pony[2] else None)
         else:
-            possibilities = [f.split(os.sep)[-1][:-5] for f in pony[1]]
+            let possibilities = [f.split(os.sep)[-1][:-5] for f in pony[1]]
             if pony[0] not in possibilities:
                 if not alt:
-                    autocorrect = SpelloCorrecter(possibilities)
-                    (alternatives, dist) = autocorrect.correct(pony[0])
-                    limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
+                    let autocorrect = SpelloCorrecter(possibilities)
+                    let alternatives, dist = autocorrect.correct(pony[0])
+                    let limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
                     limit = 5 if len(limit) == 0 else int(limit)
                     if (len(alternatives) > 0) and (dist <= limit):
-                        (_, files, quote) = pony
+                        let _, files, quote = pony
                         return self.__getPony([(a, files, quote) for a in alternatives], True)
-                printerr('I have never heard of anypony named %s' % pony[0]);
+                printerr('I have never heard of anypony named %s' % pony[0])
                 if not self.usingstandard:
-                    printerr('Use -f/-q or -F if it a MLP:FiM pony');
+                    printerr('Use -f/-q or -F if it a MLP:FiM pony')
                 if not self.usingextra:
-                    printerr('Have you tested +f or -F?');
+                    printerr('Have you tested +f or -F?')
                 exit(252)
             else:
-                file = pony[1][possibilities.index(pony[0])]
+                let file = pony[1][possibilities.index(pony[0])]
                 return (file, self.__getQuote(pony[0], file) if pony[2] else None)
     
     
@@ -501,30 +557,30 @@ class Ponysay():
         @param   args:ArgParser                                 Parsed command line arguments
         @return  (name, dirfile, quote):(str, list<str>, bool)  The pony name, pony file with the directory, and whether to use ponyquotes
         '''
-        quote    =  args.opts['-q'] is not None ## TODO +q -Q
-        standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) ## TODO -Q
-        extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) ## TODO +q -Q
+        let quote    =  args.opts['-q'] is not None ## TODO +q -Q
+        let standard = (args.opts['-f'] is not None) or (args.opts['-F'] is not None) or (args.opts['-q'] is not None) ## TODO -Q
+        let extra    = (args.opts['+f'] is not None) or (args.opts['-F'] is not None) ## TODO +q -Q
         if not (standard or extra):
             standard = True
-        ponydirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else []);
-        quoters  = self.__quoters() if standard and quote else None ## TODO +q -Q
+        let ponydirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else [])
+        let quoters  = self.__quoters() if standard and quote else None ## TODO +q -Q
         if (quoters is not None) and (len(quoters) == 0):
             printerr('Princess Celestia! All the ponies are mute!')
             exit(250)
         
         ## Get all ponies, with quotes
-        oldponies = {}
+        let oldponies = {}
         self.__getAllPonies(standard, extra, oldponies, quoters)
         
         ## Apply restriction
-        ponies = self.__applyRestriction(oldponies, ponydirs)
+        let ponies = self.__applyRestriction(oldponies, ponydirs)
         
         ## Select one pony and set all information
-        names = list(ponies.keys())
+        let names = list(ponies.keys())
         if len(names) == 0:
             printerr('All the ponies are missing, call the Princess!')
             exit(249)
-        pony = names[random.randrange(0, len(names))]
+        let pony = names[random.randrange(0, len(names))]
         return (pony, [ponies[pony]], quote)
     
     
@@ -554,7 +610,7 @@ class Ponysay():
         for ponydir in directories:
             for ponyfile in os.listdir(ponydir):
                 if endswith(ponyfile, '.pony'):
-                    pony = ponyfile[:-5]
+                    let pony = ponyfile[:-5]
                     if (pony not in collection) and ((quoters is None) or (pony in quoters)):
                         collection[pony] = ponydir + ponyfile
     
@@ -575,7 +631,7 @@ class Ponysay():
                 oldponies = ponies
             
         ## Apply dimension restriction
-        ponies = {}
+        let ponies = {}
         self.__applyDimensionRestriction(ponies, oldponies, ponydirs)
         if len(ponies) > 0:
             oldponies = ponies
@@ -606,9 +662,9 @@ class Ponysay():
         @param  oldponies:dict<str, str>  Collection of original ponies, maps to pony file
         @param  ponydirs:list<sr>         List of pony directories
         '''
-        (termh, termw) = gettermsize()
+        let termh, termw = gettermsize()
         for ponydir in ponydirs:
-            (fitw, fith) = (None, None)
+            let fitw, fith = (None, None)
             if os.path.exists(ponydir + 'widths'):
                 fitw = set()
                 with open(ponydir + 'widths', 'rb') as file:
@@ -619,7 +675,7 @@ class Ponysay():
                     Metadata.getFitting(fith, termh, file)
             for ponyfile in oldponies.values():
                 if ponyfile.startswith(ponydir):
-                    pony = ponyfile[len(ponydir) : -5]
+                    let pony = ponyfile[len(ponydir) : -5]
                     if (fitw is None) or (pony in fitw):
                         if (fith is None) or (pony in fith):
                             ponies[pony] = ponyfile
@@ -663,9 +719,9 @@ class Ponysay():
         if quotedirs is None:  quotedirs = self.quotedirs
         
         ## List all unique quote files
-        quotes = []
-        quoteshash = set()
-        _quotes = []
+        let quotes = []
+        let quoteshash = set()
+        let _quotes = []
         for quotedir in quotedirs:
             _quotes += [item[:item.index('.')] for item in os.listdir(quotedir)]
         for quote in _quotes:
@@ -675,11 +731,11 @@ class Ponysay():
                     quotes.append(quote)
         
         ## Create a set of all ponies that have quotes
-        ponies = set()
+        let ponies = set()
         for ponydir in ponydirs:
             for pony in os.listdir(ponydir):
                 if not pony[0] == '.':
-                    p = pony[:-5] # remove .pony
+                    let p = pony[:-5] # remove .pony
                     for quote in quotes:
                         if ('+' + p + '+') in ('+' + quote + '+'):
                             if not p in ponies:
@@ -760,8 +816,7 @@ class Ponysay():
         @param  standard:bool  Include standard ponies
         @param  extra:bool     Include extra ponies
         '''
-        
-        pony_dirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else [])
+        let pony_dirs = (self.ponydirs if standard else []) + (self.extraponydirs if extra else [])
         
         lists.onelist(pony_dirs, self.__ucsise)
     
@@ -774,7 +829,7 @@ class Ponysay():
         @param  extra:bool     Include extra ponies
         '''
         ## Get all quoters
-        ponies = list(self.__quoters()) if standard else []
+        let ponies = list(self.__quoters()) if standard else []
         
         ## And now the extra ponies
         if extra:
@@ -818,10 +873,10 @@ class Ponysay():
             return None
         
         ## Get all balloons
-        balloons = {}
+        let balloons = {}
         for balloondir in self.balloondirs:
             for balloon in os.listdir(balloondir):
-                balloonfile = balloon
+                let balloonfile = balloon
                 ## Use .think if running ponythink, otherwise .say
                 if self.isthink and endswith(balloon, '.think'):
                     balloon = balloon[:-6]
@@ -840,12 +895,12 @@ class Ponysay():
                 balloons[name] = name
         
         ## Select a random balloon of the choosen ones
-        balloon = names[random.randrange(0, len(names))]
+        let balloon = names[random.randrange(0, len(names))]
         if balloon not in balloons:
             if not alt:
-                autocorrect = SpelloCorrecter(self.balloondirs, '.think' if self.isthink else '.say')
-                (alternatives, dist) = autocorrect.correct(balloon)
-                limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
+                let autocorrect = SpelloCorrecter(self.balloondirs, '.think' if self.isthink else '.say')
+                let alternatives, dist = autocorrect.correct(balloon)
+                let limit = os.environ['PONYSAY_TYPO_LIMIT'] if 'PONYSAY_TYPO_LIMIT' in os.environ else ''
                 limit = 5 if len(limit) == 0 else int(limit)
                 if (len(alternatives) > 0) and (dist <= limit):
                     return self.__getBalloonPath(alternatives, True)
@@ -885,12 +940,12 @@ class Ponysay():
         @param  args:ArgParser  Parsed command line arguments
         '''
         ## Get the pony
-        selection = []
+        let selection = []
         self.__getSelectedPonies(args, selection)
-        (pony, quote) = self.__getPony(selection, args)
+        let pony, quote = self.__getPony(selection, args)
         
         ## Get message and manipulate it
-        msg = self.__getMessage(args, quote)
+        let msg = self.__getMessage(args, quote)
         msg = self.__colouriseMessage(args, msg)
         msg = self.__compressMessage(args, msg)
         
@@ -901,38 +956,38 @@ class Ponysay():
         pony = self.__useImage(pony)
         
         ## If KMS is utilies, select a KMS pony file and create it if necessary
-        pony = KMS.kms(pony, self.HOME, self.linuxvt)
+        #pony = KMS.kms(pony, self.HOME, self.linuxvt)
         
         ## If in Linux VT clean the terminal (See info/pdf-manual [Printing in TTY with KMS])
         if self.linuxvt:
             print('\033[H\033[2J', end='')
         
         ## Get width truncation and wrapping
-        widthtruncation = self.__getWidthTruncation()
-        messagewrap = self.__getMessageWrap(args)
+        let widthtruncation = self.__getWidthTruncation()
+        let messagewrap = self.__getMessageWrap(args)
         
         ## Get balloon object
-        balloonfile = self.__getBalloonPath(args.opts['-b'] if args.opts['-b'] is not None else None)
+        let balloonfile = self.__getBalloonPath(args.opts['-b'] if args.opts['-b'] is not None else None)
         printinfo('balloon style file: ' + str(balloonfile))
-        balloon = self.__getBalloon(balloonfile) if args.opts['-o'] is None else None
+        let balloon = self.__getBalloon(balloonfile) if args.opts['-o'] is None else None
         
         ## Get hyphen style
-        hyphen = self.__getHyphen(args)
+        let hyphen = self.__getHyphen(args)
         
         ## Link and balloon colouring
-        linkcolour = self.__getLinkColour(args)
-        ballooncolour = self.__getBalloonColour(args)
+        let linkcolour = self.__getLinkColour(args)
+        let ballooncolour = self.__getBalloonColour(args)
         
         ## Determine --info/++info settings
-        minusinfo = args.opts['-i'] is not None
-        plusinfo  = args.opts['+i'] is not None
+        let minusinfo = args.opts['-i'] is not None
+        let plusinfo  = args.opts['+i'] is not None
         
         ## Run cowsay replacement
-        backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap, width = widthtruncation, balloon = balloon,
+        let backend = Backend(message = msg, ponyfile = pony, wrapcolumn = messagewrap, width = widthtruncation, balloon = balloon,
                           hyphen = hyphen, linkcolour = linkcolour, ballooncolour = ballooncolour, mode = self.mode,
                           infolevel = 2 if plusinfo else (1 if minusinfo else 0))
         backend.parse()
-        output = backend.output
+        let output = backend.output
         if output.endswith('\n'):
             output = output[:-1]
         
@@ -947,7 +1002,7 @@ class Ponysay():
         @param  args:ArgParser                                     Command line options
         @param  selection:list<(name:str, file:str, quotes:bool)>  List to fill with tuples of selected pony names, pony files and whether quotes are used
         '''
-        (standard, extra) = ([], [])
+        let standard, extra = [], []
         for ponydir in self.ponydirs:
             for pony in os.listdir(ponydir):
                 if endswith(pony, '.pony'):
@@ -956,8 +1011,8 @@ class Ponysay():
             for pony in os.listdir(ponydir):
                 if endswith(pony, '.pony'):
                     extra.append(ponydir + pony)
-        both = standard + extra
-        for (opt, ponies, quotes) in [('-f', standard, False), ('+f', extra, False), ('-F', both, False), ('-q', standard, True)]: ## TODO +q -Q
+        let both = standard + extra
+        for opt, ponies, quotes in [('-f', standard, False), ('+f', extra, False), ('-F', both, False), ('-q', standard, True)]: ## TODO +q -Q
             if args.opts[opt] is not None:
                 for pony in args.opts[opt]:
                     selection.append((pony, ponies, quotes))
@@ -974,7 +1029,7 @@ class Ponysay():
         if quote is not None:
             return quote
         if args.message is None:
-            return ''.join(sys.stdin.readlines()).rstrip()
+            return ''.join(fileio.stdin.readlines()).rstrip()
         return args.message
     
     
@@ -1044,7 +1099,7 @@ class Ponysay():
         
         @return  :int?  The column the truncate the output at, or `None` to not truncate it
         '''
-        env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
+        let env_width = os.environ['PONYSAY_FULL_WIDTH'] if 'PONYSAY_FULL_WIDTH' in os.environ else None
         if env_width is None:  env_width = 'auto'
         return gettermsize()[1] if env_width not in ('yes', 'y', '1') else None
     
@@ -1056,7 +1111,7 @@ class Ponysay():
         @param   args:ArgParser  Command line options
         @return  :int?           The message balloon wrapping column, or `None` if disabled
         '''
-        messagewrap = 65
+        let messagewrap = 65
         if (args.opts['-W'] is not None) and (len(args.opts['-W'][0]) > 0):
             messagewrap = args.opts['-W'][0]
             if messagewrap[0] in 'nmsNMS': # m is left to n on QWERTY and s is left to n on Dvorak
@@ -1075,10 +1130,10 @@ class Ponysay():
         @param   args:ArgParser  Command line options
         @return  :str            The hyphen string to use at hyphenation
         '''
-        hyphen = os.environ['PONYSAY_WRAP_HYPHEN'] if 'PONYSAY_WRAP_HYPHEN' in os.environ else None
+        let hyphen = os.environ['PONYSAY_WRAP_HYPHEN'] if 'PONYSAY_WRAP_HYPHEN' in os.environ else None
         if (hyphen is None) or (len(hyphen) == 0):
             hyphen = '-'
-        hyphencolour = ''
+        let hyphencolour = ''
         if args.opts['--colour-wrap'] is not None:
             hyphencolour = '\033[' + ';'.join(args.opts['--colour-wrap']) + 'm'
         return '\033[31m' + hyphencolour + hyphen
@@ -1091,7 +1146,7 @@ class Ponysay():
         @param   args:ArgParser  Command line options
         @return  :str            The colour of balloon links
         '''
-        linkcolour = ''
+        let linkcolour = ''
         if args.opts['--colour-link'] is not None:
             linkcolour = '\033[' + ';'.join(args.opts['--colour-link']) + 'm'
         return linkcolour
@@ -1104,7 +1159,7 @@ class Ponysay():
         @param   args:ArgParser  Command line options
         @return  :str            The colour of balloons
         '''
-        ballooncolour = ''
+        let ballooncolour = ''
         if args.opts['--colour-bubble'] is not None:
             ballooncolour = '\033[' + ';'.join(args.opts['--colour-bubble']) + 'm'
         return ballooncolour
@@ -1117,17 +1172,17 @@ class Ponysay():
         @param  output:str  The output truncated on the width but not on the height
         '''
         ## Load height trunction settings
-        env_bottom = os.environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
+        let env_bottom = os.environ['PONYSAY_BOTTOM'] if 'PONYSAY_BOTTOM' in os.environ else None
         if env_bottom is None:  env_bottom = ''
         
-        env_height = os.environ['PONYSAY_TRUNCATE_HEIGHT'] if 'PONYSAY_TRUNCATE_HEIGHT' in os.environ else None
+        let env_height = os.environ['PONYSAY_TRUNCATE_HEIGHT'] if 'PONYSAY_TRUNCATE_HEIGHT' in os.environ else None
         if env_height is None:  env_height = ''
         
-        env_lines = os.environ['PONYSAY_SHELL_LINES'] if 'PONYSAY_SHELL_LINES' in os.environ else None
+        let env_lines = os.environ['PONYSAY_SHELL_LINES'] if 'PONYSAY_SHELL_LINES' in os.environ else None
         if (env_lines is None) or (env_lines == ''):  env_lines = '2'
         
         ## Print the output, truncated on height if so set
-        lines = gettermsize()[0] - int(env_lines)
+        let lines = gettermsize()[0] - int(env_lines)
         if self.linuxvt or (env_height in ('yes', 'y', '1')):
             if env_bottom in ('yes', 'y', '1'):
                 for line in output.split('\n')[: -lines]:

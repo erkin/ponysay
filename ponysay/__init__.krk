@@ -39,56 +39,57 @@ Authors:
          Jan Alexander "heftig" Steffens:  Major contributor of the first implementation
          Kyah "L-four" Rindlisbacher:      Patched the first implementation
 '''
-from common import *
-from argparser import *
-from ponysay import *
-
+from ponysay.common import printerr, printinfo, gettermsize, endswith
+from ponysay.argparser import ArgParser
+from ponysay.ponysay import Ponysay
+import os
+import kuroko
 
 
 '''
 Start the program
 '''
 if __name__ == '__main__':
-    istool = sys.argv[0]
+    let istool = kuroko.argv[0]
     if os.sep in istool:
         istool = istool[istool.rfind(os.sep) + 1:]
     if os.extsep in istool:
         istool = istool[:istool.find(os.extsep)]
     istool = istool.endswith('-tool')
     if istool:
-        from ponysaytool import * ## will start ponysay-tool
-        exit(0)
+        import ponysaytool
+        os.exit(0)
     
-    isthink = sys.argv[0]
+    let isthink = kuroko.argv[0]
     if os.sep in isthink:
         isthink = isthink[isthink.rfind(os.sep) + 1:]
     if os.extsep in isthink:
         isthink = isthink[:isthink.find(os.extsep)]
     isthink = isthink.endswith('think')
     
-    usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
-    usage_common   = '[-c] [-W\033[33mCOLUMN\033[39m] [-b\033[33mSTYLE\033[39m]'
-    usage_listhelp = '(-l | -L | -B | +l | +L | -A | + A | -v | -h)'
-    usage_file     = '[-f\033[33mPONY\033[39m]* [[--] \033[33mmessage\033[39m]'
-    usage_xfile    = '(+f\033[33mPONY\033[39m)* [[--] \033[33mmessage\033[39m]'
-    usage_afile    = '(-F\033[33mPONY\033[39m)* [[--] \033[33mmessage\033[39m]'
-    usage_quote    = '(-q\033[33mPONY\033[39m)*'
+    let usage_saythink = '\033[34;1m(ponysay | ponythink)\033[22;39m'
+    let usage_common   = '[-c] [-W\033[33mCOLUMN\033[39m] [-b\033[33mSTYLE\033[39m]'
+    let usage_listhelp = '(-l | -L | -B | +l | +L | -A | + A | -v | -h)'
+    let usage_file     = '[-f\033[33mPONY\033[39m]* [[--] \033[33mmessage\033[39m]'
+    let usage_xfile    = '(+f\033[33mPONY\033[39m)* [[--] \033[33mmessage\033[39m]'
+    let usage_afile    = '(-F\033[33mPONY\033[39m)* [[--] \033[33mmessage\033[39m]'
+    let usage_quote    = '(-q\033[33mPONY\033[39m)*'
     
-    usage = ('%s %s' + 4 * '\n%s %s %s') % (usage_saythink, usage_listhelp,
+    let usage = ('{} {}' + 4 * '\n{} {} {}') .format (usage_saythink, usage_listhelp,
                                             usage_saythink, usage_common, usage_file,
                                             usage_saythink, usage_common, usage_xfile,
                                             usage_saythink, usage_common, usage_afile,
                                             usage_saythink, usage_common, usage_quote)
     
-    usage = usage.replace('\033[', '\0')
+    usage = usage.replace('\033[', 'あ')
     for sym in ('[', ']', '(', ')', '|', '...', '*'):
         usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
-    usage = usage.replace('\0', '\033[')
+    usage = usage.replace('あ', '\033[')
     
     '''
     Argument parsing
     '''
-    opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
+    let opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
                      description = 'cowsay reimplemention for ponies',
                      usage       = usage,
                      longdescription =
@@ -117,8 +118,8 @@ run `man ponysay`. Ponysay has so much more to offer than described here.''')
     opts.add_argumented(  ['--colour-pony'],                       arg = 'COLOUR')
     opts.add_argumented(  ['--colour-wrap', '--colour-hyphen'],    arg = 'COLOUR')
     
-    _F = ['--any-file', '--anyfile', '--any-pony', '--anypony']
-    __F = [_.replace("pony", "ponie") + 's' for _ in _F]
+    let _F = ['--any-file', '--anyfile', '--any-pony', '--anypony']
+    let __F = [_.replace("pony", "ponie") + 's' for _ in _F]
     opts.add_argumentless(['-h', '--help'],                                        help = 'Print this help message.')
     opts.add_argumentless(['+h', '++help', '--help-colour'],                       help = 'Print this help message with colours even if piped.')
     opts.add_argumentless(['-v', '--version'],                                     help = 'Print the version of the program.')
@@ -145,10 +146,10 @@ run `man ponysay`. Ponysay has so much more to offer than described here.''')
     '''
     Whether at least one unrecognised option was used
     '''
-    unrecognised = not opts.parse()
+    let unrecognised = not opts.parse()
     
     
     ## Start
-    ponysay = Ponysay()
+    let ponysay = Ponysay()
     ponysay.unrecognised = unrecognised
     ponysay.run(opts)

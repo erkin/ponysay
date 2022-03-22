@@ -29,14 +29,14 @@ that line ‘FREE: yes’, is included inside the image between two ‘$$$’
 lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
-from common import *
-from balloon import *
-from colourstack import *
-from ucs import *
+from ponysay.common import printerr, printinfo, gettermsize, endswith
+from ponysay.balloon import Balloon
+from ponysay.colourstack import ColourStack
+from ponysay.ucs import UCS
 
-import unicodedata
-
-
+from wcwidth import wcwidth
+import fileio
+import os
 
 class Backend():
     '''
@@ -89,6 +89,7 @@ class Backend():
         
         if self.pony.startswith('$$$\n'):
             self.pony = self.pony[4:]
+            let infoend, info
             if self.pony.startswith('$$$\n'):
                 infoend = 4
                 info = ''
@@ -104,21 +105,21 @@ class Backend():
             else:
                 info = info.split('\n')
                 for line in info:
-                    sep = line.find(':')
+                    let sep = line.find(':')
                     if sep > 0:
-                        key = line[:sep].strip()
+                        let key = line[:sep].strip()
                         if key == 'BALLOON TOP':
-                            value = line[sep + 1:].strip()
+                            let value = line[sep + 1:].strip()
                             if len(value) > 0:
                                 self.balloontop = int(value)
                         if key == 'BALLOON BOTTOM':
-                            value = line[sep + 1:].strip()
+                            let value = line[sep + 1:].strip()
                             if len(value) > 0:
                                 self.balloonbottom = int(value)
                 printinfo(info)
                 self.pony = self.pony[infoend:]
         elif self.infolevel == 2:
-            self.message = '\033[01;31mI am the mysterious mare...\033[21;39m'
+            self.message = '\033[01;31mI am the mysterious mare...\033[22;39m'
         elif self.infolevel == 1:
             self.pony = 'There is not metadata for this pony file'
         self.pony = self.mode + self.pony
@@ -149,7 +150,7 @@ class Backend():
                     test = test.replace(c, '')
                 if (len(test) == 0) and (len(key.replace(' ', '')) > 0):
                     value = line[sep + 1:].strip()
-                    line = '\033[1m%s\033[21m: %s\n' % (key.strip(), value)
+                    line = '\033[1m{}\033[22m: {}\n' .format (key.strip(), value)
                     tags += line
                     continue
             comment += '\n' + line
@@ -163,16 +164,16 @@ class Backend():
         '''
         Remove padding spaces fortune cookies are padded with whitespace (damn featherbrains)
         '''
-        lines = self.message.split('\n')
+        let lines = self.message.split('\n')
         for spaces in (128, 64, 32, 16, 8, 4, 2, 1):
-            padded = True
+            let padded = True
             for line in lines:
                 if not line.startswith(' ' * spaces):
                     padded = False
                     break
             if padded:
                 for i in range(0, len(lines)):
-                    line = lines[i]
+                    let line = lines[i]
                     line = line[spaces:]
                     lines[i] = line
         lines = [line.rstrip(' ') for line in lines]
@@ -183,19 +184,19 @@ class Backend():
         '''
         Converts all tabs in the message to spaces by expanding
         '''
-        lines = self.message.split('\n')
-        buf = ''
+        let lines = self.message.split('\n')
+        let  buf = ''
         for line in lines:
-            (i, n, x) = (0, len(line), 0)
+            let i, n, x = (0, len(line), 0)
             while i < n:
-                c = line[i]
+                let c = line[i]
                 i += 1
                 if c == '\033':
-                    colour = Backend.getColour(line, i - 1)
+                    let colour = Backend.getColour(line, i - 1)
                     i += len(colour) - 1
                     buf += colour
                 elif c == '\t':
-                    nx = 8 - (x & 7)
+                    let nx = 8 - (x & 7)
                     buf += ' ' * nx
                     x += nx
                 else:
@@ -210,8 +211,8 @@ class Backend():
         '''
         Loads the pony file
         '''
-        with open(self.ponyfile, 'rb') as ponystream:
-            self.pony = ponystream.read().decode('utf8', 'replace')
+        with fileio.open(self.ponyfile, 'rb') as ponystream:
+            self.pony = ponystream.read().decode()
     
     
     def __truncate(self):
@@ -220,15 +221,15 @@ class Backend():
         '''
         if self.width is None:
             return
-        lines = self.output.split('\n')
+        let lines = self.output.split('\n')
         self.output = ''
         for line in lines:
-            (i, n, x) = (0, len(line), 0)
+            let i, n, x = (0, len(line), 0)
             while i < n:
-                c = line[i]
+                let c = line[i]
                 i += 1
                 if c == '\033':
-                    colour = Backend.getColour(line, i - 1)
+                    let colour = Backend.getColour(line, i - 1)
                     i += len(colour) - 1
                     self.output += colour
                 else:
@@ -246,35 +247,36 @@ class Backend():
         '''
         self.output = ''
         
-        AUTO_PUSH = '\033[01010~'
-        AUTO_POP  = '\033[10101~'
+        let AUTO_PUSH = '\033[01010~'
+        let AUTO_POP  = '\033[10101~'
         
-        variables = {'' : '$'}
+        let variables = {'' : '$'}
         for key in self.link:
             variables[key] = AUTO_PUSH + self.link[key] + AUTO_POP
         
-        indent = 0
-        dollar = None
-        balloonLines = None
-        colourstack = ColourStack(AUTO_PUSH, AUTO_POP)
+        let indent = 0
+        let dollar = None
+        let balloonLines = None
+        let balloonLine, balloonIndent
+        let colourstack = ColourStack(AUTO_PUSH, AUTO_POP)
         
-        (i, n, lineindex, skip, nonskip) = (0, len(self.pony), 0, 0, 0)
+        let i, n, lineindex, skip, nonskip = (0, len(self.pony), 0, 0, 0)
         while i < n:
-            c = self.pony[i]
+            let c = self.pony[i]
             if c == '\t':
                 n += 7 - (indent & 7)
-                ed = ' ' * (8 - (indent & 7))
+                let ed = ' ' * (8 - (indent & 7))
                 c = ' '
                 self.pony = self.pony[:i] + ed + self.pony[i + 1:]
             i += 1
             if c == '$':
                 if dollar is not None:
                     if '=' in dollar:
-                        name = dollar[:dollar.find('=')]
-                        value = dollar[dollar.find('=') + 1:]
+                        let name = dollar[:dollar.find('=')]
+                        let value = dollar[dollar.find('=') + 1:]
                         variables[name] = value
                     elif not dollar.startswith('balloon'):
-                        data = variables[dollar].replace('$', '$$')
+                        let data = variables[dollar].replace('$', '$$')
                         if data == '$$': # if not handled specially we will get an infinity loop
                             if (skip == 0) or (nonskip > 0):
                                 if nonskip > 0:
@@ -287,8 +289,8 @@ class Backend():
                             n += len(data)
                             self.pony = self.pony[:i] + data + self.pony[i:]
                     elif self.balloon is not None:
-                        (w, h, x, justify) = ('0', 0, 0, None)
-                        props = dollar[7:]
+                        let w, h, x, justify = ('0', 0, 0, None)
+                        let props = dollar[7:]
                         if len(props) > 0:
                             if ',' in props:
                                 if props[0] != ',':
@@ -299,28 +301,28 @@ class Backend():
                         if 'l' in w:
                             (x, w) = (int(w[:w.find('l')]), int(w[w.find('l') + 1:]))
                             justify = 'l'
-                            w -= x;
+                            w -= x
                         elif 'c' in w:
                             (x, w) = (int(w[:w.find('c')]), int(w[w.find('c') + 1:]))
                             justify = 'c'
-                            w -= x;
+                            w -= x
                         elif 'r' in w:
                             (x, w) = (int(w[:w.find('r')]), int(w[w.find('r') + 1:]))
                             justify = 'r'
-                            w -= x;
+                            w -= x
                         else:
                             w = int(w)
-                        balloon = self.__getBalloon(w, h, x, justify, indent)
+                        let balloon = self.__getBalloon(w, h, x, justify, indent)
                         balloon = balloon.split('\n')
                         balloon = [AUTO_PUSH + self.ballooncolour + item + AUTO_POP for item in balloon]
                         for b in balloon[0]:
                             self.output += b + colourstack.feed(b)
                         if lineindex == 0:
-                            balloonpre = '\n' + (' ' * indent)
+                            let balloonpre = '\n' + (' ' * indent)
                             for line in balloon[1:]:
-                                self.output += balloonpre;
+                                self.output += balloonpre
                                 for b in line:
-                                    self.output += b + colourstack.feed(b);
+                                    self.output += b + colourstack.feed(b)
                             indent = 0
                         elif len(balloon) > 1:
                             balloonLines = balloon
@@ -337,9 +339,9 @@ class Backend():
                     i += 1
                 dollar += c
             elif c == '\033':
-                colour = Backend.getColour(self.pony, i - 1)
+                let colour = Backend.getColour(self.pony, i - 1)
                 for b in colour:
-                    self.output += b + colourstack.feed(b);
+                    self.output += b + colourstack.feed(b)
                 i += len(colour) - 1
             elif c == '\n':
                 self.output += c
@@ -364,7 +366,7 @@ class Backend():
                     if (skip == 0) or (nonskip > 0):
                         if nonskip > 0:
                             nonskip -= 1
-                        self.output += c + colourstack.feed(c);
+                        self.output += c + colourstack.feed(c)
                         if not UCS.isCombining(c):
                             indent += 1
                     else:
@@ -374,7 +376,7 @@ class Backend():
             for line in balloonLines[balloonLine:]:
                 data = ' ' * (balloonIndent - indent) + line + '\n'
                 for b in data:
-                    self.output += b + colourstack.feed(b);
+                    self.output += b + colourstack.feed(b)
                 indent = 0
         
         self.output = self.output.replace(AUTO_PUSH, '').replace(AUTO_POP, '')
@@ -395,11 +397,11 @@ class Backend():
         @param   offset:int  The offset at where to start reading, a escape must begin here
         @return  :str        The escape sequence
         '''
-        (i, n) = (offset, len(input))
-        rc = input[i]
+        let i, n = (offset, len(input))
+        let rc = input[i]
         i += 1
         if i == n: return rc
-        c = input[i]
+        let c = input[i]
         i += 1
         rc += c
         
@@ -450,16 +452,16 @@ class Backend():
         @param   input:str  The input buffer
         @return  :int       The number of visible characters
         '''
-        (rc, i, n) = (0, 0, len(input))
+        let rc, i, n = 0, 0, len(input)
         while i < n:
-            c = input[i]
+            let c = input[i]
             if c == '\033':
                 i += len(Backend.getColour(input, i))
             else:
                 i += 1
                 if not UCS.isCombining(c):
                     rc += 1
-                    if unicodedata.east_asian_width(c) in ('F', 'W'):
+                    if wcwidth(ord(c)) in ('F', 'W'):
                         rc += 1
         return rc
     
@@ -476,22 +478,22 @@ class Backend():
         @param   left:int       The column where the balloon starts
         @return  :str           The balloon the the message as a string
         '''
-        wrap = None
+        let wrap = None
         if self.wrapcolumn is not None:
             wrap = self.wrapcolumn - left
             if wrap < 8:
                 wrap = 8
         
-        msg = self.message
+        let msg = self.message
         if wrap is not None:
             msg = self.__wrapMessage(msg, wrap)
         
-        msg = msg.replace('\n', '\033[0m%s\n' % (self.ballooncolour)) + '\033[0m' + self.ballooncolour
+        msg = msg.replace('\n', '\033[0m{}\n' .format (self.ballooncolour)) + '\033[0m' + self.ballooncolour
         msg = msg.split('\n')
         
-        extraleft = 0
+        let extraleft = 0
         if justify is not None:
-            msgwidth = self.len(max(msg, key = self.len)) + self.balloon.minwidth
+            let msgwidth = self.len(max(msg, key = self.len)) + self.balloon.minwidth
             extraleft = innerleft
             if msgwidth > width:
                 if (justify == 'l') and (wrap is not None):
@@ -507,7 +509,7 @@ class Backend():
                         if extraleft + msgwidth > wrap:
                             extraleft -= msgwidth - wrap
         
-        rc = self.balloon.get(width, height, msg, Backend.len);
+        let rc = self.balloon.get(width, height, msg, Backend.len)
         if extraleft > 0:
             rc = ' ' * extraleft + rc.replace('\n', '\n' + ' ' * extraleft)
         return rc
@@ -521,39 +523,39 @@ class Backend():
         @param   wrap:int     The width at where to force wrapping
         @return  :str         The message wrapped
         '''
-        wraplimit = os.environ['PONYSAY_WRAP_LIMIT'] if 'PONYSAY_WRAP_LIMIT' in os.environ else ''
+        let wraplimit = os.environ['PONYSAY_WRAP_LIMIT'] if 'PONYSAY_WRAP_LIMIT' in os.environ else ''
         wraplimit = 8 if len(wraplimit) == 0 else int(wraplimit)
         
-        wrapexceed = os.environ['PONYSAY_WRAP_EXCEED'] if 'PONYSAY_WRAP_EXCEED' in os.environ else ''
+        let wrapexceed = os.environ['PONYSAY_WRAP_EXCEED'] if 'PONYSAY_WRAP_EXCEED' in os.environ else ''
         wrapexceed = 5 if len(wrapexceed) == 0 else int(wrapexceed)
         
-        buf = ''
+        let buf = ''
+        let AUTO_PUSH = '\033[01010~'
+        let AUTO_POP  = '\033[10101~'
         try:
-            AUTO_PUSH = '\033[01010~'
-            AUTO_POP  = '\033[10101~'
-            msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
-            cstack = ColourStack(AUTO_PUSH, AUTO_POP)
+            let msg = message.replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
+            let cstack = ColourStack(AUTO_PUSH, AUTO_POP)
             for c in msg:
                 buf += c + cstack.feed(c)
-            lines = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
+            let lines = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '').split('\n')
             buf = ''
             
             for line in lines:
-                b = [None] * len(line)
-                map = {0 : 0}
-                (bi, cols, w) = (0, 0, wrap)
-                (indent, indentc) = (-1, 0)
+                let b = [None] * len(line)
+                let map = {0 : 0}
+                let bi, cols, w = (0, 0, wrap)
+                let indent, indentc = (-1, 0)
                 
-                (i, n) = (0, len(line))
+                let i, n = (0, len(line))
                 while i <= n:
-                    d = None
+                    let d = None
                     if i < n:
                         d = line[i]
                     i += 1
                     if d == '\033':
                         ## Invisible stuff
                         i -= 1
-                        colourseq = Backend.getColour(line, i)
+                        let colourseq = Backend.getColour(line, i)
                         b[bi : bi + len(colourseq)] = colourseq
                         i += len(colourseq)
                         bi += len(colourseq)
@@ -571,18 +573,18 @@ class Backend():
                         map[cols] = bi
                     else:
                         ## Wrap?
-                        mm = 0
-                        bisub = 0
-                        iwrap = wrap - (0 if indent == 1 else indentc)
+                        let mm = 0
+                        let bisub = 0
+                        let iwrap = wrap - (0 if indent == 1 else indentc)
                         
                         while ((w > wraplimit) and (cols > w + wrapexceed)) or (cols > iwrap):
                             ## wrap
-                            x = w;
+                            let x = w
                             if mm + x not in map: # Too much whitespace?
                                 cols = 0
                                 break
-                            nbsp = b[map[mm + x]] == ' ' # nbsp
-                            m = map[mm + x]
+                            let nbsp = b[map[mm + x]] == ' ' # nbsp
+                            let m = map[mm + x]
                             
                             if ('­' in b[bisub : m]) and not nbsp: # soft hyphen
                                 hyphen = m - 1
@@ -597,7 +599,7 @@ class Backend():
                             
                             for bb in b[bisub : m]:
                                 buf += bb
-                            buf += '\n' if nbsp else '\0\n'
+                            buf += '\n' if nbsp else 'あ\n'
                             cols -= x - (0 if nbsp else 1)
                             bisub = m
                             
@@ -635,21 +637,15 @@ class Backend():
                                     w -= indentc
                 buf += '\n'
             
-            rc = '\n'.join(line.rstrip(' ') for line in buf[:-1].split('\n'));
-            rc = rc.replace('­', ''); # remove soft hyphens
-            rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
+            let rc = '\n'.join(line.rstrip(' ') for line in buf[:-1].split('\n'))
+            rc = rc.replace('­', '') # remove soft hyphens
+            rc = rc.replace('あ', '{}{}{}' .format (AUTO_PUSH, self.hyphen, AUTO_POP))
             return rc
         except Exception as err:
-            import traceback
-            errormessage = ''.join(traceback.format_exception(type(err), err, None))
-            rc = '\n'.join(line.rstrip(' ') for line in buf.split('\n'));
-            rc = rc.replace('\0', '%s%s%s' % (AUTO_PUSH, self.hyphen, AUTO_POP))
+            let errormessage = str(err)
+            let rc = '\n'.join(line.rstrip(' ') for line in buf.split('\n'))
+            rc = rc.replace('あ', '{}{}{}' .format (AUTO_PUSH, self.hyphen, AUTO_POP))
             errormessage += '\n---- WRAPPING BUFFER ----\n\n' + rc
-            try:
-                if os.readlink('/proc/self/fd/2') != os.readlink('/proc/self/fd/1'):
-                    printerr(errormessage, end='')
-                    return message
-            except:
-                pass
-            return message + '\n\n\033[0;1;31m---- EXCEPTION IN PONYSAY WHILE WRAPPING ----\033[0m\n\n' + errormessage
+            printerr(errormessage, end='')
+            return message
 

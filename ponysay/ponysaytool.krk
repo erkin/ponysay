@@ -31,15 +31,16 @@ the colon.
 '''
 
 import os
-import sys
-from subprocess import Popen, PIPE
+import kuroko
+import fileio
 
-from argparser import *
-from ponysay import *
-from metadata import *
+from ponysay.argparser import ArgParser
+from ponysay.ponysay import Ponysay
+from ponysay.metadata import Metadata
 
 
-VERSION = 'dev'  # this line should not be edited, it is fixed by the build system
+
+let VERSION = 'dev'  # this line should not be edited, it is fixed by the build system
 '''
 The version of ponysay
 '''
@@ -54,7 +55,7 @@ def print(text = '', end = '\n'):
     @param  text:str  The text to print (empty string is default)
     @param  end:str   The appendix to the text to print (line breaking is default)
     '''
-    sys.stdout.buffer.write((str(text) + end).encode('utf-8'))
+    fileio.stdout.buffer.write((str(text) + end).encode('utf-8'))
 
 def printerr(text = '', end = '\n'):
     '''
@@ -63,7 +64,7 @@ def printerr(text = '', end = '\n'):
     @param  text:str  The text to print (empty string is default)
     @param  end:str   The appendix to the text to print (line breaking is default)
     '''
-    sys.stderr.buffer.write((str(text) + end).encode('utf-8'))
+    fileio.stderr.buffer.write((str(text) + end).encode('utf-8'))
 
 
 
@@ -80,7 +81,7 @@ class PonysayTool():
         '''
         if args.argcount == 0:
             args.help()
-            exit(255)
+            os.exit(255)
             return
         
         opts = args.opts
@@ -88,7 +89,7 @@ class PonysayTool():
         if unrecognised or (opts['-h'] is not None) or (opts['+h'] is not None):
             args.help(True if opts['+h'] is not None else None)
             if unrecognised:
-                exit(254)
+                os.exit(254)
         
         elif opts['-v'] is not None:
             print('%s %s' % ('ponysay-tool', VERSION))
@@ -105,33 +106,33 @@ class PonysayTool():
         elif (opts['-b'] is not None) and (len(opts['-b']) == 1):
             try:
                 if opts['--no-term-init'] is None:
-                    print('\033[?1049h', end='') # initialise terminal
+                    print('\[[?1049h', end='') # initialise terminal
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
                 cmd %= ('-echo -icanon -echo -isig -ixoff -ixon', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
-                print('\033[?25l', end='') # hide cursor
+                print('\[[?25l', end='') # hide cursor
                 dir = opts['-b'][0]
                 if not dir.endswith(os.sep):
                     dir += os.sep
                 self.browse(dir, opts['-r'])
             finally:
-                print('\033[?25h', end='') # show cursor
+                print('\[[?25h', end='') # show cursor
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
                 cmd %= ('echo icanon echo isig ixoff ixon', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
                 if opts['--no-term-init'] is None:
-                    print('\033[?1049l', end='') # terminate terminal
+                    print('\[[?1049l', end='') # terminate terminal
         
         elif (opts['--edit'] is not None) and (len(opts['--edit']) == 1):
             pony = opts['--edit'][0]
             if not os.path.isfile(pony):
                 printerr('%s is not an existing regular file' % pony)
-                exit(252)
+                os.exit(252)
             linuxvt = ('TERM' in os.environ) and (os.environ['TERM'] == 'linux')
             try:
                 if opts['--no-term-init'] is None:
-                    print('\033[?1049h', end='') # initialise terminal
-                if linuxvt: print('\033[?8c', end='') # use full block for cursor (_ is used by default in linux vt)
+                    print('\[[?1049h', end='') # initialise terminal
+                if linuxvt: print('\[[?8c', end='') # use full block for cursor (_ is used by default in linux vt)
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
                 cmd %= ('-echo -icanon -echo -isig -ixoff -ixon', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
@@ -140,9 +141,9 @@ class PonysayTool():
                 cmd = 'stty %s < %s > /dev/null 2> /dev/null'
                 cmd %= ('echo icanon echo isig ixoff ixon', os.path.realpath('/dev/stdout'))
                 Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE).wait()
-                if linuxvt: print('\033[?0c', end='') # restore cursor
+                if linuxvt: print('\[[?0c', end='') # restore cursor
                 if opts['--no-term-init'] is None:
-                    print('\033[?1049l', end='') # terminate terminal
+                    print('\[[?1049l', end='') # terminate terminal
         
         elif (opts['--edit-rm'] is not None) and (len(opts['--edit-rm']) == 1):
             ponyfile = opts['--edit-rm'][0]
@@ -174,7 +175,7 @@ class PonysayTool():
                 if data == '':
                     if line != '$$$':
                         printerr('Bad stash')
-                        exit(251)
+                        os.exit(251)
                     data += '$$$\n'
                 else:
                     data += line + '\n'
@@ -192,7 +193,7 @@ class PonysayTool():
         
         else:
             args.help()
-            exit(253)
+            os.exit(253)
     
     
     def execPonysay(self, args, message = ''):
@@ -214,9 +215,9 @@ class PonysayTool():
                     return args[key] if (args[key] is not None) and isinstance(args[key], list) else [args[key]]
                 return None
             def __contains__(self, key):
-                return key in args;
+                return key in args
         
-        stdout = sys.stdout
+        stdout = fileio.stdout
         class StringInputStream():
             def __init__(self):
                 self.buf = ''
@@ -232,11 +233,11 @@ class PonysayTool():
                 pass
             def isatty(self):
                 return True
-        sys.stdout = StringInputStream()
+        fileio.stdout = StringInputStream()
         ponysay = Ponysay()
         ponysay.run(PhonyArgParser(args, message))
-        out = sys.stdout.buf[:-1]
-        sys.stdout = stdout
+        out = fileio.stdout.buf[:-1]
+        fileio.stdout = stdout
         return out
     
     
@@ -249,7 +250,7 @@ class PonysayTool():
         '''
         ## Call `stty` to determine the size of the terminal, this way is better than using python's ncurses
         termsize = None
-        for channel in (sys.stdout, sys.stdin, sys.stderr):
+        for channel in (fileio.stdout, fileio.stdin, fileio.stderr):
             termsize = Popen(['stty', 'size'], stdout=PIPE, stdin=channel, stderr=PIPE).communicate()[0]
             if len(termsize) > 0:
                 termsize = termsize.decode('utf8', 'replace')[:-1].split(' ') # [:-1] removes a \n
@@ -275,7 +276,7 @@ class PonysayTool():
         ponies.sort()
         
         if len(ponies) == 0:
-            print('\033[1;31m%s\033[21m;39m' % 'No ponies... press Enter to exit.')
+            print('\[[1;31m%s\[[22m;39m' % 'No ponies... press Enter to exit.')
             input()
         
         panelw = Backend.len(max(ponies, key = Backend.len))
@@ -300,14 +301,14 @@ class PonysayTool():
                 ponyfile = (ponydir + '/' + ponies[ponyindex] + '.pony').replace('//', '/')
                 pony = self.execPonysay({'-f' : ponyfile, '-W' : 'none', '-o' : None}).split('\n')
                 
-                preprint = '\033[H\033[2J'
+                preprint = '\[[H\[[2J'
                 if pony[0].startswith(preprint):
                     pony[0] = pony[0][len(preprint):]
                 ponyheight = len(pony)
                 ponywidth = Backend.len(max(pony, key = Backend.len))
                 
-                AUTO_PUSH = '\033[01010~'
-                AUTO_POP  = '\033[10101~'
+                AUTO_PUSH = '\[[01010~'
+                AUTO_POP  = '\[[10101~'
                 pony = '\n'.join(pony).replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
                 colourstack = ColourStack(AUTO_PUSH, AUTO_POP)
                 buf = ''
@@ -317,7 +318,7 @@ class PonysayTool():
             
             if (oldx != x) or (oldy != y):
                 (oldx, oldy) = (x, y)
-                print('\033[H\033[2J', end='')
+                print('\[[H\[[2J', end='')
                 
                 def getprint(pony, ponywidth, ponyheight, termw, termh, px, py):
                     ponyprint = pony
@@ -338,7 +339,7 @@ class PonysayTool():
                     elif px > 0:
                         ponyprint = [px * ' ' + line for line in ponyprint]
                     ponyprint = [(line if Backend.len(line) <= termw else line[:findcolumn(line, termw)]) for line in ponyprint]
-                    ponyprint = ['\033[21;39;49;0m%s\033[21;39;49;0m' % line for line in ponyprint]
+                    ponyprint = ['\[[22;39;49;0m%s\[[22;39;49;0m' % line for line in ponyprint]
                     return '\n'.join(ponyprint)
                 
                 if quotes:
@@ -361,24 +362,24 @@ class PonysayTool():
                 for line in ponies[panely:]:
                     cury += 1
                     if os.path.islink((ponydir + '/' + line + '.pony').replace('//', '/')):
-                        line = '\033[34m%s\033[39m' % ((line + ' ' * panelw)[:panelw])
+                        line = '\[[34m%s\[[39m' % ((line + ' ' * panelw)[:panelw])
                     else:
                         line = (line + ' ' * panelw)[:panelw]
-                    print('\033[%i;%iH\033[%im%s\033[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, line), end='')
+                    print('\[[%i;%iH\[[%im%s\[[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, line), end='')
             elif printpanel >= 0:
                 for index in (printpanel, ponyindex):
                     cury = index - panely
                     if (0 <= cury) and (cury < termh):
                         line = ponies[cury + panely]
                         if os.path.islink((ponydir + '/' + line + '.pony').replace('//', '/')):
-                            line = '\033[34m%s\033[39m' % ((line + ' ' * panelw)[:panelw])
+                            line = '\[[34m%s\[[39m' % ((line + ' ' * panelw)[:panelw])
                         else:
                             line = (line + ' ' * panelw)[:panelw]
-                        print('\033[%i;%iH\033[%im%s\033[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, line), end='')
+                        print('\[[%i;%iH\[[%im%s\[[0m' % (cury, panelx + 1, 1 if panely + cury - 1 == ponyindex else 0, line), end='')
             
-            sys.stdout.buffer.flush()
+            fileios.stdout.buffer.flush()
             if stored is None:
-                d = sys.stdin.read(1)
+                d = fileio.stdin.read(1)
             else:
                 d = stored
                 stored = None
@@ -409,20 +410,20 @@ class PonysayTool():
             elif ord(d) == ord('Q') - ord('@'):
                 break
             elif ord(d) == ord('X') - ord('@'):
-                if ord(sys.stdin.read(1)) == ord('C') - ord('@'):
+                if ord(fileio.stdin.read(1)) == ord('C') - ord('@'):
                     break
-            elif d == '\033':
-                d = sys.stdin.read(1)
+            elif d == '\[':
+                d = fileio.stdin.read(1)
                 if d == '[':
-                    d = sys.stdin.read(1)
+                    d = fileio.stdin.read(1)
                     if   d == 'A':  stored = chr(ord('P') - ord('@')) if (not quotes) and (not info) else 'W'
                     elif d == 'B':  stored = chr(ord('N') - ord('@')) if (not quotes) and (not info) else 'S'
                     elif d == 'C':  stored = chr(ord('N') - ord('@')) if (not quotes) and (not info) else 'D'
                     elif d == 'D':  stored = chr(ord('P') - ord('@')) if (not quotes) and (not info) else 'A'
                     elif d == '1':
-                        if sys.stdin.read(1) == ';':
-                            if sys.stdin.read(1) == '5':
-                                d = sys.stdin.read(1)
+                        if fileio.stdin.read(1) == ';':
+                            if fileio.stdin.read(1) == '5':
+                                d = fileio.stdin.read(1)
                                 if   d == 'A':  stored = 'W'
                                 elif d == 'B':  stored = 'S'
                                 elif d == 'C':  stored = 'D'
@@ -446,7 +447,7 @@ class PonysayTool():
             def __getitem__(self, key):
                 return [self.value] if key == self.key else None
             def __contains__(self, key):
-                return key == self.key;
+                return key == self.key
         
         class StringInputStream():
             def __init__(self):
@@ -464,36 +465,36 @@ class PonysayTool():
             def isatty(self):
                 return True
         
-        stdout = sys.stdout
+        stdout = fileio.stdout
         term = os.environ['TERM']
         os.environ['TERM'] = 'linux'
         
-        sys.stdout = StringInputStream()
+        fileio.stdout = StringInputStream()
         ponysay = Ponysay()
         ponysay.run(PhonyArgParser('--onelist', None))
-        stdponies = sys.stdout.buf[:-1].split('\n')
+        stdponies = fileio.stdout.buf[:-1].split('\n')
         
-        sys.stdout = StringInputStream()
+        fileio.stdout = StringInputStream()
         ponysay = Ponysay()
         ponysay.run(PhonyArgParser('++onelist', None))
-        extraponies = sys.stdout.buf[:-1].split('\n')
+        extraponies = fileio.stdout.buf[:-1].split('\n')
         
         for pony in stdponies:
             printerr('Genering standard kmspony: %s' % pony)
-            sys.stderr.buffer.flush();
-            sys.stdout = StringInputStream()
+            fileio.stderr.buffer.flush()
+            fileio.stdout = StringInputStream()
             ponysay = Ponysay()
             ponysay.run(PhonyArgParser('--pony', pony))
         
         for pony in extraponies:
             printerr('Genering extra kmspony: %s' % pony)
-            sys.stderr.buffer.flush();
-            sys.stdout = StringInputStream()
+            fileio.stderr.buffer.flush()
+            fileio.stdout = StringInputStream()
             ponysay = Ponysay()
             ponysay.run(PhonyArgParser('++pony', pony))
         
         os.environ['TERM'] = term
-        sys.stdout = stdout
+        fileio.stdout = stdout
     
     
     def generateDimensions(self, ponydir, ponies = None):
@@ -523,8 +524,8 @@ class PonysayTool():
                             return [('none' if self.balloon else None)]
                         return None
                     def __contains__(self, key):
-                        return key in ('-f', '-W', '-b');
-                stdout = sys.stdout
+                        return key in ('-f', '-W', '-b')
+                stdout = fileio.stdout
                 class StringInputStream():
                     def __init__(self):
                         self.buf = ''
@@ -540,7 +541,7 @@ class PonysayTool():
                         pass
                     def isatty(self):
                         return True
-                sys.stdout = StringInputStream()
+                fileio.stdout = StringInputStream()
                 ponysay = Ponysay()
                 ponysay.run(PhonyArgParser(True))
                 printpony = sys.stdout.buf[:-1].split('\n')
@@ -697,7 +698,7 @@ class PonysayTool():
                 if key == '-W':  return ['n']
                 return None
             def __contains__(self, key):
-                return key in ('-f', '-W');
+                return key in ('-f', '-W')
         
         
         data = {}
@@ -750,7 +751,7 @@ class PonysayTool():
         printpony = sys.stdout.buf[:-1].split('\n')
         sys.stdout = stdout
         
-        preprint = '\033[H\033[2J'
+        preprint = '\[[H\[[2J'
         if printpony[0].startswith(preprint):
             printpony[0] = printpony[0][len(preprint):]
         ponyheight = len(printpony) - len(ponyfile.split('\n')) + 1 - 2 # using fallback balloon
@@ -765,8 +766,8 @@ class PonysayTool():
                 termsize = [int(item) for item in termsize]
                 break
         
-        AUTO_PUSH = '\033[01010~'
-        AUTO_POP  = '\033[10101~'
+        AUTO_PUSH = '\[[01010~'
+        AUTO_POP  = '\[[10101~'
         modprintpony = '\n'.join(printpony).replace('\n', AUTO_PUSH + '\n' + AUTO_POP)
         colourstack = ColourStack(AUTO_PUSH, AUTO_POP)
         buf = ''
@@ -774,12 +775,12 @@ class PonysayTool():
             buf += c + colourstack.feed(c)
         modprintpony = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '')
         
-        printpony = [('\033[21;39;49;0m%s%s\033[21;39;49;0m' % (' ' * (termsize[1] - ponywidth), line)) for line in modprintpony.split('\n')]
+        printpony = [('\[[22;39;49;0m%s%s\[[22;39;49;0m' % (' ' * (termsize[1] - ponywidth), line)) for line in modprintpony.split('\n')]
         
         
         print(preprint, end='')
         print('\n'.join(printpony), end='')
-        print('\033[H', end='')
+        print('\[[H', end='')
         print('Please see the info manual for details on how to fill out this form')
         print()
         
@@ -885,17 +886,17 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
         killptr = None
         
         def status(text):
-            print('\033[%i;%iH\033[7m%s\033[27m\033[%i;%iH' % (termh - 1, 1, ' (' + text + ') ' + '-' * (termw - len(' (' + text + ') ')), self.top + y, innerleft + x), end='')
+            print('\[[%i;%iH\[[7m%s\[[27m\[[%i;%iH' % (termh - 1, 1, ' (' + text + ') ' + '-' * (termw - len(' (' + text + ') ')), self.top + y, innerleft + x), end='')
         
         status('unmodified')
         
-        print('\033[%i;%iH' % (self.top, innerleft), end='')
+        print('\[[%i;%iH' % (self.top, innerleft), end='')
         
         def alert(text):
             if text is None:
                 alert('')
             else:
-                print('\033[%i;%iH\033[2K%s\033[%i;%iH' % (termh, 1, text, self.top + y, innerleft + x), end='')
+                print('\[[%i;%iH\[[2K%s\[[%i;%iH' % (termh, 1, text, self.top + y, innerleft + x), end='')
         
         modified = False
         override = False
@@ -904,28 +905,28 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
         stored = chr(ord('L') - ord('@'))
         alerted = False
         edited = False
-        print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
+        print('\[[%i;%iH' % (self.top + y, innerleft + x), end='')
         while True:
             if (oldmark is not None) and (oldmark >= 0):
                 if oldmark < oldx:
-                    print('\033[%i;%iH\033[49m%s\033[%i;%iH' % (self.top + oldy, innerleft + oldmark, datalines[oldy][oldmark : oldx], self.top + y, innerleft + x), end='')
+                    print('\[[%i;%iH\[[49m%s\[[%i;%iH' % (self.top + oldy, innerleft + oldmark, datalines[oldy][oldmark : oldx], self.top + y, innerleft + x), end='')
                 elif oldmark > oldx:
-                    print('\033[%i;%iH\033[49m%s\033[%i;%iH' % (self.top + oldy, innerleft + oldx, datalines[oldy][oldx : oldmark], self.top + y, innerleft + x), end='')
+                    print('\[[%i;%iH\[[49m%s\[[%i;%iH' % (self.top + oldy, innerleft + oldx, datalines[oldy][oldx : oldmark], self.top + y, innerleft + x), end='')
             if (mark is not None) and (mark >= 0):
                 if mark < x:
-                    print('\033[%i;%iH\033[44;37m%s\033[49;39m\033[%i;%iH' % (self.top + y, innerleft + mark, datalines[y][mark : x], self.top + y, innerleft + x), end='')
+                    print('\[[%i;%iH\[[44;37m%s\[[49;39m\[[%i;%iH' % (self.top + y, innerleft + mark, datalines[y][mark : x], self.top + y, innerleft + x), end='')
                 elif mark > x:
-                    print('\033[%i;%iH\033[44;37m%s\033[49;39m\033[%i;%iH' % (self.top + y, innerleft + x, datalines[y][x : mark], self.top + y, innerleft + x), end='')
+                    print('\[[%i;%iH\[[44;37m%s\[[49;39m\[[%i;%iH' % (self.top + y, innerleft + x, datalines[y][x : mark], self.top + y, innerleft + x), end='')
             if y != oldy:
                 if (oldy > 0) and (leftlines[oldy - 1] == leftlines[oldy]) and (leftlines[oldy] == leftlines[-1]):
-                    print('\033[%i;%iH\033[34m%s\033[39m' % (self.top + oldy, self.left, '>'), end='')
+                    print('\[[%i;%iH\[[34m%s\[[39m' % (self.top + oldy, self.left, '>'), end='')
                 else:
-                    print('\033[%i;%iH\033[34m%s:\033[39m' % (self.top + oldy, self.left, leftlines[oldy]), end='')
+                    print('\[[%i;%iH\[[34m%s:\[[39m' % (self.top + oldy, self.left, leftlines[oldy]), end='')
                 if (y > 0) and (leftlines[y - 1] == leftlines[y]) and (leftlines[y] == leftlines[-1]):
-                    print('\033[%i;%iH\033[1;34m%s\033[21;39m' % (self.top + y, self.left, '>'), end='')
+                    print('\[[%i;%iH\[[1;34m%s\[[22;39m' % (self.top + y, self.left, '>'), end='')
                 else:
-                    print('\033[%i;%iH\033[1;34m%s:\033[21;39m' % (self.top + y, self.left, leftlines[y]), end='')
-                print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
+                    print('\[[%i;%iH\[[1;34m%s:\[[22;39m' % (self.top + y, self.left, leftlines[y]), end='')
+                print('\[[%i;%iH' % (self.top + y, innerleft + x), end='')
             (oldy, oldx, oldmark) = (y, x, mark)
             if edited:
                 edited = False
@@ -980,10 +981,10 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                     mark = None
                     killptr = len(killring) - 1
                     yanked = killring[killptr]
-                    print('\033[%i;%iH%s' % (self.top + y, innerleft + x, yanked + datalines[y][x:]), end='')
+                    print('\[[%i;%iH%s' % (self.top + y, innerleft + x, yanked + datalines[y][x:]), end='')
                     datalines[y] = datalines[y][:x] + yanked + datalines[y][x:]
                     x += len(yanked)
-                    print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
+                    print('\[[%i;%iH' % (self.top + y, innerleft + x), end='')
             elif ord(d) == ord('X') - ord('@'):
                 alert('C-x')
                 alerted = True
@@ -1034,7 +1035,7 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                 datalines[y] = dataline = dataline[:x - removed] + dataline[x:]
                 x -= removed
                 mark = None
-                print('\033[%i;%iH%s%s\033[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * removed, self.top + y, innerleft + x), end='')
+                print('\[[%i;%iH%s%s\[[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * removed, self.top + y, innerleft + x), end='')
                 edited = True
             elif ord(d) < ord(' '):
                 if ord(d) == ord('P') - ord('@'):
@@ -1055,14 +1056,14 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                 elif ord(d) == ord('F') - ord('@'):
                     if x < len(datalines[y]):
                         x += 1
-                        print('\033[C', end='')
+                        print('\[[C', end='')
                     else:
                         alert('At end')
                         alerted = True
                 elif ord(d) == ord('B') - ord('@'):
                     if x > 0:
                         x -= 1
-                        print('\033[D', end='')
+                        print('\[[D', end='')
                     else:
                         alert('At beginning')
                         alerted = True
@@ -1074,17 +1075,17 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                     x = 0
                     stored = chr(ord('L') - ord('@'))
                 elif ord(d) == ord('L') - ord('@'):
-                    empty = '\033[0m' + (' ' * self.width + '\n') * len(datalines)
-                    print('\033[%i;%iH%s' % (self.top, self.left, empty), end='')
+                    empty = '\[[0m' + (' ' * self.width + '\n') * len(datalines)
+                    print('\[[%i;%iH%s' % (self.top, self.left, empty), end='')
                     for row in range(0, len(leftlines)):
                         leftline = leftlines[row] + ':'
                         if (leftlines[row - 1] == leftlines[row]) and (leftlines[row] == leftlines[-1]):
                             leftline = '>'
-                        print('\033[%i;%iH\033[%s34m%s\033[%s39m' % (self.top + row, self.left, '1;' if row == y else '', leftline, '21;' if row == y else ''), end='')
+                        print('\[[%i;%iH\[[%s34m%s\[[%s39m' % (self.top + row, self.left, '1;' if row == y else '', leftline, '22;' if row == y else ''), end='')
                     for row in range(0, len(datalines)):
-                        print('\033[%i;%iH%s\033[49m' % (self.top + row, innerleft, datalines[row]), end='')
-                    print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
-                elif d == '\033':
+                        print('\[[%i;%iH%s\[[49m' % (self.top + row, innerleft, datalines[row]), end='')
+                    print('\[[%i;%iH' % (self.top + y, innerleft + x), end='')
+                elif d == '\[':
                     d = sys.stdin.read(1)
                     if d == '[':
                         d = sys.stdin.read(1)
@@ -1119,7 +1120,7 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                                     alerted = True
                                     continue
                                 datalines[y] = dataline = dataline[:x] + dataline[x + removed:]
-                                print('\033[%i;%iH%s%s\033[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * removed, self.top + y, innerleft + x), end='')
+                                print('\[[%i;%iH%s%s\[[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * removed, self.top + y, innerleft + x), end='')
                                 mark = None
                                 edited = True
                         else:
@@ -1150,18 +1151,18 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                                 additional = len(killring[killptr]) - len(yanked)
                                 x += additional
                                 datalines[y] = dataline
-                                print('\033[%i;%iH%s%s\033[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * max(0, -additional), self.top + y, innerleft + x), end='')
+                                print('\[[%i;%iH%s%s\[[%i;%iH' % (self.top + y, innerleft, dataline, ' ' * max(0, -additional), self.top + y, innerleft + x), end='')
                             else:
                                 stored = chr(ord('Y') - ord('@'))
                         else:
                             stored = chr(ord('Y') - ord('@'))
                     elif d == 'O':
-                        d = sys.stdin.read(1)
+                        d = fileio.stdin.read(1)
                         if d == 'H':
                             x = 0
                         elif d == 'F':
                             x = len(datalines[y])
-                        print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
+                        print('\[[%i;%iH' % (self.top + y, innerleft + x), end='')
                 elif d == '\n':
                     stored = chr(ord('N') - ord('@'))
             else:
@@ -1172,7 +1173,7 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                 if (not override) or (x == len(dataline)):
                     print(insert + dataline[x:], end='')
                     if len(dataline) - x > 0:
-                        print('\033[%iD' % (len(dataline) - x), end='')
+                        print('\[[%iD' % (len(dataline) - x), end='')
                     datalines[y] = dataline[:x] + insert + dataline[x:]
                     if (mark is not None) and (mark >= 0):
                         if mark >= x:
@@ -1185,46 +1186,46 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
 
 
 
-HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
+let HOME = os.environ['HOME'] if 'HOME' in os.environ else os.path.expanduser('~')
 '''
 The user's home directory
 '''
 
-pipelinein = not sys.stdin.isatty()
+let pipelinein = not os.isatty(0)
 '''
 Whether stdin is piped
 '''
 
-pipelineout = not sys.stdout.isatty()
+let pipelineout = not os.isatty(1)
 '''
 Whether stdout is piped
 '''
 
-pipelineerr = not sys.stderr.isatty()
+let pipelineerr = not os.isatty(2)
 '''
 Whether stderr is piped
 '''
 
 
-usage_program = '\033[34;1mponysay-tool\033[21;39m'
+let usage_program = '\[[34;1mponysay-tool\[[22;39m'
 
-usage = '\n'.join(['%s %s' % (usage_program, '(--help | --version | --kms)'),
-                   '%s %s' % (usage_program, '(--edit | --edit-rm) \033[33mPONY-FILE\033[39m'),
-                   '%s %s' % (usage_program, '--edit-stash \033[33mPONY-FILE\033[39m > \033[33mSTASH-FILE\033[39m'),
-                   '%s %s' % (usage_program, '--edit-apply \033[33mPONY-FILE\033[39m < \033[33mSTASH-FILE\033[39m'),
-                   '%s %s' % (usage_program, '(--dimensions | --metadata) \033[33mPONY-DIR\033[39m'),
-                   '%s %s' % (usage_program, '--browse \033[33mPONY-DIR\033[39m [-r \033[33mRESTRICTION\033[39m]*'),
+let usage = '\n'.join([' '.join((usage_program, '(--help | --version | --kms)')),
+                   ' '.join((usage_program, '(--edit | --edit-rm) \[[33mPONY-FILE\[[39m')),
+                   ' '.join((usage_program, '--edit-stash \[[33mPONY-FILE\[[39m > \[[33mSTASH-FILE\[[39m')),
+                   ' '.join((usage_program, '--edit-apply \[[33mPONY-FILE\[[39m < \[[33mSTASH-FILE\[[39m')),
+                   ' '.join((usage_program, '(--dimensions | --metadata) \[[33mPONY-DIR\[[39m')),
+                   ' '.join((usage_program, '--browse \[[33mPONY-DIR\[[39m [-r \[[33mRESTRICTION\[[39m]*')),
                ])
 
-usage = usage.replace('\033[', '\0')
+usage = usage.replace('\[[', 'あ')
 for sym in ('[', ']', '(', ')', '|', '...', '*'):
-    usage = usage.replace(sym, '\033[2m' + sym + '\033[22m')
-usage = usage.replace('\0', '\033[')
+    usage = usage.replace(sym, '\[[2m' + sym + '\[[22m')
+usage = usage.replace('あ', '\[[')
 
 '''
 Argument parsing
 '''
-opts = ArgParser(program     = 'ponysay-tool',
+let opts = ArgParser(program     = 'ponysay-tool',
                  description = 'Tool chest for ponysay',
                  usage       = usage,
                  longdescription = None)
@@ -1244,7 +1245,7 @@ opts.add_argumented(  ['--edit-rm'],        arg = 'PONY-FILE',   help = 'Remove 
 opts.add_argumented(  ['--edit-apply'],     arg = 'PONY-FILE',   help = 'Apply metadata from stdin to a pony file')
 opts.add_argumented(  ['--edit-stash'],     arg = 'PONY-FILE',   help = 'Print applyable metadata from a pony file')
 
-unrecognised = not opts.parse()
+let unrecognised = not opts.parse()
 '''
 Whether at least one unrecognised option was used
 '''

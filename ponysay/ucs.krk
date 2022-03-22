@@ -29,7 +29,7 @@ that line ‘FREE: yes’, is included inside the image between two ‘$$$’
 lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
-from common import *
+from ponysay.common import printerr, printinfo, gettermsize, endswith
 
 
 
@@ -46,7 +46,7 @@ class UCS():
         @param   char:chr  The character to test
         @return  :bool     Whether the character is a combining character
         '''
-        o = ord(char)
+        let o = ord(char)
         if (0x0300 <= o) and (o <= 0x036F):  return True
         if (0x20D0 <= o) and (o <= 0x20FF):  return True
         if (0x1DC0 <= o) and (o <= 0x1DFF):  return True
@@ -62,7 +62,7 @@ class UCS():
         @param   string:str  A text to count combining characters in
         @return  :int        The number of combining characters in the string
         '''
-        rc = 0
+        let rc = 0
         for char in string:
             if UCS.isCombining(char):
                 rc += 1

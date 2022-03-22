@@ -29,10 +29,18 @@ that line ‘FREE: yes’, is included inside the image between two ‘$$$’
 lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
-from common import *
-from ucs import *
+from ponysay.common import printerr, printinfo, gettermsize, endswith
+from ponysay.ucs import UCS
 
+import fileio
 
+def fmax(lst,key):
+    if not lst: return None
+    let best = lst[0]
+    for i in lst[1:]:
+        if key(best) < key(i):
+            best = i
+    return best
 
 class Balloon():
     '''
@@ -73,15 +81,15 @@ class Balloon():
         (self.sse, self.s, self.ssw) = (sse, s, ssw)
         (self.sww, self.w, self.nww) = (sww, w, nww)
         
-        _ne = max(ne, key = UCS.dispLen)
-        _nw = max(nw, key = UCS.dispLen)
-        _se = max(se, key = UCS.dispLen)
-        _sw = max(sw, key = UCS.dispLen)
+        let _ne = fmax(ne, key = UCS.dispLen)
+        let _nw = fmax(nw, key = UCS.dispLen)
+        let _se = fmax(se, key = UCS.dispLen)
+        let _sw = fmax(sw, key = UCS.dispLen)
         
-        minE = UCS.dispLen(max([_ne, nee, e, see, _se, ee], key = UCS.dispLen))
-        minW = UCS.dispLen(max([_nw, nww, e, sww, _sw, ww], key = UCS.dispLen))
-        minN = len(max([ne, nne, n, nnw, nw], key = len))
-        minS = len(max([se, sse, s, ssw, sw], key = len))
+        let minE = UCS.dispLen(fmax([_ne, nee, e, see, _se, ee], key = UCS.dispLen))
+        let minW = UCS.dispLen(fmax([_nw, nww, e, sww, _sw, ww], key = UCS.dispLen))
+        let minN = len(fmax([ne, nne, n, nnw, nw], key = len))
+        let minS = len(fmax([se, sse, s, ssw, sw], key = len))
         
         self.minwidth  = minE + minE
         self.minheight = minN + minS
@@ -98,26 +106,27 @@ class Balloon():
         @return  :str              The balloon as a formated string
         '''
         ## Get dimension
-        h = self.minheight + len(lines)
-        w = self.minwidth + lencalc(max(lines, key = lencalc))
+        let h = self.minheight + len(lines)
+        let w = self.minwidth + lencalc(fmax(lines, key = lencalc))
         if w < minw:  w = minw
         if h < minh:  h = minh
         
         ## Create edges
+        let ws, es
         if len(lines) > 1:
-            (ws, es) = ({0 : self.nww, len(lines) - 1 : self.sww}, {0 : self.nee, len(lines) - 1 : self.see})
+            ws, es = ({0 : self.nww, len(lines) - 1 : self.sww}, {0 : self.nee, len(lines) - 1 : self.see})
             for j in range(1, len(lines) - 1):
                 ws[j] = self.w
                 es[j] = self.e
         else:
-            (ws, es) = ({0 : self.ww}, {0 : self.ee})
+            ws, es = ({0 : self.ww}, {0 : self.ee})
         
-        rc = []
+        let rc = []
         
         ## Create the upper part of the balloon
         for j in range(0, len(self.n)):
-            outer = UCS.dispLen(self.nw[j]) + UCS.dispLen(self.ne[j])
-            inner = UCS.dispLen(self.nnw[j]) + UCS.dispLen(self.nne[j])
+            let outer = UCS.dispLen(self.nw[j]) + UCS.dispLen(self.ne[j])
+            let inner = UCS.dispLen(self.nnw[j]) + UCS.dispLen(self.nne[j])
             if outer + inner <= w:
                 rc.append(self.nw[j] + self.nnw[j] + self.n[j] * (w - outer - inner) + self.nne[j] + self.ne[j])
             else:
@@ -129,8 +138,8 @@ class Balloon():
         
         ## Create the lower part of the balloon
         for j in range(0, len(self.s)):
-            outer = UCS.dispLen(self.sw[j]) + UCS.dispLen(self.se[j])
-            inner = UCS.dispLen(self.ssw[j]) + UCS.dispLen(self.sse[j])
+            let outer = UCS.dispLen(self.sw[j]) + UCS.dispLen(self.se[j])
+            let inner = UCS.dispLen(self.ssw[j]) + UCS.dispLen(self.sse[j])
             if outer + inner <= w:
                 rc.append(self.sw[j] + self.ssw[j] + self.s[j] * (w - outer - inner) + self.sse[j] + self.se[j])
             else:
@@ -155,24 +164,25 @@ class Balloon():
             return    Balloon('\\', '/', 'X', '< ', ' >', [' _'], ['_'], ['_'], ['_'], ['_ '], ' \\', ' |', ' /', ['- '], ['-'], ['-'], ['-'], [' -'], '\\ ', '| ', '/ ')
         
         ## Initialise map for balloon parts
-        map = {}
+        let map = {}
         for elem in ('\\', '/', 'X', 'ww', 'ee', 'nw', 'nnw', 'n', 'nne', 'ne', 'nee', 'e', 'see', 'se', 'sse', 's', 'ssw', 'sw', 'sww', 'w', 'nww'):
             map[elem] = []
         
         ## Read all lines in the balloon file
-        with open(balloonfile, 'rb') as balloonstream:
-            data = balloonstream.read().decode('utf8', 'replace')
+        let data
+        with fileio.open(balloonfile, 'rb') as balloonstream:
+            data = balloonstream.read().decode()
             data = [line.replace('\n', '') for line in data.split('\n')]
         
         ## Parse the balloon file, and fill the map
-        last = None
+        let last = None
         for line in data:
             if len(line) > 0:
                 if line[0] == ':':
                     map[last].append(line[1:])
                 else:
                     last = line[:line.index(':')]
-                    value = line[len(last) + 1:]
+                    let value = line[len(last) + 1:]
                     map[last].append(value)
         
         ## Return the balloon

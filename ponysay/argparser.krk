@@ -29,21 +29,23 @@ that line ‘FREE: yes’, is included inside the image between two ‘$$$’
 lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
-from common import *
+from ponysay.common import printerr, printinfo, gettermsize, endswith
+import os
+import kuroko
+import fileio
 
 
-
-ARGUMENTLESS = 0
+let ARGUMENTLESS = 0
 '''
 Option takes no arguments
 '''
 
-ARGUMENTED = 1
+let ARGUMENTED = 1
 '''
 Option takes one argument per instance
 '''
 
-VARIADIC = 2
+let VARIADIC = 2
 '''
 Option consumes all following arguments
 '''
@@ -83,7 +85,7 @@ class ArgParser():
         @param  help:str                Short description, use `None` to hide the option
         '''
         self.__arguments.append((ARGUMENTLESS, alternatives, None, help))
-        stdalt = alternatives[0]
+        let stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
             self.optmap[alt] = (stdalt, ARGUMENTLESS)
@@ -97,7 +99,7 @@ class ArgParser():
         @param  help:str                Short description, use `None` to hide the option
         '''
         self.__arguments.append((ARGUMENTED, alternatives, arg, help))
-        stdalt = alternatives[0]
+        let stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
             self.optmap[alt] = (stdalt, ARGUMENTED)
@@ -111,13 +113,13 @@ class ArgParser():
         @param  help:str                Short description, use `None` to hide the option
         '''
         self.__arguments.append((VARIADIC, alternatives, arg, help))
-        stdalt = alternatives[0]
+        let stdalt = alternatives[0]
         self.opts[stdalt] = None
         for alt in alternatives:
             self.optmap[alt] = (stdalt, VARIADIC)
     
     
-    def parse(self, argv = sys.argv):
+    def parse(self, argv = kuroko.argv):
         '''
         Parse arguments
         
@@ -127,23 +129,24 @@ class ArgParser():
         self.argcount = len(argv) - 1
         self.files = []
         
-        argqueue = []
-        optqueue = []
-        deque = []
+        let arg, i, n, opt, varopt
+        let argqueue = []
+        let optqueue = []
+        let deque = []
         for arg in argv[1:]:
             deque.append(arg)
         
-        dashed = False
-        tmpdashed = False
-        get = 0
-        dontget = 0
+        let dashed = False
+        let tmpdashed = False
+        let get = 0
+        let dontget = 0
         self.rc = True
         
         self.unrecognisedCount = 0
         def unrecognised(arg):
             self.unrecognisedCount += 1
             if self.unrecognisedCount <= 5:
-                sys.stderr.write('%s: warning: unrecognised option %s\n' % (self.__program, arg))
+                fileio.stderr.write('{}: warning: unrecognised option {}\n' .format (self.__program, arg))
             self.rc = False
         
         while len(deque) != 0:
@@ -184,11 +187,11 @@ class ArgParser():
                     else:
                         unrecognised(arg)
                 else:
-                    sign = arg[0]
-                    i = 1
-                    n = len(arg)
+                    let sign = arg[0]
+                    let i = 1
+                    let n = len(arg)
                     while i < n:
-                        narg = sign + arg[i]
+                        let narg = sign + arg[i]
                         i += 1
                         if (narg in self.optmap):
                             if self.optmap[narg][1] == ARGUMENTLESS:
@@ -196,7 +199,7 @@ class ArgParser():
                                 argqueue.append(None)
                             elif self.optmap[narg][1] == ARGUMENTED:
                                 optqueue.append(narg)
-                                nargarg = arg[i:]
+                                let nargarg = arg[i:]
                                 if len(nargarg) == 0:
                                     get += 1
                                 else:
@@ -204,7 +207,7 @@ class ArgParser():
                                 break
                             elif self.optmap[narg][1] == VARIADIC:
                                 optqueue.append(narg)
-                                nargarg = arg[i:]
+                                let nargarg = arg[i:]
                                 argqueue.append(nargarg if len(nargarg) > 0 else None)
                                 dashed = True
                                 break
@@ -240,7 +243,7 @@ class ArgParser():
         self.message = ' '.join(self.files) if len(self.files) > 0 else None
         
         if self.unrecognisedCount > 5:
-            sys.stderr.write('%s: warning: %i more unrecognised %s\n' % (self.unrecognisedCount - 5, 'options' if self.unrecognisedCount == 6 else 'options'))
+            fileio.stderr.write('{}: warning: {} more unrecognised {}\n' .format (self.unrecognisedCount - 5, 'options' if self.unrecognisedCount == 6 else 'options'))
         
         return self.rc
     
@@ -252,94 +255,102 @@ class ArgParser():
         @param  use_colours:bool?  Whether to use colours, `None` if stdout is not piped
         '''
         if use_colours is None:
-            use_colours = sys.stdout.isatty()
+            use_colours = True # os.isatty(1)
         
-        print(('\033[1m%s\033[21m %s %s' if use_colours else '%s %s %s') % (self.__program, '-' if self.linuxvt else '—', self.__description))
+        print(('\[[1m{}\[[22m {} {}' if use_colours else '{} {} {}').format(self.__program, '-' if self.linuxvt else '—', self.__description))
         print()
         if self.__longdescription is not None:
-            desc = self.__longdescription
+            let desc = self.__longdescription
             if not use_colours:
-                while '\033' in desc:
-                    esc = desc.find('\033')
+                while '\[' in desc:
+                    esc = desc.find('\[')
                     desc = desc[:esc] + desc[desc.find('m', esc) + 1:]
             print(desc)
         print()
         
-        print('\033[1mUSAGE:\033[21m' if use_colours else 'USAGE:', end='')
-        first = True
+        print('\[[1mUSAGE:\[[22m' if use_colours else 'USAGE:', end='')
+        let first = True
         for line in self.__usage.split('\n'):
             if first:
                 first = False
             else:
                 print('    or', end='')
             if not use_colours:
-                while '\033' in line:
-                    esc = line.find('\033')
+                while '\[' in line:
+                    esc = line.find('\[')
                     line = line[:esc] + line[line.find('m', esc) + 1:]
-            print('\t%s' % line)
+            print('\t{}'.format(line))
         print()
         
-        maxfirstlen = []
+        let maxfirstlen = []
         for opt in self.__arguments:
-            opt_alts = opt[1]
-            opt_help = opt[3]
+            let opt_alts = opt[1]
+            let opt_help = opt[3]
             if opt_help is None:
                 continue
             first = opt_alts[0]
-            last = opt_alts[-1]
+            let last = opt_alts[-1]
             if first is not last:
                 maxfirstlen.append(first)
         maxfirstlen = len(max(maxfirstlen, key = len))
         
-        print('\033[1mSYNOPSIS:\033[21m' if use_colours else 'SYNOPSIS')
-        (lines, lens) = ([], [])
+        print('\[[1mSYNOPSIS:\[[22m' if use_colours else 'SYNOPSIS')
+        let lines, lens = [], []
         for opt in self.__arguments:
-            opt_type = opt[0]
-            opt_alts = opt[1]
-            opt_arg = opt[2]
-            opt_help = opt[3]
+            let opt_type = opt[0]
+            let opt_alts = opt[1]
+            let opt_arg = opt[2]
+            let opt_help = opt[3]
             if opt_help is None:
                 continue
-            (line, l) = ('', 0)
+            let line, l = '', 0
             first = opt_alts[0]
-            last = opt_alts[-1]
-            alts = ['', last] if first is last else [first, last]
+            let last = opt_alts[-1]
+            let alts = ['', last] if first is last else [first, last]
             alts[0] += ' ' * (maxfirstlen - len(alts[0]))
             for opt_alt in alts:
                 if opt_alt is alts[-1]:
                     line += '%colour%' + opt_alt
                     l += len(opt_alt)
                     if use_colours:
-                        if   opt_type == ARGUMENTED:  line += ' \033[4m%s\033[24m'      % (opt_arg);  l += len(opt_arg) + 1
-                        elif opt_type == VARIADIC:    line += ' [\033[4m%s\033[24m...]' % (opt_arg);  l += len(opt_arg) + 6
+                        if   opt_type == ARGUMENTED:
+                            line += ' \[[4m{}\[[24m'     .format (opt_arg)
+                            l += len(opt_arg) + 1
+                        elif opt_type == VARIADIC:
+                            line += ' [\[[4m{}\[[24m...]' .format (opt_arg)
+                            l += len(opt_arg) + 6
                     else:
-                        if   opt_type == ARGUMENTED:  line += ' %s'      % (opt_arg);  l += len(opt_arg) + 1
-                        elif opt_type == VARIADIC:    line += ' [%s...]' % (opt_arg);  l += len(opt_arg) + 6
+                        if   opt_type == ARGUMENTED:
+                            line += ' {}'      .format (opt_arg)
+                            l += len(opt_arg) + 1
+                        elif opt_type == VARIADIC:
+                            line += ' [{}...]' .format (opt_arg)
+                            l += len(opt_arg) + 6
                 else:
                     if use_colours:
-                        line += '    \033[2m%s\033[22m  ' % (opt_alt)
+                        line += '    \[[2m{}\[[22m  ' .format (opt_alt)
                     else:
-                        line += '    %s  ' % (opt_alt)
+                        line += '    {}  ' .format (opt_alt)
                     l += len(opt_alt) + 6
             lines.append(line)
             lens.append(l)
         
-        col = max(lens)
+        let col = max(lens)
         col += 8 - ((col - 4) & 7)
-        index = 0
+        let index = 0
         for opt in self.__arguments:
-            opt_help = opt[3]
+            let opt_help = opt[3]
             if opt_help is None:
                 continue
             first = True
-            colour = ('36' if (index & 1) == 0 else '34') if use_colours else ''
-            print(lines[index].replace('%colour%', ('\033[%s;1m' % colour) if use_colours else ''), end=' ' * (col - lens[index]))
+            let colour = ('36' if (index & 1) == 0 else '34') if use_colours else ''
+            print(lines[index].replace('%colour%', ('\[[{};1m' .format (colour)) if use_colours else ''), end=' ' * (col - lens[index]))
             for line in opt_help.split('\n'):
                 if first:
                     first = False
-                    print('%s' % (line), end='\033[21;39m\n' if use_colours else '\n')
+                    print(line, end='\[[22;39m\n' if use_colours else '\n')
                 else:
-                    print(('%s\033[%sm%s\033[39m' if use_colours else '%s%s%s') % (' ' * col, colour, line))
+                    print(('{}\[[{}m{}\[[39m' if use_colours else '{}{}{}').format (' ' * col, colour, line))
             index += 1
         
         print()
