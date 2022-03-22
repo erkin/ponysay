@@ -1,5 +1,7 @@
 `ponysay` — cowsay reimplemention for ponies.
 
+_This is a port of ponysay to [Kuroko](https://kuroko-lang.github.io/)_
+
 ![Derp](http://i.imgur.com/xOJbE.png)
 
 Today your terminal, tomorrow the world!
