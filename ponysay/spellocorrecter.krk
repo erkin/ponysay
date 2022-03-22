@@ -99,7 +99,7 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
                     self.dictionaryEnd -= 1
                     self.dictionary[self.dictionaryEnd] = proper
                     
-                    prevCommon = min(len(previous), len(proper))
+                    let prevCommon = min(len(previous), len(proper))
                     for i in range(0, prevCommon):
                         if previous[i] != proper[i]:
                             prevCommon = i
@@ -121,7 +121,7 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
                 self.dictionaryEnd -= 1
                 self.dictionary[self.dictionaryEnd] = proper
                 
-                prevCommon = min(len(previous), len(proper))
+                let prevCommon = min(len(previous), len(proper))
                 for i in range(0, prevCommon):
                     if previous[i] != proper[i]:
                         prevCommon = i
@@ -229,19 +229,19 @@ class SpelloCorrecter(): # Naïvely and quickly ported and adapted from optimise
         @param   xn:int      The length, before applying `x0`, of `used`
         @return  :float      The distance between the words
         '''
-        my = self.M[y0]
+        let my = self.M[y0]
         for y in range(y0, yn):
-            best = 0x7FFFFFFF
-            p = proper[y]
-            myy = self.M[y + 1] # only one array bound check, and at most one + ☺
-            x = x0
+            let best = 0x7FFFFFFF
+            let p = proper[y]
+            let myy = self.M[y + 1] # only one array bound check, and at most one + ☺
+            let x = x0
             while x < xn:
-                change = my[x]
-                u = used[x]
-                remove = myy[x]
-                add = my[x + 1]
+                let change = my[x]
+                let u = used[x]
+                let remove = myy[x]
+                let add = my[x + 1]
                 
-                cw = 0 if p == u else 1
+                let cw = 0 if p == u else 1
                 if my[x] in self.weights:
                     if p in self.weights[u]:
                       cw = self.weights[u][p]

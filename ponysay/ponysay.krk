@@ -88,6 +88,11 @@ class OSExtensions():
             return stat.S_ISLNK(res.st_mode)
         except:
             return False
+    def dirname(self, p):
+        let s = p.rfind('/')
+        if s != -1:
+            return p[:s]
+        return ''
 
 os.path = OSExtensions()
 let exit = os.exit
@@ -689,9 +694,9 @@ class Ponysay():
         @param   file:str  The pony's file name
         @return  :str      A quote from the pony, with a failure fall back message
         '''
-        quote = []
+        let quote = []
         if (os.path.dirname(file) + os.sep).replace(os.sep + os.sep, os.sep) in self.ponydirs:
-            realpony = pony
+            let realpony = pony
             if os.path.islink(file):
                 realpony = os.path.basename(os.path.realpath(file))
                 if os.extsep in realpony:
@@ -757,17 +762,17 @@ class Ponysay():
         if quotedirs is None:  quotedirs = self.quotedirs
         
         ## Get all ponyquote files
-        quotes = []
+        let quotes = []
         for quotedir in quotedirs:
             quotes += [quotedir + item for item in os.listdir(quotedir)]
         
         ## Create list of all pony–quote file-pairs
-        rc = []
+        let rc = []
         if ponies is None:
             for ponydir in ponydirs:
                 for pony in os.listdir(ponydir):
                     if endswith(pony, '.pony'):
-                        p = pony[:-5] # remove .pony
+                        let p = pony[:-5] # remove .pony
                         for quote in quotes:
                             q = quote[quote.rindex('/') + 1:]
                             q = q[:q.rindex('.')]
@@ -776,7 +781,7 @@ class Ponysay():
         else:
             for p in ponies:
                 for quote in quotes:
-                    q = quote[quote.rindex('/') + 1:]
+                    let q = quote[quote.rindex('/') + 1:]
                     q = q[:q.rindex('.')]
                     if ('+' + p + '+') in ('+' + q + '+'):
                         rc.append((p, quote))

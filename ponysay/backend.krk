@@ -139,17 +139,17 @@ class Backend():
         @return  :str      The metadata nicely formated
         '''
         info = info.split('\n')
-        tags = ''
-        comment = ''
+        let tags = ''
+        let comment = ''
         for line in info:
-            sep = line.find(':')
+            let sep = line.find(':')
             if sep > 0:
-                key = line[:sep]
-                test = key
+                let key = line[:sep]
+                let test = key
                 for c in 'ABCDEFGHIJKLMN OPQRSTUVWXYZ':
                     test = test.replace(c, '')
                 if (len(test) == 0) and (len(key.replace(' ', '')) > 0):
-                    value = line[sep + 1:].strip()
+                    let value = line[sep + 1:].strip()
                     line = '\033[1m{}\033[22m: {}\n' .format (key.strip(), value)
                     tags += line
                     continue
@@ -354,8 +354,8 @@ class Backend():
                         balloonLines = None
             else:
                 if (balloonLines is not None) and (balloonLines[balloonLine] is not None) and (balloonIndent == indent):
-                    data = balloonLines[balloonLine]
-                    datalen = Backend.len(data)
+                    let data = balloonLines[balloonLine]
+                    let datalen = Backend.len(data)
                     skip += datalen
                     nonskip += datalen
                     data = data.replace('$', '$$')
@@ -374,7 +374,7 @@ class Backend():
         
         if balloonLines is not None:
             for line in balloonLines[balloonLine:]:
-                data = ' ' * (balloonIndent - indent) + line + '\n'
+                let data = ' ' * (balloonIndent - indent) + line + '\n'
                 for b in data:
                     self.output += b + colourstack.feed(b)
                 indent = 0
@@ -411,7 +411,7 @@ class Backend():
             i += 1
             rc += c
             if c == 'P':
-                di = 0
+                let di = 0
                 while (di < 7) and (i < n):
                     c = input[i]
                     i += 1
@@ -587,7 +587,7 @@ class Backend():
                             let m = map[mm + x]
                             
                             if ('­' in b[bisub : m]) and not nbsp: # soft hyphen
-                                hyphen = m - 1
+                                let hyphen = m - 1
                                 while b[hyphen] != '­': # soft hyphen
                                     hyphen -= 1
                                 while map[mm + x] > hyphen: ## Only looking backward, if forward is required the word is probabily not hyphenated correctly
