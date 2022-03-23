@@ -1,1 +1,0 @@
-highscore.pony
