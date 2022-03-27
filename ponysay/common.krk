@@ -70,12 +70,6 @@ def gettermsize():
     
     @return  (rows, columns):(int, int)  The number or lines and the number of columns in the terminal's display area
     '''
-    # TODO we don't have a thing for this??
-    try:
-        os.system("stty size > /tmp/.ponysaysize")
-        with fileio.open("/tmp/.ponysaysize") as f:
-            let tmp = f.read().strip()
-            return tuple(int(x) for x in tmp.split(' '))
-    except:
-        return (24, 80) # fall back to minimal sane size
+    let columns, rows = os.get_terminal_size()
+    return rows, columns
 

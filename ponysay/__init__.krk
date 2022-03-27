@@ -44,12 +44,14 @@ from ponysay.argparser import ArgParser
 from ponysay.ponysay import Ponysay
 import os
 import kuroko
+import random
 
 
 '''
 Start the program
 '''
 if __name__ == '__main__':
+    random.seed()
     let istool = kuroko.argv[0]
     if os.sep in istool:
         istool = istool[istool.rfind(os.sep) + 1:]
