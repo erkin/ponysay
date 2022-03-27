@@ -51,6 +51,8 @@ import random
 Start the program
 '''
 if __name__ == '__main__':
+    import gc
+    gc.pause()
     random.seed()
     let istool = kuroko.argv[0]
     if os.sep in istool:
