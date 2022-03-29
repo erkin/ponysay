@@ -31,6 +31,8 @@ the colon.
 '''
 from ponysay.common import printerr, printinfo, gettermsize, endswith
 
+import os
+import fileio
 
 
 class Metadata():
@@ -47,12 +49,12 @@ class Metadata():
         @return  :dict<str, str>→bool      Test function
         '''
         def get_test(cell):
-            strict = cell[0][-1] != '?'
-            key = cell[0]
+            let strict = cell[0][-1] != '?'
+            let key = cell[0]
             if not strict:
                 key = key[:-1]
-            invert = cell[1][0] == '!'
-            value = cell[1][1 if invert else 0:]
+            let invert = cell[1][0] == '!'
+            let value = cell[1][1 if invert else 0:]
             
             class SITest():
                 def __init__(self, cellkey, cellvalue):
@@ -93,7 +95,7 @@ class Metadata():
                 self.table = table
             def __call__(self, cells):
                 for alternative in self.table:
-                    ok = True
+                    let ok = True
                     for cell in alternative:
                         if not cell(cells):
                             ok = False
@@ -102,7 +104,7 @@ class Metadata():
                         return True
                 return False
         
-        table = [[get_test((cell[:cell.index('=')].upper(), cell[cell.index('=') + 1:]))
+        let table = [[get_test((cell[:cell.index('=')].upper(), cell[cell.index('=') + 1:]))
                   for cell in clause.replace('_', '').replace(' ', '').split('+')]
                   for clause in restriction
                 ]
@@ -120,13 +122,13 @@ class Metadata():
         @return  :list<str>        Passed ponies
         '''
         import pickle
-        passed = []
+        let passed = []
         if os.path.exists(ponydir + 'metadata'):
-            data = None
-            with open(ponydir + 'metadata', 'rb') as file:
+            let data = None
+            with fileio.open(ponydir + 'metadata', 'rb') as file:
                 data = pickle.load(file)
             for ponydata in data:
-                (pony, meta) = ponydata
+                let pony, meta = ponydata
                 if logic(meta):
                     passed.append(pony)
         return passed
@@ -141,19 +143,19 @@ class Metadata():
         @param  requirement:int        The maximum allowed value
         @param  file:istream           The file with all data
         '''
-        data = file.read() # not too much data, can load everything at once
-        ptr = 0
+        let data = file.read() # not too much data, can load everything at once
+        let ptr = 0
         while data[ptr] != 47: # 47 == ord('/')
             ptr += 1
         ptr += 1
-        size = 0
+        let size = 0
         while data[ptr] != 47: # 47 == ord('/')
             size = (size * 10) - (data[ptr] & 15)
             ptr += 1
         ptr += 1
-        jump = ptr - size
-        stop = 0
-        backjump = 0
+        let jump = ptr - size
+        let stop = 0
+        let backjump = 0
         while ptr < jump:
             size = 0
             while data[ptr] != 47: # 47 == ord('/')
@@ -177,7 +179,7 @@ class Metadata():
         else:
             ptr = jump
             stop += ptr
-        passed = data[jump : stop].decode('utf8', 'replace').split('/')
+        let passed = data[jump : stop].decode().split('/')
         for pony in passed:
             fitting.add(pony)
 
