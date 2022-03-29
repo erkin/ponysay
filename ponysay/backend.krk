@@ -556,7 +556,7 @@ class Backend():
                         ## Invisible stuff
                         i -= 1
                         let colourseq = Backend.getColour(line, i)
-                        b[bi : bi + len(colourseq)] = colourseq
+                        b[bi : bi + len(colourseq)] = [colourseq]
                         i += len(colourseq)
                         bi += len(colourseq)
                     elif (d is not None) and (d != ' '):
