@@ -57,6 +57,19 @@ def rfind(self, sub):
 
 str.rfind = rfind
 
+def rindex(self, sub):
+    let last = self.find(sub)
+    if last == -1:
+        raise ValueError("substring not found: {} in {}".format(sub, self))
+    while True:
+        let next = self.find(sub,last+1)
+        if next == -1: break
+        last = next
+    return last
+
+str.rindex = rindex
+
+
 random.randrange = randrange
 
 class OSExtensions():
@@ -155,7 +168,7 @@ class Ponysay():
         self.extravtponydirs = self.__getShareDirectories('extrattyponies/')
         
         # The directories where quotes files are stored
-        self.quotedirs = self.__getShareDirectories('quotes/')
+        self.quotedirs = self.__getShareDirectories('ponyquotes/')
         
         # The directories where balloon style files are stored
         self.balloondirs = self.__getShareDirectories('balloons/')
@@ -693,7 +706,7 @@ class Ponysay():
             quote = quote[random.randrange(0, len(quote))][1]
             printinfo('quote file: ' + quote)
             with fileio.open(quote, 'rb') as qfile:
-                quote = qfile.read().decode('utf8', 'replace').strip()
+                quote = qfile.read().decode().strip()
         return quote
     
     
@@ -713,7 +726,7 @@ class Ponysay():
         let quoteshash = set()
         let _quotes = []
         for quotedir in quotedirs:
-            _quotes += [item[:item.index('.')] for item in os.listdir(quotedir)]
+            _quotes += [item[:item.index('.')] for item in os.listdir(quotedir) if '.' in item]
         for quote in _quotes:
             if not quote == '':
                 if not quote in quoteshash:
@@ -767,6 +780,8 @@ class Ponysay():
             for p in ponies:
                 for quote in quotes:
                     let q = quote[quote.rindex('/') + 1:]
+                    if '.' not in q:
+                        continue
                     q = q[:q.rindex('.')]
                     if ('+' + p + '+') in ('+' + q + '+'):
                         rc.append((p, quote))
