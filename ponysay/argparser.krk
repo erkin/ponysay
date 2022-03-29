@@ -169,7 +169,7 @@ class ArgParser():
                         optqueue.append(arg)
                         argqueue.append(None)
                     elif '=' in arg:
-                        arg_opt = arg[:arg.index('=')]
+                        let arg_opt = arg[:arg.index('=')]
                         if (arg_opt in self.optmap) and (self.optmap[arg_opt][1] >= ARGUMENTED):
                             optqueue.append(arg_opt)
                             argqueue.append(arg[arg.index('=') + 1:])
@@ -232,7 +232,7 @@ class ArgParser():
             if arg[0] == VARIADIC:
                 varopt = self.opts[arg[1][0]]
                 if varopt is not None:
-                    additional = ','.join(self.files).split(',') if len(self.files) > 0 else []
+                    let additional = ','.join(self.files).split(',') if len(self.files) > 0 else []
                     if varopt[0] is None:
                         self.opts[arg[1][0]] = additional
                     else:
@@ -263,7 +263,7 @@ class ArgParser():
             let desc = self.__longdescription
             if not use_colours:
                 while '\[' in desc:
-                    esc = desc.find('\[')
+                    let esc = desc.find('\[')
                     desc = desc[:esc] + desc[desc.find('m', esc) + 1:]
             print(desc)
         print()
@@ -277,7 +277,7 @@ class ArgParser():
                 print('    or', end='')
             if not use_colours:
                 while '\[' in line:
-                    esc = line.find('\[')
+                    let esc = line.find('\[')
                     line = line[:esc] + line[line.find('m', esc) + 1:]
             print('\t{}'.format(line))
         print()
