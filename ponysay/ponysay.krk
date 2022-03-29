@@ -112,17 +112,6 @@ class Ponysay():
         if len(self.HOME) == 0:
             os.environ['HOME'] = self.HOME = os.path.expanduser('~')
         
-        ## Load extension and configurations via ponysayrc
-        for file in ('$XDG_CONFIG_HOME/ponysay/ponysayrc', '$HOME/.config/ponysay/ponysayrc', '$HOME/.ponysayrc', '/etc/ponysayrc'):
-            file = self.__parseFile(file)
-            if (file is not None) and os.path.exists(file):
-                with open(file, 'rb') as ponysayrc:
-                    code = ponysayrc.read().decode('utf8', 'replace') + '\n'
-                    env = os.environ
-                    code = compile(code, file, 'exec')
-                    exec(code)
-                break
-        
         self.HOME = os.environ['HOME'] if 'HOME' in os.environ else '' # in case ~/.ponysayrc changes it
         if len(self.HOME) == 0:
             os.environ['HOME'] = self.HOME = os.path.expanduser('~')
@@ -431,20 +420,20 @@ class Ponysay():
             return
         
         ## Read all lines in all UCS → ASCII map files
-        maplines = []
+        let maplines = []
         for ucsmap in self.ucsmaps:
             if os.path.isfile(ucsmap):
-                with open(ucsmap, 'rb') as mapfile:
+                with fileio.open(ucsmap, 'rb') as mapfile:
                     maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
         
         ## Create UCS → ASCII mapping from read lines
         map = {}
-        stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
+        let stripset = ' \t' # must be string, wtf! and way doesn't python's doc say so
         for line in maplines:
             if (len(line) > 0) and not (line[0] == '#'):
-                s = line.index('→')
-                ucs   = line[:s]    .strip(stripset)
-                ascii = line[s + 1:].strip(stripset)
+                let s = line.index('→')
+                let ucs   = line[:s]    .strip(stripset)
+                let ascii = line[s + 1:].strip(stripset)
                 map[ucs] = ascii
         
         ## Apply UCS → ASCII mapping to -f, +f, -F and -q arguments
@@ -480,7 +469,7 @@ class Ponysay():
         let maplines = []
         for ucsmap in self.ucsmaps:
             if os.path.isfile(ucsmap):
-                with open(ucsmap, 'rb') as mapfile:
+                with fileio.open(ucsmap, 'rb') as mapfile:
                     maplines += [line.replace('\n', '') for line in mapfile.read().decode('utf8', 'replace').split('\n')]
         
         ## Create UCS → ASCII mapping from read lines
@@ -626,7 +615,7 @@ class Ponysay():
         '''
         ## Apply metadata restriction
         if self.restriction is not None:
-            ponies = {}
+            let ponies = {}
             self.__applyMetadataRestriction(ponies, oldponies, ponydirs)
             if len(ponies) > 0:
                 oldponies = ponies
@@ -648,7 +637,7 @@ class Ponysay():
         @param  oldponies:dict<str, str>  Collection of original ponies, maps to pony file
         @param  ponydirs:list<sr>         List of pony directories
         '''
-        logic = Metadata.makeRestrictionLogic(self.restriction)
+        let logic = Metadata.makeRestrictionLogic(self.restriction)
         for ponydir in ponydirs:
             for pony in Metadata.restrictedPonies(ponydir, logic):
                 if (pony in oldponies) and not (pony in ponies):
@@ -668,11 +657,11 @@ class Ponysay():
             let fitw, fith = (None, None)
             if os.path.exists(ponydir + 'widths'):
                 fitw = set()
-                with open(ponydir + 'widths', 'rb') as file:
+                with fileio.open(ponydir + 'widths', 'rb') as file:
                     Metadata.getFitting(fitw, termw, file)
             if os.path.exists(ponydir + ('onlyheights' if self.ponyonly else 'heights')):
                 fith = set()
-                with open(ponydir + ('onlyheights' if self.ponyonly else 'heights'), 'rb') as file:
+                with fileio.open(ponydir + ('onlyheights' if self.ponyonly else 'heights'), 'rb') as file:
                     Metadata.getFitting(fith, termh, file)
             for ponyfile in oldponies.values():
                 if ponyfile.startswith(ponydir):
@@ -703,7 +692,7 @@ class Ponysay():
         else:
             quote = quote[random.randrange(0, len(quote))][1]
             printinfo('quote file: ' + quote)
-            with open(quote, 'rb') as qfile:
+            with fileio.open(quote, 'rb') as qfile:
                 quote = qfile.read().decode('utf8', 'replace').strip()
         return quote
     
@@ -770,7 +759,7 @@ class Ponysay():
                     if endswith(pony, '.pony'):
                         let p = pony[:-5] # remove .pony
                         for quote in quotes:
-                            q = quote[quote.rindex('/') + 1:]
+                            let q = quote[quote.rindex('/') + 1:]
                             q = q[:q.rindex('.')]
                             if ('+' + p + '+') in ('+' + q + '+'):
                                 rc.append((p, quote))
@@ -842,7 +831,7 @@ class Ponysay():
         ponies.sort()
         
         ## Print each one on a seperate line, but skip duplicates
-        last = ''
+        let last = ''
         for pony in ponies:
             if not pony == last:
                 last = pony
@@ -931,7 +920,8 @@ class Ponysay():
         Prints the name of the program and the version of the program
         '''
         ## Prints the "ponysay $VERSION", if this is modified, ./dev/dist.sh must be modified accordingly
-        print('%s %s' % ('ponysay', VERSION))
+        print('ponysay')
+        #print('%s %s' % ('ponysay', VERSION))
     
     
     def printPony(self, args):
@@ -1057,9 +1047,9 @@ class Ponysay():
         '''
         if args.opts['-c'] is None:
             return msg
-        buf = ''
-        last = ' '
-        CHARS = '\t \n'
+        let buf = ''
+        let last = ' '
+        let CHARS = '\t \n'
         for c in msg:
             if (c in CHARS) and (last in CHARS):
                 if last == '\n':
@@ -1084,13 +1074,6 @@ class Ponysay():
         @param   pony:str  The pony file
         @return  :str      The new pony file, or the old if it was already in the ponysay format
         '''
-        if endswith(pony.lower(), '.png'):
-            pony = '\'' + pony.replace('\'', '\'\\\'\'') + '\''
-            pngcmd = 'ponytool --import image --file %s --balloon n --export ponysay --platform %s --balloon y'
-            pngcmd %= (pony, ('linux' if self.linuxvt else 'xterm')) # XXX xterm should be haiku in Haiku
-            pngpipe = os.pipe()
-            Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
-            pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
         return pony
     
     
