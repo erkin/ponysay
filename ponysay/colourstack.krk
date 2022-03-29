@@ -81,7 +81,7 @@ class ColourStack():
         let old = self.stack.pop(0)
         let rc = '\033[0;'
         if len(self.stack) == 0: # last resort in case something made it pop too mush
-            push()
+            self.push()
         let new = self.stack[0]
         if new[1] is not None:  rc += new[1] + ';'
         if new[2] is not None:  rc += new[2] + ';'
