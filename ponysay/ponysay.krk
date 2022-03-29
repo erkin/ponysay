@@ -529,7 +529,7 @@ class Ponysay():
                     if (len(alternatives) > 0) and (dist <= limit):
                         let _, files, quote = pony
                         return self.__getPony([(a, files, quote) for a in alternatives], True)
-                printerr('I have never heard of anypony named %s' % pony[0])
+                printerr('I have never heard of anypony named {}'.format(pony[0]))
                 if not self.usingstandard:
                     printerr('Use -f/-q or -F if it a MLP:FiM pony')
                 if not self.usingextra:
@@ -894,7 +894,7 @@ class Ponysay():
                 limit = 5 if len(limit) == 0 else int(limit)
                 if (len(alternatives) > 0) and (dist <= limit):
                     return self.__getBalloonPath(alternatives, True)
-            printerr('That balloon style %s does not exist' % balloon)
+            printerr('That balloon style {} does not exist'.format(balloon))
             exit(251)
         else:
             return balloons[balloon]

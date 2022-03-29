@@ -62,28 +62,28 @@ class Metadata():
                 def __call__(self, has):
                     return False if self.cellkey not in has else (self.cellvalue not in has[self.cellkey])
                 def __str__(self):
-                    return 'si(%s : %s)' % (self.cellkey, self.callvalue)
+                    return 'si({} : {})' .format (self.cellkey, self.callvalue)
             class STest():
                 def __init__(self, cellkey, cellvalue):
                     (self.cellkey, self.cellvalue) = (cellkey, cellvalue)
                 def __call__(self, has):
                     return False if self.cellkey not in has else (self.cellvalue in has[self.cellkey])
                 def __str__(self):
-                    return 's(%s : %s)' % (self.cellkey, self.callvalue)
+                    return 's({} : {})' .format (self.cellkey, self.callvalue)
             class ITest():
                 def __init__(self, cellkey, cellvalue):
                     (self.cellkey, self.cellvalue) = (cellkey, cellvalue)
                 def __call__(self, has):
                     return True if self.cellkey not in has else (self.cellvalue not in has[self.cellkey])
                 def __str__(self):
-                    return 'i(%s : %s)' % (self.cellkey, self.callvalue)
+                    return 'i({} : {})' .format (self.cellkey, self.callvalue)
             class NTest():
                 def __init__(self, cellkey, cellvalue):
                     (self.cellkey, self.cellvalue) = (cellkey, cellvalue)
                 def __call__(self, has):
                     return True if self.cellkey not in has else (self.cellvalue in has[self.cellkey])
                 def __str__(self):
-                    return 'n(%s : %s)' % (self.cellkey, self.callvalue)
+                    return 'n({} : {})' .format (self.cellkey, self.callvalue)
             
             if strict and invert:  return SITest(key, value)
             if strict:             return STest(key, value)
