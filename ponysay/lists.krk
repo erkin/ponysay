@@ -165,7 +165,7 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
     
     for ponydir in ponydirs: # Loop ponydirs
         ## Get all pony files in the directory
-        ponies = _get_file_list(ponydir, '.pony')
+        let ponies = _get_file_list(ponydir, '.pony')
         
         ## If there are no ponies in the directory skip to next directory, otherwise, print the directories name
         if len(ponies) == 0:
@@ -173,12 +173,12 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
         print('\033[1mponies located in ' + ponydir + '\033[22m')
         
         ## UCS:ise pony names
-        pseudolinkmap = {}
+        let pseudolinkmap = {}
         if ucsiser is not None:
             ucsiser(ponies, pseudolinkmap)
         
         ## Create target–link-pair, with `None` as link if the file is not a symlink or in `pseudolinkmap`
-        pairs = []
+        let pairs = []
         for pony in ponies:
             if pony in pseudolinkmap:
                 pairs.append((pony, pseudolinkmap[pony] + '.pony'))
@@ -186,13 +186,13 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
                 pairs.append((pony, os.path.realpath(ponydir + pony + '.pony') if os.path.islink(ponydir + pony + '.pony') else None))
         
         ## Create map from source pony to alias ponies for each pony
-        ponymap = {}
+        let ponymap = {}
         for pair in pairs:
             if (pair[1] is None) or (pair[1] == ''):
                 if pair[0] not in ponymap:
                     ponymap[pair[0]] = []
             else:
-                target = pair[1][:-5]
+                let target = pair[1][:-5]
                 if '/' in target:
                     target = target[target.rindex('/') + 1:]
                 if target in ponymap:
@@ -203,14 +203,14 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
         ## Create list of source ponies concatenated with alias ponies in brackets
         ponies = {}
         for pony in ponymap:
-            w = UCS.dispLen(pony)
-            item = '\033[1m' + pony + '\033[22m' if (pony in quoters) else pony
-            syms = ponymap[pony]
+            let w = UCS.dispLen(pony)
+            let item = '\033[1m' + pony + '\033[22m' if (pony in quoters) else pony
+            let syms = ponymap[pony]
             syms.sort()
             if len(syms) > 0:
                 w += 2 + len(syms)
                 item += ' ('
-                first = True
+                let first = True
                 for sym in syms:
                     w += UCS.dispLen(sym)
                     if first:  first = False
@@ -253,10 +253,10 @@ def balloonlist(balloondirs, isthink):
     @param  isthink:bool          Whether the ponythink command is used
     '''
     
-    extension = '.think' if isthink else '.say'
+    let extension = '.think' if isthink else '.say'
     
     ## Get all balloons
-    balloonset = set(j for i in balloondirs for j in _get_file_list(i, extension))
+    let balloonset = set(j for i in balloondirs for j in _get_file_list(i, extension))
     
     ## Print all balloos, columnised
     _print_columnised([(balloon, balloon) for balloon in balloonset])
