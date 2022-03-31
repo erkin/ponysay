@@ -247,6 +247,7 @@ class Ponysay():
                 '$XDG_DATA_HOME/ponysay/',
                 '$HOME/.local/share/ponysay/',
                 '/usr/share/ponysay/',
+                '/usr/ponysay/',
                 './'
                ]]
     
