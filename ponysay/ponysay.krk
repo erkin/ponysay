@@ -29,13 +29,13 @@ that line ‘FREE: yes’, is included inside the image between two ‘$$$’
 lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
-from ponysay.common import printerr, printinfo, gettermsize, endswith
-from ponysay.backend import Backend
-from ponysay.balloon import Balloon
-from ponysay.spellocorrecter import SpelloCorrecter
-from ponysay.ucs import UCS
-import ponysay.lists as lists
-from ponysay.metadata import Metadata
+from .common import printerr, printinfo, gettermsize, endswith
+from .backend import Backend
+from .balloon import Balloon
+from .spellocorrecter import SpelloCorrecter
+from .ucs import UCS
+from .metadata import Metadata
+from . import lists
 
 import os
 import kuroko

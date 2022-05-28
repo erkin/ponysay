@@ -34,9 +34,9 @@ import os
 import kuroko
 import fileio
 
-from ponysay.argparser import ArgParser
-from ponysay.ponysay import Ponysay
-from ponysay.metadata import Metadata
+from .argparser import ArgParser
+from .ponysay import Ponysay
+from .metadata import Metadata
 
 
 

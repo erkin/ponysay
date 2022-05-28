@@ -34,8 +34,8 @@ File listing functions.
 '''
 
 
-from ponysay.common import endswith, gettermsize
-from ponysay.ucs import UCS
+from .common import endswith, gettermsize
+from .ucs import UCS
 import os
 
 def _range(min,max,step):

@@ -29,10 +29,10 @@ that line ‘FREE: yes’, is included inside the image between two ‘$$$’
 lines and the ‘FREE’ is and upper case and directly followed by
 the colon.
 '''
-from ponysay.common import printerr, printinfo, gettermsize, endswith
-from ponysay.balloon import Balloon
-from ponysay.colourstack import ColourStack
-from ponysay.ucs import UCS
+from .common import printerr, printinfo, gettermsize, endswith
+from .balloon import Balloon
+from .colourstack import ColourStack
+from .ucs import UCS
 
 from wcwidth import wcwidth
 import fileio
