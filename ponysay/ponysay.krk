@@ -246,6 +246,7 @@ class Ponysay():
         return [cat(cls.__parseFile(item), file) for item in [
                 '$XDG_DATA_HOME/ponysay/',
                 '$HOME/.local/share/ponysay/',
+                __file__.replace('ponysay/ponysay.krk',''),
                 '/usr/share/ponysay/',
                 '/usr/ponysay/',
                 './'

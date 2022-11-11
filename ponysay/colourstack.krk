@@ -107,7 +107,7 @@ class ColourStack():
                     let i, n = (0, len(self.seq))
                     while i < n:
                         let part = self.seq[i]
-                        let p = 0 if part == '' else int(part)
+                        let p = 0 if part == '' else int(part,10)
                         i += 1
                         if p == 0:             self.stack[0][1:] = [None, None, [False] * 9]
                         elif 1 <= p <= 9:      self.stack[0][3][p - 1] = True
