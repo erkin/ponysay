@@ -125,8 +125,8 @@ def simplelist(ponydirs, quoters = [], ucsiser = None):
         ## If ther directory is not empty print its name and all ponies, columnised
         if len(ponies) == 0:
             continue
-        print('\033[1mponies located in ' + ponydir + '\033[21m')
-        _print_columnised([(pony, '\033[1m' + pony + '\033[21m' if pony in quoters else pony) for pony in ponies])
+        print('\033[1mponies located in ' + ponydir + '\033[0m')
+        _print_columnised([(pony, '\033[1m' + pony + '\033[0m' if pony in quoters else pony) for pony in ponies])
 
 
 def linklist(ponydirs = None, quoters = [], ucsiser = None):
@@ -145,7 +145,7 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
         ## If there are no ponies in the directory skip to next directory, otherwise, print the directories name
         if len(ponies) == 0:
             continue
-        print('\033[1mponies located in ' + ponydir + '\033[21m')
+        print('\033[1mponies located in ' + ponydir + '\033[0m')
         
         ## UCS:ise pony names
         pseudolinkmap = {}
@@ -179,7 +179,7 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
         ponies = {}
         for pony in ponymap:
             w = UCS.dispLen(pony)
-            item = '\033[1m' + pony + '\033[21m' if (pony in quoters) else pony
+            item = '\033[1m' + pony + '\033[0m' if (pony in quoters) else pony
             syms = ponymap[pony]
             syms.sort()
             if len(syms) > 0:
@@ -190,9 +190,9 @@ def linklist(ponydirs = None, quoters = [], ucsiser = None):
                     w += UCS.dispLen(sym)
                     if first:  first = False
                     else:      item += ' '
-                    item += '\033[1m' + sym + '\033[21m' if (sym in quoters) else sym
+                    item += '\033[1m' + sym + '\033[0m' if (sym in quoters) else sym
                 item += ')'
-            ponies[(item.replace('\033[1m', '').replace('\033[21m', ''), item)] = w
+            ponies[(item.replace('\033[1m', '').replace('\033[0m', ''), item)] = w
         
         ## Print the ponies, columnised
         _print_columnised(list(ponies))

@@ -118,7 +118,7 @@ class Backend():
                 printinfo(info)
                 self.pony = self.pony[infoend:]
         elif self.infolevel == 2:
-            self.message = '\033[01;31mI am the mysterious mare...\033[21;39m'
+            self.message = '\033[01;31mI am the mysterious mare...\033[0;39m'
         elif self.infolevel == 1:
             self.pony = 'There is not metadata for this pony file'
         self.pony = self.mode + self.pony
@@ -149,7 +149,7 @@ class Backend():
                     test = test.replace(c, '')
                 if (len(test) == 0) and (len(key.replace(' ', '')) > 0):
                     value = line[sep + 1:].strip()
-                    line = '\033[1m%s\033[21m: %s\n' % (key.strip(), value)
+                    line = '\033[1m%s\033[0m: %s\n' % (key.strip(), value)
                     tags += line
                     continue
             comment += '\n' + line
