@@ -12,7 +12,7 @@ KIND: earth
 LINK: regular
 MANE: black
 NAME: (not mentioned)
-OTHER NAMES: Magnum (official, in Gameloft game), Hondo Flanks (official. on Trading Card Game}, Carlton (unofficial)
+OTHER NAMES: Magnum (official, in Gameloft game), Hondo Flanks (official, on Trading Card Game), Carlton (unofficial)
 POSE: stand
 SOURCE: (Bot-chan) Desktop ponies
 WIDTH: 41
