@@ -66,7 +66,7 @@ if __name__ == '__main__':
         isthink = isthink[:isthink.find(os.extsep)]
     isthink = isthink.endswith('think')
     
-    usage_saythink = '\033[34;1m(ponysay | ponythink)\033[21;39m'
+    usage_saythink = '\033[34;1m(ponysay | ponythink)\033[0;39m'
     usage_common   = '[-c] [-W\033[33mCOLUMN\033[39m] [-b\033[33mSTYLE\033[39m]'
     usage_listhelp = '(-l | -L | -B | +l | +L | -A | + A | -v | -h)'
     usage_file     = '[-f\033[33mPONY\033[39m]* [[--] \033[33mmessage\033[39m]'
