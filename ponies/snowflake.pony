@@ -11,7 +11,7 @@ GROUP: stallion, background, voiced
 KIND: pegasus
 LINK: regular
 MANE: yellow
-NAME: Bulk Bicepss
+NAME: Bulk Biceps
 OTHER NAMES: Snowflake (unofficial), Horse Power (unofficial)
 POSE: loud
 SOURCE: (Bot-chan) Desktop ponies
