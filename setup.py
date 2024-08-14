@@ -48,7 +48,7 @@ SYMBOLIC = 'symbolic'
 
 class Setup():
     def __init__(self):
-        usage_script = '\033[34;1msetup.py\033[21;39m'
+        usage_script = '\033[34;1msetup.py\033[0;39m'
         usage_help   = '(--version | --help)'
         usage_proc   = '[\033[4mconfigurations\033[24m] ([build] | prebuilt | install | (uninstall|clean)[-old] | view)'
 
@@ -358,9 +358,9 @@ class Setup():
         print('Using system configuration directory: ' + conf['sysconf-dir'])
         print('Prefered linking style: ' + self.linking)
         print('Using umask: 022 (only owner can do modifications)')
-        if self.free is None:                      print(YELLOW % ('\033[01m--freedom is manditory and has not be specified\033[21m'))
+        if self.free is None:                      print(YELLOW % ('\033[01m--freedom is manditory and has not be specified\033[0m'))
         elif self.free:                            print(GREEN  % ('', 'Installing only fully free parts of the package'))
-        else:                                      print(RED    % ('Installing \033[1mnot\033[21m only fully free parts of the package'))
+        else:                                      print(RED    % ('Installing \033[1mnot\033[0m only fully free parts of the package'))
 
         print()
     
@@ -369,7 +369,7 @@ class Setup():
         Compile ponysay
         '''
         
-        print('\033[1;34m::\033[39mCompiling...\033[21m')
+        print('\033[1;34m::\033[39mCompiling...\033[0m')
 
         def compressCommand(ext):
             if ext == 'gz':  return 'gzip -9 -f'
@@ -575,7 +575,7 @@ class Setup():
         Install compiled ponysay
         '''
         
-        print('\033[1;34m::\033[39mInstalling...\033[21m')
+        print('\033[1;34m::\033[39mInstalling...\033[0m')
 
         dests = []
         for command in commands:
@@ -665,7 +665,7 @@ class Setup():
         Uninstall ponysay
         '''
         
-        print('\033[1;34m::\033[39mUninstalling...\033[21m')
+        print('\033[1;34m::\033[39mUninstalling...\033[0m')
 
         (files, dirs, infos) = ([], [], [])
 
@@ -723,7 +723,7 @@ class Setup():
         Uninstall file ponysay no longer uses
         '''
         
-        print('\033[1;34m::\033[39mUninstalling old files...\033[21m')
+        print('\033[1;34m::\033[39mUninstalling old files...\033[0m')
 
         instdir = conf['~prefix~'] + '/usr'
         files = [instdir + f for f in ['bin/ponysaylist.pl', 'bin/ponysaytruncater', 'bin/ponysay.py', 'bin/ponythink.py']]
@@ -744,7 +744,7 @@ class Setup():
         Remove compiled files
         '''
         
-        print('\033[1;34m::\033[39mCleaning...\033[21m')
+        print('\033[1;34m::\033[39mCleaning...\033[0m')
 
         files = ['ponysay.info', 'ponysay.info.gz', 'ponysay.info.xz',  'ponysay.pdf.gz', 'ponysay.pdf.xz', 'ponysay.install', 'ponysay.zip']
         files += ['src/%s.install' % file for file in ponysaysrc]
@@ -771,7 +771,7 @@ class Setup():
         Remove compiled files ponysay is no longer compiling
         '''
         
-        print('\033[1;34m::\033[39mCleaning old files...\033[21m')
+        print('\033[1;34m::\033[39mCleaning old files...\033[0m')
 
         files = ['truncater', 'ponysaytruncater', 'ponysay.py.install', 'ponysay.install~', 'ponysay.zip']
         dirs = []
@@ -1199,7 +1199,7 @@ class ArgParser():
         if self.__longdescription is not None:
             print(self.__longdescription)
             print()
-        print('\n\033[1mUSAGE:\033[21m', end='')
+        print('\n\033[1mUSAGE:\033[0m', end='')
         first = True
         for line in self.__usage.split('\n'):
             if first:  first = False
@@ -1214,11 +1214,11 @@ class ArgParser():
         '''
         
         # The usage should be terse so this header is only included in the help command.
-        print('\033[1m{}\033[21m - {}\n'.format(self.__program, self.__description))
+        print('\033[1m{}\033[0m - {}\n'.format(self.__program, self.__description))
         
         self.usage()
         
-        print('\033[1mCONFIGURATIONS:\033[21m\n')
+        print('\033[1mCONFIGURATIONS:\033[0m\n')
         for opt in self.__arguments:
             (opt_type, opt_alts, opt_arg, opt_help) = opt[0:4]
             if opt_help is not None:
@@ -1229,7 +1229,7 @@ class ArgParser():
                         print('\t\033[2m' + opt_alt + '\033[22m')
                 first = True
                 for line in opt_help.split('\n'):
-                    print(('\t\t\033[32;1m%s\033[21;39m' if first else '\t\t%s') % (line))
+                    print(('\t\t\033[32;1m%s\033[0;39m' if first else '\t\t%s') % (line))
                     first = False
                 print()
         print()

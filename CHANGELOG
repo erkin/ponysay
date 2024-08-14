@@ -4,6 +4,12 @@ Version 3.0.4
 
         Fixed incorrect install dir for fish completion.
 
+        Switched to using ANSI code 0 to reset boldness.
+
+        Fixed a pony's metadata which caused --restrict to break.
+
+        Fixed an unescaped backslash to prevent a Python warning.
+
 version 3.0.3
 
 	New ponies: auntorange, caballeron, cocopommel, coloratura, coriander, 

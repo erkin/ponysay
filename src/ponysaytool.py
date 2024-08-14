@@ -275,7 +275,7 @@ class PonysayTool():
         ponies.sort()
         
         if len(ponies) == 0:
-            print('\033[1;31m%s\033[21m;39m' % 'No ponies... press Enter to exit.')
+            print('\033[1;31m%s\033[0m;39m' % 'No ponies... press Enter to exit.')
             input()
         
         panelw = Backend.len(max(ponies, key = Backend.len))
@@ -338,7 +338,7 @@ class PonysayTool():
                     elif px > 0:
                         ponyprint = [px * ' ' + line for line in ponyprint]
                     ponyprint = [(line if Backend.len(line) <= termw else line[:findcolumn(line, termw)]) for line in ponyprint]
-                    ponyprint = ['\033[21;39;49;0m%s\033[21;39;49;0m' % line for line in ponyprint]
+                    ponyprint = ['\033[0;39;49;0m%s\033[0;39;49;0m' % line for line in ponyprint]
                     return '\n'.join(ponyprint)
                 
                 if quotes:
@@ -774,7 +774,7 @@ class PonysayTool():
             buf += c + colourstack.feed(c)
         modprintpony = buf.replace(AUTO_PUSH, '').replace(AUTO_POP, '')
         
-        printpony = [('\033[21;39;49;0m%s%s\033[21;39;49;0m' % (' ' * (termsize[1] - ponywidth), line)) for line in modprintpony.split('\n')]
+        printpony = [('\033[0;39;49;0m%s%s\033[0;39;49;0m' % (' ' * (termsize[1] - ponywidth), line)) for line in modprintpony.split('\n')]
         
         
         print(preprint, end='')
@@ -922,9 +922,9 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                 else:
                     print('\033[%i;%iH\033[34m%s:\033[39m' % (self.top + oldy, self.left, leftlines[oldy]), end='')
                 if (y > 0) and (leftlines[y - 1] == leftlines[y]) and (leftlines[y] == leftlines[-1]):
-                    print('\033[%i;%iH\033[1;34m%s\033[21;39m' % (self.top + y, self.left, '>'), end='')
+                    print('\033[%i;%iH\033[1;34m%s\033[0;39m' % (self.top + y, self.left, '>'), end='')
                 else:
-                    print('\033[%i;%iH\033[1;34m%s:\033[21;39m' % (self.top + y, self.left, leftlines[y]), end='')
+                    print('\033[%i;%iH\033[1;34m%s:\033[0;39m' % (self.top + y, self.left, leftlines[y]), end='')
                 print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
             (oldy, oldx, oldmark) = (y, x, mark)
             if edited:
@@ -1080,7 +1080,7 @@ class TextArea(): # TODO support small screens  (This is being work on in GNU-Po
                         leftline = leftlines[row] + ':'
                         if (leftlines[row - 1] == leftlines[row]) and (leftlines[row] == leftlines[-1]):
                             leftline = '>'
-                        print('\033[%i;%iH\033[%s34m%s\033[%s39m' % (self.top + row, self.left, '1;' if row == y else '', leftline, '21;' if row == y else ''), end='')
+                        print('\033[%i;%iH\033[%s34m%s\033[%s39m' % (self.top + row, self.left, '1;' if row == y else '', leftline, '0;' if row == y else ''), end='')
                     for row in range(0, len(datalines)):
                         print('\033[%i;%iH%s\033[49m' % (self.top + row, innerleft, datalines[row]), end='')
                     print('\033[%i;%iH' % (self.top + y, innerleft + x), end='')
@@ -1206,7 +1206,7 @@ Whether stderr is piped
 '''
 
 
-usage_program = '\033[34;1mponysay-tool\033[21;39m'
+usage_program = '\033[34;1mponysay-tool\033[0;39m'
 
 usage = '\n'.join(['%s %s' % (usage_program, '(--help | --version | --kms)'),
                    '%s %s' % (usage_program, '(--edit | --edit-rm) \033[33mPONY-FILE\033[39m'),

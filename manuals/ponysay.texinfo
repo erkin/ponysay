@@ -3414,6 +3414,12 @@ ANSI escape sequences.
 @itemize @bullet
 @item
 New extraponies: @file{raripunk}, @file{smolder}, @file{solarflare}
+@item
+Switched to using ANSI code 0 to reset boldness.
+@item
+Fixed a pony's metadata which caused --restrict to break.
+@item
+Fixed an unescaped backslash to prevent a Python warning.
 
 @end itemize
 
