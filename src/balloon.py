@@ -40,7 +40,7 @@ class Balloon():
     '''
     
     def __init__(self, link, linkmirror, linkcross, ww, ee, nw, nnw, n, nne, ne, nee, e, see, se, sse, s, ssw, sw, sww, w, nww):
-        '''
+        r'''
         Constructor
         
         @param  link:str        The \-directional balloon line character
