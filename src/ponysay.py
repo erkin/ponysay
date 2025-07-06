@@ -39,6 +39,7 @@ import lists
 from metadata import *
 
 
+is_termux= 'TERMUX_VERSION' in os.environ
 
 class Ponysay():
     '''
@@ -161,14 +162,20 @@ class Ponysay():
         
         @param   directory:str  The directory base name
         @return  :list<str>     Absolute directory names
+
         '''
         appendset = set()
         rc = []
         _ponydirs = cls.__share(directory)
+        #print(directory,_ponydirs)
+        _ponydirs=[p for p in _ponydirs if p!=None]
+        #print(_ponydirs)
         for ponydir in _ponydirs:
+            print(ponydir)
             if (ponydir is not None) and os.path.isdir(ponydir) and (ponydir not in appendset):
                 rc.append(ponydir)
                 appendset.add(ponydir)
+                
         return rc
     
     
@@ -181,10 +188,22 @@ class Ponysay():
         @return  :list<str>  Absolute file names
         '''
         def cat(a, b):
+            #print(f"{a} ....{b}")
             if a is None:
                 return None
+            if a.startswith('/data/data/com.termux/files/'):
+                if a.startswith('/data/data/com.termux/files/data/data/com.termux/files/'):
+                    a=a.replace('/data/data/com.termux/files/data/data/com.termux/files/','/data/data/com.termux/files/')
+            #print(f"a is {a} {a.startswith('/data/data/com.termux/files/')}")
+                
             return a + b
         # TODO use only ./ in development mode
+        if is_termux:
+            return [cat(cls.__parseFile(item), file) for item in [
+                    '$XDG_DATA_HOME/ponysay/',
+                    '$HOME/.local/share/ponysay/',
+                    '/data/data/com.termux/files/usr/share/ponysay/'
+                   ]]
         return [cat(cls.__parseFile(item), file) for item in [
                 '$XDG_DATA_HOME/ponysay/',
                 '$HOME/.local/share/ponysay/',
@@ -515,7 +534,7 @@ class Ponysay():
         ## Get all ponies, with quotes
         oldponies = {}
         self.__getAllPonies(standard, extra, oldponies, quoters)
-        
+        #print(ponydirs)
         ## Apply restriction
         ponies = self.__applyRestriction(oldponies, ponydirs)
         

@@ -53,7 +53,7 @@ def print(text = '', end = '\n'):
     @param  text:str  The text to print (empty string is default)
     @param  end:str   The appendix to the text to print (line breaking is default)
     '''
-    sys.stdout.buffer.write((str(text) + end).encode('utf-8'))
+    sys.stdout.buffer.write((str(text) + str(end)).encode('utf-8'))
 
 def printerr(text = '', end = '\n'):
     '''

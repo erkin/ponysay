@@ -10,7 +10,11 @@ from subprocess import Popen, PIPE
 PONYSAY_VERSION = '3.0.4'
 
 project_dir = os.path.dirname(__file__)
-
+is_termux= 'TERMUX_VERSION' in os.environ
+if is_termux:
+            prefix = '/usr'
+else:
+            prefix = '/data/data/com.termux/files/usr'
 manpages = [('en', 'English'),  # must be first
             ('es', 'Spanish'),
             ('sv', 'Swedish'),
@@ -27,7 +31,14 @@ sharefiles = [('ucs', 'ucsmap')]
 
 commands = ['ponysay', 'ponythink', 'ponysay-tool']
 
-shells = [('bash', '/usr/share/bash-completion/completions/ponysay', 'GNU Bash'),
+if is_termux:
+    shells = [
+        ('bash', '/data/data/com.termux/files/usr/share/bash-completion/completions/ponysay', 'GNU Bash'),
+        ('fish', '/data/data/com.termux/files/usr/share/fish/vendor_completions.d/ponysay.fish', 'Friendly interactive shell'),
+        ('zsh', '/data/data/com.termux/files/usr/share/zsh/site-functions/_ponysay', 'zsh')]
+else:
+    shells = [
+          ('bash', '/usr/share/bash-completion/completions/ponysay', 'GNU Bash'),
           ('fish', '/usr/share/fish/vendor_completions.d/ponysay.fish', 'Friendly interactive shell'),
           ('zsh', '/usr/share/zsh/site-functions/_ponysay', 'zsh')]
 
@@ -35,8 +46,12 @@ mansections = [('ponysay', '6'),
                ('cowsay', '1'),
                ('fortune', '6'),
                ('ponysay-tool', '6')]
-
-miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
+if is_termux:
+    miscfiles = [('COPYING', '/data/data/com.termux/files/usr/share/licenses/ponysay/COPYING'),
+                 ('LICENSE', '/data/data/com.termux/files/usr/share/licenses/ponysay/LICENSE'),
+                 ('CREDITS', '/data/data/com.termux/files/usr/share/licenses/ponysay/CREDITS')]
+else:
+    miscfiles = [('COPYING', '/usr/share/licenses/ponysay/COPYING'),
              ('LICENSE', '/usr/share/licenses/ponysay/LICENSE'),
              ('CREDITS', '/usr/share/licenses/ponysay/CREDITS')]
 
@@ -277,7 +292,7 @@ class Setup():
             elif method == 'clean-old':  self.cleanOld()
             else:
                 conf = self.configure(opts.opts)
-
+                print(f'\033[1;34m::\033[39mConfiguring ponysay...\033[21m {conf}\033[39m')
                 if method == 'build':
                     checkFreedom()
                     setup_config()
@@ -415,6 +430,7 @@ class Setup():
                         data = data.replace('#!/usr/bin/env python3', '#!/usr/bin/env ' + env)
                     else:
                         data = data.replace('#!/usr/bin/env python', '#!/usr/bin/env ' + env)
+                    
                     data = data.replace('/usr/share/ponysay/', conf['share-dir'] + ('' if conf['share-dir'].endswith('/') else '/'))
                     data = data.replace('/etc/', conf['sysconf-dir'] + ('' if conf['sysconf-dir'].endswith('/') else '/'))
                     data = data.replace('\nVERSION = \'dev\'', '\nVERSION = \'%s\'' % (PONYSAY_VERSION))
@@ -495,9 +511,9 @@ class Setup():
                     data = ('(%s ' % command) + data[len('(ponysay '):]
                 elif '\n(ponysay\n' in data:
                     edpos = data.find('\n(ponysay\n')
-                    data = data[:edpos] + ('\n(%s\n' % command) + data[edpas + len('\n(ponysay\n'):]
+                    data = data[:edpos] + ('\n(%s\n' % command) + data[edpos + len('\n(ponysay\n'):]
                 elif '\n(ponysay ' in data:
-                    data = data[:edpos] + ('\n(%s ' % command) + data[edpas + len('\n(ponysay '):]
+                    data = data[:edpos] + ('\n(%s ' % command) + data[edpos + len('\n(ponysay '):]
                 else:
                     raise Exception('File %s does not look like expected' % source)
 
@@ -875,6 +891,7 @@ class Setup():
             dir = dest[:dest.rfind('/') + 1]
             if not os.path.exists(dir):
                 print('Making directory ' + dir + ' with parents')
+                print(destinations)
                 os.makedirs(dir)
         if recursive:
             target = destinations[0]
@@ -947,21 +964,23 @@ class Setup():
         '''
         Parses configurations
         '''
-        
+        global prefix
+        if is_termux:
+            prefix = '/data/data/com.termux/files/usr'
         (defaults, conf) = ({}, {})
-
+        print(prefix + 'configure.py: Configuring ponysay...')
         for command in commands:
-            conf[command] = '/usr/bin/' + command
-        conf['shared-cache'] = '/var/cache/ponysay'
+            conf[command] = prefix+'/bin/' + command
+        conf['shared-cache'] = prefix+'/var/cache/ponysay'
         for shell in shells:
             conf[shell[0]] = shell[1]
-        conf['pdf'] = '/usr/doc'
+        conf['pdf'] = prefix+'/doc'
         conf['pdf-compression'] = 'gz'
-        conf['info'] = '/usr/share/info'
+        conf['info'] = prefix+'/share/info'
         conf['info-install'] = 'My Little Ponies for your terminal'
         conf['info-compression'] = 'gz'
         for manpage in manpages:
-            conf['man-' + manpage[0]] = '/usr/share/man'
+            conf['man-' + manpage[0]] = prefix+'/share/man'
             conf['man-' + manpage[0] + '-compression'] = 'gz'
         conf['custom-env-python'] = 'python3'
         for sharedir in sharedirs:
@@ -970,17 +989,23 @@ class Setup():
             conf[sharefile[0]] = True
         for miscfile in miscfiles:
             conf[miscfile[0]] = miscfile[1]
-        conf['sysconf-dir'] = '/etc'
-        conf['bin-dir'] = '/usr/bin'
-        conf['lib-dir'] = '/usr/lib/ponysay'
-        conf['libexec-dir'] = '/usr/libexec/ponysay'
-        conf['share-dir'] = '/usr/share'
+        if is_termux:
+            conf['sysconf-dir'] = '/data/data/com.termux/files/usr/etc'
+            conf['bin-dir'] = '/data/data/com.termux/files/usr/bin'
+            conf['lib-dir'] = '/data/data/com.termux/files/usr/lib/ponysay'
+            conf['libexec-dir'] = '/data/data/com.termux/files/usr/libexec/ponysay'
+            conf['share-dir'] = '/data/data/com.termux/files/usr/share'
+        else:
+            conf['sysconf-dir'] = '/etc'
+            conf['bin-dir'] = '/usr/bin'
+            conf['lib-dir'] = '/usr/lib/ponysay'
+            conf['libexec-dir'] = '/usr/libexec/ponysay'
+            conf['share-dir'] = '/usr/share'
 
         if opts['--private'] is not None:
             if opts['--prefix'] is None:
                 opts['--prefix'] = [os.environ['HOME'] + '/.local']
-
-        prefix = '/usr'
+        
         if opts['--prefix'] is not None:
             prefix = opts['--prefix'][0]
             for key in conf:
@@ -988,13 +1013,19 @@ class Setup():
                     if conf[key].startswith('/usr'):
                         conf[key] = prefix + conf[key][4:]
         conf['~prefix~'] = prefix
-
         if opts['--opt'] is not None:
-            if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/opt/ponysay']
-            if opts['--lib-dir']           is None:  opts['--lib-dir']           = ['/opt/ponysay']
-            if opts['--libexec-dir']       is None:  opts['--libexec-dir']       = ['/opt/ponysay']
-            if opts['--share-dir']         is None:  opts['--share-dir']         = ['/opt/ponysay']
-            if opts['--with-shared-cache'] is None:  opts['--with-shared-cache'] = ['/var/opt/ponysay/cache']
+            if is_termux:
+                if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/data/data/com.termux/files/usr/bin']
+                if opts['--lib-dir']           is None:  opts['--lib-dir']           = ['/data/data/com.termux/files/usr/lib/ponysay']
+                if opts['--libexec-dir']       is None:  opts['--libexec-dir']       = ['/data/data/com.termux/files/usr/libexec/ponysay']
+                if opts['--share-dir']         is None:  opts['--share-dir']         = ['/data/data/com.termux/files/usr/share']
+                if opts['--with-shared-cache'] is None:  opts['--with-shared-cache'] = ['/data/data/com.termux/files/usr/var/cache/ponysay']
+            else:
+                if opts['--bin-dir']           is None:  opts['--bin-dir']           = ['/opt/ponysay']
+                if opts['--lib-dir']           is None:  opts['--lib-dir']           = ['/opt/ponysay']
+                if opts['--libexec-dir']       is None:  opts['--libexec-dir']       = ['/opt/ponysay']
+                if opts['--share-dir']         is None:  opts['--share-dir']         = ['/opt/ponysay']
+                if opts['--with-shared-cache'] is None:  opts['--with-shared-cache'] = ['/var/opt/ponysay/cache']
 
         for dir in ['bin', 'lib', 'libexec', 'share']:
             key = dir + '-dir'
@@ -1050,17 +1081,29 @@ class Setup():
             for command in commands:
                 conf[command] = None
             conf[sharedirs[0][0]] = None
-
-        for coll in [['shell', '/usr/share', [item[0] for item in shells]],
-                     ['man', '/usr/share/man', ['man-' + item[0] for item in manpages]],
-                     ['man-compression', 'gz', ['man-' + item[0] + '-compression' for item in manpages]]
-                    ]:
-            if opts['--without-' + coll[0]] is not None:
-                for item in coll[2]:
-                    conf[item] = None
-            if opts['--with-' + coll[0]] is not None:
-                for item in coll[2]:
-                    defaults[item] = conf[item] = defaults[item].replace(coll[1], coll[1] if opts['--with-' + coll[0]][0] is None else opts['--with-' + coll[0]][0]);
+        if is_termux:
+            for coll in [
+                ['shell', '/data/data/com.termux/files/usr/share', [item[0] for item in shells]],
+                ['man', '/data/data/com.termux/files/usr/share/man', ['man-' + item[0] for item in manpages]],
+                ['man-compression', 'gz', ['man-' + item[0] + '-compression' for item in manpages]]
+            ]:
+                if opts['--without-' + coll[0]] is not None:
+                    for item in coll[2]:
+                        conf[item] = None
+                if opts['--with-' + coll[0]] is not None:
+                    for item in coll[2]:
+                        defaults[item] = conf[item] = defaults[item].replace(coll[1], coll[1] if opts['--with-' + coll[0]][0] is None else opts['--with-' + coll[0]][0]);
+        else:
+            for coll in [['shell', prefix+'/share', [item[0] for item in shells]],
+                        ['man', prefix+'/share/man', ['man-' + item[0] for item in manpages]],
+                        ['man-compression', 'gz', ['man-' + item[0] + '-compression' for item in manpages]]
+                        ]:
+                if opts['--without-' + coll[0]] is not None:
+                    for item in coll[2]:
+                        conf[item] = None
+                if opts['--with-' + coll[0]] is not None:
+                    for item in coll[2]:
+                        defaults[item] = conf[item] = defaults[item].replace(coll[1], coll[1] if opts['--with-' + coll[0]][0] is None else opts['--with-' + coll[0]][0]);
 
         for key in conf:
             if '--with-' + key not in opts:
