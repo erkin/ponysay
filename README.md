@@ -153,4 +153,11 @@ __A:__ Well, most dev and contributors has moved to more time consuming tasks so
 PR for bugfixs and ponies (correctly built) and we're still looking for bug fixes and ponies, so stay tuned for the next
 release or pushes on the repository.
 
+__Q:__ Are there tests?
+
+__A:__ Not many, but some basic "sanity tests" can be executed by:
+```
+dev/dist.sh tests
+```
+
 The [PDF manual](//github.com/erkin/ponysay/blob/master/ponysay.pdf?raw=true) should answer most of your questions.

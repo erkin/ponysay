@@ -2,6 +2,7 @@
 
 # USAGE:  dev/dist.sh ttyponies
 #     or  dev/dist.sh pdfmanual
+#     or  dev/dist.sh tests
 #     or  dev/dist.sh tag VERSION [OTHER OPTIONS FOR `git tag`]
 #     or  dev/dist.sh beigepdf
 #     or  dev/dist.sh remaster
@@ -78,9 +79,10 @@ pdf()
 }
 
 
-tag()
+tests()
 {
     echo 'Testing executability'
+    set -x # To see which one failed
     ./src/__main__.py -l >/dev/null || exit 1
     ./src/__main__.py -L >/dev/null || exit 1
     ./src/__main__.py +l >/dev/null || exit 1
@@ -93,8 +95,14 @@ tag()
     ./src/__main__.py -o -F faust >/dev/null || exit 1
     echo test | ./src/__main__.py -f pinkie >/dev/null || exit 1
     echo 'No error was thrown'
-    
+
     ./dev/tests/test-everything || exit $?
+    set +x
+}
+
+tag()
+{
+    tests
     
     version=`./setup.py version`
     if [ "$version" = 'Ponysay '"$1"' installer' ]; then
