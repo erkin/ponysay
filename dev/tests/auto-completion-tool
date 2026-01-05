@@ -30,5 +30,5 @@ if ! ./completion/auto-auto-complete.py bash --source ./completion/ponysay-tool 
     done
 fi
 
-echo 'Test passed, you may want to update the last know good commit in ./dev/tests/auto-completion'
+echo 'Test passed, you may want to update the last know good commit in ./dev/tests/auto-completion-tool'
 

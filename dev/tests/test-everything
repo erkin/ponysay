@@ -5,7 +5,7 @@ if [ ! -f ./src/__main__.py ]; then
     exit 140
 fi
 
-./dev/tests/correct-pony-f
-./dev/tests/correct-pony+f
-./dev/tests/auto-completion
-./dev/tests/auto-completion-tool
+bash ./dev/tests/correct-pony-f
+bash ./dev/tests/correct-pony+f
+bash ./dev/tests/auto-completion
+bash ./dev/tests/auto-completion-tool
