@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import atexit
 import os
 import shutil
 import sys
@@ -45,6 +46,11 @@ ponysaysrc = [i for i in os.listdir(os.path.join(project_dir, 'src')) if i.endsw
 COPY = 'copy'
 HARD = 'hard'
 SYMBOLIC = 'symbolic'
+
+@atexit.register
+def reset_attributes():
+    print('\033[m', end='')
+
 
 class Setup():
     def __init__(self):
