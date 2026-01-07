@@ -180,16 +180,23 @@ class Ponysay():
         @param   file:str    The file base name
         @return  :list<str>  Absolute file names
         '''
+        # Used internally by some dev/tests/*.
+        # TODO: document this env var??
+        #   Might encourage users to skip installation, which was not sufficiently tested.
+        #   If this became publicly supported, deserves better name?
+        if os.environ.get('PONYSAY_TEST_MODE'):
+            dirs = ['./']
+        else:
+            dirs = [
+                    '$XDG_DATA_HOME/ponysay/',
+                    '$HOME/.local/share/ponysay/',
+                    '/usr/share/ponysay/'
+            ]
         def cat(a, b):
             if a is None:
                 return None
             return a + b
-        # TODO use only ./ in development mode
-        return [cat(cls.__parseFile(item), file) for item in [
-                '$XDG_DATA_HOME/ponysay/',
-                '$HOME/.local/share/ponysay/',
-                '/usr/share/ponysay/'
-               ]]
+        return [cat(cls.__parseFile(item), file) for item in dirs]
     
     
     @classmethod

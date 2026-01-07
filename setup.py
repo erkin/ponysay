@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import atexit
 import os
 import shutil
 import sys
@@ -45,6 +46,11 @@ ponysaysrc = [i for i in os.listdir(os.path.join(project_dir, 'src')) if i.endsw
 COPY = 'copy'
 HARD = 'hard'
 SYMBOLIC = 'symbolic'
+
+@atexit.register
+def reset_attributes():
+    print('\033[m', end='')
+
 
 class Setup():
     def __init__(self):
@@ -280,6 +286,7 @@ class Setup():
 
                 if method == 'build':
                     checkFreedom()
+                    # TODO says many "Installing" but doesn't really.  However `conf` values do affect build.
                     setup_config()
                     self.build(conf)
 
@@ -322,7 +329,7 @@ class Setup():
 
         for command in commands:
             if conf[command] is not None:          print(GREEN  % ('Installing command ' + command + ' as ', conf[command]))
-            else:                                  print(RED    % ('Skipping installion of command ' + command))
+            else:                                  print(RED    % ('Skipping installation of command ' + command))
         if conf['shared-cache'] is not None:       print(GREEN  % ('Installing shared cache at ', conf['shared-cache']))
         else:                                      print(RED    % ('Skipping installation of shared cache'))
         for shell in [item[0] for item in shells]:

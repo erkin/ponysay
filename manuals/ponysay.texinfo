@@ -170,6 +170,7 @@ Inner workings
 
 Contributing
 
+* Testing::                     Running tests.
 * Providing ponies::            Providing ponies.
 * Pony naming guildlines::      Suggestions on how to name your pony files.
 
@@ -2987,9 +2988,18 @@ because it can cause problems on some platforms.
 @cindex contributing
 
 @menu
+* Testing::                     Running tests.
 * Providing ponies::            Providing ponies.
 * Pony naming guildlines::      Suggestions on how to name your pony files.
 @end menu
+
+@node Testing
+@section Running tests
+@cindex tests
+
+There are not many tests yet, but some basic "sanity tests" can be executed by
+@command{dev/dist.sh tests}.
+
 
 @node Providing ponies
 @section Providing ponies
