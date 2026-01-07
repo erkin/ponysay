@@ -11,14 +11,15 @@ echo $'\e[1m-- Testing that +f prints the correct pony --\e[0m'
 ## you will need to manually run bisect, and use `git reset --hard HEAD~1` (or similar) to skip that commit, see `git bisect --help`
 
 export PONYSAY_TEST_MODE=1
+PONYSAY_TEST_CMD=${PONYSAY_TEST_CMD:-python3 ./src/__main__.py}
 
-if [ ! "$(python3 ./src/__main__.py -oX +f firefox 3>&1 >/dev/null | head -n 1)" = "pony file: ./extraponies/firefox.pony" ]; then
+if [ ! "$($PONYSAY_TEST_CMD -oX +f firefox 3>&1 >/dev/null | head -n 1)" = "pony file: ./extraponies/firefox.pony" ]; then
     git bisect start
     git bisect bad
     git bisect good d234ee6c6cbefbd31ef763692c9f8bc39aeff832
     lastlog=""
     while true; do
-	if [ "$(python3 ./src/__main__.py -oX +f firefox 3>&1 >/dev/null | head -n 1)" = "pony file: ./extraponies/firefox.pony" ]; then
+	if [ "$($PONYSAY_TEST_CMD -oX +f firefox 3>&1 >/dev/null | head -n 1)" = "pony file: ./extraponies/firefox.pony" ]; then
 	    git bisect good
 	else
 	    git bisect bad

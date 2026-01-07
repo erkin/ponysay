@@ -81,24 +81,41 @@ pdf()
 
 tests()
 {
-    echo 'Testing executability'
+    echo $'\e[1m=== Testing executability from ./src/ ===\e[0m'
+    PONYSAY_TEST_CMD='./src/__main__.py' _run_tests
+
+    echo
+    echo $'\e[1m=== Build single-file executable, like we would for install ===\e[0m'
+    # --prefix softens misleading messages: "Installing ... to NOT_REALLY/share/...".
+    ./setup.py build --freedom=partial --minimal --prefix=NOT_REALLY
+    echo $'\e[1m=== Testing single-file executable ===\e[0m'
+    PONYSAY_TEST_CMD='python3 ./ponysay.install' _run_tests
+}
+
+_run_tests() # for given PONYSAY_TEST_CMD
+{
     set -x # To see which one failed
-    ./src/__main__.py -l >/dev/null || exit 1
-    ./src/__main__.py -L >/dev/null || exit 1
-    ./src/__main__.py +l >/dev/null || exit 1
-    ./src/__main__.py +L >/dev/null || exit 1
-    ./src/__main__.py -A >/dev/null || exit 1
-    ./src/__main__.py +A >/dev/null || exit 1
-    ./src/__main__.py -B >/dev/null || exit 1
-    ./src/__main__.py -of pinkie >/dev/null || exit 1
-    ./src/__main__.py -o +f faust >/dev/null || exit 1
-    ./src/__main__.py -o -F faust >/dev/null || exit 1
-    echo test | ./src/__main__.py -f pinkie >/dev/null || exit 1
+    export PONYSAY_TEST_MODE=1
+    # TODO: export PYTHONDEVMODE=1 PYTHONWARNINGS=error ?
+
+    $PONYSAY_TEST_CMD -l >/dev/null || exit 1
+    $PONYSAY_TEST_CMD -L >/dev/null || exit 1
+    $PONYSAY_TEST_CMD +l >/dev/null || exit 1
+    $PONYSAY_TEST_CMD +L >/dev/null || exit 1
+    $PONYSAY_TEST_CMD -A >/dev/null || exit 1
+    $PONYSAY_TEST_CMD +A >/dev/null || exit 1
+    $PONYSAY_TEST_CMD -B >/dev/null || exit 1
+    $PONYSAY_TEST_CMD -of pinkie >/dev/null || exit 1
+    $PONYSAY_TEST_CMD -o +f faust >/dev/null || exit 1
+    $PONYSAY_TEST_CMD -o -F faust >/dev/null || exit 1
+    echo test | $PONYSAY_TEST_CMD -f pinkie >/dev/null || exit 1
     echo 'No error was thrown'
 
     ./dev/tests/test-everything || exit $?
+    echo
     set +x
 }
+
 
 tag()
 {
