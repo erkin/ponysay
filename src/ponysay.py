@@ -1033,7 +1033,8 @@ class Ponysay():
             pngcmd = 'ponytool --import image --file %s --balloon n --export ponysay --platform %s --balloon y'
             pngcmd %= (pony, ('linux' if self.linuxvt else 'xterm')) # XXX xterm should be haiku in Haiku
             pngpipe = os.pipe()
-            Popen(pngcmd, stdout=os.fdopen(pngpipe[1], 'w'), shell=True).wait()
+            with os.fdopen(pngpipe[1], 'w') as pngout:
+                Popen(pngcmd, stdout=pngout, shell=True).wait()
             pony = '/proc/' + str(os.getpid()) + '/fd/' + str(pngpipe[0])
         return pony
     
