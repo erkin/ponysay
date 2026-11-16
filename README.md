@@ -1,4 +1,4 @@
-`ponysay` — cowsay reimplemention for ponies.
+`ponysay` — cowsay reimplementation for ponies.
 
 ![Derp](http://i.imgur.com/xOJbE.png)
 

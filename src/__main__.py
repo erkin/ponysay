@@ -33,8 +33,8 @@ the colon.
 Authors:
 
          Erkin Batu Altunbaş:              Project leader, helped write the first implementation
-         Mattias "maandree" Andrée:        Major contributor of both implementions
-         Elis "etu" Axelsson:              Major contributor of current implemention and patcher of the first implementation
+         Mattias "maandree" Andrée:        Major contributor of both implementations
+         Elis "etu" Axelsson:              Major contributor of current implementation and patcher of the first implementation
          Sven-Hendrik "svenstaro" Haase:   Major contributor of the first implementation
          Jan Alexander "heftig" Steffens:  Major contributor of the first implementation
          Kyah "L-four" Rindlisbacher:      Patched the first implementation
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     Argument parsing
     '''
     opts = ArgParser(program     = 'ponythink' if isthink else 'ponysay',
-                     description = 'cowsay reimplemention for ponies',
+                     description = 'cowsay reimplementation for ponies',
                      usage       = usage,
                      longdescription =
 '''Ponysay displays an image of a pony saying some text provided by the user.
